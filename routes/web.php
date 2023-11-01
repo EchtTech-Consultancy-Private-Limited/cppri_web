@@ -18,6 +18,9 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index'])->name('/');
 
 
+Route::get('/set-language',[HomeController::class,'SetLang']);
+
+
 //CMS Route Define always down position
 include_once('api_route.php');
 include_once('cms_web.php');

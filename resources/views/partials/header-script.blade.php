@@ -4,23 +4,31 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="apple-touch-icon" href="{{ asset('/') }}assets-cppri/images/favicon.ico">
-<link rel="icon" href="assets/images/favicon.ico">
+
+<link rel="apple-touch-icon" href="{{ asset('assets-cppri/images/favicon.ico') }}">
+{{-- <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}"> --}}
+
 <title>Central Pulp &amp; Paper Research Institute</title>
 <!-- Custom styles for this template -->
-<link href="{{ asset('/') }}assets-cppri/css/base.css" rel="stylesheet" media="all">
-<link href="{{ asset('/') }}assets-cppri/css/base-responsive.css" rel="stylesheet" media="all">
-<link href="{{ asset('/') }}assets-cppri/css/grid.css" rel="stylesheet" media="all">
-<link href="{{ asset('/') }}assets-cppri/css/font.css" rel="stylesheet" media="all">
-<link href="{{ asset('/') }}assets-cppri/css/font-awesome.min.css" rel="stylesheet" media="all">
-<link href="{{ asset('/') }}assets-cppri/css/flexslider.css" rel="stylesheet" media="all">
-<link href="{{ asset('/') }}assets-cppri/css/megamenu.css" rel="stylesheet" media="all">
-<link href="{{ asset('/') }}assets-cppri/css/print.css" rel="stylesheet" media="print">
+<link href="{{ asset('assets-cppri/css/base.css') }}" rel="stylesheet" media="all">
+<link href="{{ asset('assets-cppri/css/base-responsive.css') }}" rel="stylesheet" media="all">
+<link href="{{ asset('assets-cppri/css/grid.css') }}" rel="stylesheet" media="all">
+<link href="{{ asset('assets-cppri/css/font.css') }}" rel="stylesheet" media="all">
+<link href="{{ asset('assets-cppri/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
+<link href="{{ asset('assets-cppri/css/flexslider.css') }}" rel="stylesheet" media="all">
+<link href="{{ asset('assets-cppri/css/megamenu.css') }}" rel="stylesheet" media="all">
+<link href="{{ asset('assets-cppri/css/print.css') }}" rel="stylesheet" media="print">
 <!-- Theme styles for this template -->
-<link href="assets/css/megamenu.css" rel="stylesheet" media="all">
-<link href="{{ asset('/') }}assets-cppri/theme/css/site.css" rel="stylesheet" media="all">
-<link href="{{ asset('/') }}assets-cppri/theme/css/site-responsive.css" rel="stylesheet" media="all">
-<link href="{{ asset('/') }}assets-cppri/theme/css/ma5gallery.css" rel="stylesheet" type="text/css">
-<link href="{{ asset('/') }}assets-cppri/theme/css/print.css" rel="stylesheet" type="text/css" media="print">
 
-<link rel="stylesheet" href="{{ asset('/') }}assets-cppri/css/bootstrap.min.css">
+{{-- <link href="assets/css/megamenu.css" rel="stylesheet" media="all"> --}}
+<link href="{{ url('assets-cppri/css/megamenu.css') }} " rel="stylesheet" media="all">
+
+<link href="{{ asset('assets-cppri/theme/css/site.css') }}" rel="stylesheet" media="all">
+<link href="{{ asset('assets-cppri/theme/css/site-responsive.css') }}" rel="stylesheet" media="all">
+<link href="{{ asset('assets-cppri/theme/css/ma5gallery.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('assets-cppri/theme/css/print.css') }}" rel="stylesheet" type="text/css" media="print">
+
+
+<link rel="stylesheet" href="{{ asset('assets-cppri/css/bootstrap.min.css') }}">
+
+
