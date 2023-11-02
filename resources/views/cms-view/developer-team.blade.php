@@ -27,7 +27,7 @@
                   </div>
                   <!--end::Avatar-->
                   <!--begin::Name-->
-                  <a href="#" class="fs-4 text-gray-800 text-hover-primary fw-bold mb-0">{{$tream['name1']}}</a>
+                  <a href="javascript:void(0);" class="fs-4 text-gray-800 text-hover-primary fw-bold mb-0">{{$tream['name1']}}</a>
                   <!--end::Name-->
                   <!--begin::Position-->
                   <div class="fw-semibold text-gray-400 mb-6">{{$tream['desgination1']}}</div>
@@ -71,7 +71,7 @@
                   </div>
                   <!--end::Avatar-->
                   <!--begin::Name-->
-                  <a href="#" class="fs-4 text-gray-800 text-hover-primary fw-bold mb-0">{{$tream['name2']}}</a>
+                  <a href="javascript:void(0);" class="fs-4 text-gray-800 text-hover-primary fw-bold mb-0">{{$tream['name2']}}</a>
                   <!--end::Name-->
                   <!--begin::Position-->
                   <div class="fw-semibold text-gray-400 mb-6">{{$tream['desgination2']}}</div>
@@ -115,7 +115,7 @@
                   </div>
                   <!--end::Avatar-->
                   <!--begin::Name-->
-                  <a href="#" class="fs-4 text-gray-800 text-hover-primary fw-bold mb-0">{{$tream['name3']}}</a>
+                  <a href="javascript:void(0);" class="fs-4 text-gray-800 text-hover-primary fw-bold mb-0">{{$tream['name3']}}</a>
                   <!--end::Name-->
                   <!--begin::Position-->
                   <div class="fw-semibold text-gray-400 mb-6">{{$tream['desgination3']}}</div>
@@ -159,7 +159,7 @@
                   </div>
                   <!--end::Avatar-->
                   <!--begin::Name-->
-                  <a href="#" class="fs-4 text-gray-800 text-hover-primary fw-bold mb-0">{{$tream['name4']}}</a>
+                  <a href="javascript:void(0);" class="fs-4 text-gray-800 text-hover-primary fw-bold mb-0">{{$tream['name4']}}</a>
                   <!--end::Name-->
                   <!--begin::Position-->
                   <div class="fw-semibold text-gray-400 mb-6">{{$tream['desgination4']}}</div>

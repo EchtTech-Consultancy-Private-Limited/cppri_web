@@ -46,7 +46,7 @@ function main() {
             href: "https://twoyears.mygov.in/popup/style.css"
         });
         css_link.appendTo('head');
-        var htmldata = '<div class="overlay-bg"></div><div class="overlay-content popup3"><a href="#" class="close-btn"> X </a><iframe height="600px" width="100%" src="https://twoyears.mygov.in/?base=yes"  name="mygov" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" id="mygov"></iframe></div>';
+        var htmldata = '<div class="overlay-bg"></div><div class="overlay-content popup3"><a href="javascript:void(0);" class="close-btn"> X </a><iframe height="600px" width="100%" src="https://twoyears.mygov.in/?base=yes"  name="mygov" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" id="mygov"></iframe></div>';
         /******* Load HTML *******/
         $('body').append(htmldata);
 

@@ -14,9 +14,11 @@ use App\Http\Controllers\HomeController;
 */
 
 
+Route::group(['prefix' => Session::get('Lang')], function () {
 
-Route::get('/', [HomeController::class, 'index'])->name('/');
+    Route::get('/', [HomeController::class, 'index'])->name('/');
 
+});
 
 Route::get('/set-language',[HomeController::class,'SetLang']);
 

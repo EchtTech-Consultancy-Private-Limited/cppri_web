@@ -59,7 +59,7 @@
                             </div>
                            <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
                               <div></div>
-                              <a href="#" class="link-primary"> Forgot Password ?</a>
+                              <a href="javascript:void(0);" class="link-primary"> Forgot Password ?</a>
                            </div>
                            <div class="d-flex flex-wrap justify-content-center pb-lg-0">
                                 <button type="button" id="kt_password_reset_submit" class="btn btn-primary me-4">
@@ -81,7 +81,7 @@
                            </button>
                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-4 fs-7" data-kt-menu="true" id="kt_auth_lang_menu">
                               <div class="menu-item px-3">
-                                 <a href="#" class="menu-link d-flex px-5" data-kt-lang="English">
+                                 <a href="javascript:void(0);" class="menu-link d-flex px-5" data-kt-lang="English">
                                  <span class="symbol symbol-20px me-4">
                                  <img data-kt-element="lang-flag" class="rounded-1" src="{{ asset('assets/media/flags/india.svg') }}" alt=""/>
                                  </span>
