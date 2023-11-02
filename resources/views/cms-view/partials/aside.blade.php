@@ -207,7 +207,7 @@
                   <a class="menu-link {{ set_active1(['datamanagement/list-feedback']) }} {{ (request()->is('datamanagement/list-feedback/*')) ? 'active' : '' }}" href="{{ route('datamanagement.list-feedback') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Feedback List</span></a><!--end:Menu link-->
                </div>
                <div  class="menu-item" >
-                  <a class="menu-link" href="#" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Text</span></a><!--end:Menu link-->
+                  <a class="menu-link" href="javascript:void(0);" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Text</span></a><!--end:Menu link-->
                </div>
             </div>
          </div>
@@ -238,7 +238,7 @@
             <a class="menu-link {{ set_active1(['dev-team']) }} {{ (request()->is('dev-team/*')) ? 'active' : '' }}" href="{{ route('dev-team') }}"><span  class="menu-icon" ><i class="ki-outline ki-rocket fs-2"></i></span><span  class="menu-title" >Developer</span></a><!--end:Menu link-->
          </div>
          <div  class="menu-item">
-            <a class="menu-link" href="#" target="_blank" ><span  class="menu-icon" ><i class="ki-outline ki-abstract-26 fs-2"></i></span><span  class="menu-title" >Documentation</span></a><!--end:Menu link-->
+            <a class="menu-link" href="javascript:void(0);" target="_blank" ><span  class="menu-icon" ><i class="ki-outline ki-abstract-26 fs-2"></i></span><span  class="menu-title" >Documentation</span></a><!--end:Menu link-->
          </div>
          @endif
       </div>

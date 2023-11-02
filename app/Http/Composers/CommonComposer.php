@@ -34,7 +34,7 @@ class CommonComposer
     {
         try {
 
-            $banner = DB::table('home_page_banner_management')->orderBy('sort_order', 'ASC')->get();
+            $banner = DB::table('home_page_banner_management')->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
           
             $footerMenu = DB::table('website_menu_management')->whereIn('menu_place',[1,3])->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
             $menus = DB::table('website_menu_management')->whereIn('menu_place',[0,3])->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
