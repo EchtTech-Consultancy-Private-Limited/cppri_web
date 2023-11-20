@@ -1,8 +1,7 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers\API;
-use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use App\Models\CMSModels\UserManagement;
 use Illuminate\Http\Request;
@@ -171,7 +170,6 @@ class UserManagementAPIController extends Controller
                     'role_id' => explode(',',$request->user_role)[0],
                     'role_name' => explode(',',$request->user_role)[1],
                     'email_verified_at' => now(),
-                    'login_status' => 0,
                     'avatar' => $newname,
                     'password' => Hash::make(isset($request->password)?$request->password:'welcome@123'),
                 ]);

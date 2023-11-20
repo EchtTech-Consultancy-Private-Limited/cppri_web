@@ -1,15 +1,15 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\RecentActivity;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
 
 class RecentActivityController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -19,9 +19,16 @@ class RecentActivityController extends Controller
     {
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['list'] = route('recentactivity-list');
-        $crudUrlTemplate['edit'] = route('recentactivity.edit', ['id' => 'xxxx']);
-        $crudUrlTemplate['delete'] = route('recentactivity-delete', ['id' => 'xxxx']);
+        if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('recentactivity-list');
+        }
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('recentactivity.edit', ['id' => 'xxxx']);
+        }
+        if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('recentactivity-delete', ['id' => 'xxxx']);
+        }
+        
         //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
         return view('cms-view.recent-activity.list-ra',
             ['crudUrlTemplate' =>  json_encode($crudUrlTemplate)
@@ -39,10 +46,15 @@ class RecentActivityController extends Controller
         //$data=EmpDepartDesignation::where([['soft_delete','0'],['parent_id','0']])->get(); 
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['create'] = route('recentactivity-save');
+        if(isset($this->abortIfAccessNotAllowed()['create']) && $this->abortIfAccessNotAllowed()['create'] !=''){
+            $crudUrlTemplate['create'] = route('recentactivity-save');
+        }else{
+            $accessPermission = $this->checkAccessMessage();
+        }
 
        return view('cms-view.recent-activity.create-ra',
-       ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),
+       ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),   
+        'textMessage' =>$accessPermission??''
         //'department'=>$data
     
         ]);
@@ -78,8 +90,13 @@ class RecentActivityController extends Controller
      */
     public function edit(Request $request)
     {
-        $crudUrlTemplate['update'] = route('recentactivity-update');
-
+        $crudUrlTemplate = array();
+        // xxxx to be replaced with ext_id to create valid endpoint
+        
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['update'] = route('recentactivity-update');
+        }
+        
         $results = RecentActivity::where('uid', $request->id)->first();
         if($results){
             $result = $results;

@@ -19,8 +19,8 @@
 <div class="card card-flush">
    <div class="card-body">
       <div class="tab-content" id="myTabContent">
-         <form id="kt_role_update_form" class="form">
-            <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_role_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_role_header" data-kt-scroll-wrappers="#kt_modal_add_role_scroll" data-kt-scroll-offset="300px">
+         <form id="kt_role_edit_form" class="form">
+            <div class="d-flex flex-column scroll-y me-n7 pe-7" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_role_header" data-kt-scroll-wrappers="#kt_modal_add_role_scroll" data-kt-scroll-offset="300px">
                <div class="row fv-row mb-10">
                  <div class="col-md-12">
                      <label class="fs-5 fw-bold form-label mb-2">
@@ -32,7 +32,11 @@
                         <select class="form-select form-select-solid role_name" name="role_name" id="role_name" data-control="select2" data-placeholder="Select an option">
                            <option></option>
                            @foreach($roleType as $roleTypes)
-                               <option value="{{ $roleTypes->uid }},{{ $roleTypes->role_type }}">{{ $roleTypes->role_type  }}</option>
+                              @if(request()->get('id') == $roleTypes->uid)
+                               <option value="{{ $roleTypes->uid }},{{ $roleTypes->role_type }}" selected>{{ $roleTypes->role_type  }}</option>
+                              @else
+                              <option value="{{ $roleTypes->uid }},{{ $roleTypes->role_type }}">{{ $roleTypes->role_type  }}</option>
+                              @endif
                            @endforeach
                         </select>
                      </div>
@@ -69,34 +73,34 @@
                                  </label>
                               </td>
                            </tr>
-                           @foreach ($module as $modules)
+                           @foreach($datases as $data)
                            <tr>
-                              <td class="text-gray-800"><b>{{ $modules->name_en }}</b></td>
+                              <td class="text-gray-800"><b>{{ $data->module_name }}</b></td>
                               <td>
                                  <div class="d-flex">
-                                 <input class="form-check-input" type="hidden" name="module_name[{{$modules->uid}}]" value="{{$modules->name_en}}" />
+                                 <input class="form-check-input" type="hidden" name="module_name[{{$data->id}}]" value="{{$data->module_name}},{{$data->sort_order}},{{$data->prefix}}" />
                                     <label class="form-check form-check-sm form-check-custom form-check-solid me-5 me-lg-20">
-                                       <input class="form-check-input" type="checkbox" value="Y" name="read[{{$modules->uid}}]"/>
+                                       <input class="form-check-input" type="checkbox" value="Y" name="read[{{$data->id}}]" <?php if($data->read =='Y'){ echo 'checked'; }else{ echo ''; } ?> />
                                        <span class="form-check-label"> Read | View </span>
                                     </label>
                                     <label class="form-check form-check-sm form-check-custom form-check-solid me-5 me-lg-20">
-                                       <input class="form-check-input" type="checkbox" value="Y" name="create[{{$modules->uid}}]" />
+                                       <input class="form-check-input" type="checkbox" value="Y" name="create[{{$data->id}}]"  <?php if($data->create =='Y'){ echo 'checked'; }else{ echo ''; } ?> />
                                        <span class="form-check-label"> Create</span>
                                     </label>
                                     <label class="form-check form-check-sm form-check-custom form-check-solid me-5 me-lg-20">
-                                       <input class="form-check-input" type="checkbox" value="Y" name="update[{{$modules->uid}}]"/>
+                                       <input class="form-check-input" type="checkbox" value="Y" name="update[{{$data->id}}]"  <?php if($data->update =='Y'){ echo 'checked'; }else{ echo ''; } ?>/>
                                        <span class="form-check-label"> Edit | Update </span>
                                     </label>
                                     <label class="form-check form-check-sm form-check-custom form-check-solid me-5 me-lg-20">
-                                       <input class="form-check-input" type="checkbox" value="Y" name="delete[{{$modules->uid}}]"/>
+                                       <input class="form-check-input" type="checkbox" value="Y" name="delete[{{$data->id}}]" <?php if($data->delete =='Y'){ echo 'checked'; }else{ echo ''; } ?>/>
                                        <span class="form-check-label"> Delete</span>
                                     </label>
                                     <label class="form-check form-check-sm form-check-custom form-check-solid me-5 me-lg-20">
-                                       <input class="form-check-input" type="checkbox" value="Y" name="approver[{{$modules->uid}}]"/>
+                                       <input class="form-check-input" type="checkbox" value="Y" name="approver[{{$data->id}}]" <?php if($data->approver =='Y'){ echo 'checked'; }else{ echo ''; } ?>/>
                                        <span class="form-check-label"> Approver</span>
                                     </label>
                                     <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                       <input class="form-check-input" type="checkbox" value="Y" name="publisher[{{$modules->uid}}]"/>
+                                       <input class="form-check-input" type="checkbox" value="Y" name="publisher[{{$data->id}}]" <?php if($data->publisher =='Y'){ echo 'checked'; }else{ echo ''; } ?>/>
                                        <span class="form-check-label"> Publisher</span>
                                     </label>
                                  </div>
@@ -112,7 +116,7 @@
                <button type="reset" class="btn btn-light me-3" data-kt-roles-modal-action="cancel">
                Discard
                </button>
-               <button type="submit" id="kt_update_role_submit" class="btn btn-primary submit-role-btn" data-kt-roles-modal-action="submit">
+               <button type="submit" id="kt_update_role_submit" class="btn btn-primary submit-roleEdit-btn" data-kt-roles-modal-action="submit">
                <span class="indicator-label">
                Submit
                </span>

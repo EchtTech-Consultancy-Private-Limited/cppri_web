@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
    <head>
-      @include('partials.head-css')
+      @include('cms-view.partials.head-css')
    </head>
    <body  id="kt_body"  class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed"  style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px" >
       <div class="d-flex flex-column flex-root">
@@ -44,12 +44,12 @@
                   data-kt-scroll-offset="0"
                   >
                   <!--begin::Menu-->
-                  @include('partials.aside')
+                  @include('cms-view.partials.aside')
                   <!--end::Menu-->
                </div>
             </div>
             <!--end::Aside menu-->
-            @include('partials.header')
+            @include('cms-view.partials.header')
             <div class="content d-flex flex-column flex-column-fluid " id="kt_content">
                <!--begin::Toolbar-->
                <div class="toolbar" id="kt_toolbar">
@@ -216,12 +216,12 @@
          <!--end::Content-->
          </div> 
          <!--begin::Footer-->
-            @include('partials.footer')
+            @include('cms-view.partials.footer')
         </div>
         <!--end::Wrapper-->
       </div>
       <!--end::Footer-->
-      @include('partials.footer-scripts')
+      @include('cms-view.partials.footer-scripts')
    </body>
    <!--end::Body-->
 </html>

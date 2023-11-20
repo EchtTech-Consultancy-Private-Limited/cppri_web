@@ -1,8 +1,7 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers\API;
-use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use App\Models\CMSModels\ModuleManagement;
 use Illuminate\Http\Request;
@@ -78,6 +77,7 @@ class ModuleManagementAPIController extends Controller
                             'name_en' => $request->name_en,
                             'name_hi' => $request->name_hi,
                             'sort_order' => $request->sort_order,
+                            'prefix' => $request->prefix,
                             'url' => preg_replace('/\s+/', '-', isset($request->url)?$request->url:'#'),
                             'is_parent' => isset($request->is_parent)?$request->is_parent:'0',
                             'parent_id' => isset($request->parent_id)?$request->parent_id:'0',
@@ -157,6 +157,7 @@ class ModuleManagementAPIController extends Controller
                     'name_en' => $request->name_en,
                     'name_hi' => $request->name_hi,
                     'sort_order' => $request->sort_order,
+                    'prefix' => $request->prefix,
                     'url' => preg_replace('/\s+/', '-', isset($request->url)?$request->url:'#'),
                     'is_parent' => isset($request->is_parent)?$request->is_parent:'0',
                     'parent_id' => isset($request->parent_id)?$request->parent_id:'0',

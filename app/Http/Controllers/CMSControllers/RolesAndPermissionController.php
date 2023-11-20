@@ -1,16 +1,16 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\RolesAndPermission;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
 use DB;
 
 class RolesAndPermissionController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -20,9 +20,15 @@ class RolesAndPermissionController extends Controller
     {
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['list'] = route('news-list');
-        $crudUrlTemplate['edit'] = route('news-edit', ['id' => 'xxxx']);
-        $crudUrlTemplate['delete'] = route('news-delete', ['id' => 'xxxx']);
+        if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('news-list');
+        }
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('news-edit', ['id' => 'xxxx']);
+        }
+        if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('news-delete', ['id' => 'xxxx']);
+        }
         //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
 
         return view('cms-view.roles-and-permission.permission_list',
@@ -35,9 +41,18 @@ class RolesAndPermissionController extends Controller
     {
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['list'] = route('news-list');
-        $crudUrlTemplate['edit'] = route('news-edit', ['id' => 'xxxx']);
-        $crudUrlTemplate['delete'] = route('news-delete', ['id' => 'xxxx']);
+        if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('news-list');
+        }
+        
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('news-edit', ['id' => 'xxxx']);
+        }
+        
+        if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('news-delete', ['id' => 'xxxx']);
+        }
+        
         //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
         
         $typeUserName=DB::table('role_type_users')->select('*')->where([['soft_delete','=','0']])->get();
@@ -64,15 +79,22 @@ class RolesAndPermissionController extends Controller
      */
     public function createRoles()
     {
-        $crudUrlTemplate['create-role'] = route('role-save');
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['create']) && $this->abortIfAccessNotAllowed()['create'] !=''){
+            $crudUrlTemplate['create_role'] = route('role-save');
+        }else{
+            $accessPermission = $this->checkAccessMessage();
+        }
 
-        $moduleName=DB::table('module_management')->select('name_en','name_hi','uid')->where([['soft_delete','=','0']])->orderby('sort_order','Asc')->get();
+        $moduleName=DB::table('module_management')->select('name_en','name_hi','uid','sort_order','prefix')->where([['soft_delete','=','0']])->orderby('sort_order','Asc')->get();
         $roleType=DB::table('role_type_users')->select('role_type','uid')->where([['soft_delete','=','0']])->orderby('uid','Asc')->get();
+        
         
         return view('cms-view.roles-and-permission.role-add',
           ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),
            'module'=>$moduleName,
-           'roleType' =>$roleType
+           'roleType' =>$roleType,    
+           'textMessage' =>$accessPermission??''
     
          ]);
     }
@@ -111,19 +133,27 @@ class RolesAndPermissionController extends Controller
      */
     public function edit(Request $request)
     {
-        $crudUrlTemplate['update'] = route('headerLogo-save');
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['update'] = route('role-update');
+        }
 
-       $datas = RolesAndPermission::where('uid',$request->id)->first();
+       $datas = RolesAndPermission::where('role_id',$request->id)->get();
+       $moduleName=DB::table('module_management')->select('name_en','name_hi','uid','sort_order','prefix')->where([['soft_delete','=','0']])->orderby('sort_order','Asc')->get();
+       $roleType=DB::table('role_type_users')->select('role_type','uid')->where([['soft_delete','=','0']])->orderby('uid','Asc')->get();
        
         if(isset($datas)){
             $data = $datas;
         }else{
             abort(404);
         }
-        return view('cms-view.roles-and-permission.role-add',
+        //dd($datas);
+        return view('cms-view.roles-and-permission.role-edit',
         [
             'crudUrlTemplate' =>  json_encode($crudUrlTemplate),
-            'data' => $data,
+            'datases' => $datas,
+            'module'=>$moduleName,
+            'roleType' =>$roleType
         ]);
     }
 

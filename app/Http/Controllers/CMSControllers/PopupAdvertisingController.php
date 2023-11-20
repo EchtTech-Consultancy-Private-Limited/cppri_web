@@ -1,15 +1,15 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\PopupAdvertising;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
 
 class PopupAdvertisingController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *

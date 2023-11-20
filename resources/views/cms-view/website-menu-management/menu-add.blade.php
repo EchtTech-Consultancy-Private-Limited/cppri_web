@@ -17,6 +17,7 @@
 <div class="post d-flex flex-column-fluid" id="kt_post">
 <div id="kt_content_container" class="container-xxl">
 <div class="card card-flush">
+   @if($textMessage =='')
    <div class="card-body">
       <!--begin:::Tabs-->
       <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x border-transparent fs-4 fw-semibold mb-15" role="tablist">
@@ -211,7 +212,7 @@
                      <div class="w-100">
                         <select class="form-select form-select-solid menu_id" name="menu_id" id="menu_id" data-control="select2" data-placeholder="Select an option">
                            <option></option>
-                           @foreach($menu as $menus)
+                           @foreach($menuList as $menus)
                                <option value="{{ $menus->uid }}">{{ $menus->name_en  }} ({{ $menus->name_hi }})</option>
                            @endforeach
                         </select>
@@ -556,5 +557,9 @@
       </div>
       <!--end:::Tab content-->
    </div>
+   @else
+      {!! $textMessage !!}
+     <div class="symbol symbol-100px text-center"> <img class="" src='{{ asset(config("constants.error.error_image")) }}' /></div>
+   @endif
 </div>
 @endsection

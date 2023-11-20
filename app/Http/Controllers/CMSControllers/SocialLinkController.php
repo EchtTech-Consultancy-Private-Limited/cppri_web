@@ -1,16 +1,16 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use Illuminate\Http\Request;
 use App\Models\CMSModels\SocialLink;
 use Ramsey\Uuid\Uuid;
+use App\Http\Traits\AccessModelTrait;
 
 class SocialLinkController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -39,10 +39,17 @@ class SocialLinkController extends Controller
        $data=SocialLink::all(); 
        $crudUrlTemplate = array();
        // xxxx to be replaced with ext_id to create valid endpoint
-       $crudUrlTemplate['read'] = route('websitecoresetting-list');
-       $crudUrlTemplate['list'] = route('websitecoresetting-list');
-       $crudUrlTemplate['delete'] = route('websitecoresetting-list');
-       $crudUrlTemplate['view'] = route('websitecoresetting-list');
+       if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['read'] = route('websitecoresetting-list');
+            $crudUrlTemplate['list'] = route('websitecoresetting-list');
+            $crudUrlTemplate['view'] = route('websitecoresetting-list');
+       }
+       if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+       
+       }
+       if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('websitecoresetting-list');
+       }
 
        return view('cms-view.website-core-settings.websitecoresetting_list',
             ['crudUrlTemplate' =>  json_encode($crudUrlTemplate)

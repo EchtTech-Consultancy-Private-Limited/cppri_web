@@ -12,8 +12,23 @@ use App\Http\Controllers\HomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
+function set_active($route) {
+    if( is_array( $route ) ){
+        return in_array(Request::path(), $route) ? 'hover show' : '';
+    }
+    return Request::path() == $route ? 'hover show' : '';
+}
+function set_active1($route) {
+    if( is_array( $route ) ){
+        return in_array(Request::path(), $route) ? 'active' : '';
+    }
+    return Request::path() == $route ? 'active' : '';
+}
+Artisan::call('cache:clear');
+Artisan::call('storage:link');
+Artisan::call('view:clear');
+Artisan::call('route:clear');
+Artisan::call('config:clear');
 
 Route::get('/', [HomeController::class, 'index'])->name('/');
 
@@ -22,5 +37,4 @@ Route::get('/set-language',[HomeController::class,'SetLang']);
 
 
 //CMS Route Define always down position
-include_once('api_route.php');
-include_once('cms_web.php');
+require __DIR__ .'/cms_web.php';

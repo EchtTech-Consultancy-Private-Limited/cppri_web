@@ -17,6 +17,7 @@
 <div class="post d-flex flex-column-fluid" id="kt_post">
 <div id="kt_content_container" class="container-xxl">
 <div class="card card-flush">
+   @if($textMessage =='')
    <!--begin::Card body-->
    <div class="card-body">
       <!--begin:::Tabs-->
@@ -86,6 +87,7 @@
                </div>
                <!--end::Action buttons-->
             </form>
+            <p>{{ $textMessage??'' }}</p>
             <!--end::Form-->            
          </div>
          <!--end:::Tab pane-->
@@ -157,6 +159,7 @@
                </div>
                <!--end::Action buttons-->
             </form>
+            <p>{{ $textMessage??'' }}</p>
             <!--end::Form-->            
          </div>
          <!--end:::Tab pane-->
@@ -164,5 +167,9 @@
       <!--end:::Tab content-->
    </div>
    <!--end::Card body-->
+   @else
+      {!! $textMessage !!}
+     <div class="symbol symbol-100px text-center"> <img class="" src='{{ asset(config("constants.error.error_image")) }}' /></div>
+   @endif
 </div>
 @endsection

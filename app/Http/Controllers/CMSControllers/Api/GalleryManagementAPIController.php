@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers\CMSControllers\API;
-use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 
 use App\Models\CMSModels\GalleryManagement;

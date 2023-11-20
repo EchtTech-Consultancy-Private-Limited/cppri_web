@@ -15,7 +15,7 @@
 <meta property="og:title" content=" " />
 <meta property="og:url" content=""/>
 <meta property="og:site_name" content="ECHTTECH | CRM" />
-<link rel="shortcut icon" href="{{ asset('assets/media/logos/favicon.ico') }}"/>
+<link rel="shortcut icon" href="{{ asset(config('constants.default.favicon')) }}"/>
 <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.css') }}" rel="stylesheet" type="text/css" />

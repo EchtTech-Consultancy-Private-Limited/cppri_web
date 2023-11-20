@@ -6,9 +6,13 @@ return [
     [
         'logo_image' => "assets/logo.png",
         'company_name' => "Central Pulp & Paper Research Institute",
-        'bg-color' => '#ffffff'
+        'bg-color' => '#ffffff',
+        'favicon' => "assets/media/logos/favicon.ico"
     ],
-
+    'error' =>
+    [
+        'error_image' => "assets/media/auth/404-error.png"
+    ],
     'dev_profile' =>
     [
         'profile1' => "assets/media/avatars/300-6.jpg",

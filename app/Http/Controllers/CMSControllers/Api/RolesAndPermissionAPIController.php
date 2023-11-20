@@ -1,8 +1,7 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers\API;
-use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use App\Models\CMSModels\RolesAndPermission;
 use Illuminate\Http\Request;
@@ -227,41 +226,44 @@ class RolesAndPermissionAPIController extends Controller
     public function permissionAdd(Request $request){
 		$data=$request->all();
 		$arr=$this->generateData($data);
+        $role_id=explode(',',$data['role_name'])[0];
+        $flag='';
 		foreach ($arr as $list) {
-			//$num_rows=RolesAndPermission::number_rows('tlb_access_permission',array("module_name"=>$list['module_name'],"employee_id"=>$data['emp_id']),"num_row");
-			$wordlist = DB::table('roles_and_permissions')->where(["module_name"=>$list['module_name'],"role_id"=>explode(',',$data['role_name'])[0]])->get();
-            $num_rows = $wordlist->count();
-            if($num_rows == 0){
+			$wordlist = DB::table('roles_and_permissions')->where(["module_name"=>$list['module_name'],"role_id"=>$role_id])->count();
+            if($wordlist == 0){
 				$list['role_id']=explode(',',$data['role_name'])[0];  
 				$list['role_name']=explode(',',$data['role_name'])[1];  
-				//$flag=RolesAndPermission::insert($list,"tlb_access_permission");
-            $flag= DB::table('roles_and_permissions')->insert($list);
+                $flag= DB::table('roles_and_permissions')->insert($list);
 			}else{
-				//print_r($data);die;
 				$list['role_id']=explode(',',$data['role_name'])[0];
 				$list['role_name']=explode(',',$data['role_name'])[1];
-				//$flag=RolesAndPermission::update_by_where($list,"tlb_access_permission",array('employee_id'=>$data['emp_id'],'module_name'=>$list['module_name']));
-            $flag= DB::table('roles_and_permissions')->where('uid',$id)->update([
-                    'uid'=>Uuid::uuid4(),
-                    'module_name'=>$list['module_name'],
-                ]);
+
+                $flag= DB::table('roles_and_permissions')->where('module_name',$list['module_name'])->where('role_id',$role_id)->update($list);
 			}
 		}  
-		
-		if ($flag) {
-			$data = array('responce' => 'success', 'message' => 'Record added Successfully');
+		//dd($flag);
+		if ($flag !='') {
+            $notification =[
+                'status'=>200,
+                'message'=>'Added successfully.'
+            ];
 		} else {
-			$data = array('responce' => 'error', 'message' => 'Failed to add record');
-		}
-		echo json_encode($data);
+            $notification = [
+                'status'=>201,
+                'message'=>'some error accoured.'
+            ];
+         } 
+		return response()->json($notification);
 	}
 	private function generateData($data){
 		$arr=array();
 		$i=0; 
 		foreach($data['module_name'] as $key=>$val){
-               // dd($data['module_name']);
-			$arr[$i]['module_name']=$data['module_name'][$key];
-            $arr[$i]['uid']= Uuid::uuid4();
+            $mudule = explode(',',$data['module_name'][$key]);
+			$arr[$i]['module_name']=$mudule[0];
+			$arr[$i]['sort_order']=$mudule[1];
+			$arr[$i]['prefix']=$mudule[2];
+           // $arr[$i]['uid']= Uuid::uuid4();
 			if(!empty($data['delete'][$key])){
 			  $arr[$i]['delete']=$data['delete'][$key];
 			}else{
@@ -306,4 +308,5 @@ class RolesAndPermissionAPIController extends Controller
 		}  
 		return $arr;
 	  }
+      
 }

@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CMSControllers\Api\CommonAPIController;
+use App\Http\Controllers\CMSControllers\API\CommonAPIController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\CMSControllers\AnalyticsController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\CMSControllers\DashboardController;
 use App\Http\Controllers\CMSControllers\DeveloperTeamController;
 use App\Http\Controllers\CMSControllers\UserManagementController;
@@ -43,29 +43,14 @@ use App\Http\Controllers\CMSControllers\RtiAssetsController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-function set_active($route) {
-    if( is_array( $route ) ){
-        return in_array(Request::path(), $route) ? 'hover show' : '';
-    }
-    return Request::path() == $route ? 'hover show' : '';
-}
-function set_active1($route) {
-    if( is_array( $route ) ){
-        return in_array(Request::path(), $route) ? 'active' : '';
-    }
-    return Request::path() == $route ? 'active' : '';
-}
 
-Artisan::call('cache:clear');
-Artisan::call('view:clear');
-Artisan::call('route:clear');
-Artisan::call('config:clear');
-
-//Route::get('/', [LoginController::class, 'showLoginForm'])->name('/');
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
-Route::post('forget-user', [LoginController::class, 'forgetUser'])->name('forget-user');
+Route::get('forget-user', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget-user');
+Route::post('forget-change', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forgetuser');
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset-password');
+Route::get('update-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('update-password');
 Route::get('/reload-captcha', [LoginController::class, 'reloadCaptcha']);
 
 Route::post('mimeimagecheck', [CommonAPIController::class, 'imageMimeCheck'])->name('mimeimagecheck');
@@ -73,146 +58,139 @@ Route::post('mimepdfcheck', [CommonAPIController::class, 'pdfMimeCheck'])->name(
 // capture analytics
 Route::post('analytics', [AnalyticsController::class, 'store'])->name('store-analytics');
 
-//,->middleware('throttle:custom_Limit')
-
-Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid','throttle:custom_Limit'])->group(function () {
+Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(function () {
     
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/dev-team', [DeveloperTeamController::class, 'index'])->name('dev-team');
-
-Route::prefix('user')->group(function(){
-    Route::get('/user-create', [UserManagementController::class, 'create'])->name('user.create');
-    Route::get('/user-list', [UserManagementController::class, 'index'])->name('user.list');
-    Route::get('/user-edit', [UserManagementController::class, 'edit'])->name('user.edit');
-});
-
-Route::prefix('role')->group(function(){
-    Route::get('/role-create', [RolesAndPermissionController::class, 'createRoles'])->name('role.create');
-    Route::get('/role-edit', [RolesAndPermissionController::class, 'edit'])->name('role.edit');
-    Route::get('/role-list', [RolesAndPermissionController::class, 'roleIndex'])->name('role.list');
-});
-
-Route::prefix('permission')->group(function(){
-    Route::get('/permission-create', [RolesAndPermissionController::class, 'create'])->name('permission.create');
-    Route::get('/permission-list', [RolesAndPermissionController::class, 'permissionIndex'])->name('permission.list');
-});
-
-Route::prefix('menu')->group(function(){
-    Route::get('/menu-create', [WebsiteMenuManagementController::class, 'create'])->name('menu.create');
-    Route::get('/menu-edit', [WebsiteMenuManagementController::class, 'edit'])->name('menu.edit');
-    Route::get('/menu-list', [WebsiteMenuManagementController::class, 'index'])->name('menu.list');
-});
-
-Route::prefix('homebanner')->group(function(){
-    Route::get('/homebanner-create', [HomePageBannerManagementController::class, 'create'])->name('homebanner.create');
-    Route::get('/homebanner-edit', [HomePageBannerManagementController::class, 'edit'])->name('homebanner.edit');
-    Route::get('/homebanner-list', [HomePageBannerManagementController::class, 'index'])->name('homebanner.list');
-});
-
-Route::prefix('contentpage')->group(function(){
-    Route::get('/contentpage-create', [DynamicContentPageManagamentController::class, 'create'])->name('contentpage.create');
-    Route::get('/contentpage-edit', [DynamicContentPageManagamentController::class, 'edit'])->name('contentpage.edit');
-    Route::get('/contentpage-list', [DynamicContentPageManagamentController::class, 'index'])->name('contentpage.list');
-});
-
-Route::prefix('websitecoresetting')->group(function(){
-    Route::get('/websitecoresetting-create', [WebSiteCoreSettingsController::class, 'create'])->name('websitecoresetting.create');
-    Route::get('/websitecoresetting-edit', [WebSiteCoreSettingsController::class, 'edit'])->name('websitecoresetting.edit');
-    Route::get('/logo-list', [WebSiteCoreSettingsController::class, 'indexLogo'])->name('logo.list');
-    Route::get('/footercontent-list', [WebSiteCoreSettingsController::class, 'indexFooterContent'])->name('footercontent.list');
-    Route::get('/sociallink-list', [WebSiteCoreSettingsController::class, 'indexSocialLink'])->name('sociallink.list');
-});
-
-Route::prefix('gallerymanagement')->group(function(){
-    Route::get('/gallerymanagement-create', [GalleryManagementController::class, 'create'])->name('gallerymanagement.create');
-    Route::get('/gallerymanagement-list', [GalleryManagementController::class, 'index'])->name('gallerymanagement.list');
-});
-
-Route::prefix('news')->group(function(){
-    Route::get('/news-create', [NewsManagementController::class, 'create'])->name('news.create');
-    Route::get('/news-edit', [NewsManagementController::class, 'edit'])->name('news.edit');
-    Route::get('/news-list', [NewsManagementController::class, 'index'])->name('news.list');
-});
-
-Route::prefix('tender')->group(function(){
-    Route::get('/tender-create', [TenderManagementController::class, 'create'])->name('tender.create');
-    Route::get('/tender-edit', [TenderManagementController::class, 'edit'])->name('tender.edit');
-    Route::get('/tender-list', [TenderManagementController::class, 'index'])->name('tender.list');
-});
-
-Route::prefix('event')->group(function(){
-    Route::get('/event-create', [EventsManagementController::class, 'create'])->name('event.create');
-    Route::get('/event-edit', [EventsManagementController::class, 'edit'])->name('event.edit');
-    Route::get('/event-list', [EventsManagementController::class, 'index'])->name('event.list');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dev-team', [DeveloperTeamController::class, 'index'])->name('dev-team');
+    
+    Route::prefix('user')->group(function(){
+        Route::get('/user-create', [UserManagementController::class, 'create'])->name('user.create');
+        Route::get('/user-list', [UserManagementController::class, 'index'])->name('user.list');
+        Route::get('/user-edit', [UserManagementController::class, 'edit'])->name('user.edit');
+    });
+    
+    Route::prefix('role')->group(function(){
+        Route::get('/role-create', [RolesAndPermissionController::class, 'createRoles'])->name('role.create');
+        Route::get('/role-edit', [RolesAndPermissionController::class, 'edit'])->name('role.edit');
+        Route::get('/role-list', [RolesAndPermissionController::class, 'roleIndex'])->name('role.list');
+    });
+    
+    Route::prefix('permission')->group(function(){
+        Route::get('/permission-create', [RolesAndPermissionController::class, 'create'])->name('permission.create');
+        Route::get('/permission-list', [RolesAndPermissionController::class, 'permissionIndex'])->name('permission.list');
+    });
+    
+    Route::prefix('menu')->group(function(){
+        Route::get('/menu-create', [WebsiteMenuManagementController::class, 'create'])->name('menu.create');
+        Route::get('/menu-edit', [WebsiteMenuManagementController::class, 'edit'])->name('menu.edit');
+        Route::get('/menu-list', [WebsiteMenuManagementController::class, 'index'])->name('menu.list');
+    });
+    
+    Route::prefix('homebanner')->group(function(){
+        Route::get('/homebanner-create', [HomePageBannerManagementController::class, 'create'])->name('homebanner.create');
+        Route::get('/homebanner-edit', [HomePageBannerManagementController::class, 'edit'])->name('homebanner.edit');
+        Route::get('/homebanner-list', [HomePageBannerManagementController::class, 'index'])->name('homebanner.list');
+    });
+    
+    Route::prefix('contentpage')->group(function(){
+        Route::get('/contentpage-create', [DynamicContentPageManagamentController::class, 'create'])->name('contentpage.create');
+        Route::get('/contentpage-edit', [DynamicContentPageManagamentController::class, 'edit'])->name('contentpage.edit');
+        Route::get('/contentpage-list', [DynamicContentPageManagamentController::class, 'index'])->name('contentpage.list');
+    });
+    
+    Route::prefix('websitecoresetting')->group(function(){
+        Route::get('/websitecoresetting-create', [WebSiteCoreSettingsController::class, 'create'])->name('websitecoresetting.create');
+        Route::get('/websitecoresetting-edit', [WebSiteCoreSettingsController::class, 'edit'])->name('websitecoresetting.edit');
+        Route::get('/logo-list', [WebSiteCoreSettingsController::class, 'indexLogo'])->name('logo.list');
+        Route::get('/footercontent-list', [WebSiteCoreSettingsController::class, 'indexFooterContent'])->name('footercontent.list');
+        Route::get('/sociallink-list', [WebSiteCoreSettingsController::class, 'indexSocialLink'])->name('sociallink.list');
+    });
+    
+    Route::prefix('gallerymanagement')->group(function(){
+        Route::get('/gallerymanagement-create', [GalleryManagementController::class, 'create'])->name('gallerymanagement.create');
+        Route::get('/gallerymanagement-list', [GalleryManagementController::class, 'index'])->name('gallerymanagement.list');
+    });
+    
+    Route::prefix('news')->group(function(){
+        Route::get('/news-create', [NewsManagementController::class, 'create'])->name('news.create');
+        Route::get('/news-edit', [NewsManagementController::class, 'edit'])->name('news.edit');
+        Route::get('/news-list', [NewsManagementController::class, 'index'])->name('news.list');
+    });
+    
+    Route::prefix('tender')->group(function(){
+        Route::get('/tender-create', [TenderManagementController::class, 'create'])->name('tender.create');
+        Route::get('/tender-edit', [TenderManagementController::class, 'edit'])->name('tender.edit');
+        Route::get('/tender-list', [TenderManagementController::class, 'index'])->name('tender.list');
+    });
+    
+    Route::prefix('event')->group(function(){
+        Route::get('/event-create', [EventsManagementController::class, 'create'])->name('event.create');
+        Route::get('/event-edit', [EventsManagementController::class, 'edit'])->name('event.edit');
+        Route::get('/event-list', [EventsManagementController::class, 'index'])->name('event.list');
+        });
+    
+    Route::prefix('module')->group(function(){
+        Route::get('/module-create', [ModuleManagementController::class, 'create'])->name('module.create');
+        Route::get('/module-list', [ModuleManagementController::class, 'index'])->name('module.list');
+        Route::get('/module-edit', [ModuleManagementController::class, 'edit'])->name('module.edit');
+        });
+    
+    Route::prefix('faq')->group(function(){
+        Route::get('/faq-create', [DynamicFormManagementController::class, 'faqCreate'])->name('faq.create');
+        Route::get('/faq-list', [DynamicFormManagementController::class, 'faqIndex'])->name('faq.list');
+        Route::get('/faq-edit', [DynamicFormManagementController::class, 'faqEdit'])->name('faq.edit');
+        });
+    
+    Route::prefix('audittrail')->group(function(){
+        Route::get('/audittrail-create', [SystemLogsController::class, 'create'])->name('audittrail.create');
+        Route::get('/audittrail-list', [SystemLogsController::class, 'index'])->name('audittrail.list');
+        Route::get('/audittrail-edit', [SystemLogsController::class, 'edit'])->name('audittrail.edit');
+        });
+    
+    Route::prefix('datamanagement')->group(function(){
+        //Route::get('/audittrail-create', [SystemLogsController::class, 'create'])->name('audittrail.create');
+        Route::get('/contactus-list', [DataManagementController::class, 'contactUSIndex'])->name('datamanagement.list-contact');
+        Route::get('/feedback-list', [DataManagementController::class, 'FeedbackIndex'])->name('datamanagement.list-feedback');
+        //Route::get('/audittrail-edit', [SystemLogsController::class, 'edit'])->name('audittrail.edit');
+        });
+    
+    Route::prefix('recentactivity')->group(function(){
+        Route::get('/recentactivity-create', [RecentActivityController::class, 'create'])->name('recentactivity.create');
+        Route::get('/recentactivity-list', [RecentActivityController::class, 'index'])->name('recentactivity.list');
+        Route::get('/recentactivity-edit', [RecentActivityController::class, 'edit'])->name('recentactivity.edit');
+        });
+    Route::prefix('popupadvertising')->group(function(){
+        Route::get('/popupadvertising-create', [PopupAdvertisingController::class, 'create'])->name('popupadvertising.create');
+        Route::get('/popupadvertising-list', [PopupAdvertisingController::class, 'index'])->name('popupadvertising.list');
+        Route::get('/popupadvertising-edit', [PopupAdvertisingController::class, 'edit'])->name('popupadvertising.edit');
+        });
+    
+    Route::prefix('employeedirectory')->group(function(){
+        Route::get('/employeedirectory-create', [EmployeeDirectoryController::class, 'create'])->name('employeedirectory.create');
+        Route::get('/employeedirectory-list', [EmployeeDirectoryController::class, 'index'])->name('employeedirectory.list');
+        Route::get('/employeedirectory-edit', [EmployeeDirectoryController::class, 'edit'])->name('employeedirectory.edit');
+        });
+    
+    Route::prefix('departmentdesignation')->group(function(){
+        Route::get('/departmentdesignation-create', [EmpDepartDesignationController::class, 'create'])->name('departmentdesignation.create');
+        Route::get('/departmentdesignation-list', [EmpDepartDesignationController::class, 'index'])->name('departmentdesignation.list');
+        Route::get('/departmentdesignation-edit', [EmpDepartDesignationController::class, 'edit'])->name('departmentdesignation.edit');
+        });
+    
+    Route::prefix('careers')->group(function(){
+        Route::get('/careers-create', [EmpDepartDesignationController::class, 'create'])->name('careers.create');
+        Route::get('/careers-list', [EmpDepartDesignationController::class, 'index'])->name('careers.list');
+        Route::get('/careers-edit', [EmpDepartDesignationController::class, 'edit'])->name('careers.edit');
+        });
+    
+    Route::prefix('rtiassets')->group(function(){
+        Route::get('/rtiassets-create', [RtiAssetsController::class, 'create'])->name('rtiassets.create');
+        Route::get('/rtiassets-list', [RtiAssetsController::class, 'index'])->name('rtiassets.list');
+        Route::get('/rtiassets-edit', [RtiAssetsController::class, 'edit'])->name('rtiassets.edit');
+        });
     });
 
-Route::prefix('module')->group(function(){
-    Route::get('/module-create', [ModuleManagementController::class, 'create'])->name('module.create');
-    Route::get('/module-list', [ModuleManagementController::class, 'index'])->name('module.list');
-    Route::get('/module-edit', [ModuleManagementController::class, 'edit'])->name('module.edit');
-    });
+require __DIR__ .'/api_route.php';
+//include_once('api_route.php');
 
-Route::prefix('faq')->group(function(){
-    Route::get('/faq-create', [DynamicFormManagementController::class, 'faqCreate'])->name('faq.create');
-    Route::get('/faq-list', [DynamicFormManagementController::class, 'faqIndex'])->name('faq.list');
-    Route::get('/faq-edit', [DynamicFormManagementController::class, 'faqEdit'])->name('faq.edit');
-    });
-
-Route::prefix('audittrail')->group(function(){
-    Route::get('/audittrail-create', [SystemLogsController::class, 'create'])->name('audittrail.create');
-    Route::get('/audittrail-list', [SystemLogsController::class, 'index'])->name('audittrail.list');
-    Route::get('/audittrail-edit', [SystemLogsController::class, 'edit'])->name('audittrail.edit');
-    });
-
-Route::prefix('datamanagement')->group(function(){
-    //Route::get('/audittrail-create', [SystemLogsController::class, 'create'])->name('audittrail.create');
-    Route::get('/contactus-list', [DataManagementController::class, 'contactUSIndex'])->name('datamanagement.list-contact');
-    Route::get('/feedback-list', [DataManagementController::class, 'FeedbackIndex'])->name('datamanagement.list-feedback');
-    //Route::get('/audittrail-edit', [SystemLogsController::class, 'edit'])->name('audittrail.edit');
-    });
-
-Route::prefix('recentactivity')->group(function(){
-    Route::get('/recentactivity-create', [RecentActivityController::class, 'create'])->name('recentactivity.create');
-    Route::get('/recentactivity-list', [RecentActivityController::class, 'index'])->name('recentactivity.list');
-    Route::get('/recentactivity-edit', [RecentActivityController::class, 'edit'])->name('recentactivity.edit');
-    });
-Route::prefix('popupadvertising')->group(function(){
-    Route::get('/popupadvertising-create', [PopupAdvertisingController::class, 'create'])->name('popupadvertising.create');
-    Route::get('/popupadvertising-list', [PopupAdvertisingController::class, 'index'])->name('popupadvertising.list');
-    Route::get('/popupadvertising-edit', [PopupAdvertisingController::class, 'edit'])->name('popupadvertising.edit');
-    });
-
-Route::prefix('employeedirectory')->group(function(){
-    Route::get('/employeedirectory-create', [EmployeeDirectoryController::class, 'create'])->name('employeedirectory.create');
-    Route::get('/employeedirectory-list', [EmployeeDirectoryController::class, 'index'])->name('employeedirectory.list');
-    Route::get('/employeedirectory-edit', [EmployeeDirectoryController::class, 'edit'])->name('employeedirectory.edit');
-    });
-
-Route::prefix('departmentdesignation')->group(function(){
-    Route::get('/departmentdesignation-create', [EmpDepartDesignationController::class, 'create'])->name('departmentdesignation.create');
-    Route::get('/departmentdesignation-list', [EmpDepartDesignationController::class, 'index'])->name('departmentdesignation.list');
-    Route::get('/departmentdesignation-edit', [EmpDepartDesignationController::class, 'edit'])->name('departmentdesignation.edit');
-    });
-
-Route::prefix('careers')->group(function(){
-    Route::get('/careers-create', [EmpDepartDesignationController::class, 'create'])->name('careers.create');
-    Route::get('/careers-list', [EmpDepartDesignationController::class, 'index'])->name('careers.list');
-    Route::get('/careers-edit', [EmpDepartDesignationController::class, 'edit'])->name('careers.edit');
-    });
-
-Route::prefix('rtiassets')->group(function(){
-    Route::get('/rtiassets-create', [RtiAssetsController::class, 'create'])->name('rtiassets.create');
-    Route::get('/rtiassets-list', [RtiAssetsController::class, 'index'])->name('rtiassets.list');
-    Route::get('/rtiassets-edit', [RtiAssetsController::class, 'edit'])->name('rtiassets.edit');
-    });
-});
-
-include_once('api_route.php');
-
-
-
-//default behaviour, always keep as last entry
-Route::any('{url}', function(){
-    return redirect('login');
-})->where('url', '.*');
 

@@ -94,5 +94,5 @@
         <!--end: Datatable -->
     </div>
 </div>
-@include('cms-view.dynamic-form-management.faq-add')
+@include('dynamic-form-management.faq-add')
 @endsection

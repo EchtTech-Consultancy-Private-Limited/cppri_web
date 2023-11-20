@@ -1,15 +1,15 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\ModuleManagement;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
 
 class ModuleManagementController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -19,9 +19,15 @@ class ModuleManagementController extends Controller
     {
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['list'] = route('module-list');
-        $crudUrlTemplate['edit'] = route('module.edit', ['id' => 'xxxx']);
-        $crudUrlTemplate['delete'] = route('module-delete', ['id' => 'xxxx']);
+        if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('module-list');
+        }
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('module.edit', ['id' => 'xxxx']);
+        }
+        if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('module-delete', ['id' => 'xxxx']);
+        }
         //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
 
         return view('cms-view.module-management.module-list',
@@ -35,10 +41,17 @@ class ModuleManagementController extends Controller
      */
     public function create()
     {
-        $crudUrlTemplate['create'] = route('module-save');
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['create']) && $this->abortIfAccessNotAllowed()['create'] !=''){
+            $crudUrlTemplate['create'] = route('module-save');
+        }else{
+            $accessPermission = $this->checkAccessMessage();
+        }
         
         return view('cms-view.module-management.module-add',
-        ['crudUrlTemplate' =>  json_encode($crudUrlTemplate) ]);
+        ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),    
+            'textMessage' =>$accessPermission??''
+         ]);
     }
 
     /**
@@ -71,8 +84,11 @@ class ModuleManagementController extends Controller
      */
     public function edit(Request $request)
     {
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['update'] = route('module-update');
+        }
         
-        $crudUrlTemplate['update'] = route('module-update');
         $results = ModuleManagement::where('uid', $request->id)->first();
         if($results){
             $result = $results;

@@ -1,6 +1,6 @@
 <?php
+namespace App\Http\Controllers\CMSControllers;
 
-namespace App\Http\Controllers\CMSControllers\API;
 use App\Http\Controllers\Controller;
 
 use App\Models\CMSModels\CareerManagement;
