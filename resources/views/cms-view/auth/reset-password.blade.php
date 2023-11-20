@@ -59,11 +59,7 @@
                             </div>
                            <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
                               <div></div>
-<<<<<<< HEAD
                               <a href="{{ route('login') }}" class="link-primary"> Login ?</a>
-=======
-                              <a href="javascript:void(0);" class="link-primary"> Forgot Password ?</a>
->>>>>>> e776c11d649efb506e0135ad216ebf2c349a7b29
                            </div>
                            <div class="d-flex flex-wrap justify-content-center pb-lg-0">
                                 <button type="button" id="kt_password_reset_submit" class="btn btn-primary me-4">
