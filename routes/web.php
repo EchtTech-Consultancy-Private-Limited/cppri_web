@@ -31,8 +31,6 @@ Artisan::call('route:clear');
 Artisan::call('config:clear');
 
 Route::get('/', [HomeController::class, 'index'])->name('/');
-
-
 Route::get('/set-language',[HomeController::class,'SetLang']);
 
 

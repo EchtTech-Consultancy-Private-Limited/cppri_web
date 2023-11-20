@@ -33,9 +33,7 @@
                                 <li class="ministry">
                                     <span class="li_eng responsive_go_eng"><a target="_blank"
                                             href="https://india.gov.in/"
-                                            title="Government of india,External Link that opens in a new window">Government
-                                            of
-                                            india</a>
+                                            title="Government of india,External Link that opens in a new window">Government of india</a>
                                     </span>
                                 </li>
                             </ul>
@@ -115,7 +113,7 @@
                                                     src="{{ asset('assets-cppri/images/ico-youtube.png') }}"></a></li>
                                     </ul>
                                 </li>
-                                <li class="ico-sitemap cf"><a href="" title="Sitemap">
+                                <li class="ico-sitemap cf"><a href="javascript:viod(0)" title="Sitemap">
                                         <img class="top" src="{{ asset('assets-cppri/images/ico-sitemap.png') }}"
                                             alt="Sitemap"></a>
                                 </li>
@@ -388,8 +386,8 @@
                             <div class="page-tab-res clearfix">
                                 <div id="parentHorizontalTab">
                                     <ul class="resp-tabs-list hor_1">
-                                        <li class="border-l"><a href="#" id="tab-list-1">Notification</a></li>
-                                        <li><a href="#">Press Release</a></li>
+                                        <li class="border-l"><a href="javascript:viod(0)" id="tab-list-1">Notification</a></li>
+                                        <li><a href="javascript:viod(0)">Press Release</a></li>
                                     </ul>
                                     <div class="resp-tabs-container hor_1">
                                         <div class="clearfix" id="hor_1_tab_item-0">
@@ -621,7 +619,7 @@
                 <div class="gallery-area clearfix">
                     <div class="gallery-heading">
                         <h3>Photo Gallery</h3>
-                        <a class="bttn-more bttn-view" href="#" title="View all Photo Gallery"><span>View
+                        <a class="bttn-more bttn-view" href="javascript:viod(0)" title="View all Photo Gallery"><span>View
                                 All</span></a>
                     </div>
                     <div class="gallery-holder">
@@ -649,7 +647,7 @@
                 <div class="gallery-right">
                     <div class="video-heading">
                         <h3>Video Gallery</h3>
-                        <a class="bttn-more bttn-view" href="#" title="View all Video Gallery"><span>View
+                        <a class="bttn-more bttn-view" href="javascript:viod(0)" title="View all Video Gallery"><span>View
                                 All</span></a>
                     </div>
                     <div class="video-wrapper">

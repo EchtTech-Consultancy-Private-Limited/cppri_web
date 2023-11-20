@@ -116,6 +116,409 @@
                                        <!--begin::Separator-->
                                        <div class="separator border-gray-200 mb-6"></div>
                                        <!--end::Separator-->
+<<<<<<< HEAD
+=======
+                                       <!--begin::Recently viewed-->
+                                       <div data-kt-search-element="results" class="d-none">
+                                          <!--begin::Items-->
+                                          <div class="scroll-y mh-200px mh-lg-350px">
+                                             <!--begin::Category title-->
+                                             <h3 class="fs-5 text-muted m-0  pb-5" data-kt-search-element="category-title">
+                                                Users            
+                                             </h3>
+                                             <!--end::Category title-->
+                                             <!--begin::Item-->
+                                             <a href="javascript:void(0);" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <img src="{{ asset('assets') }}/media/avatars/300-6.jpg" alt=""/>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column justify-content-start fw-semibold">
+                                                   <span class="fs-6 fw-semibold">Karina Clark</span>
+                                                   <span class="fs-7 fw-semibold text-muted">Marketing Manager</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </a>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <a href="javascript:void(0);" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <img src="{{ asset('assets') }}/media/avatars/300-2.jpg" alt=""/>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column justify-content-start fw-semibold">
+                                                   <span class="fs-6 fw-semibold">Olivia Bold</span>
+                                                   <span class="fs-7 fw-semibold text-muted">Software Engineer</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </a>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <a href="javascript:void(0);" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <img src="{{ asset('assets') }}/media/avatars/300-9.jpg" alt=""/>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column justify-content-start fw-semibold">
+                                                   <span class="fs-6 fw-semibold">Ana Clark</span>
+                                                   <span class="fs-7 fw-semibold text-muted">UI/UX Designer</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </a>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <a href="javascript:void(0);" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <img src="{{ asset('assets') }}/media/avatars/300-14.jpg" alt=""/>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column justify-content-start fw-semibold">
+                                                   <span class="fs-6 fw-semibold">Nick Pitola</span>
+                                                   <span class="fs-7 fw-semibold text-muted">Art Director</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </a>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <a href="javascript:void(0);" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <img src="{{ asset('assets') }}/media/avatars/300-11.jpg" alt=""/>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column justify-content-start fw-semibold">
+                                                   <span class="fs-6 fw-semibold">Edward Kulnic</span>
+                                                   <span class="fs-7 fw-semibold text-muted">System Administrator</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </a>
+                                             <!--end::Item-->
+                                             <!--begin::Category title-->
+                                             <h3 class="fs-5 text-muted m-0 pt-5 pb-5" data-kt-search-element="category-title">
+                                                Customers            
+                                             </h3>
+                                             <!--end::Category title-->
+                                             <!--begin::Item-->
+                                             <a href="javascript:void(0);" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <img class="w-20px h-20px" src="{{ asset('assets') }}/media/svg/brand-logos/volicity-9.svg" alt=""/>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column justify-content-start fw-semibold">
+                                                   <span class="fs-6 fw-semibold">Company Rbranding</span>
+                                                   <span class="fs-7 fw-semibold text-muted">UI Design</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </a>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <a href="javascript:void(0);" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <img class="w-20px h-20px" src="{{ asset('assets') }}/media/svg/brand-logos/tvit.svg" alt=""/>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column justify-content-start fw-semibold">
+                                                   <span class="fs-6 fw-semibold">Company Re-branding</span>
+                                                   <span class="fs-7 fw-semibold text-muted">Web Development</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </a>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <a href="javascript:void(0);" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <img class="w-20px h-20px" src="{{ asset('assets') }}/media/svg/misc/infography.svg" alt=""/>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column justify-content-start fw-semibold">
+                                                   <span class="fs-6 fw-semibold">Business Analytics App</span>
+                                                   <span class="fs-7 fw-semibold text-muted">Administration</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </a>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <a href="javascript:void(0);" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <img class="w-20px h-20px" src="{{ asset('assets') }}/media/svg/brand-logos/leaf.svg" alt=""/>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column justify-content-start fw-semibold">
+                                                   <span class="fs-6 fw-semibold">EcoLeaf App Launch</span>
+                                                   <span class="fs-7 fw-semibold text-muted">Marketing</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </a>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <a href="javascript:void(0);" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <img class="w-20px h-20px" src="{{ asset('assets') }}/media/svg/brand-logos/tower.svg" alt=""/>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column justify-content-start fw-semibold">
+                                                   <span class="fs-6 fw-semibold">Tower Group Website</span>
+                                                   <span class="fs-7 fw-semibold text-muted">Google Adwords</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </a>
+                                             <!--end::Item-->
+                                             <!--begin::Category title-->
+                                             <h3 class="fs-5 text-muted m-0 pt-5 pb-5" data-kt-search-element="category-title">
+                                                Projects            
+                                             </h3>
+                                             <!--end::Category title-->
+                                             <!--begin::Item-->
+                                             <a href="javascript:void(0);" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <i class="ki-outline ki-notepad fs-2 text-primary"></i>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column">
+                                                   <span class="fs-6 fw-semibold">Si-Fi Project by AU Themes</span>
+                                                   <span class="fs-7 fw-semibold text-muted">#45670</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </a>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <a href="javascript:void(0);" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <i class="ki-outline ki-frame fs-2 text-primary"></i>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column">
+                                                   <span class="fs-6 fw-semibold">Shopix Mobile App Planning</span>
+                                                   <span class="fs-7 fw-semibold text-muted">#45690</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </a>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <a href="javascript:void(0);" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <i class="ki-outline ki-message-text-2 fs-2 text-primary"></i>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column">
+                                                   <span class="fs-6 fw-semibold">Finance Monitoring SAAS Discussion</span>
+                                                   <span class="fs-7 fw-semibold text-muted">#21090</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </a>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <a href="javascript:void(0);" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <i class="ki-outline ki-profile-circle fs-2 text-primary"></i>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column">
+                                                   <span class="fs-6 fw-semibold">Dashboard Analitics Launch</span>
+                                                   <span class="fs-7 fw-semibold text-muted">#34560</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </a>
+                                             <!--end::Item-->
+                                          </div>
+                                          <!--end::Items-->
+                                       </div>
+                                       <!--end::Recently viewed-->
+                                       <!--begin::Recently viewed-->
+                                       <div class="mb-5" data-kt-search-element="main">
+                                          <!--begin::Heading-->
+                                          <div class="d-flex flex-stack fw-semibold mb-4">
+                                             <!--begin::Label-->
+                                             <span class="text-muted fs-6 me-2">Recently Searched:</span>
+                                             <!--end::Label-->
+                                          </div>
+                                          <!--end::Heading-->
+                                          <!--begin::Items-->
+                                          <div class="scroll-y mh-200px mh-lg-325px">
+                                             <!--begin::Item-->
+                                             <div class="d-flex align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <i class="ki-outline ki-laptop fs-2 text-primary"></i>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column">
+                                                   <a href="javascript:void(0);" class="fs-6 text-gray-800 text-hover-primary fw-semibold">BoomApp by Keenthemes</a>
+                                                   <span class="fs-7 text-muted fw-semibold">#45789</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <div class="d-flex align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <i class="ki-outline ki-chart-simple fs-2 text-primary"></i>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column">
+                                                   <a href="javascript:void(0);" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Kept API Project Meeting</a>
+                                                   <span class="fs-7 text-muted fw-semibold">#84050</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <div class="d-flex align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <i class="ki-outline ki-chart fs-2 text-primary"></i>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column">
+                                                   <a href="javascript:void(0);" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"KPI Monitoring App Launch</a>
+                                                   <span class="fs-7 text-muted fw-semibold">#84250</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <div class="d-flex align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <i class="ki-outline ki-chart-line-down fs-2 text-primary"></i>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column">
+                                                   <a href="javascript:void(0);" class="fs-6 text-gray-800 text-hover-primary fw-semibold">Project Reference FAQ</a>
+                                                   <span class="fs-7 text-muted fw-semibold">#67945</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <div class="d-flex align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <i class="ki-outline ki-sms fs-2 text-primary"></i>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column">
+                                                   <a href="javascript:void(0);" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"FitPro App Development</a>
+                                                   <span class="fs-7 text-muted fw-semibold">#84250</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <div class="d-flex align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <i class="ki-outline ki-bank fs-2 text-primary"></i>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column">
+                                                   <a href="javascript:void(0);" class="fs-6 text-gray-800 text-hover-primary fw-semibold">Shopix Mobile App</a>
+                                                   <span class="fs-7 text-muted fw-semibold">#45690</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Item-->
+                                             <!--begin::Item-->
+                                             <div class="d-flex align-items-center mb-5">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40px me-4">
+                                                   <span class="symbol-label bg-light">                             
+                                                   <i class="ki-outline ki-chart-line-down fs-2 text-primary"></i>                          
+                                                   </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Title-->
+                                                <div class="d-flex flex-column">
+                                                   <a href="javascript:void(0);" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Landing UI Design" Launch</a>
+                                                   <span class="fs-7 text-muted fw-semibold">#24005</span>
+                                                </div>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Item-->
+                                          </div>
+                                          <!--end::Items-->
+                                       </div>
+                                       <!--end::Recently viewed-->
+                                       <!--begin::Empty-->
+                                       <div data-kt-search-element="empty" class="text-center d-none">
+                                          <!--begin::Icon-->
+                                          <div class="pt-10 pb-10">
+                                             <i class="ki-outline ki-search-list fs-4x opacity-50"></i>    
+                                          </div>
+                                          <!--end::Icon-->
+                                          <!--begin::Message-->
+                                          <div class="pb-15 fw-semibold">
+                                             <h3 class="text-gray-600 fs-5 mb-2">No result found</h3>
+                                             <div class="text-muted fs-7">Please try again with a different query</div>
+                                          </div>
+                                          <!--end::Message-->
+                                       </div>
+                                       <!--end::Empty-->        
+>>>>>>> e776c11d649efb506e0135ad216ebf2c349a7b29
                                     </div>
                                     <!--end::Wrapper-->
                                  </div>
@@ -184,7 +587,7 @@
                                                 <!--end::Symbol-->
                                                 <!--begin::Title-->
                                                 <div class="mb-0 me-2">
-                                                   <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Alice</a>
+                                                   <a href="javascript:void(0);" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Alice</a>
                                                    <div class="text-gray-400 fs-7">Phase 1 development</div>
                                                 </div>
                                                 <!--end::Title-->
@@ -208,7 +611,7 @@
                                                 <!--end::Symbol-->
                                                 <!--begin::Title-->
                                                 <div class="mb-0 me-2">
-                                                   <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">HR Confidential</a>
+                                                   <a href="javascript:void(0);" class="fs-6 text-gray-800 text-hover-primary fw-bold">HR Confidential</a>
                                                    <div class="text-gray-400 fs-7">Confidential staff documents</div>
                                                 </div>
                                                 <!--end::Title-->
@@ -232,7 +635,7 @@
                                                 <!--end::Symbol-->
                                                 <!--begin::Title-->
                                                 <div class="mb-0 me-2">
-                                                   <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Company HR</a>
+                                                   <a href="javascript:void(0);" class="fs-6 text-gray-800 text-hover-primary fw-bold">Company HR</a>
                                                    <div class="text-gray-400 fs-7">Corporeate staff profiles</div>
                                                 </div>
                                                 <!--end::Title-->
@@ -256,7 +659,7 @@
                                                 <!--end::Symbol-->
                                                 <!--begin::Title-->
                                                 <div class="mb-0 me-2">
-                                                   <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Redux</a>
+                                                   <a href="javascript:void(0);" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Redux</a>
                                                    <div class="text-gray-400 fs-7">New frontend admin theme</div>
                                                 </div>
                                                 <!--end::Title-->
@@ -280,7 +683,7 @@
                                                 <!--end::Symbol-->
                                                 <!--begin::Title-->
                                                 <div class="mb-0 me-2">
-                                                   <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Breafing</a>
+                                                   <a href="javascript:void(0);" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Breafing</a>
                                                    <div class="text-gray-400 fs-7">Product launch status update</div>
                                                 </div>
                                                 <!--end::Title-->
@@ -305,7 +708,7 @@
                                                 <!--end::Symbol-->
                                                 <!--begin::Title-->
                                                 <div class="mb-0 me-2">
-                                                   <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Banner {{ asset('assets') }}</a>
+                                                   <a href="javascript:void(0);" class="fs-6 text-gray-800 text-hover-primary fw-bold">Banner {{ asset('assets') }}</a>
                                                    <div class="text-gray-400 fs-7">Collection of banner images</div>
                                                 </div>
                                                 <!--end::Title-->
@@ -329,7 +732,7 @@
                                                 <!--end::Symbol-->
                                                 <!--begin::Title-->
                                                 <div class="mb-0 me-2">
-                                                   <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Icon {{ asset('assets') }}</a>
+                                                   <a href="javascript:void(0);" class="fs-6 text-gray-800 text-hover-primary fw-bold">Icon {{ asset('assets') }}</a>
                                                    <div class="text-gray-400 fs-7">Collection of SVG icons</div>
                                                 </div>
                                                 <!--end::Title-->
@@ -369,7 +772,7 @@
                                              <!--end::Text-->
                                              <!--begin::Action-->
                                              <div class="text-center mt-5 mb-9">
-                                                <a href="#" class="btn btn-sm btn-primary px-6"  data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan" >Upgrade</a>                  
+                                                <a href="javascript:void(0);" class="btn btn-sm btn-primary px-6"  data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan" >Upgrade</a>                  
                                              </div>
                                              <!--end::Action-->
                                           </div>
@@ -383,6 +786,228 @@
                                        <!--end::Wrapper-->
                                     </div>
                                     <!--end::Tab panel-->
+<<<<<<< HEAD
+=======
+                                    <!--begin::Tab panel-->
+                                    <div class="tab-pane fade" id="kt_topbar_notifications_3" role="tabpanel">
+                                       <!--begin::Items-->
+                                       <div class="scroll-y mh-325px my-5 px-8">
+                                          <!--begin::Item-->
+                                          <div class="d-flex flex-stack py-4">
+                                             <!--begin::Section-->
+                                             <div class="d-flex align-items-center me-2">
+                                                <!--begin::Code-->
+                                                <span class="w-70px badge badge-light-success me-4">200 OK</span>
+                                                <!--end::Code-->
+                                                <!--begin::Title-->
+                                                <a href="javascript:void(0);" class="text-gray-800 text-hover-primary fw-semibold">New order</a>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Section-->
+                                             <!--begin::Label-->
+                                             <span class="badge badge-light fs-8">Just now</span>
+                                             <!--end::Label-->
+                                          </div>
+                                          <!--end::Item-->
+                                          <!--begin::Item-->
+                                          <div class="d-flex flex-stack py-4">
+                                             <!--begin::Section-->
+                                             <div class="d-flex align-items-center me-2">
+                                                <!--begin::Code-->
+                                                <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
+                                                <!--end::Code-->
+                                                <!--begin::Title-->
+                                                <a href="javascript:void(0);" class="text-gray-800 text-hover-primary fw-semibold">New customer</a>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Section-->
+                                             <!--begin::Label-->
+                                             <span class="badge badge-light fs-8">2 hrs</span>
+                                             <!--end::Label-->
+                                          </div>
+                                          <!--end::Item-->
+                                          <!--begin::Item-->
+                                          <div class="d-flex flex-stack py-4">
+                                             <!--begin::Section-->
+                                             <div class="d-flex align-items-center me-2">
+                                                <!--begin::Code-->
+                                                <span class="w-70px badge badge-light-success me-4">200 OK</span>
+                                                <!--end::Code-->
+                                                <!--begin::Title-->
+                                                <a href="javascript:void(0);" class="text-gray-800 text-hover-primary fw-semibold">Payment process</a>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Section-->
+                                             <!--begin::Label-->
+                                             <span class="badge badge-light fs-8">5 hrs</span>
+                                             <!--end::Label-->
+                                          </div>
+                                          <!--end::Item-->
+                                          <!--begin::Item-->
+                                          <div class="d-flex flex-stack py-4">
+                                             <!--begin::Section-->
+                                             <div class="d-flex align-items-center me-2">
+                                                <!--begin::Code-->
+                                                <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
+                                                <!--end::Code-->
+                                                <!--begin::Title-->
+                                                <a href="javascript:void(0);" class="text-gray-800 text-hover-primary fw-semibold">Search query</a>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Section-->
+                                             <!--begin::Label-->
+                                             <span class="badge badge-light fs-8">2 days</span>
+                                             <!--end::Label-->
+                                          </div>
+                                          <!--end::Item-->
+                                          <!--begin::Item-->
+                                          <div class="d-flex flex-stack py-4">
+                                             <!--begin::Section-->
+                                             <div class="d-flex align-items-center me-2">
+                                                <!--begin::Code-->
+                                                <span class="w-70px badge badge-light-success me-4">200 OK</span>
+                                                <!--end::Code-->
+                                                <!--begin::Title-->
+                                                <a href="javascript:void(0);" class="text-gray-800 text-hover-primary fw-semibold">API connection</a>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Section-->
+                                             <!--begin::Label-->
+                                             <span class="badge badge-light fs-8">1 week</span>
+                                             <!--end::Label-->
+                                          </div>
+                                          <!--end::Item-->
+                                          <!--begin::Item-->
+                                          <div class="d-flex flex-stack py-4">
+                                             <!--begin::Section-->
+                                             <div class="d-flex align-items-center me-2">
+                                                <!--begin::Code-->
+                                                <span class="w-70px badge badge-light-success me-4">200 OK</span>
+                                                <!--end::Code-->
+                                                <!--begin::Title-->
+                                                <a href="javascript:void(0);" class="text-gray-800 text-hover-primary fw-semibold">Database restore</a>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Section-->
+                                             <!--begin::Label-->
+                                             <span class="badge badge-light fs-8">Mar 5</span>
+                                             <!--end::Label-->
+                                          </div>
+                                          <!--end::Item-->
+                                          <!--begin::Item-->
+                                          <div class="d-flex flex-stack py-4">
+                                             <!--begin::Section-->
+                                             <div class="d-flex align-items-center me-2">
+                                                <!--begin::Code-->
+                                                <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
+                                                <!--end::Code-->
+                                                <!--begin::Title-->
+                                                <a href="javascript:void(0);" class="text-gray-800 text-hover-primary fw-semibold">System update</a>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Section-->
+                                             <!--begin::Label-->
+                                             <span class="badge badge-light fs-8">May 15</span>
+                                             <!--end::Label-->
+                                          </div>
+                                          <!--end::Item-->
+                                          <!--begin::Item-->
+                                          <div class="d-flex flex-stack py-4">
+                                             <!--begin::Section-->
+                                             <div class="d-flex align-items-center me-2">
+                                                <!--begin::Code-->
+                                                <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
+                                                <!--end::Code-->
+                                                <!--begin::Title-->
+                                                <a href="javascript:void(0);" class="text-gray-800 text-hover-primary fw-semibold">Server OS update</a>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Section-->
+                                             <!--begin::Label-->
+                                             <span class="badge badge-light fs-8">Apr 3</span>
+                                             <!--end::Label-->
+                                          </div>
+                                          <!--end::Item-->
+                                          <!--begin::Item-->
+                                          <div class="d-flex flex-stack py-4">
+                                             <!--begin::Section-->
+                                             <div class="d-flex align-items-center me-2">
+                                                <!--begin::Code-->
+                                                <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
+                                                <!--end::Code-->
+                                                <!--begin::Title-->
+                                                <a href="javascript:void(0);" class="text-gray-800 text-hover-primary fw-semibold">API rollback</a>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Section-->
+                                             <!--begin::Label-->
+                                             <span class="badge badge-light fs-8">Jun 30</span>
+                                             <!--end::Label-->
+                                          </div>
+                                          <!--end::Item-->
+                                          <!--begin::Item-->
+                                          <div class="d-flex flex-stack py-4">
+                                             <!--begin::Section-->
+                                             <div class="d-flex align-items-center me-2">
+                                                <!--begin::Code-->
+                                                <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
+                                                <!--end::Code-->
+                                                <!--begin::Title-->
+                                                <a href="javascript:void(0);" class="text-gray-800 text-hover-primary fw-semibold">Refund process</a>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Section-->
+                                             <!--begin::Label-->
+                                             <span class="badge badge-light fs-8">Jul 10</span>
+                                             <!--end::Label-->
+                                          </div>
+                                          <!--end::Item-->
+                                          <!--begin::Item-->
+                                          <div class="d-flex flex-stack py-4">
+                                             <!--begin::Section-->
+                                             <div class="d-flex align-items-center me-2">
+                                                <!--begin::Code-->
+                                                <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
+                                                <!--end::Code-->
+                                                <!--begin::Title-->
+                                                <a href="javascript:void(0);" class="text-gray-800 text-hover-primary fw-semibold">Withdrawal process</a>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Section-->
+                                             <!--begin::Label-->
+                                             <span class="badge badge-light fs-8">Sep 10</span>
+                                             <!--end::Label-->
+                                          </div>
+                                          <!--end::Item-->
+                                          <!--begin::Item-->
+                                          <div class="d-flex flex-stack py-4">
+                                             <!--begin::Section-->
+                                             <div class="d-flex align-items-center me-2">
+                                                <!--begin::Code-->
+                                                <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
+                                                <!--end::Code-->
+                                                <!--begin::Title-->
+                                                <a href="javascript:void(0);" class="text-gray-800 text-hover-primary fw-semibold">Mail tasks</a>
+                                                <!--end::Title-->
+                                             </div>
+                                             <!--end::Section-->
+                                             <!--begin::Label-->
+                                             <span class="badge badge-light fs-8">Dec 10</span>
+                                             <!--end::Label-->
+                                          </div>
+                                          <!--end::Item-->
+                                       </div>
+                                       <!--end::Items-->
+                                       <!--begin::View more-->
+                                       <div class="py-3 text-center border-top">
+                                          <a href="pages/user-profile/activity.html" class="btn btn-color-gray-600 btn-active-color-primary">
+                                          View All 
+                                          <i class="ki-outline ki-arrow-right fs-5"></i>                </a>			 
+                                       </div>
+                                       <!--end::View more--> 
+                                    </div>
+                                    <!--end::Tab panel-->
+>>>>>>> e776c11d649efb506e0135ad216ebf2c349a7b29
                                  </div>
                                  <!--end::Tab content-->
                               </div>
@@ -472,14 +1097,14 @@
                            <!--begin::Theme mode-->
                            <div class="d-flex align-items-center">
                               <!--begin::Menu toggle-->
-                              <a href="#" class="topbar-item px-3 px-lg-4" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+                              <a href="javascript:void(0);" class="topbar-item px-3 px-lg-4" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
                               <i class="ki-outline ki-night-day theme-light-show fs-1"></i>    <i class="ki-outline ki-moon theme-dark-show fs-1"></i></a>
                               <!--begin::Menu toggle-->
                               <!--begin::Menu-->
                               <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-gray-500 menu-active-bg menu-state-color fw-semibold py-4 fs-base w-150px" data-kt-menu="true" data-kt-element="theme-mode-menu">
                                  <!--begin::Menu item-->
                                  <div class="menu-item px-3 my-0">
-                                    <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
+                                    <a href="javascript:void(0);" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
                                     <span class="menu-icon" data-kt-element="icon">
                                     <i class="ki-outline ki-night-day fs-2"></i>            </span>
                                     <span class="menu-title">
@@ -490,7 +1115,7 @@
                                  <!--end::Menu item-->
                                  <!--begin::Menu item-->
                                  <div class="menu-item px-3 my-0">
-                                    <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="dark">
+                                    <a href="javascript:void(0);" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="dark">
                                     <span class="menu-icon" data-kt-element="icon">
                                     <i class="ki-outline ki-moon fs-2"></i>            </span>
                                     <span class="menu-title">
@@ -501,7 +1126,7 @@
                                  <!--end::Menu item-->
                                  <!--begin::Menu item-->
                                  <div class="menu-item px-3 my-0">
-                                    <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="system">
+                                    <a href="javascript:void(0);" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="system">
                                     <span class="menu-icon" data-kt-element="icon">
                                     <i class="ki-outline ki-screen fs-2"></i>            </span>
                                     <span class="menu-title">
@@ -544,7 +1169,7 @@
                                                 @isset(Auth::user()->name){{ Auth::user()->name }}@endisset </span>            
                                              <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">CMS</span>
                                           </div>
-                                          <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">
+                                          <a href="javascript:void(0);" class="fw-semibold text-muted text-hover-primary fs-7">
                                           @isset(Auth::user()->email){{ Auth::user()->email }}@endisset              
                                           </a>
                                           <div class="fw-bold d-flex align-items-left fs-7">               
@@ -571,7 +1196,7 @@
                                  <!--end::Menu separator-->
                                  <!--begin::Menu item-->
                                  <div class="menu-item px-5 my-1">
-                                    <a href="#" class="menu-link px-5">
+                                    <a href="javascript:void(0);" class="menu-link px-5">
                                     Account Settings
                                     </a>
                                  </div>
@@ -610,6 +1235,7 @@
             target="_blank" class="app-engage-btn hover-dark">			
             <i class="ki-outline ki-abstract-41 fs-1 pt-1 mb-2"></i>Dev URL
          </a>
+<<<<<<< HEAD
          <a href="#" class="app-engage-btn hover-primary">			
             <i class="ki-outline ki-like-shapes fs-1 pt-1 mb-2"></i>Pro URL
          </a>
@@ -617,6 +1243,26 @@
             <i class="ki-outline ki-cross fs-2x"></i>				
          </a>
          <a href="#" id="kt_app_engage_toggle_on" class="app-engage-btn app-engage-btn-toggle-on text-hover-primary p-0" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-custom-class="tooltip-inverse" data-bs-dimiss="click" title="CMS (Content Management System) URLs">		
+=======
+         <!--end::Prebuilts toggle-->
+         <!--begin::Get help-->
+         <a href="javascript:void(0);" class="app-engage-btn hover-primary">			
+            <i class="ki-outline ki-like-shapes fs-1 pt-1 mb-2"></i>Pro URL
+         </a>
+         <!--end::Get help-->
+         <!--begin::Prebuilts toggle-->
+         <!-- <a href="https://1.envato.market/EA4JP" target="_blank" class="app-engage-btn hover-success">			
+             <i class="ki-outline ki-basket fs-2 pt-1 mb-2"></i>ON Roard URL
+         </a> -->
+         <!--end::Prebuilts toggle-->
+         <!--begin::Engage close-->
+         <a href="javascript:void(0);" id="kt_app_engage_toggle_off" class="app-engage-btn app-engage-btn-toggle-off text-hover-primary p-0">			
+            <i class="ki-outline ki-cross fs-2x"></i>				
+         </a>
+         <!--end::Engage close-->
+         <!--begin::Engage close-->
+         <a href="javascript:void(0);" id="kt_app_engage_toggle_on" class="app-engage-btn app-engage-btn-toggle-on text-hover-primary p-0" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-custom-class="tooltip-inverse" data-bs-dimiss="click" title="CMS (Content Management System) URLs">		
+>>>>>>> e776c11d649efb506e0135ad216ebf2c349a7b29
             <i class="ki-outline ki-question fs-2 text-primary"></i>				
          </a>
       </div>

@@ -106,7 +106,7 @@
                         <!--begin::Wrapper-->
                         <div class="me-4">
                            <!--begin::Menu-->
-                           <a href="#" class="btn btn-sm btn-flex btn-light btn-active-primary fw-bold" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+                           <a href="javascript:void(0);" class="btn btn-sm btn-flex btn-light btn-active-primary fw-bold" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
                            <i class="ki-outline ki-filter fs-5 text-gray-500 me-1"></i>               
                            Filter
                            </a>
@@ -195,7 +195,7 @@
                         </div>
                         <!--end::Wrapper-->
                         <!--begin::Button-->
-                        <a href="#" class="btn btn-sm btn-primary"  data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" id="kt_toolbar_primary_button">
+                        <a href="javascript:void(0);" class="btn btn-sm btn-primary"  data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" id="kt_toolbar_primary_button">
                         Create </a>
                         <!--end::Button-->
                      </div>
