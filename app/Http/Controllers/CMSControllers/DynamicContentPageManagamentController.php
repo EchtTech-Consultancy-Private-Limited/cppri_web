@@ -1,17 +1,17 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\DynamicContentPageManagament;
 use App\Models\CMSModels\WebsiteMenuManagement;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
 use DB;
 
 class DynamicContentPageManagamentController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -21,11 +21,16 @@ class DynamicContentPageManagamentController extends Controller
     {
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['list'] = route('pagemetatag-list');
-        $crudUrlTemplate['edit'] = route('contentpage.edit', ['id' => 'xxxx']);
-        $crudUrlTemplate['delete'] = route('pagemetatag-delete', ['id' => 'xxxx']);
+        if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('pagemetatag-list');
+        }
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('contentpage.edit', ['id' => 'xxxx']);
+        }
+        if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('pagemetatag-delete', ['id' => 'xxxx']);
+        }
         //$crudUrlTemplate['view'] = route('pagemetatag-list');
-
         //dd($crudUrlTemplate);
         return view('cms-view.dynamic-content-page-managament.content-page-list',
             ['crudUrlTemplate' =>  json_encode($crudUrlTemplate)
@@ -40,16 +45,27 @@ class DynamicContentPageManagamentController extends Controller
      */
     public function create()
     {
-        $crudUrlTemplate['create_pagemetatag'] = route('pagemetatag-save');
-        $crudUrlTemplate['create_pagecontent'] = route('pagecontent-save');
-        $crudUrlTemplate['create_pagegallery'] = route('pagegallery-save');
-        $crudUrlTemplate['create_pagepdf'] = route('pagepdf-save');
+       // dd($this->abortIfAccessNotAllowed());
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['create']) && $this->abortIfAccessNotAllowed()['create'] !=''){
+            $crudUrlTemplate['create_pagemetatag'] = route('pagemetatag-save');
+            $crudUrlTemplate['create_pagecontent'] = route('pagecontent-save');
+            $crudUrlTemplate['create_pagegallery'] = route('pagegallery-save');
+            $crudUrlTemplate['create_pagepdf'] = route('pagepdf-save');
+        }else{
+            $accessPermission = $this->checkAccessMessage();
+           // $accessPermission = "You don't have permission to perform this action!";
+        }
+        
 
-        $pageTitle = DB::table('dynamic_content_page_metaTag')->select('uid','page_title_en','page_title_hi')->where([['soft_delete','=','0']])->get();
+        $pageTitle = DB::table('dynamic_content_page_metatag')->select('uid','page_title_en','page_title_hi','menu_slug')->where([['soft_delete','=','0']])->get();
         $menu=WebsiteMenuManagement::select('name_en','name_hi','url','uid')->where([['soft_delete','=','0']])->get();
         
         return view('cms-view.dynamic-content-page-managament.content-page-add',
-        ['crudUrlTemplate' =>  json_encode($crudUrlTemplate), 'pageTitle'=>$pageTitle,'menuName'=>$menu
+        ['crudUrlTemplate' =>  json_encode($crudUrlTemplate), 
+        'pageTitle'=>$pageTitle,
+        'menuName'=>$menu,
+        'textMessage' =>$accessPermission??''
     
     ]);
     }
@@ -91,11 +107,11 @@ class DynamicContentPageManagamentController extends Controller
         $crudUrlTemplate['deletepdfimg'] = route('pdfimg-delete');
 
 
-        $pageTitle = DB::table('dynamic_content_page_metaTag')->select('uid','page_title_en','page_title_hi')->where([['soft_delete','=','0']])->get();
+        $pageTitle = DB::table('dynamic_content_page_metatag')->select('uid','page_title_en','page_title_hi')->where([['soft_delete','=','0']])->get();
         $menu=WebsiteMenuManagement::select('name_en','name_hi','url','uid')->where([['soft_delete','=','0']])->get();
         
 
-        $metacontent=DB::table('dynamic_content_page_metaTag')->select('*')->where('uid', $request->id)->where('soft_delete','0')->get();
+        $metacontent=DB::table('dynamic_content_page_metatag')->select('*')->where('uid', $request->id)->where('soft_delete','0')->get();
         
         foreach($metacontent as $metacontents){
             

@@ -1,16 +1,16 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\NewsManagement;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
 use DB;
 
 class NewsManagementController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -20,9 +20,16 @@ class NewsManagementController extends Controller
     {
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['list'] = route('news-list');
-        $crudUrlTemplate['edit'] = route('news.edit', ['id' => 'xxxx']);
-        $crudUrlTemplate['delete'] = route('news-delete', ['id' => 'xxxx']);
+        if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('news-list');
+        }
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('news.edit', ['id' => 'xxxx']);
+        }
+        if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('news-delete', ['id' => 'xxxx']);
+        }
+        
         //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
 
         return view('cms-view.news-management.news_list',
@@ -38,10 +45,16 @@ class NewsManagementController extends Controller
      */
     public function create()
     {
-        $crudUrlTemplate['create_news'] = route('news-save');
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['create']) && $this->abortIfAccessNotAllowed()['create'] !=''){
+            $crudUrlTemplate['create_news'] = route('news-save');
+        }else{
+            $accessPermission = $this->checkAccessMessage();
+        }
 
         return view('cms-view.news-management.news_add',
-          ['crudUrlTemplate' =>  json_encode($crudUrlTemplate)
+          ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),    
+          'textMessage' =>$accessPermission??''
     
          ]);
     }
@@ -76,8 +89,11 @@ class NewsManagementController extends Controller
      */
     public function edit(Request $request)
     {
-        $crudUrlTemplate['update'] = route('news-update');
-        $crudUrlTemplate['deletepdfimg'] = route('pdf-delete');
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['update'] = route('news-update');
+            $crudUrlTemplate['deletepdfimg'] = route('pdf-delete');
+        }
 
         $results = NewsManagement::where('uid', $request->id)->first();
         $pdfimagesData = DB::table('news_details')->where('news_id', $results->uid)->where([['soft_delete','=','0']])->get();

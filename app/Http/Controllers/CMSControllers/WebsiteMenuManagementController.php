@@ -1,15 +1,15 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\WebsiteMenuManagement;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
 
 class WebsiteMenuManagementController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -19,9 +19,17 @@ class WebsiteMenuManagementController extends Controller
     {
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['list'] = route('menu-list');
-        $crudUrlTemplate['edit'] = route('menu.edit', ['id' => 'xxxx']);
-        $crudUrlTemplate['delete'] = route('menu-delete', ['id' => 'xxxx']);
+        if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('menu-list');
+        }
+        
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('menu.edit', ['id' => 'xxxx']);
+        }
+        
+        if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('menu-delete', ['id' => 'xxxx']);
+        }
         //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
 
         $data=WebsiteMenuManagement::all();
@@ -37,12 +45,21 @@ class WebsiteMenuManagementController extends Controller
      */
     public function create()
     {
-        $crudUrlTemplate['create'] = route('menu-save');
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['create']) && $this->abortIfAccessNotAllowed()['create'] !=''){
+            $crudUrlTemplate['create'] = route('menu-save');
+        }else{
+            $accessPermission = $this->checkAccessMessage();
+        }
         
         $menu=WebsiteMenuManagement::select('name_en','name_hi','uid')->where([['soft_delete','=','0']])->where('parent_id','0')->get();
         $Submenu=WebsiteMenuManagement::select('name_en','name_hi','uid')->where([['soft_delete','=','0']])->whereNot('parent_id', '0')->get();
         return view('cms-view.website-menu-management.menu-add',
-        ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),'menu'=>$menu, 'Submenu'=>$Submenu]);
+        ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),
+            'menuList'=>$menu, 
+            'Submenu'=>$Submenu,    
+            'textMessage' =>$accessPermission??''
+        ]);
     }
 
     /**
@@ -108,7 +125,10 @@ class WebsiteMenuManagementController extends Controller
      */
     public function edit(Request $request)
     {
-        $crudUrlTemplate['update'] = route('menu-update');
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['update'] = route('menu-update');
+        }
 
         $Editmenus=WebsiteMenuManagement::select('*')->where('uid',$request->id)->first();
 

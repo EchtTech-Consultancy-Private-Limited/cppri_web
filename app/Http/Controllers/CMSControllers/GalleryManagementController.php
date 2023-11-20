@@ -1,15 +1,15 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\GalleryManagement;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
 
 class GalleryManagementController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -19,11 +19,12 @@ class GalleryManagementController extends Controller
     {
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['list'] = route('photovideo-list');
+        if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('photovideo-list');
+        }
        // $crudUrlTemplate['edit'] = route('event.edit', ['id' => 'xxxx']);
         //$crudUrlTemplate['delete'] = route('event-delete', ['id' => 'xxxx']);
         //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
-
         //$data=GalleryManagement::where('')->where()->get();
 
         return view('cms-view.photo-video-gallery-management.list',
@@ -39,11 +40,18 @@ class GalleryManagementController extends Controller
      */
     public function create()
     {
-        $crudUrlTemplate['create_photo'] = route('photo-save');
-        $crudUrlTemplate['create_video'] = route('video-save');
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['create']) && $this->abortIfAccessNotAllowed()['create'] !=''){
+            $crudUrlTemplate['create_photo'] = route('photo-save');
+            $crudUrlTemplate['create_video'] = route('video-save');
+        }else{
+            $accessPermission = $this->checkAccessMessage();
+        }
 
         return view('cms-view.photo-video-gallery-management.gallery-management-add',
-        ['crudUrlTemplate' =>  json_encode($crudUrlTemplate) ]);
+        ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),    
+            'textMessage' =>$accessPermission??''
+         ]);
     }
 
     /**

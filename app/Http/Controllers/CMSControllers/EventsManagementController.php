@@ -1,16 +1,16 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\EventsManagement;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
 use DB;
 
 class EventsManagementController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -20,9 +20,15 @@ class EventsManagementController extends Controller
     {
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['list'] = route('event-list');
-        $crudUrlTemplate['edit'] = route('event.edit', ['id' => 'xxxx']);
-        $crudUrlTemplate['delete'] = route('event-delete', ['id' => 'xxxx']);
+        if(isset($this->abortIfAccessNotAllowed()['view']) && $this->abortIfAccessNotAllowed()['view'] !=''){
+            $crudUrlTemplate['list'] = route('event-list');
+        }
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('event.edit', ['id' => 'xxxx']);
+        }
+        if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('event-delete', ['id' => 'xxxx']);
+        }
         //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
 
         return view('cms-view.events-management.event_list',
@@ -38,10 +44,15 @@ class EventsManagementController extends Controller
      */
     public function create()
     {
-        $crudUrlTemplate['create_event'] = route('event-save');
-
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['create']) && $this->abortIfAccessNotAllowed()['create'] !=''){
+            $crudUrlTemplate['create_event'] = route('event-save');
+        }else{
+            $accessPermission = $this->checkAccessMessage();
+        }
         return view('cms-view.events-management.event_add',
-        ['crudUrlTemplate' =>  json_encode($crudUrlTemplate)
+        ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),    
+        'textMessage' =>$accessPermission??''
     
          ]);
     }
@@ -76,8 +87,11 @@ class EventsManagementController extends Controller
      */
     public function edit(Request $request)
     {
-        $crudUrlTemplate['update'] = route('event-update');
-        $crudUrlTemplate['deletepdfimg'] = route('pdf-delete');
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['update'] = route('event-update');
+            $crudUrlTemplate['deletepdfimg'] = route('pdf-delete');
+        }
 
         $results = EventsManagement::where('uid', $request->id)->first();
         $pdfimagesData = DB::table('events_details')->where('events_id', $results->uid)->where([['soft_delete','=','0']])->get();

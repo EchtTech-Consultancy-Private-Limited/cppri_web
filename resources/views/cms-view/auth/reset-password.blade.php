@@ -1,7 +1,7 @@
 <html lang="en" >
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
    <head>
-      <title>Login</title>
+      <title>Forgot Password</title>
       <meta charset="utf-8"/>
       <meta name="description" content=""/>
       <meta name="keywords" content=""/>
@@ -15,7 +15,7 @@
       <link rel="shortcut icon" href="{{ asset('assets/media/logos/favicon.ico') }}"/>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"/>
       <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css"/>
-      <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="{{ asset('assets/cms_css/style.bundle.css') }}" rel="stylesheet" type="text/css"/>
    </head>
    <body  id="kt_body"  class="auth-bg bgi-size-cover bgi-attachment-fixed bgi-position-center" >
       <div class="d-flex flex-column flex-root">
@@ -30,10 +30,10 @@
          <div class="d-flex flex-column flex-lg-row flex-column-fluid">
             <div class="d-flex flex-lg-row-fluid">
                <div class="d-flex flex-column flex-center pb-0 pb-lg-10 p-10 w-100">
-                  <img class="theme-light-show mx-auto mw-100 w-150px w-lg-200px mb-10 mb-lg-20" src="{{ asset('assets/media/auth/nrcp_white.png') }}" alt=""/>    
-                  <img class="theme-dark-show mx-auto mw-100 w-150px w-lg-200px mb-10 mb-lg-20" src="{{ asset('assets/media/auth/nrcp_white.png') }}" alt=""/>                 
+                  <img class="theme-light-show mx-auto mw-100 w-150px w-lg-200px mb-10 mb-lg-20" src="{{ asset(config('constants.default.logo_image')) }}" alt=""/>    
+                  <img class="theme-dark-show mx-auto mw-100 w-150px w-lg-200px mb-10 mb-lg-20" src="{{ asset(config('constants.default.logo_image')) }}" alt=""/>                 
                   <h1 class="text-gray-800 fs-2qx fw-bold text-center mb-7"> 
-                     NRCP Website CMS Login
+                     CMS (Content Management System) Login
                   </h1>
                   <div class="text-gray-600 fs-base text-center fw-semibold">
                      <p>Version 1.0</p>
@@ -45,7 +45,7 @@
                <div class="bg-body d-flex flex-column flex-center rounded-4 w-md-600px p-10">
                   <div class="d-flex flex-center flex-column align-items-stretch h-lg-100 w-md-400px">
                      <div class="d-flex flex-center flex-column flex-column-fluid pb-15 pb-lg-20">
-                        <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" data-kt-redirect-url="{{ route('dashboard') }}" action="{{ route('authenticate') }}">
+                        <form class="form w-100" novalidate="novalidate" id="kt_password_reset_form" data-kt-redirect-url="{{ route('login') }}" action="{{ route('forgetuser') }}">
                             <div class="text-center mb-10">
                                 <h1 class="text-dark fw-bolder mb-3">
                                     Forgot Password ?
@@ -59,7 +59,11 @@
                             </div>
                            <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
                               <div></div>
+<<<<<<< HEAD
+                              <a href="{{ route('login') }}" class="link-primary"> Login ?</a>
+=======
                               <a href="javascript:void(0);" class="link-primary"> Forgot Password ?</a>
+>>>>>>> e776c11d649efb506e0135ad216ebf2c349a7b29
                            </div>
                            <div class="d-flex flex-wrap justify-content-center pb-lg-0">
                                 <button type="button" id="kt_password_reset_submit" class="btn btn-primary me-4">
@@ -68,11 +72,11 @@
                                         Please wait...    <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
                                     </span>
                                 </button>
-                                    <a href="sign-in.html" class="btn btn-light">Cancel</a>
+                                    <a href="#" class="btn btn-light">Cancel</a>
                                 </div>
                         </form>
                      </div>
-                     <div class=" d-flex flex-stack">
+                     <!-- <div class=" d-flex flex-stack">
                         <div class="me-10">
                            <button class="btn btn-flex btn-link btn-color-gray-700 btn-active-color-primary rotate fs-base" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start" data-kt-menu-offset="0px, 0px">
                            <img  data-kt-element="current-lang-flag" class="w-20px h-20px rounded me-3" src="{{ asset('assets/media/flags/india.svg') }}" alt=""/>
@@ -91,14 +95,14 @@
                            </div>
                         </div>
                         
-                     </div>
+                     </div> -->
                   </div>
                </div>
             </div>
          </div>
       </div>
       <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
-      <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
-      <script src="{{ asset('assets/js/custom/authentication/sign-in/general.js') }}"></script>
+      <script src="{{ asset('assets/cms_js/scripts.bundle.js') }}"></script>
+      <script src="{{ asset('assets/cms_js/custom/authentication/reset-password/reset-password.js') }}"></script>
    </body>
 </html>

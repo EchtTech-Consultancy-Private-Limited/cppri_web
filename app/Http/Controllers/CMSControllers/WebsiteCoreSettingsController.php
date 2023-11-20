@@ -1,18 +1,18 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
-
 
 use App\Models\CMSModels\WebsiteCoreSettings;
 use App\Models\CMSModels\FooterManagement;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
+use App\Http\Traits\AccessModelTrait;
 use DB;
 
 class WebsiteCoreSettingsController extends Controller
 {
+    use AccessModelTrait;
 
     public function __construct()
     {
@@ -29,9 +29,17 @@ class WebsiteCoreSettingsController extends Controller
 
        $crudUrlTemplate = array();
        // xxxx to be replaced with ext_id to create valid endpoint
-       $crudUrlTemplate['list'] = route('logo-list');
-       $crudUrlTemplate['edit'] = route('websitecoresetting.edit', ['id' => 'xxxx']);
-       $crudUrlTemplate['delete'] = route('cws-delete', ['id' => 'xxxx']);
+       if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('logo-list');
+       }
+       
+       if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('websitecoresetting.edit', ['id' => 'xxxx']);
+       }
+       
+       if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('cws-delete', ['id' => 'xxxx']);
+       }
        //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
 
        return view('cms-view.website-core-settings.websitelogo_list',
@@ -44,9 +52,17 @@ class WebsiteCoreSettingsController extends Controller
 
        $crudUrlTemplate = array();
        // xxxx to be replaced with ext_id to create valid endpoint
-       $crudUrlTemplate['list'] = route('footercontent-list');
-       $crudUrlTemplate['edit'] = route('websitecoresetting.edit', ['id' => 'xxxx']);
-       $crudUrlTemplate['delete'] = route('cws-delete', ['id' => 'xxxx']);
+       if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('footercontent-list');
+       }
+       
+       if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('websitecoresetting.edit', ['id' => 'xxxx']);
+       }
+       
+       if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+             $crudUrlTemplate['delete'] = route('cws-delete', ['id' => 'xxxx']);
+       }
        //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
 
        return view('cms-view.website-core-settings.footercontent_list',
@@ -59,9 +75,17 @@ class WebsiteCoreSettingsController extends Controller
 
        $crudUrlTemplate = array();
        // xxxx to be replaced with ext_id to create valid endpoint
-       $crudUrlTemplate['list'] = route('sociallink-list');
-       $crudUrlTemplate['edit'] = route('websitecoresetting.edit', ['id' => 'xxxx']);
-       $crudUrlTemplate['delete'] = route('cws-delete', ['id' => 'xxxx']);
+       if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('sociallink-list');
+       }
+       
+       if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('websitecoresetting.edit', ['id' => 'xxxx']);
+       }
+       
+       if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('cws-delete', ['id' => 'xxxx']);
+       }
        //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
 
        return view('cms-view.website-core-settings.sociallink_list',
@@ -80,12 +104,17 @@ class WebsiteCoreSettingsController extends Controller
        $data=WebsiteCoreSettings::all(); 
        $crudUrlTemplate = array();
        // xxxx to be replaced with ext_id to create valid endpoint
-       $crudUrlTemplate['create_headerlogo'] = route('headerLogo-save');
-       $crudUrlTemplate['create_footerContent'] = route('footer-save');
-       $crudUrlTemplate['create_sociallink'] = route('socialLink-save');
-
+       if(isset($this->abortIfAccessNotAllowed()['create']) && $this->abortIfAccessNotAllowed()['create'] !=''){
+            $crudUrlTemplate['create_headerlogo'] = route('headerLogo-save');
+            $crudUrlTemplate['create_footerContent'] = route('footer-save');
+            $crudUrlTemplate['create_sociallink'] = route('socialLink-save');
+            $crudUrlTemplate['create_popupadvertising'] = route('popupadvertising-save');
+       }else{
+            $accessPermission = $this->checkAccessMessage();
+        }
        return view('cms-view.website-core-settings.websitecoresetting_add',
-            ['crudUrlTemplate' =>  json_encode($crudUrlTemplate)
+            ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),    
+            'textMessage' =>$accessPermission??''
         
         ]);
     }
@@ -131,10 +160,11 @@ class WebsiteCoreSettingsController extends Controller
      */
     public function edit(Request $request)
     {
-       
-        $crudUrlTemplate['update_headerlogo'] = route('headerLogo-update');
-        $crudUrlTemplate['update_footerContent'] = route('footer-update');
-        $crudUrlTemplate['update_sociallink'] = route('socialLink-update');
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['update_headerlogo'] = route('headerLogo-update');
+            $crudUrlTemplate['update_footerContent'] = route('footer-update');
+            $crudUrlTemplate['update_sociallink'] = route('socialLink-update');
+        }
 
        $datas = WebsiteCoreSettings::where('uid',$request->id)->first();
        $footerdatas = FooterManagement::where('uid',$request->id)->first();

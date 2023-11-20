@@ -16,7 +16,7 @@
                         @if(isset(Auth::user()->role_id) == '1' && Auth::user()->role_id == '1')
                            <img alt="Logo" src="{{ asset('assets/logo-light.png') }}" class="h-25px"/>
                         @else
-                        <p>{{ config('constants.default.company_name') }}</p>
+                        <p>{{ env('COMPANY_NAME') }}</p>
                         @endif
                         </a>
                      </div>
@@ -116,6 +116,8 @@
                                        <!--begin::Separator-->
                                        <div class="separator border-gray-200 mb-6"></div>
                                        <!--end::Separator-->
+<<<<<<< HEAD
+=======
                                        <!--begin::Recently viewed-->
                                        <div data-kt-search-element="results" class="d-none">
                                           <!--begin::Items-->
@@ -516,192 +518,9 @@
                                           <!--end::Message-->
                                        </div>
                                        <!--end::Empty-->        
+>>>>>>> e776c11d649efb506e0135ad216ebf2c349a7b29
                                     </div>
                                     <!--end::Wrapper-->
-                                    <!--begin::Preferences-->
-                                    <form data-kt-search-element="advanced-options-form" class="pt-1 d-none">
-                                       <!--begin::Heading-->
-                                       <h3 class="fw-semibold text-dark mb-7">Advanced Search</h3>
-                                       <!--end::Heading-->
-                                       <!--begin::Input group-->
-                                       <div class="mb-5">
-                                          <input type="text" class="form-control form-control-sm form-control-solid" placeholder="Contains the word" name="query"/>
-                                       </div>
-                                       <!--end::Input group-->
-                                       <!--begin::Input group-->
-                                       <div class="mb-5">
-                                          <!--begin::Radio group-->
-                                          <div class="nav-group nav-group-fluid">
-                                             <!--begin::Option-->     
-                                             <label>     
-                                             <input type="radio" class="btn-check" name="type" value="has" checked="checked"/>
-                                             <span class="btn btn-sm btn-color-muted btn-active btn-active-primary">
-                                             All
-                                             </span>
-                                             </label>
-                                             <!--end::Option-->
-                                             <!--begin::Option-->          
-                                             <label>  
-                                             <input type="radio" class="btn-check" name="type" value="users"/>
-                                             <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">
-                                             Users
-                                             </span>
-                                             </label>
-                                             <!--end::Option-->
-                                             <!--begin::Option-->        
-                                             <label>    
-                                             <input type="radio" class="btn-check" name="type" value="orders"/>
-                                             <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">
-                                             Orders
-                                             </span>
-                                             </label>
-                                             <!--end::Option-->
-                                             <!--begin::Option-->     
-                                             <label>       
-                                             <input type="radio" class="btn-check" name="type" value="projects"/>
-                                             <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">
-                                             Projects
-                                             </span>
-                                             </label>
-                                             <!--end::Option-->
-                                          </div>
-                                          <!--end::Radio group-->
-                                       </div>
-                                       <!--end::Input group-->
-                                       <!--begin::Input group-->
-                                       <div class="mb-5">
-                                          <input type="text" name="assignedto" class="form-control form-control-sm form-control-solid" placeholder="Assigned to" value=""/>
-                                       </div>
-                                       <!--end::Input group-->
-                                       <!--begin::Input group-->
-                                       <div class="mb-5">
-                                          <input type="text" name="collaborators" class="form-control form-control-sm form-control-solid" placeholder="Collaborators" value=""/>
-                                       </div>
-                                       <!--end::Input group-->
-                                       <!--begin::Input group-->
-                                       <div class="mb-5">
-                                          <!--begin::Radio group-->
-                                          <div class="nav-group nav-group-fluid">
-                                             <!--begin::Option-->     
-                                             <label>     
-                                             <input type="radio" class="btn-check" name="attachment" value="has" checked="checked"/>
-                                             <span class="btn btn-sm btn-color-muted btn-active btn-active-primary">
-                                             Has attachment
-                                             </span>
-                                             </label>
-                                             <!--end::Option-->
-                                             <!--begin::Option-->          
-                                             <label>  
-                                             <input type="radio" class="btn-check" name="attachment" value="any"/>
-                                             <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">
-                                             Any
-                                             </span>
-                                             </label>
-                                             <!--end::Option-->
-                                          </div>
-                                          <!--end::Radio group-->
-                                       </div>
-                                       <!--end::Input group-->
-                                       <!--begin::Input group-->
-                                       <div class="mb-5">
-                                          <select name="timezone" aria-label="Select a Timezone" data-control="select2" data-dropdown-parent="#kt_header_search" data-placeholder="date_period" class="form-select form-select-sm form-select-solid">
-                                             <option value="next">Within the next</option>
-                                             <option value="last">Within the last</option>
-                                             <option value="between">Between</option>
-                                             <option value="on">On</option>
-                                          </select>
-                                       </div>
-                                       <!--end::Input group-->
-                                       <!--begin::Input group-->
-                                       <div class="row mb-8">
-                                          <!--begin::Col-->
-                                          <div class="col-6"> 
-                                             <input type="number" name="date_number" class="form-control form-control-sm form-control-solid" placeholder="Lenght" value=""/>
-                                          </div>
-                                          <!--end::Col-->
-                                          <!--begin::Col-->
-                                          <div class="col-6">
-                                             <select name="date_typer" aria-label="Select a Timezone" data-control="select2" data-dropdown-parent="#kt_header_search" data-placeholder="Period" class="form-select form-select-sm form-select-solid">
-                                                <option value="days">Days</option>
-                                                <option value="weeks">Weeks</option>
-                                                <option value="months">Months</option>
-                                                <option value="years">Years</option>
-                                             </select>
-                                          </div>
-                                          <!--end::Col-->
-                                       </div>
-                                       <!--end::Input group-->
-                                       <!--begin::Actions-->
-                                       <div class="d-flex justify-content-end">
-                                          <button type="reset" class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2" data-kt-search-element="advanced-options-form-cancel">Cancel</button>
-                                          <a href="pages/search/horizontal.html" class="btn btn-sm fw-bold btn-primary" data-kt-search-element="advanced-options-form-search">Search</a>
-                                       </div>
-                                       <!--end::Actions-->
-                                    </form>
-                                    <!--end::Preferences-->
-                                    <!--begin::Preferences-->
-                                    <form data-kt-search-element="preferences" class="pt-1 d-none">
-                                       <!--begin::Heading-->
-                                       <h3 class="fw-semibold text-dark mb-7">Search Preferences</h3>
-                                       <!--end::Heading-->
-                                       <!--begin::Input group-->
-                                       <div class="pb-4 border-bottom">
-                                          <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
-                                          <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">
-                                          Projects
-                                          </span>
-                                          <input class="form-check-input" type="checkbox" value="1" checked="checked"/>
-                                          </label>
-                                       </div>
-                                       <!--end::Input group-->
-                                       <!--begin::Input group-->
-                                       <div class="py-4 border-bottom">
-                                          <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
-                                          <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">
-                                          Targets
-                                          </span>
-                                          <input class="form-check-input" type="checkbox" value="1" checked="checked"/>
-                                          </label>
-                                       </div>
-                                       <!--end::Input group-->
-                                       <!--begin::Input group-->
-                                       <div class="py-4 border-bottom">
-                                          <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
-                                          <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">
-                                          Affiliate Programs
-                                          </span>
-                                          <input class="form-check-input" type="checkbox" value="1" />
-                                          </label>
-                                       </div>
-                                       <!--end::Input group-->
-                                       <!--begin::Input group-->
-                                       <div class="py-4 border-bottom">
-                                          <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
-                                          <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">
-                                          Referrals
-                                          </span>
-                                          <input class="form-check-input" type="checkbox" value="1" checked="checked"/>
-                                          </label>
-                                       </div>
-                                       <!--end::Input group-->
-                                       <!--begin::Input group-->
-                                       <div class="py-4 border-bottom">
-                                          <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
-                                          <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">
-                                          Users
-                                          </span>
-                                          <input class="form-check-input" type="checkbox" value="1" />
-                                          </label>
-                                       </div>
-                                       <!--end::Input group-->
-                                       <!--begin::Actions-->
-                                       <div class="d-flex justify-content-end pt-7">
-                                          <button type="reset" class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2" data-kt-search-element="preferences-dismiss">Cancel</button>
-                                          <button type="submit" class="btn btn-sm fw-bold btn-primary">Save Changes</button>
-                                       </div>
-                                       <!--end::Actions-->
-                                    </form>
-                                    <!--end::Preferences-->    
                                  </div>
                                  @endif
                                  <!--end::Menu-->
@@ -967,6 +786,8 @@
                                        <!--end::Wrapper-->
                                     </div>
                                     <!--end::Tab panel-->
+<<<<<<< HEAD
+=======
                                     <!--begin::Tab panel-->
                                     <div class="tab-pane fade" id="kt_topbar_notifications_3" role="tabpanel">
                                        <!--begin::Items-->
@@ -1186,6 +1007,7 @@
                                        <!--end::View more--> 
                                     </div>
                                     <!--end::Tab panel-->
+>>>>>>> e776c11d649efb506e0135ad216ebf2c349a7b29
                                  </div>
                                  <!--end::Tab content-->
                               </div>
@@ -1334,7 +1156,7 @@
                                        <!--begin::Avatar-->
                                        <div class="symbol symbol-50px me-5">
                                           @if(isset(Auth::user()->avatar) && Auth::user()->avatar)
-                                          <img alt="Logo" src="{{ asset('assets/media/avatars/300-1.jpg'.isset(Auth::user()->avatar)?Auth::user()->avatar:'') }}"/>
+                                          <img alt="Logo" src="{{ asset('resources/uploads/userImage/').'/'.Auth::user()->avatar??'' }}"/>
                                           @else
                                           <img alt="Logo" src="{{ asset('assets/media/avatars/300-1.jpg') }}"/>
                                           @endif
@@ -1413,6 +1235,15 @@
             target="_blank" class="app-engage-btn hover-dark">			
             <i class="ki-outline ki-abstract-41 fs-1 pt-1 mb-2"></i>Dev URL
          </a>
+<<<<<<< HEAD
+         <a href="#" class="app-engage-btn hover-primary">			
+            <i class="ki-outline ki-like-shapes fs-1 pt-1 mb-2"></i>Pro URL
+         </a>
+         <a href="#" id="kt_app_engage_toggle_off" class="app-engage-btn app-engage-btn-toggle-off text-hover-primary p-0">			
+            <i class="ki-outline ki-cross fs-2x"></i>				
+         </a>
+         <a href="#" id="kt_app_engage_toggle_on" class="app-engage-btn app-engage-btn-toggle-on text-hover-primary p-0" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-custom-class="tooltip-inverse" data-bs-dimiss="click" title="CMS (Content Management System) URLs">		
+=======
          <!--end::Prebuilts toggle-->
          <!--begin::Get help-->
          <a href="javascript:void(0);" class="app-engage-btn hover-primary">			
@@ -1431,8 +1262,8 @@
          <!--end::Engage close-->
          <!--begin::Engage close-->
          <a href="javascript:void(0);" id="kt_app_engage_toggle_on" class="app-engage-btn app-engage-btn-toggle-on text-hover-primary p-0" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-custom-class="tooltip-inverse" data-bs-dimiss="click" title="CMS (Content Management System) URLs">		
+>>>>>>> e776c11d649efb506e0135ad216ebf2c349a7b29
             <i class="ki-outline ki-question fs-2 text-primary"></i>				
          </a>
-         <!--end::Engage close-->
       </div>
       @endif

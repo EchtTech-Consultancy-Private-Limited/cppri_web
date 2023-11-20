@@ -1,15 +1,15 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\SystemLogs;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
 
 class SystemLogsController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -19,9 +19,16 @@ class SystemLogsController extends Controller
     {
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['list'] = route('aut-list');
-        $crudUrlTemplate['edit'] = route('aut-edit', ['id' => 'xxxx']);
-        $crudUrlTemplate['delete'] = route('aut-delete', ['id' => 'xxxx']);
+        if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('aut-list');
+        }
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('aut-edit', ['id' => 'xxxx']);
+        }
+        if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('aut-delete', ['id' => 'xxxx']);
+        }
+        
         //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
 
         return view('cms-view.audit-trail.list',

@@ -1,17 +1,18 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\UserManagement;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
 use DB;
 
 class UserManagementController extends Controller
 {
+    use AccessModelTrait;
+    
     /**
      * Display a listing of the resource.
      *
@@ -26,10 +27,21 @@ class UserManagementController extends Controller
     {
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['create'] = route('user-save');
-        $crudUrlTemplate['list'] = route('user-list');
-        $crudUrlTemplate['edit'] = route('user.edit', ['id' => 'xxxx']);
-        $crudUrlTemplate['delete'] = route('user-delete', ['id' => 'xxxx']);
+        if(isset($this->abortIfAccessNotAllowed()['create']) && $this->abortIfAccessNotAllowed()['create'] !=''){
+            $crudUrlTemplate['create'] = route('user-save');
+        }else{
+            $accessPermission = $this->checkAccessMessage();
+        }
+        if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('user-list');
+        }
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('user.edit', ['id' => 'xxxx']);
+        }
+        if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('user-delete', ['id' => 'xxxx']);
+        }
+        
         //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
         $roleType=DB::table('role_type_users')->select('role_type','uid')->where([['soft_delete','=','0']])->orderby('sort_order','asc')->get();
         
@@ -47,7 +59,7 @@ class UserManagementController extends Controller
      */
     public function create()
     {
-        return view('user-management.user-add');
+        return view('cms-view.user-management.user-add');
     }
 
     /**
@@ -80,7 +92,10 @@ class UserManagementController extends Controller
      */
     public function edit(Request $request)
     {
-        $crudUrlTemplate['update'] = route('user-update');
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['update'] = route('user-update');
+        }
 
         $results = DB::table('users')->where('id', $request->id)->first();
         $roleType=DB::table('role_type_users')->select('role_type','uid')->where([['soft_delete','=','0']])->orderby('sort_order','asc')->get();

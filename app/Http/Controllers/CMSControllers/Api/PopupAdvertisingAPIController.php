@@ -1,17 +1,19 @@
 <?php
 namespace App\Http\Controllers\CMSControllers\API;
-use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 
 use App\Models\CMSModels\PopupAdvertising;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
+use App\Http\Traits\PdfImageSizeTrait;
 use DB, Validator;
 use Carbon\Carbon;
 
 class PopupAdvertisingAPIController extends Controller
 {
+    use PdfImageSizeTrait;
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +21,22 @@ class PopupAdvertisingAPIController extends Controller
      */
     public function index()
     {
-        //
+        $data=PopupAdvertising::where('soft_delete','0')->get();
+        $totalRecords = PopupAdvertising::where('soft_delete','0')->count();
+        $resp = new \stdClass;
+        $resp->iTotalRecords = $totalRecords;
+        $resp->iTotalDisplayRecords = $totalRecords;
+        $resp->aaData = $data;
+        if($resp)
+            {
+                return response()->json($resp,200);
+            }
+            else{
+                return response()->json([
+                'status'=>201,
+                'message'=>'some error accoured.'
+            ],201);
+        }
     }
 
     /**
@@ -40,7 +57,67 @@ class PopupAdvertisingAPIController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $exitValue = PopupAdvertising::where('title_name_en', $request->popupadvertising_title)->count() > 0;
+        // $max_size = $document->getMaxFileSize() / 1024 / 1024;
+         if($exitValue == 'false'){
+             $notification =[
+                 'status'=>201,
+                 'message'=>'This is duplicate value.'
+             ];
+         }else{
+            try{
+                $validator=Validator::make($request->all(),
+                    [
+                    'popupadvertising_title'=>'required',
+                    //'linkedin'=>'required',
+                    'popupadvertising_file' => "required|mimes:jpeg,jpg,bmp,png,gif,svg|max:10000"
+                ]);
+                if($validator->fails())
+                {
+                    //$status = 201;
+                    $notification =[
+                        'status'=>201,
+                        'message'=> $validator->errors()
+                    ];
+                }
+                else{
+                    if($request->hasFile('popupadvertising_file')){    
+                        $size = $this->getFileSize($request->file('popupadvertising_file')->getSize());
+                        $extension = $request->file('popupadvertising_file')->getClientOriginalExtension();
+                        $file=$request->file('popupadvertising_file');
+                        $newname=time().rand(10,99).'.'.$file->getClientOriginalExtension();
+                        $path=resource_path(env('IMAGE_FILE_FOLDER_CMS').'/popupadvertising');
+                        $file->move($path,$newname);
+                    }
+                    $result= PopupAdvertising::insert([
+                            'uid' => Uuid::uuid4(),
+                            'title_name_en' => $request->popupadvertising_title,
+                            'images' => $newname,
+                            "pdfimage_size" => isset($size)?$size:'0',
+                            "file_extension" => isset($extension)?$extension:'0',
+                            'start_date' => $request->popupadvertising_from,
+                            'end_date' => $request->popupadvertising_to,
+                        ]);
+                if($result == true)
+                {
+                    $notification =[
+                        'status'=>200,
+                        'message'=>'Added successfully.'
+                    ];
+                }
+                else{
+                    $notification = [
+                            'status'=>201,
+                            'message'=>'some error accoured.'
+                        ];
+                    } 
+                }      
+            }catch(Throwable $e){report($e);
+                return false;
+            }
+        }
+        return response()->json($notification);
+        
     }
 
     /**
@@ -51,7 +128,7 @@ class PopupAdvertisingAPIController extends Controller
      */
     public function show(PopupAdvertising $popupAdvertising)
     {
-        //
+       
     }
 
     /**
@@ -74,7 +151,51 @@ class PopupAdvertisingAPIController extends Controller
      */
     public function update(Request $request, PopupAdvertising $popupAdvertising)
     {
-        //
+        $data=PopupAdvertising::where('uid',$request->id)->first();
+        if($data)
+        {
+         $validator=Validator::make($request->all(),
+            [
+            'google_link'=>'required',
+            'linkedin'=>'required',
+            'facebook'=>'required',
+            'twitter'=>'required',
+            'github'=>'required'
+        ]);
+        if($validator->fails())
+        {
+            $notification =([
+                'status'=>201,
+                'message'=> $validator->errors()
+            ]);
+        }
+        else{
+            $result= PopupAdvertising::where('uid',$request->id)->update([
+                    'uid' => Uuid::uuid4(),
+                    'google_link' => $request->google_link,
+                    'linkedin' => $request->linkedin,
+                    'facebook' => $request->facebook,
+                    'twitter' => $request->twitter,
+                    'instagram' => $request->instagram,
+                    'github' => $request->github,
+                ]);
+            
+        if($result == true)
+        {
+            $notification =[
+                'status'=>200,
+                'message'=>'Added successfully.'
+            ];
+        }
+        else{
+            $notification = ([
+                'status'=>201,
+                'message'=>'some error accoured.'
+            ]);
+            } 
+        }
+        return response()->json($notification);
+       }
     }
 
     /**
@@ -83,8 +204,22 @@ class PopupAdvertisingAPIController extends Controller
      * @param  \App\Models\PopupAdvertising  $popupAdvertising
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PopupAdvertising $popupAdvertising)
+    public function destroy($id)
     {
-        //
+        $data=PopupAdvertising::where('uid',$id)->first();
+        if($data)
+        {
+            PopupAdvertising::where('uid',$id)->update(['soft_delete'=>1]);
+            return response()->json([
+                'status'=>200,
+                'message'=>'deleted successfully.'
+            ],200);
+        }
+        else{
+            return response()->json([
+                'status'=>201,
+                'message'=>'some error accoured.'
+            ],201);
+        }
     }
 }

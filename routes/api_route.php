@@ -1,5 +1,4 @@
 <?php 
-
 /******** API Controllers */
 use App\Http\Controllers\CMSControllers\Api\CommonAPIController;
 use App\Http\Controllers\CMSControllers\Api\WebsiteMenuManagementAPIController;
@@ -49,7 +48,7 @@ use App\Http\Controllers\CMSControllers\Api\RtiAssetsAPIController;
             Route::post('/create-role',[RolesAndPermissionAPIController::class,'permissionAdd'])->name('role-save');
             Route::get('/list-role',[RolesAndPermissionAPIController::class,'index'])->name('role-list');
             Route::get('/edit-role/{id}',[RolesAndPermissionAPIController::class,'edit'])->name('role-edit');
-            Route::post('/update-role/{id}',[RolesAndPermissionAPIController::class,'update'])->name('role-update');
+            Route::post('/update-role',[RolesAndPermissionAPIController::class,'permissionAdd'])->name('role-update');
             Route::delete('/delete-role/{id}',[RolesAndPermissionAPIController::class,'destroy'])->name('role-delete');
             
             /****** Permission Setting per:Permission */
@@ -199,7 +198,7 @@ use App\Http\Controllers\CMSControllers\Api\RtiAssetsAPIController;
             Route::get('/edit-edd/{id}',[EmpDepartDesignationAPIController::class,'edit'])->name('departmentdesignation-edit');
             Route::post('/update-edd',[EmpDepartDesignationAPIController::class,'update'])->name('departmentdesignation-update');
             Route::delete('/delete-edd/{id}',[EmpDepartDesignationAPIController::class,'destroy'])->name('departmentdesignation-delete');
-    
+            
             /****** Career Setting career:Career*/
             Route::post('/create-career',[CareerManagementAPIController::class,'store'])->name('career-save')->middleware('throttle:custom_Limit');
             Route::get('/list-career',[CareerManagementAPIController::class,'index'])->name('career-list');

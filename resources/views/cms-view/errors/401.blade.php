@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('cms-view.layouts.main')
 @section('title')
 @parent
 | {{__('Error-401')}}
@@ -19,7 +19,7 @@
         <p class="font-size-h3">You can go back using browser Back button or <a href="{{route('dashboard')}}" class="">Go To Dashboard.</a></p>
     </div>
     <!--end::Content-->
-</div>
+</div> 
 @endsection
 
 @push("post-scripts")

@@ -1,16 +1,16 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\FooterManagement;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
 use Ramsey\Uuid\Uuid;
 
 class FooterManagementController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -30,10 +30,21 @@ class FooterManagementController extends Controller
     {
         $data=FooterManagement::all(); 
        $crudUrlTemplate = array();
-       $crudUrlTemplate['read'] = route('websitecoresetting-list');
-       $crudUrlTemplate['list'] = route('websitecoresetting-list');
-       $crudUrlTemplate['delete'] = route('websitecoresetting-list');
-       $crudUrlTemplate['view'] = route('websitecoresetting-list');
+       if(isset($this->abortIfAccessNotAllowed()['view']) && $this->abortIfAccessNotAllowed()['view'] !=''){
+            $crudUrlTemplate['read'] = route('websitecoresetting-list');
+            $crudUrlTemplate['list'] = route('websitecoresetting-list');
+            $crudUrlTemplate['delete'] = route('websitecoresetting-list');
+            $crudUrlTemplate['view'] = route('websitecoresetting-list');
+       }
+       
+       if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+       
+       }
+       
+       if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+       
+       }
+       
 
        return view('cms-view.website-core-settings.websitecoresetting_list',
             ['crudUrlTemplate' =>  json_encode($crudUrlTemplate)

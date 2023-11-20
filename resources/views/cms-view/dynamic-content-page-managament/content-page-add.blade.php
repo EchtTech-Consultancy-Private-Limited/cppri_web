@@ -17,6 +17,7 @@
 <div class="post d-flex flex-column-fluid" id="kt_post">
 <div id="kt_content_container" class="container-xxl">
 <div class="card card-flush">
+@if($textMessage =='')
    <!--begin::Card body-->
    <div class="card-body">
       <!--begin:::Tabs-->
@@ -232,7 +233,7 @@
                            <select class="form-select form-select-solid pageTitle_id" name="pageTitle_id" id="pageTitle_id" data-control="select2" data-placeholder="Select an page title">
                               <option></option>
                               @foreach($pageTitle as $pageTitles)
-                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }})</option>
+                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }})  ({{ (ucwords(str_replace('-', ' ', $pageTitles->menu_slug))) }})</option>
                               @endforeach
                            </select>
                         </div>
@@ -318,7 +319,7 @@
                            <select class="form-select form-select-solid pageTitle_id1" name="pageTitle_id1" id="pageTitle_id1" data-control="select2" data-placeholder="Select an page title">
                               <option></option>
                               @foreach($pageTitle as $pageTitles)
-                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }})</option>
+                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }})  ({{ (ucwords(str_replace('-', ' ', $pageTitles->menu_slug))) }})</option>
                               @endforeach
                            </select>
                         </div>
@@ -424,7 +425,7 @@
                            <select class="form-select form-select-solid pageTitle_id2" name="pageTitle_id2" id="pageTitle_id2" data-control="select2" data-placeholder="Select an page title">
                               <option></option>
                               @foreach($pageTitle as $pageTitles)
-                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }})</option>
+                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }}) ({{ (ucwords(str_replace('-', ' ', $pageTitles->menu_slug))) }})</option>
                               @endforeach
                            </select>
                         </div>
@@ -521,10 +522,10 @@
                      <div class="card-body pt-0">
                         <div class="col-md-12">
                            <label class="required form-label">Select Page TItle</label>
-                           <select class="form-select form-select-solid pageTitle_id2" name="pageTitle_id2" id="pageTitle_id2" data-control="select2" data-placeholder="Select an page title">
+                           <select class="form-select form-select-solid pageTitle_id3" name="pageTitle_id3" id="pageTitle_id3" data-control="select2" data-placeholder="Select an page title">
                               <option></option>
                               @foreach($pageTitle as $pageTitles)
-                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }})</option>
+                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }}) ({{ (ucwords(str_replace('-', ' ', $pageTitles->menu_slug))) }})</option>
                               @endforeach
                            </select>
                         </div>
@@ -611,6 +612,10 @@
       <!--end:::Tab content-->
    </div>
    <!--end::Card body-->
+   @else
+      {!! $textMessage !!}
+     <div class="symbol symbol-100px text-center"> <img class="" src='{{ asset("assets/media/auth/404-error.png") }}' /></div>
+   @endif
 </div>
 
 @endsection

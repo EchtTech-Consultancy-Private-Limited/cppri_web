@@ -10,12 +10,14 @@
 @endsection
 @push('post-scripts')
 <script src="{{ asset('public/form-js/employee-directory-add.js') }}"></script>
+<script src="{{ asset('public/filter-js/depart-designation.js') }}"></script>
 @endpush
 @section('content')
 <input type="hidden" id="urlListData" data-info="{{ $crudUrlTemplate }}">
 <div class="post d-flex flex-column-fluid" id="kt_post">
 <div id="kt_content_container" class="container-xxl">
 <div class="card card-flush">
+@if($textMessage =='')
    <!--begin::Card body-->
    <div class="card-body">
       <!--begin::Form-->
@@ -58,7 +60,7 @@
                                         <!--begin::Input-->
                                         <select class="form-control mb-2 designation_id" name="designation_id" id="designation_id" data-control="select2" data-placeholder="Select an option">
                                             <option></option>
-                                            @foreach($department as $departments)
+                                            @foreach($designation as $departments)
                                                 <option value="{{ $departments->uid }}">{{ $departments->name_en  }}</option>
                                             @endforeach
                                         </select><!--end::Input-->
@@ -309,5 +311,9 @@
       </form>
       <!--end::Form-->
    </div>
+   @else
+      {!! $textMessage !!}
+     <div class="symbol symbol-100px text-center"> <img class="" src='{{ asset(config("constants.error.error_image")) }}' /></div>
+   @endif
 </div>
 @endsection

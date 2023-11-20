@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
@@ -20,8 +19,9 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {   $segment = $request->segment(1);
+
         return view('cms-view.dashboard');
     }
 

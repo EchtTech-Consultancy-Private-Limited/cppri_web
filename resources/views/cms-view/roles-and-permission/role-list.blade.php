@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                             <div class="card-footer flex-wrap pt-0">
-                                <a href="{{ route('role.edit') }}?id={{$permission->role_id ?? ''}}" class="btn btn-light btn-active-primary my-1 me-2">Edit Role</a>
+                                <a href="{{ route('role.edit') }}?id={{ $permission->role_id ?? ''}}" class="btn btn-light btn-active-primary my-1 me-2">Edit Role</a>
                                 <!-- <button type="button" class="btn btn-light btn-active-light-primary my-1" data-bs-toggle="modal" data-bs-target="#kt_modal_update_role">Edit Role</button> -->
                             </div>
                         </div>
@@ -48,7 +48,7 @@
             <!--begin::Card body-->
             <div class="card-body d-flex flex-center">
                 <!--begin::Button-->
-                <button type="button" class="btn btn-clear d-flex flex-column flex-center" data-bs-toggle="modal" data-bs-target="#kt_modal_add_role">
+                <a href="{{ route('role.create') }}" class="btn btn-clear d-flex flex-column flex-center">
                     <!--begin::Illustration-->
                     <img src="{{ asset('assets/media/illustrations/unitedpalms-1/4.png') }}" alt="" class="mw-100 mh-150px mb-7"/>                      
                     <!--end::Illustration-->
@@ -56,7 +56,7 @@
                     <!--begin::Label-->
                     <div class="fw-bold fs-3 text-gray-600 text-hover-primary">Add New Role</div>
                     <!--end::Label-->
-                </button>
+                </a>
                 <!--begin::Button-->
             </div>
             <!--begin::Card body-->

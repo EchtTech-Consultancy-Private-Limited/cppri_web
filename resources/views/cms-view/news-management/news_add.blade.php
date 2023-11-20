@@ -15,6 +15,9 @@
 <input type="hidden" id="urlListData" data-info="{{ $crudUrlTemplate }}">
 <div class="post d-flex flex-column-fluid" id="kt_post">
 <div id="kt_content_container" class="container-xxl">
+   <div class="card card-flush">
+   @if($textMessage =='')
+   <div class="card-body">
    <!--begin::Form-->
    <form id="kt_news_add_form" class="form d-flex flex-column flex-lg-row" enctype="multipart/form-data">
       <!--begin::Main column-->
@@ -263,4 +266,10 @@
       <!--end::Main column-->
    </form>
    <!--end::Form-->
+   </div>
+   @else
+      {!! $textMessage !!}
+     <div class="symbol symbol-100px text-center"> <img class="" src='{{ asset(config("constants.error.error_image")) }}' /></div>
+   @endif
+   </div>
 @endsection
