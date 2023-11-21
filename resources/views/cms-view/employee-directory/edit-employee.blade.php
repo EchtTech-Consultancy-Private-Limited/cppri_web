@@ -162,7 +162,7 @@
                                         <label class="fs-6 fw-semibold mb-2">Extention Number (Optional)</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input class="form-control mb-2 extentionNo" type="number" placeholder="" name="extentionNo" value="{{ $data->extention_number }}" />
+                                        <input class="form-control mb-2 extentionNo" type="text" placeholder="" name="extentionNo" value="{{ $data->extention_number }}" />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->

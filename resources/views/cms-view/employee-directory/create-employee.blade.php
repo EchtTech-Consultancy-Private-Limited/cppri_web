@@ -156,7 +156,7 @@
                                         <label class="fs-6 fw-semibold mb-2">Extention Number (Optional)</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input class="form-control mb-2 extentionNo" type="number" placeholder="" name="extentionNo" value="" />
+                                        <input class="form-control mb-2 extentionNo" type="text" placeholder="" name="extentionNo" value="" />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->

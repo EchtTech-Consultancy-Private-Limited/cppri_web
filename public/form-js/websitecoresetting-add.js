@@ -351,44 +351,34 @@ var KTvalidationCoreWebsiteSetting4= function() {
                     popupadvertising_title: {
                         validators: {
                             notEmpty: {
-                                message: 'This url is you have fill http or https url'
+                                message: 'This field is required'
                             },
-                            regexp: {
-                                regexp: /^[A-Za-z0-9-' ]*$/,
-                                message: 'This field can consist of alphabetical characters, spaces, digits only'
-                            },
+                            
                         },
                     },
                     popupadvertising_file: {
                         validators: {
                             notEmpty: {
-                                message: 'This url is you have fill http or https url'
+                                message: 'This field is required'
                             },
                             regexp: {
-                                regexp: /^[A-Za-z0-9-' ]*$/,
-                                message: 'This field can consist of alphabetical characters, spaces, digits only'
+                                regexp: /[^\s]+(.*?).(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/,
+                                message: 'Valid image file, image only'
                             },
                         },
                     },
                     popupadvertising_from: {
                         validators: {
                             notEmpty: {
-                                message: 'This url is you have fill http or https url'
+                                message: 'This field is required'
                             },
-                            regexp: {
-                                regexp: /^[A-Za-z0-9-' ]*$/,
-                                message: 'This field can consist of alphabetical characters, spaces, digits only'
-                            },
+                            
                         },
                     },
                     popupadvertising_to: {
                         validators: {
                             notEmpty: {
-                                message: 'This url is you have fill http or https url'
-                            },
-                            regexp: {
-                                regexp: /^[A-Za-z0-9-' ]*$/,
-                                message: 'This field can consist of alphabetical characters, spaces, digits only'
+                                message: 'This field is required'
                             },
                         },
                     },
@@ -408,7 +398,7 @@ var KTvalidationCoreWebsiteSetting4= function() {
                     //$('#examAddModal').modal('hide');
                     $('#loading').addClass('loading');
                     $('#loading-content').addClass('loading-content');
-                 axios.post(crudUrlTemplate.create, new FormData(form),{
+                 axios.post(crudUrlTemplate.create_popupadvertising, new FormData(form),{
                       
                     })
                     .then(function (response) {
