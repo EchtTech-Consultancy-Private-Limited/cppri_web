@@ -39,7 +39,7 @@ var KTAppEmployeeDirectoryEdit = function () {
                            message: 'This field is required'
                         },
                         regexp: {
-                           regexp: /^[A-Za-z0-9-' ]*$/,
+                           regexp: /^[A-Za-z0-9-' ]*[.,]*$/,
                            message: 'This field can consist of alphabetical characters, spaces, characters only'
                         },
                      },
@@ -50,7 +50,7 @@ var KTAppEmployeeDirectoryEdit = function () {
                            message: 'This field is required'
                         },
                         regexp: {
-                           regexp: /^[A-Za-z0-9-' ]*$/,
+                           regexp: /^[A-Za-z0-9-' ]*[.,]*$/,
                            message: 'This field can consist of alphabetical characters, spaces, digits only'
                         },
                      },
@@ -60,10 +60,10 @@ var KTAppEmployeeDirectoryEdit = function () {
                         notEmpty: {
                            message: 'This field is required'
                         },
-                        regexp: {
-                           regexp: /^[A-Za-z0-9-' ]*$/,
-                           message: 'This field can consist of alphabetical characters, spaces, digits only'
-                        },
+                        // regexp: {
+                        //    regexp: /^[A-Za-z0-9-' ]*$/,
+                        //    message: 'This field can consist of alphabetical characters, spaces, digits only'
+                        // },
                      },
                   },
                   lhname: {
@@ -71,10 +71,10 @@ var KTAppEmployeeDirectoryEdit = function () {
                         notEmpty: {
                            message: 'This field is required'
                         },
-                        regexp: {
-                           regexp: /^[A-Za-z0-9-' ]*$/,
-                           message: 'This field can consist of alphabetical characters, spaces, digits only'
-                        },
+                        // regexp: {
+                        //    regexp: /^[A-Za-z0-9-' ]*$/,
+                        //    message: 'This field can consist of alphabetical characters, spaces, digits only'
+                        // },
                      },
                   },
                   mobileno: {
