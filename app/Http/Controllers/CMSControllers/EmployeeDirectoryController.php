@@ -19,6 +19,7 @@ class EmployeeDirectoryController extends Controller
      */
     public function index()
     {
+        
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
         if(isset($this->abortIfAccessNotAllowed()['view']) && $this->abortIfAccessNotAllowed()['view'] !=''){
