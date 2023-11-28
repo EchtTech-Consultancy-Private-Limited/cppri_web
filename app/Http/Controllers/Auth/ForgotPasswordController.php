@@ -22,7 +22,7 @@ class ForgotPasswordController extends Controller
       public function showForgetPasswordForm()
       {
         //dd('hello');
-         return view('auth.forgetPassword');
+         return view('cms-view.auth.forgetPassword');
       }
 
       /**
