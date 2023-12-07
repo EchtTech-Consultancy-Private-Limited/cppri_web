@@ -24,7 +24,7 @@
                <div class="row fv-row mb-10">
                  <div class="col-md-12">
                      <label class="fs-5 fw-bold form-label mb-2">
-                     <span class="required">Role name</span>
+                     <span class="required">Select Role Name</span>
                      </label>
                   </div>
                   <div class="col-md-12">
@@ -74,7 +74,7 @@
                               <td class="text-gray-800"><b>{{ $modules->name_en }}</b></td>
                               <td>
                                  <div class="d-flex">
-                                 <input class="form-check-input" type="hidden" name="module_name[{{$modules->uid}}]" value="{{$modules->name_en}}" />
+                                 <input class="form-check-input" type="hidden" name="module_name[{{$modules->uid}}]" value="{{$modules->name_en}},{{$modules->sort_order}},{{$modules->prefix}}" />
                                     <label class="form-check form-check-sm form-check-custom form-check-solid me-5 me-lg-20">
                                        <input class="form-check-input" type="checkbox" value="Y" name="read[{{$modules->uid}}]"/>
                                        <span class="form-check-label"> Read | View </span>

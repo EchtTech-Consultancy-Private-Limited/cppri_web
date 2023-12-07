@@ -1,8 +1,7 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers\API;
-use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 
 use App\Models\CMSModels\HomePageBannerManagement;
@@ -79,7 +78,7 @@ class HomePageBannerAPIController extends Controller
                     $extension = $request->file('image')->getClientOriginalExtension();
                     $file=$request->file('image');
                     $newname=time().rand(10,99).'.'.$file->getClientOriginalExtension();
-                    $path=resource_path('uploads/banner');
+                    $path=resource_path(env('IMAGE_FILE_FOLDER_CMS').'/banner');
                     $file->move($path,$newname);
                 }
                 

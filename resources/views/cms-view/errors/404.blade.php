@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('cms-view.layouts.main')
 @section('title')
 @parent
 | {{__('Error-404')}}

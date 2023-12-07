@@ -1,15 +1,15 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\TechnicalDocumentsManagement;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
 
 class TechnicalDocumentsManagementController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *

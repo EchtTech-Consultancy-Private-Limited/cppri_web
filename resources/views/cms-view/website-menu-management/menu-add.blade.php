@@ -17,6 +17,7 @@
 <div class="post d-flex flex-column-fluid" id="kt_post">
 <div id="kt_content_container" class="container-xxl">
 <div class="card card-flush">
+   @if($textMessage =='')
    <div class="card-body">
       <!--begin:::Tabs-->
       <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x border-transparent fs-4 fw-semibold mb-15" role="tablist">
@@ -118,7 +119,7 @@
                      <div class="form-check form-check-custom form-check-solid">
                         <input class="form-check-input menu_place" type="radio" name="menu_place" value="0" id="menu_place" checked="checked" />
                         <label class="form-check-label" for="menu_place">
-                              Header
+                              {{ config('menucreatetext.header') }}
                         </label>
                      </div>
                      <!--end::Radio-->
@@ -127,7 +128,7 @@
                      <div class="form-check form-check-custom form-check-solid">
                         <input class="form-check-input menu_place" type="radio" name="menu_place" value="1" id="menu_place" />
                         <label class="form-check-label" for="any_conditions">
-                              Footer
+                        {{ config('menucreatetext.footer') }}
                         </label>
                      </div>
                      <!--end::Radio-->
@@ -135,7 +136,15 @@
                      <div class="form-check form-check-custom form-check-solid">
                         <input class="form-check-input menu_place" type="radio" name="menu_place" value="2" id="menu_place" />
                         <label class="form-check-label" for="any_conditions">
-                           Right Menu Toggle
+                        {{ config('menucreatetext.rightMenuToggle') }}
+                        </label>
+                     </div>
+                     <!--end::Radio-->
+                     <!--begin::Radio-->
+                     <div class="form-check form-check-custom form-check-solid">
+                        <input class="form-check-input menu_place" type="radio" name="menu_place" value="4" id="menu_place" />
+                        <label class="form-check-label" for="any_conditions">
+                        {{ config('menucreatetext.quick') }}
                         </label>
                      </div>
                      <!--end::Radio-->
@@ -143,7 +152,7 @@
                      <div class="form-check form-check-custom form-check-solid">
                         <input class="form-check-input menu_place" type="radio" name="menu_place" value="3" id="menu_place" />
                         <label class="form-check-label" for="any_conditions">
-                           All Places
+                        {{ config('menucreatetext.allPlaces') }}
                         </label>
                      </div>
                      <!--end::Radio-->
@@ -211,7 +220,7 @@
                      <div class="w-100">
                         <select class="form-select form-select-solid menu_id" name="menu_id" id="menu_id" data-control="select2" data-placeholder="Select an option">
                            <option></option>
-                           @foreach($menu as $menus)
+                           @foreach($menuList as $menus)
                                <option value="{{ $menus->uid }}">{{ $menus->name_en  }} ({{ $menus->name_hi }})</option>
                            @endforeach
                         </select>
@@ -556,5 +565,9 @@
       </div>
       <!--end:::Tab content-->
    </div>
+   @else
+      {!! $textMessage !!}
+     <div class="symbol symbol-100px text-center"> <img class="" src='{{ asset(config("constants.error.error_image")) }}' /></div>
+   @endif
 </div>
 @endsection

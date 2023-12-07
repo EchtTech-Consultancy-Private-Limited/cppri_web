@@ -1,6 +1,6 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers\API;
+
 use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Http;
@@ -23,8 +23,8 @@ class DynamicContentPageManagamentAPIController extends Controller
      */
     public function index()
     {
-        $data=DB::table('dynamic_content_page_metaTag')->where('soft_delete','0')->get();
-        $totalRecords = DB::table('dynamic_content_page_metaTag')->where('soft_delete','0')->count();
+        $data=DB::table('dynamic_content_page_metatag')->where('soft_delete','0')->get();
+        $totalRecords = DB::table('dynamic_content_page_metatag')->where('soft_delete','0')->count();
         $resp = new \stdClass;
         $resp->iTotalRecords = $totalRecords;
         $resp->iTotalDisplayRecords = $totalRecords;
@@ -66,13 +66,13 @@ class DynamicContentPageManagamentAPIController extends Controller
      */
     public function basicInformation(Request $request)
     {
-        $exitValue = DB::table('dynamic_content_page_metaTag')->where('page_title_en', $request->page_title_en)->count() > 0;
-        if($exitValue == 'false'){
-            $notification =[
-                'status'=>201,
-                'message'=>'This is duplicate value.'
-            ];
-        }else{
+        //$exitValue = DB::table('dynamic_content_page_metatag')->where('page_title_en', $request->page_title_en)->count() > 0;
+        // if($exitValue == 'false'){
+        //     $notification =[
+        //         'status'=>201,
+        //         'message'=>'This is duplicate value.'
+        //     ];
+        // }else{
         try{
             $validator=Validator::make($request->all(),
                 [
@@ -89,7 +89,7 @@ class DynamicContentPageManagamentAPIController extends Controller
             }
             else{
             
-            $result=DB::table('dynamic_content_page_metaTag')->insert([
+            $result=DB::table('dynamic_content_page_metatag')->insert([
                         'uid' => Uuid::uuid4(),
                         'menu_uid' => explode(',',$request->menu_id)[0],
                         'menu_slug' => explode(',',$request->menu_id)[1],
@@ -120,7 +120,7 @@ class DynamicContentPageManagamentAPIController extends Controller
             report($e);
             return false;
            }
-        }
+        //}
             return response()->json($notification);
     }
     public function pageContent(Request $request)
@@ -290,6 +290,61 @@ class DynamicContentPageManagamentAPIController extends Controller
            }
             return response()->json($notification);
     }
+    public function pageBanner(Request $request)
+    {
+        try{
+            $validator=Validator::make($request->all(),
+                [
+                'pageTitle_id3'=>'required',
+                'bannertitle'=>'required',
+                'image' => "required|mimes:jpeg,bmp,png,gif,svg|max:10000"
+            ]);
+            if($validator->fails())
+            {
+                $notification =[
+                    'status'=>201,
+                    'message'=> $validator->errors()
+                ];
+            }
+            else{
+                
+                if($request->hasFile('image')){    
+                    $size = $this->getFileSize($request->file('image')->getSize());
+                    $extension = $request->file('image')->getClientOriginalExtension();
+                    $file=$request->file('image');
+                    $newname=time().rand(10,99).'.'.$file->getClientOriginalExtension();
+                    $path=resource_path(env('IMAGE_FILE_FOLDER_CMS').'/pagebanner');
+                    $file->move($path,$newname);
+                }
+    
+                $result=DB::table('dynamic_page_banner')->insert([
+                    'uid' => Uuid::uuid4(),
+                    'banner_title_en' => $request->bannertitle??'banner',
+                    'banner_title_hi' => $request->bannertitle??'banner',
+                    'public_url' => $newname,
+                    'dcpm_id' => $request->pageTitle_id3,
+                ]);
+            if($result == true)
+            {
+                $notification =[
+                    'status'=>200,
+                    'message'=>'Added successfully.'
+                ];
+            }
+            else{
+                $notification = [
+                        'status'=>201,
+                        'message'=>'some error accoured.'
+                    ];
+                 } 
+            }      
+           }catch(Throwable $e)
+           {
+            report($e);
+            return false;
+           }
+            return response()->json($notification);
+    }
     //***** Update Content Pages Data********************** */
     public function updateBasicInformation(Request $request)
     {
@@ -309,7 +364,7 @@ class DynamicContentPageManagamentAPIController extends Controller
             }
             else{
             
-            $result=DB::table('dynamic_content_page_metaTag')->where('uid',$request->id)->update([
+            $result=DB::table('dynamic_content_page_metatag')->where('uid',$request->id)->update([
                         'menu_uid' => explode(',',$request->menu_id)[0],
                         'menu_slug' => explode(',',$request->menu_id)[1],
                         'page_title_en' => $request->page_title_en,
@@ -568,6 +623,62 @@ class DynamicContentPageManagamentAPIController extends Controller
            }
             return response()->json($notification);
     }
+
+    public function updatepageBanner(Request $request)
+    {
+        try{
+            $validator=Validator::make($request->all(),
+                [
+                'pageTitle_id3'=>'required',
+                'bannertitle'=>'required',
+                //'image' => "required|mimes:jpeg,bmp,png,gif,svg|max:10000"
+            ]);
+            if($validator->fails())
+            {
+                $notification =[
+                    'status'=>201,
+                    'message'=> $validator->errors()
+                ];
+            }
+            else{
+                if($request->hasFile('image')){    
+                    $size = $this->getFileSize($request->file('image')->getSize());
+                    $extension = $request->file('image')->getClientOriginalExtension();
+                    $file=$request->file('image');
+                    $newname=time().rand(10,99).'.'.$file->getClientOriginalExtension();
+                    $path=resource_path(env('IMAGE_FILE_FOLDER_CMS').'/pagebanner');
+                    $file->move($path,$newname);
+                }else{
+                    $newname = DB::table('dynamic_page_banner')->where('dcpm_id',$request->id)->first()->public_url;
+                }
+                $result= DB::table('dynamic_page_banner')->where('dcpm_id',$request->id)->update([
+                    'banner_title_en' => $request->bannertitle??'banner',
+                    'banner_title_hi' => $request->bannertitle??'banner',
+                    'public_url' => $newname,
+                    'dcpm_id' => $request->pageTitle_id3,
+                    //'archivel_date' => Carbon::createFromFormat('Y-m-d',$request->enddate)->addDays(env('TENDER_ARCHIVEL')),
+                    ]);
+             // dd($result);  
+            if($result == true)
+            {
+                $notification =[
+                    'status'=>200,
+                    'message'=>'Added successfully.'
+                ];
+            }
+            else{
+                $notification = [
+                        'status'=>201,
+                        'message'=>'some error accoured.'
+                    ];
+                } 
+            }
+       }catch(Throwable $e){report($e);
+        return false;
+       }
+        return response()->json($notification);
+        
+    }
     /**
      * Display the specified resource.
      *
@@ -587,7 +698,7 @@ class DynamicContentPageManagamentAPIController extends Controller
      */
     public function edit($id)
     {
-        $data=DB::table('dynamic_content_page_metaTag')->where('soft_delete','0')->where('uid',$id)->first();
+        $data=DB::table('dynamic_content_page_metatag')->where('soft_delete','0')->where('uid',$id)->first();
         if($data)
                 {
                     return response()->json(['data'=>$data],200);
@@ -620,10 +731,10 @@ class DynamicContentPageManagamentAPIController extends Controller
      */
     public function destroy(DynamicContentPageManagament $dynamicContentPageManagament)
     {
-        $data=DB::table('dynamic_content_page_metaTag')->where('uid',$id)->first();
+        $data=DB::table('dynamic_content_page_metatag')->where('uid',$id)->first();
         if($data)
         {
-            DB::table('dynamic_content_page_metaTag')->where('uid',$id)->update(['soft_delete'=>1]);
+            DB::table('dynamic_content_page_metatag')->where('uid',$id)->update(['soft_delete'=>1]);
            // DB::table('dynamic_page_content')->where('dcpm_id',$id)->update(['soft_delete'=>1]);
             //DB::table('dynamic_content_page_pdf')->where('dcpm_id',$id)->update(['soft_delete'=>1]);
            // DB::table('dynamic_content_page_gallery')->where('dcpm_id',$id)->update(['soft_delete'=>1]);

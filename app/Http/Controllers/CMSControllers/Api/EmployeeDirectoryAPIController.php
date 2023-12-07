@@ -1,11 +1,12 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers\API;
+
 use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Http;
 
 use App\Models\CMSModels\EmployeeDirectory;
+use App\Models\CMSModels\EmpDepartDesignation;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
 use DB, Validator;
@@ -47,7 +48,7 @@ class EmployeeDirectoryAPIController extends Controller
     {
         //
     }
-
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -56,7 +57,12 @@ class EmployeeDirectoryAPIController extends Controller
      */
     public function store(Request $request)
     {
-        $exitValue = EmployeeDirectory::where('mobile', $request->mobileno)->count() > 0;
+        
+        if(config('checkduplicate.mobile') == 'ON'){
+            $exitValue = EmployeeDirectory::where('mobile', $request->mobileno)->count() > 0;
+        }else{
+            $exitValue ='true';
+        }
         // $max_size = $document->getMaxFileSize() / 1024 / 1024;
          if($exitValue == 'false'){
              DB::rollback();

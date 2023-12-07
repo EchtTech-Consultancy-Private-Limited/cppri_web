@@ -41,7 +41,7 @@ var KTAppRoleSave = function () {
                 axios.post(crudUrlTemplate.create_role,
                             new FormData(form), {
                    }).then(function (response) {
-                   if (response) {
+                   if (response.data.status ==200) {
                       toastr.success(
                          "New Role added successfully!", 
                          "New Role!", 
@@ -51,7 +51,7 @@ var KTAppRoleSave = function () {
                          if (history.scrollRestoration) {
                             history.scrollRestoration = 'manual';
                          }
-                         //location.href = 'role-create'; // reload page
+                         location.href = 'role-create'; // reload page
                       }, 1500);
                       
                    } else {
@@ -89,10 +89,8 @@ var KTAppRoleSave = function () {
        // Define variables
        const selectAll = document.getElementById('kt_role_add_form').querySelector('#kt_roles_select_all');
        const allCheckboxes = document.getElementById('kt_role_add_form').querySelectorAll('[type="checkbox"]');
- 
        // Handle check state
        selectAll.addEventListener('change', e => {
- 
           // Apply check state to all checkboxes
           allCheckboxes.forEach(c => {
                 c.checked = e.target.checked;

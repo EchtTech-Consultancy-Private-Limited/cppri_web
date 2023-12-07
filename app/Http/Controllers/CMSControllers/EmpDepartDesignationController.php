@@ -1,15 +1,16 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\EmpDepartDesignation;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
+use DB;
 
 class EmpDepartDesignationController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -17,11 +18,19 @@ class EmpDepartDesignationController extends Controller
      */
     public function index()
     {
+       
+        
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['list'] = route('departmentdesignation-list');
-        $crudUrlTemplate['edit'] = route('departmentdesignation.edit', ['id' => 'xxxx']);
-        $crudUrlTemplate['delete'] = route('departmentdesignation-delete', ['id' => 'xxxx']);
+        if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('departmentdesignation-list');
+        }
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('departmentdesignation.edit', ['id' => 'xxxx']);
+        }
+        if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('departmentdesignation-delete', ['id' => 'xxxx']);
+        }
         //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
         return view('cms-view.department-designation.list',
             ['crudUrlTemplate' =>  json_encode($crudUrlTemplate)
@@ -39,13 +48,17 @@ class EmpDepartDesignationController extends Controller
         $data=EmpDepartDesignation::where([['soft_delete','0'],['parent_id','0']])->get(); 
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['create_deptDesig'] = route('departmentdesignation-save');
-
+        if(isset($this->abortIfAccessNotAllowed()['create']) && $this->abortIfAccessNotAllowed()['create'] !=''){
+            $crudUrlTemplate['create_deptDesig'] = route('departmentdesignation-save');
+        }
+        else{
+            $accessPermission = $this->checkAccessMessage();
+        }
        return view('cms-view.department-designation.create-deptDesg',
-       ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),
-        'department'=>$data
-    
-        ]);
+            ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),
+                'department'=>$data,    
+                'textMessage' =>$accessPermission??''
+            ]);
     }
 
     /**
@@ -78,8 +91,9 @@ class EmpDepartDesignationController extends Controller
      */
     public function edit(Request $request, EmpDepartDesignation $empDepartDesignation)
     {
-        $crudUrlTemplate['update'] = route('departmentdesignation-update');
-
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['update'] = route('departmentdesignation-update');
+        }
         $results = EmpDepartDesignation::where('uid', $request->id)->first();
         if($results){
             $result = $results;
@@ -87,7 +101,7 @@ class EmpDepartDesignationController extends Controller
             abort(404);
         }
         //dd($result);
-        return view('department-designation.edit',
+        return view('cms-view.department-designation.edit',
         ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),
             'data'=> $result,
         ]);

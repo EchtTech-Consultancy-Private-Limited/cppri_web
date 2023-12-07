@@ -10,12 +10,14 @@
 @endsection
 @push('post-scripts')
 <script src="{{ asset('public/form-js/employee-directory-add.js') }}"></script>
+<script src="{{ asset('public/filter-js/depart-designation.js') }}"></script>
 @endpush
 @section('content')
 <input type="hidden" id="urlListData" data-info="{{ $crudUrlTemplate }}">
 <div class="post d-flex flex-column-fluid" id="kt_post">
 <div id="kt_content_container" class="container-xxl">
 <div class="card card-flush">
+@if($textMessage =='')
    <!--begin::Card body-->
    <div class="card-body">
       <!--begin::Form-->
@@ -58,7 +60,7 @@
                                         <!--begin::Input-->
                                         <select class="form-control mb-2 designation_id" name="designation_id" id="designation_id" data-control="select2" data-placeholder="Select an option">
                                             <option></option>
-                                            @foreach($department as $departments)
+                                            @foreach($designation as $departments)
                                                 <option value="{{ $departments->uid }}">{{ $departments->name_en  }}</option>
                                             @endforeach
                                         </select><!--end::Input-->
@@ -154,7 +156,7 @@
                                         <label class="fs-6 fw-semibold mb-2">Extention Number (Optional)</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input class="form-control mb-2 extentionNo" type="number" placeholder="" name="extentionNo" value="" />
+                                        <input class="form-control mb-2 extentionNo" type="text" placeholder="" name="extentionNo" value="" />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->
@@ -238,17 +240,17 @@
                                         <!--begin::Image placeholder-->
                                         <style>
                                             .image-input-placeholder {
-                                            background-image: url('{{ asset("assets/media/svg/files/blank-image.svg") }}');
+                                            background-image: url('{{ asset("assets-cms/media/svg/files/blank-image.svg") }}');
                                             }
                                             [data-bs-theme="dark"] .image-input-placeholder {
-                                            background-image: url('{{ asset("assets/media/svg/files/blank-image-dark.svg") }}');
+                                            background-image: url('{{ asset("assets-cms/media/svg/files/blank-image-dark.svg") }}');
                                             }               
                                         </style>
                                         <!--end::Image placeholder-->
                                         <!--begin::Image input-->
                                         <div class="image-input image-input-outline image-input-placeholder" data-kt-image-input="true">
                                             <!--begin::Preview existing avatar-->
-                                            <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{ asset('assets/media/avatars/300-6.jpg') }});"></div>
+                                            <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{ asset('assets-cms/media/avatars/300-6.jpg') }});"></div>
                                             <!--end::Preview existing avatar-->
                                             <!--begin::Label-->
                                             <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
@@ -309,5 +311,9 @@
       </form>
       <!--end::Form-->
    </div>
+   @else
+      {!! $textMessage !!}
+     <div class="symbol symbol-100px text-center"> <img class="" src='{{ asset(config("constants.error.error_image")) }}' /></div>
+   @endif
 </div>
 @endsection

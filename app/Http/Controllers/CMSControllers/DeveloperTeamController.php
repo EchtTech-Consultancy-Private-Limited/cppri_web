@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
-
-
 
 use App\Models\CMSModels\Dashboard;
 use Illuminate\Support\Facades\Auth;

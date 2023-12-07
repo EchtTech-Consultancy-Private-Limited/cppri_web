@@ -29,6 +29,7 @@ var KTvalidationModule= function() {
                             },
                         },
                     },
+                    
                 },
                 plugins: {
                     trigger: new FormValidation.plugins.Trigger(),
@@ -49,6 +50,7 @@ var KTvalidationModule= function() {
                        name_en: $('.menuName_en').val(),
                        name_hi: $('.menuName_hi').val(),
                        sort_order: $('.shortorder').val(),
+                       prefix: $('.prefix').val(),
                        url: $('.url').val(),
                     })
                     .then(function (response) {

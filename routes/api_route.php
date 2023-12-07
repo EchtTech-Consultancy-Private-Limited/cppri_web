@@ -1,5 +1,4 @@
 <?php 
-
 /******** API Controllers */
 use App\Http\Controllers\CMSControllers\Api\CommonAPIController;
 use App\Http\Controllers\CMSControllers\Api\WebsiteMenuManagementAPIController;
@@ -49,7 +48,7 @@ use App\Http\Controllers\CMSControllers\Api\RtiAssetsAPIController;
             Route::post('/create-role',[RolesAndPermissionAPIController::class,'permissionAdd'])->name('role-save');
             Route::get('/list-role',[RolesAndPermissionAPIController::class,'index'])->name('role-list');
             Route::get('/edit-role/{id}',[RolesAndPermissionAPIController::class,'edit'])->name('role-edit');
-            Route::post('/update-role/{id}',[RolesAndPermissionAPIController::class,'update'])->name('role-update');
+            Route::post('/update-role',[RolesAndPermissionAPIController::class,'permissionAdd'])->name('role-update');
             Route::delete('/delete-role/{id}',[RolesAndPermissionAPIController::class,'destroy'])->name('role-delete');
             
             /****** Permission Setting per:Permission */
@@ -110,12 +109,14 @@ use App\Http\Controllers\CMSControllers\Api\RtiAssetsAPIController;
             Route::post('/create-cpi-content',[DynamicContentPageManagamentAPIController::class,'pageContent'])->name('pagecontent-save')->middleware('throttle:custom_Limit');
             Route::post('/create-cpi-gallery',[DynamicContentPageManagamentAPIController::class,'pageGallery'])->name('pagegallery-save')->middleware('throttle:custom_Limit');
             Route::post('/create-cpi-pdf',[DynamicContentPageManagamentAPIController::class,'pagePdf'])->name('pagepdf-save')->middleware('throttle:custom_Limit');
+            Route::post('/create-cpi-banner',[DynamicContentPageManagamentAPIController::class,'pageBanner'])->name('pagebanner-save')->middleware('throttle:custom_Limit');
             Route::get('/list-cpi',[DynamicContentPageManagamentAPIController::class,'index'])->name('pagemetatag-list');
             Route::get('/edit-cpi/{id}',[DynamicContentPageManagamentAPIController::class,'edit'])->name('pagemetatag-edit');
             Route::post('/update-cpi',[DynamicContentPageManagamentAPIController::class,'updateBasicInformation'])->name('cpi-update');
             Route::post('/update-cpi-content',[DynamicContentPageManagamentAPIController::class,'updatePageContent'])->name('cpi-content-update');
             Route::post('/update-cpi-gallery',[DynamicContentPageManagamentAPIController::class,'updatePageGallery'])->name('cpi-gallery-update');
             Route::post('/update-cpi-pdf',[DynamicContentPageManagamentAPIController::class,'updatePagePdf'])->name('cpi-pdf-update');
+            Route::post('/update-cpi-banner',[DynamicContentPageManagamentAPIController::class,'updatepageBanner'])->name('cpi-banner-update');
             Route::delete('/delete-cpi/{id}',[DynamicContentPageManagamentAPIController::class,'destroy'])->name('pagemetatag-delete');
             Route::post('/delete-pdfimg',[DynamicContentPageManagamentAPIController::class,'deletePDFIMG'])->name('pdfimg-delete');
     
@@ -199,7 +200,7 @@ use App\Http\Controllers\CMSControllers\Api\RtiAssetsAPIController;
             Route::get('/edit-edd/{id}',[EmpDepartDesignationAPIController::class,'edit'])->name('departmentdesignation-edit');
             Route::post('/update-edd',[EmpDepartDesignationAPIController::class,'update'])->name('departmentdesignation-update');
             Route::delete('/delete-edd/{id}',[EmpDepartDesignationAPIController::class,'destroy'])->name('departmentdesignation-delete');
-    
+            
             /****** Career Setting career:Career*/
             Route::post('/create-career',[CareerManagementAPIController::class,'store'])->name('career-save')->middleware('throttle:custom_Limit');
             Route::get('/list-career',[CareerManagementAPIController::class,'index'])->name('career-list');

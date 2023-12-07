@@ -81,6 +81,18 @@
                      <input type="number" class="form-control form-control-solid shortorder" name="shortorder" id="shortorder" value="{{ $data->sort_order ?? '' }}" />
                   </div>
                </div>
+               <div class="row fv-row mb-7">
+                  <div class="col-md-3 text-md-end">
+                     <label class="fs-6 fw-semibold form-label mt-3">
+                     <span class="required">Prefix Set</span>
+                     <span class="ms-1"  data-bs-toggle="tooltip" title="Set the title of the store for Listing." >
+                     <i class="ki-outline ki-information-5 text-gray-500 fs-6"></i></span>            
+                     </label>
+                  </div>
+                  <div class="col-md-7">
+                     <input type="text" class="form-control form-control-solid prefix" name="prefix" id="prefix" value="{{ $data->prefix ?? '' }}"  />
+                  </div>
+               </div>
                <div class="row py-5">
                   <div class="col-md-9 offset-md-3">
                      <div class="d-flex">

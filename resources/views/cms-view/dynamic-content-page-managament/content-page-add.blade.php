@@ -17,6 +17,7 @@
 <div class="post d-flex flex-column-fluid" id="kt_post">
 <div id="kt_content_container" class="container-xxl">
 <div class="card card-flush">
+@if($textMessage =='')
    <!--begin::Card body-->
    <div class="card-body">
       <!--begin:::Tabs-->
@@ -232,7 +233,7 @@
                            <select class="form-select form-select-solid pageTitle_id" name="pageTitle_id" id="pageTitle_id" data-control="select2" data-placeholder="Select an page title">
                               <option></option>
                               @foreach($pageTitle as $pageTitles)
-                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }})</option>
+                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }})  ({{ (ucwords(str_replace('-', ' ', $pageTitles->menu_slug))) }})</option>
                               @endforeach
                            </select>
                         </div>
@@ -318,7 +319,7 @@
                            <select class="form-select form-select-solid pageTitle_id1" name="pageTitle_id1" id="pageTitle_id1" data-control="select2" data-placeholder="Select an page title">
                               <option></option>
                               @foreach($pageTitle as $pageTitles)
-                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }})</option>
+                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }})  ({{ (ucwords(str_replace('-', ' ', $pageTitles->menu_slug))) }})</option>
                               @endforeach
                            </select>
                         </div>
@@ -424,7 +425,7 @@
                            <select class="form-select form-select-solid pageTitle_id2" name="pageTitle_id2" id="pageTitle_id2" data-control="select2" data-placeholder="Select an page title">
                               <option></option>
                               @foreach($pageTitle as $pageTitles)
-                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }})</option>
+                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }}) ({{ (ucwords(str_replace('-', ' ', $pageTitles->menu_slug))) }})</option>
                               @endforeach
                            </select>
                         </div>
@@ -514,17 +515,17 @@
          <!--begin:::Tab pane-->
          <div class="tab-pane fade" id="kt_settings_pageBanner" role="tabpanel">
             <!--begin::Form-->
-            <form id="kt_page_pdf_form" class="form">
+            <form id="kt_page_banner_form" class="form">
                <!--begin::Input group-->
                <div class="card card-flush py-4">
                   <div class="card-body pt-0">
                      <div class="card-body pt-0">
                         <div class="col-md-12">
                            <label class="required form-label">Select Page TItle</label>
-                           <select class="form-select form-select-solid pageTitle_id2" name="pageTitle_id2" id="pageTitle_id2" data-control="select2" data-placeholder="Select an page title">
+                           <select class="form-select form-select-solid pageTitle_id3" name="pageTitle_id3" id="pageTitle_id3" data-control="select2" data-placeholder="Select an page title">
                               <option></option>
                               @foreach($pageTitle as $pageTitles)
-                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }})</option>
+                                 <option value="{{ $pageTitles->uid }}">{{ $pageTitles->page_title_en }} ({{ $pageTitles->page_title_hi  }}) ({{ (ucwords(str_replace('-', ' ', $pageTitles->menu_slug))) }})</option>
                               @endforeach
                            </select>
                         </div>
@@ -542,16 +543,16 @@
                         <!--begin::Input group-->
                         <div class="" data-kt-ecommerce-catalog-add-product="auto-options">
                            <!--begin::Repeater-->
-                           <div id="kt_PagePdf_add_multiple_options">
+                           <div id="">
                               <!--begin::Form group-->
                               <div class="form-group">
                                  <label class="required form-label mw-100 w-200px">Banner Title</label>
                                  <label class="required form-label mw-100 w-200px" style="margin-left: 13px;">Banner image Format</label>
-                                 <div data-repeater-list="kt_PagePdf_add_multiple_options" class="d-flex flex-column gap-3">
+                                 <div class="d-flex flex-column gap-3">
                                     <div data-repeater-item class="form-group d-flex flex-wrap align-items-center gap-5">
                                        <!--begin::Input-->
-                                       <input type="text" class="form-control mw-100 w-200px" name="pdftitle" placeholder="Banner title Name" />
-                                       <input type="file" class="form-control mw-100 w-200px checkmimepdf" name="image" accept="image/*" />
+                                       <input type="text" class="form-control mw-100 w-200px" name="bannertitle" placeholder="Banner title Name" />
+                                       <input type="file" class="form-control mw-100 w-200px" name="image" accept="image/*" />
                                        <!--end::Input-->
                                        <!-- <button type="button"id="removeRow" data-repeater-delete class="btn btn-sm btn-icon btn-light-danger">
                                           <i class="ki-outline ki-cross fs-1"></i>
@@ -590,7 +591,7 @@
                         </button>
                         <!--end::Button-->
                         <!--begin::Button-->
-                        <button type="submit" id="kt_add_pagepdf_submit" data-kt-ecommerce-settings-type="submit" class="btn btn-primary submit-pdfpage-btn">
+                        <button type="submit" id="kt_add_pagebanner_submit" data-kt-ecommerce-settings-type="submit" class="btn btn-primary submit-bannerpage-btn">
                         <span class="indicator-label">
                         Save
                         </span>
@@ -611,6 +612,10 @@
       <!--end:::Tab content-->
    </div>
    <!--end::Card body-->
+   @else
+      {!! $textMessage !!}
+     <div class="symbol symbol-100px text-center"> <img class="" src='{{ asset("assets-cms/media/auth/404-error.png") }}' /></div>
+   @endif
 </div>
 
 @endsection

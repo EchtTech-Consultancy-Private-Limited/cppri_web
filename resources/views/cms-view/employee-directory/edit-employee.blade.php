@@ -162,7 +162,7 @@
                                         <label class="fs-6 fw-semibold mb-2">Extention Number (Optional)</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input class="form-control mb-2 extentionNo" type="number" placeholder="" name="extentionNo" value="{{ $data->extention_number }}" />
+                                        <input class="form-control mb-2 extentionNo" type="text" placeholder="" name="extentionNo" value="{{ $data->extention_number }}" />
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Col-->
@@ -246,10 +246,10 @@
                                         <!--begin::Image placeholder-->
                                         <style>
                                             .image-input-placeholder {
-                                            background-image: url('{{ asset("assets/media/svg/files/blank-image.svg") }}');
+                                            background-image: url('{{ asset("assets-cms/media/svg/files/blank-image.svg") }}');
                                             }
                                             [data-bs-theme="dark"] .image-input-placeholder {
-                                            background-image: url('{{ asset("assets/media/svg/files/blank-image-dark.svg") }}');
+                                            background-image: url('{{ asset("assets-cms/media/svg/files/blank-image-dark.svg") }}');
                                             }               
                                         </style>
                                         <!--end::Image placeholder-->
@@ -290,17 +290,17 @@
                                         <!--begin::Image placeholder-->
                                         <style>
                                             .image-input-placeholder {
-                                            background-image: url('{{ asset("assets/media/svg/files/blank-image.svg") }}');
+                                            background-image: url('{{ asset("assets-cms/media/svg/files/blank-image.svg") }}');
                                             }
                                             [data-bs-theme="dark"] .image-input-placeholder {
-                                            background-image: url('{{ asset("assets/media/svg/files/blank-image-dark.svg") }}');
+                                            background-image: url('{{ asset("assets-cms/media/svg/files/blank-image-dark.svg") }}');
                                             }               
                                         </style>
                                         <!--end::Image placeholder-->
                                         <!--begin::Image input-->
                                         <div class="image-input image-input-outline image-input-placeholder" data-kt-image-input="true">
                                             <!--begin::Preview existing avatar-->
-                                            <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{ asset('assets/media/avatars/300-6.jpg') }});"></div>
+                                            <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{ asset('assets-cms/media/avatars/300-6.jpg') }});"></div>
                                             <!--end::Preview existing avatar-->
                                             <!--begin::Label-->
                                             <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">

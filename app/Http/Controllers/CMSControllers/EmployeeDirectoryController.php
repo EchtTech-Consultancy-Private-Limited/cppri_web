@@ -1,16 +1,17 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\EmployeeDirectory;
 use App\Models\CMSModels\EmpDepartDesignation;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
+use DB;
 
 class EmployeeDirectoryController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -18,11 +19,18 @@ class EmployeeDirectoryController extends Controller
      */
     public function index()
     {
+        
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['list'] = route('employeedirectory-list');
-        $crudUrlTemplate['edit'] = route('employeedirectory.edit', ['id' => 'xxxx']);
-        $crudUrlTemplate['delete'] = route('employeedirectory-delete', ['id' => 'xxxx']);
+        if(isset($this->abortIfAccessNotAllowed()['view']) && $this->abortIfAccessNotAllowed()['view'] !=''){
+            $crudUrlTemplate['list'] = route('employeedirectory-list');
+        }
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('employeedirectory.edit', ['id' => 'xxxx']);
+        }
+        if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('employeedirectory-delete', ['id' => 'xxxx']);
+        }
         //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
         return view('cms-view.employee-directory.list-employee',
             ['crudUrlTemplate' =>  json_encode($crudUrlTemplate)
@@ -37,18 +45,34 @@ class EmployeeDirectoryController extends Controller
      */
     public function create()
     {
-        $data=EmpDepartDesignation::where([['soft_delete','0'],['parent_id','0']])->get(); 
+        $department=EmpDepartDesignation::where([['soft_delete','0'],['parent_id','0']])->get(); 
+        $designation=EmpDepartDesignation::where([['soft_delete','0'],['parent_id','!=','0']])->get(); 
+        //dd($designation);
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['create'] = route('employeedirectory-save');
+        if(isset($this->abortIfAccessNotAllowed()['create']) && $this->abortIfAccessNotAllowed()['create'] !=''){
+            $crudUrlTemplate['create'] = route('employeedirectory-save');
+        }else{
+            $accessPermission = $this->checkAccessMessage();
+           // $accessPermission = "You don't have permission to perform this action!";
+        }
 
        return view('cms-view.employee-directory.create-employee',
        ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),
-        'department'=>$data
+        'department'=>$department,
+        'designation'=> $designation,
+        'textMessage' =>$accessPermission??''
     
         ]);
     }
-
+    public function fetchDesignation(Request $request)
+    {
+       // dd($request->department_id);
+        $data['designation'] = EmpDepartDesignation::where("parent_id", $request->department_id)
+                                    ->get(["name_en", "uid"]);
+                                      
+        return response()->json($data);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -80,7 +104,11 @@ class EmployeeDirectoryController extends Controller
     public function edit(Request $request)
     {
         $datas=EmpDepartDesignation::where([['soft_delete','0'],['parent_id','0']])->get(); 
-        $crudUrlTemplate['update'] = route('employeedirectory-update');
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['update'] = route('employeedirectory-update');
+        }
+
         $results = EmployeeDirectory::where('uid', $request->id)->first();
         if($results){
             $result = $results;

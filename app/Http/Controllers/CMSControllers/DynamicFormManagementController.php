@@ -1,16 +1,16 @@
 <?php
-
 namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-
 use App\Models\CMSModels\DynamicFormManagement;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
 use DB;
 
 class DynamicFormManagementController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -26,24 +26,42 @@ class DynamicFormManagementController extends Controller
     {
         $crudUrlTemplate = array();
         // xxxx to be replaced with ext_id to create valid endpoint
-        $crudUrlTemplate['create'] = route('faq-save');
-        $crudUrlTemplate['list'] = route('faq-list');
-        $crudUrlTemplate['edit'] = route('faq.edit', ['id' => 'xxxx']);
-        $crudUrlTemplate['delete'] = route('faq-delete', ['id' => 'xxxx']);
+        if(isset($this->abortIfAccessNotAllowed()['create']) && $this->abortIfAccessNotAllowed()['create'] !=''){
+            $crudUrlTemplate['create'] = route('faq-save');
+        }else{
+            $accessPermission = $this->checkAccessMessage();
+        }
+        if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
+            $crudUrlTemplate['list'] = route('faq-list');
+        }
+        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            $crudUrlTemplate['edit'] = route('faq.edit', ['id' => 'xxxx']);
+        }
+        if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
+            $crudUrlTemplate['delete'] = route('faq-delete', ['id' => 'xxxx']);
+        }
         //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
 
         return view('cms-view.dynamic-form-management.faq-list',
              [
-                'crudUrlTemplate' =>  json_encode($crudUrlTemplate)
+                'crudUrlTemplate' =>  json_encode($crudUrlTemplate),    
+                'textMessage' =>$accessPermission??''
             
             ]);
     }
     public function faqCreate()
     {
+        $crudUrlTemplate = array();
+        if(isset($this->abortIfAccessNotAllowed()['create']) && $this->abortIfAccessNotAllowed()['create'] !=''){
         $crudUrlTemplate['create'] = route('faq-save');
+        }else{
+            $accessPermission = $this->checkAccessMessage();
+        }
         
         return view('cms-view.dynamic-form-management.faq-add',
-        ['crudUrlTemplate' =>  json_encode($crudUrlTemplate) ]);
+        ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),    
+            'textMessage' =>$accessPermission??''
+         ]);
     }
     public function faqEdit(Request $request)
     {
@@ -89,7 +107,7 @@ class DynamicFormManagementController extends Controller
      */
     public function show(DynamicFormManagement $dynamicFormManagement)
     {
-       return view('dynamic-form-management.list'); 
+       return view('cms-view.dynamic-form-management.list'); 
     }
 
     /**
