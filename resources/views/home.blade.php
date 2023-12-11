@@ -11,7 +11,7 @@
                     @foreach ($banner as $banners)
                         @if ($banners->public_url != '')
                             <li>
-                                <img src="{{ asset('resources/uploads/banner/'.$banners->public_url) }}"
+                                <img src="{{ asset('resources/uploads/banner/' . $banners->public_url) }}"
                                     alt="{{ $banners->banner_title ?? '' }}"
                                     title="{{ $banners->banner_title ?? '' }}">
                             </li>
@@ -45,20 +45,51 @@
             <div class="col-md-10">
                 <div class="marquee">
 
+{{-- news management start --}}
                     <div>
-                        <span>
-                            <a href="https://centralpulppaperresearchinstitute.webex.com/centralpulppaperresearchinstitute/j.php?MTID=m639c2a7e8a854b99da321b648df0ade6"
-                                target="_blank" style="font-weight:bold">Online Public Grievance Redressal through VC
-                                Hosted by
-                                CPPRI (4PM to 5PM) at
-                                https://centralpulppaperresearchinstitute.webex.com/centralpulppaperresearchinstitute/j.php?MTID=m639c2a7e8a854b99da321b648df0ade6</a></span>
+                        @if (isset($news_management) && count($news_management) > 0)
 
-                        <span>
-                            <a href="https://centralpulppaperresearchinstitute.webex.com/centralpulppaperresearchinstitute/j.php?MTID=m639c2a7e8a854b99da321b648df0ade6"
-                                target="_blank" style="font-weight:bold">Online Public Grievance Redressal through VC
-                                Hosted by
-                                CPPRI (4PM to 5PM) at
-                                https://centralpulppaperresearchinstitute.webex.com/centralpulppaperresearchinstitute/j.php?MTID=m639c2a7e8a854b99da321b648df0ade6</a></span>
+                            @foreach ($news_management as $news_managements)
+                                <span>
+                                    @php
+                                        $url = $news_managements->public_url ?? '';
+                                        $title_hi = $news_managements->title_name_hi ?? '';
+                                        $title_en = $news_managements->title_name_en ?? '';
+                                    @endphp
+
+                                    @if ($news_managements->tab_type == '1')
+                                        @if (!empty($url))
+                                            <a href="{{ url($url) }}"
+                                                onclick="return confirm('{{ $text }}')" target="_blank"
+                                                style="font-weight:bold">
+
+                                                @if (Session::get('Lang') == 'hi')
+                                                    {{ $title_hi }}
+                                                @else
+                                                    {{ $title_en }}
+                                                @endif
+
+                                            </a>
+                                        @endif
+                                    @else
+                                        @if (!empty($url))
+                                            <a href="{{ url($url) }}" style="font-weight: bold">
+                                                @if (Session::get('Lang') == 'hi')
+                                                    {{ $title_hi }}
+                                                @else
+                                                    {{ $title_en }}
+                                                @endif
+                                            </a>
+
+                                        @endif
+                                    @endif    
+                                </span>
+                            @endforeach
+                        @else
+                            <h5 style="font-weight:bold">No news available.</h5>
+                        @endif
+
+{{-- news management end --}}
 
                     </div>
                 </div>
@@ -209,7 +240,8 @@
                             <div class="page-tab-res clearfix">
                                 <div id="parentHorizontalTab">
                                     <ul class="resp-tabs-list hor_1">
-                                        <li class="border-l"><a href="javascript:viod(0)" id="tab-list-1">Notification</a></li>
+                                        <li class="border-l"><a href="javascript:viod(0)"
+                                                id="tab-list-1">Notification</a></li>
                                         <li><a href="javascript:viod(0)">Press Release</a></li>
                                     </ul>
                                     <div class="resp-tabs-container hor_1">
@@ -290,21 +322,43 @@
                         <p class="text-slide1 pause" onclick="changeClass1()"></p>
                         <div class="scroll-text-1 scroll-left">
                             <ul class="list">
-                                <li>
+                                {{-- <li>
                                     <div class="date"><span>29</span><em>Nov 2022</em></div>
                                     <div class="list-content">Description of Tenders 1 goes here - File type (size).
                                     </div>
-                                </li>
+                                </li> --}}
+
+
+                                @if(isset($tender_management) && count($tender_management) > 0)
+                                    
+                               
+
+
+                                @foreach ($tender_management as $tender_managements)
                                 <li>
-                                    <div class="date"><span>22</span><em>Nov 2020</em></div>
-                                    <div class="list-content">Description of Tenders 2 goes here - File type (size).
+                                <div class="date">
+                                   
+                                    <span>{{ date('d', strtotime($tender_managements->start_date)) }}</span>
+                                    <em>{{ date('M Y', strtotime($tender_managements->start_date)) }}</em>
+                            
+                                </div>
+                                <div class="list-content">
+                                    {{ $tender_managements->title_name_en }} - File type ({{ $tender_managements->file_extension  }} - {{ $tender_managements->pdfimage_size  }})
+                                </div>
+                                </li>
+                                 @endforeach
+
+                                 @else
+                
+
+                                  <li>
+                                    <div class="date"><span>{{ \Carbon\Carbon::now()->format('d') }}</span><em>{{ \Carbon\Carbon::now()->format('M Y') }}</em></div>
+                                    <div class="list-content">No Tender available
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="date"><span>29</span><em>Sept 2023</em></div>
-                                    <div class="list-content">Description of Tenders 3 goes here - File type (size).
-                                    </div>
-                                </li>
+
+                                @endif
+                               
                             </ul>
                         </div>
                         <div class="view-footer"><a href="javascript:void(0);"
@@ -442,7 +496,8 @@
                 <div class="gallery-area clearfix">
                     <div class="gallery-heading">
                         <h3>Photo Gallery</h3>
-                        <a class="bttn-more bttn-view" href="javascript:viod(0)" title="View all Photo Gallery"><span>View
+                        <a class="bttn-more bttn-view" href="javascript:viod(0)"
+                            title="View all Photo Gallery"><span>View
                                 All</span></a>
                     </div>
                     <div class="gallery-holder">
@@ -470,7 +525,8 @@
                 <div class="gallery-right">
                     <div class="video-heading">
                         <h3>Video Gallery</h3>
-                        <a class="bttn-more bttn-view" href="javascript:viod(0)" title="View all Video Gallery"><span>View
+                        <a class="bttn-more bttn-view" href="javascript:viod(0)"
+                            title="View all Video Gallery"><span>View
                                 All</span></a>
                     </div>
                     <div class="video-wrapper">
