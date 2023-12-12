@@ -72,7 +72,7 @@ html[xmlns] .banner-slider .slides {
   height: 40px;
   margin: -20px 0 0;
   position: absolute;
-  top: 50%;
+  top: 10%;
   z-index: 10;
   overflow: hidden;
   opacity: 0;
@@ -864,7 +864,7 @@ a.view:hover {
 /*===========List===========*/
 .list{ padding:0; float: left; width: 100%;overflow: hidden;}
 .list ul{float:left;width:100%;}
-.list ul li{color:#3c3c3c; font-size:100%; margin-bottom:10px; padding-bottom:10px; font-weight:normal; border-bottom:1px solid #dadada;float:left;width:100%;}
+.list ul li{color:#3c3c3c; font-size:100%; margin-bottom:5px; padding-bottom:0px; font-weight:normal; ;float:left;width:100%;}
 .list ul li a{display:block; color:inherit; }
 .list ul li a:hover{text-decoration:underline;}
 .list ul li:last-child{border-bottom:0;}
@@ -889,8 +889,20 @@ h5{font-size:110%;}
 h5{font-size:100%;}
 p{color:#212020; font-size:100%; font-weight:400; margin-bottom:20px;}
 
-.more{clear:both;color:#f25920;padding:7px 15px;border-radius:2px;font-weight:600;border:1px solid #CCC;display:inline-block;margin-top:10px;}
-.more:hover{border: 1px solid #666;}
+.more{clear:both;color:#fff;padding:6px 14px;
+	background-color: #49aa41;;
+	border-radius:6px;border:1px solid #CCC;
+	display:inline-block;margin-top:10px;
+
+}
+.cppri-contact-form h3{margin-top: 0px;}
+
+
+
+.more:hover{
+background-color: #fff;
+color: #49aa41;
+}
 
 .content{width:100%;float:left;line-height:150%;}
 
@@ -900,6 +912,18 @@ img.right-pic {width:25%; float:right;margin-left:20px;margin-bottom:20px; min-w
 	img.left-pic {width:100%; float:left;margin-right:0px;margin-bottom:20px;}
 	img.right-pic {width:100%; float:left;margin-left:0px;margin-bottom:20px;}
 }
+
+button.dt-button.buttons-print {
+    background: #1a4f91;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
+button.dt-button.buttons-print:hover {
+    background: #fff !important;
+    border-color: #1a4f91 !important;
+}
+
 
 
 
