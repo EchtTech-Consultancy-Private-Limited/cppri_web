@@ -37,7 +37,9 @@ Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('/set-language',[HomeController::class,'SetLang']);
 Route::get('/{slug}', [HomeController::class, 'getContentAllPages']);
 
+
 //default behaviour, always keep as last entry
 Route::any('{url}', function(){
     return redirect('login');
 })->where('url', '.*');
+
