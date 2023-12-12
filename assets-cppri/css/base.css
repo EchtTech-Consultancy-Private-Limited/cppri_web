@@ -1032,10 +1032,11 @@ tr:hover td {
 	overflow-x: auto;
 	padding-bottom: 0px;
 	margin-bottom: 10px;
-	padding: 14px 12px;
+
 	background: #f7f7f7;
-	border-radius: 8px;
+
 	border: 1px solid #dedede;
+    width: 100%;
 }
 
 .guide-text {
@@ -1639,14 +1640,14 @@ a {
 	.wrapper.home-banner {
 		padding: 10px 0px !important;
 	}
-	
+
 	h2.resp-accordion {
 		padding: 8px 15px !important;
 		background: #1a4f91 !important;
 	}
 
 	h2.resp-tab-active.resp-accordion {
-		background: #49aa41 !important; 
+		background: #49aa41 !important;
 	}
 	.left-col-2 h2{line-height: 22px !important;}
 	.banner-right-wrapper .banner-box p {
@@ -1657,7 +1658,7 @@ a {
 
 	section#datatable .col-md-12, section.image-gallery .container.common-container {
 		padding: 0;
-	}	
+	}
 
 }
 

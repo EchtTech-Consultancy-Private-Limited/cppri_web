@@ -6,9 +6,23 @@
       setTimeout(function () {
          $('#costumModal8').modal('show');
       }, 1000);
+
+
+
+
+    $(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'print'
+        ]
+    } );
+} );
+
    </script>
    <!-- Modal popup End -->
    <script src="{{ asset('assets-cppri/js/jquery-migrate-3.4.0.min.js') }}"></script>
+
    <script src="{{ asset('assets-cppri/js/jquery-accessibleMegaMenu.js') }}"></script>
    <script src="{{ asset('assets-cppri/js/framework.js') }}"></script>
    <script src="{{ asset('assets-cppri/js/jquery.flexslider.js') }}"></script>
@@ -22,7 +36,7 @@
    <script src="{{ asset('assets-cppri/js/velocity.min.js') }}"></script>
    <script src="{{ asset('assets-cppri/js/velocity.ui.min.js') }}"></script>
    <script src="{{ asset('assets-cppri/custom.js') }}"></script>
-   
+5
    <script src="{{ asset('assets-cppri/js/datatablemin.js') }}"  ></script>
    <script src="{{ asset('assets-cppri/js/datatablebutton.js') }}" ></script>
    <script src="{{ asset('assets-cppri/js/datatablebuttonprint.js') }}" ></script>

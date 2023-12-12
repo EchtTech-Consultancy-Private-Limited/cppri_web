@@ -19,7 +19,7 @@
             <div class="container common-container four_content ">
                <ul>
                   <li><a href="{{ route('/') }}">Home </a></li>
-                  <li>Master Page</li>
+                  <li class="bredlastchild" >Master Page</li>
                </ul>
             </div>
          </div>
@@ -164,7 +164,8 @@
                            <div class="row p-0 ">
                               <div class="col-md-12">
                                  <h3 class="master-title mt-0 mb-20" >DataTable</h3>
-                                 <table id="example" class="display" style="width:100%">
+                                  <div class="scroller-tbl" >
+                                  <table id="example" class="display">
                                     <thead>
                                        <tr>
                                           <th>Name</th>
@@ -634,6 +635,8 @@
                                        </tr>
                                     </tbody>
                                  </table>
+                                  </div>
+
                               </div>
                            </div>
                         </div>
