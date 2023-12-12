@@ -90,7 +90,7 @@
 	font-weight:600 !important;
 }
 .sub-nav {
-	padding:10px 15px !important;
+	padding:0px 0px !important;
 	margin-left:0px;
 }
 .sub-nav.half-width {
@@ -104,6 +104,7 @@
 	font-size: 90%;
 	display:block;
 	border:none !important;
+	padding: 6px 6px;
 }
 .main-menu .sub-nav ul li a {
 	font-weight:400 !important;
@@ -193,9 +194,9 @@
         .sub-nav ul {
 	display: inline-block;
 	vertical-align: top;
-	margin: 0 1em 0 0;
+	/* margin: 0 1em 0 0;
 	padding: 0;
-	margin-right:-4px;
+	margin-right:-4px; */
 }
 /* list item within sub-navigation panel */
         .sub-nav li {

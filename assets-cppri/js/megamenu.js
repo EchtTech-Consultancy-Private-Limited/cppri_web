@@ -132,7 +132,7 @@ $(document).ready(function(e) {
 			m = m + $(this).width();
 			if(m>(t-100)){
 			$('#btn-more-toggle').parent().remove();
-			$(this).parent().append('<li class="btn-more-li"><a class="btn-more" id="btn-more-toggle" href="javascript:void(0);"><span>More</span></a></li>');
+			$(this).parent().append('<li class="btn-more-li"><a class="btn-more" id="btn-more-toggle" href="#"><span>More</span></a></li>');
 				
 				$(this).remove();
 				$('#overflow_menu ul.nav-menu').append('<li class="nav-item">'+$(this).html()+'</li>');
@@ -176,3 +176,4 @@ $(document).ready(function(e) {
 		}
 	});
 });
+

@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 *,
 *:before,
 *:after {
@@ -181,7 +182,7 @@ sub {
 }
 
 .cmf_lan ul li {
-	float: left!important;
+	float: left !important;
 	padding: 0 10px;
 	border: none !important;
 }
@@ -192,7 +193,7 @@ sub {
 }
 
 .cmf_lan ul li a {
-	width: auto!important;
+	width: auto !important;
 	padding: 0 10px;
 }
 
@@ -549,7 +550,7 @@ ul.font-controll li:first-child {
 }
 
 .header-container {
-	padding: 8px 10px 8px !important;
+	padding: 8px 15px 8px !important;
 }
 
 
@@ -683,21 +684,21 @@ h3.sub-title.bold {
 
 .footer-top-wrapper {
 	text-align: center;
-    background: url(../images/footer-img.jpg) no-repeat;
-    padding: 10px 0 0;
-    background-position: center;
-    background-size: cover;
+	background: url(../images/footer-img.jpg) no-repeat;
+	padding: 10px 0 0;
+	background-position: center;
+	background-size: cover;
 }
 
 .back-drop {
-    padding: 10px 0 0;
-    backdrop-filter: brightness(0.7);
+	padding: 10px 0 0;
+	backdrop-filter: brightness(0.7);
 }
 
 .footer-top-wrapper ul {
-    display: grid;
-    padding: 12px 0px 7px 0px;
-    text-align: left;
+	display: grid;
+	padding: 12px 0px 7px 0px;
+	text-align: left;
 }
 
 .footer-top-wrapper ul li {
@@ -705,7 +706,7 @@ h3.sub-title.bold {
 	color: #888888;
 	margin-bottom: 7px;
 	display: flex;
-    align-items: center;
+	align-items: center;
 }
 
 .footer-top-wrapper ul li a {
@@ -719,11 +720,13 @@ h3.sub-title.bold {
 }
 
 .footer-top-wrapper ul li:hover a,
-.footer-top-wrapper ul li.selected a {opacity: 0.7;}
+.footer-top-wrapper ul li.selected a {
+	opacity: 0.7;
+}
 
 .footer-top-wrapper ul li:before {
 	content: '\f002' !important;
-	font-family:"flexslider-icon";
+	font-family: "flexslider-icon";
 	font-size: 12px;
 }
 
@@ -765,7 +768,7 @@ h3.sub-title.bold {
 
 .footer-content {
 	display: flex;
-	padding: 10px 0;
+	padding: 12px 0 10px;
 	justify-content: space-between;
 }
 
@@ -1004,8 +1007,9 @@ tr:nth-of-type(odd) {
 }
 
 th {
-	background: #333;
-	color: white;
+	/* background: #333; */
+	background-color: #1A4F91;
+	color: white !important;
 	font-weight: bold;
 	white-space: nowrap;
 }
@@ -1016,12 +1020,22 @@ th {
 	border: 1px solid #e4e4e4;
 	text-align: left;
 	line-height: 145%;
+	color: #777;
+}
+
+tr:hover td {
+	color: #1A4F91;
+	font-weight: 500;
 }
 
 .scroll-table1 {
 	overflow-x: auto;
 	padding-bottom: 0px;
-	margin-bottom: 22px;
+	margin-bottom: 10px;
+	padding: 14px 12px;
+	background: #f7f7f7;
+	border-radius: 8px;
+	border: 1px solid #dedede;
 }
 
 .guide-text {
@@ -1037,10 +1051,12 @@ th {
 		font-weight: 600;
 		font-size: 13px;
 	}
+
 	.guide-text i {
 		font-size: 14px;
 		vertical-align: text-bottom;
 	}
+
 	.scroll-table1 {
 		margin-bottom: 5px;
 	}
@@ -1353,9 +1369,9 @@ th {
 	display: inline-block;
 }
 
-a:focus {
+/* a:focus {
 	outline: .1em dotted #333;
-}
+} */
 
 .common-left ul li.gov-india a:hover {
 	color: #000 !important;
@@ -1396,28 +1412,28 @@ a:focus {
 
 .gtflag[title="Hindi"] {
 	background-image: url("../images/hindi.png");
-	background-position: 0 2px!important;
+	background-position: 0 2px !important;
 	-webkit-transition: none;
 	transition: none;
 }
 
 .gtflag[title="Hindi"]:hover {
 	background-image: url("../images/hindi.png");
-	background-position: 0 -18px!important;
+	background-position: 0 -18px !important;
 	-webkit-transition: none;
 	transition: none;
 }
 
 .gtflag[title="English"] {
 	background-image: url("../images/english.png");
-	background-position: 0 3px!important;
+	background-position: 0 3px !important;
 	-webkit-transition: none;
 	transition: none;
 }
 
 .gtflag[title="English"]:hover {
 	background-image: url("../images/english.png");
-	background-position: 0 -17px!important;
+	background-position: 0 -17px !important;
 	-webkit-transition: none;
 	transition: none;
 }
@@ -1582,11 +1598,77 @@ a {
 }
 
 .latest-new-title:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-bottom: 60px solid white;
-    border-left: 20px solid #1a4f91;
-    width: 0;
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-bottom: 60px solid white;
+	border-left: 20px solid #1a4f91;
+	width: 0;
+}
+
+.flex-direction-nav {
+	display: none;
+}
+
+@media all and (max-width: 767px) {
+	.banner-wrapper .flex-pauseplay {
+		width: 45px !important;
+	}
+
+	.latest-news p {
+		text-align: right !important;
+		font-size: 11px;
+		padding: 0 15px !important;
+	}
+
+	.minister img {
+		height: 130px !important;
+		width: 130px !important;
+	}
+
+	p.banner-content {
+		padding: 5px 0px !important;
+		line-height: 24px !important;
+	}
+	.banner-content-wrapper h2 span{font-size: 120% !important;}
+
+	h2{
+		font-size: 140% !important;
+	}
+	.wrapper.home-banner {
+		padding: 10px 0px !important;
+	}
+	
+	h2.resp-accordion {
+		padding: 8px 15px !important;
+		background: #1a4f91 !important;
+	}
+
+	h2.resp-tab-active.resp-accordion {
+		background: #49aa41 !important; 
+	}
+	.left-col-2 h2{line-height: 22px !important;}
+	.banner-right-wrapper .banner-box p {
+		font-size: 120% !important;
+		text-align: left;
+	}
+	.social-box{margin: 25px 0 !important;}
+
+	section#datatable .col-md-12, section.image-gallery .container.common-container {
+		padding: 0;
+	}	
+
+}
+
+.captcha-image {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-wrapper {
+    margin-top: 0px !important;
+}
+.gallery-area .flexslider .slides img {
+    height: auto !important;
 }

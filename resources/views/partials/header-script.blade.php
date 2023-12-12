@@ -18,6 +18,9 @@
 <link href="{{ asset('assets-cppri/css/flexslider.css') }}" rel="stylesheet" media="all">
 <link href="{{ asset('assets-cppri/css/megamenu.css') }}" rel="stylesheet" media="all">
 <link href="{{ asset('assets-cppri/css/print.css') }}" rel="stylesheet" media="print">
+
+<link rel="stylesheet" href="{{ asset('assets-cppri/css/datatablemin.css') }}">
+<link rel="stylesheet" href="{{ asset('assets-cppri/css/datatablebuttonmin.css') }}">
 <!-- Theme styles for this template -->
 
 {{-- <link href="assets/css/megamenu.css" rel="stylesheet" media="all"> --}}
