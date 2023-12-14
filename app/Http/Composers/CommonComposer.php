@@ -5,7 +5,7 @@ namespace App\Http\Composers;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\QueryException;
-use App, Route, DB  ;
+use App, Route, DB,Session  ;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
 
@@ -41,7 +41,7 @@ class CommonComposer
             $news_management = DB::table('news_management')->where('soft_delete', 0)->latest('created_at')->take(3)->get();
             $tender_management = DB::table('tender_management')->where('soft_delete', 0)->latest('created_at')->get();
     
-            $view->with(['headerMenu' => $menuName, 'footerMenu' => $footerMenu,'banner'=>$banner,'news_management'=>$news_management,'tender_management'=>$tender_management]);
+            $view->with(['alertMessage' =>$this->checkLanguage(),'headerMenu' => $menuName, 'footerMenu' => $footerMenu,'banner'=>$banner,'news_management'=>$news_management,'tender_management'=>$tender_management]);
 
         } catch (Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
@@ -62,6 +62,15 @@ class CommonComposer
             }
         }
         return $branch;
+    }
+
+    function checkLanguage(){
+        if (Session::get('locale') == 'hi')
+        {
+            return 'यह लिंक आपको एक बाहरी वेब साइट पर ले जाएगा।';
+        }else{
+            return 'This link will take you to an external web site.';
+        }
     }
 
 
