@@ -20,12 +20,9 @@ class HomeController extends Controller
         return response()->json(['data'=>$request->data,True]);
     }
 
-    public function getContentAllPages(Request $request, $slug)
-    {
-
+    public function getContentAllPages(Request $request, $slug){
         $title_name= 'Master Page';
-
-        return view('master-page',['title_name'=> $title_name  ]);
+        return view('master-page',['title_name'=> $title_name]);
     }
 
 }
