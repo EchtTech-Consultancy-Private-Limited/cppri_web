@@ -1,9 +1,5 @@
 <footer class="wrapper footer-wrapper">
-    @if (Session::get('Lang') == 'hi')
-        <?php $text = 'यह लिंक आपको एक बाहरी वेब साइट पर ले जाएगा।'; ?>
-    @else
-        <?php $text = 'This link will take you to an external web site.'; ?>
-    @endif
+   
     <div class="footer-top-wrapper">
         <div class="back-drop">
             <div class="container common-container four_content footer-top-container">
@@ -20,7 +16,7 @@
                                         @foreach ($footerMenu->slice(0, 6) as $footerMenus)
                                             @if ($footerMenus->tab_type == 1)
                                                 <li>
-                                                    <a onclick="return confirm('{{ $text }}')" target="_blank"
+                                                    <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
                                                         href="javascript:void(0)">
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $footerMenus->name_hi ?? '' }}
@@ -55,7 +51,7 @@
                                             @foreach ($footerMenu->slice(6, 6) as $footerMenus)
                                                 @if ($footerMenus->tab_type == 1)
                                                     <li>
-                                                        <a onclick="return confirm('{{ $text }}')"
+                                                        <a onclick="return confirm('{{ $alertMessage }}')"
                                                             target="_blank" href="javascript:void(0)">
                                                             @if (Session::get('Lang') == 'hi')
                                                                 {{ $footerMenus->name_hi ?? '' }}
@@ -91,7 +87,7 @@
                                             @foreach ($footerMenu->slice(12, 6) as $footerMenus)
                                                 @if ($footerMenus->tab_type == 1)
                                                     <li>
-                                                        <a onclick="return confirm('{{ $text }}')"
+                                                        <a onclick="return confirm('{{ $alertMessage }}')"
                                                             target="_blank" href="javascript:void(0)">
                                                             @if (Session::get('Lang') == 'hi')
                                                                 {{ $footerMenus->name_hi ?? '' }}
