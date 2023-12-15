@@ -36,7 +36,7 @@
    <script src="{{ asset('assets-cppri/js/velocity.min.js') }}"></script>
    <script src="{{ asset('assets-cppri/js/velocity.ui.min.js') }}"></script>
    <script src="{{ asset('assets-cppri/custom.js') }}"></script>
-5
+
    <script src="{{ asset('assets-cppri/js/datatablemin.js') }}"  ></script>
    <script src="{{ asset('assets-cppri/js/datatablebutton.js') }}" ></script>
    <script src="{{ asset('assets-cppri/js/datatablebuttonprint.js') }}" ></script>

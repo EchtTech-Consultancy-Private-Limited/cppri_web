@@ -29,6 +29,7 @@ Artisan::call('storage:link');
 Artisan::call('view:clear');
 Artisan::call('route:clear');
 Artisan::call('config:clear');
+
 //CMS Route Define always down position
 require __DIR__ .'/cms_web.php';
 

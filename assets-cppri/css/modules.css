@@ -803,11 +803,11 @@ a.view:hover {
 	text-align: center;
 }
 .minister {
-	border: 1px solid #cfcfcf;
+	/* border: 1px solid #cfcfcf; */
 	padding: 30px 15px;
 	text-align: center;
-	width: 100%;
-	max-width:280px;
+	/* width: 100%;
+	max-width:280px; */
 	display: inline-block;
 	margin-top:-1px;
 }
