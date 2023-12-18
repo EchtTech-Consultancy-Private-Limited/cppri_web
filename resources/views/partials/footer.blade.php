@@ -184,18 +184,27 @@
             </div>
         </div>
     </div>
+  
     <div class="footer-bottom-wrapper">
-        <div class="container common-container four_content footer-bottom-container">
+         <div class="container common-container four_content footer-bottom-container">
             <div class="footer-content">
-                <div class="copyright-content"> © Copyright 2023 <strong>CPPRI Sahranpur.</strong><span> All Rights
-                        Reserved. </span></div>
-                <div class="last-updated">
-                    <!-- <span> Last Updated: <strong> 12/10/2022</strong></span> &nbsp; &nbsp; &nbsp; -->
-                    <span>Total Visitors: <strong>{{ $visitCounter   ??"" }}</strong></span>
-                </div>
+               <div class="copyright-content"> © Copyright 2023 <strong>CPPRI Sahranpur.</strong><span> All Rights
+                     Reserved. </span></div>
+               <div class="last-updated">
+                 <span>
+                    <a href="javascript:void();">Linking Policy</a> | 
+                    <a href="javascript:void();">Privacy Policy</a> | 
+                    <a href="javascript:void();">Disclaimer</a> | 
+                    <a href="javascript:void();">Help</a> | 
+                    <a href="javascript:void();">Cookies Policy</a> | 
+                    <a href="javascript:void();">Terms & Conditions</a>
+</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <span>Total Visitors: <strong>{{ $visitCounter   ??"" }}</strong></span>
+               </div>
             </div>
-        </div>
-    </div>
+         </div>
+      </div>
+
 </footer>
 <!--/.footer-wrapper-->
 <!-- Modal Popup -->

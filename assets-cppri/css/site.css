@@ -3364,6 +3364,10 @@ marquee.news-marquee a {
 	transition: opacity 150ms;
 	-webkit-transition: opacity 150ms;
 }
+.btn-more-li
+{
+    display: none;
+}
 
 .video-overlay-play-button:hover {
 	opacity: 1;
@@ -3373,20 +3377,21 @@ marquee.news-marquee a {
 	display: none;
 }
 
-.minister .min-info h5.prime:after {
+/* .minister .min-info h5.prime:after {
 	content: "";
 	position: absolute;
+
 	left: 0px;
 	right: 0px;
 	bottom: -10px;
 	height: 5px;
 	width: 80px;
-	/* liniar gradient for all browsers */
+
 	background-image: -webkit-linear-gradient(0deg, #ec4933 50%, #ccc 50%);
 	background-image: -webkit-linear-gradient(0deg, #ec4933 50%, #ccc 50%);
-	/* background-image: -webkit-linear-gradient(0deg, #ec4933 50%, #ccc 50%); */
+	background-image: -webkit-linear-gradient(0deg, #ec4933 50%, #ccc 50%);
 	background-image: -webkit-linear-gradient(0deg, #49aa41 70%, #ccc 50%);
-}
+} */
 
 a.portgolio-button {
 	border: 1px solid #337ab7;

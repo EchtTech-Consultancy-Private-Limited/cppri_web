@@ -34,7 +34,7 @@
 <link href="{{ asset('assets-cppri/theme/css/site.css') }}" rel="stylesheet" media="all">
 <link href="{{ asset('assets-cppri/theme/css/site-responsive.css') }}" rel="stylesheet" media="all">
 <link href="{{ asset('assets-cppri/theme/css/ma5gallery.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('assets-cppri/theme/css/print.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('assets-cppri/theme/css/print.css') }}" rel="stylesheet" type="text/css" media="print">
 
 <link href="{{ asset('assets-cppri/css/modules.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('assets-cppri/css/bootstrap.min.css') }}">

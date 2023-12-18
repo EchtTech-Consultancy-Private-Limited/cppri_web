@@ -2,6 +2,14 @@
     <div class="container common-container four_content top-header">
         <div class="common-left clearfix">
             <ul>
+                <li class="border-r">
+                    <div class="circle-boxes">
+                        <div class="c-box blue  color" data-id="#1a4f91" title="Blue"></div>
+                        <div class="c-box green color" data-id="#007473" title="Green"></div>
+                        <div class="c-box orange color" data-id="#ca5e04" title="Orange"></div>
+                        <div class="c-box purple color" data-id="#2a2f67" title="Purple"></div>
+                    </div>
+                </li>
                 <li class="gov-india">
                     <span class="li_eng responsive_go_eng">
                         Last Updated on:
@@ -59,6 +67,8 @@
                     </div>
                 </li>
 
+                <li class="ico-sitemap screen-reader cf"><a href="javascript:viod(0)" title="Screen Reader Access"><i class="fa fa-volume-up"></i></a> </li>
+
                 <li class="ico-accessibility cf">
                     <a href="javascript:void(0);" id="toggleAccessibility"
                         title="Accessibility Dropdown">
@@ -102,6 +112,7 @@
                         <img class="top" src="{{ asset('assets-cppri/images/ico-sitemap.png') }}"
                             alt="Sitemap"></a>
                 </li>
+               
                 <li class="hindi cmf_lan d-hide">
                     <label class="de-lag">
                         <span style="display: none;">Language</span>

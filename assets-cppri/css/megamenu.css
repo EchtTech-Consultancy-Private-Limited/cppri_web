@@ -20,7 +20,7 @@
 	font-size: 18px;
 }
 .main-menu > ul > li > a {
-	padding: 11px 15px;
+	padding: 11px 13px;
 	display:block;
 }
 .main-menu ul li.active a i {
@@ -101,7 +101,7 @@
 	float:left;
 }
 .sub-nav ul >li {
-	font-size: 90%;
+	font-size: 85%;
 	display:block;
 	border:none !important;
 	padding: 6px 6px;
