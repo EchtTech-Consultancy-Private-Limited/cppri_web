@@ -46,7 +46,7 @@
         <div class="col-md-10">
             <div class="marquee">
 
-                {{-- news management start --}}
+
                 <div>
                     @if (isset($news_management) && count($news_management) > 0)
 
@@ -60,7 +60,7 @@
 
                         @if ($news_managements->tab_type == '1')
                         @if (!empty($url))
-                        <a href="{{ url($url) }}" onclick="return confirm('{{ $text }}')" target="_blank"
+                        <a href="{{ url($url) }}" onclick="return confirm('{{ $alertMessage }}')" target="_blank"
                             style="font-weight:bold">
 
                             @if (Session::get('Lang') == 'hi')
@@ -86,67 +86,42 @@
                     </span>
                     @endforeach
                     @else
-                    <h5 style="font-weight:bold">Online Public Grievance Redressal through VC Hosted by
-                        CPPRI (4PM to 5PM) at</h5>
+                    <h5 style="font-weight:bold">No news available.</h5>
                     @endif
 
-                    {{-- news management end --}}
+
 
                 </div>
             </div>
-            <div class="col-md-10">
-                <div class="marquee">
-
-{{-- news management start --}}
-                    <div>
-                        @if (isset($news_management) && count($news_management) > 0)
-
-                            @foreach ($news_management as $news_managements)
-                                <span>
-                                    @php
-                                        $url = $news_managements->public_url ?? '';
-                                        $title_hi = $news_managements->title_name_hi ?? '';
-                                        $title_en = $news_managements->title_name_en ?? '';
-                                    @endphp
-
-                                    @if ($news_managements->tab_type == '1')
-                                        @if (!empty($url))
-                                            <a href="{{ url($url) }}"
-                                                onclick="return confirm('{{ $alertMessage }}')" target="_blank"
-                                                style="font-weight:bold">
-
-                                                @if (Session::get('Lang') == 'hi')
-                                                    {{ $title_hi }}
-                                                @else
-                                                    {{ $title_en }}
-                                                @endif
-
-                                            </a>
-                                        @endif
-                                    @else
-                                        @if (!empty($url))
-                                            <a href="{{ url($url) }}" style="font-weight: bold">
-                                                @if (Session::get('Lang') == 'hi')
-                                                    {{ $title_hi }}
-                                                @else
-                                                    {{ $title_en }}
-                                                @endif
-                                            </a>
-
-                                        @endif
-                                    @endif
-                                </span>
-                            @endforeach
-                        @else
-                            <h5 style="font-weight:bold">No news available.</h5>
-                        @endif
-
-{{-- news management end --}}
-
-                    </div>
+        </div>
+    </div>
+</section>
+<div class="wrapper" id="skipCont"></div>
+<!--/#skipCont-->
+<section id="fontSize" class="wrapper body-wrapper ">
+    <h2 style="display: none;">Body</h2>
+    <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott">
+        <div class="container common-container four_content body-container top-body-container padding-top-bott2">
+            <div class="minister clearfix">
+                <div class="minister-box clearfix">
+                    <!-- <div class="minister-sub1">
+                        <div class="minister-image"><img src="{{ asset('assets-cppri/images/minister.jpg') }}"
+                                alt="Hon’ble Minister" title="Ministry/Department, Minister Name"></div>
+                        <div class="min-info">
+                            <h4><a href="javascript:void(0);" title="Minister Name"> Shri Som Parkash</a></h4>
+                            <h5 class="prime"><a href="javascript:void(0);" title="Hon’ble Prime Minister">
+                                    Minister of
+                                    State for Commerce and Industry</a></h5>
+                            <a href="javascript:void(0);"
+                                title="External link open in new tab,Portfolio of Hon’ble minister"
+                                class="portgolio-button">
+                                View Portfolio <i class="fa fa-external-link"></i>
+                            </a>
+                        </div>
+                    </div> -->
                     <div class="minister-sub">
-                        <div class="minister-image"><img src="{{ asset('assets-cppri/images/M-K-Gupta_0.png') }}"
-                                alt="Hon’ble Minister" title="Ministry/Department,Minister Name"></div>
+                        <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
+                                alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>
                         <div class="min-info">
                             <h4>Dr. M K Gupta</h4>
                             <h5><a href="javascript:void(0);" title="Minister of Coal"><span>Director </span></a>
@@ -155,7 +130,7 @@
                     </div>
                     <div class="minister-sub">
                         <div class="minister-image"><img src="{{ asset('assets-cppri/images/a_k_dixit.png') }}"
-                                alt="minister of state coal and mines" title="Ministry/Department, Minister Name">
+                                alt="minister of state coal and mines" title="Dr. A. K. Dixit Scientist-F">
                         </div>
                         <div class="min-info">
                             <h4>Dr. A. K. Dixit</h4>
@@ -190,7 +165,8 @@
                     Environment Management and (iv) Human Resource & Skill Development
                 </p>
                 <br>
-                <a href="javascript:void(0);" title="Click here to know more">Read more <i class="fa fa-angle-right"></i></a>
+                <a href="javascript:void(0);" title="Click here to know more">Read more <i
+                        class="fa fa-angle-right"></i></a>
             </div>
         </div>
     </div>
@@ -338,11 +314,12 @@
                     </div>
                 </div>
                 <div class="left-col-2">
-                    <div class="tender">
-
+                   <div class="box-bg-color">
+                   <div class="tender">
                         <h2>Tenders</h2>
                     </div>
                     <p class="text-slide1 pause" onclick="changeClass1()"></p>
+                   </div>
                     <div class="scroll-text-1 scroll-left">
                         <ul class="list">
                             {{-- <li>
@@ -448,63 +425,159 @@
         </div>
     </div>
 
+    <section class="wf100 city-news p75">
+         <div class="container common-container four_content banner-container">
+           <div class="title-style-3">
+             <!-- <h3 class="h11">Our Programs</h3> -->
+             <!-- <p>Read the News Updates and Articles about Government </p> -->
+           </div>
+           <div class="row">
+             <!--News Box Start-->
+             <div class="col-md-6 col-sm-6 PL-LG-0">
+   
+               <div class="news-box">
+                 <div class="row">
+                   <div class="col-md-4 p-0">
+                     <div class="new-thumb">
+                       <div>
+                         <span class="cat c1">Academic Program</span> <img src="{{ asset('assets-cppri/images/msc.jpg') }}" alt="">
+   
+                       </div>
+   
+                     </div>
+                   </div>
+                   <div class="col-md-8 p-0">
+                     <div class="new-txt">
+   
+                       <h6><a href="#">Academic Program</a></h6>
+                       <span class="duration">Duration- Two year (4 semesters) </span>
+                       <p> To meet the Indian Pulp &amp; Paper Industry’s requirement of technically trained manpower, Forest
+                         Research University ( Deemed University)...
+                       </p>
+                       <a class="button" href="#">More Details <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+   
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <!--News Box End-->
+             <!--News Box Start-->
+             <div class="col-md-6  col-sm-6 PR-LG-0">
+               <div class="news-box">
+                 <div class="row">
+                   <div class="col-md-4 p-0">
+                     <div class="new-thumb">
+                       <div>
+                         <span class="cat c1">Training Program</span> <img src="{{ asset('assets-cppri/images/phd.jpg') }}" alt="">
+   
+                       </div>
+   
+                     </div>
+                   </div>
+                   <div class="col-md-8 p-0">
+                     <div class="new-txt">
+   
+                       <h6><a href="#">Training Program</a></h6>
+                       <span class="duration">Duration- Depends on program stream </span>
+                       <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi vitae laudantium similique
+                         molestiae, quod laborum natus molestias...
+                       </p>
+                       <a class="button" href="#">More Details <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+   
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <!--News Box End-->
+             <!--News Box Start-->
+             <!-- <div class="col-md-3  col-sm-6">
+               <div class="news-box">
+                 <div class="new-thumb"> <span class="cat c3">Policies</span> <img src="images/cppri/modi.jpg" alt="">
+                 </div>
+                 <div class="new-txt">
+                   
+                   <h6><a href="#">Our Policies Programs</a></h6>
+                   <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="#" title="">...read more</a>
+                   </p>
+                 </div>
+                
+               </div>
+             </div> -->
+             <!--News Box End-->
+             <!--News Box Start-->
+             <!-- <div class="col-md-3  col-sm-6">
+               <div class="news-box">
+                 <div class="new-thumb"> <span class="cat c4">Education</span> <img src="images/h3citynews-4.jpg" alt="">
+                 </div>
+                 <div class="new-txt">
+                   
+                   <h6><a href="#">Our Education Programs</a></h6>
+                   <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="#" title="">...read more</a>
+                   </p>
+                 </div>
+               </div>
+             </div> -->
+             <!--News Box End-->
+           </div>
+         </div>
+       </section>
 
-    <div class="wrapper banner-bg-white">
-        <div class="container common-container four_content banner-container body-container top-body-container">
+       <div class="wrapper banner-bg-white ptb-30 pb-0">
+         <div class="container common-container four_content banner-container body-container top-body-container p-0">
 
             <div class="col-md-4">
-                <div class="social-box">
-                    <div class="sub-sec">
-                        <h2>Facebook Feed</h2>
-                    </div>
-                    <div class="facebook-feed-content text-center">
-                        <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=100090718134100"
-                            data-tabs="timeline" data-width="360" data-height="400" data-small-header="true"
-                            data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
-                            <blockquote cite="https://www.facebook.com/profile.php?id=100090718134100"
-                                class="fb-xfbml-parse-ignore"><a
-                                    href="https://www.facebook.com/profile.php?id=100090718134100">Central Pulp and
-                                    Paper
-                                    Research Institute</a></blockquote>
-                        </div>
-                    </div>
-                </div>
+               <div class="social-box">
+                  <div class="sub-sec">
+                     <h2> <div class="img-b"><img src="{{ asset('assets-cppri/images/facebook.png') }}" alt="icon"></div> Facebook Feed</h2>
+                  </div>
+                  <div class="plug-box facebook-feed-content text-center">
+                     <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=100090718134100"
+                        data-tabs="timeline" data-width="360" data-height="400" data-small-header="true"
+                        data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
+                        <blockquote cite="https://www.facebook.com/profile.php?id=100090718134100"
+                           class="fb-xfbml-parse-ignore"><a
+                              href="https://www.facebook.com/profile.php?id=100090718134100">Central Pulp and Paper
+                              Research Institute</a></blockquote>
+                     </div>
+                  </div>
+               </div> 
             </div>
             <div class="col-md-4">
-                <div class="social-box">
-                    <div class="sub-sec">
-                        <h2>Twitter Feed</h2>
-                    </div>
-                    <div class="twitter-feed-content p-2">
-                        <blockquote class="twitter-tweet">
-                            <p lang="en" dir="ltr">On 18.10.2023, Old Newspapers, Old Magazines and
-                                Shredded Office waste
-                                was disposed of under the ongoing # Special Campaign 3.0. The total space freed
-                                after
-                                disposal of paper waste was 700 sqr. ft. <a
-                                    href="https://t.co/e8nghNwqSj">pic.twitter.com/e8nghNwqSj</a></p>&mdash;
-                            Central Pulp
-                            &amp; Paper Research Institute (@CppriSaharanpur) <a
-                                href="https://twitter.com/CppriSaharanpur/status/1714938725103464730?ref_src=twsrc%5Etfw">October
-                                19, 2023</a>
-                        </blockquote>
-                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
-                </div>
+               <div class="social-box">
+                  <div class="sub-sec">
+                     <h2 class="twitter-c"> <div class="img-b"><img src="{{ asset('assets-cppri/images/twitter.png') }}" alt="icon"></div> Twitter Feed</h2>
+                  </div>
+                  <div class="plug-box twitter-feed-content p-2">
+                     <blockquote class="twitter-tweet">
+                        <p lang="en" dir="ltr">On 18.10.2023, Old Newspapers, Old Magazines and Shredded Office waste
+                           was disposed of under the ongoing # Special Campaign 3.0. The total space freed after
+                           disposal of paper waste was 700 sqr. ft. <a
+                              href="https://t.co/e8nghNwqSj">pic.twitter.com/e8nghNwqSj</a></p>&mdash; Central Pulp
+                        &amp; Paper Research Institute (@CppriSaharanpur) <a
+                           href="https://twitter.com/CppriSaharanpur/status/1714938725103464730?ref_src=twsrc%5Etfw">October
+                           19, 2023</a>
+                     </blockquote>
+                     <script async src="https://platform.twitter.com/widgets.js"></script>
+                  </div>
+               </div>
             </div>
             <div class="col-md-4">
-                <div class="social-box">
-                    <div class="sub-sec">
-                        <h2>Linkedin Feed</h2>
-                    </div>
-                    <div class="linkedinfeed">
-                        <img src="{{ asset('assets-cppri/images/linkedin_feed.PNG') }}" alt="">
-                    </div>
+               <div class="social-box">
+                  <div class="sub-sec">
+                     <h2 class="linkedin-c"> <div class="img-b"><img src="{{ asset('assets-cppri/images/linkedin1.png') }}" alt="icon"></div> Linkedin Feed</h2>
+                  </div>
 
-                </div>
+                  <div class="plug-box linkedinfeed">
+                     <img src="{{ asset('assets-cppri/images/linkedin_feed.PNG') }}" alt="">
+                  </div>
+
+               </div>
             </div>
-        </div>
-    </div>
+
+         </div>
+      </div>
 
 
     <div class="wrapper home-btm-slider">

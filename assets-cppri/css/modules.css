@@ -438,9 +438,9 @@ html[xmlns] .banner-slider .slides {
   opacity: 1;
   cursor: default;
 }
-.gallery-container {
+/* .gallery-container {
 	background: #333 none repeat scroll 0 0;
-}
+} */
 
 .gallery .gallery-area {
 	float: left;
@@ -619,7 +619,7 @@ html[xmlns] .banner-slider .slides {
 	padding: 50px 0;
 }
 .gallery-left{float:left;width:72.5%;}
-.gallery-right{float:right;width:25%;}
+.gallery-right{float:right;width:31%;}
 @media all and (max-width : 940px) {
 	.gallery-left{float:left;width:100%;}
 	.gallery-right{float:right;width:100%;}
@@ -799,11 +799,11 @@ a.view:hover {
 	text-align: center;
 }
 .minister {
-	border: 1px solid #cfcfcf;
-	padding: 30px 15px;
+	border: 0;
+	padding: 26px 0px;
 	text-align: center;
 	width: 100%;
-	max-width:280px;
+	max-width:34%;
 	display: inline-block;
 	margin-top:-1px;
 }

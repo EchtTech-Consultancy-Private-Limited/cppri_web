@@ -1537,7 +1537,8 @@ a {
 }
 
 .common-left ul li span.li_eng {
-	font-size: 106%;
+	font-size: 115%;
+    letter-spacing: 0.5px;
 }
 
 .common-right ul li.ico-skip>a,
@@ -1823,9 +1824,9 @@ a {
 }
 /* For logo */
 
-.header__logo.d-flex-logo {
+.header__logo .d-flex-logo {
     display: flex;
-    width: 50%;
+    /* width: 50%; */
     float: left;
 	align-items: center;
 }
@@ -1877,4 +1878,9 @@ li.border-r {
 }
 li.gov-india {
     padding-left: 8px;
+}
+.screen-reader.cf a {
+    font-size: 23px;
+    color: black;
+    line-height: 10px;
 }
