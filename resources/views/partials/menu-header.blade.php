@@ -39,7 +39,7 @@
                                     @if (isset($subMenus->children) && count($subMenus->children) > 0)
                                         @if ($subMenus->tab_type == 1)
                                             <li class="env">
-                                                <a href="{}" onclick="return confirm('{{ $alertMessage }}')"
+                                                <a href="javascript:void(0)" onclick="return confirm('{{ $alertMessage }}')"
                                                     target="_blank">
                                                     @if (Session::get('Lang') == 'hi')
                                                         {{ $subMenus->name_hi ?? '' }}
@@ -65,7 +65,7 @@
                                                 @endphp
 
                                                 @if ($ChildMenus->tab_type == 1)
-                                                    <li><a href="{{ url($Childurl) ?? '' }}">
+                                                    <li><a href="{{ $Childurl ?? '' }}">
                                                             @if (Session::get('Lang') == 'hi')
                                                                 {{ $ChildMenus->name_hi ?? '' }}
                                                             @else
@@ -89,7 +89,7 @@
                                         @if ($subMenus->tab_type == 1)
                                             <li>
                                                 <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
-                                                    href="{{ url($subMenusurl) ?? '' }}">
+                                                    href="{{ $subMenusurl ?? '' }}">
                                                     @if (Session::get('Lang') == 'hi')
                                                         {{ $subMenus->name_hi ?? '' }}
                                                     @else
@@ -116,7 +116,7 @@
                         @if ($headerMenus->tab_type == 1)
                             <li class="nav-item">
                                 <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
-                                    href="{{ url($url) }}">
+                                    href="{{ $url  ??'' }}">
                                     @if (Session::get('Lang') == 'hi')
                                         {{ $headerMenus->name_hi ?? '' }}
                                     @else
@@ -125,7 +125,7 @@
                                 </a>
                             </li>
                         @else
-                            <li class="nav-item"><a href="{{ url($url) }}">
+                            <li class="nav-item"><a href="{{ url($url) ??"" }}">
                                     @if (Session::get('Lang') == 'hi')
                                         {{ $headerMenus->name_hi ?? '' }}
                                     @else

@@ -3,6 +3,8 @@
     {{ __('RAV') }}
 @endsection
 @section('content')
+
+
 <section class="wrapper banner-wrapper">
         <h1 style="display: none">Banner</h1>
         <div id="flexSlider" class="flexslider">
@@ -60,7 +62,7 @@
                                     @if ($news_managements->tab_type == '1')
                                         @if (!empty($url))
                                             <a href="{{ url($url) }}"
-                                                onclick="return confirm('{{ $text }}')" target="_blank"
+                                                onclick="return confirm('{{ $alertMessage }}')" target="_blank"
                                                 style="font-weight:bold">
 
                                                 @if (Session::get('Lang') == 'hi')
