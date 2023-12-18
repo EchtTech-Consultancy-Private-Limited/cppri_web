@@ -19,12 +19,17 @@
         <section class="wrapper header-wrapper">
             <h3 style="display: none;">Top-Header Section end</h3>
             <div class="container common-container four_content  header-container">
-                <p class="logo">
-                    <a href="{{ url('/') }}" title="Home" rel="home" class="header__logo" id="logo">
-                        <img class="national_emblem" src="{{ asset('assets-cppri/images/logo.png') }}"
-                            alt="CPPRI logo">
-                    </a>
-                </p>
+            <p class="logo">
+               <a href="index.html" title="Home" rel="home" class="header__logo d-flex-logo" id="logo">
+                 <div>
+                     <img class="national_emblem" src="{{ asset('assets-cppri/images/logo.png') }}" alt="CPPRI logo">
+                     <div class="logo-text">
+                        <h3 class="hindi mt-0">केन्द्रीय लुग्दी एवं कागज अनुसंधान संस्थान</h3>
+                        <h3 class="english">Central Pulp & Paper Research Institute</h3>
+                     </div>
+                 </div>
+               </a>
+            </p>
                 <div class="header-right clearfix">
                     <div class="right-content clearfix">
                         <div class="float-element">

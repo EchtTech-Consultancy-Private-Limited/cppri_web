@@ -59,6 +59,8 @@
                     </div>
                 </li>
 
+                <li class="ico-sitemap screen-reader cf"><a href="javascript:viod(0)" title="Sitemap"><i class="fa fa-volume-up"></i></a> </li>
+
                 <li class="ico-accessibility cf">
                     <a href="javascript:void(0);" id="toggleAccessibility"
                         title="Accessibility Dropdown">
@@ -102,6 +104,7 @@
                         <img class="top" src="{{ asset('assets-cppri/images/ico-sitemap.png') }}"
                             alt="Sitemap"></a>
                 </li>
+               
                 <li class="hindi cmf_lan d-hide">
                     <label class="de-lag">
                         <span style="display: none;">Language</span>
