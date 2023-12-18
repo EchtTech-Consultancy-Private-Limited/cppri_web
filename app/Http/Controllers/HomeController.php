@@ -28,7 +28,7 @@ class HomeController extends Controller
 
             if($menus != ''){
                 
-            if (Session::get('locale') == 'hi'){
+            if (Session::get('Lang') == 'hi'){
                 $title_name = $menus->name_hi;    
             }else{
                 $title_name = $menus->name_en;    
@@ -86,13 +86,15 @@ class HomeController extends Controller
                 $sideMenuParent = "";
                 $sideMenuChild =[];
             }
+
             $quickLink = DB::table('website_menu_management')->where('menu_place',4)->where('soft_delete',0)->orderBy('sort_order','ASC')->get();
-      
+               // dd($quickLink);
+
             return view('master-page',['quickLink'=>$quickLink,'title_name' => $title_name,'organizedData'=>$organizedData,'sideMenuChild'=>$sideMenuChild,'sideMenuParent'=>$sideMenuParent]);
       
         }else{
           
-            if (Session::get('locale') == 'hi'){
+            if (Session::get('Lang') == 'hi'){
                 $content = "पेज अभी उपलब्ध नहीं है हम इस पर काम कर रहे हैं";   
             }else{
                 $content = "Page is not Available Yet.We are Working on it.";   

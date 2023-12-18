@@ -3,6 +3,8 @@
 {{ __('RAV') }}
 @endsection
 @section('content')
+
+
 <section class="wrapper banner-wrapper">
     <h1 style="display: none">Banner</h1>
     <div id="flexSlider" class="flexslider">
@@ -92,31 +94,55 @@
 
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<div class="wrapper" id="skipCont"></div>
-<!--/#skipCont-->
-<section id="fontSize" class="wrapper body-wrapper ">
-    <h2 style="display: none;">Body</h2>
-    <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott">
-        <div class="container common-container four_content body-container top-body-container padding-top-bott2">
-            <div class="minister clearfix">
-                <div class="minister-box clearfix">
-                    <div class="minister-sub1">
-                        <div class="minister-image"><img src="{{ asset('assets-cppri/images/minister.jpg') }}"
-                                alt="Hon’ble Minister" title="Ministry/Department, Minister Name"></div>
-                        <div class="min-info">
-                            <h4><a href="javascript:void(0);" title="Minister Name"> Shri Som Parkash</a></h4>
-                            <h5 class="prime"><a href="javascript:void(0);" title="Hon’ble Prime Minister">
-                                    Minister of
-                                    State for Commerce and Industry</a></h5>
-                            <a href="javascript:void(0);"
-                                title="External link open in new tab,Portfolio of Hon’ble minister"
-                                class="portgolio-button">
-                                View Portfolio <i class="fa fa-external-link"></i>
-                            </a>
-                        </div>
+            <div class="col-md-10">
+                <div class="marquee">
+
+{{-- news management start --}}
+                    <div>
+                        @if (isset($news_management) && count($news_management) > 0)
+
+                            @foreach ($news_management as $news_managements)
+                                <span>
+                                    @php
+                                        $url = $news_managements->public_url ?? '';
+                                        $title_hi = $news_managements->title_name_hi ?? '';
+                                        $title_en = $news_managements->title_name_en ?? '';
+                                    @endphp
+
+                                    @if ($news_managements->tab_type == '1')
+                                        @if (!empty($url))
+                                            <a href="{{ url($url) }}"
+                                                onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                                                style="font-weight:bold">
+
+                                                @if (Session::get('Lang') == 'hi')
+                                                    {{ $title_hi }}
+                                                @else
+                                                    {{ $title_en }}
+                                                @endif
+
+                                            </a>
+                                        @endif
+                                    @else
+                                        @if (!empty($url))
+                                            <a href="{{ url($url) }}" style="font-weight: bold">
+                                                @if (Session::get('Lang') == 'hi')
+                                                    {{ $title_hi }}
+                                                @else
+                                                    {{ $title_en }}
+                                                @endif
+                                            </a>
+
+                                        @endif
+                                    @endif
+                                </span>
+                            @endforeach
+                        @else
+                            <h5 style="font-weight:bold">No news available.</h5>
+                        @endif
+
+{{-- news management end --}}
+
                     </div>
                     <div class="minister-sub">
                         <div class="minister-image"><img src="{{ asset('assets-cppri/images/M-K-Gupta_0.png') }}"
