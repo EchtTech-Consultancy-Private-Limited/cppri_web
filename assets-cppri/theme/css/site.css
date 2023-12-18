@@ -696,9 +696,13 @@ a.read-more:hover {
 	float: left;
 	text-align: center;
 	height: auto;
-	padding: 12px 0px;
+	padding: 20px 0px;
 	transition: 0.3s ease-n-out;
-	margin-top: 10px;
+	margin-top: 0px;
+}
+
+.minister-sub:not(:last-child) {
+    border-right: 1px solid #3233;
 }
 
 .minister-sub:hover img {
@@ -1683,10 +1687,11 @@ ul.ul-v>li a {
 	display: inline-block;
 	padding: 0;
 	border: 0px solid #ece7e7;
-	background: #fff;
+	/* background: #fff; */
+	background: transparent;
 	padding-bottom: 10px;
 	border-radius: var(--box-radius);
-	height: 405px;
+	height: 400px;
 	box-shadow: 0 0px 4px rgba(0,0,0,.1);
 }
 
@@ -2585,8 +2590,10 @@ ul.resp-tabs-list {
 }
 
 .resp-tabs-container {
-	padding: 0px;
-	clear: left;
+	padding: 0px 0 5px;
+    clear: left;
+    background: #fff;
+    margin-top: 5px;
 }
 
 h2.resp-accordion {
@@ -2921,7 +2928,7 @@ h2 small {
 .view-footer a {
 	padding: 5px 8px;
     font-size: 65%;
-    margin-top: 8px !important;
+    margin-top: 5px !important;
     text-align: right;
 	display: inline-block;
 	text-decoration: none;
@@ -3741,7 +3748,7 @@ a{
 .page-tab .text-slide01 {
 	position: absolute;
 	right: 15px;
-    top: -40px;
+    top: -46px;
 	color: #fff;
 }
 
@@ -3825,9 +3832,18 @@ ul.page-list li a {
 /* ul.page-list li a+a{padding-top:5px;}
  */
 .links-wrapper .icon-box {
-	display: inline-block;
+	display: inline-flex;
 	text-align: center;
-	width: 16.3%;
+	width: 16%;
+	background: #fff;
+	padding: 10px 9px;
+    border-radius: 5px;
+    height: 155px;
+	justify-content: center;	
+}
+
+.links-wrapper .icon-box:not(:last-child) {
+    margin-right: 5.7px;
 }
 
 .links-wrapper .icon-box a {
@@ -3887,9 +3903,9 @@ ul.page-list li a {
 
 .links-wrapper .icon-box a .icon-box-text {
 	display: block;
-	color: #fff;
+	color: #000000;
 	text-transform: uppercase;
-	font-size: 90%;
+	font-size: 98%;
 	font-weight: 600;
 	padding-top: 8px;
 	padding-top: 15px;
@@ -3898,10 +3914,12 @@ ul.page-list li a {
 
 .links-wrapper .icon-box a:hover .icon-box-text,
 .links-wrapper .icon-box a:focus .icon-box-text {
-	color: #fff;
+	color: #1a4f91;
     text-decoration: none !important;
 
 }
+
+
 
 a.btn-view {
 	color: #607060;
@@ -4150,23 +4168,23 @@ padding: 0;
     background: #fff;
     padding-bottom: 10px;
     border-radius: 0 0 10px 10px;
-    height: 420px;
+    height: 350px;
     box-shadow: 0 2px 20px rgb(0 0 0);
     margin: 30px 0 40px;
 	padding: 0;
 }
 
 .social-box .plug-box {
-    padding: 5px 20px;
-	margin-top: 55px;
+	padding: 5px 10px;
+    margin-top: 40px;
 }
 
 iframe#twitter-widget-0 {
-    height: 330px !important;
+    height: 295px !important;
 }
 
 .facebook-feed-content iframe {
-    height: 330px !important;
+    height: 295px !important;
 }
 
 .social-box{
@@ -4174,8 +4192,8 @@ iframe#twitter-widget-0 {
 }
 
 .social-box h2 {
-	font-size: 120% !important;
-    line-height: 60px;
+	font-size: 110% !important;
+    line-height: 55px;
     margin: 10px 0;
     position: relative;
     display: flex;
@@ -4217,7 +4235,7 @@ iframe#twitter-widget-0 {
 
 .linkedinfeed img {
     width: 100%;
-    height: 330px;
+    height: 295px;
     border-radius: 10px;
     border: 1px solid #d2d2d2;
 }
@@ -5384,8 +5402,8 @@ textarea:focus, input:focus{
     border: 0;
 }
 .sub-sec h2 .img-b {
-    width: 42px;
-    height: 42px;
+    width: 39px;
+    height: 39px;
     display: flex;
 	justify-content: center;
     margin-right: 10px;
@@ -5421,3 +5439,21 @@ textarea:focus, input:focus{
 .footer-content span a:hover {
     color: #ddd;
 }
+
+.bg-white-tender {
+    background: #fff;
+    height: 343px;
+    margin-top: 5px;
+}
+h2.instagram-c {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+}
+
+.banner-content-wrapper.services-heading {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 22px;
+}
+
+.banner-content-wrapper.services-heading h2{color: #fff;}
