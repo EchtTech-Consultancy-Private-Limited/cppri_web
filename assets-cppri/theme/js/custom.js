@@ -44,6 +44,8 @@ $(window).load(function(){
 // Slider						
     $('#flexSlider').flexslider({
         animation: "slide",
+		direction: "vertical", 
+		directionNav: true,
         pausePlay: true,
         controlNav: true,
         start: function(slider){
