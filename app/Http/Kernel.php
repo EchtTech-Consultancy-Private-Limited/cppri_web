@@ -65,6 +65,7 @@ class Kernel extends HttpKernel
         'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
         'logs' => \App\Http\Middleware\AdminLogs::class,
         'apithrottle' => \App\Http\Middleware\ThrottleMiddleware::class,
+        'visitingcounter' => \App\Http\Middleware\VisitCounters::class,
         'EnsureTokenIsValid' => \App\Http\Middleware\EnsureTokenIsValid::class,
         //'checklogin' => \App\Http\Middleware\checklogin::class,
         // 'jwt.auth' => \Tymon\JWTAuth\middleware\GetUserFromToken::class,

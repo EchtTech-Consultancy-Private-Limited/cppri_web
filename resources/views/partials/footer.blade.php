@@ -1,5 +1,4 @@
 <footer class="wrapper footer-wrapper">
-   
     <div class="footer-top-wrapper">
         <div class="back-drop">
             <div class="container common-container four_content footer-top-container">
@@ -14,10 +13,15 @@
                                 @if (isset($footerMenu) && count($footerMenu) > 0)
                                     <ul>
                                         @foreach ($footerMenu->slice(0, 6) as $footerMenus)
+                                            @php
+                                                $footerurl = $footerMenus->url ?? 'javascript:void(0)';
+                                            @endphp
+
+
                                             @if ($footerMenus->tab_type == 1)
                                                 <li>
                                                     <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
-                                                        href="javascript:void(0)">
+                                                        href="{{ $footerurl  ?? '' }}">
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $footerMenus->name_hi ?? '' }}
                                                         @else
@@ -26,7 +30,7 @@
                                                     </a>
                                                 </li>
                                             @else
-                                                <li><a href="javascript:void();">
+                                                <li><a href="{{ url($footerurl) ?? '' }}">
 
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $footerMenus->name_hi ?? '' }}
@@ -49,10 +53,13 @@
                                     @if (isset($footerMenu) && count($footerMenu) > 0)
                                         <ul>
                                             @foreach ($footerMenu->slice(6, 6) as $footerMenus)
+                                                @php
+                                                    $footerurl = $footerMenus->url ?? 'javascript:void(0)';
+                                                @endphp
                                                 @if ($footerMenus->tab_type == 1)
                                                     <li>
                                                         <a onclick="return confirm('{{ $alertMessage }}')"
-                                                            target="_blank" href="javascript:void(0)">
+                                                            target="_blank" href="{{ $footerurl ?? '' }}">
                                                             @if (Session::get('Lang') == 'hi')
                                                                 {{ $footerMenus->name_hi ?? '' }}
                                                             @else
@@ -62,7 +69,7 @@
                                                     </li>
                                                 @else
                                                     <li>
-                                                        <a href="javascript:void();">
+                                                        <a href="{{ url($footerurl) ?? '' }}">
                                                             @if (Session::get('Lang') == 'hi')
                                                                 {{ $footerMenus->name_hi ?? '' }}
                                                             @else
@@ -85,10 +92,13 @@
                                     @if (isset($footerMenu) && count($footerMenu) > 0)
                                         <ul>
                                             @foreach ($footerMenu->slice(12, 6) as $footerMenus)
+                                                @php
+                                                    $footerurl = $footerMenus->url ?? 'javascript:void(0)';
+                                                @endphp
                                                 @if ($footerMenus->tab_type == 1)
                                                     <li>
                                                         <a onclick="return confirm('{{ $alertMessage }}')"
-                                                            target="_blank" href="javascript:void(0)">
+                                                            target="_blank" href="{{ $footerurl ?? '' }}">
                                                             @if (Session::get('Lang') == 'hi')
                                                                 {{ $footerMenus->name_hi ?? '' }}
                                                             @else
@@ -98,7 +108,7 @@
                                                     </li>
                                                 @else
                                                     <li>
-                                                        <a href="javascript:void();">
+                                                        <a href="{{ url($footerurl) ?? '' }}">
 
                                                             @if (Session::get('Lang') == 'hi')
                                                                 {{ $footerMenus->name_hi ?? '' }}
@@ -116,45 +126,41 @@
                                 </ul>
                             </div>
 
-                            {{-- <div class="col-md-3">
-                           <h3 class="footer-title">About Us</h3>
-                           <ul>
-                              <li><a href="javascript:void();">Overview</a></li>
-                              <li><a href="javascript:void();">Director Desk</a></li>
-                              <li><a href="javascript:void();">Employee Directory</a></li>
-                              <li><a href="javascript:void();">Facility </a></li>
-                              <li><a href="javascript:void();">Organisation Structure</a></li>
-                              <li><a href="javascript:void();">Paper Museum (Kagaj Sangralya)</a></li>
-                           </ul>
-                        </div>
-                            <div class="col-md-6">
-                           <h3 class="footer-title">Divisions/Cells</h3>
-                           <ul class="column-count">
-                              <li><a href="javascript:void();">Biotechnology</a></li>
-                              <li><a href="javascript:void();">Chemical Recovery</a></li>
-                              <li><a href="javascript:void();">Energy Management</a></li>
-                              <li><a href="javascript:void();">Engineering and Maintenance</a></li>
-                              <li><a href="javascript:void();">Grievance Cell</a></li>
-                              <li><a href="javascript:void();">Library & Documentation</a></li>
-                              <li><a href="javascript:void();">Public Grievance Cell</a></li>
-                              <li><a href="javascript:void();">Pulping and Bleaching</a></li>
-                              <li><a href="javascript:void();">Stock Preparation & Paper Making Paper Testing</a></li>
-                              <li><a href="javascript:void();">TSC Cell</a></li>
-                              <li><a href="javascript:void();">Vigilance Cell</a></li>
-                           </ul>
-                        </div> --}}
 
+                            @if (isset($quickLink) && count($quickLink) > 0)
+                                <div class="col-md-3">
+                                    <h3 class="footer-title">Quick Links</h3>
+                                    <ul>
+                                        @foreach ($quickLink as $quickLinks)
+                                            @php
+                                                $quickLinkurl = $quickLinks->url ?? 'javascript:void(0)';
+                                            @endphp
 
+                                            @if ($quickLinks->tab_type == 1)
 
-                            <div class="col-md-3">
-                                <h3 class="footer-title">Quick Links</h3>
-                                <ul>
-                                    <li><a href="javascript:void();">Client list</a></li>
-                                    <li><a href="javascript:void();">MOU</a></li>
-                                    <li><a href="javascript:void();">Overseas client</a></li>
-                                    <li><a href="javascript:void();">Rules and Regulation </a></li>
-                                </ul>
-                            </div>
+                                            <li><a onclick="return confirm('{{ $alertMessage }}')"
+                                                target="_blank" href="{{ $quickLinkurl ??"" }}">
+                                                    @if (Session::get('Lang') == 'hi')
+                                                        {{ $quickLinks->name_hi ?? '' }}
+                                                    @else
+                                                        {{ $quickLinks->name_en ?? '' }}
+                                                    @endif
+                                                </a></li>
+                                            @else
+
+                                            <li><a href="{{ url($quickLinkurl) ?? '' }}">
+                                                @if (Session::get('Lang') == 'hi')
+                                                    {{ $quickLinks->name_hi ?? '' }}
+                                                @else
+                                                    {{ $quickLinks->name_en ?? '' }}
+                                                @endif
+                                            </a></li>
+
+                                            @endif    
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -185,7 +191,7 @@
                         Reserved. </span></div>
                 <div class="last-updated">
                     <!-- <span> Last Updated: <strong> 12/10/2022</strong></span> &nbsp; &nbsp; &nbsp; -->
-                    <span>Total Visitors: <strong>1457793</strong></span>
+                    <span>Total Visitors: <strong>{{ $visitCounter   ??"" }}</strong></span>
                 </div>
             </div>
         </div>
