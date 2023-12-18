@@ -643,7 +643,7 @@ a.read-more:hover {
 }
 
 .minister .minister-sub1 .min-info {
-	width: 55%;
+	width: unset;
 	text-align: left;
 }
 
@@ -3372,18 +3372,14 @@ marquee.news-marquee a {
 	display: none;
 }
 
-.minister .min-info h5.prime:after {
+ .minister .min-info h5.prime:after {
 	content: "";
 	position: absolute;
-	left: 0px;
+	left: 158px;
 	right: 0px;
 	bottom: -10px;
 	height: 5px;
 	width: 80px;
-	/* liniar gradient for all browsers */
-	background-image: -webkit-linear-gradient(0deg, #ec4933 50%, #ccc 50%);
-	background-image: -webkit-linear-gradient(0deg, #ec4933 50%, #ccc 50%);
-	/* background-image: -webkit-linear-gradient(0deg, #ec4933 50%, #ccc 50%); */
 	background-image: -webkit-linear-gradient(0deg, #49aa41 70%, #ccc 50%);
 }
 
@@ -4314,7 +4310,7 @@ img.cell-icon-sec {
 	position: absolute;
 	left: 249px !important;
 	width: 100%;
-	bottom: -45px;
+	bottom: -264px;
 	color: #fff!important;
 	background-color: #49aa41;
 	display: none !important;
@@ -4374,6 +4370,7 @@ img.cell-icon-sec {
 		width: 100%;
 		object-fit: cover;
 		border-radius: 10px 10px 0px 0px;
+        height: 162px;
 	}
 	.order-list ol
 	{
@@ -5274,6 +5271,7 @@ textarea:focus, input:focus{
 	height:426px;
     border: 0;
 }
+
 .ptb-30{padding: 30px 0;}
 .ptb-50{padding: 50px 0;}
 .mt-0{margin-top:0px }
