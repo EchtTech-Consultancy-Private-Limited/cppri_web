@@ -13,7 +13,7 @@
                 </noscript>
                 @include('partials.top-head')
             </div>
-            <p id="scroll" style="display: none;"><span></span></p>
+            <p id="scroll" style="display: none;" class="change-color-code"><span></span></p>
         </div>
         <!--Top-Header Section end-->
         <section class="wrapper header-wrapper">
@@ -52,7 +52,7 @@
             </div>
         </section>
         <!--/.header-wrapper-->
-        <section class="wrapper megamenu-wraper">
+        <section class="wrapper megamenu-wraper change-color-code">
             <h3 style="display: none;">Megamenu</h3>
             @include('partials.menu-header')
         </section>

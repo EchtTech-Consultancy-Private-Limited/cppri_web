@@ -20,6 +20,11 @@ class HomeController extends Controller
         return response()->json(['data'=>$request->data,True]);
     }
 
+
+    public function contactUs(){
+        return view('pages/contact-us');
+    }
+
     public function getContentAllPages(Request $request, $slug)
     {
         // dd($slug);

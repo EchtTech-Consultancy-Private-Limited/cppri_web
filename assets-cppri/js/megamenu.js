@@ -63,14 +63,14 @@ $(document).ready(function(e) {
 	});
 
 	// On focus open dropdown for appended element
-	// $(document).on('focus', '#overflow_menu .nav-item a', function () {
-	// if($(this).parent().children('div').length > 0){
-	// 			if($(document).innerWidth() > 940){
-	// 				$(this).click();
-	// 			}
-	// }
+	$(document).on('focus', '#overflow_menu .nav-item a', function () {
+	if($(this).parent().children('div').length > 0){
+				if($(document).innerWidth() > 940){
+					$(this).click();
+				}
+	}
 	
-	// });
+	});
 
 	// On focus open dropdown script for the more button
 	/*$(document).on('focus', '#btn-more-toggle', function () {
