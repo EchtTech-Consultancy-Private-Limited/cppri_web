@@ -125,7 +125,7 @@
                                 </a>
                             </li>
                         @else
-                            <li class="nav-item"><a href="{{ url($url) ??"" }}">
+                            <li class="nav-item"><a href="{{ url($url) ?? ''}} ">
                                     @if (Session::get('Lang') == 'hi')
                                         {{ $headerMenus->name_hi ?? '' }}
                                     @else
@@ -141,8 +141,8 @@
 
 
     </nav>
-    <nav class="main-menu clearfix" id="overflow_menu">
+    <!-- <nav class="main-menu clearfix" id="overflow_menu">
         <ul class="nav-menu clearfix">
         </ul>
-    </nav>
+    </nav> -->
 </div>

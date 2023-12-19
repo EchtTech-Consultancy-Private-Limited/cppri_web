@@ -33,6 +33,7 @@
         </ul>
     </div>
 </section>
+
 <section class="latest-news">
     <h3 style="display: none;">Latest News</h3>
     <div class="row">
@@ -171,65 +172,72 @@
         </div>
     </div>
 
-
     <div class="links-wrapper">
-        <div class="container common-container">
-            <div class="icon-box">
-                <a href="javascript:void();">
-                    <span class="icon-box-ico">
-                        <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}" alt="">
-                    </span>
-                    <span class="icon-box-text">Publications & Reports</span>
-                </a>
+         <div class="container common-container">
+           
+
+         <div class="row">
+            <div class="col-md-12">
+            <div class="banner-content-wrapper services-heading">
+                <h2 class="text-white mt-0">Services</h2>              
             </div>
+            </div>
+         </div>
+            
 
             <div class="icon-box">
-                <a href="javascript:void();">
-                    <span class="icon-box-ico">
-                        <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt="">
-                    </span>
-                    <span class="icon-box-text">Our Achievements</span>
-                </a>
+               <a href="javascript:void();">
+                  <span class="icon-box-ico">
+                     <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}" alt="">
+                  </span>
+                  <span class="icon-box-text">R &amp; D Projects</span>
+               </a>
             </div>
-
+           
             <div class="icon-box">
-                <a href="javascript:void();">
-                    <span class="icon-box-ico">
-                        <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt="">
-                    </span>
-                    <span class="icon-box-text">R & D Projects</span>
-                </a>
+               <a href="javascript:void();">
+                  <span class="icon-box-ico">
+                     <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt="">
+                  </span>
+                  <span class="icon-box-text">Technical Services </span>
+               </a>
             </div>
-
             <div class="icon-box">
-                <a href="javascript:void();">
-                    <span class="icon-box-ico">
-                        <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt="">
-                    </span>
-                    <span class="icon-box-text">Institute Membership</span>
-                </a>
+               <a href="javascript:void();">
+                  <span class="icon-box-ico">
+                     <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt="">
+                  </span>
+                  <span class="icon-box-text">Our Achievements</span>
+               </a>
             </div>
-
             <div class="icon-box">
-                <a href="javascript:void();">
-                    <span class="icon-box-ico">
-                        <img src=" {{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt="">
-                    </span>
-                    <span class="icon-box-text">Technical Services </span>
-                </a>
+               <a href="javascript:void();">
+                  <span class="icon-box-ico">
+                     <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt="">
+                  </span>
+                  <span class="icon-box-text">Publications &amp; Reports</span>
+               </a>
             </div>
-
             <div class="icon-box">
-                <a href="javascript:void();">
-                    <span class="icon-box-ico">
-                        <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt="">
-                    </span>
-                    <span class="icon-box-text">Tender</span>
-                </a>
+               <a href="javascript:void();">
+                  <span class="icon-box-ico">
+                     <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt="">
+                  </span>
+                  <span class="icon-box-text">Institute Membership</span>
+               </a>
             </div>
-        </div>
-    </div>
+            <div class="icon-box">
+               <a href="javascript:void();">
+                  <span class="icon-box-ico">
+                     <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt="">
+                  </span>
+                  <span class="icon-box-text">Tender</span>
+               </a>
+            </div>
+         </div>
+      </div>
 
+ 
     <div class="wrapper home-banner">
         <div class="container common-container four_content banner-container body-container top-body-container">
 
@@ -320,13 +328,9 @@
                     </div>
                     <p class="text-slide1 pause" onclick="changeClass1()"></p>
                    </div>
-                    <div class="scroll-text-1 scroll-left">
-                        <ul class="list">
-                            {{-- <li>
-                                    <div class="date"><span>29</span><em>Nov 2022</em></div>
-                                    <div class="list-content">Description of Tenders 1 goes here - File type (size).
-                                    </div>
-                                </li> --}}
+                  <div class="bg-white-tender">
+                  <div class="scroll-text-1 scroll-left">
+                        <ul class="list">                         
 
 
                             @if(isset($tender_management) && count($tender_management) > 0)
@@ -367,7 +371,9 @@
                     </div>
                     <div class="view-footer"><a href="javascript:void(0);" title="Know More About Tenders"><span>View
                                 all
-                                Tenders <i class="fa fa-angle-right"></i></span></a></div>
+                                Tenders <i class="fa fa-angle-right"></i></span></a>
+                            </div>
+                  </div>
                 </div>
             </div>
             <div class="banner-right-wrapper">
@@ -406,8 +412,8 @@
                         <div class="banner-box-content">
                             <!-- <h2>External Link 3</h2> -->
                             <a href="javascript:void(0);" title="External link that opens in new tab">
-                                <img src="{{ asset('assets-cppri/images/tsc.png') }}" alt="icon" class="cell-icon-sec">
-                                <p>TSC Cell</p>
+                                <img src="{{ asset('assets-cppri/images/regulation.png') }}" alt="icon" class="cell-icon-sec">
+                                <p>Rules and Regulation</p>
                             </a>
                         </div>
                     </div>
@@ -527,14 +533,14 @@
        <div class="wrapper banner-bg-white ptb-30 pb-0">
          <div class="container common-container four_content banner-container body-container top-body-container p-0">
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                <div class="social-box">
                   <div class="sub-sec">
                      <h2> <div class="img-b"><img src="{{ asset('assets-cppri/images/facebook.png') }}" alt="icon"></div> Facebook Feed</h2>
                   </div>
                   <div class="plug-box facebook-feed-content text-center">
                      <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=100090718134100"
-                        data-tabs="timeline" data-width="360" data-height="400" data-small-header="true"
+                        data-tabs="timeline" data-width="360" data-height="295" data-small-header="true"
                         data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
                         <blockquote cite="https://www.facebook.com/profile.php?id=100090718134100"
                            class="fb-xfbml-parse-ignore"><a
@@ -544,7 +550,7 @@
                   </div>
                </div> 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                <div class="social-box">
                   <div class="sub-sec">
                      <h2 class="twitter-c"> <div class="img-b"><img src="{{ asset('assets-cppri/images/twitter.png') }}" alt="icon"></div> Twitter Feed</h2>
@@ -563,10 +569,23 @@
                   </div>
                </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                <div class="social-box">
                   <div class="sub-sec">
                      <h2 class="linkedin-c"> <div class="img-b"><img src="{{ asset('assets-cppri/images/linkedin1.png') }}" alt="icon"></div> Linkedin Feed</h2>
+                  </div>
+
+                  <div class="plug-box linkedinfeed">
+                     <img src="{{ asset('assets-cppri/images/linkedin_feed.PNG') }}" alt="">
+                  </div>
+
+               </div>
+            </div>
+
+            <div class="col-md-3">
+               <div class="social-box">
+                  <div class="sub-sec">
+                     <h2 class="instagram-c"> <div class="img-b"><img src="{{ asset('assets-cppri/images/instagram.png') }}" alt="icon"></div> Instagram Feed</h2>
                   </div>
 
                   <div class="plug-box linkedinfeed">

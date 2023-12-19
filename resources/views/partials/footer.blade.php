@@ -196,7 +196,7 @@
                     <a href="javascript:void();">Privacy Policy</a> | 
                     <a href="javascript:void();">Disclaimer</a> | 
                     <a href="javascript:void();">Help</a> | 
-                    <a href="javascript:void();">Cokkies Policy</a> | 
+                    <a href="javascript:void();">Cookies Policy</a> | 
                     <a href="javascript:void();">Terms & Conditions</a>
 </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                  <span>Total Visitors: <strong>{{ $visitCounter   ??"" }}</strong></span>
