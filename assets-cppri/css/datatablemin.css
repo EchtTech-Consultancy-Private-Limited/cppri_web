@@ -215,7 +215,7 @@ table.dataTable tbody tr.selected a{
     color:rgb(var(--dt-row-selected-link))
 }
 table.dataTable tbody th,table.dataTable tbody td{
-    padding:8px 10px
+    padding:5px 10px
 }
 table.dataTable.row-border>tbody>tr>th,table.dataTable.row-border>tbody>tr>td,table.dataTable.display>tbody>tr>th,table.dataTable.display>tbody>tr>td{
     border-top:1px solid rgba(0, 0, 0, 0.15)

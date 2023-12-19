@@ -1421,7 +1421,7 @@
 	.common-left ul li span.li_eng {
 		font-size: 106%;
 		text-align: left;
-		padding: 9px 10px;
+		padding: 7px 10px;
 	}
 	.four_content .responsive_go_hindi,
 	.four_content .responsive_minis_hi {
@@ -1822,6 +1822,7 @@
 		padding: 0px 5px;
 	}
 
+	
 }
 
 @media screen and (max-width: 480px) {
@@ -1951,6 +1952,7 @@
 	.banner-wrapper .flexslider .slides img {
 		
 		height: 550px !important;
+		object-fit: cover;
 	}
 }
 
@@ -1960,18 +1962,18 @@
 		height: 450px;
 	}
 	.banner-wrapper .flexslider .slides img {
-		
+		object-fit: cover;
 		height: 450px;
 	}
 }
 
 @media(min-width:1199px){
 	.banner-wrapper .flexslider .slides > li {
-		
+	
 		height: 400px;
 	}
 	.banner-wrapper .flexslider .slides img {
-		
+		object-fit: cover;
 		height: 400px;
 	}
 }
@@ -1979,11 +1981,11 @@
 
 @media(min-width:991px) and (max-width:1249px){
 	.banner-wrapper .flexslider .slides > li {
-		
+	
 		height: 350px;
 	}
 	.banner-wrapper .flexslider .slides img {
-		
+		object-fit: cover;
 		height: 350px;
 	}
 	

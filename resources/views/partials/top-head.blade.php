@@ -12,8 +12,8 @@
                 </li>
                 <li class="gov-india">
                     <span class="li_eng responsive_go_eng">
-                        Last Updated on:
                         <?php echo date('d F Y', strtotime(date('y-m-d'))); ?>
+                        <span id=timeid> </span>
                     </span>
                 </li>
                 <li class="ministry">

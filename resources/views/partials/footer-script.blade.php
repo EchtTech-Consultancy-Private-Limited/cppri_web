@@ -19,6 +19,15 @@
     } );
 } );
 
+
+$('.color').on('click',function(){
+   let a = $(this).attr('data-id'); 
+  $(".change-color-code").css('background',a);
+  $(".banner-wrapper .flex-control-nav").css('background',a); 
+  $(".banner-wrapper .flex-pauseplay").css('background',a);
+  $(".latest-new-title:before").css('border-color',a);  
+})
+
    </script>
    <!-- Modal popup End -->
    <script src="{{ asset('assets-cppri/js/jquery-migrate-3.4.0.min.js') }}"></script>

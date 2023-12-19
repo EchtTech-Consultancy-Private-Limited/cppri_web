@@ -176,7 +176,7 @@
                                     2714059</a></li>
                             <li><i class="fa fa-fax"></i> <a href="javascript:void();">(0132)-2714052</a></li>
                             <li><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                <a href="mailto:director.cppri@gmail.com">director.cppri@gmail.com </a>
+                                <a href="mailto:director.cppri@gmail.com">director.cppri[at]gmail.com </a>
                             </li>
                         </ul>
                     </div>

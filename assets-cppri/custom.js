@@ -115,13 +115,14 @@ $(window).load(function(){
 // Carousel
     $('#flexCarousel').flexslider({
         animation: "slide",
-        animationLoop: false,
-        itemWidth: 200,
-        itemMargin: 5,
+        itemWidth: 150,
+        itemMargin: 20,
+        animationLoop:true,
+        loop:true,
         minItems: 2,
         maxItems: 6,
-        slideshow: 1,
-        move: 1,
+        slideshow: 2,
+        move: 2,
         pausePlay: true,
         pauseText: 'Pause',
         playText: 'Play',
@@ -356,3 +357,29 @@ $(document).ready(function(){
         return false;
     });
  });
+ function ctime(){
+    if (!document.getElementById)
+    return
+    timeElement=document.getElementById("timeid")
+    var curdate=new Date()
+    var hours=curdate.getHours()
+    var minutes=curdate.getMinutes()
+    var seconds=curdate.getSeconds()
+    var DayNight="PM"
+    if (hours<12) DayNight="AM";
+    if (hours>12) hours=hours-12;
+    if (hours==0) hours=12;
+    if (minutes<=9) minutes="0"+minutes;
+    if (seconds<=9) seconds="0"+seconds;
+    var ctime=hours+":"+minutes+":"+seconds+" "+DayNight;
+    timeElement.innerHTML="<p class='time'>"+ctime+"</p>"
+    setTimeout("ctime()",1000)
+    }
+    window.onload=ctime
+
+    $("document").ready(function(){
+        setTimeout(function(){
+           $("div.alert").remove();
+        }, 5000 ); // 5 secs
+    
+    });
