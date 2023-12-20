@@ -20,6 +20,8 @@
 <link href="{{ asset('assets-cppri/css/megamenu.css') }}" rel="stylesheet" media="all">
 
 <link href="{{ asset('assets-cppri/css/print.css') }}" rel="stylesheet">
+<link href="{{ asset('assets-cppri/css/empcarddirectory.css') }}" rel="stylesheet">
+
 
 <link href="{{ asset('assets-cppri/css/dropdownaccordiancss.css') }}" rel="stylesheet">
 
