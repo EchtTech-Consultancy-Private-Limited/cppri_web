@@ -80,7 +80,17 @@
                         </div>
                     @endif
                 </div>
-                <div class="col-md-9 m-p-0">
+
+
+
+                @if (isset($sideMenuChild) && count($sideMenuChild) > 0)
+              
+                  <div class="col-md-9 m-p-0">
+                @else
+                   <div class="col m-p-0">
+                @endif
+
+                
                     <div class="main-content">
                         <!--/#skipCont-->
                         <div id="fontSize" class="wrapper body-wrapper ">

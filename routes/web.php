@@ -37,12 +37,11 @@ Route::middleware(['visitingcounter'])->group(function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('/set-language',[HomeController::class,'SetLang']);
-
 Route::get('/contact-us',[HomeController::class,'contactUs']);
 
+Route::get('/director-desk', [HomeController::class, 'directorDesk']);
+Route::get('/employee-directory', [HomeController::class, 'employeeDirectory']);
 Route::get('/{slug}', [HomeController::class, 'getContentAllPages']);
-
-
 });
 
 //default behaviour, always keep as last entry
