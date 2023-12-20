@@ -45,10 +45,16 @@ class CommonComposer
 
             $view->with(['visitCounter'=>$visitCounter,'quickLink'=>$quickLink,'alertMessage' =>$this->checkLanguage(),'headerMenu' => $menuName, 'footerMenu' => $footerMenu,'banner'=>$banner,'news_management'=>$news_management,'tender_management'=>$tender_management]);
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
+            return abort(404);
         } catch (\PDOException $e) {
             \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return abort(404);
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return abort(404);
         }
     }
 
