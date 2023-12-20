@@ -37,6 +37,9 @@ Route::middleware(['visitingcounter'])->group(function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('/set-language',[HomeController::class,'SetLang']);
+
+Route::get('/contact-us',[HomeController::class,'contactUs']);
+
 Route::get('/{slug}', [HomeController::class, 'getContentAllPages']);
 
 
