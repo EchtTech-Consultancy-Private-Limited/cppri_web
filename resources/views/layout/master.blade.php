@@ -3,7 +3,7 @@
 <head>
     @include('partials.header-script')
 </head>
-<body>
+<body id="body">
     <div id="fb-root"></div>
     <header>
         <div class="region region-header-top">
