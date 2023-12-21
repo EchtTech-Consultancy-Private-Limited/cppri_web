@@ -173,7 +173,7 @@
     </div>
 
     <div class="links-wrapper change-color-code">
-         <div class="container common-container">
+         <div class="container common-container ptb-10">
            
 
          <div class="row">
@@ -185,7 +185,7 @@
          </div>
             
 
-            <div class="icon-box animate__animated animate__backInLeft animate__delay-2s">
+            <div class="icon-box">
                <a href="javascript:void();">
                   <span class="icon-box-ico">
                      <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}" alt="">
@@ -194,7 +194,7 @@
                </a>
             </div>
            
-            <div class="icon-box animate__animated animate__backInLeft animate__delay-3s">
+            <div class="icon-box">
                <a href="javascript:void();">
                   <span class="icon-box-ico">
                      <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt="">
@@ -202,7 +202,7 @@
                   <span class="icon-box-text">Technical Services </span>
                </a>
             </div>
-            <div class="icon-box animate__animated animate__backInLeft animate__delay-4s">
+            <div class="icon-box">
                <a href="javascript:void();">
                   <span class="icon-box-ico">
                      <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt="">
@@ -210,7 +210,7 @@
                   <span class="icon-box-text">Our Achievements</span>
                </a>
             </div>
-            <div class="icon-box animate__animated animate__backInRight animate__delay-3s">
+            <div class="icon-box">
                <a href="javascript:void();">
                   <span class="icon-box-ico">
                      <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt="">
@@ -218,7 +218,7 @@
                   <span class="icon-box-text">Publications &amp; Reports</span>
                </a>
             </div>
-            <div class="icon-box animate__animated animate__backInRight animate__delay-4s">
+            <div class="icon-box">
                <a href="javascript:void();">
                   <span class="icon-box-ico">
                      <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt="">
@@ -226,7 +226,7 @@
                   <span class="icon-box-text">Institute Membership</span>
                </a>
             </div>
-            <div class="icon-box animate__animated animate__backInRight animate__delay-5s">
+            <div class="icon-box">
                <a href="javascript:void();">
                   <span class="icon-box-ico">
                      <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt="">
@@ -242,7 +242,7 @@
         <div class="container common-container four_content banner-container body-container top-body-container">
 
             <div class="left-block">
-                <div class="left-col-2 animate__animated animate__backInLeft animate__delay-3s">
+                <div class="left-col-2">
                     <div class="page-tab clearfix">
                         <div class="page-tab-res clearfix">
                             <div id="parentHorizontalTab">
@@ -321,7 +321,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="left-col-2 animate__animated animate__backInLeft animate__delay-4s">
+                <div class="left-col-2">
                    <div class="box-bg-color change-color-code">
                    <div class="tender">
                         <h2>Tenders</h2>
@@ -378,8 +378,8 @@
             </div>
             <div class="banner-right-wrapper">
                 <div class="banner-box-wrapper">
-                    <div class="banner-box banner-box-1 animate__animated animate__backInRight">
-                        <div class="banner-box-content">
+                    <div class="banner-box banner-box-1">    
+                         <div class="banner-box-content">
                             <!-- <h2>External Link 2</h2> -->
                             <a href="javascript:void(0);" title="External link that opens in new tab">
                                 <img src="{{ asset('assets-cppri/images/rti.png') }}" alt="icon" class="cell-icon-sec">
@@ -387,7 +387,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="banner-box banner-box-5 animate__animated animate__backInRight animate__delay-2s">
+                    <div class="banner-box banner-box-5 ">
                         <div class="banner-box-content">
                             <!-- <h2>External Link 1</h2> -->
                             <a href="javascript:void(0);" title="External link that opens in new tab">
@@ -397,7 +397,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="banner-box banner-box-2 animate__animated animate__backInRight animate__delay-3s">
+                    <div class="banner-box banner-box-2 ">
                         <div class="banner-box-content">
                             <!-- <h2>External Link 2</h2> -->
                             <a href="javascript:void(0);" title="External link that opens in new tab">
@@ -408,7 +408,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="banner-box banner-box-3 animate__animated animate__backInRight animate__delay-4s">
+                    <div class="banner-box banner-box-3 ">
                         <div class="banner-box-content">
                             <!-- <h2>External Link 3</h2> -->
                             <a href="javascript:void(0);" title="External link that opens in new tab">
@@ -417,7 +417,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="banner-box banner-box-4 animate__animated animate__backInRight animate__delay-5s">
+                    <div class="banner-box banner-box-4 ">
                         <div class="banner-box-content">
                             <!-- <h2>External Link 3</h2> -->
                             <a href="javascript:void(0);" title="External link that opens in new tab">
@@ -470,7 +470,7 @@
              <!--News Box End-->
              <!--News Box Start-->
              <div class="col-md-6  col-sm-6 PR-LG-0">
-               <div class="news-box">
+               <div class="news-box mb-0">
                  <div class="row">
                    <div class="col-md-4 p-0">
                      <div class="new-thumb">
@@ -536,7 +536,7 @@
             <div class="col-md-3">
                <div class="social-box">
                   <div class="sub-sec">
-                     <h2> <div class="img-b"><img src="{{ asset('assets-cppri/images/facebook.png') }}" alt="icon"></div> Facebook Feed</h2>
+                     <h2> <div class="img-b"><img src="{{ asset('assets-cppri/images/facebook.png') }}" alt="icon"></div> Facebook</h2>
                   </div>
                   <div class="plug-box facebook-feed-content text-center">
                      <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=100090718134100"
@@ -553,7 +553,7 @@
             <div class="col-md-3">
                <div class="social-box">
                   <div class="sub-sec">
-                     <h2 class="twitter-c"> <div class="img-b"><img src="{{ asset('assets-cppri/images/twitter.png') }}" alt="icon"></div> Twitter Feed</h2>
+                     <h2 class="twitter-c"> <div class="img-b"><img src="{{ asset('assets-cppri/images/twitter.png') }}" alt="icon"></div> Twitter </h2>
                   </div>
                   <div class="plug-box twitter-feed-content p-2">
                      <blockquote class="twitter-tweet">
@@ -572,7 +572,7 @@
             <div class="col-md-3">
                <div class="social-box">
                   <div class="sub-sec">
-                     <h2 class="linkedin-c"> <div class="img-b"><img src="{{ asset('assets-cppri/images/linkedin1.png') }}" alt="icon"></div> Linkedin Feed</h2>
+                     <h2 class="linkedin-c"> <div class="img-b"><img src="{{ asset('assets-cppri/images/linkedin1.png') }}" alt="icon"></div> Linkedin</h2>
                   </div>
 
                   <div class="plug-box linkedinfeed">
@@ -585,7 +585,7 @@
             <div class="col-md-3">
                <div class="social-box">
                   <div class="sub-sec">
-                     <h2 class="instagram-c"> <div class="img-b"><img src="{{ asset('assets-cppri/images/instagram.png') }}" alt="icon"></div> Instagram Feed</h2>
+                     <h2 class="instagram-c"> <div class="img-b"><img src="{{ asset('assets-cppri/images/instagram.png') }}" alt="icon"></div> Instagram</h2>
                   </div>
 
                   <div class="plug-box linkedinfeed">
@@ -654,27 +654,27 @@
         <div id="flexCarousel" class="flexslider carousel">
             <ul class="slides">
                 <li><a target="_blank" href="http://digitalindia.gov.in/"
-                        title="Digital India, External Link that opens in a new window"><img
+                        title="Digital India"><img
                             src="{{ asset('assets-cppri/images/carousel/digital-india.png') }}" alt="Digital India"></a>
                 </li>
                 <li><a target="_blank" href="http://www.makeinindia.com/"
-                        title="Make In India, External Link that opens in a new window"> <img
+                        title="Make In India"> <img
                             src="{{ asset('assets-cppri/images/carousel/makeinindia.png') }}" alt="Make In India"></a>
                 </li>
                 <li><a target="_blank" href="http://india.gov.in/"  
-                        title="National Portal of India, External Link that opens in a new window"><img
+                        title="National Portal of India"><img
                             src="{{ asset('assets-cppri/images/carousel/india-gov.png') }}"
                             alt="National Portal of India"></a></li>
                 <li><a target="_blank" href="http://goidirectory.nic.in/"
-                        title="GOI Web Directory, External Link that opens in a new window"><img
+                        title="GOI Web Directory"><img
                             src="{{ asset('assets-cppri/images/carousel/goidirectory.png') }}"
                             alt="GOI Web Directory"></a></li>
                 <li><a target="_blank" href="https://data.gov.in/"
-                        title="Data portal, External Link that opens in a new window"><img
+                        title="Data portal"><img
                             src="{{ asset('assets-cppri/images/carousel/data-gov.png') }}" alt="Data portal"></a>
                 </li>
                 <li><a target="_blank" href="https://mygov.in/"
-                        title="MyGov, External Link that opens in a new window"><img
+                        title="MyGov"><img
                             src="{{ asset('assets-cppri/images/carousel/mygov.png') }}" alt="MyGov Portal"></a>
                 </li>
                 <li><a target="_blank" href="http://www.dcpulppaper.org/index.html" title="Development Council for Pulp Paper & Allied Industries"><img
