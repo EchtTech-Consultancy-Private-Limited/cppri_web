@@ -38,7 +38,7 @@
                                 <h3>
 
                                     @if (Session::get('Lang') == 'hi')
-                                        <h2>{{ $item['department']->name_hi ?? '' }}</h2>
+                                        <h2>{{ $item['department']->name_en ?? '' }}</h2>
                                     @else
                                         <h2>{{ $item['department']->name_en ?? '' }}</h2>
                                     @endif
@@ -74,7 +74,7 @@
 
 
                                             @if (Session::get('Lang') == 'hi')
-                                                <h5>({{ $item['department']->name_hi ?? '' }})</h5>
+                                                <h5>({{ $item['department']->name_en ?? '' }})</h5>
                                             @else
                                                 <h5>({{ $item['department']->name_en ?? '' }})</h5>
                                             @endif
@@ -108,7 +108,7 @@
                                 <div data-aos-mirror="true" data-aos="fade-right" class="title-before"> </div>
 
                                 @if (Session::get('Lang') == 'hi')
-                                    <h2>{{ $item['department']->name_hi ?? '' }}</h2>
+                                    <h2>{{ $item['department']->name_en ?? '' }}</h2>
                                 @else
                                     <h2>{{ $item['department']->name_en ?? '' }}</h2>
                                 @endif
@@ -141,9 +141,9 @@
                                             @endif
 
                                             @if (Session::get('Lang') == 'hi')
-                                                <h5>({{ $item['department']->name_hi ?? '' }})</h5>
+                                                <h5>({{ $profile->desi_name_en ?? '' }})</h5>
                                             @else
-                                                <h5>({{ $item['department']->name_en ?? '' }})</h5>
+                                                <h5>({{ $profile->desi_name_en ?? '' }})</h5>
                                             @endif
                                             
                                             <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile ?? '' }}
