@@ -190,21 +190,27 @@ class HomeController extends Controller
             if (Count($department) > 0) {
 
                 foreach ($department as $designation) {
-                    $data = DB::table('employee_directories')
-                        ->where('department_id', $designation->uid)
-                        ->where('soft_delete', 0)
-                        ->orderBy('short_order', 'ASC')
-                        ->get();
+                    // $data = DB::table('employee_directories')
+                    //     ->where('department_id', $designation->uid)
+                    //     ->where('soft_delete', 0)
+                    //     ->orderBy('short_order', 'ASC')
+                    //     ->get();
 
-                      
+
+                    $data = DB::table('employee_directories as emp')
+                        ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
+                        ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
+                        ->where('emp.soft_delete', 0)
+                        ->where('department_id', $designation->uid)
+                        ->orderBy('emp.short_order', 'ASC')
+                        ->get();
 
                     $designationData[] = [
                         'department' => $designation,
                         'data' => $data,
                     ];
-                 
                 }
-
+                // dd($designationData);
 
                 $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
 
