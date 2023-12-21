@@ -20,8 +20,11 @@
 <link href="{{ asset('assets-cppri/css/megamenu.css') }}" rel="stylesheet" media="all">
 
 <link href="{{ asset('assets-cppri/css/print.css') }}" rel="stylesheet">
+<link href="{{ asset('assets-cppri/css/empcarddirectory.css') }}" rel="stylesheet">
+
 
 <link href="{{ asset('assets-cppri/css/dropdownaccordiancss.css') }}" rel="stylesheet">
+
 
 
 <link rel="stylesheet" href="{{ asset('assets-cppri/css/datatablemin.css') }}">
@@ -38,3 +41,4 @@
 
 <link href="{{ asset('assets-cppri/css/modules.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('assets-cppri/css/bootstrap.min.css') }}">
+<link href="{{ asset('assets-cppri/css/animate.min.css') }}" rel="stylesheet">

@@ -1,5 +1,5 @@
 <footer class="wrapper footer-wrapper">
-    <div class="footer-top-wrapper">
+    <div class="footer-top-wrapper change-color-code">
         <div class="back-drop">
             <div class="container common-container four_content footer-top-container">
                 <div class="row">
@@ -166,9 +166,7 @@
                     <div class="col-md-3">
                         <h3 class="footer-title">Contact Us</h3>
                         <ul class="contact-us-footer">
-                            <li><i class="fa fa-map-marker" aria-hidden="true"></i> <a href="javascript:void();">Post
-                                    Box
-                                    174,
+                            <li><i class="fa fa-map-marker" aria-hidden="true"></i> <a href="javascript:void();">
                                     Paper Mill Road, Himmat Nagar,
                                     Saharanpur-247001, India</a></li>
                             <li><i class="fa fa-phone"></i> <a href="javascript:void();">(0132) - 2714050, 2714061,
@@ -176,7 +174,7 @@
                                     2714059</a></li>
                             <li><i class="fa fa-fax"></i> <a href="javascript:void();">(0132)-2714052</a></li>
                             <li><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                <a href="mailto:director.cppri@gmail.com">director.cppri@gmail.com </a>
+                                <a href="mailto:director.cppri@gmail.com">director.cppri[at]gmail.com </a>
                             </li>
                         </ul>
                     </div>

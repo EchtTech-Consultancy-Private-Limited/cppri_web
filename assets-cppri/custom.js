@@ -115,11 +115,12 @@ $(window).load(function(){
 // Carousel
     $('#flexCarousel').flexslider({
         animation: "slide",
-        animationLoop: false,
-        itemWidth: 200,
-        itemMargin: 5,
+        itemWidth: 150,
+        itemMargin: 30,
+        animationLoop:true,
+        loop:true,
         minItems: 2,
-        maxItems: 6,
+        maxItems: 5,
         slideshow: 1,
         move: 1,
         pausePlay: true,

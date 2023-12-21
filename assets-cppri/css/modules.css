@@ -587,7 +587,7 @@ html[xmlns] .banner-slider .slides {
 	.gallery-area h3,
 	.gallery .gallery-area h3 {
 		font-size: 108%;
-		padding: 3px 15px;
+		padding: 6px 15px;
 	}
 	.gallery-area a,
 	.gallery .gallery-area a {
@@ -800,7 +800,7 @@ a.view:hover {
 }
 .minister {
 	border: 0;
-	padding: 26px 0px;
+	padding: 68px 0px;
 	text-align: center;
 	width: 100%;
 	max-width:34%;

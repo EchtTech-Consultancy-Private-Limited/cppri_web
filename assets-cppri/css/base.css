@@ -688,6 +688,7 @@ h3.sub-title.bold {
 	padding: 10px 0 0;
 	background-position: center;
 	background-size: cover;
+	background: #1a4f91;
 }
 
 .back-drop {
@@ -1559,7 +1560,7 @@ a {
 	height: auto;
 	font-weight: 600;
 	text-transform: uppercase;
-	padding-top: 10px;
+	padding-top: 6px;
 }
 
 .common-right ul li.ico-skip:hover {
@@ -1622,10 +1623,17 @@ a {
     background: #fff;
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0px 5px 15px 0 rgba(0,0,0,.07);
+    box-shadow: 0px 5px 15px 0 rgba(0,0,0,.4);
     display: flex;
 	transition: all .5s ease-in-out;
 }
+
+.news-box:hover .new-thumb img {
+    transform: scale(1.1);
+}
+
+.news-box .new-thumb img{transition: all .3s ease-in-out;}
+
 .new-thumb {
     position: relative;
     overflow: hidden;
@@ -1792,7 +1800,7 @@ a {
 	}	
 
 	.page-tab .scroll-left, .page-tab .scroll-text-1, .page-tab .scroll-text, .page-tab .scroll-text01, .page-tab .scroll-test01 {
-		height: 240px !important;
+		height: 290px !important;
 	}
 
 	.scroll-left, .scroll-text-1, .scroll-text {
@@ -1800,7 +1808,7 @@ a {
 	}
 
 	.flex-direction-nav .flex-next, .flex-direction-nav .flex-prev{
-		margin-top: -86px !important;
+		margin-top: -115px !important;
 	}
 
 }
@@ -1883,4 +1891,19 @@ li.gov-india {
     font-size: 23px;
     color: black;
     line-height: 10px;
+}
+
+.timer-date-c span#timeid p {
+    margin-bottom: 0 !important;
+}
+.timer-date-c span.li_eng.responsive_go_eng {
+    display: flex;
+    align-items: center;
+}
+
+li.gov-india.timer-date-c {
+    padding-top: 6px !important;
+}
+span#timeid {
+    margin-left: 10px;
 }

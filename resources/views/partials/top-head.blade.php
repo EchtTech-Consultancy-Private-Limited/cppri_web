@@ -10,13 +10,13 @@
                         <div class="c-box purple color" data-id="#2a2f67" title="Purple"></div>
                     </div>
                 </li>
-                <li class="gov-india">
+                <li class="gov-india timer-date-c">
                     <span class="li_eng responsive_go_eng">
-                        <?php echo date('d F Y', strtotime(date('y-m-d'))); ?>
+                        <?php echo date('d F Y', strtotime(date('y-m-d'))); ?> 
                         <span id=timeid> </span>
                     </span>
                 </li>
-                <li class="ministry">
+                <!-- <li class="ministry">
                     <span class="responsive_go_hindi" lang="hi">
                         <a target="_blank" href="https://india.gov.in/hi"
                             title="भारत सरकार ( बाहरी वेबसाइट जो एक नई विंडो में खुलती है)">भारत
@@ -28,12 +28,13 @@
                             href="https://india.gov.in/"
                             title="Government of india,External Link that opens in a new window">Government of india</a>
                     </span>
-                </li>
+                </li> -->
             </ul>
         </div>
         <div class="common-right clearfix">
             <ul id="header-nav">
-                <li class="ico-skip cf"><a href="#skipCont" title="">Skip to main content</a>
+                <li class="ico-skip cf"><a href="#skipCont" title="Skip to main content"> <img class="top" src="{{ asset('assets-cppri/images/ico-skip.png') }}"
+                            alt="Site Search"></a></a>
                 </li>
                 <li class="ico-site-search cf">
                     <a href="javascript:void(0);" id="toggleSearch" title="Site Search">
@@ -69,12 +70,14 @@
 
                 <li class="ico-sitemap screen-reader cf"><a href="javascript:viod(0)" title="Screen Reader Access"><i class="fa fa-volume-up"></i></a> </li>
 
-                <li class="ico-accessibility cf">
+                
+                <li class="ico-accessibility cf screen-reader cf">
                     <a href="javascript:void(0);" id="toggleAccessibility"
                         title="Accessibility Dropdown">
-                        <img class="top"
+                        <!-- <img class="top"
                             src="{{ asset('assets-cppri/images/ico-accessibility.png') }}"
-                            alt="Accessibility Dropdown">
+                            alt="Accessibility Dropdown"> -->
+                            <i class="fa fa-wheelchair" aria-hidden="true"></i>
                     </a>
                     <ul style="visibility: hidden;">
                         <li> <a onClick="set_font_size(&#39;increase&#39;)" title="Increase font size"
@@ -93,19 +96,25 @@
                     </ul>
                 </li>
                 <li class="ico-social cf">
-                    <a href="javascript:void(0);" id="toggleSocial" title="Social Medias">
+                    <a href="javascript:void(0);" id="toggleSocial" title="Social Medias"> 
                         <img class="top" src="{{ asset('assets-cppri/images/ico-social.png') }}"
                             alt="Social Medias"></a>
                     <ul>
-                        <li><a target="_blank" title="External Link that opens in a new window"
+                        <li><a target="_blank" title="Facebook"
                                 href="http://www.facebook.com/"><img alt="Facebook Page"
                                     src="{{ asset('assets-cppri/images/ico-facebook.png') }}"></a></li>
-                        <li><a target="_blank" title="External Link that opens in a new window"
+                        <li><a target="_blank" title="Twitter"
                                 href="http://www.twitter.com/"><img alt="Twitter Page"
                                     src="{{ asset('assets-cppri/images/ico-twitter.png') }}"></a></li>
-                        <li><a target="_blank" title="External Link that opens in a new window"
+                        <li><a target="_blank" title="Youtube"
                                 href="http://www.youtube.com/"><img alt="youtube Page"
                                     src="{{ asset('assets-cppri/images/ico-youtube.png') }}"></a></li>
+                        <li><a target="_blank" title="Instagram"
+                                href="http://www.instagram.com/"><img alt="Instagram Page"
+                                    src="{{ asset('assets-cppri/images/instagram.png') }}"></a></li>
+                        <li><a target="_blank" title="Linkedin"
+                                href="http://www.linkedin.com/"><img alt="Linkedin"
+                                    src="{{ asset('assets-cppri/images/linkedin1.png') }}"></a></li>
                     </ul>
                 </li>
                 <li class="ico-sitemap cf"><a href="javascript:viod(0)" title="Sitemap">
