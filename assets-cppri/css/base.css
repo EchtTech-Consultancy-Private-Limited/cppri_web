@@ -1907,3 +1907,11 @@ li.gov-india.timer-date-c {
 span#timeid {
     margin-left: 10px;
 }
+
+.w-10{width: 10%;}
+.w-90{width: 90%;float: right;text-align: left;}
+
+.emp-dir-main .emp-crddir-inf p, .emp-dir-main .emp-crddir-inf h5 {
+    margin-top: 4px;
+	margin-bottom: 0;
+}
