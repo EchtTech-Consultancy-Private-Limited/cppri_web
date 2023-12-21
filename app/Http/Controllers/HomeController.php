@@ -24,8 +24,9 @@ class HomeController extends Controller
     }
 
 
-    public function contactUs(){
-        return view('pages/contact-us');
+    public function contactUs()
+    {
+        return view('pages.contact-us');
     }
 
     public function getContentAllPages(Request $request, $slug)
@@ -178,34 +179,34 @@ class HomeController extends Controller
     {
 
         try {
-
             $designationData = [];
 
-
-            $designations = DB::table('emp_depart_designations')
+            $department = DB::table('emp_depart_designations')
                 ->where('soft_delete', 0)
                 ->orderBy('short_order', 'ASC')
+                ->whereparent_id(0)
                 ->get();
 
-            if (Count($designations) > 0) {
+            if (Count($department) > 0) {
 
-
-                foreach ($designations as $designation) {
+                foreach ($department as $designation) {
                     $data = DB::table('employee_directories')
-                        ->where('designation_id', $designation->uid)
+                        ->where('department_id', $designation->uid)
                         ->where('soft_delete', 0)
                         ->orderBy('short_order', 'ASC')
                         ->get();
 
+                      
 
                     $designationData[] = [
-                        'designation' => $designation,
+                        'department' => $designation,
                         'data' => $data,
                     ];
+                 
                 }
 
 
-                $sortedDesignationData = collect($designationData)->sortBy('designation.short_order')->values()->all();
+                $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
 
                 return view('pages.employeeDirectory', ['sortedDesignationData' => $sortedDesignationData]);
             } else {

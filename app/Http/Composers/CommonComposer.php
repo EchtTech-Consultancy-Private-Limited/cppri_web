@@ -38,11 +38,13 @@ class CommonComposer
             $footerMenu = DB::table('website_menu_management')->whereIn('menu_place',[1,3])->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
             $menus = DB::table('website_menu_management')->whereIn('menu_place',[0,3])->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
             $menuName = $this->getMenuTree($menus, 0);
+         
+           // dd($menuName);
             $news_management = DB::table('news_management')->where('soft_delete', 0)->latest('created_at')->take(3)->get();
             $tender_management = DB::table('tender_management')->where('soft_delete', 0)->latest('created_at')->get();
     
             $quickLink = DB::table('website_menu_management')->where('menu_place',4)->where('soft_delete',0)->orderBy('sort_order','ASC')->get();
-
+        
             $view->with(['visitCounter'=>$visitCounter,'quickLink'=>$quickLink,'alertMessage' =>$this->checkLanguage(),'headerMenu' => $menuName, 'footerMenu' => $footerMenu,'banner'=>$banner,'news_management'=>$news_management,'tender_management'=>$tender_management]);
 
         } catch (\Exception $e) {
