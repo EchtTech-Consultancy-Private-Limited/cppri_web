@@ -29,13 +29,21 @@
 
         @if (isset($sortedDesignationData) && count($sortedDesignationData) > 0)
             @foreach ($sortedDesignationData as $item)
-                @if ($item['designation']->name_en == 'Director')
+                    
+                @if ($item['department']->name_en == 'Director')
                     <div class="row">
                         <div class="col-md-12 display-content">
                             <div class="employee-directry-type employee-dir-page">
                                 <div data-aos-mirror="true" data-aos="fade-right" class="title-before"></div>
                                 <h3>
-                                    <h2>{{ $item['designation']->name_en }}</h2>
+
+                                    @if (Session::get('Lang') == 'hi')
+                                        <h2>{{ $item['department']->name_en ?? '' }}</h2>
+                                    @else
+                                        <h2>{{ $item['department']->name_en ?? '' }}</h2>
+                                    @endif
+
+
                                 </h3>
                                 <div data-aos-mirror="true" data-aos="fade-left" class="title-after"></div>
                             </div>
@@ -48,17 +56,34 @@
                                         </div>
                                         <div class="emp-crddir-inf">
                                             <div class="img-circle-prof">
-                                                <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
-                                     @else
-                                     src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif
+                                                 <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
+                                                  @else
+                                                   src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif
                                                     alt=""
                                                     tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
                                             </div>
-                                            <h3><i class="fa fa-user"></i>{{ $profile->fname_en ?? '' }}
-                                                {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
-                                            <h5>({{ $item['designation']->name_en }})</h5>
-                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile ?? '' }}
-                                            </p>
+
+                                            @if (Session::get('Lang') == 'hi')
+                                                <h3><i class="fa fa-user"></i> {{ $profile->fname_hi ?? '' }}
+                                                    {{ $profile->mname_hi ?? '' }} {{ $profile->lname_hi ?? '' }}</h3>
+                                            @else
+                                                <h3><i class="fa fa-user"></i> {{ $profile->fname_en ?? '' }}
+                                                    {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
+                                            @endif
+
+
+
+                                            @if (Session::get('Lang') == 'hi')
+                                                <h5>({{ $item['department']->name_en ?? '' }})</h5>
+                                            @else
+                                                <h5>({{ $item['department']->name_en ?? '' }})</h5>
+                                            @endif
+
+
+                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->landline_number ?? '' }} </p>
+
+                                           
+
                                             <p><strong>{{ $profile->extention_number ?? '' }}<strong></p>
 
 
@@ -83,8 +108,14 @@
                         <div class="col-md-12">
                             <div class="employee-directry-type employee-dir-page">
                                 <div data-aos-mirror="true" data-aos="fade-right" class="title-before"> </div>
-                                <h2>{{ $item['designation']->name_en }}</h2>
-                                <div data-aos-mirror="true" data-aos="fade-left" class="title-after"> </div>                   
+
+                                @if (Session::get('Lang') == 'hi')
+                                    <h2>{{ $item['department']->name_en ?? '' }}</h2>
+                                @else
+                                    <h2>{{ $item['department']->name_en ?? '' }}</h2>
+                                @endif
+
+                                <div data-aos-mirror="true" data-aos="fade-left" class="title-after"> </div>
                             </div>
                         </div>
                         @if (isset($item['data']) && count($item['data']) > 0)
@@ -101,10 +132,23 @@
                                                     alt=""
                                                     tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
                                             </div>
-                                            <h3><i class="fa fa-user"></i> {{ $profile->fname_en ?? '' }}
-                                                {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
-                                            <h5>({{ $item['designation']->name_en }})</h5>
-                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile ?? '' }}
+
+
+                                            @if (Session::get('Lang') == 'hi')
+                                                <h3><i class="fa fa-user"></i> {{ $profile->fname_hi ?? '' }}
+                                                    {{ $profile->mname_hi ?? '' }} {{ $profile->lname_hi ?? '' }}</h3>
+                                            @else
+                                                <h3><i class="fa fa-user"></i> {{ $profile->fname_en ?? '' }}
+                                                    {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
+                                            @endif
+
+                                            @if (Session::get('Lang') == 'hi')
+                                                <h5>({{ $profile->desi_name_en ?? '' }})</h5>
+                                            @else
+                                                <h5>({{ $profile->desi_name_en ?? '' }})</h5>
+                                            @endif
+                                            
+                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->landline_number ?? '' }}
                                             </p>
                                             <p><strong> {{ $profile->extention_number ?? '' }}</strong></p>
 
@@ -129,11 +173,10 @@
         @endif
 
 
-        
-        @if(isset($content))
 
-        <h1>  {{ $content  ??"" }}</h1>
-       @endif
+        @if (isset($content))
+            <h1> {{ $content ?? '' }}</h1>
+        @endif
 
 
     </div>

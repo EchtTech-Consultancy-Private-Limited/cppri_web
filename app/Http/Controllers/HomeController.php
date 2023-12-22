@@ -25,7 +25,7 @@ class HomeController extends Controller
 
 
     public function contactUs(){
-        return view('pages/contact-us');
+        return view('pages.contact-us');
     }
 
     public function getContentAllPages(Request $request, $slug)
@@ -35,6 +35,12 @@ class HomeController extends Controller
             $menus = DB::table('website_menu_management')->whereurl($slug)->first();
 
             if ($menus != '') {
+                
+                if ($menus?->parent_id != 0) {
+                    $sideMenu = DB::table('website_menu_management')->wherename_en($menus->name_en)->first('parent_id');
+                    $sideMenuParent = DB::table('website_menu_management')->whereuid($sideMenu->parent_id)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->first();
+                    $sideMenuChild = DB::table('website_menu_management')->whereparent_id($sideMenuParent->uid)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
+                }
 
                 if (Session::get('Lang') == 'hi') {
                     $title_name = $menus->name_hi;
@@ -83,7 +89,6 @@ class HomeController extends Controller
                         ];
                     }
 
-
                     if ($menus?->parent_id != 0) {
                         $sideMenu = DB::table('website_menu_management')->wherename_en($menus->name_en)->first('parent_id');
                         $sideMenuParent = DB::table('website_menu_management')->whereuid($sideMenu->parent_id)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->first();
@@ -94,18 +99,18 @@ class HomeController extends Controller
                     }
 
                     $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
-                    // dd($quickLink);
-
+                  
                     return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData, 'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
                 } else {
 
+                   
                     if (Session::get('Lang') == 'hi') {
                         $content = "जल्द आ रहा है";
                     } else {
                         $content = "Coming Soon...";
                     }
                     // dd($menus);
-                    return view('master-page', ['content' => $content, 'title_name' => $title_name]);
+                    return view('master-page', ['content' => $content, 'title_name' => $title_name,'sideMenuChild'=>$sideMenuChild]);
                 }
             } else {
                 return abort(404);
@@ -122,8 +127,6 @@ class HomeController extends Controller
             return abort(404);
         }
     }
-
-
     public function directorDesk()
     {
 
@@ -171,41 +174,37 @@ class HomeController extends Controller
         }
     }
 
-
-
-
     public function employeeDirectory()
     {
 
         try {
-
             $designationData = [];
 
-
-            $designations = DB::table('emp_depart_designations')
+            $department = DB::table('emp_depart_designations')
                 ->where('soft_delete', 0)
                 ->orderBy('short_order', 'ASC')
+                ->whereparent_id(0)
                 ->get();
 
-            if (Count($designations) > 0) {
+            if (Count($department) > 0) {
 
-
-                foreach ($designations as $designation) {
-                    $data = DB::table('employee_directories')
-                        ->where('designation_id', $designation->uid)
-                        ->where('soft_delete', 0)
-                        ->orderBy('short_order', 'ASC')
+                foreach ($department as $designation) {
+            
+                    $data = DB::table('employee_directories as emp')
+                        ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
+                        ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
+                        ->where('emp.soft_delete', 0)
+                        ->where('department_id', $designation->uid)
+                        ->orderBy('emp.short_order', 'ASC')
                         ->get();
 
-
                     $designationData[] = [
-                        'designation' => $designation,
+                        'department' => $designation,
                         'data' => $data,
                     ];
                 }
-
-
-                $sortedDesignationData = collect($designationData)->sortBy('designation.short_order')->values()->all();
+              
+                $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
 
                 return view('pages.employeeDirectory', ['sortedDesignationData' => $sortedDesignationData]);
             } else {
