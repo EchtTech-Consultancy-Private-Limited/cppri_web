@@ -1053,6 +1053,12 @@ tr:hover td {
 		font-size: 13px;
 	}
 
+	.align-item-center-item-2 {
+		display: block !important;
+	}
+
+	.align-item-center-item-2 img{margin-bottom: 40px;} 
+
 	.guide-text i {
 		font-size: 14px;
 		vertical-align: text-bottom;
@@ -1859,7 +1865,7 @@ a {
 }
 
 .c-box {
-    height: 11px;
+    height: 13px;
     width: 12px;
     /* background: red; */
     margin-right: 6px;
@@ -1910,8 +1916,10 @@ span#timeid {
 
 .w-10{width: 10%;}
 .w-90{width: 90%;float: right;text-align: left;}
-
+ 
 .emp-dir-main .emp-crddir-inf p, .emp-dir-main .emp-crddir-inf h5 {
     margin-top: 4px;
 	margin-bottom: 0;
 }
+
+.align-item-center-item-2{align-items: center; display: flex; margin-bottom: 40px;}
