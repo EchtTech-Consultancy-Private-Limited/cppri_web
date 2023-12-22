@@ -124,7 +124,10 @@ class HomeController extends Controller
         }
     }
 
-
+    public function overviewPage(){
+        return view('pages.overview');
+        
+    }
     public function directorDesk()
     {
 

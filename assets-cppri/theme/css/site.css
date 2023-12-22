@@ -5221,13 +5221,15 @@ textarea:focus, input:focus{
 
 .emp-crddir-inf h3
 {
-	font-size: 14px;
-	margin-top: 10px;
-	margin-bottom: 4px;
+	font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    font-weight: 700;
 }
 .emp-crddir-inf h5
 {
-	font-size: 13px;
+	font-size: 14px;
+    margin-top: 7px !important;
 }
 .ul-hierarch 
 {
