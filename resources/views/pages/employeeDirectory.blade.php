@@ -63,7 +63,7 @@
                                             </div>
                                             <h3><i class="fa fa-user"></i>{{ $profile->fname_en ?? '' }}
                                                 {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
-                                            <h5>({{ $item['designation']->name_en }})</h5>
+                                            <h5>({{ $item['department']->name_en }})</h5>
                                             <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile ?? '' }}
                                             </p>
                                             <p><strong>{{ $profile->extention_number ?? '' }}<strong></p>
@@ -115,7 +115,7 @@
                                             </div>
                                             <h3><i class="fa fa-user"></i> {{ $profile->fname_en ?? '' }}
                                                 {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
-                                            <h5>({{ $item['designation']->name_en }})</h5>
+                                            <h5>({{ $item['department']->name_en }})</h5>
                                             <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile ?? '' }}
                                             </p>
                                             <p> {{ $profile->extention_number ?? '' }}</p>
