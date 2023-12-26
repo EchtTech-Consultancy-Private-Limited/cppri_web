@@ -1,75 +1,160 @@
 @extends('layout.master')
 @section('title')
-{{ __('CPPRI') }}
+    {{ __('CPPRI') }}
 @endsection
 @section('content')
 
-<section class="wrapper banner-wrapper">
-    <div id="flexSlider" class="flexslider "
-        style="background-image: url('{{ asset('assets-cppri/images/agnipath-banner-1200-185.png') }}');">
-        <div class="inner-banner-text">
-            <div class="text-banner-content">
-                <h2>
-                    SiteMap
-                </h2>
+    <section class="wrapper banner-wrapper">
+        <div id="flexSlider" class="flexslider "
+            style="background-image: url('{{ asset('assets-cppri/images/agnipath-banner-1200-185.png') }}');">
+            <div class="inner-banner-text">
+                <div class="text-banner-content">
+                    <h2>
+                        SiteMap
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="bg-wrapper inner-wrapper">
+        <div class="breadcam-bg breadcam">
+            <div class="container common-container four_content ">
+                <ul>
+                    <li><a href="home.html">Home </a></li>
+                    <li><a href="javascript:void();">SiteMap</a></li>
+                </ul>
             </div>
         </div>
     </div>
-</section>
-<div class="bg-wrapper inner-wrapper">
-    <div class="breadcam-bg breadcam">
-        <div class="container common-container four_content ">
-            <ul>
-                <li><a href="home.html">Home </a></li>
-                <li><a href="javascript:void();">SiteMap</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
 
 
-<section id="list" class="wrapper list-wrapper ptb-30">
-    <div class="container common-container four_content">
-        <h3 class="master-title mt-0">Website Link</h3>
-        <div class="list list-circle">
-            <h4 class="">Menu</h4>
-            <!-- <ul class="clearfix mb-0">
-                <li>a</li>
-                <li>To make Indian Paper Industry sustainable and Globally Competitive.</li>
-                <li>In pursuit of cleaner Production, Resource Conversation &amp; Quality Excellence in Pulp &amp; Paper
-                    Industry</li>
-            </ul> -->
-            <ul class="clearfix sitemap">
-                <li class="">
-                    <a href="#" tabindex="0">Home</a>
-                </li>
-                <li class="menu-item-has-children pb-0">
-                    <a href="#" class="main-anchor" tabindex="0">About</a>
+    <section id="list" class="wrapper list-wrapper ptb-30">
+        <div class="container">
+            <div class="master">
+                <h3 class="master-title mt-0">RAV Website Link</h3>
+                <div class="list list-circle">
+                    <h4>Main menu</h4>
+                    <ul class="clearfix sitemap">
+                        @if (isset($headerMenu) && count($headerMenu) > 0)
+                            @foreach ($headerMenu as $headerMenus)
+                                @php
+                                    $url = $headerMenus->url ?? 'javascript:void(0)';
+                                @endphp
+                                @if (isset($headerMenus->children) && count($headerMenus->children) > 0)
+                                    <li class="menu-item-has-children pb-0">
+                                        <a href="javascript:void(0)">
+                                            @if (Session::get('locale') == 'hi')
+                                                {{ $headerMenus->name_hi ?? '' }}
+                                            @else
+                                                {{ $headerMenus->name_en ?? '' }}
+                                            @endif
+                                        </a>
+                                        <ul class="unorder-list pt-10">
+                                            @if (isset($headerMenus->children) && count($headerMenus->children) > 0)
+                                                @foreach ($headerMenus->children as $subMenus)
+                                                    @php
+                                                        $suburl = $subMenus->url ?? 'javascript:void(0)';
+                                                    @endphp
 
-                    <ul class="unorder-list pt-10">
-                        <li>
-                            <a href="#" tabindex="0">About NRCP</a>
-                        </li>
-                        <li>
-                            <a href="#" tabindex="0">About NAPRE</a>
-                        </li>
-                        <li>
-                            <a href="#" tabindex="0">Programme Strategies</a>
-                        </li>
-                        <li>
-                            <a href="#" tabindex="0">Directories</a>
-                        </li>
+                                                    <li>
+                                                        @if ($subMenus->tab_type == 1)
+                                                            <a onclick="return confirm('{{ $alertMessage }}')"
+                                                                target="_blank" href="{{ url($suburl) }}">
+                                                                @if (Session::get('locale') == 'hi')
+                                                                    {{ $subMenus->name_hi ?? '' }}
+                                                                @else
+                                                                    {{ $subMenus->name_en ?? '' }}
+                                                                @endif
+                                                            </a>
+                                                        @else
+                                                            <a href="{{ url($suburl) }}">
+                                                                @if (Session::get('locale') == 'hi')
+                                                                    {{ $subMenus->name_hi ?? '' }}
+                                                                @else
+                                                                    {{ $subMenus->name_en ?? '' }}
+                                                                @endif
+                                                            </a>
+                                                        @endif
+                                                    </li>
+                                                @endforeach
+                                            @else
+                                                <h5>No menu available.</h5>
+                                            @endif
+                                        </ul>
+                                    </li>
+                                @else
+                                    <li>
+                                        @if ($headerMenus->tab_type == 1)
+                                            <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                                                href="{{ url($url) }}">
+                                                @if (Session::get('locale') == 'hi')
+                                                    {{ $headerMenus->name_hi ?? '' }}
+                                                @else
+                                                    {{ $headerMenus->name_en ?? '' }}
+                                                @endif
+                                            </a>
+                                        @else
+                                            <a href="{{ url($url) }}">
+                                                @if (Session::get('locale') == 'hi')
+                                                    {{ $headerMenus->name_hi ?? '' }}
+                                                @else
+                                                    {{ $headerMenus->name_en ?? '' }}
+                                                @endif
+                                            </a>
+                                        @endif
+                                    </li>
+                                @endif
+                            @endforeach
+                        @else
+                            <h5>No menu available.</h5>
+                        @endif
                     </ul>
-                </li>
-                <li class="">
-                    <a href="#" tabindex="0">Downloads</a>
-                </li>
-              
-            </ul>
-        </div>
+                </div>
 
-    </div>
-</section>
+
+                <h2>
+                    Footer Menu
+                </h2>
+
+                <div class="list list-circle">
+
+                    @if (isset($footerMenu) && count($footerMenu) > 0)
+                        <ul class="clearfix sitemap">
+                            @foreach ($footerMenu as $footerMenus)
+                                @php
+                                    $footerMenusurl = $footerMenus->url ?? 'javascript:void(0)';
+                                @endphp
+                                @if ($footerMenus->tab_type == 1)
+                                    <li class="first leaf">
+                                        <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                                            href="{{ url($footerMenusurl) ?? '' }}">
+                                            @if (Session::get('locale') == 'hi')
+                                                {{ $footerMenus->name_hi ?? '' }}
+                                            @else
+                                                {{ $footerMenus->name_en ?? '' }}
+                                            @endif
+                                        </a>
+                                    </li>
+                                @else
+                                    <li class="first leaf"><a href="{{ url($footerMenusurl) ?? '' }}">
+                                            @if (Session::get('locale') == 'hi')
+                                                {{ $footerMenus->name_hi ?? '' }}
+                                            @else
+                                                {{ $footerMenus->name_en ?? '' }}
+                                            @endif
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    @else
+                        <h5>No menu available.</h5>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 
 

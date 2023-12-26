@@ -4,16 +4,17 @@
 @endsection
 @section('content')
 
-<style>
-    .p-item-center {
-    padding-top: 21% !important;
-    text-align: center !important;
-}
-.p-item-center.text-white{
-    padding-top: 45% !important;
-    color :#fff !important;
-}
-</style>
+    <style>
+        .p-item-center {
+            padding-top: 21% !important;
+            text-align: center !important;
+        }
+
+        .p-item-center.text-white {
+            padding-top: 45% !important;
+            color: #fff !important;
+        }
+    </style>
 
     <section class="wrapper banner-wrapper">
         <h1 style="display: none">Banner</h1>
@@ -115,20 +116,20 @@
                 <div class="minister clearfix animate__animated animate__backInRight animate__delay-3s">
                     <div class="minister-box clearfix">
                         <!-- <div class="minister-sub1">
-                                        <div class="minister-image"><img src="{{ asset('assets-cppri/images/minister.jpg') }}"
-                                                alt="Hon’ble Minister" title="Ministry/Department, Minister Name"></div>
-                                        <div class="min-info">
-                                            <h4><a href="javascript:void(0);" title="Minister Name"> Shri Som Parkash</a></h4>
-                                            <h5 class="prime"><a href="javascript:void(0);" title="Hon’ble Prime Minister">
-                                                    Minister of
-                                                    State for Commerce and Industry</a></h5>
-                                            <a href="javascript:void(0);"
-                                                title="External link open in new tab,Portfolio of Hon’ble minister"
-                                                class="portgolio-button">
-                                                View Portfolio <i class="fa fa-external-link"></i>
-                                            </a>
-                                        </div>
-                                    </div> -->
+                                            <div class="minister-image"><img src="{{ asset('assets-cppri/images/minister.jpg') }}"
+                                                    alt="Hon’ble Minister" title="Ministry/Department, Minister Name"></div>
+                                            <div class="min-info">
+                                                <h4><a href="javascript:void(0);" title="Minister Name"> Shri Som Parkash</a></h4>
+                                                <h5 class="prime"><a href="javascript:void(0);" title="Hon’ble Prime Minister">
+                                                        Minister of
+                                                        State for Commerce and Industry</a></h5>
+                                                <a href="javascript:void(0);"
+                                                    title="External link open in new tab,Portfolio of Hon’ble minister"
+                                                    class="portgolio-button">
+                                                    View Portfolio <i class="fa fa-external-link"></i>
+                                                </a>
+                                            </div>
+                                        </div> -->
                         <div class="minister-sub">
                             <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
                                     alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>
@@ -357,7 +358,7 @@
                         </div>
                         <div class="bg-white-tender">
                             <div class="scroll-text-1 scroll-left">
-                                <ul class="list">
+                                {{-- <ul class="list">
 
 
                                     @if (isset($tender_management) && count($tender_management) > 0)
@@ -386,7 +387,24 @@
                                         </li>
                                     @endif
 
-                                </ul>
+                                </ul> --}}
+
+
+                                <ul class="list">
+                                    <li>
+                                       <div class="date"><span>29</span><em>Nov 2022</em></div>
+                                       <div class="list-content">Description of Tenders 1 goes here - File type (size).</div>
+                                    </li>
+                                    <li>
+                                       <div class="date"><span>22</span><em>Nov 2020</em></div>
+                                       <div class="list-content">Description of Tenders 2 goes here - File type (size).</div>
+                                    </li>
+                                    <li>
+                                       <div class="date"><span>29</span><em>Sept 2023</em></div>
+                                       <div class="list-content">Description of Tenders 3 goes here - File type (size).</div>
+                                    </li>
+                                 </ul>
+
                             </div>
                             <div class="view-footer"><a href="javascript:void(0);"
                                     title="Know More About Tenders"><span>View
@@ -528,32 +546,32 @@
                     <!--News Box End-->
                     <!--News Box Start-->
                     <!-- <div class="col-md-3  col-sm-6">
-                               <div class="news-box">
-                                 <div class="new-thumb"> <span class="cat c3">Policies</span> <img src="images/cppri/modi.jpg" alt="">
-                                 </div>
-                                 <div class="new-txt">
-                                   
-                                   <h6><a href="#">Our Policies Programs</a></h6>
-                                   <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="#" title="">...read more</a>
-                                   </p>
-                                 </div>
-                                
-                               </div>
-                             </div> -->
+                                   <div class="news-box">
+                                     <div class="new-thumb"> <span class="cat c3">Policies</span> <img src="images/cppri/modi.jpg" alt="">
+                                     </div>
+                                     <div class="new-txt">
+                                       
+                                       <h6><a href="#">Our Policies Programs</a></h6>
+                                       <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="#" title="">...read more</a>
+                                       </p>
+                                     </div>
+                                    
+                                   </div>
+                                 </div> -->
                     <!--News Box End-->
                     <!--News Box Start-->
                     <!-- <div class="col-md-3  col-sm-6">
-                               <div class="news-box">
-                                 <div class="new-thumb"> <span class="cat c4">Education</span> <img src="images/h3citynews-4.jpg" alt="">
-                                 </div>
-                                 <div class="new-txt">
-                                   
-                                   <h6><a href="#">Our Education Programs</a></h6>
-                                   <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="#" title="">...read more</a>
-                                   </p>
-                                 </div>
-                               </div>
-                             </div> -->
+                                   <div class="news-box">
+                                     <div class="new-thumb"> <span class="cat c4">Education</span> <img src="images/h3citynews-4.jpg" alt="">
+                                     </div>
+                                     <div class="new-txt">
+                                       
+                                       <h6><a href="#">Our Education Programs</a></h6>
+                                       <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="#" title="">...read more</a>
+                                       </p>
+                                     </div>
+                                   </div>
+                                 </div> -->
                     <!--News Box End-->
                 </div>
             </div>
@@ -642,15 +660,24 @@
             </div>
         </div>
 
-
+       {{-- video and image section start --}}
         <div class="wrapper home-btm-slider">
             <div class="container common-container four_content gallery-container">
 
-                @if(isset($image_management) && $image_management !== '' && $image_management !== null && isset($image_management->uid))
+                @if (isset($image_management) && $image_management !== '' && $image_management !== null && isset($image_management->uid))
 
                     <div class="gallery-area clearfix">
                         <div class="gallery-heading">
-                            <h3 class="change-color-code"> Photo Gallery </h3>
+                            <h3 class="change-color-code">
+
+                                @if (Session::get('Lang') == 'hi')
+                                    {{ __('messages.Photo_Gallery ') }}
+                                @else
+                                    {{ __('messages.Photo_Gallery') }}
+                                @endif
+
+
+                            </h3>
                             <a class="bttn-more bttn-view" href="javascript:viod(0)"
                                 title="View all Photo Gallery"><span>View
                                     All</span></a>
@@ -685,24 +712,29 @@
                 @if (isset($video_management) && $video_management !== '' && $video_management !== null)
                     <div class="gallery-right">
                         <div class="video-heading">
-                            <h3 class="change-color-code">Video Gallery</h3>
+                            <h3 class="change-color-code">
+                                @if (Session::get('Lang') == 'hi')
+                                    {{ __('messages.Video_Gallery ') }}
+                                @else
+                                    {{ __('messages.Video_Gallery') }}
+                                @endif
+                            </h3>
                             <a class="bttn-more bttn-view" href="javascript:viod(0)"
                                 title="View all Video Gallery"><span>View
                                     All</span></a>
                         </div>
                         <div class="video-wrapper">
                             @if (isset($video_gallery_details) && $video_gallery_details !== '')
-
-                             @php
-                                $videourl =$video_gallery_details->public_url?? 'javascript:void(0)';
-                             @endphp
+                                @php
+                                    $videourl = $video_gallery_details->public_url ?? 'javascript:void(0)';
+                                @endphp
 
                                 <video src="{{ url($videourl) ?? '' }}"
                                     title="{{ $video_gallery_details->title ?? '' }}" controls autoplay muted>
                                     <span>Your browser does not support HTML5 video.</span>
                                 </video>
                             @else
-                                <p  class="p-item-center text-white">No Video found in the gallery.</p>
+                                <p class="p-item-center text-white">No Video found in the gallery.</p>
                             @endif
                         </div>
                     </div>
@@ -711,6 +743,7 @@
                 @endif
             </div>
         </div>
+        {{-- video and image section end --}}
     </section>
     <!--/.body-wrapper-->
 
