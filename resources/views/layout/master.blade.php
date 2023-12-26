@@ -22,7 +22,7 @@
             <div class="logo">
                <a href="{{ url('/') }}" title="Home" rel="home" class="header__logo" id="logo">
                  <div class="d-flex-logo">
-                     <img class="national_emblem" src="{{ asset('assets-cppri/images/logo.png') }}" alt="CPPRI logo">
+                     <img class="national_emblem" src="{{ asset('resources/uploads/WebsiteCoreSettings/'.$logo->header_logo) }}" title="{{ $logo->logo_title }}" alt="{{ $logo->logo_title }}">
                      <div class="logo-text">
                         <h3 class="hindi mt-0">केन्द्रीय लुग्दी एवं कागज अनुसंधान संस्थान</h3>
                         <h3 class="english">Central Pulp & Paper Research Institute</h3>
