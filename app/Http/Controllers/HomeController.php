@@ -72,7 +72,9 @@ class HomeController extends Controller
 
     public function contactUs()
     {
-        return view('pages.contact-us');
+        $employee = DB::table('employee_directories')->where('soft_delete', 0)->orderBy('short_order','ASC')->get();
+
+        return view('pages.contact-us',['employee'=>$employee]);
     }
 
     public function getContentAllPages(Request $request, $slug)
@@ -190,7 +192,7 @@ class HomeController extends Controller
     }
 
 
-    public function CommingSoon(){
+    public function ComingSoon(){
         return view('pages.CommingSoon');
         
     }
@@ -263,6 +265,7 @@ class HomeController extends Controller
                 ->whereparent_id(0)
                 ->get();
 
+                
             if (Count($department) > 0) {
 
                 foreach ($department as $designation) {
