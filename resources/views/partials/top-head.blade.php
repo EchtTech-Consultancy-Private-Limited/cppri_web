@@ -63,7 +63,7 @@
                     </div>
                 </li>
 
-                <li class="ico-sitemap screen-reader cf"><a href="javascript:viod(0)" title="Screen Reader Access"><i class="fa fa-volume-up"></i></a> </li>
+                <li class="ico-sitemap screen-reader cf"><a href="{{url('/screen-reader-access')}}" title="Screen Reader Access"><i class="fa fa-volume-up"></i></a> </li>
 
                 
                 <li class="ico-accessibility cf screen-reader cf">
