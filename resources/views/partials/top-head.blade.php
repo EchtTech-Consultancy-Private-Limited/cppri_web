@@ -4,10 +4,10 @@
             <ul>
                 <li class="border-r">
                     <div class="circle-boxes">
-                        <div class="c-box blue  color" data-id="#1a4f91" title="Blue"></div>
-                        <div class="c-box green color" data-id="#007473" title="Green"></div>
-                        <div class="c-box orange color" data-id="#ca5e04" title="Orange"></div>
-                        <div class="c-box purple color" data-id="#2a2f67" title="Purple"></div>
+                        <div onclick="changeToAfterbefore()" class="c-box blue  color" data-id="#1a4f91" title="Blue"></div>
+                        <div onclick="changeToAfterbefore()" class="c-box green color" data-id="#007473" title="Green"></div>
+                        <div onclick="changeToAfterbefore()" class="c-box orange color" data-id="#ca5e04" title="Orange"></div>
+                        <div onclick="changeToAfterbefore()" class="c-box purple color" data-id="#2a2f67" title="Purple"></div>
                     </div>
                 </li>
                 <li class="gov-india timer-date-c">

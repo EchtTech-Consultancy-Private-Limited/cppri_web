@@ -1630,7 +1630,7 @@ a {
 	top: 0;
 	right: 0;
 	border-bottom: 60px solid white;
-	border-left: 20px solid #1a4f91;
+	border-left: 20px solid var(--pseudo-bordercolor);
 	width: 0;
 }
 
@@ -1949,7 +1949,7 @@ span#timeid {
 .coming-box {
     display: grid;
     justify-content: center;
-}
+}n nm  
 
 .coming-box img {
     width: 170px !important;
