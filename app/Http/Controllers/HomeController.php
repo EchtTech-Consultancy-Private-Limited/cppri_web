@@ -37,7 +37,7 @@ class HomeController extends Controller
 
             $uniqueData = array_values(array_unique($dataArray));
 
-            return view('pages.results', [
+            return view('pages.search', [
                 'dynamicPageContent' => $uniqueData,
                 'keyword' => $keyword
             ]);
@@ -181,6 +181,22 @@ class HomeController extends Controller
 
     public function overviewPage(){
         return view('pages.overview');
+        
+    }
+
+    public function siteMap(){
+        return view('pages.siteMap');
+        
+    }
+
+
+    public function CommingSoon(){
+        return view('pages.CommingSoon');
+        
+    }
+
+    public function error(){
+        return view('pages.error');
         
     }
 

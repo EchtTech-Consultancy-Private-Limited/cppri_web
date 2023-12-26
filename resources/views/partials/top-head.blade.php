@@ -94,25 +94,46 @@
                     <a href="javascript:void(0);" id="toggleSocial" title="Social Medias"> 
                         <img class="top" src="{{ asset('assets-cppri/images/ico-social.png') }}"
                             alt="Social Medias"></a>
+                    @if (isset($social_links) && $social_links != '')   
+                    
+                     @php
+                       $facebookUrl = $social_links->facebook ?? 'javascript:void(0)';
+                       $twitterUrl = $social_links->twitter ?? 'javascript:void(0)';
+                       $instagramUrl = $social_links->instagram ?? 'javascript:void(0)';
+                       $linkedinUrl = $social_links->linkedin ?? 'javascript:void(0)';
+                     @endphp
+                         
                     <ul>
+                        @if ($social_links->facebook != '' && $social_links->facebook != 0)
                         <li><a target="_blank" title="Facebook"
-                                href="http://www.facebook.com/"><img alt="Facebook Page"
+                            href="{{ url($facebookUrl) ?? '' }}"><img alt="Facebook Page"
                                     src="{{ asset('assets-cppri/images/ico-facebook.png') }}"></a></li>
+                        @endif      
+                        @if ($social_links->twitter != '' && $social_links->twitter != 0)      
                         <li><a target="_blank" title="Twitter"
-                                href="http://www.twitter.com/"><img alt="Twitter Page"
+                            href="{{ url($twitterUrl) ?? '' }}"><img alt="Twitter Page"
                                     src="{{ asset('assets-cppri/images/ico-twitter.png') }}"></a></li>
-                        <li><a target="_blank" title="Youtube"
+                        @endif   
+                       
+                        {{-- <li><a target="_blank" title="Youtube"
                                 href="http://www.youtube.com/"><img alt="youtube Page"
-                                    src="{{ asset('assets-cppri/images/ico-youtube.png') }}"></a></li>
+                                    src="{{ asset('assets-cppri/images/ico-youtube.png') }}"></a></li> --}}
+
+                        @if ($social_links->instagram != '' && $social_links->instagram != 0)            
                         <li><a target="_blank" title="Instagram"
-                                href="http://www.instagram.com/"><img alt="Instagram Page"
+                            href="{{ url($instagramUrl) ?? '' }}"><img alt="Instagram Page"
                                     src="{{ asset('assets-cppri/images/instagram.png') }}"></a></li>
+                        @endif            
+                        @if ($social_links->linkedin != '' && $social_links->linkedin != 0)       
                         <li><a target="_blank" title="Linkedin"
-                                href="http://www.linkedin.com/"><img alt="Linkedin"
+                            href="{{ url($linkedinUrl) ?? '' }}"><img alt="Linkedin"
                                     src="{{ asset('assets-cppri/images/linkedin1.png') }}"></a></li>
+                        @endif            
                     </ul>
+                    @endif
                 </li>
-                <li class="ico-sitemap cf"><a href="javascript:viod(0)" title="Sitemap">
+
+                <li class="ico-sitemap cf"><a href="{{ url('/site-map') }}" title="Sitemap">
                         <img class="top" src="{{ asset('assets-cppri/images/ico-sitemap.png') }}"
                             alt="Sitemap"></a>
                 </li>
@@ -128,13 +149,6 @@
                         </select>
                     </label>
                 </li>
-                {{-- <li class="hindi cmf_lan m-hide">
-                    <a href="javascript:;" title="Select Language">Language</a>
-                    <ul>
-                        <li><a target="_blank" href="" lang="hi" class="alink"
-                                title="Click here for हिन्दी version.">हिन्दी</a></li>
-                    </ul>
-                </li> --}}
             </ul>
         </div>
     </div>
