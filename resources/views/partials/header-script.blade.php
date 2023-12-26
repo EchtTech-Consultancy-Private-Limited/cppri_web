@@ -42,3 +42,6 @@
 <link href="{{ asset('assets-cppri/css/modules.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('assets-cppri/css/bootstrap.min.css') }}">
 <link href="{{ asset('assets-cppri/css/animate.min.css') }}" rel="stylesheet">
+<script>
+    var baseUrl = {!! json_encode(url('/')) !!}
+</script>

@@ -3,16 +3,62 @@
 namespace App\Http\Controllers;
 
 use App;
-use  Route, DB, Session;
+use  Route, DB, Session, Schema;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
-    {
-
+    public function index(){
         return view('home');
     }
+
+    // public function search(Request $request)
+    // {
+    //     try {
+    //         $keyword = $request->input('search_key', '');
+    //         $databaseName = env('DB_DATABASE');
+    //         $tables = DB::select("SHOW TABLES FROM $databaseName");
+
+    //         $dataArray = [];
+
+    //         foreach ($tables as $table) {
+    //             $columns = DB::select("SHOW COLUMNS FROM $table->Tables_in_cppri_db");
+
+    //             foreach ($columns as $column) {
+    //                 $results = DB::table($table->Tables_in_cppri_db)
+    //                     ->where($column->Field, 'LIKE', '%' . $keyword . '%')
+    //                     ->get();
+
+    //                 foreach ($results as $result) {
+    //                     $this->collectData($result, $dataArray);
+    //                 }
+    //             }
+    //         }
+
+    //         $uniqueData = array_values(array_unique($dataArray));
+
+    //         return view('pages.search', [
+    //             'dynamicPageContent' => $uniqueData,
+    //             'keyword' => $keyword
+    //         ]);
+    //     } catch (\Exception $e) {
+    //         // Handle the exception, log it, and provide user feedback.
+    //         return view('pages.error', ['error' => $e->getMessage()]);
+    //     }
+    // }
+
+    // private function collectData($result, &$dataArray)
+    // {
+    //     $fields = ['page_title_en', 'title_name_en', 'description_en', 'page_content_en', 'question_en', 'answer_en'];
+
+    //     foreach ($fields as $field) {
+    //         if (isset($result->$field)) {
+    //             array_push($dataArray, $result->$field);
+    //         }
+    //     }
+    // }
+
+
 
     //language
     public function SetLang(Request $request)
@@ -37,6 +83,12 @@ class HomeController extends Controller
 
             if ($menus != '') {
 
+                if ($menus?->parent_id != 0) {
+                    $sideMenu = DB::table('website_menu_management')->wherename_en($menus->name_en)->first('parent_id');
+                    $sideMenuParent = DB::table('website_menu_management')->whereuid($sideMenu->parent_id)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->first();
+                    $sideMenuChild = DB::table('website_menu_management')->whereparent_id($sideMenuParent->uid)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
+                }
+
                 if (Session::get('Lang') == 'hi') {
                     $title_name = $menus->name_hi;
                 } else {
@@ -48,6 +100,9 @@ class HomeController extends Controller
                     ->where('menu_uid', $menus->uid)
                     ->orderBy('sort_order', 'ASC')
                     ->get();
+
+
+                   // dd($dynamic_content_page_metatag);
 
                 if (count($dynamic_content_page_metatag) > 0) {
 
@@ -84,7 +139,6 @@ class HomeController extends Controller
                         ];
                     }
 
-
                     if ($menus?->parent_id != 0) {
                         $sideMenu = DB::table('website_menu_management')->wherename_en($menus->name_en)->first('parent_id');
                         $sideMenuParent = DB::table('website_menu_management')->whereuid($sideMenu->parent_id)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->first();
@@ -95,10 +149,10 @@ class HomeController extends Controller
                     }
 
                     $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
-                    // dd($quickLink);
 
                     return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData, 'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
                 } else {
+
 
                     if (Session::get('Lang') == 'hi') {
                         $content = "जल्द आ रहा है";
@@ -106,28 +160,51 @@ class HomeController extends Controller
                         $content = "Coming Soon...";
                     }
                     // dd($menus);
-                    return view('master-page', ['content' => $content, 'title_name' => $title_name]);
+                    return view('master-page', ['content' => $content, 'title_name' => $title_name, 'sideMenuChild' => $sideMenuChild]);
                 }
             } else {
-                return abort(404);
+                return view('pages.error');
             }
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         } catch (\PDOException $e) {
             \Log::error('A PDOException occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         } catch (\Throwable $e) {
             // Catch any other types of exceptions that implement the Throwable interface.
             \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         }
     }
+
 
     public function overviewPage(){
         return view('pages.overview');
         
     }
+
+    public function siteMap(){
+        return view('pages.siteMap');
+        
+    }
+
+
+    public function CommingSoon(){
+        return view('pages.CommingSoon');
+        
+    }
+
+    public function ScreenReaderAccess(){
+        return view('pages.screen_reader_access');
+        
+    }
+
+    public function error(){
+        return view('pages.error');
+        
+    }
+
     public function directorDesk()
     {
 
@@ -164,20 +241,16 @@ class HomeController extends Controller
             }
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         } catch (\PDOException $e) {
             \Log::error('A PDOException occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         } catch (\Throwable $e) {
             // Catch any other types of exceptions that implement the Throwable interface.
             \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         }
     }
-
-
-
-
     public function employeeDirectory()
     {
 
@@ -193,12 +266,6 @@ class HomeController extends Controller
             if (Count($department) > 0) {
 
                 foreach ($department as $designation) {
-                    // $data = DB::table('employee_directories')
-                    //     ->where('department_id', $designation->uid)
-                    //     ->where('soft_delete', 0)
-                    //     ->orderBy('short_order', 'ASC')
-                    //     ->get();
-
 
                     $data = DB::table('employee_directories as emp')
                         ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
@@ -230,14 +297,14 @@ class HomeController extends Controller
             }
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         } catch (\PDOException $e) {
             \Log::error('A PDOException occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         } catch (\Throwable $e) {
             // Catch any other types of exceptions that implement the Throwable interface.
             \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         }
     }
 }

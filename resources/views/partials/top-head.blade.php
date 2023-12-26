@@ -4,10 +4,10 @@
             <ul>
                 <li class="border-r">
                     <div class="circle-boxes">
-                        <div class="c-box blue  color" data-id="#1a4f91" title="Blue"></div>
-                        <div class="c-box green color" data-id="#007473" title="Green"></div>
-                        <div class="c-box orange color" data-id="#ca5e04" title="Orange"></div>
-                        <div class="c-box purple color" data-id="#2a2f67" title="Purple"></div>
+                        <div onclick="changeToAfterbefore()" class="c-box blue  color" data-id="#1a4f91" title="Blue"></div>
+                        <div onclick="changeToAfterbefore()" class="c-box green color" data-id="#007473" title="Green"></div>
+                        <div onclick="changeToAfterbefore()" class="c-box orange color" data-id="#ca5e04" title="Orange"></div>
+                        <div onclick="changeToAfterbefore()" class="c-box purple color" data-id="#2a2f67" title="Purple"></div>
                     </div>
                 </li>
                 <li class="gov-india timer-date-c">
@@ -42,24 +42,20 @@
                             alt="Site Search"></a>
                     <div class="search-drop both-search">
                         <div class="google-find">
-                            <form method="get" action="#" target="_blank">
+                            
+                            {{-- <form action="{{ url('search') }}" method="get" > --}}
                                 <label for="search_key_g" class="notdisplay">Search</label>
-                                <input type="text" name="q" value="" id="search_key_g">
+                                <input type="text" name="query"  id="search_key_g">
                                 <input type="submit" value="Search" class="submit">
-                                <div class="">
-                                    <input type="radio" name="sitesearch" value=""
-                                        id="the_web">
-                                    <label for="the_web">The Web</label>
-                                    <input type="radio" name="sitesearch" value="india.gov.in" checked
-                                        id="the_domain"> <label for="the_domain"> INDIA.GOV.IN</label>
-                                </div>
-                            </form>
+                            {{-- </form> --}}
+                            
                         </div>
                         <div class="find">
-                            <form name="searchForm">
+                            <form name="searchForm" action="{{ url('search') }}" method="get" >
                                 <label for="search_key" class="notdisplay">Search</label>
                                 <input type="text" name="search_key" id="search_key"
                                     onKeyUp="autoComplete()" autocomplete="off" required
+                                    value="{{ request('search_key') ?? '' }}"
                                     placeholder="Search here...">
                                 <input type="submit" value="Search" class="bttn-search">
                             </form>
@@ -68,7 +64,7 @@
                     </div>
                 </li>
 
-                <li class="ico-sitemap screen-reader cf"><a href="javascript:viod(0)" title="Screen Reader Access"><i class="fa fa-volume-up"></i></a> </li>
+                <li class="ico-sitemap screen-reader cf"><a href="{{url('/screen-reader-access')}}" title="Screen Reader Access"><i class="fa fa-volume-up"></i></a> </li>
 
                 
                 <li class="ico-accessibility cf screen-reader cf">
@@ -99,25 +95,46 @@
                     <a href="javascript:void(0);" id="toggleSocial" title="Social Medias"> 
                         <img class="top" src="{{ asset('assets-cppri/images/ico-social.png') }}"
                             alt="Social Medias"></a>
+                    @if (isset($social_links) && $social_links != '')   
+                    
+                     @php
+                       $facebookUrl = $social_links->facebook ?? 'javascript:void(0)';
+                       $twitterUrl = $social_links->twitter ?? 'javascript:void(0)';
+                       $instagramUrl = $social_links->instagram ?? 'javascript:void(0)';
+                       $linkedinUrl = $social_links->linkedin ?? 'javascript:void(0)';
+                     @endphp
+                         
                     <ul>
+                        @if ($social_links->facebook != '' && $social_links->facebook != 0)
                         <li><a target="_blank" title="Facebook"
-                                href="http://www.facebook.com/"><img alt="Facebook Page"
+                            href="{{ url($facebookUrl) ?? '' }}"><img alt="Facebook Page"
                                     src="{{ asset('assets-cppri/images/ico-facebook.png') }}"></a></li>
+                        @endif      
+                        @if ($social_links->twitter != '' && $social_links->twitter != 0)      
                         <li><a target="_blank" title="Twitter"
-                                href="http://www.twitter.com/"><img alt="Twitter Page"
+                            href="{{ url($twitterUrl) ?? '' }}"><img alt="Twitter Page"
                                     src="{{ asset('assets-cppri/images/ico-twitter.png') }}"></a></li>
-                        <li><a target="_blank" title="Youtube"
+                        @endif   
+                       
+                        {{-- <li><a target="_blank" title="Youtube"
                                 href="http://www.youtube.com/"><img alt="youtube Page"
-                                    src="{{ asset('assets-cppri/images/ico-youtube.png') }}"></a></li>
+                                    src="{{ asset('assets-cppri/images/ico-youtube.png') }}"></a></li> --}}
+
+                        @if ($social_links->instagram != '' && $social_links->instagram != 0)            
                         <li><a target="_blank" title="Instagram"
-                                href="http://www.instagram.com/"><img alt="Instagram Page"
+                            href="{{ url($instagramUrl) ?? '' }}"><img alt="Instagram Page"
                                     src="{{ asset('assets-cppri/images/instagram.png') }}"></a></li>
+                        @endif            
+                        @if ($social_links->linkedin != '' && $social_links->linkedin != 0)       
                         <li><a target="_blank" title="Linkedin"
-                                href="http://www.linkedin.com/"><img alt="Linkedin"
+                            href="{{ url($linkedinUrl) ?? '' }}"><img alt="Linkedin"
                                     src="{{ asset('assets-cppri/images/linkedin1.png') }}"></a></li>
+                        @endif            
                     </ul>
+                    @endif
                 </li>
-                <li class="ico-sitemap cf"><a href="javascript:viod(0)" title="Sitemap">
+
+                <li class="ico-sitemap cf"><a href="{{ url('/site-map') }}" title="Sitemap">
                         <img class="top" src="{{ asset('assets-cppri/images/ico-sitemap.png') }}"
                             alt="Sitemap"></a>
                 </li>
@@ -133,13 +150,6 @@
                         </select>
                     </label>
                 </li>
-                {{-- <li class="hindi cmf_lan m-hide">
-                    <a href="javascript:;" title="Select Language">Language</a>
-                    <ul>
-                        <li><a target="_blank" href="" lang="hi" class="alink"
-                                title="Click here for हिन्दी version.">हिन्दी</a></li>
-                    </ul>
-                </li> --}}
             </ul>
         </div>
     </div>

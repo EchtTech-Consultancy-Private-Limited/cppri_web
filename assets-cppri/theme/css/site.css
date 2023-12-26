@@ -1,3 +1,8 @@
+
+:root{
+	--pseudo-bordercolor:#1a4f91;
+}
+
 .inner-wrapper p {
 	color: #212020;
 	font-size: 100%;
@@ -1809,7 +1814,7 @@ ul.ul-v>li a {
 	content: " ";
 	width: 0;
 	height: 0;
-	border-bottom: 40px solid #1a4f91;
+	border-bottom: 40px solid var(--pseudo-bordercolor);
 	border-left: 15px solid transparent;
 	top: -1px;
 	left: -15px;
@@ -4490,7 +4495,7 @@ img.cell-icon-sec {
 	position: absolute;
 	left: 249px !important;
 	width: 100%;
-	bottom: -45px;
+	top: 0px;
 	color: #fff!important;
 	background-color: #49aa41;
 	display: none !important;
@@ -5194,6 +5199,29 @@ img.cell-icon-sec {
 	border: 1px solid #ccc;
 	font-family: 'Open Sans', sans-serif;
 }
+.info1 textarea
+{
+	padding-left: 14px;
+	margin: 6px 0px;
+	border-radius: 10px;
+	padding: 8px 15px 5px;
+	border: 1px solid #ccc;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.info1 .more {
+    padding: 8px 14px;
+    margin-top: 6px;
+}
+
+.info1 input {
+    height: 40px;
+    padding-left: 14px;
+    margin: 6px 0px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
 textarea:focus, input:focus{
     outline: none;
 }
@@ -5423,8 +5451,8 @@ textarea:focus, input:focus{
 .pb-10
 {
 	padding-bottom:4px;
-	font-size: 18px !important;
-	font-weight: 600;
+	font-size: 20px !important;
+	font-weight: 700;
 	color: #1a4f91;
 	padding-top:8px ;
 }
@@ -5541,7 +5569,7 @@ table th img, table td img {
     object-fit: cover;
 }
 
-table th{text-align: center !important;}
+table th{text-align: center !important;font-size: 15px;}
 
 td, th{vertical-align: middle;}
 table.dataTable.stripe>tbody>tr.odd>*, table.dataTable.display>tbody>tr.odd>*{box-shadow: none !important;background:#fff;}
@@ -5554,3 +5582,69 @@ table.dataTable.stripe>tbody>tr.odd>*, table.dataTable.display>tbody>tr.odd>*{bo
     font-weight: 700;
     color: #ff3434;
 }
+
+
+/* Error Page Css */
+
+.section-error{
+	padding: 4rem 2rem 6rem;
+	text-align: center;
+  }
+  
+  .section-error .error{
+	font-size: 150px;
+	color: #008B62;
+	text-shadow: 
+	  1px 1px 1px #00593E,    
+	  2px 2px 1px #00593E,
+	  3px 3px 1px #00593E,
+	  4px 4px 1px #00593E,
+	  5px 5px 1px #00593E,
+	  6px 6px 1px #00593E,
+	  7px 7px 1px #00593E,
+	  8px 8px 1px #00593E,
+	  25px 25px 8px rgba(0,0,0, 0.2);
+	  font-weight: 600;
+	  margin-top: 0px;
+  }
+  
+  .page{
+	margin: 2rem 0;
+	font-size: 20px;
+	font-weight: 600;
+	color: #444;
+  }
+  
+  .back-home{
+	display: inline-block;
+	border: 2px solid #1a4f91;
+	color: #1a4f91;
+	text-transform: uppercase;
+	font-weight: 600;
+	padding: 0.75rem 1rem 0.6rem;
+	transition: all 0.2s linear;
+	box-shadow: 0 3px 8px rgba(0,0,0, 0.3);
+  }
+  .back-home:hover{
+	background: #1a4f91;
+	color: #fff;
+  }
+
+  ul.sitemap li a {
+    color: #1a4f91 !important;
+    font-weight: 600 !important;
+    line-height: 28px !important;
+}
+
+ul.sitemap li a:hover{color: red !important;}
+
+table.dataTable tbody tr {
+    background-color: #d1e8f5;
+}
+table.dataTable tbody td {
+    padding: 5px 15px;
+    color: #000;
+    font-size: 15px;
+}
+
+

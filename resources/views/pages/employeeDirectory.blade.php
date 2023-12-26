@@ -61,24 +61,9 @@
                                                     alt=""
                                                     tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
                                             </div>
-
-                                            @if (Session::get('Lang') == 'hi')
-                                                <h3><i class="fa fa-user"></i> {{ $profile->fname_hi ?? '' }}
-                                                    {{ $profile->mname_hi ?? '' }} {{ $profile->lname_hi ?? '' }}</h3>
-                                            @else
-                                                <h3><i class="fa fa-user"></i> {{ $profile->fname_en ?? '' }}
-                                                    {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
-                                            @endif
-
-
-
-                                            @if (Session::get('Lang') == 'hi')
-                                                <h5>({{ $item['department']->name_en ?? '' }})</h5>
-                                            @else
-                                                <h5>({{ $item['department']->name_en ?? '' }})</h5>
-                                            @endif
-
-
+                                            <h3><i class="fa fa-user"></i>{{ $profile->fname_en ?? '' }}
+                                                {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
+                                            <h5>({{ $item['department']->name_en }})</h5>
                                             <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile ?? '' }}
                                             </p>
                                             <p><strong>{{ $profile->extention_number ?? '' }}<strong></p>
@@ -128,22 +113,9 @@
                                                     alt=""
                                                     tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
                                             </div>
-
-
-                                            @if (Session::get('Lang') == 'hi')
-                                                <h3> {{ $profile->fname_hi ?? '' }}
-                                                    {{ $profile->mname_hi ?? '' }} {{ $profile->lname_hi ?? '' }}</h3>
-                                            @else
-                                                <h3> {{ $profile->fname_en ?? '' }}
-                                                    {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
-                                            @endif
-
-                                            @if (Session::get('Lang') == 'hi')
-                                                <h5>({{ $profile->desi_name_en ?? '' }})</h5>
-                                            @else
-                                                <h5>({{ $profile->desi_name_en ?? '' }})</h5>
-                                            @endif
-                                            
+                                            <h3><i class="fa fa-user"></i> {{ $profile->fname_en ?? '' }}
+                                                {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
+                                            <h5>({{ $item['department']->name_en }})</h5>
                                             <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile ?? '' }}
                                             </p>
                                             <p> {{ $profile->extention_number ?? '' }}</p>

@@ -1066,7 +1066,26 @@ tr:hover td {
 
 	.scroll-table1 {
 		margin-bottom: 5px;
+		width: 100%;
 	}
+
+	div#example_wrapper .dt-buttons {
+		width: 35%;
+		float: left !important;
+		text-align: left;
+	}
+
+	div#example_filter {
+		width: 65%;
+		float: right !important;
+		text-align: right;
+	}
+	div#example_filter label {
+		display: flex;
+		align-items: center;
+	}
+
+
 }
 
 
@@ -1611,7 +1630,7 @@ a {
 	top: 0;
 	right: 0;
 	border-bottom: 60px solid white;
-	border-left: 20px solid #1a4f91;
+	border-left: 20px solid var(--pseudo-bordercolor);
 	width: 0;
 }
 
@@ -1923,3 +1942,22 @@ span#timeid {
 }
 
 .align-item-center-item-2{align-items: center; display: flex; margin-bottom: 40px;}
+
+
+/* coming soon css */
+
+.coming-box {
+    display: grid;
+    justify-content: center;
+}n nm  
+
+.coming-box img {
+    width: 170px !important;
+}
+
+.coming-box h4 {
+    color: #1a4f91;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
