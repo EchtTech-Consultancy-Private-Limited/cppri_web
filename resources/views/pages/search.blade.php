@@ -25,7 +25,8 @@
 @endsection
 @section('content')
 <section class="wrapper banner-wrapper">
-    <div id="flexSlider" class="flexslider "  style="background-image: url('{{ asset('assets-cppri/images/agnipath-banner-1200-185.png') }}');">
+    <div id="flexSlider" class="flexslider "
+        style="background-image: url('{{ asset('assets-cppri/images/agnipath-banner-1200-185.png') }}');">
         <div class="inner-banner-text">
             <div class="text-banner-content">
                 <h2>
@@ -41,22 +42,31 @@
             <ul>
                 <li><a href="home.html">Home </a></li>
                 <li><a href="javascript:void();">Search Page</a></li>
-                
+
             </ul>
         </div>
     </div>
 </div>
-<div class="container common-container">
-    <section class="sidebar-main-nav">
-        <div class="col-md-12 m-p-0 pl-0">
-            <div class="main-content">
-                
-               <h1>Comming Soon....</h1>
-             
-            
-                
+
+<section class="sidebar-main-nav ptb-30">
+    <div class="container common-container">
+        <form name="searchForm" action="{{url('/search')}}" method="get" class="row info1 mb-20">
+            <input type="search" name="search_key" id="search_key" class="col-md-4" required=""
+                placeholder="Search here...">
+            <div class="col-md-2">
+                <button class="more gallery-more-btn" type="submit">Search</button>
             </div>
+        </form>
+        <div class="col-md-12 p-0 mb-20">
+            <p class="text-primary" tabindex="0">Search Result </p>
         </div>
-    </section>
-</div>
+
+        <div class="col-md-12 p-0 mb-20">
+            <p>Search Result here </p>
+        </div>
+
+    </div>
+
+</section>
+
 @endsection
