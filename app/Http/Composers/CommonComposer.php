@@ -43,8 +43,6 @@ class CommonComposer
             $social_links = DB::table('social_links')->where('soft_delete', 0)->first();
             $logo = DB::table('website_core_settings')->where('soft_delete', 0)->first();
 
-
-
             $image_management = DB::table('gallery_management')->where('type', 0)->where('soft_delete', 0)->latest('created_at')->first();
 
             if (isset($image_management) && isset($image_management->uid)) {
@@ -55,9 +53,6 @@ class CommonComposer
                 $image_gallery_details = null;
                
             }
-
-
-
 
             $video_management = DB::table('gallery_management')->where('type', 1)->where('soft_delete', 0)->latest('created_at')->first();
 
@@ -80,14 +75,14 @@ class CommonComposer
             $view->with(['video_gallery_details' => $video_gallery_details, 'video_management' => $video_management, 'image_gallery_details' => $image_gallery_details, 'image_management' => $image_management, 'social_links' => $social_links, 'logo' => $logo, 'visitCounter' => $visitCounter, 'quickLink' => $quickLink, 'alertMessage' => $this->checkLanguage(), 'headerMenu' => $menuName, 'footerMenu' => $footerMenu, 'banner' => $banner, 'news_management' => $news_management, 'tender_management' => $tender_management]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         } catch (\PDOException $e) {
             \Log::error('A PDOException occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         } catch (\Throwable $e) {
             // Catch any other types of exceptions that implement the Throwable interface.
             \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         }
     }
 

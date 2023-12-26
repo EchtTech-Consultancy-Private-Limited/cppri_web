@@ -163,18 +163,18 @@ class HomeController extends Controller
                     return view('master-page', ['content' => $content, 'title_name' => $title_name, 'sideMenuChild' => $sideMenuChild]);
                 }
             } else {
-                return abort(404);
+                return view('pages.error');
             }
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         } catch (\PDOException $e) {
             \Log::error('A PDOException occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         } catch (\Throwable $e) {
             // Catch any other types of exceptions that implement the Throwable interface.
             \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         }
     }
 
@@ -241,14 +241,14 @@ class HomeController extends Controller
             }
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         } catch (\PDOException $e) {
             \Log::error('A PDOException occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         } catch (\Throwable $e) {
             // Catch any other types of exceptions that implement the Throwable interface.
             \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         }
     }
     public function employeeDirectory()
@@ -297,14 +297,14 @@ class HomeController extends Controller
             }
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         } catch (\PDOException $e) {
             \Log::error('A PDOException occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         } catch (\Throwable $e) {
             // Catch any other types of exceptions that implement the Throwable interface.
             \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-            return abort(404);
+            return view('pages.error');
         }
     }
 }
