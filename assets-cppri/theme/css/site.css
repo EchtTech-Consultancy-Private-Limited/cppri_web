@@ -1,3 +1,8 @@
+
+:root{
+	--pseudo-bordercolor:#1a4f91;
+}
+
 .inner-wrapper p {
 	color: #212020;
 	font-size: 100%;
@@ -1809,7 +1814,7 @@ ul.ul-v>li a {
 	content: " ";
 	width: 0;
 	height: 0;
-	border-bottom: 40px solid #1a4f91;
+	border-bottom: 40px solid var(--pseudo-bordercolor);
 	border-left: 15px solid transparent;
 	top: -1px;
 	left: -15px;

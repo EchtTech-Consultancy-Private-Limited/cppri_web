@@ -27,8 +27,16 @@ $('.color').on('click',function(){
   $(".banner-wrapper .flex-pauseplay").css('background',a);
   $(".latest-new-title:before").css('border-color',a);  
 })
+</script>
 
-   </script>
+<script>
+   const changeToAfterbefore =() =>{
+      var color = $(event.currentTarget).attr('data-id');
+      const root = document.querySelector(":root");
+      root.style.setProperty("--pseudo-bordercolor", color);
+   }
+</script>
+   
    <!-- Modal popup End -->
    <script src="{{ asset('assets-cppri/js/jquery-migrate-3.4.0.min.js') }}"></script>
 

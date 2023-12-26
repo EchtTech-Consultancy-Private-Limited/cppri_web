@@ -103,7 +103,7 @@ if (manual_or_random=="manual"){ //IF MANUAL MODE
 	} 
 }
 
-jQuery(document).ready(function(){		
+jQuery(document).ready(function(){
 	jQuery('#menu-item-278 > a, #menu-item-194 > a, #menu-item-192 >  a').click(function(){return false;});		
 	jQuery('.dark').click(function(){	
 		var thirtyDays = 1000*60*60*24*30;
@@ -112,8 +112,8 @@ jQuery(document).ready(function(){
 		document.cookie="username=John Doe";
 		jQuery(".light").show();
 		jQuery(".dark").hide();
-		jQuery('head').append('<link rel="stylesheet" type="text/css" media="screen" href="assets/css/change.css">');
-		jQuery('head').append('<link rel="stylesheet" type="text/css" media="screen" href="theme/css/site-change.css">');
+		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl+"/assets-cppri/css/change.css'>");
+		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl+"/assets-cppri/theme/css/site-change.css'>");
 		// jQuery(".national_emblem").attr("src","assets/images/emblem-light.png");  // high contrast
 		
 		jQuery(".ico-skip img.top").attr("src","assets/images/ico-skip-y.png");
