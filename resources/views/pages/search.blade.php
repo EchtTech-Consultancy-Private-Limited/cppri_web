@@ -30,7 +30,7 @@
     <section class="sidebar-main-nav ptb-30">
         <div class="container common-container">
             <form name="searchForm" action="{{ url('/search') }}" method="get" class="row info1 mb-20">
-                <input type="search" name="search_key" id="search_key"  value="{{ request('search_key') ?? '' }}"class="col-md-4" required=""
+                <input type="search" name="search_key" id="search_key"  value="{{ request('search_key') ?? '' }}"class="col-md-4" required
                     placeholder="Search here...">
                 <div class="col-md-2">
                     <button class="more gallery-more-btn" type="submit">Search</button>

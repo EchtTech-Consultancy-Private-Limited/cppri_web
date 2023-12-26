@@ -31,7 +31,7 @@
     <section id="list" class="wrapper list-wrapper ptb-30">
         <div class="container">
             <div class="master">
-                <h3 class="master-title mt-0">RAV Website Link</h3>
+                <h3 class="master-title mt-0">Website Link</h3>
                 <div class="list list-circle">
                     <h4>Main menu</h4>
                     <ul class="clearfix sitemap">
