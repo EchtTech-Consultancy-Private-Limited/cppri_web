@@ -195,6 +195,11 @@ class HomeController extends Controller
         
     }
 
+    public function ScreenReaderAccess(){
+        return view('pages.screen_reader_access');
+        
+    }
+
     public function error(){
         return view('pages.error');
         

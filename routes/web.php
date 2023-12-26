@@ -39,6 +39,7 @@ Route::get('/search', [HomeController::class, 'search'])->name('search');
 Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('/set-language',[HomeController::class,'SetLang']);
 Route::get('/site-map',[HomeController::class,'siteMap']);
+Route::get('/screen-reader-access',[HomeController::class,'ScreenReaderAccess']);
 Route::get('/comming-soon',[HomeController::class,'CommingSoon']);
 Route::get('/error',[HomeController::class,'error']);
 Route::get('/contact-us',[HomeController::class,'contactUs']);
