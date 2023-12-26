@@ -12,51 +12,51 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function search(Request $request)
-    {
-        try {
-            $keyword = $request->input('search_key', '');
-            $databaseName = env('DB_DATABASE');
-            $tables = DB::select("SHOW TABLES FROM $databaseName");
+    // public function search(Request $request)
+    // {
+    //     try {
+    //         $keyword = $request->input('search_key', '');
+    //         $databaseName = env('DB_DATABASE');
+    //         $tables = DB::select("SHOW TABLES FROM $databaseName");
 
-            $dataArray = [];
+    //         $dataArray = [];
 
-            foreach ($tables as $table) {
-                $columns = DB::select("SHOW COLUMNS FROM $table->Tables_in_cppri_db");
+    //         foreach ($tables as $table) {
+    //             $columns = DB::select("SHOW COLUMNS FROM $table->Tables_in_cppri_db");
 
-                foreach ($columns as $column) {
-                    $results = DB::table($table->Tables_in_cppri_db)
-                        ->where($column->Field, 'LIKE', '%' . $keyword . '%')
-                        ->get();
+    //             foreach ($columns as $column) {
+    //                 $results = DB::table($table->Tables_in_cppri_db)
+    //                     ->where($column->Field, 'LIKE', '%' . $keyword . '%')
+    //                     ->get();
 
-                    foreach ($results as $result) {
-                        $this->collectData($result, $dataArray);
-                    }
-                }
-            }
+    //                 foreach ($results as $result) {
+    //                     $this->collectData($result, $dataArray);
+    //                 }
+    //             }
+    //         }
 
-            $uniqueData = array_values(array_unique($dataArray));
+    //         $uniqueData = array_values(array_unique($dataArray));
 
-            return view('pages.search', [
-                'dynamicPageContent' => $uniqueData,
-                'keyword' => $keyword
-            ]);
-        } catch (\Exception $e) {
-            // Handle the exception, log it, and provide user feedback.
-            return view('pages.error', ['error' => $e->getMessage()]);
-        }
-    }
+    //         return view('pages.search', [
+    //             'dynamicPageContent' => $uniqueData,
+    //             'keyword' => $keyword
+    //         ]);
+    //     } catch (\Exception $e) {
+    //         // Handle the exception, log it, and provide user feedback.
+    //         return view('pages.error', ['error' => $e->getMessage()]);
+    //     }
+    // }
 
-    private function collectData($result, &$dataArray)
-    {
-        $fields = ['page_title_en', 'title_name_en', 'description_en', 'page_content_en', 'question_en', 'answer_en'];
+    // private function collectData($result, &$dataArray)
+    // {
+    //     $fields = ['page_title_en', 'title_name_en', 'description_en', 'page_content_en', 'question_en', 'answer_en'];
 
-        foreach ($fields as $field) {
-            if (isset($result->$field)) {
-                array_push($dataArray, $result->$field);
-            }
-        }
-    }
+    //     foreach ($fields as $field) {
+    //         if (isset($result->$field)) {
+    //             array_push($dataArray, $result->$field);
+    //         }
+    //     }
+    // }
 
 
 

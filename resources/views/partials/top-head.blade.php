@@ -55,6 +55,7 @@
                                 <label for="search_key" class="notdisplay">Search</label>
                                 <input type="text" name="search_key" id="search_key"
                                     onKeyUp="autoComplete()" autocomplete="off" required
+                                    value="{{ request('search_key') ?? '' }}"
                                     placeholder="Search here...">
                                 <input type="submit" value="Search" class="bttn-search">
                             </form>

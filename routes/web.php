@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,7 +36,7 @@ require __DIR__ .'/cms_web.php';
 
 Route::middleware(['visitingcounter'])->group(function () {
 
-Route::get('/search', [HomeController::class, 'search'])->name('search');
+Route::get('/search', [SearchController::class, 'getSearchData'])->name('search');
 Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('/set-language',[HomeController::class,'SetLang']);
 Route::get('/site-map',[HomeController::class,'siteMap']);
