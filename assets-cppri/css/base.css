@@ -1053,6 +1053,12 @@ tr:hover td {
 		font-size: 13px;
 	}
 
+	.align-item-center-item-2 {
+		display: block !important;
+	}
+
+	.align-item-center-item-2 img{margin-bottom: 40px;} 
+
 	.guide-text i {
 		font-size: 14px;
 		vertical-align: text-bottom;
@@ -1560,7 +1566,7 @@ a {
 	height: auto;
 	font-weight: 600;
 	text-transform: uppercase;
-	padding-top: 10px;
+	padding-top: 6px;
 }
 
 .common-right ul li.ico-skip:hover {
@@ -1623,10 +1629,17 @@ a {
     background: #fff;
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0px 5px 15px 0 rgba(0,0,0,.07);
+    box-shadow: 0px 5px 15px 0 rgba(0,0,0,.4);
     display: flex;
 	transition: all .5s ease-in-out;
 }
+
+.news-box:hover .new-thumb img {
+    transform: scale(1.1);
+}
+
+.news-box .new-thumb img{transition: all .3s ease-in-out;}
+
 .new-thumb {
     position: relative;
     overflow: hidden;
@@ -1793,7 +1806,7 @@ a {
 	}	
 
 	.page-tab .scroll-left, .page-tab .scroll-text-1, .page-tab .scroll-text, .page-tab .scroll-text01, .page-tab .scroll-test01 {
-		height: 240px !important;
+		height: 290px !important;
 	}
 
 	.scroll-left, .scroll-text-1, .scroll-text {
@@ -1801,7 +1814,7 @@ a {
 	}
 
 	.flex-direction-nav .flex-next, .flex-direction-nav .flex-prev{
-		margin-top: -86px !important;
+		margin-top: -115px !important;
 	}
 
 }
@@ -1852,7 +1865,7 @@ a {
 }
 
 .c-box {
-    height: 11px;
+    height: 13px;
     width: 12px;
     /* background: red; */
     margin-right: 6px;
@@ -1885,3 +1898,28 @@ li.gov-india {
     color: black;
     line-height: 10px;
 }
+
+.timer-date-c span#timeid p {
+    margin-bottom: 0 !important;
+}
+.timer-date-c span.li_eng.responsive_go_eng {
+    display: flex;
+    align-items: center;
+}
+
+li.gov-india.timer-date-c {
+    padding-top: 6px !important;
+}
+span#timeid {
+    margin-left: 10px;
+}
+
+.w-10{width: 10%;}
+.w-90{width: 90%;float: right;text-align: left;}
+ 
+.emp-dir-main .emp-crddir-inf p, .emp-dir-main .emp-crddir-inf h5 {
+    margin-top: 4px;
+	margin-bottom: 0;
+}
+
+.align-item-center-item-2{align-items: center; display: flex; margin-bottom: 40px;}

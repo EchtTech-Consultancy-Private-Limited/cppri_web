@@ -177,6 +177,13 @@ class HomeController extends Controller
             return abort(404);
         }
     }
+
+
+    public function overviewPage(){
+        return view('pages.overview');
+        
+    }
+
     public function directorDesk()
     {
 
@@ -252,6 +259,7 @@ class HomeController extends Controller
                         'data' => $data,
                     ];
                 }
+                // dd($designationData);
 
                 $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
 

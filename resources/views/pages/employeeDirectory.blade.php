@@ -52,8 +52,7 @@
                             @foreach ($item['data'] as $profile)
                                 <div class="direct-centre emp-card-det">
                                     <div class="card-emp-dir">
-                                        <div class="emp-crd-dir">
-                                        </div>
+                                      
                                         <div class="emp-crddir-inf">
                                             <div class="img-circle-prof">
                                                  <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
@@ -62,28 +61,11 @@
                                                     alt=""
                                                     tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
                                             </div>
-
-                                            @if (Session::get('Lang') == 'hi')
-                                                <h3><i class="fa fa-user"></i> {{ $profile->fname_hi ?? '' }}
-                                                    {{ $profile->mname_hi ?? '' }} {{ $profile->lname_hi ?? '' }}</h3>
-                                            @else
-                                                <h3><i class="fa fa-user"></i> {{ $profile->fname_en ?? '' }}
-                                                    {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
-                                            @endif
-
-
-
-                                            @if (Session::get('Lang') == 'hi')
-                                                <h5>({{ $item['department']->name_en ?? '' }})</h5>
-                                            @else
-                                                <h5>({{ $item['department']->name_en ?? '' }})</h5>
-                                            @endif
-
-
-                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->landline_number ?? '' }} </p>
-
-                                           
-
+                                            <h3><i class="fa fa-user"></i>{{ $profile->fname_en ?? '' }}
+                                                {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
+                                            <h5>({{ $item['designation']->name_en }})</h5>
+                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile ?? '' }}
+                                            </p>
                                             <p><strong>{{ $profile->extention_number ?? '' }}<strong></p>
 
 
@@ -94,8 +76,8 @@
                                             $email = str_replace('.', '[dot]', $var);
                                             ?>
 
-                                            <p><strong><i class="fa fa-envelope-o" aria-hidden="true"></i> :</strong>
-                                                {{ $email }}</p>
+                                            <p><strong><i class="fa fa-envelope-o mr-2" aria-hidden="true"></i> :</strong>
+                                                <span>{{ $email }}</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -121,9 +103,8 @@
                         @if (isset($item['data']) && count($item['data']) > 0)
                             @foreach ($item['data'] as $profile)
                                 <div class="col-md-3 emp-card-det">
-                                    <div class="card-emp-dir">
-                                        <div class="emp-crd-dir">
-                                        </div>
+                                    <div class="card-emp-dir emp-dir-main">
+                                        
                                         <div class="emp-crddir-inf">
                                             <div class="img-circle-prof">
                                                 <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
@@ -132,25 +113,12 @@
                                                     alt=""
                                                     tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
                                             </div>
-
-
-                                            @if (Session::get('Lang') == 'hi')
-                                                <h3><i class="fa fa-user"></i> {{ $profile->fname_hi ?? '' }}
-                                                    {{ $profile->mname_hi ?? '' }} {{ $profile->lname_hi ?? '' }}</h3>
-                                            @else
-                                                <h3><i class="fa fa-user"></i> {{ $profile->fname_en ?? '' }}
-                                                    {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
-                                            @endif
-
-                                            @if (Session::get('Lang') == 'hi')
-                                                <h5>({{ $profile->desi_name_en ?? '' }})</h5>
-                                            @else
-                                                <h5>({{ $profile->desi_name_en ?? '' }})</h5>
-                                            @endif
-                                            
-                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->landline_number ?? '' }}
+                                            <h3><i class="fa fa-user"></i> {{ $profile->fname_en ?? '' }}
+                                                {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
+                                            <h5>({{ $item['designation']->name_en }})</h5>
+                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile ?? '' }}
                                             </p>
-                                            <p><strong> {{ $profile->extention_number ?? '' }}</strong></p>
+                                            <p> {{ $profile->extention_number ?? '' }}</p>
 
                                             <?php
                                             $email_address = $profile->email;
@@ -159,8 +127,8 @@
                                             $email = str_replace('.', '[dot]', $var);
                                             ?>
 
-                                            <p class="email-text-styl"><i class="fa fa-envelope-o"
-                                                    aria-hidden="true"></i>{{ $email }}</p>
+                                            <p class="email-text-styl"><i class="fa fa-envelope-o mr-2 w-10"
+                                                    aria-hidden="true"></i> <span class="w-90">{{ $email }}</span></p>
 
                                         </div>
                                     </div>
