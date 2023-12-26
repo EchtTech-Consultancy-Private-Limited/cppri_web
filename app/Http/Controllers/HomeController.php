@@ -3,16 +3,62 @@
 namespace App\Http\Controllers;
 
 use App;
-use  Route, DB, Session;
+use  Route, DB, Session, Schema;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
-    {
-
+    public function index(){
         return view('home');
     }
+
+    public function search(Request $request)
+    {
+        try {
+            $keyword = $request->input('search_key', '');
+            $databaseName = env('DB_DATABASE');
+            $tables = DB::select("SHOW TABLES FROM $databaseName");
+
+            $dataArray = [];
+
+            foreach ($tables as $table) {
+                $columns = DB::select("SHOW COLUMNS FROM $table->Tables_in_cppri_db");
+
+                foreach ($columns as $column) {
+                    $results = DB::table($table->Tables_in_cppri_db)
+                        ->where($column->Field, 'LIKE', '%' . $keyword . '%')
+                        ->get();
+
+                    foreach ($results as $result) {
+                        $this->collectData($result, $dataArray);
+                    }
+                }
+            }
+
+            $uniqueData = array_values(array_unique($dataArray));
+
+            return view('pages.results', [
+                'dynamicPageContent' => $uniqueData,
+                'keyword' => $keyword
+            ]);
+        } catch (\Exception $e) {
+            // Handle the exception, log it, and provide user feedback.
+            return view('pages.error', ['error' => $e->getMessage()]);
+        }
+    }
+
+    private function collectData($result, &$dataArray)
+    {
+        $fields = ['page_title_en', 'title_name_en', 'description_en', 'page_content_en', 'question_en', 'answer_en'];
+
+        foreach ($fields as $field) {
+            if (isset($result->$field)) {
+                array_push($dataArray, $result->$field);
+            }
+        }
+    }
+
+
 
     //language
     public function SetLang(Request $request)
@@ -24,7 +70,8 @@ class HomeController extends Controller
     }
 
 
-    public function contactUs(){
+    public function contactUs()
+    {
         return view('pages.contact-us');
     }
 
@@ -35,7 +82,7 @@ class HomeController extends Controller
             $menus = DB::table('website_menu_management')->whereurl($slug)->first();
 
             if ($menus != '') {
-                
+
                 if ($menus?->parent_id != 0) {
                     $sideMenu = DB::table('website_menu_management')->wherename_en($menus->name_en)->first('parent_id');
                     $sideMenuParent = DB::table('website_menu_management')->whereuid($sideMenu->parent_id)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->first();
@@ -53,6 +100,9 @@ class HomeController extends Controller
                     ->where('menu_uid', $menus->uid)
                     ->orderBy('sort_order', 'ASC')
                     ->get();
+
+
+                   // dd($dynamic_content_page_metatag);
 
                 if (count($dynamic_content_page_metatag) > 0) {
 
@@ -99,18 +149,18 @@ class HomeController extends Controller
                     }
 
                     $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
-                  
+
                     return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData, 'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
                 } else {
 
-                   
+
                     if (Session::get('Lang') == 'hi') {
                         $content = "जल्द आ रहा है";
                     } else {
                         $content = "Coming Soon...";
                     }
                     // dd($menus);
-                    return view('master-page', ['content' => $content, 'title_name' => $title_name,'sideMenuChild'=>$sideMenuChild]);
+                    return view('master-page', ['content' => $content, 'title_name' => $title_name, 'sideMenuChild' => $sideMenuChild]);
                 }
             } else {
                 return abort(404);
@@ -173,7 +223,6 @@ class HomeController extends Controller
             return abort(404);
         }
     }
-
     public function employeeDirectory()
     {
 
@@ -189,7 +238,7 @@ class HomeController extends Controller
             if (Count($department) > 0) {
 
                 foreach ($department as $designation) {
-            
+
                     $data = DB::table('employee_directories as emp')
                         ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
                         ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
@@ -203,7 +252,7 @@ class HomeController extends Controller
                         'data' => $data,
                     ];
                 }
-              
+
                 $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
 
                 return view('pages.employeeDirectory', ['sortedDesignationData' => $sortedDesignationData]);

@@ -68,9 +68,9 @@
                                                 target="_blank" style="font-weight:bold">
 
                                                 @if (Session::get('Lang') == 'hi')
-                                                    {{ $title_hi }}
+                                                    {{ $title_hi  ??''}}
                                                 @else
-                                                    {{ $title_en }}
+                                                    {{ $title_en ??'' }}
                                                 @endif
 
                                             </a>
@@ -79,9 +79,9 @@
                                         @if (!empty($url))
                                             <a href="{{ url($url) }}" style="font-weight: bold">
                                                 @if (Session::get('Lang') == 'hi')
-                                                    {{ $title_hi }}
+                                                    {{ $title_hi  ??''}}
                                                 @else
-                                                    {{ $title_en }}
+                                                    {{ $title_en ??''}}
                                                 @endif
                                             </a>
                                         @endif
@@ -91,9 +91,6 @@
                         @else
                             <h5 style="font-weight:bold">No news available.</h5>
                         @endif
-
-
-
                     </div>
                 </div>
             </div>
@@ -190,7 +187,15 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="banner-content-wrapper services-heading">
-                            <h2 class="text-white mt-0">Services</h2>
+                            <h2 class="text-white mt-0">
+
+                            @if (Session::get('Lang') == 'hi')
+                                {{ __('messages.Services') }} :
+                            @else
+                                {{ __('messages.Services') }} :
+                            @endif
+
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -226,7 +231,12 @@
                         <span class="icon-box-ico">
                             <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt="">
                         </span>
-                        <span class="icon-box-text">Publications &amp; Reports</span>
+                        <span class="icon-box-text">Publications &amp; Reports
+
+
+
+                            
+                        </span>
                     </a>
                 </div>
                 <div class="icon-box animate__animated animate__backInRight animate__delay-4s">
@@ -235,7 +245,18 @@
                             <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}"
                                 alt="">
                         </span>
-                        <span class="icon-box-text">Institute Membership</span>
+                        <span class="icon-box-text">Institute Membership
+
+
+{{-- 
+                        @if (Session::get('Lang') == 'hi')
+                            {{ __('messages.Institute_Membership') }} :
+                        @else
+                            {{ __('messages.Institute_Membership') }} :
+                        @endif --}}
+
+
+                        </span>
                     </a>
                 </div>
                 <div class="icon-box animate__animated animate__backInRight animate__delay-5s">
@@ -243,7 +264,17 @@
                         <span class="icon-box-ico">
                             <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt="">
                         </span>
-                        <span class="icon-box-text">Tender</span>
+                        <span class="icon-box-text">
+
+
+                        @if (Session::get('Lang') == 'hi')
+                            {{ __('messages.Tender') }} :
+                        @else
+                            {{ __('messages.Tender') }} :
+                        @endif
+
+
+                        </span>
                     </a>
                 </div>
             </div>

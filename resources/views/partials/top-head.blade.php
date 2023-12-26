@@ -41,21 +41,16 @@
                             alt="Site Search"></a>
                     <div class="search-drop both-search">
                         <div class="google-find">
-                            <form method="get" action="#" target="_blank">
+                            
+                            {{-- <form action="{{ url('search') }}" method="get" > --}}
                                 <label for="search_key_g" class="notdisplay">Search</label>
-                                <input type="text" name="q" value="" id="search_key_g">
+                                <input type="text" name="query"  id="search_key_g">
                                 <input type="submit" value="Search" class="submit">
-                                <div class="">
-                                    <input type="radio" name="sitesearch" value=""
-                                        id="the_web">
-                                    <label for="the_web">The Web</label>
-                                    <input type="radio" name="sitesearch" value="india.gov.in" checked
-                                        id="the_domain"> <label for="the_domain"> INDIA.GOV.IN</label>
-                                </div>
-                            </form>
+                            {{-- </form> --}}
+                            
                         </div>
                         <div class="find">
-                            <form name="searchForm">
+                            <form name="searchForm" action="{{ url('search') }}" method="get" >
                                 <label for="search_key" class="notdisplay">Search</label>
                                 <input type="text" name="search_key" id="search_key"
                                     onKeyUp="autoComplete()" autocomplete="off" required

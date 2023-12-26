@@ -35,6 +35,8 @@ require __DIR__ .'/cms_web.php';
 
 Route::middleware(['visitingcounter'])->group(function () {
 
+    Route::get('/search', [HomeController::class, 'search'])->name('search');
+
 Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('/set-language',[HomeController::class,'SetLang']);
 Route::get('/contact-us',[HomeController::class,'contactUs']);
