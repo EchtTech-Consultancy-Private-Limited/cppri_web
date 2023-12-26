@@ -4,6 +4,16 @@
 @endsection
 @section('content')
 
+<style>
+    .p-item-center {
+    padding-top: 21% !important;
+    text-align: center !important;
+}
+.p-item-center.text-white{
+    padding-top: 45% !important;
+    color :#fff !important;
+}
+</style>
 
     <section class="wrapper banner-wrapper">
         <h1 style="display: none">Banner</h1>
@@ -64,9 +74,8 @@
 
                                     @if ($news_managements->tab_type == '1')
                                         @if (!empty($url))
-                                            <a href="{{ url($url) }}"
-                                                onclick="return confirm('{{ $alertMessage }}')" target="_blank"
-                                                style="font-weight:bold">
+                                            <a href="{{ url($url) }}" onclick="return confirm('{{ $alertMessage }}')"
+                                                target="_blank" style="font-weight:bold">
 
                                                 @if (Session::get('Lang') == 'hi')
                                                     {{ $title_hi ?? '' }}
@@ -106,20 +115,20 @@
                 <div class="minister clearfix animate__animated animate__backInRight animate__delay-3s">
                     <div class="minister-box clearfix">
                         <!-- <div class="minister-sub1">
-                            <div class="minister-image"><img src="{{ asset('assets-cppri/images/minister.jpg') }}"
-                                    alt="Hon’ble Minister" title="Ministry/Department, Minister Name"></div>
-                            <div class="min-info">
-                                <h4><a href="javascript:void(0);" title="Minister Name"> Shri Som Parkash</a></h4>
-                                <h5 class="prime"><a href="javascript:void(0);" title="Hon’ble Prime Minister">
-                                        Minister of
-                                        State for Commerce and Industry</a></h5>
-                                <a href="javascript:void(0);"
-                                    title="External link open in new tab,Portfolio of Hon’ble minister"
-                                    class="portgolio-button">
-                                    View Portfolio <i class="fa fa-external-link"></i>
-                                </a>
-                            </div>
-                        </div> -->
+                                        <div class="minister-image"><img src="{{ asset('assets-cppri/images/minister.jpg') }}"
+                                                alt="Hon’ble Minister" title="Ministry/Department, Minister Name"></div>
+                                        <div class="min-info">
+                                            <h4><a href="javascript:void(0);" title="Minister Name"> Shri Som Parkash</a></h4>
+                                            <h5 class="prime"><a href="javascript:void(0);" title="Hon’ble Prime Minister">
+                                                    Minister of
+                                                    State for Commerce and Industry</a></h5>
+                                            <a href="javascript:void(0);"
+                                                title="External link open in new tab,Portfolio of Hon’ble minister"
+                                                class="portgolio-button">
+                                                View Portfolio <i class="fa fa-external-link"></i>
+                                            </a>
+                                        </div>
+                                    </div> -->
                         <div class="minister-sub">
                             <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
                                     alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>
@@ -143,31 +152,41 @@
                     </div>
                 </div>
                 <div class="banner-content-wrapper animate__animated animate__backInLeft animate__delay-3s">
-                    <h2 class="border-bottom-color">Welcome to <span>CPPRI</span></h2>
+                    <h2 class="border-bottom-color">
+
+                        @if (Session::get('Lang') == 'hi')
+                            {{ __('messages.Welcome_to') }} :
+                        @else
+                            {{ __('messages.Welcome_to') }} :
+                        @endif
+
+
+                        <span>CPPRI</span>
+                    </h2>
                     <!-- <p class="banner-title-tag-line">Welcome to the website of Ministry/Department, Government of India.</p> -->
-                    <p class="banner-content mb-0"> The origin of Central Pulp & Paper Research Institute (CPPRI) dates
-                        back
-                        to
-                        the year 1975 when the UNDP-GOI Project became operational with an objective to create the
-                        required
-                        R&D facilities for evaluation of fibrous raw materials for the Indian paper industry. After the
-                        conclusion of the above project, CPPRI came into existence as "National Level Research
-                        Institute"
-                        dedicated for the assistance to the Indian paper industry.
+                    <p class="banner-content mb-0">
+
+                        @if (Session::get('Lang') == 'hi')
+                            {{ __('messages.about1') }}
+                        @else
+                            {{ __('messages.about1') }}
+                        @endif
+
                     </p>
+
+
                     <p class="banner-content">
-                        The Institute has redeemed itself in the service of Indian Pulp and Paper Industry through a
-                        number of
-                        R&D initiatives and continued support through high quality of technical & consultancy services.
-                        The
-                        11th Five Year Plan Schemes are mainly dedicated to the core issues of the paper industry
-                        namely: (i)
-                        Conservation & Upgradation of Raw Material (ii) Quality Improvement (iii) Energy Management &
-                        Environment Management and (iv) Human Resource & Skill Development
+
+                        @if (Session::get('Lang') == 'hi')
+                            {{ __('messages.about2') }}
+                        @else
+                            {{ __('messages.about2') }}
+                        @endif
+
                     </p>
                     <br>
-                    <a href="javascript:void(0);" title="Click here to know more">Read more <i
-                            class="fa fa-angle-right"></i></a>
+                    {{-- <a href="javascript:void(0);" title="Click here to know more">Read more <i
+                            class="fa fa-angle-right"></i></a> --}}
                 </div>
             </div>
         </div>
@@ -179,7 +198,13 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="banner-content-wrapper services-heading">
-                            <h2 class="text-white mt-0">Services</h2>
+                            <h2 class="text-white mt-0">
+                                @if (Session::get('Lang') == 'hi')
+                                    {{ __('messages.Services') }}
+                                @else
+                                    {{ __('messages.Services') }}
+                                @endif
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -503,32 +528,32 @@
                     <!--News Box End-->
                     <!--News Box Start-->
                     <!-- <div class="col-md-3  col-sm-6">
-                   <div class="news-box">
-                     <div class="new-thumb"> <span class="cat c3">Policies</span> <img src="images/cppri/modi.jpg" alt="">
-                     </div>
-                     <div class="new-txt">
-                       
-                       <h6><a href="#">Our Policies Programs</a></h6>
-                       <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="#" title="">...read more</a>
-                       </p>
-                     </div>
-                    
-                   </div>
-                 </div> -->
+                               <div class="news-box">
+                                 <div class="new-thumb"> <span class="cat c3">Policies</span> <img src="images/cppri/modi.jpg" alt="">
+                                 </div>
+                                 <div class="new-txt">
+                                   
+                                   <h6><a href="#">Our Policies Programs</a></h6>
+                                   <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="#" title="">...read more</a>
+                                   </p>
+                                 </div>
+                                
+                               </div>
+                             </div> -->
                     <!--News Box End-->
                     <!--News Box Start-->
                     <!-- <div class="col-md-3  col-sm-6">
-                   <div class="news-box">
-                     <div class="new-thumb"> <span class="cat c4">Education</span> <img src="images/h3citynews-4.jpg" alt="">
-                     </div>
-                     <div class="new-txt">
-                       
-                       <h6><a href="#">Our Education Programs</a></h6>
-                       <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="#" title="">...read more</a>
-                       </p>
-                     </div>
-                   </div>
-                 </div> -->
+                               <div class="news-box">
+                                 <div class="new-thumb"> <span class="cat c4">Education</span> <img src="images/h3citynews-4.jpg" alt="">
+                                 </div>
+                                 <div class="new-txt">
+                                   
+                                   <h6><a href="#">Our Education Programs</a></h6>
+                                   <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="#" title="">...read more</a>
+                                   </p>
+                                 </div>
+                               </div>
+                             </div> -->
                     <!--News Box End-->
                 </div>
             </div>
@@ -620,55 +645,77 @@
 
         <div class="wrapper home-btm-slider">
             <div class="container common-container four_content gallery-container">
-                <div class="gallery-area clearfix">
-                    <div class="gallery-heading">
-                        <h3 class="change-color-code">Photo Gallery</h3>
-                        <a class="bttn-more bttn-view" href="javascript:viod(0)"
-                            title="View all Photo Gallery"><span>View
-                                All</span></a>
-                    </div>
-                    <div class="gallery-holder">
-                        <div id="galleryCarousel" class="flexslider">
-                            <ul class="slides">
-                                <li data-thumb="{{ asset('assets-cppri/images/photo_gallery/g4.jpg') }}"
-                                    data-thumb-alt="Slide 1">
-                                    <img src="{{ asset('assets-cppri/images/photo_gallery/g4.jpg') }}" alt="gallery2"
-                                        title="Slide 1">
-                                </li>
-                                <li data-thumb="{{ asset('assets-cppri/images/photo_gallery/g1.jpg') }}"
-                                    data-thumb-alt="Slide 2">
-                                    <img src="{{ asset('assets-cppri/images/photo_gallery/g1.jpg') }}" alt="gallery1"
-                                        title="Slide 2">
-                                </li>
-                                <li data-thumb="{{ asset('assets-cppri/images/photo_gallery/g2.jpg') }}"
-                                    data-thumb-alt="Slide 3">
-                                    <img src="{{ asset('assets-cppri/images/photo_gallery/g2.jpg') }}" alt="gallery3"
-                                        title="Slide 3">
-                                </li>
-                            </ul>
+
+                @if(isset($image_management) && $image_management !== '' && $image_management !== null && isset($image_management->uid))
+
+                    <div class="gallery-area clearfix">
+                        <div class="gallery-heading">
+                            <h3 class="change-color-code"> Photo Gallery </h3>
+                            <a class="bttn-more bttn-view" href="javascript:viod(0)"
+                                title="View all Photo Gallery"><span>View
+                                    All</span></a>
+                        </div>
+                        <div class="gallery-holder">
+                            <div id="galleryCarousel" class="flexslider">
+                                @if (isset($image_gallery_details) && count($image_gallery_details) > 0)
+                                    <ul class="slides">
+
+                                        @foreach ($image_gallery_details as $image_gallerys)
+                                            <li data-thumb="{{ asset('resources/uploads/GalleryManagement/' . $image_gallerys->public_url) ?? '' }}"
+                                                data-thumb-alt="Slide 1">
+                                                <img src="{{ asset('resources/uploads/GalleryManagement/' . $image_gallerys->public_url) ?? '' }}"
+                                                    alt="{{ $image_gallerys->title ?? '' }}"
+                                                    title="{{ $image_gallerys->title ?? '' }}">
+                                            </li>
+                                        @endforeach
+
+                                    </ul>
+                                @else
+                                    <p class="p-item-center">No images found in the gallery.</p>
+                                @endif
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="gallery-right">
-                    <div class="video-heading">
-                        <h3 class="change-color-code">Video Gallery</h3>
-                        <a class="bttn-more bttn-view" href="javascript:viod(0)"
-                            title="View all Video Gallery"><span>View
-                                All</span></a>
+                @else
+                    <p>No Image gallery management data found.</p>
+                @endif
+
+
+
+                @if (isset($video_management) && $video_management !== '' && $video_management !== null)
+                    <div class="gallery-right">
+                        <div class="video-heading">
+                            <h3 class="change-color-code">Video Gallery</h3>
+                            <a class="bttn-more bttn-view" href="javascript:viod(0)"
+                                title="View all Video Gallery"><span>View
+                                    All</span></a>
+                        </div>
+                        <div class="video-wrapper">
+                            @if (isset($video_gallery_details) && $video_gallery_details !== '')
+
+                             @php
+                                $videourl =$video_gallery_details->public_url?? 'javascript:void(0)';
+                             @endphp
+
+                                <video src="{{ url($videourl) ?? '' }}"
+                                    title="{{ $video_gallery_details->title ?? '' }}" controls autoplay muted>
+                                    <span>Your browser does not support HTML5 video.</span>
+                                </video>
+                            @else
+                                <p  class="p-item-center text-white">No Video found in the gallery.</p>
+                            @endif
+                        </div>
                     </div>
-                    <div class="video-wrapper">
-                        <video src="{{ asset('assets-cppri/images/photo_gallery/video.mp4') }}"
-                            title="The Union Minister for Railways and Coal, Shri Piyush Goyal addressing a press conference on Neyveli Lignite Corporation."
-                            controls autoplay muted>
-                            <span>Your browser does not support HTML5 video.</span>
-                        </video>
-                    </div>
-                </div>
+                @else
+                    <p>No Video gallery management data found.</p>
+                @endif
             </div>
         </div>
     </section>
     <!--/.body-wrapper-->
-    <!--/.banner-wrapper-->
+
+
+    <!--Client logo start-->
     <section class="wrapper carousel-wrapper clientail">
         <h2 style="display: none;">Carousel</h2>
         <div class="container common-container four_content carousel-container">
@@ -702,6 +749,6 @@
                 </ul>
             </div>
     </section>
-
+    <!--Client logo end-->
 
 @endsection

@@ -924,7 +924,10 @@ button.dt-button.buttons-print:hover {
     border-color: #1a4f91 !important;
 }
 
-
+.p-item-center {
+    padding-top: 21% !important;
+    text-align: center !important;
+}
 
 
 
