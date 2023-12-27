@@ -156,10 +156,10 @@ footer .footer-top-wrapper ul li a{color:#ffff00;}
 #cmf-analytics, .depart-info .deprt-icon-box img, .banner-box img{
 	background:#fff;
 }
-
+.master-title{color: #fff;}
 ul#header-nav a img{background:#ffff00 ;}
 
-.depart-info .deprt-icon-box, .left-col-2 h2, ul.resp-tabs-list, .box-bg-color, .news-box{
+.depart-info .deprt-icon-box, .left-col-2 h2, ul.resp-tabs-list, .box-bg-color, .news-box, .contact-item, .cppri-contact-form, .scroll-table1, table.dataTable tbody tr{
 	background:#000;
 	border: 1px solid #fff;
 }
@@ -186,9 +186,9 @@ ul#header-nav a img{background:#ffff00 ;}
 	transition:none;
 }
 
-.new-txt span.duration{color: #ddd;}
+.new-txt span.duration, .dir-dsk-title{color: #ddd;}
 
-.flex-direction-nav a:before, .page-tab .text-slide, .page-tab .text-slide01 {
+.flex-direction-nav a:before, .page-tab .text-slide, .page-tab .text-slide01, .pb-10 {
     color: #ffff00;
 }
 .flex-control-paging li a {
