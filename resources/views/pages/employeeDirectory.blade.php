@@ -64,7 +64,7 @@
                                             <h3><i class="fa fa-user"></i>{{ $profile->fname_en ?? '' }}
                                                 {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
                                             <h5>({{ $item['department']->name_en }})</h5>
-                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile ?? '' }}
+                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->landline_number ?? '' }}
                                             </p>
                                             <p><strong>{{ $profile->extention_number ?? '' }}<strong></p>
 
@@ -77,7 +77,7 @@
                                             ?>
 
                                             <p><strong><i class="fa fa-envelope-o mr-2" aria-hidden="true"></i> :</strong>
-                                                <span>{{ $email }}</span></p>
+                                                <span>{{ $email ??""}}</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -116,7 +116,7 @@
                                             <h3><i class="fa fa-user"></i> {{ $profile->fname_en ?? '' }}
                                                 {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
                                             <h5>({{ $item['department']->name_en }})</h5>
-                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile ?? '' }}
+                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->landline_number ?? '' }}
                                             </p>
                                             <p> {{ $profile->extention_number ?? '' }}</p>
 

@@ -45,3 +45,5 @@
 <script>
     var baseUrl = {!! json_encode(url('/')) !!}
 </script>
+
+
