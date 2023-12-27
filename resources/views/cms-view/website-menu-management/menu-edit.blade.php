@@ -143,6 +143,14 @@
                         </label>
                      </div>
                      <!--end::Radio-->
+                     <!--begin::Radio-->
+                     <div class="form-check form-check-custom form-check-solid">
+                        <input class="form-check-input menu_place" type="radio" name="menu_place" value="6" id="menu_place" <?php if($Editmenu->menu_place =='6'){ echo 'checked'; }else{ echo ''; } ?> />
+                        <label class="form-check-label" for="any_conditions">
+                        {{ config('menucreatetext.none') }}
+                        </label>
+                     </div>
+                     <!--end::Radio-->
                   </div>
                   <!-- /**** */ -->
                   <div class="fv-row mb-7 d-flex flex-wrap align-items-center text-gray-600 gap-5 mb-7">

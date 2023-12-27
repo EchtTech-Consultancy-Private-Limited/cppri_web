@@ -7,4 +7,5 @@ return[
         'rightMenuToggle' => 'Right Menu Toggle',
         'quick' => 'Quick Link',
         'allPlaces' => 'All Places',
+        'none' => 'None',
 ];

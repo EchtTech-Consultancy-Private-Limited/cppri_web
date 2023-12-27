@@ -1685,12 +1685,12 @@ ul.ul-v>li a {
 
 .left-block {
 	float: left;
-	width: 68%;
+	width: 100%;
 	padding: 25px 0px;
 }
 
 .left-block .left-col-2 {
-	width: 48%;
+	width: 32.4%;
 	display: inline-block;
 	padding: 0;
 	border: 0px solid #ece7e7;
@@ -1699,12 +1699,12 @@ ul.ul-v>li a {
 	padding-bottom: 10px;
 	border-radius: var(--box-radius);
 	height: 400px;
-	box-shadow: 0 0px 4px rgba(0,0,0,.1);
+	box-shadow: 0px 5px 15px 0 rgba(0,0,0,.4);
 }
 
-.left-block .left-col-2:nth-child(1) {
+.left-block .left-col-2:not(:last-child) {
 	float: left;
-	margin-right: 20px;
+	margin-right: 16px;
 	padding: 0px;
 }
 
@@ -2951,11 +2951,15 @@ h2 small {
 	border: 1px solid #49aa41;
 }
 
+.tender-play-btn {
+    margin-top: 7px;
+}
+
 .box-bg-color {
     background: #1a4f91;
     height: 55px;
     border-radius: 8px 8px 0px 0px;
-	padding: 14px 15px;
+	padding: 8px 15px;
 }
 
 .view-footer-tab a {
@@ -3264,7 +3268,7 @@ a.portgolio-button:hover, .banner-content-wrapper a:hover {
 	text-align: left;
 	color: #fff;
 	text-transform: uppercase;
-	margin: 14px 0px 0px 8px;
+	margin: 15px 0px 0px 8px;
 	padding: 15px 30px;
 	box-shadow: 0 0px 4px rgba(0,0,0,.1);
 }
@@ -3292,7 +3296,7 @@ a.portgolio-button:hover, .banner-content-wrapper a:hover {
 .banner-box.banner-box-1 {
 	/* background: #DF3322; */
 	background: #cbebf6;
-	margin-top: 25px;
+	margin-top: 0px;
 }
 
 .banner-box.banner-box-2 {
@@ -3596,12 +3600,15 @@ a.portgolio-button:hover {
 }
 
 .left-col-2 h2 {
-	display: inline;
 	position: relative;
-    left: 40px;
-    font-size: 122% !important;
-    line-height: 26px;
-	color: #fff;
+    left: 0;
+    font-size: 100% !important;
+    line-height: 37px;
+    color: #fff;
+    background: #49aa41;
+    padding: 10px 30px;
+    border-radius: 50px;
+    margin-top: 0;
 }
 
 .text-slide,
@@ -4299,8 +4306,8 @@ iframe#twitter-widget-0 {
 	align-items: center;
 }
 img.cell-icon-sec {
-    width: 30px;
-    margin-right: 10px;
+	width: 40px;
+    margin-right: 12px;
 }
 /* .sidebar .sidebar-nav {
 	border: 1px solid #ccc;
@@ -5500,6 +5507,12 @@ textarea:focus, input:focus{
 	top: -112px !important;
     margin: 0;
 }
+
+.flexslider:hover .flex-direction-nav .flex-prev{left: -30px !important;}
+.clientail .flexslider:hover .flex-direction-nav .flex-next {
+    right: -35px !important;
+}
+
 .twitter-tweet.twitter-tweet-rendered {
     margin-top: 0px !important;
 }
@@ -5543,7 +5556,7 @@ h2.instagram-c {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: -65px;
+    top: -84px;
     background-color: #ffffff;
     border: 2px solid #2584c6;
     border-radius: 30px;
@@ -5647,4 +5660,81 @@ table.dataTable tbody td {
     font-size: 15px;
 }
 
+.page-tab .scroll-text01, .page-tab .scroll-test01 {
+    height: 310px;
+    padding: 0px 0px 0px 0px;
+}
 
+
+/* Services section css */
+
+.depart-info {
+	background-color: #e4f0ff;
+    padding: 60px 0 35px;
+    background-image: url(../images/about-banner.png) !important;
+    background-position: bottom;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.depart-info .deprt-icon-box {
+    background: #fff;
+    border-radius: 10px;
+    text-align: center;
+    height: 191px;
+    margin: 0 0 28px;
+    box-shadow: 0px 5px 15px 0 rgba(0,0,0,.07);
+    padding: 30px 15px;
+    position: relative;
+	transition: all ease-in-out 0.3s;
+    -webkit-transition: all ease-in-out 0.3s;
+}
+.depart-info .deprt-icon-box img {
+    margin: 0 0 20px;
+    width: 75px;
+    height: 75px;
+	transition: all ease-in-out 0.3s;
+    -webkit-transition: all ease-in-out 0.3s;
+}
+.deprt-icon-box h6 {
+    line-height: 22px;
+    margin: 0 0 12px;
+    font-weight: 600;
+	font-size: 18px;
+}
+.deprt-icon-box h6 a {
+    color: #222;
+}
+.deprt-icon-box a.rm {
+    background: #d94148;
+    display: inline-block;
+    color: #fff;
+    line-height: 24px;
+    border-radius: 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 0 15px;
+    opacity: 0;
+	transition: all ease-in-out 0.3s;
+    -webkit-transition: all ease-in-out 0.3s;
+}
+
+.deprt-icon-box:hover {
+    padding: 20px 15px;
+}
+
+.depart-info .deprt-icon-box:hover img {
+    scale: 1.1;
+    transform: rotate(360deg);
+}
+.deprt-icon-box:hover h6 a {
+    color: #d94148;
+}
+.deprt-icon-box:hover a.rm {
+    opacity: 1;
+}
+
+@media (min-width: 1400px){
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1320px !important;
+}}
