@@ -1953,7 +1953,7 @@ span#timeid {
 .coming-box {
     display: grid;
     justify-content: center;
-}n nm  
+}
 
 .coming-box img {
     width: 170px !important;
@@ -1973,15 +1973,21 @@ table {
   
   table td,
   table th {
-	padding: 12px 15px;
+	padding: 10px 15px;
 	border: 1px solid #ddd;
 	/* text-align: center; */
-	font-size: 16px;
+	font-size: 15px;
+	color: #333;
   }
 
   table tr:first-child{
 	background-color: #1a4f91;
-	color: #ffffff;
+	color: #ffffff !important;
+  }
+
+  table tr:first-child td{
+	/* color: #fff !important; */
+	font-weight: 700;
   }
   
   table th {
@@ -1992,4 +1998,37 @@ table {
   table tbody tr:nth-child(even) {
 	background-color: #fff !important;
   }
+
+  thead + tbody tr td{
+	color: #000 !important;
+	font-weight: 400 !important;
+  }
   
+  blockquote{
+	font-size: 1.4em;
+    margin: 20px auto !important;
+    font-family: Open Sans;
+    font-style: italic;
+    color: #555555;
+    padding: 48px 30px !important;
+    border-left: 8px solid #49aa41 !important;
+    line-height: 1.6;
+    position: relative;
+	background: #f9f6f6;
+    text-transform: capitalize;
+
+  }
+  
+  blockquote::before{
+	font-family:Arial;
+	content: "\201C";
+	color:#49aa41;
+	font-size:4em;
+	position: absolute;
+	left: 10px;
+	top:-10px;
+  }
+  
+  blockquote::after{
+	content: '';
+  }
