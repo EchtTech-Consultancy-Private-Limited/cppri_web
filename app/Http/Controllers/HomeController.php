@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App;
-use  Route, DB, Session, Schema;
+use  Route, DB, Session, Schema,Cookie;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('home');
     }
 
@@ -69,12 +70,29 @@ class HomeController extends Controller
         return response()->json(['data' => $request->data, True]);
     }
 
-
     public function contactUs()
     {
-        $employee = DB::table('employee_directories')->where('soft_delete', 0)->orderBy('short_order','ASC')->get();
+        try {
+            $employee = DB::table('employee_directories as emp')
+                ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
+                ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
+                ->where('emp.soft_delete', 0)
+                // ->where('department_id', $designation->uid)
+                ->orderBy('emp.short_order', 'ASC')
+                ->get();
 
-        return view('pages.contact-us',['employee'=>$employee]);
+            return view('pages.contact-us', ['employee' => $employee]);
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        }
     }
 
     public function getContentAllPages(Request $request, $slug)
@@ -104,7 +122,7 @@ class HomeController extends Controller
                     ->get();
 
 
-                   // dd($dynamic_content_page_metatag);
+                // dd($dynamic_content_page_metatag);
 
                 if (count($dynamic_content_page_metatag) > 0) {
 
@@ -181,30 +199,30 @@ class HomeController extends Controller
     }
 
 
-    public function overviewPage(){
+    public function overviewPage()
+    {
         return view('pages.overview');
-        
     }
 
-    public function siteMap(){
+    public function siteMap()
+    {
         return view('pages.siteMap');
-        
     }
 
 
-    public function ComingSoon(){
+    public function ComingSoon()
+    {
         return view('pages.CommingSoon');
-        
     }
 
-    public function ScreenReaderAccess(){
+    public function ScreenReaderAccess()
+    {
         return view('pages.screen_reader_access');
-        
     }
 
-    public function error(){
+    public function error()
+    {
         return view('pages.error');
-        
     }
 
     public function directorDesk()
@@ -265,7 +283,7 @@ class HomeController extends Controller
                 ->whereparent_id(0)
                 ->get();
 
-                
+
             if (Count($department) > 0) {
 
                 foreach ($department as $designation) {

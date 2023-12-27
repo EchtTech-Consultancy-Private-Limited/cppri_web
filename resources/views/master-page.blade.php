@@ -10,7 +10,7 @@
                 <div class="inner-banner-text">
                     <div class="text-banner-content">
                         <h2>
-                            {{ $title_name ?? '' }}
+                            {{ ucfirst(strtolower($title_name)) ?? '' }}
                         </h2>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                 <div class="inner-banner-text">
                     <div class="text-banner-content">
                         <h2>
-                            {{ $title_name ?? '' }}
+                            {{ ucfirst(strtolower($title_name)) ?? '' }}
                         </h2>
                     </div>
                 </div>

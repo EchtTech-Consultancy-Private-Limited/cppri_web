@@ -49,24 +49,17 @@ class CommonComposer
 
                 $image_gallery_details = DB::table('gallery_details')->where('gallery_id', $image_management->uid)->where('soft_delete', 0)->get();
             } else {
-             
+
                 $image_gallery_details = null;
-               
             }
 
             $video_management = DB::table('gallery_management')->where('type', 1)->where('soft_delete', 0)->latest('created_at')->first();
-
-            // dd($video_management);
-          
             if (isset($video_management) && isset($video_management->uid)) {
 
                 $video_gallery_details = DB::table('gallery_details')->where('gallery_id', $video_management->uid)->where('soft_delete', 0)->latest('created_at')->first();
-          
-              //  dd($video_gallery_details);
             } else {
 
                 $video_gallery_details = null;
-               
             }
 
 
