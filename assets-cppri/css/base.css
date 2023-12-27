@@ -586,7 +586,9 @@ ul.font-controll li:first-child {
 
 .float-element {
 	float: left;
-	margin-left: 12px;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
 }
 
 .inp-search {
@@ -1525,6 +1527,7 @@ a {
 .logo img {
 	float: left;
 	padding: 0 15px 0 0px;
+	width: 120px;
 }
 
 .logo {
@@ -1813,11 +1816,12 @@ a {
 	h2.resp-tab-active.resp-accordion {
 		background: #49aa41 !important; 
 	}
-	.left-col-2 h2{line-height: 22px !important;}
+	.left-col-2 h2{line-height: 37px !important;}
 	.banner-right-wrapper .banner-box p {
 		font-size: 120% !important;
 		text-align: left;
 	}
+
 	.social-box{margin: 30px 0 45px !important;}
 
 	section#datatable .col-md-12, section.image-gallery .container.common-container {
@@ -1961,3 +1965,31 @@ span#timeid {
     font-size: 20px;
     font-weight: 600;
 }
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+  }
+  
+  table td,
+  table th {
+	padding: 12px 15px;
+	border: 1px solid #ddd;
+	/* text-align: center; */
+	font-size: 16px;
+  }
+
+  table tr:first-child{
+	background-color: #1a4f91;
+	color: #ffffff;
+  }
+  
+  table th {
+	background-color: #1a4f91;
+	color: #ffffff;
+  }
+  
+  table tbody tr:nth-child(even) {
+	background-color: #fff !important;
+  }
+  

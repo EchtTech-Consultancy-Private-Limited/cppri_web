@@ -123,7 +123,7 @@ background:#212121 !important;
     border-left: 1px solid #333;
 }
 .common-right ul li.ico-accessibility ul li a.light{background:#eeeeee; color:#000 !important;}
-.main-menu a.btn-more, .main-menu a.btn-more:focus, .main-menu a.btn-more:hover, .main-menu a.btn-more.hover {
+.main-menu a.btn-more, .main-menu a.btn-more:focus, .main-menu a.btn-more:hover, .main-menu a.btn-more.hover, .banner-bg-white, .city-news {
     background: #000 !important;
 }
 .main-menu a.btn-more.opened, .main-menu a.btn-more.opened:hover, .main-menu a.btn-more.opened:focus {
@@ -142,23 +142,27 @@ a:focus{outline:1px dotted #fff !important;}
 .common-left a:focus{color:#ffff00 !important;}
 /* shivani*/
 
- body .nav-wrapper ul li:hover a, body .nav-wrapper ul li.hover a, body .nav-wrapper ul li.active a{
-	color:#ffff00
+ body .nav-wrapper ul li:hover a, body .nav-wrapper ul li.hover a, body .nav-wrapper ul li.active a, .minister .minister-sub .min-info h4{
+	color:#ffff00 !important;
 }
 .header-container .logo a,
-.common-container .common-left ul li.ministry{
+.common-container .common-left ul li.ministry, .logo-text h3, .left-col-2 h2{
 	color:#ffff00
 }
 .body-left-container .news-block h3,
 footer .footer-top-wrapper ul li a{color:#ffff00;}
 .region-home-content #quicktabs-home_content_hindi ul.quicktabs-tabs.quicktabs-style-zen{height:50px;}
 #cmf-analytics .c3 path, #cmf-analytics .c3 line{stroke:#ffff00;}
-#cmf-analytics{
+#cmf-analytics, .depart-info .deprt-icon-box img, .banner-box img{
 	background:#fff;
 }
 
+ul#header-nav a img{background:#ffff00 ;}
 
-
+.depart-info .deprt-icon-box, .left-col-2 h2, ul.resp-tabs-list, .box-bg-color, .news-box{
+	background:#000;
+	border: 1px solid #fff;
+}
 
 
 .skiptranslate .gtflag[title="Hindi"]{
@@ -182,7 +186,9 @@ footer .footer-top-wrapper ul li a{color:#ffff00;}
 	transition:none;
 }
 
-.flex-direction-nav a:before {
+.new-txt span.duration{color: #ddd;}
+
+.flex-direction-nav a:before, .page-tab .text-slide, .page-tab .text-slide01 {
     color: #ffff00;
 }
 .flex-control-paging li a {
