@@ -1,18 +1,36 @@
 <script src="{{ asset('assets-cppri/js/jquery.min.js') }}"></script>
 <script>
-      $(".modal").each(function (l) { $(this).on("show.bs.modal", function (l) { var o = $(this).attr("data-easein"); "shake" == o ? $(".modal-dialog").velocity("callout." + o) : "pulse" == o ? $(".modal-dialog").velocity("callout." + o) : "tada" == o ? $(".modal-dialog").velocity("callout." + o) : "flash" == o ? $(".modal-dialog").velocity("callout." + o) : "bounce" == o ? $(".modal-dialog").velocity("callout." + o) : "swing" == o ? $(".modal-dialog").velocity("callout." + o) : $(".modal-dialog").velocity("transition." + o) }) });
-   // var dataIdValue = $('.show-model').data('id');
+  
+    $(document).ready(function() {
+        // Check if the modal should be shown today
+        if (!getCookie("modalShownToday")) {
+            // If it hasn't been shown today, show the modal
+            $(".modal").each(function(l) {
+                $(this).on("show.bs.modal", function(l) {
+                    var o = $(this).attr("data-easein");
+                    "shake" == o ? $(".modal-dialog").velocity("callout." + o) : "pulse" == o ?
+                        $(".modal-dialog").velocity("callout." + o) : "tada" == o ? $(
+                            ".modal-dialog").velocity("callout." + o) : "flash" == o ? $(
+                            ".modal-dialog").velocity("callout." + o) : "bounce" == o ? $(
+                            ".modal-dialog").velocity("callout." + o) : "swing" == o ? $(
+                            ".modal-dialog").velocity("callout." + o) : $(".modal-dialog")
+                        .velocity("transition." + o)
+                })
+            });
 
+            setTimeout(function() {
+                $('#costumModal8').modal('show');
+            }, 1000);
+            // Set a cookie with an expiration date one day from now
+            setCookie("modalShownToday", "true", 1);
+        }
+    });
 </script>
 
 
 
 
 <script>
-     setTimeout(function() {
-         $('#costumModal8').modal('show');
-     }, 1000);
-
     $(document).ready(function() {
         $('#example').DataTable({
             dom: 'Bfrtip',

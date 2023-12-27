@@ -97,16 +97,21 @@ class HomeController extends Controller
 
     public function getContentAllPages(Request $request, $slug)
     {
-        // dd($slug);
+       //  dd($slug);
         try {
             $menus = DB::table('website_menu_management')->whereurl($slug)->first();
-
+            
             if ($menus != '') {
 
                 if ($menus?->parent_id != 0) {
                     $sideMenu = DB::table('website_menu_management')->wherename_en($menus->name_en)->first('parent_id');
                     $sideMenuParent = DB::table('website_menu_management')->whereuid($sideMenu->parent_id)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->first();
                     $sideMenuChild = DB::table('website_menu_management')->whereparent_id($sideMenuParent->uid)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
+                }else{
+
+                    $sideMenuParent = "";
+                    $sideMenuChild = [];
+
                 }
 
                 if (Session::get('Lang') == 'hi') {

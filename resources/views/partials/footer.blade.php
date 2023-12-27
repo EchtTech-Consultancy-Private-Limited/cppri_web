@@ -190,13 +190,13 @@
                      Reserved. </span></div>
                <div class="last-updated">
                  <span>
-                    <a href="javascript:void();">Linking Policy</a> | 
-                    <a href="javascript:void();">Privacy Policy</a> | 
-                    <a href="javascript:void();">Disclaimer</a> | 
-                    <a href="javascript:void();">Help</a> | 
-                    <a href="javascript:void();">Cookies Policy</a> | 
-                    <a href="javascript:void();">Terms & Conditions</a>
-</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{{ url('linking-policy') }}">Linking Policy</a> | 
+                    <a href="{{ url('privacy-policy') }}">Privacy Policy</a> | 
+                    <a href="{{ url('disclaimer') }}">Disclaimer</a> | 
+                    <a href="{{ url('help') }}">Help</a> | 
+                    <a href="{{ url('cookies-policy') }}">Cookies Policy</a> | 
+                    <a href="{{ url('terms-&-conditions') }}">Terms & Conditions</a>
+                     </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                  <span>Total Visitors: <strong>{{ $visitCounter   ??"" }}</strong></span>
                </div>
             </div>
