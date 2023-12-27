@@ -13,9 +13,9 @@
         <meta property="og:url" content=""/>
         <meta property="og:site_name" content="CMS | Echttech" />
         <link rel="canonical" href=""/>
-        <link rel="shortcut icon" href="{{ asset('assets/media/logos/favicon.ico') }}"/>
-        <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css"/>
-        <link href="{{ asset('assets/cms_css/style.bundle.css') }}" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" href="{{ asset('assets-cms/media/logos/favicon.ico') }}"/>
+        <link href="{{ asset('assets-cms/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('assets-cms/cms_css/style.bundle.css') }}" rel="stylesheet" type="text/css"/>
         <script>
             // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking)
             if (window.top != window.self) {
@@ -48,10 +48,10 @@
 	<div class="d-flex flex-column flex-root">
     <style>
     body {
-    background-image: url('{{ asset("assets/media/auth/bg10.jpg") }}');
+    background-image: url('{{ asset("assets-cms/media/auth/bg10.jpg") }}');
     }
     [data-bs-theme="dark"] body {
-    background-image: url('{{ asset("assets/media/auth/bg10-dark.jpg") }}');
+    background-image: url('{{ asset("assets-cms/media/auth/bg10-dark.jpg") }}');
     }
     </style>
 <div class="d-flex flex-column flex-column-fluid flex-lg-row">
@@ -68,7 +68,7 @@
     <div class="d-flex flex-column-fluid flex-lg-row-auto justify-content-center justify-content-lg-end p-12 p-lg-20">
         <div class="bg-body d-flex flex-column align-items-stretch flex-center rounded-4 w-md-600px p-20">
             <div class="d-flex flex-center flex-column flex-column-fluid px-lg-10 pb-15 pb-lg-20">
-            <form class="form w-100" novalidate="novalidate" id="kt_newSet_password_form" data-kt-redirect-url="{{ route('login') }}" action="{{ route('update_password') }}">
+                <form class="form w-100" novalidate="novalidate" id="kt_newSet_password_form" data-kt-redirect-url="{{ route('login') }}" action="{{ route('update_password') }}">
                     <div class="text-center mb-10">
                         <input type="hidden" name="token" value="{{ Request::segment(2) }}"> 
                         <h1 class="text-dark fw-bolder mb-3">
@@ -88,7 +88,7 @@
                     <div class="fv-row mb-8" data-kt-password-meter="true">
                         <div class="mb-1">
                             <div class="position-relative mb-3">    
-                                <input class="form-control bg-transparent" type="password" placeholder="Password" name="password" autocomplete="off"/>
+                                <input class="form-control bg-transparent password" type="password" placeholder="Password" name="password" autocomplete="off"/>
                                 <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
                                     <i class="ki-outline ki-eye-slash fs-2"></i>                    
                                     <i class="ki-outline ki-eye fs-2 d-none"></i>                
@@ -108,7 +108,7 @@
                         <!--end::Hint-->
                     </div>
                     <div class="fv-row mb-8">    
-                        <input type="password" placeholder="Repeat Password" name="passwordconfirmation" autocomplete="off" class="form-control bg-transparent"/>
+                        <input type="password" placeholder="Repeat Password" name="passwordconfirmation" autocomplete="off" class="form-control bg-transparent passwordconfirmation"/>
                     </div>
                     <div class="fv-row mb-8">
                         <label class="form-check form-check-inline">
@@ -135,8 +135,8 @@
     </div>
 </div>
 </div>
-    <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
-    <script src="{{ asset('assets/cms_js/scripts.bundle.js') }}"></script>
-    <script src="{{ asset('assets/cms_js/custom/authentication/reset-password/new-password.js') }}"></script>
+    <script src="{{ asset('assets-cms/plugins/global/plugins.bundle.js') }}"></script>
+    <script src="{{ asset('assets-cms/cms_js/scripts.bundle.js') }}"></script>
+    <script src="{{ asset('assets-cms/cms_js/custom/authentication/reset-password/new-password.js') }}"></script>
     </body>
 </html>
