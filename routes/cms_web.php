@@ -28,6 +28,7 @@ use App\Http\Controllers\CMSControllers\EmployeeDirectoryController;
 use App\Http\Controllers\CMSControllers\PopupAdvertisingController;
 use App\Http\Controllers\CMSControllers\RecentActivityController;
 use App\Http\Controllers\CMSControllers\RtiAssetsController;
+use App\Http\Controllers\CMSControllers\ImageController;
 
 
 /*
@@ -57,6 +58,8 @@ Route::post('mimeimagecheck', [CommonAPIController::class, 'imageMimeCheck'])->n
 Route::post('mimepdfcheck', [CommonAPIController::class, 'pdfMimeCheck'])->name('mimepdfcheck');
 // capture analytics
 Route::post('analytics', [AnalyticsController::class, 'store'])->name('store-analytics');
+
+Route::get('/image/{path}', [ImageController::class, 'encryptPath']);
 
 Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(function () {
     
