@@ -176,6 +176,11 @@
                             <li><i class="fa fa-envelope-o" aria-hidden="true"></i>
                                 <a href="mailto:director.cppri@gmail.com">director.cppri[at]gmail.com </a>
                             </li>
+                            <li>
+                            <div class="footer-img-logo">
+                            <img src="{{ asset('assets-cppri/images/footer-logos.png') }}" alt="">
+                            </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
