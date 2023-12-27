@@ -96,69 +96,33 @@
                         <tr>
                             <th>Image</th>
                             <th>Name</th>
-                            <th>Designation</th>                           
+                            {{-- <th>Designation</th> --}}
                             <th>Telephone(Office)</th>
                             <th>Email</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($employee as $employees)
                         <tr>
-                            <td class="text-center"><img src="{{ asset('assets-cppri/images/director.jpg') }}" alt="img"></td>
-                            <td>Dr. M K Gupta</td>
-                            <td>Director</td>
-                            <td>+91-0132-2714050</td>
-                            <td>gupta.manoj[at]cppri[dot]res[dot]in</td>
+                            <td class="text-center"><img 
+                                @if($employees->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $employees->public_url) }}"
+                                @else src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif title="{{ $employees->fname_en ?? '' }} {{ $employees->mname_en ?? '' }} {{ $employees->lname_en ?? '' }}"></td>
+                            <td>{{ $employees->fname_en ?? '' }} {{ $employees->mname_en ?? '' }} {{ $employees->lname_en ?? '' }}</td>
+                            {{-- <td>Director</td> --}}
+                            <td>{{ $employees->landline_number ?? '' }}</td>
+
+                            <?php
+                            $email_address = $employees->email;
+                            $str = $email_address;
+                            $var = str_replace('@', '[at]', $str);
+                            $email = str_replace('.', '[dot]', $var);
+                            ?>
+
+
+
+                            <td>{{ $email  ??''}}</td>
                         </tr>
-                        <tr>
-                            <td class="text-center"><img src="{{ asset('assets-cppri/images/director.jpg') }}" alt="img"></td>
-                            <td>Dr. M K Gupta</td>
-                            <td>Director</td>
-                            <td>+91-0132-2714050</td>
-                            <td>gupta.manoj[at]cppri[dot]res[dot]in</td>
-                        </tr>
-                        <tr>
-                            <td class="text-center"><img src="{{ asset('assets-cppri/images/director.jpg') }}" alt="img"></td>
-                            <td>Dr. M K Gupta</td>
-                            <td>Director</td>
-                            <td>+91-0132-2714050</td>
-                            <td>gupta.manoj[at]cppri[dot]res[dot]in</td>
-                        </tr>
-                        <tr>
-                            <td class="text-center"><img src="{{ asset('assets-cppri/images/director.jpg') }}" alt="img"></td>
-                            <td>Dr. M K Gupta</td>
-                            <td>Director</td>
-                            <td>+91-0132-2714050</td>
-                            <td>gupta.manoj[at]cppri[dot]res[dot]in</td>
-                        </tr>
-                        <tr>
-                            <td class="text-center"><img src="{{ asset('assets-cppri/images/director.jpg') }}" alt="img"></td>
-                            <td>Dr. M K Gupta</td>
-                            <td>Director</td>
-                            <td>+91-0132-2714050</td>
-                            <td>gupta.manoj[at]cppri[dot]res[dot]in</td>
-                        </tr>
-                        <tr>
-                            <td class="text-center"><img src="{{ asset('assets-cppri/images/director.jpg') }}" alt="img"></td>
-                            <td>Dr. M K Gupta</td>
-                            <td>Director</td>
-                            <td>+91-0132-2714050</td>
-                            <td>gupta.manoj[at]cppri[dot]res[dot]in</td>
-                        </tr>
-                        <tr>
-                            <td class="text-center"><img src="{{ asset('assets-cppri/images/director.jpg') }}" alt="img"></td>
-                            <td>Dr. M K Gupta</td>
-                            <td>Director</td>
-                            <td>+91-0132-2714050</td>
-                            <td>gupta.manoj[at]cppri[dot]res[dot]in</td>
-                        </tr>
-                        <tr>
-                            <td class="text-center"><img src="{{ asset('assets-cppri/images/director.jpg') }}" alt="img"></td>
-                            <td>Dr. M K Gupta</td>
-                            <td>Director</td>
-                            <td>+91-0132-2714050</td>
-                            <td>gupta.manoj[at]cppri[dot]res[dot]in</td>
-                        </tr>
-                      
+                        @endforeach
                     </tbody>
                 </table>              
 
