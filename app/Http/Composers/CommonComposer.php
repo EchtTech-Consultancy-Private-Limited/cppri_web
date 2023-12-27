@@ -39,7 +39,7 @@ class CommonComposer
             $menus = DB::table('website_menu_management')->whereIn('menu_place', [0, 3])->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
             $menuName = $this->getMenuTree($menus, 0);
             $news_management = DB::table('news_management')->where('soft_delete', 0)->latest('created_at')->take(3)->get();
-            $tender_management = DB::table('tender_management')->where('soft_delete', 0)->latest('created_at')->get();
+            $tender_management = DB::table('tender_details')->where('soft_delete', 0)->latest('created_at')->get();
             $social_links = DB::table('social_links')->where('soft_delete', 0)->first();
             $logo = DB::table('website_core_settings')->where('soft_delete', 0)->first();
 
@@ -49,24 +49,17 @@ class CommonComposer
 
                 $image_gallery_details = DB::table('gallery_details')->where('gallery_id', $image_management->uid)->where('soft_delete', 0)->get();
             } else {
-             
+
                 $image_gallery_details = null;
-               
             }
 
             $video_management = DB::table('gallery_management')->where('type', 1)->where('soft_delete', 0)->latest('created_at')->first();
-
-            // dd($video_management);
-          
             if (isset($video_management) && isset($video_management->uid)) {
 
                 $video_gallery_details = DB::table('gallery_details')->where('gallery_id', $video_management->uid)->where('soft_delete', 0)->latest('created_at')->first();
-          
-              //  dd($video_gallery_details);
             } else {
 
                 $video_gallery_details = null;
-               
             }
 
 
