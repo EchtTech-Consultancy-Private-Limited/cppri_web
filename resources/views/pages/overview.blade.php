@@ -76,28 +76,57 @@
                                     </div>
                                 </div>
 
-                            
+                                <div class="col-md-12 mt-4">
+                                    <blockquote>
+                                        CPPRI is committed to develop itself into a premier research institute, with
+                                        focus on the Pulp & Paper industry both in India and abroad. A quality
+                                        management system meeting the requirements of ISO 9001:2000 has been established
+                                        to realize the quality policy by achieving the quality objectives. The
+                                        Management and Staff are committed to continually improve while complying with
+                                        applicable statutory and regulatory requirements of the Quality Management
+                                        System.
+                                    </blockquote>
+                                </div>
 
-                            <div class="col-md-12 mt-4">
-                                <blockquote>
-                                    CPPRI is committed to develop itself into a premier research institute, with
-                                    focus on the Pulp & Paper industry both in India and abroad. A quality
-                                    management system meeting the requirements of ISO 9001:2000 has been established
-                                    to realize the quality policy by achieving the quality objectives. The
-                                    Management and Staff are committed to continually improve while complying with
-                                    applicable statutory and regulatory requirements of the Quality Management
-                                    System.
-                                </blockquote>
-                            </div>
                             </div>
                         </div>
                     </section>
+                    <div class="rs-cta style7 main-content">
+                        <div class="partition-bg-wrap vision-mission">
+                            <div class="container common-container">
+                                <div class="row ptb-40">
+                                    <div class="col-lg-6">
+                                        <div class="sec-title2 mb-40">
+                                            <h2 class="title white-color mb-16">Vision</h2>
+                                            <ul>
+                                                <li>To make CPPRI a Centre of Excellence with Focus in the area of
+                                                    Technology Transfer</li>
+                                                <li>To make Indian Paper Industry sustainable and Globally Competitive.
+                                                </li>
+                                            </ul>
+                                        </div>
 
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="sec-title2 mb-40">
+                                            <h2 class="title white-color mb-16">Mission</h2>
+                                            <ul>
+                                                <li>In pursuit of cleaner Production, Resource Conversation & Quality
+                                                    Excellence in Pulp & Paper Industry</li>
+                                            </ul>
+                                        </div>
 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </section>
 
 </div>
+
+
 
 @endsection
