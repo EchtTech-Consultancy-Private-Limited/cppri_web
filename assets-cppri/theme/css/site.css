@@ -5150,8 +5150,10 @@ img.cell-icon-sec {
     content: '\f002' !important;
     font-family: "flexslider-icon";
     font-size: 12px;
-    padding-left: 10px;
 	padding-top: 6px;
+	float: right;
+    position: absolute;
+    right: 10px;
 }
 
 .sub-nav-group 
