@@ -205,7 +205,7 @@
                             @if (isset($organizedData['gallery']) && count($organizedData['gallery']) > 0)
                                 <section class="image-gallery">
                                     <div class="container common-container">
-                                        <h3 class="master-title mt-0 mb-20">Image Gallery</h3>
+                                        {{-- <h3 class="master-title mt-0 mb-20">Image Gallery</h3> --}}
                                         <div class="row main-gallery p-0">
                                             @foreach ($organizedData['gallery'] as $data)
                                                 <div class=" col-md-4 ">
