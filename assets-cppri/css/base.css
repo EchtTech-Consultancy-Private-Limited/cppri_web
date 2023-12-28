@@ -1086,7 +1086,11 @@ tr:hover td {
 		display: flex;
 		align-items: center;
 	}
-
+	.rs-cta.style7 .partition-bg-wrap:after, .rs-cta.style7 .partition-bg-wrap:before{width: 100% !important;}
+	.sec-title2 .title{margin-bottom: 8px !important;}
+	.ptb-40 {
+		padding: 20px 15px !important;
+	}
 
 }
 

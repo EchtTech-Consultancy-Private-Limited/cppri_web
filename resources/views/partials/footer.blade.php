@@ -11,39 +11,39 @@
                             <div class="col-md-3">
                                 <h3 class="footer-title">About Us</h3>
                                 @if (isset($footerMenu) && count($footerMenu) > 0)
-                                    <ul>
-                                        @foreach ($footerMenu->slice(0, 6) as $footerMenus)
-                                            @php
-                                                $footerurl = $footerMenus->url ?? 'javascript:void(0)';
-                                            @endphp
+                                <ul>
+                                    @foreach ($footerMenu->slice(0, 6) as $footerMenus)
+                                    @php
+                                    $footerurl = $footerMenus->url ?? 'javascript:void(0)';
+                                    @endphp
 
 
-                                            @if ($footerMenus->tab_type == 1)
-                                                <li>
-                                                    <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
-                                                        href="{{ $footerurl  ?? '' }}">
-                                                        @if (Session::get('Lang') == 'hi')
-                                                            {{ $footerMenus->name_hi ?? '' }}
-                                                        @else
-                                                            {{ $footerMenus->name_en ?? '' }}
-                                                        @endif
-                                                    </a>
-                                                </li>
+                                    @if ($footerMenus->tab_type == 1)
+                                    <li>
+                                        <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                                            href="{{ $footerurl  ?? '' }}">
+                                            @if (Session::get('Lang') == 'hi')
+                                            {{ $footerMenus->name_hi ?? '' }}
                                             @else
-                                                <li><a href="{{ url($footerurl) ?? '' }}">
-
-                                                        @if (Session::get('Lang') == 'hi')
-                                                            {{ $footerMenus->name_hi ?? '' }}
-                                                        @else
-                                                            {{ $footerMenus->name_en ?? '' }}
-                                                        @endif
-                                                    </a>
-                                                </li>
+                                            {{ $footerMenus->name_en ?? '' }}
                                             @endif
-                                        @endforeach
-                                    </ul>
+                                        </a>
+                                    </li>
+                                    @else
+                                    <li><a href="{{ url($footerurl) ?? '' }}">
+
+                                            @if (Session::get('Lang') == 'hi')
+                                            {{ $footerMenus->name_hi ?? '' }}
+                                            @else
+                                            {{ $footerMenus->name_en ?? '' }}
+                                            @endif
+                                        </a>
+                                    </li>
+                                    @endif
+                                    @endforeach
+                                </ul>
                                 @else
-                                    <p>No footer menu items available.</p>
+                                <p>No footer menu items available.</p>
                                 @endif
                             </div>
 
@@ -51,37 +51,37 @@
                                 <h3 class="footer-title">Divisions/Cells</h3>
                                 <ul>
                                     @if (isset($footerMenu) && count($footerMenu) > 0)
-                                        <ul>
-                                            @foreach ($footerMenu->slice(6, 6) as $footerMenus)
-                                                @php
-                                                    $footerurl = $footerMenus->url ?? 'javascript:void(0)';
-                                                @endphp
-                                                @if ($footerMenus->tab_type == 1)
-                                                    <li>
-                                                        <a onclick="return confirm('{{ $alertMessage }}')"
-                                                            target="_blank" href="{{ $footerurl ?? '' }}">
-                                                            @if (Session::get('Lang') == 'hi')
-                                                                {{ $footerMenus->name_hi ?? '' }}
-                                                            @else
-                                                                {{ $footerMenus->name_en ?? '' }}
-                                                            @endif
-                                                        </a>
-                                                    </li>
+                                    <ul>
+                                        @foreach ($footerMenu->slice(6, 6) as $footerMenus)
+                                        @php
+                                        $footerurl = $footerMenus->url ?? 'javascript:void(0)';
+                                        @endphp
+                                        @if ($footerMenus->tab_type == 1)
+                                        <li>
+                                            <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                                                href="{{ $footerurl ?? '' }}">
+                                                @if (Session::get('Lang') == 'hi')
+                                                {{ $footerMenus->name_hi ?? '' }}
                                                 @else
-                                                    <li>
-                                                        <a href="{{ url($footerurl) ?? '' }}">
-                                                            @if (Session::get('Lang') == 'hi')
-                                                                {{ $footerMenus->name_hi ?? '' }}
-                                                            @else
-                                                                {{ $footerMenus->name_en ?? '' }}
-                                                            @endif
-                                                        </a>
-                                                    </li>
+                                                {{ $footerMenus->name_en ?? '' }}
                                                 @endif
-                                            @endforeach
-                                        </ul>
+                                            </a>
+                                        </li>
+                                        @else
+                                        <li>
+                                            <a href="{{ url($footerurl) ?? '' }}">
+                                                @if (Session::get('Lang') == 'hi')
+                                                {{ $footerMenus->name_hi ?? '' }}
+                                                @else
+                                                {{ $footerMenus->name_en ?? '' }}
+                                                @endif
+                                            </a>
+                                        </li>
+                                        @endif
+                                        @endforeach
+                                    </ul>
                                     @else
-                                        <p>No footer menu items available.</p>
+                                    <p>No footer menu items available.</p>
                                     @endif
                                 </ul>
                             </div>
@@ -90,76 +90,76 @@
                                 <h3 class="footer-title">&nbsp;</h3>
                                 <ul>
                                     @if (isset($footerMenu) && count($footerMenu) > 0)
-                                        <ul>
-                                            @foreach ($footerMenu->slice(12, 6) as $footerMenus)
-                                                @php
-                                                    $footerurl = $footerMenus->url ?? 'javascript:void(0)';
-                                                @endphp
-                                                @if ($footerMenus->tab_type == 1)
-                                                    <li>
-                                                        <a onclick="return confirm('{{ $alertMessage }}')"
-                                                            target="_blank" href="{{ $footerurl ?? '' }}">
-                                                            @if (Session::get('Lang') == 'hi')
-                                                                {{ $footerMenus->name_hi ?? '' }}
-                                                            @else
-                                                                {{ $footerMenus->name_en ?? '' }}
-                                                            @endif
-                                                        </a>
-                                                    </li>
+                                    <ul>
+                                        @foreach ($footerMenu->slice(12, 6) as $footerMenus)
+                                        @php
+                                        $footerurl = $footerMenus->url ?? 'javascript:void(0)';
+                                        @endphp
+                                        @if ($footerMenus->tab_type == 1)
+                                        <li>
+                                            <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                                                href="{{ $footerurl ?? '' }}">
+                                                @if (Session::get('Lang') == 'hi')
+                                                {{ $footerMenus->name_hi ?? '' }}
                                                 @else
-                                                    <li>
-                                                        <a href="{{ url($footerurl) ?? '' }}">
-
-                                                            @if (Session::get('Lang') == 'hi')
-                                                                {{ $footerMenus->name_hi ?? '' }}
-                                                            @else
-                                                                {{ $footerMenus->name_en ?? '' }}
-                                                            @endif
-                                                        </a>
-                                                    </li>
+                                                {{ $footerMenus->name_en ?? '' }}
                                                 @endif
-                                            @endforeach
-                                        </ul>
+                                            </a>
+                                        </li>
+                                        @else
+                                        <li>
+                                            <a href="{{ url($footerurl) ?? '' }}">
+
+                                                @if (Session::get('Lang') == 'hi')
+                                                {{ $footerMenus->name_hi ?? '' }}
+                                                @else
+                                                {{ $footerMenus->name_en ?? '' }}
+                                                @endif
+                                            </a>
+                                        </li>
+                                        @endif
+                                        @endforeach
+                                    </ul>
                                     @else
-                                        <p>No footer menu items available.</p>
+                                    <p>No footer menu items available.</p>
                                     @endif
                                 </ul>
                             </div>
 
 
                             @if (isset($quickLink) && count($quickLink) > 0)
-                                <div class="col-md-3">
-                                    <h3 class="footer-title">Quick Links</h3>
-                                    <ul>
-                                        @foreach ($quickLink as $quickLinks)
-                                            @php
-                                                $quickLinkurl = $quickLinks->url ?? 'javascript:void(0)';
-                                            @endphp
+                            <div class="col-md-3">
+                                <h3 class="footer-title">Quick Links</h3>
+                                <ul>
+                                    @foreach ($quickLink as $quickLinks)
+                                    @php
+                                    $quickLinkurl = $quickLinks->url ?? 'javascript:void(0)';
+                                    @endphp
 
-                                            @if ($quickLinks->tab_type == 1)
+                                    @if ($quickLinks->tab_type == 1)
 
-                                            <li><a onclick="return confirm('{{ $alertMessage }}')"
-                                                target="_blank" href="{{ $quickLinkurl ??"" }}">
-                                                    @if (Session::get('Lang') == 'hi')
-                                                        {{ $quickLinks->name_hi ?? '' }}
-                                                    @else
-                                                        {{ $quickLinks->name_en ?? '' }}
-                                                    @endif
-                                                </a></li>
+                                    <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                                            href="{{ $quickLinkurl ??"" }}">
+                                            @if (Session::get('Lang') == 'hi')
+                                            {{ $quickLinks->name_hi ?? '' }}
                                             @else
+                                            {{ $quickLinks->name_en ?? '' }}
+                                            @endif
+                                        </a></li>
+                                    @else
 
-                                            <li><a href="{{ url($quickLinkurl) ?? '' }}">
-                                                @if (Session::get('Lang') == 'hi')
-                                                    {{ $quickLinks->name_hi ?? '' }}
-                                                @else
-                                                    {{ $quickLinks->name_en ?? '' }}
-                                                @endif
-                                            </a></li>
+                                    <li><a href="{{ url($quickLinkurl) ?? '' }}">
+                                            @if (Session::get('Lang') == 'hi')
+                                            {{ $quickLinks->name_hi ?? '' }}
+                                            @else
+                                            {{ $quickLinks->name_en ?? '' }}
+                                            @endif
+                                        </a></li>
 
-                                            @endif    
-                                        @endforeach
-                                    </ul>
-                                </div>
+                                    @endif
+                                    @endforeach
+                                </ul>
+                            </div>
                             @endif
                         </div>
                     </div>
@@ -177,9 +177,9 @@
                                 <a href="mailto:director.cppri@gmail.com">director.cppri[at]gmail.com </a>
                             </li>
                             <li>
-                            <div class="footer-img-logo">
-                            <img src="{{ asset('assets-cppri/images/footer-logos.png') }}" alt="">
-                            </div>
+                                <div class="footer-img-logo">
+                                    <img src="{{ asset('assets-cppri/images/footer-logos.png') }}" alt="">
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -187,26 +187,26 @@
             </div>
         </div>
     </div>
-  
+
     <div class="footer-bottom-wrapper">
-         <div class="container common-container four_content footer-bottom-container">
+        <div class="container common-container four_content footer-bottom-container">
             <div class="footer-content">
-               <div class="copyright-content"> © Copyright 2023 <strong>CPPRI Sahranpur.</strong><span> All Rights
-                     Reserved. </span></div>
-               <div class="last-updated">
-                 <span>
-                    <a href="{{ url('linking-policy') }}">Linking Policy</a> | 
-                    <a href="{{ url('privacy-policy') }}">Privacy Policy</a> | 
-                    <a href="{{ url('disclaimer') }}">Disclaimer</a> | 
-                    <a href="{{ url('help') }}">Help</a> | 
-                    <a href="{{ url('cookies-policy') }}">Cookies Policy</a> | 
-                    <a href="{{ url('terms-&-conditions') }}">Terms & Conditions</a>
-                     </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 <span>Total Visitors: <strong>{{ $visitCounter   ??"" }}</strong></span>
-               </div>
+                <div class="copyright-content"> © Copyright 2023 <strong>CPPRI Sahranpur.</strong><span> All Rights
+                        Reserved. </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="f-link-t">
+                        <a href="{{ url('linking-policy') }}">Linking Policy</a> |
+                        <a href="{{ url('privacy-policy') }}">Privacy Policy</a> |
+                        <a href="{{ url('disclaimer') }}">Disclaimer</a> |
+                        <a href="{{ url('help') }}">Help</a> |
+                        <a href="{{ url('cookies-policy') }}">Cookies Policy</a> |
+                        <a href="{{ url('terms-&-conditions') }}">Terms & Conditions</a>
+                    </span></div>
+                <div class="last-updated">
+                    <span>Last Updated : <strong>28-12-23</strong> </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>Total Visitors: <strong>{{ $visitCounter   ??"" }}</strong></span>
+                </div>
             </div>
-         </div>
-      </div>
+        </div>
+    </div>
 
 </footer>
 <!--/.footer-wrapper-->
@@ -219,9 +219,9 @@
                     ×
                 </button>
                 <img src="{{ asset('assets-cppri/images/CoronaAppeal.gif') }}" alt="" class="md-img">
-            </div>
-        </div>
-    </div>
+</div>
+</div>
+</div>
 </div> --}}
 
 
@@ -233,9 +233,9 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     ×
                 </button>
-                <img src="{{ asset('assets-cppri/images/CoronaAppeal.gif') }}" data-id="show" alt="" class="md-img show-model">
+                <img src="{{ asset('assets-cppri/images/CoronaAppeal.gif') }}" data-id="show" alt=""
+                    class="md-img show-model">
             </div>
         </div>
     </div>
 </div>
-

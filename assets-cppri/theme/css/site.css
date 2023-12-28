@@ -336,6 +336,10 @@ ul#nav li a i.fa-home {
     color: #026aa1;
 }
 
+.breadcam li:last-child {
+    color: #026aa1;
+}
+
 .breadcam li.current {
 	color: #666666
 }
@@ -1812,13 +1816,13 @@ ul.ul-v>li a {
 
 .banner-wrapper .flex-control-nav:before {
 	content: " ";
-	width: 0;
-	height: 0;
-	border-bottom: 40px solid var(--pseudo-bordercolor);
-	border-left: 15px solid transparent;
-	top: -1px;
-	left: -15px;
-	position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 39px solid var(--pseudo-bordercolor);
+    border-left: 14px solid transparent;
+    top: 0px;
+    left: -14px;
+    position: absolute;
 }
 
 .banner-wrapper .flex-control-nav li {
@@ -2703,7 +2707,7 @@ h2.resp-accordion {
 }
 
 .common-wrapper .container.common-container.four_content {
-	padding: 2px 28px;
+	padding: 2px 16px;
 	width: 100%;
 	position: relative;
 	z-index: 1;
@@ -5742,3 +5746,56 @@ table.dataTable tbody td {
 .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     max-width: 1320px !important;
 }}
+
+
+
+/* overview */
+.rs-cta.style7 {
+    position: relative;
+	margin-bottom: 40px;
+    background: linear-gradient(28deg, #2E3192, #0d9fcb);
+}
+.rs-cta.style7 .partition-bg-wrap {
+    background: none !important;
+    position: relative;
+}
+.rs-cta.style7 .partition-bg-wrap:before {
+    /* background: #49aa41; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    right: 0;
+}
+
+.rs-cta.style7 .partition-bg-wrap:after {
+    /* background: #1a4f91; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+	
+}
+
+.rs-cta.style7 .partition-bg-wrap:after, .rs-cta.style7 .partition-bg-wrap:before {
+    position: absolute;
+    content: '';
+    width: 50%;
+    height: 100%;
+    bottom: 0;
+    z-index: 0;
+	border-right: 1px solid #a5a5a5	;
+}
+.sec-title2 .title {
+	font-size: 28px !important;
+    line-height: 40px;
+    color: #fff;
+    margin-top: 0;
+	margin-bottom: 20px;
+}
+
+.ptb-40{padding: 40px 20px;}
+.white-color{color: #fff;}
+
+.vision-mission ul li {
+    color: #fff !important;
+    line-height: 26px !important;
+}

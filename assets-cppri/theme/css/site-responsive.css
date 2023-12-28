@@ -615,6 +615,8 @@
 		font-size: 120%;
 	}
 
+	.copyright-content{line-height: 26px;}
+
 	.four_content .common-left ul li {
 		height: auto;
 	}
@@ -1818,9 +1820,14 @@
 
 }
 
+@media screen and (max-width: 1400px) {
+	.copyright-content, .last-updated {
+		font-size: 88%;
+	}
+}
 @media (min-width: 1200px) and (max-width: 1300px) {
 	.banner-wrapper .flex-pauseplay {
-		height: 39px;
+		height: 37px;
 	}
 }
 
