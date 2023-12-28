@@ -197,8 +197,8 @@
                 <div class="row p-0">
                     <div class="col-md-8">
                         <!-- <div class="title-style-3 mb-20">
-                            <h2 class="border-bottom-color">Services</h2>
-                        </div> -->
+                                                <h2 class="border-bottom-color">Services</h2>
+                                            </div> -->
                         <div class="row p-0">
                             <!--Icon Box Start-->
                             <div class="col-md-4 col-sm-4">
@@ -328,75 +328,75 @@
 
 
         <!-- <div class="links-wrapper change-color-code">
-            <div class="container common-container ptb-10">
+                                <div class="container common-container ptb-10">
 
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="banner-content-wrapper services-heading">
-                            <h2 class="text-white mt-0">
-                                @if (Session::get('Lang') == 'hi')
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="banner-content-wrapper services-heading">
+                                                <h2 class="text-white mt-0">
+                                                    @if (Session::get('Lang') == 'hi')
     {{ __('messages.Services') }}
 @else
     {{ __('messages.Services') }}
     @endif
-                            </h2>
-                        </div>
-                    </div>
-                </div>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
-                <div class="icon-box">
-                    <a href="javascript:void();">
-                        <span class="icon-box-ico">
-                            <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}" alt="">
-                        </span>
-                        <span class="icon-box-text">R &amp; D Projects</span>
-                    </a>
-                </div>
+                                    <div class="icon-box">
+                                        <a href="javascript:void();">
+                                            <span class="icon-box-ico">
+                                                <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}" alt="">
+                                            </span>
+                                            <span class="icon-box-text">R &amp; D Projects</span>
+                                        </a>
+                                    </div>
 
-                <div class="icon-box">
-                    <a href="javascript:void();">
-                        <span class="icon-box-ico">
-                            <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt="">
-                        </span>
-                        <span class="icon-box-text">Technical Services </span>
-                    </a>
-                </div>
-                <div class="icon-box">
-                    <a href="javascript:void();">
-                        <span class="icon-box-ico">
-                            <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt="">
-                        </span>
-                        <span class="icon-box-text">Our Achievements</span>
-                    </a>
-                </div>
-                <div class="icon-box">
-                    <a href="javascript:void();">
-                        <span class="icon-box-ico">
-                            <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt="">
-                        </span>
-                        <span class="icon-box-text">Publications &amp; Reports</span>
-                    </a>
-                </div>
-                <div class="icon-box">
-                    <a href="javascript:void();">
-                        <span class="icon-box-ico">
-                            <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt="">
-                        </span>
-                        <span class="icon-box-text">Institute Membership</span>
-                    </a>
-                </div>
-                <div class="icon-box">
-                    <a href="javascript:void();">
-                        <span class="icon-box-ico">
-                            <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt="">
-                        </span>
-                        <span class="icon-box-text">Tender</span>
-                    </a>
-                </div>
-            </div>
-        </div> -->
+                                    <div class="icon-box">
+                                        <a href="javascript:void();">
+                                            <span class="icon-box-ico">
+                                                <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt="">
+                                            </span>
+                                            <span class="icon-box-text">Technical Services </span>
+                                        </a>
+                                    </div>
+                                    <div class="icon-box">
+                                        <a href="javascript:void();">
+                                            <span class="icon-box-ico">
+                                                <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt="">
+                                            </span>
+                                            <span class="icon-box-text">Our Achievements</span>
+                                        </a>
+                                    </div>
+                                    <div class="icon-box">
+                                        <a href="javascript:void();">
+                                            <span class="icon-box-ico">
+                                                <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt="">
+                                            </span>
+                                            <span class="icon-box-text">Publications &amp; Reports</span>
+                                        </a>
+                                    </div>
+                                    <div class="icon-box">
+                                        <a href="javascript:void();">
+                                            <span class="icon-box-ico">
+                                                <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt="">
+                                            </span>
+                                            <span class="icon-box-text">Institute Membership</span>
+                                        </a>
+                                    </div>
+                                    <div class="icon-box">
+                                        <a href="javascript:void();">
+                                            <span class="icon-box-ico">
+                                                <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt="">
+                                            </span>
+                                            <span class="icon-box-text">Tender</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div> -->
 
 
         <!-- <div class="wrapper home-banner"> -->
@@ -419,7 +419,36 @@
                                                 <p class="text-slide pause" onclick="changeClass()"></p>
                                                 <div class="scroll-text scroll-left">
                                                     <ul class="list">
-                                                        <li>
+
+
+                                                        @if (isset($notification) && count($notification) > 0)
+                                                            @foreach ($notification as $notifications)
+                                                                <li>
+
+                                                                    @php
+                                                                        $notiUrl = $notifications->url_link ?? 'javascript:void(0)';
+                                                                    @endphp
+                                                                    <div class="list-content">
+                                                                        {{ $notifications->recent_activities_en ?? '' }}
+                                                                        &nbsp;
+
+                                                                        @if ($notifications->tab_type == 1)
+                                                                            <a onclick="return confirm('{{ $alertMessage }}')"
+                                                                                target="_blank"
+                                                                                href="{{ $notiUrl ?? '' }}"
+                                                                                class="text-danger">Click
+                                                                                here to apply</a>
+                                                                        @else
+                                                                            <a href="{{ $notiUrl ?? '' }}"
+                                                                                class="text-danger">Click
+                                                                                here to apply</a>
+                                                                        @endif
+                                                                    </div>
+                                                                </li>
+                                                            @endforeach
+                                                        @endif
+
+                                                        {{-- <li>
                                                             <div class="list-content">
                                                                 <a href="https://centralpulppaperresearchinstitute.webex.com/centralpulppaperresearchinstitute/j.php?MTID=m639c2a7e8a854b99da321b648df0ade6"
                                                                     target="_blank">Online Public Grievance Redressal
@@ -437,7 +466,7 @@
                                                                     class="text-danger">Click
                                                                     here to apply</a>
                                                             </div>
-                                                        </li>
+                                                        </li> --}}
 
                                                     </ul>
                                                 </div>
@@ -468,7 +497,31 @@
                                                 <p class="text-slide01 pause" onclick="changeClass01()"></p>
                                                 <div class="scroll-text01 scroll-left">
                                                     <ul class="list">
-                                                        <li>
+
+
+                                                        @if (isset($press_release) && count($press_release) > 0)
+                                                            @foreach ($press_release as $press_releases)
+                                                                <li>
+                                                                    @if ($notifications->tab_type == 1)
+                                                                        <a onclick="return confirm('{{ $alertMessage }}')"
+                                                                            target="_blank" href="{{ $notiUrl ?? '' }}">
+                                                                            <div class="list-content">
+                                                                                {{ $press_releases->recent_activities_en ?? '' }}
+                                                                            </div>
+                                                                        </a>
+                                                                    @else
+                                                                        <a  href="{{ $notiUrl ?? '' }}">
+                                                                            <div class="list-content">
+                                                                                {{ $press_releases->recent_activities_en ?? '' }}
+                                                                            </div>
+                                                                        </a>
+                                                                    @endif
+                                                                </li>
+                                                            @endforeach
+                                                        @endif
+
+
+                                                        {{-- <li>
                                                             <div class="list-content">Description of Press Release 1
                                                                 goes here
                                                                 mm-dd-yyyy - File type (size) DD-MM-YYYY. </div>
@@ -487,7 +540,7 @@
                                                             <div class="list-content">Description of Press Release 4
                                                                 goes here
                                                                 mm-dd-yyyy - File type (size) DD-MM-YYYY.</div>
-                                                        </li>
+                                                        </li> --}}
                                                     </ul>
                                                 </div>
                                                 <div class="view-footer"><a href="javascript:void();"
@@ -523,9 +576,9 @@
 
                                                 </div>
                                                 <div class="list-content">
-                                                    {{ $tender_managements->pdf_title  ??''}} - File type
-                                                    ({{ $tender_managements->file_extension ??"" }} -
-                                                    {{ $tender_managements->pdfimage_size ??'' }})
+                                                    {{ $tender_managements->pdf_title ?? '' }} - File type
+                                                    ({{ $tender_managements->file_extension ?? '' }} -
+                                                    {{ $tender_managements->pdfimage_size ?? '' }})
                                                 </div>
                                             </li>
                                         @endforeach
@@ -644,32 +697,32 @@
                     <!--News Box End-->
                     <!--News Box Start-->
                     <!-- <div class="col-md-3  col-sm-6">
-                                       <div class="news-box">
-                                         <div class="new-thumb"> <span class="cat c3">Policies</span> <img src="images/cppri/modi.jpg" alt="">
-                                         </div>
-                                         <div class="new-txt">
-                                           
-                                           <h6><a href="#">Our Policies Programs</a></h6>
-                                           <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="#" title="">...read more</a>
-                                           </p>
-                                         </div>
-                                        
-                                       </div>
-                                     </div> -->
+                                                           <div class="news-box">
+                                                             <div class="new-thumb"> <span class="cat c3">Policies</span> <img src="images/cppri/modi.jpg" alt="">
+                                                             </div>
+                                                             <div class="new-txt">
+                                                               
+                                                               <h6><a href="#">Our Policies Programs</a></h6>
+                                                               <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="#" title="">...read more</a>
+                                                               </p>
+                                                             </div>
+                                                            
+                                                           </div>
+                                                         </div> -->
                     <!--News Box End-->
                     <!--News Box Start-->
                     <!-- <div class="col-md-3  col-sm-6">
-                                       <div class="news-box">
-                                         <div class="new-thumb"> <span class="cat c4">Education</span> <img src="images/h3citynews-4.jpg" alt="">
-                                         </div>
-                                         <div class="new-txt">
-                                           
-                                           <h6><a href="#">Our Education Programs</a></h6>
-                                           <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="#" title="">...read more</a>
-                                           </p>
-                                         </div>
-                                       </div>
-                                     </div> -->
+                                                           <div class="news-box">
+                                                             <div class="new-thumb"> <span class="cat c4">Education</span> <img src="images/h3citynews-4.jpg" alt="">
+                                                             </div>
+                                                             <div class="new-txt">
+                                                               
+                                                               <h6><a href="#">Our Education Programs</a></h6>
+                                                               <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="#" title="">...read more</a>
+                                                               </p>
+                                                             </div>
+                                                           </div>
+                                                         </div> -->
                     <!--News Box End-->
                 </div>
             </div>
