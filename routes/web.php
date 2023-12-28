@@ -37,12 +37,14 @@ require __DIR__ .'/cms_web.php';
 Route::middleware(['visitingcounter'])->group(function () {
 
 Route::get('/search', [SearchController::class, 'getSearchData'])->name('search');
+Route::get('/tender', [HomeController::class, 'tenderData'])->name('tenderData');
 Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('/set-language',[HomeController::class,'SetLang']);
 Route::get('/site-map',[HomeController::class,'siteMap']);
 Route::get('/screen-reader-access',[HomeController::class,'ScreenReaderAccess']);
 Route::get('/coming-soon',[HomeController::class,'ComingSoon']);
 Route::get('/error',[HomeController::class,'error']);
+
 Route::get('/contact-us',[HomeController::class,'contactUs']);
 Route::get('/overview', [HomeController::class, 'overviewPage']);
 Route::get('/director-desk', [HomeController::class, 'directorDesk']);

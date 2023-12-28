@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App;
-use  Route, DB, Session, Schema,Cookie;
+use  Route, DB, Session, Schema, Cookie;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -97,21 +97,20 @@ class HomeController extends Controller
 
     public function getContentAllPages(Request $request, $slug)
     {
-       //  dd($slug);
+        //  dd($slug);
         try {
             $menus = DB::table('website_menu_management')->whereurl($slug)->first();
-            
+
             if ($menus != '') {
 
                 if ($menus?->parent_id != 0) {
                     $sideMenu = DB::table('website_menu_management')->wherename_en($menus->name_en)->first('parent_id');
                     $sideMenuParent = DB::table('website_menu_management')->whereuid($sideMenu->parent_id)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->first();
                     $sideMenuChild = DB::table('website_menu_management')->whereparent_id($sideMenuParent->uid)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
-                }else{
+                } else {
 
                     $sideMenuParent = "";
                     $sideMenuChild = [];
-
                 }
 
                 if (Session::get('Lang') == 'hi') {
@@ -203,6 +202,47 @@ class HomeController extends Controller
         }
     }
 
+
+    public function tenderData()
+    {
+        try {
+            $tenderData = []; // Initialize the array to store all tender data
+
+            $tenders = DB::table('tender_management')
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->get();
+            
+            if (count($tenders) > 0) {
+                foreach ($tenders as $tender) {
+                    $tender_pdfs = DB::table('tender_details')
+                        ->where('soft_delete', 0)
+                        ->where('tender_id', $tender->uid)
+                        ->latest('created_at')
+                        ->get();
+            
+                    // Store data for each tender with associated PDFs in an array
+                    $tenderData[] = [
+                        'tender' => $tender,
+                        'tender_pdfs' => $tender_pdfs
+                    ];
+                }
+               // dd($tenderData);
+            }
+            return view('tender',['tenderData'=>$tenderData]);
+
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        }
+    }
 
     public function overviewPage()
     {
