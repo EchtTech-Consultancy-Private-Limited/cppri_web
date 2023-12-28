@@ -229,7 +229,7 @@ class HomeController extends Controller
                 }
                // dd($tenderData);
             }
-            return view('tender',['tenderData'=>$tenderData]);
+            return view('pages.tender',['tenderData'=>$tenderData]);
 
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
@@ -243,6 +243,47 @@ class HomeController extends Controller
             return view('pages.error');
         }
     }
+
+    // public function rtiData(){
+
+    //     try {
+    //         $rtiData = []; // Initialize the array to store all tender data
+
+    //         $rti_assets = DB::table('rti_assets')
+    //             ->where('soft_delete', 0)
+    //             ->latest('created_at')
+    //             ->get();
+
+    //         if (count($rti_assets) > 0) {
+    //             foreach ($rti_assets as $rti_pdf) {
+    //                 $rti_assets_details = DB::table('rti_assets_details')
+    //                     ->where('soft_delete', 0)
+    //                     ->where('rti_assets_id',$rti_pdf->uid)
+    //                     ->latest('created_at')
+    //                     ->get();
+            
+    //                 // Store data for each tender with associated PDFs in an array
+    //                 $rtiData[] = [
+    //                     'rti' => $rti_assets,
+    //                     'rit_pdf' => $rti_assets_details
+    //                 ];
+    //             }
+    //            // dd($rtiData);
+    //         }
+    //         return view('pages.rti',['rtiData'=>$rtiData]);
+
+    //     } catch (\Exception $e) {
+    //         \Log::error('An exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\PDOException $e) {
+    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\Throwable $e) {
+    //         // Catch any other types of exceptions that implement the Throwable interface.
+    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     }
+    // }
 
     public function overviewPage()
     {
