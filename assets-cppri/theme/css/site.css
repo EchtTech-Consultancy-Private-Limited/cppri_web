@@ -2977,7 +2977,7 @@ h2 small {
 
 .body-container ul.list {
 	padding-bottom: 5px;
-	margin-left: 2px;
+	margin-left: -5px;
 }
 
 .top-body-container p {
@@ -3837,11 +3837,15 @@ a{
 	margin-right: 0.5rem;
 	margin-top: 6px;
 	background-color: #ec4933;
-	float: left;
+	/* float:left; */
 }
 
 .sw-logo.g20-logo img {
-	width: 140px;
+	width: 125px;
+}
+
+.sw-logo.swachhbharat img {
+    width: 165px;
 }
 
 .box-model .model-heading {
@@ -4426,7 +4430,7 @@ img.cell-icon-sec {
 	transition: all 0.25s ease-in-out;
 }
 
-.flipIn, h1, ul li {
+.flipIn, h1, .clientail ul li {
 	animation: flipdown 0.5s ease both;
 }
 .no-select, h2 {
