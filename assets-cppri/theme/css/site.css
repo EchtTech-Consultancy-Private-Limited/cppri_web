@@ -1252,8 +1252,11 @@ a.read-more:hover {
 	font-weight: 400 !important
 }
 
-.main-menu .sub-nav ul li {
+/* .main-menu .sub-nav ul li {
 	border-bottom: 1px solid rgba(0, 0, 0, 0) !important
+} */
+.main-menu .sub-nav ul li:not(:last-child) {
+    border-bottom: 1px solid rgb(235 235 235) !important;
 }
 
 .main-menu a.btn-more,
@@ -1313,7 +1316,9 @@ a.read-more:hover {
 }
 
 .main-menu .sub-nav ul li a {
-	padding: 7px 10px
+	padding: 7px 10px;
+    font-weight: 600 !important;
+    font-size: 14px !important;
 }
 
 .social-feeds {
@@ -4508,16 +4513,21 @@ img.cell-icon-sec {
 .sng-env
 {
 	position: absolute;
-	left: 249px !important;
+	left: 269px !important;
 	width: 100%;
 	top: 0px;
 	color: #fff!important;
 	background-color: #49aa41;
-	display: none !important;
+	opacity: 0;
+	transform-origin: top;
+    -webkit-transform: rotateX(90deg);
+	transition: all 500ms ease-in-out;
 }
 .env:hover .sng-env 
 {
-	display: block !important;
+	opacity: 1;
+    -webkit-transform: rotateX(0deg);
+    transition: all 500ms ease-in-out;
 }
 
 
@@ -5129,15 +5139,24 @@ img.cell-icon-sec {
 	padding-left: 4px;
   }
 
-  .sub-nav-group li:before {
+  /* .sub-nav-group li:before {
     content: '\f002' !important;
     font-family: "flexslider-icon";
     font-size: 12px;
 	padding-left: 10px;
+} */
+
+.main-menu .sub-nav ul li.env::after {
+    content: '\f002' !important;
+    font-family: "flexslider-icon";
+    font-size: 12px;
+    padding-left: 10px;
+	padding-top: 6px;
 }
+
 .sub-nav-group 
 {
-	width: 248px;
+	width: 100%;
 }
 .sub-nav-group li
 {
