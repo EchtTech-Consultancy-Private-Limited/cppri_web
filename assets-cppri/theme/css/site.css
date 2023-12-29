@@ -1584,7 +1584,7 @@ h2.resp-accordion:first-child {}
 }
 
 .resp-tabs-list li.resp-tab-active a {
-	color: #fff;
+	color: #1a4f91;
 	font-weight: 600;
 }
 
@@ -2424,7 +2424,7 @@ h2.resp-tab-title:last-child {
     text-transform: uppercase;
     margin: 9px 5px 0px 10px;
     border-radius: 50px;
-    border: 1px solid #49aa41;
+    border: 1px solid #1a4f91;
 	transition: all .3s ease-in-out	;
 }
 
@@ -2630,7 +2630,7 @@ h2.resp-accordion {
 
 .resp-tabs-list li.resp-tab-active,
 .resp-tabs-list li:hover {
-	background:#49aa41 !important;
+	background:#fff !important;
 	color: #fff !important;
 	position: relative;
 }
@@ -3613,8 +3613,8 @@ a.portgolio-button:hover {
     left: 0;
     font-size: 100% !important;
     line-height: 37px;
-    color: #fff;
-    background: #49aa41;
+    color: #1a4f91;
+    background: #fff;
     padding: 10px 30px;
     border-radius: 50px;
     margin-top: 0;
@@ -5294,6 +5294,7 @@ textarea:focus, input:focus{
 {
 	font-size: 14px;
     margin-top: 7px !important;
+    margin-bottom: 4px !important;
 }
 .ul-hierarch 
 {
