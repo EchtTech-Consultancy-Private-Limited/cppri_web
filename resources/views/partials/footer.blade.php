@@ -231,27 +231,27 @@
                         <a href="{{ url('linking-policy') }}">
 
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Linking_Policy') }} :
+                                {{ __('messages.Linking_Policy') }} 
                             @else
-                                {{ __('messages.Linking_Policy') }} :
+                                {{ __('messages.Linking_Policy') }} 
                             @endif
 
                         </a> |
                         <a href="{{ url('privacy-policy') }}">
 
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Privacy_Policy') }} :
+                                {{ __('messages.Privacy_Policy') }} 
                             @else
-                                {{ __('messages.Privacy_Policy') }} :
+                                {{ __('messages.Privacy_Policy') }} 
                             @endif
 
                         </a> |
                         <a href="{{ url('disclaimer') }}">
 
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Disclaimer') }} :
+                                {{ __('messages.Disclaimer') }} 
                             @else
-                                {{ __('messages.Disclaimer') }} :
+                                {{ __('messages.Disclaimer') }} 
                             @endif
 
                         </a> |
@@ -259,26 +259,26 @@
 
 
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Help') }} :
+                                {{ __('messages.Help') }} 
                             @else
-                                {{ __('messages.Help') }} :
+                                {{ __('messages.Help') }} 
                             @endif
 
                         </a> |
                         <a href="{{ url('cookies-policy') }}">
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Cookies_Policy') }} :
+                                {{ __('messages.Cookies_Policy') }} 
                             @else
-                                {{ __('messages.Cookies_Policy') }} :
+                                {{ __('messages.Cookies_Policy') }} 
                             @endif
                         </a> |
                         <a href="{{ url('terms-&-conditions') }}">
 
 
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Terms_&_Conditions') }} :
+                                {{ __('messages.Terms_&_Conditions') }} 
                             @else
-                                {{ __('messages.Terms_&_Conditions') }} :
+                                {{ __('messages.Terms_&_Conditions') }} 
                             @endif
                         </a>
                     </span></div>
@@ -286,9 +286,9 @@
                     <span>
 
                         @if (Session::get('Lang') == 'hi')
-                            {{ __('messages.Last_Updated') }} :
+                            {{ __('messages.Last_Updated') }} 
                         @else
-                            {{ __('messages.Last_Updated') }} :
+                            {{ __('messages.Last_Updated') }} 
                         @endif
 
                         <strong>28-12-23</strong>
@@ -296,9 +296,9 @@
                     <span>
 
                         @if (Session::get('Lang') == 'hi')
-                            {{ __('messages.Total_Visitors') }} :
+                            {{ __('messages.Total_Visitors') }} 
                         @else
-                            {{ __('messages.Total_Visitors') }} :
+                            {{ __('messages.Total_Visitors') }} 
                         @endif
 
                         <strong>{{ $visitCounter ?? '' }}</strong>
