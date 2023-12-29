@@ -60,7 +60,7 @@
                                                     alt=""
                                                     tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
                                             </div>
-                                            <h3><i class="fa fa-user"></i>{{ $profile->fname_en ?? '' }}
+                                            <h3>{{ $profile->fname_en ?? '' }}
                                                 {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
                                             <h5>({{ $profile->desi_name_en ?? '' }})</h5>
 
@@ -120,7 +120,7 @@
                                                     alt=""
                                                     tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
                                             </div>
-                                            <h3><i class="fa fa-user"></i> {{ $profile->fname_en ?? '' }}
+                                            <h3> {{ $profile->fname_en ?? '' }}
                                                 {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
                                             <h5>({{ $profile->desi_name_en ?? '' }})</h5>
 
