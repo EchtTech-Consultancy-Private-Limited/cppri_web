@@ -77,9 +77,10 @@ class HomeController extends Controller
                 ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
                 ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
                 ->where('emp.soft_delete', 0)
-                // ->where('department_id', $designation->uid)
                 ->orderBy('emp.short_order', 'ASC')
+                ->where('emp.publice_status',1)
                 ->get();
+                //dd($employee);
 
             return view('pages.contact-us', ['employee' => $employee]);
         } catch (\Exception $e) {
@@ -137,6 +138,7 @@ class HomeController extends Controller
                         $dynamic_content_page_pdf = DB::table('dynamic_content_page_pdf')
                             ->wheredcpm_id($dynamic_content_page_metatags->uid)
                             ->where('soft_delete', 0)
+                            ->latest('start_date')
                             ->get();
 
                         $dynamic_page_banner = DB::table('dynamic_page_banner')
@@ -162,6 +164,9 @@ class HomeController extends Controller
                             'banner' => $dynamic_page_banner,
                         ];
                     }
+
+
+                    //dd($organizedData);
 
                     if ($menus?->parent_id != 0) {
                         $sideMenu = DB::table('website_menu_management')->wherename_en($menus->name_en)->first('parent_id');
@@ -221,14 +226,13 @@ class HomeController extends Controller
                         ->latest('created_at')
                         ->get();
             
-                    // Store data for each tender with associated PDFs in an array
                     $tenderData[] = [
                         'tender' => $tender,
                         'tender_pdfs' => $tender_pdfs
                     ];
                 }
-               // dd($tenderData);
             }
+            // dd($tenderData);
             return view('pages.tender',['tenderData'=>$tenderData]);
 
         } catch (\Exception $e) {
@@ -244,46 +248,54 @@ class HomeController extends Controller
         }
     }
 
-    // public function rtiData(){
+    public function rtiData(){
 
-    //     try {
-    //         $rtiData = []; // Initialize the array to store all tender data
+        try {
+           
+            $rtiData; 
 
-    //         $rti_assets = DB::table('rti_assets')
-    //             ->where('soft_delete', 0)
-    //             ->latest('created_at')
-    //             ->get();
-
-    //         if (count($rti_assets) > 0) {
-    //             foreach ($rti_assets as $rti_pdf) {
-    //                 $rti_assets_details = DB::table('rti_assets_details')
-    //                     ->where('soft_delete', 0)
-    //                     ->where('rti_assets_id',$rti_pdf->uid)
-    //                     ->latest('created_at')
-    //                     ->get();
+            $rti_assets = DB::table('rti_assets')
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->first();
             
-    //                 // Store data for each tender with associated PDFs in an array
-    //                 $rtiData[] = [
-    //                     'rti' => $rti_assets,
-    //                     'rit_pdf' => $rti_assets_details
-    //                 ];
-    //             }
-    //            // dd($rtiData);
-    //         }
-    //         return view('pages.rti',['rtiData'=>$rtiData]);
+            if (!blank($rti_assets)) {
+                    $rti_assets_details = DB::table('rti_assets_details')
+                        ->where('soft_delete', 0)
+                        ->where('rti_assets_id', $rti_assets->uid)
+                        ->latest('created_at')
+                        ->get();
+            
+                    $rti_assets->rti_assets_details = $rti_assets_details;
+                    $rtiData = $rti_assets;
 
-    //     } catch (\Exception $e) {
-    //         \Log::error('An exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\PDOException $e) {
-    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\Throwable $e) {
-    //         // Catch any other types of exceptions that implement the Throwable interface.
-    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     }
-    // }
+
+                  //  dd($rtiData);
+
+            }else{      
+                
+                if (Session::get('Lang') == 'hi') {
+                    $content = "जल्द आ रहा है";
+                } else {
+                    $content = "Coming Soon...";
+                }
+                return view('pages.rti',['content'=>$content]);
+
+            }
+            return view('pages.rti',['rtiData'=>$rtiData]);
+
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        }
+    }
 
     public function overviewPage()
     {
@@ -325,6 +337,7 @@ class HomeController extends Controller
                 ->where('name_en', 'LIKE', 'Director')
                 ->where('soft_delete', 0)
                 ->orderBy('short_order', 'ASC')
+                ->where('publice_status',1)
                 ->first();
 
             if ($designation != '') {
@@ -333,11 +346,10 @@ class HomeController extends Controller
                     ->where('designation_id', $designation->uid)
                     ->where('soft_delete', 0)
                     ->orderBy('short_order', 'ASC')
+                    ->where('publice_status',1)
                     ->first();
 
                 //  dd($Director);
-
-
 
                 return view('pages.directorDesk', ['Director' => $Director]);
             } else {
@@ -364,7 +376,6 @@ class HomeController extends Controller
     }
     public function employeeDirectory()
     {
-
         try {
             $designationData = [];
 
@@ -372,8 +383,8 @@ class HomeController extends Controller
                 ->where('soft_delete', 0)
                 ->orderBy('short_order', 'ASC')
                 ->whereparent_id(0)
+                ->where('publice_status',1)
                 ->get();
-
 
             if (Count($department) > 0) {
 
@@ -385,7 +396,9 @@ class HomeController extends Controller
                         ->where('emp.soft_delete', 0)
                         ->where('department_id', $designation->uid)
                         ->orderBy('emp.short_order', 'ASC')
+                        ->where('emp.publice_status',1)
                         ->get();
+                      //  dd( $data);
 
                     $designationData[] = [
                         'department' => $designation,

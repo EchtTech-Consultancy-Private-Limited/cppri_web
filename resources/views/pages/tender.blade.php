@@ -83,12 +83,12 @@
 
                                                         <tbody>
                                                             @foreach ($tenderData as $data)
-
+            
                                                                 <tr>
                                                                     <td>{{ $data['tender']->title_name_en ?? '' }}</td>
                                                                     <td>{{ date('d F Y', strtotime($data['tender']->created_at ?? '')) }}
                                                                     </td>
-                                                                    {{-- @foreach ($data['tender_pdfs'] as $pdf) --}}
+                                                             
                                                                     <td>
                                                                         @foreach ($data['tender_pdfs'] as $pdf)
                                                                         <a href="{{ asset('resources/uploads/TenderManagement/' . $pdf->public_url) }}"
