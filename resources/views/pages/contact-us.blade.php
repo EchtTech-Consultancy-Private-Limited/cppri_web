@@ -70,19 +70,19 @@
                             @csrf
                             <h3>Fill This Form To Reach Us</h3>
                             <div class="info">
-                                <input class="fname" type="text" name="name" placeholder="Full name">
+                                <input class="fname" type="text" name="name" placeholder="Full name" required>
 
                                 @if ($errors->has('name'))
                                     <div class="text-danger">{{ $errors->first('name') }}</div>
                                 @endif
 
-                                <input type="email" name="email" placeholder="Email">
+                                <input type="email" name="email" placeholder="Email" required>
 
                                 @if ($errors->has('email'))
                                     <div class="text-danger">{{ $errors->first('email') }}</div>
                                 @endif
 
-                                <input type="number" name="phone" placeholder="Phone number">
+                                <input type="number" name="phone" placeholder="Phone number" required>
 
                                 @if ($errors->has('phone'))
                                     <div class="text-danger">{{ $errors->first('phone') }}</div>
@@ -91,7 +91,7 @@
                             </div>
                             <!-- <p>Message</p> -->
                             <div class="info">
-                                <textarea rows="3" name="message" placeholder="Message here..."></textarea>
+                                <textarea rows="3" name="message" required placeholder="Message here..."></textarea>
                                 @if ($errors->has('message'))
                                     <div class="text-danger">{{ $errors->first('message') }}</div>
                                 @endif
