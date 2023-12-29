@@ -29,7 +29,6 @@
 
         @if (isset($sortedDesignationData) && count($sortedDesignationData) > 0)
             @foreach ($sortedDesignationData as $item)
-                    
                 @if ($item['department']->name_en == 'Director')
                     <div class="row">
                         <div class="col-md-12 display-content">
@@ -52,20 +51,27 @@
                             @foreach ($item['data'] as $profile)
                                 <div class="direct-centre emp-card-det">
                                     <div class="card-emp-dir">
-                                      
+
                                         <div class="emp-crddir-inf">
                                             <div class="img-circle-prof">
-                                                 <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
+                                                <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
                                                   @else
                                                    src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif
                                                     alt=""
                                                     tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
                                             </div>
-                                            <h3><i class="fa fa-user"></i>{{ $profile->fname_en ?? '' }}
+                                            <h3>{{ $profile->fname_en ?? '' }}
                                                 {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
-                                            <h5>({{ $item['department']->name_en }})</h5>
-                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->landline_number ?? '' }}
-                                            </p>
+                                            <h5>({{ $profile->desi_name_en ?? '' }})</h5>
+
+                                            @if ($profile->landline_number != '' && $profile->landline_number != null)
+                                                <p><strong><i class="fa fa-phone"></i> :</strong>
+                                                    {{ $profile->landline_number ?? '' }} </p>
+                                            @else
+                                                <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile }}
+                                                </p>
+                                            @endif
+
                                             <p><strong>{{ $profile->extention_number ?? '' }}<strong></p>
 
 
@@ -77,7 +83,8 @@
                                             ?>
 
                                             <p><strong><i class="fa fa-envelope-o mr-2" aria-hidden="true"></i> :</strong>
-                                                <span>{{ $email ??""}}</span></p>
+                                                <span>{{ $email ?? '' }}</span>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -104,7 +111,7 @@
                             @foreach ($item['data'] as $profile)
                                 <div class="col-md-3 emp-card-det">
                                     <div class="card-emp-dir emp-dir-main">
-                                        
+
                                         <div class="emp-crddir-inf">
                                             <div class="img-circle-prof">
                                                 <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
@@ -113,11 +120,19 @@
                                                     alt=""
                                                     tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
                                             </div>
-                                            <h3><i class="fa fa-user"></i> {{ $profile->fname_en ?? '' }}
+                                            <h3> {{ $profile->fname_en ?? '' }}
                                                 {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
-                                            <h5>({{ $item['department']->name_en }})</h5>
-                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->landline_number ?? '' }}
-                                            </p>
+                                            <h5>({{ $profile->desi_name_en ?? '' }})</h5>
+
+                                            @if ($profile->landline_number != '' && $profile->landline_number != null)
+                                                <p><strong><i class="fa fa-phone"></i> :</strong>
+                                                    {{ $profile->landline_number ?? '' }} </p>
+                                            @else
+                                                <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile }}
+                                                </p>
+                                            @endif
+
+                                            
                                             <p> {{ $profile->extention_number ?? '' }}</p>
 
                                             <?php
@@ -128,7 +143,8 @@
                                             ?>
 
                                             <p class="email-text-styl"><i class="fa fa-envelope-o mr-2 w-10"
-                                                    aria-hidden="true"></i> <span class="w-90">{{ $email }}</span></p>
+                                                    aria-hidden="true"></i> <span class="w-90">{{ $email }}</span>
+                                            </p>
 
                                         </div>
                                     </div>
@@ -139,8 +155,6 @@
                 @endif
             @endforeach
         @endif
-
-
 
         @if (isset($content))
             <h1> {{ $content ?? '' }}</h1>

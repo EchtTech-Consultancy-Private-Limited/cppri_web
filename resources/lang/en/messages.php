@@ -16,7 +16,32 @@ return [
     'Publications_Reports'=>'Publications Reports',
     'Institute_Membership'=>'Institute Membership',
     'Webmail'=>'Webmail',
-    'Rules_and_Regulation'=>'Rules and Regulation'
+    'Rules_and_Regulation'=>'Rules and Regulation',
+    'Public_Grievance_Cell'=>'Public Grievance Cell',
+    'Grievance_Cell'=>'Grievance Cell',
+    'RTI'=>'RTI',
+    'Notification'=>'Notification',
+    'Press_Release'=>'Press Release',
+    'View_all_Tenders'=>'View all Tenders',
+    'Facebook'=>'Facebook',
+    'Twitter'=>'Twitter',
+    'Linkedin'=>'Linkedin',
+    'Instagram'=>'Instagram',
+    'Total_Visitors'=>'Total Visitors',
+    'Last_Updated'=>'आखरी अपडेट',
+    'Linking_Policy'=>'Linking Policy',
+    'Privacy_Policy'=>'Privacy Policy',
+    'Disclaimer'=>'Disclaimer',
+    'Help'=>'Help',
+    'Cookies_Policy'=>'Cookies Policy',
+    'Terms_&_Conditions'=>'Terms & Conditions',
+    'address'=>' Paper Mill Road, Himmat Nagar, Saharanpur-247001, India',
+    'About_Us'=>'About Us',
+    'Divisions/Cells'=>'Divisions/Cells',
+    'Quick_Links'=>'Quick Links'
+
+
+    
 
     
 
