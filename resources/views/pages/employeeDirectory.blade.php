@@ -156,8 +156,6 @@
             @endforeach
         @endif
 
-
-
         @if (isset($content))
             <h1> {{ $content ?? '' }}</h1>
         @endif
