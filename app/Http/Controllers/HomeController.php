@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App;
 use  Route, DB, Session, Schema, Cookie;
 use Illuminate\Http\Request;
+use App\Models\contactUs;
 
 class HomeController extends Controller
 {
@@ -269,7 +270,6 @@ class HomeController extends Controller
                     $rti_assets->rti_assets_details = $rti_assets_details;
                     $rtiData = $rti_assets;
 
-
                   //  dd($rtiData);
 
             }else{      
@@ -427,4 +427,27 @@ class HomeController extends Controller
             return view('pages.error');
         }
     }
+
+    public function contactStroe(Request $request)
+    {
+       // dd($request->all());
+        $request->validate([
+            'name' => 'required',
+            'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
+            'phone' => ['required','regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
+            'message' => 'required',
+            // 'CaptchaCode' => 'required|valid_captcha',
+        ]);
+
+        $data = new contactUs;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->message = $request->message;
+        $data->save();
+        return back()->with('success', 'Record Add Successfully');
+    }
+
+
+
 }

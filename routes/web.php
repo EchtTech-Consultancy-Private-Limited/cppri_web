@@ -46,6 +46,7 @@ Route::get('/screen-reader-access',[HomeController::class,'ScreenReaderAccess'])
 Route::get('/coming-soon',[HomeController::class,'ComingSoon']);
 Route::get('/error',[HomeController::class,'error']);
 Route::get('/contact-us',[HomeController::class,'contactUs']);
+Route::post('/contact-us',[HomeController::class,'contactStroe']);
 Route::get('/overview', [HomeController::class, 'overviewPage']);
 Route::get('/director-desk', [HomeController::class, 'directorDesk']);
 Route::get('/employee-directory', [HomeController::class, 'employeeDirectory']);

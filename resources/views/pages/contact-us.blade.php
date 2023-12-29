@@ -6,27 +6,27 @@
     <div class="container common-container mb-20">
         <div class="row p-0">
             <!-- <div class="col-md-6 col-lg-6">
-                       
-                    </div> -->
+                                                   
+                                                </div> -->
             <!-- <div class="col-md-6 col-lg-6">
-                     <div class="contact-item">
-                        <div class="contact-icon">
-                           <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        </div>
-                        <div class="contact-info">
-                           <h3>Delhi</h3>
-                          
-                              <ul>
-                                 <li>A-55, Third Floor, Gujranwala Town,</li>
-                                 <li>Part-1, Opposite Vinayak Hospital, Delhi -110009, India</li>
-                                 <li>Nr. Metro Station is "Model Town"</li>
-                                 <li><strong>Contact No.</strong> 011-49027213, +91-9910909169</li>
-                                 <li><a href=""> <strong>Email:</strong> cppri@yahoo.com</a></li>
-                              </ul>
-                           
-                        </div>
-                     </div>
-                  </div> -->
+                                                 <div class="contact-item">
+                                                    <div class="contact-icon">
+                                                       <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="contact-info">
+                                                       <h3>Delhi</h3>
+                                                      
+                                                          <ul>
+                                                             <li>A-55, Third Floor, Gujranwala Town,</li>
+                                                             <li>Part-1, Opposite Vinayak Hospital, Delhi -110009, India</li>
+                                                             <li>Nr. Metro Station is "Model Town"</li>
+                                                             <li><strong>Contact No.</strong> 011-49027213, +91-9910909169</li>
+                                                             <li><a href=""> <strong>Email:</strong> cppri@yahoo.com</a></li>
+                                                          </ul>
+                                                       
+                                                    </div>
+                                                 </div>
+                                              </div> -->
             <div class="col-md-6 col-lg-6">
 
                 <div class="contact-item">
@@ -49,20 +49,56 @@
 
                 <div class="cppri-contact-form">
                     <div class="main-block">
-                        <form action="#" method="get">
+
+                        @if (Session::has('success'))
+                            <script>
+                                toastr.success('{{ Session::get('success') }}')
+                            </script>
+                        @endif
+
+                        @if ($errors->any())
+                            <script>
+                                $(document).ready(function() {
+                                    @foreach ($errors->all() as $error)
+                                        toastr.error('{{ $error }}');
+                                    @endforeach
+                                });
+                            </script>
+                        @endif
+
+                        <form action="{{ url('contact-us') }}" method="post">
+                            @csrf
                             <h3>Fill This Form To Reach Us</h3>
                             <div class="info">
                                 <input class="fname" type="text" name="name" placeholder="Full name">
-                                <input type="text" name="name" placeholder="Email">
-                                <input type="text" name="name" placeholder="Phone number">
+
+                                @if ($errors->has('name'))
+                                    <div class="text-danger">{{ $errors->first('name') }}</div>
+                                @endif
+
+                                <input type="email" name="email" placeholder="Email">
+
+                                @if ($errors->has('email'))
+                                    <div class="text-danger">{{ $errors->first('email') }}</div>
+                                @endif
+
+                                <input type="number" name="phone" placeholder="Phone number">
+
+                                @if ($errors->has('phone'))
+                                    <div class="text-danger">{{ $errors->first('phone') }}</div>
+                                @endif
+
                             </div>
                             <!-- <p>Message</p> -->
                             <div class="info">
-                                <textarea rows="3" placeholder="Message here..."></textarea>
+                                <textarea rows="3" name="message" placeholder="Message here..."></textarea>
+                                @if ($errors->has('message'))
+                                    <div class="text-danger">{{ $errors->first('message') }}</div>
+                                @endif
                             </div>
                             <div class="captcha-box row p-0">
                                 <div class="info col-md-6">
-                                    <input class="captcha-input" type="text" name="name" placeholder="Enter Captcha">
+                                    <input class="captcha-input" type="text" name="Captcha" placeholder="Enter Captcha">
                                 </div>
                                 <div class="captcha-image col-md-6">
                                     <img src="{{ asset('assets-cppri/images/captcha-handler.jpg') }}" alt="captcha image">
