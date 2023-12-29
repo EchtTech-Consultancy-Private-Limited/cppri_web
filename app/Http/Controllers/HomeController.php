@@ -268,6 +268,10 @@ class HomeController extends Controller
             
                     $rti_assets->rti_assets_details = $rti_assets_details;
                     $rtiData = $rti_assets;
+
+
+                  //  dd($rtiData);
+
             }else{      
                 
                 if (Session::get('Lang') == 'hi') {
@@ -296,6 +300,11 @@ class HomeController extends Controller
     public function overviewPage()
     {
         return view('pages.overview');
+    }
+
+    public function Feedback()
+    {
+        return view('pages.feed_back');
     }
 
     public function siteMap()
