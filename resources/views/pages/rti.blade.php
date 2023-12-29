@@ -67,17 +67,17 @@
                                             @if (isset($rtiData) && !blank($rtiData))
 
                                                 @if (Session::get('Lang') == 'hi')
-                                                    {{ $rtiData->title_name_en  ??"" }}
+                                                    {{ $rtiData->title_name_hi  ??"" }}
                                                 @else
-                                                    {{ $rtiData->title_name_hi ??"" }}
+                                                    {{ $rtiData->title_name_en ??"" }}
                                                 @endif
                                          
                                         </h2>
                                             <p>
                                                 @if (Session::get('Lang') == 'hi')
-                                                    {!! $rtiData->description_en  ??'' !!}
-                                                @else
                                                     {!! $rtiData->description_hi  ??'' !!}
+                                                @else
+                                                    {!! $rtiData->description_en  ??'' !!}
                                                 @endif
                                             </p>
 
