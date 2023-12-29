@@ -290,6 +290,11 @@ class HomeController extends Controller
         return view('pages.overview');
     }
 
+    public function Feedback()
+    {
+        return view('pages.feed_back');
+    }
+
     public function siteMap()
     {
         return view('pages.siteMap');
