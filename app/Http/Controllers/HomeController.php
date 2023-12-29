@@ -138,6 +138,7 @@ class HomeController extends Controller
                         $dynamic_content_page_pdf = DB::table('dynamic_content_page_pdf')
                             ->wheredcpm_id($dynamic_content_page_metatags->uid)
                             ->where('soft_delete', 0)
+                            ->latest('start_date')
                             ->get();
 
                         $dynamic_page_banner = DB::table('dynamic_page_banner')
@@ -163,6 +164,9 @@ class HomeController extends Controller
                             'banner' => $dynamic_page_banner,
                         ];
                     }
+
+
+                    //dd($organizedData);
 
                     if ($menus?->parent_id != 0) {
                         $sideMenu = DB::table('website_menu_management')->wherename_en($menus->name_en)->first('parent_id');
