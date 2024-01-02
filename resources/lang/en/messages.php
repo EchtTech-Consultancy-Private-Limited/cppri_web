@@ -28,7 +28,7 @@ return [
     'Linkedin'=>'Linkedin',
     'Instagram'=>'Instagram',
     'Total_Visitors'=>'Total Visitors',
-    'Last_Updated'=>'आखरी अपडेट',
+    'Last_Updated'=>'Last Updated',
     'Linking_Policy'=>'Linking Policy',
     'Privacy_Policy'=>'Privacy Policy',
     'Disclaimer'=>'Disclaimer',
