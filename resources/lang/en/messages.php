@@ -13,7 +13,7 @@ return [
     'Read_More'=>'Read More',
     'Technical_Services'=>'Technical Services',
     'Our_Achievements'=>'Our Achievements',
-    'Publications_Reports'=>'Publications Reports',
+    'Publications_Reports'=>'Publications & Reports',
     'Institute_Membership'=>'Institute Membership',
     'Webmail'=>'Webmail',
     'Rules_and_Regulation'=>'Rules and Regulation',

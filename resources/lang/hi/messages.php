@@ -13,7 +13,7 @@ return [
     'Read_More'=>'और पढ़ें',
     'Technical_Services'=>'तकनीकी सेवाएं',
     'Our_Achievements'=>'हमारी उपलब्धियाँ',
-    'Publications_Reports'=>'प्रकाशन रिपोर्ट',
+    'Publications_Reports'=>'प्रकाशन & रिपोर्ट',
     'Institute_Membership'=>'संस्थान सदस्यता',
     'Webmail'=>'वेबमेल',
     'Rules_and_Regulation'=>'नियम और विनियम',
