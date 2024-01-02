@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App;
 use  Route, DB, Session, Schema, Cookie;
 use Illuminate\Http\Request;
+use App\Models\contactUs;
+use App\Models\feedback;
 
 class HomeController extends Controller
 {
@@ -78,9 +80,9 @@ class HomeController extends Controller
                 ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
                 ->where('emp.soft_delete', 0)
                 ->orderBy('emp.short_order', 'ASC')
-                ->where('emp.publice_status',1)
+                ->where('emp.publice_status', 1)
                 ->get();
-                //dd($employee);
+            //dd($employee);
 
             return view('pages.contact-us', ['employee' => $employee]);
         } catch (\Exception $e) {
@@ -217,7 +219,7 @@ class HomeController extends Controller
                 ->where('soft_delete', 0)
                 ->latest('created_at')
                 ->get();
-            
+
             if (count($tenders) > 0) {
                 foreach ($tenders as $tender) {
                     $tender_pdfs = DB::table('tender_details')
@@ -225,7 +227,7 @@ class HomeController extends Controller
                         ->where('tender_id', $tender->uid)
                         ->latest('created_at')
                         ->get();
-            
+
                     $tenderData[] = [
                         'tender' => $tender,
                         'tender_pdfs' => $tender_pdfs
@@ -233,8 +235,7 @@ class HomeController extends Controller
                 }
             }
             // dd($tenderData);
-            return view('pages.tender',['tenderData'=>$tenderData]);
-
+            return view('pages.tender', ['tenderData' => $tenderData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -248,42 +249,40 @@ class HomeController extends Controller
         }
     }
 
-    public function rtiData(){
+    public function rtiData()
+    {
 
         try {
-           
-            $rtiData; 
+
+            $rtiData;
 
             $rti_assets = DB::table('rti_assets')
                 ->where('soft_delete', 0)
                 ->latest('created_at')
                 ->first();
-            
+
             if (!blank($rti_assets)) {
-                    $rti_assets_details = DB::table('rti_assets_details')
-                        ->where('soft_delete', 0)
-                        ->where('rti_assets_id', $rti_assets->uid)
-                        ->latest('created_at')
-                        ->get();
-            
-                    $rti_assets->rti_assets_details = $rti_assets_details;
-                    $rtiData = $rti_assets;
+                $rti_assets_details = DB::table('rti_assets_details')
+                    ->where('soft_delete', 0)
+                    ->where('rti_assets_id', $rti_assets->uid)
+                    ->latest('created_at')
+                    ->get();
 
+                $rti_assets->rti_assets_details = $rti_assets_details;
+                $rtiData = $rti_assets;
 
-                  //  dd($rtiData);
+                //  dd($rtiData);
 
-            }else{      
-                
+            } else {
+
                 if (Session::get('Lang') == 'hi') {
                     $content = "जल्द आ रहा है";
                 } else {
                     $content = "Coming Soon...";
                 }
-                return view('pages.rti',['content'=>$content]);
-
+                return view('pages.rti', ['content' => $content]);
             }
-            return view('pages.rti',['rtiData'=>$rtiData]);
-
+            return view('pages.rti', ['rtiData' => $rtiData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -304,8 +303,30 @@ class HomeController extends Controller
 
     public function Feedback()
     {
-        return view('pages.feed_back');
+        return view('pages.feedback');
     }
+
+
+    public function feedbackStore(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'name' => 'required',
+            'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
+            'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
+            'message' => 'required',
+            // 'CaptchaCode' => 'required|valid_captcha',
+        ]);
+
+        $data = new feedback;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->message = $request->message;
+        $data->save();
+        return back()->with('success', 'Record Add Successfully');
+    }
+
 
     public function siteMap()
     {
@@ -337,7 +358,7 @@ class HomeController extends Controller
                 ->where('name_en', 'LIKE', 'Director')
                 ->where('soft_delete', 0)
                 ->orderBy('short_order', 'ASC')
-                ->where('publice_status',1)
+                ->where('publice_status', 1)
                 ->first();
 
             if ($designation != '') {
@@ -346,7 +367,7 @@ class HomeController extends Controller
                     ->where('designation_id', $designation->uid)
                     ->where('soft_delete', 0)
                     ->orderBy('short_order', 'ASC')
-                    ->where('publice_status',1)
+                    ->where('publice_status', 1)
                     ->first();
 
                 //  dd($Director);
@@ -383,7 +404,7 @@ class HomeController extends Controller
                 ->where('soft_delete', 0)
                 ->orderBy('short_order', 'ASC')
                 ->whereparent_id(0)
-                ->where('publice_status',1)
+                ->where('publice_status', 1)
                 ->get();
 
             if (Count($department) > 0) {
@@ -396,9 +417,9 @@ class HomeController extends Controller
                         ->where('emp.soft_delete', 0)
                         ->where('department_id', $designation->uid)
                         ->orderBy('emp.short_order', 'ASC')
-                        ->where('emp.publice_status',1)
+                        ->where('emp.publice_status', 1)
                         ->get();
-                      //  dd( $data);
+                    //  dd( $data);
 
                     $designationData[] = [
                         'department' => $designation,
@@ -431,5 +452,25 @@ class HomeController extends Controller
             \Log::error('An unexpected exception occurred: ' . $e->getMessage());
             return view('pages.error');
         }
+    }
+
+    public function contactStroe(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'name' => 'required',
+            'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
+            'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
+            'message' => 'required',
+            // 'CaptchaCode' => 'required|valid_captcha',
+        ]);
+
+        $data = new contactUs;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->message = $request->message;
+        $data->save();
+        return back()->with('success', 'Record Add Successfully');
     }
 }
