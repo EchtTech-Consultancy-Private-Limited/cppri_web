@@ -66,11 +66,11 @@
                             @foreach ($sideMenuChild as $sideMenuChilds)
                                 @if (isset($lastBred))
                                     @php
-                                        $sideMenuChildsurl = $psideMenuParent->url.'/'.$sideMenuParent->url . '/' . $sideMenuChilds->url ?? 'javascript:void(0)';
+                                        $sideMenuChildsurl = $psideMenuParent->url ?? 'javascript:void(0)' .'/'.$sideMenuParent->url ?? 'javascript:void(0)' . '/' . $sideMenuChilds->url ?? 'javascript:void(0)';
                                     @endphp
                                 @elseif (isset($middelBred))
                                     @php
-                                        $sideMenuChildsurl = $sideMenuParent->url . '/' . $sideMenuChilds->url ?? 'javascript:void(0)';
+                                        $sideMenuChildsurl = $sideMenuParent->url ?? 'javascript:void(0)' . '/' . $sideMenuChilds->url ?? 'javascript:void(0)';
                                     @endphp
                                 @else
                                     @php

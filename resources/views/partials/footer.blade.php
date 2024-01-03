@@ -304,9 +304,9 @@
                     <span>
 
                         @if (Session::get('Lang') == 'hi')
-                            {{ __('messages.Total_Visitors') }}
+                            {{ __('messages.Total_Visitors') }}:
                         @else
-                            {{ __('messages.Total_Visitors') }}
+                            {{ __('messages.Total_Visitors') }}:
                         @endif
 
                         <strong>{{ $visitCounter ?? '' }}</strong>
