@@ -39,15 +39,15 @@
                 <div class="header-right clearfix">
                     <div class="right-content clearfix">
                         <div class="float-element">
-                            <a class="sw-logo g20-logo" target="_blank" href="https://www.g20.org/en/"
+                            <a class="sw-logo g20-logo" onclick="return confirm('{{ $alertMessage ??'' }}')" target="_blank" href="https://www.g20.org/en/"
                                 title="G20, External link that open in a new windows">
                                 <img src="{{ asset('assets-cppri/images/g20-logo.png') }}" alt="Swachh Bharat">
                             </a>
-                            <a class="sw-logo swachhbharat" target="_blank" href="https://swachhbharat.mygov.in/"
+                            <a class="sw-logo swachhbharat" onclick="return confirm('{{ $alertMessage ??''}}')" target="_blank" href="https://swachhbharat.mygov.in/"
                                 title="Swachh Bharat, External link that open in a new windows">
                                 <img src="{{ asset('assets-cppri/images/swach-bharat.png') }}" alt="Swachh Bharat">
                             </a>
-                            <a class="sw-logo envelop" target="_blank" href="https://www.india.gov.in/"
+                            <a class="sw-logo envelop" onclick="return confirm('{{ $alertMessage  ??''}}')" target="_blank" href="https://www.india.gov.in/"
                                 title="Satyamev Jayate, External link that open in a new windows">
                                 <img src="{{ asset('assets-cppri/images/emblem-dark.png') }}" alt="Swachh Bharat">
                             </a>
