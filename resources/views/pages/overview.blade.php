@@ -57,7 +57,7 @@
                                     </p>
                                     <p>All affairs of CPPRI are managed by 18 membered Council of Association,
                                         comprising of representatives from Paper Industry, Department of Industrial
-                                        Policy & Promotion (DIPP), and Department. of Science & Technology (DST),
+                                        Policy & Promotion (DIPP), and Department of Science & Technology (DST),
                                         Council of Scientific and Industrial Research (CSIR), Indian Council of Forestry
                                         Research & Education (ICFRE) and IIT Roorkee. The Secretary (DIPP), Ministry of
                                         Commerce and Industry, Govt. of India is the President of the Council of
