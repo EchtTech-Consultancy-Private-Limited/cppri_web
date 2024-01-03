@@ -10,7 +10,11 @@
             <div class="inner-banner-text">
                 <div class="text-banner-content">
                     <h2>
-                        SiteMap
+                        @if (Session::get('Lang') == 'hi')
+                            {{ __('messages.SiteMap') }}
+                        @else
+                            {{ __('messages.SiteMap') }}
+                        @endif
                     </h2>
                 </div>
             </div>
@@ -20,8 +24,24 @@
         <div class="breadcam-bg breadcam">
             <div class="container common-container four_content ">
                 <ul>
-                    <li><a href="home.html">Home </a></li>
-                    <li><a href="javascript:void();">SiteMap</a></li>
+                    <li><a href="{{ url('/') }}">
+
+                            @if (Session::get('Lang') == 'hi')
+                                होम पेज
+                            @else
+                                Home
+                            @endif
+
+                        </a></li>
+                    <li><a href="javascript:void();">
+                        
+                        @if (Session::get('Lang') == 'hi')
+                        {{ __('messages.SiteMap') }}
+                    @else
+                        {{ __('messages.SiteMap') }}
+                    @endif
+                    
+                    </a></li>
                 </ul>
             </div>
         </div>
@@ -31,9 +51,16 @@
     <section id="list" class="wrapper list-wrapper ptb-30">
         <div class="container">
             <div class="master">
-                <h3 class="master-title mt-0">Website Link</h3>
+                {{-- <h3 class="master-title mt-0">Website Link</h3> --}}
                 <div class="list list-circle">
-                    <h4>Main menu</h4>
+                    <h2>
+                        @if (Session::get('Lang') == 'hi')
+                        {{ __('messages.Main_menu') }}
+                        @else
+                        {{ __('messages.Main_menu') }}
+                        @endif
+
+                    </h2>
                     <ul class="clearfix sitemap">
                         @if (isset($headerMenu) && count($headerMenu) > 0)
                             @foreach ($headerMenu as $headerMenus)
@@ -43,7 +70,7 @@
                                 @if (isset($headerMenus->children) && count($headerMenus->children) > 0)
                                     <li class="menu-item-has-children pb-0">
                                         <a href="javascript:void(0)">
-                                            @if (Session::get('locale') == 'hi')
+                                            @if (Session::get('Lang') == 'hi')
                                                 {{ $headerMenus->name_hi ?? '' }}
                                             @else
                                                 {{ $headerMenus->name_en ?? '' }}
@@ -60,7 +87,7 @@
                                                         @if ($subMenus->tab_type == 1)
                                                             <a onclick="return confirm('{{ $alertMessage }}')"
                                                                 target="_blank" href="{{ url($suburl) }}">
-                                                                @if (Session::get('locale') == 'hi')
+                                                                @if (Session::get('Lang') == 'hi')
                                                                     {{ $subMenus->name_hi ?? '' }}
                                                                 @else
                                                                     {{ $subMenus->name_en ?? '' }}
@@ -68,7 +95,7 @@
                                                             </a>
                                                         @else
                                                             <a href="{{ url($suburl) }}">
-                                                                @if (Session::get('locale') == 'hi')
+                                                                @if (Session::get('Lang') == 'hi')
                                                                     {{ $subMenus->name_hi ?? '' }}
                                                                 @else
                                                                     {{ $subMenus->name_en ?? '' }}
@@ -87,7 +114,7 @@
                                         @if ($headerMenus->tab_type == 1)
                                             <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
                                                 href="{{ url($url) }}">
-                                                @if (Session::get('locale') == 'hi')
+                                                @if (Session::get('Lang') == 'hi')
                                                     {{ $headerMenus->name_hi ?? '' }}
                                                 @else
                                                     {{ $headerMenus->name_en ?? '' }}
@@ -95,7 +122,7 @@
                                             </a>
                                         @else
                                             <a href="{{ url($url) }}">
-                                                @if (Session::get('locale') == 'hi')
+                                                @if (Session::get('Lang') == 'hi')
                                                     {{ $headerMenus->name_hi ?? '' }}
                                                 @else
                                                     {{ $headerMenus->name_en ?? '' }}
@@ -113,7 +140,15 @@
 
 
                 <h2>
-                    Footer Menu
+
+
+                    @if (Session::get('Lang') == 'hi')
+                    {{ __('messages.Footer_Menu') }}
+                    @else
+                    {{ __('messages.Footer_Menu') }}
+                    @endif
+
+
                 </h2>
 
                 <div class="list list-circle">
@@ -128,7 +163,7 @@
                                     <li class="first leaf">
                                         <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
                                             href="{{ url($footerMenusurl) ?? '' }}">
-                                            @if (Session::get('locale') == 'hi')
+                                            @if (Session::get('Lang') == 'hi')
                                                 {{ $footerMenus->name_hi ?? '' }}
                                             @else
                                                 {{ $footerMenus->name_en ?? '' }}
@@ -137,7 +172,7 @@
                                     </li>
                                 @else
                                     <li class="first leaf"><a href="{{ url($footerMenusurl) ?? '' }}">
-                                            @if (Session::get('locale') == 'hi')
+                                            @if (Session::get('Lang') == 'hi')
                                                 {{ $footerMenus->name_hi ?? '' }}
                                             @else
                                                 {{ $footerMenus->name_en ?? '' }}
