@@ -5539,8 +5539,9 @@ textarea:focus, input:focus{
 }
 
 .clientail .flexslider:hover .flex-direction-nav .flex-prev,.clientail .flexslider:hover .flex-direction-nav .flex-next, .carousel-wrapper.clientail #flexCarousel ul.flex-direction-nav li a:focus {
-	top: -112px !important;
+	top: -127px !important;
     margin: 0;
+    height: 48px;
 }
 
 .flexslider:hover .flex-direction-nav .flex-prev{left: -30px !important;}
