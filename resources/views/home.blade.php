@@ -17,7 +17,7 @@
     </style>
 
     <section class="wrapper banner-wrapper">
-        <h1 style="display: none">Banner</h1>
+        <h1 class="d-none">Banner</h1>
         <div id="flexSlider" class="flexslider">
             <ul class="slides">
                 @if (isset($banner) && count($banner) > 0)
@@ -46,7 +46,7 @@
     </section>
 
     <section class="latest-news">
-        <h3 style="display: none;">Latest News</h3>
+        <h3 class="d-none">Latest News</h3>
         <div class="row px-0">
             <div class="col-md-2">
                 <div class="latest-new-title">
@@ -76,7 +76,7 @@
                                     @if ($news_managements->tab_type == '1')
                                         @if (!empty($url))
                                             <a href="{{ url($url) }}" onclick="return confirm('{{ $alertMessage  ??''}}')"
-                                                target="_blank" style="font-weight:bold">
+                                                target="_blank" >
 
                                                 @if (Session::get('Lang') == 'hi')
                                                     {{ $title_hi ?? '' }}
@@ -88,7 +88,7 @@
                                         @endif
                                     @else
                                         @if (!empty($url))
-                                            <a href="{{ url($url) }}" style="font-weight: bold">
+                                            <a href="{{ url($url) }}" >
                                                 @if (Session::get('Lang') == 'hi')
                                                     {{ $title_hi ?? '' }}
                                                 @else
@@ -100,7 +100,7 @@
                                 </span>
                             @endforeach
                         @else
-                            <h5 style="font-weight:bold">No news available.</h5>
+                            <h5 >No news available.</h5>
                         @endif
                     </div>
                 </div>
@@ -110,7 +110,7 @@
     <div class="wrapper" id="skipCont"></div>
     <!--/#skipCont-->
     <section id="fontSize" class="wrapper body-wrapper ">
-        <h2 style="display: none;">Body</h2>
+        <h2 class="d-none">Body</h2>
         <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott">
             <div class="container common-container four_content body-container top-body-container padding-top-bott2">
                 <div class="minister clearfix animate__animated animate__backInRight animate__delay-3s">
@@ -594,7 +594,7 @@
                                                                 </li>
                                                             @endforeach
                                                         @else
-                                                            <h5 style="font-weight:bold">No notifications available.</h5>
+                                                            <h5 >No notifications available.</h5>
                                                         @endif
 
                                                         {{-- <li>
@@ -698,7 +698,7 @@
                                                                 </li>
                                                             @endforeach
                                                         @else
-                                                            <h5 style="font-weight:bold">No press releases available.</h5>
+                                                            <h5 >No press releases available.</h5>
                                                         @endif
 
 
@@ -1129,7 +1129,7 @@
 
     <!--Client logo start-->
     <section class="wrapper carousel-wrapper clientail">
-        <h2 style="display: none;">Carousel</h2>
+        <h2 class="d-none">Carousel</h2>
         <div class="container common-container four_content carousel-container">
             <div id="flexCarousel" class="flexslider carousel">
                 <ul class="slides">
