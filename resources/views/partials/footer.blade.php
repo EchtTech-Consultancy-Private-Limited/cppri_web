@@ -286,9 +286,9 @@
                     <span>
 
                         @if (Session::get('Lang') == 'hi')
-                            {{ __('messages.Last_Updated') }} 
+                            {{ __('messages.Last_Updated') }} :
                         @else
-                            {{ __('messages.Last_Updated') }} 
+                            {{ __('messages.Last_Updated') }} :
                         @endif
 
                         <strong>28-12-23</strong>

@@ -75,7 +75,7 @@
 
                                     @if ($news_managements->tab_type == '1')
                                         @if (!empty($url))
-                                            <a href="{{ url($url) }}" onclick="return confirm('{{ $alertMessage }}')"
+                                            <a href="{{ url($url) }}" onclick="return confirm('{{ $alertMessage  ??''}}')"
                                                 target="_blank" style="font-weight:bold">
 
                                                 @if (Session::get('Lang') == 'hi')
@@ -394,7 +394,11 @@
                                     <!-- <h2>External Link 2</h2> -->
                                     <a href="{{ url('public-grievance-cell') }}"
                                         title="External link that opens in new tab"
+<<<<<<< HEAD
                                         onclick="return confirm('{{ $alertMessage ??''}}')" target="_blank">
+=======
+                                        onclick="return confirm('{{ $alertMessage  ??''}}')" target="_blank">
+>>>>>>> f6f5f71e86ea07a5efe029e95cfa1d42fd389a51
 
                                         <img src="{{ asset('assets-cppri/images/public.png') }}" alt="icon"
                                             class="cell-icon-sec">
@@ -436,7 +440,11 @@
                                 <div class="banner-box-content">
                                     <!-- <h2>External Link 3</h2> -->
                                     <a href="{{ url('webmail') }}" title="External link that opens in new tab"
+<<<<<<< HEAD
                                         onclick="return confirm('{{ $alertMessage ??'' }}')" target="_blank">
+=======
+                                        onclick="return confirm('{{ $alertMessage  ??''}}')" target="_blank">
+>>>>>>> f6f5f71e86ea07a5efe029e95cfa1d42fd389a51
                                         <img src="{{ asset('assets-cppri/images/mail.png') }}" alt="icon"
                                             class="cell-icon-sec">
                                         <p>
@@ -580,7 +588,7 @@
                                                                         &nbsp;
 
                                                                         @if ($notifications->tab_type == 1)
-                                                                            <a onclick="return confirm('{{ $alertMessage }}')"
+                                                                            <a onclick="return confirm('{{ $alertMessage ??'' }}')"
                                                                                 target="_blank"
                                                                                 href="{{ $notiUrl ?? '' }}"
                                                                                 class="text-danger">Click
@@ -670,7 +678,7 @@
                                                             @foreach ($press_release as $press_releases)
                                                                 <li>
                                                                     @if ($notifications->tab_type == 1)
-                                                                        <a onclick="return confirm('{{ $alertMessage }}')"
+                                                                        <a onclick="return confirm('{{ $alertMessage  ??''}}')"
                                                                             target="_blank" href="{{ $notiUrl ?? '' }}">
                                                                             <div class="list-content">
 
@@ -1138,12 +1146,20 @@
                                 src="{{ asset('assets-cppri/images/carousel/digital-india.png') }}"
                                 alt="Digital India"></a>
                     </li>
+<<<<<<< HEAD
                     <li><a onclick="return confirm('{{ $alertMessage ??'' }}')" target="_blank"
+=======
+                    <li><a onclick="return confirm('{{ $alertMessage ??''}}')" target="_blank"
+>>>>>>> f6f5f71e86ea07a5efe029e95cfa1d42fd389a51
                             href="http://www.makeinindia.com/" title="Make In India"> <img
                                 src="{{ asset('assets-cppri/images/carousel/makeinindia.png') }}"
                                 alt="Make In India"></a>
                     </li>
+<<<<<<< HEAD
                     <li><a onclick="return confirm('{{ $alertMessage ??'' }}')" target="_blank" href="http://india.gov.in/"
+=======
+                    <li><a onclick="return confirm('{{ $alertMessage  ??''}}')" target="_blank" href="http://india.gov.in/"
+>>>>>>> f6f5f71e86ea07a5efe029e95cfa1d42fd389a51
                             title="National Portal of India"><img
                                 src="{{ asset('assets-cppri/images/carousel/india-gov.png') }}"
                                 alt="National Portal of India"></a></li>
@@ -1151,6 +1167,7 @@
                             href="http://goidirectory.nic.in/" title="GOI Web Directory"><img
                                 src="{{ asset('assets-cppri/images/carousel/goidirectory.png') }}"
                                 alt="GOI Web Directory"></a></li>
+<<<<<<< HEAD
                     <li><a onclick="return confirm('{{ $alertMessage ??'' }}')" target="_blank" href="https://data.gov.in/"
                             title="Data portal"><img src="{{ asset('assets-cppri/images/carousel/data-gov.png') }}"
                                 alt="Data portal"></a>
@@ -1160,6 +1177,17 @@
                                 alt="MyGov Portal"></a>
                     </li>
                     <li><a onclick="return confirm('{{ $alertMessage ??'' }}')" target="_blank"
+=======
+                    <li><a onclick="return confirm('{{ $alertMessage  ??''}}')" target="_blank" href="https://data.gov.in/"
+                            title="Data portal"><img src="{{ asset('assets-cppri/images/carousel/data-gov.png') }}"
+                                alt="Data portal"></a>
+                    </li>
+                    <li><a onclick="return confirm('{{ $alertMessage  ??''}}')" target="_blank" href="https://mygov.in/"
+                            title="MyGov"><img src="{{ asset('assets-cppri/images/carousel/mygov.png') }}"
+                                alt="MyGov Portal"></a>
+                    </li>
+                    <li><a onclick="return confirm('{{ $alertMessage  ??''}}')" target="_blank"
+>>>>>>> f6f5f71e86ea07a5efe029e95cfa1d42fd389a51
                             href="http://www.dcpulppaper.org/index.html"
                             title="Development Council for Pulp Paper & Allied Industries"><img
                                 src="{{ asset('assets-cppri/images/carousel/Development-logo.png') }}"

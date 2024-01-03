@@ -73,34 +73,25 @@
                                 </a>
                             </div>
                         </li>
-
-                        <!-- ****************************** -->
-                        <div class="accordion accordion-flush" id="SidebarDropdownAccordian">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                        aria-controls="flush-collapseOne">
-                                        Accordion Item #1
+                        <div class="accordion accordion-flush" id="sidebarDropdown">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Dropdown Item 1
                                     </button>
-                                </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                    data-bs-parent="#SidebarDropdownAccordian">
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#sidebarDropdown">
                                     <div class="accordion-body">
-
-                                    <ul>
-                                        <li> Item 1</li>
-                                        <li> Item 2</li>
-                                        <li> Item 3</li>
-                                    </ul>
+                                        <ul>
+                                            <li> item 1</li>
+                                            <li> item 2</li>
+                                            <li> item 3</li>
+                                        </ul>
+                                    </div>
                                     </div>
                                 </div>
-                            </div>
-
-
-                        </div>
-                        <!-- ****************************** -->
-
+                                
+                                </div>
 
 
                     </ul>
@@ -131,7 +122,6 @@
                             <section id="paragraph" class="wrapper paragraph-wrapper">
                                 <div class="container common-container four_content pm-0">
                                     <div class="align-lt">
-                                       
                                         <h2 class="mt-0 mb-20">
                                             @if (isset($organizedData['metatag']->page_title_en) &&
                                             !blank($organizedData['metatag']->page_title_en))
@@ -161,7 +151,7 @@
                                         </div> --}}
                                     </div>
                                 </div>
-
+                              
                             </section>
                             <!--/#paragraph-->
                             {{-- <section id="list" class="wrapper list-wrapper ptb-30">
