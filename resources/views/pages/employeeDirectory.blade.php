@@ -9,7 +9,12 @@
             <div class="inner-banner-text">
                 <div class="text-banner-content">
                     <h2>
-                        Employee Directory
+
+                        @if (Session::get('Lang') == 'hi')
+                            {{ __('messages.Employee_Directory') }}
+                        @else
+                            {{ __('messages.Employee_Directory') }}
+                        @endif
                     </h2>
                 </div>
             </div>
@@ -19,8 +24,20 @@
         <div class="breadcam-bg breadcam">
             <div class="container common-container four_content">
                 <ul>
-                    <li><a href="home.html">Home </a></li>
-                    <li><a href="javascript:void();">Employee Directory</a></li>
+                    <li><a href="home.html">
+                            @if (Session::get('Lang') == 'hi')
+                                होम पेज
+                            @else
+                                Home
+                            @endif
+                        </a></li>
+                    <li><a href="javascript:void();">
+                            @if (Session::get('Lang') == 'hi')
+                                {{ __('messages.Employee_Directory') }}
+                            @else
+                                {{ __('messages.Employee_Directory') }}
+                            @endif
+                        </a></li>
                 </ul>
             </div>
         </div>
@@ -37,7 +54,7 @@
                                 <h3>
 
                                     @if (Session::get('Lang') == 'hi')
-                                        <h2>{{ $item['department']->name_en ?? '' }}</h2>
+                                        <h2>{{ $item['department']->name_hi ?? '' }}</h2>
                                     @else
                                         <h2>{{ $item['department']->name_en ?? '' }}</h2>
                                     @endif
@@ -60,9 +77,24 @@
                                                     alt=""
                                                     tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
                                             </div>
-                                            <h3>{{ $profile->fname_en ?? '' }}
-                                                {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
-                                            <h5>({{ $profile->desi_name_en ?? '' }})</h5>
+                                        
+
+
+                                                @if (Session::get('Lang') == 'hi')
+                                                <h3> {{ $profile->fname_hi ?? '' }}
+                                                    {{ $profile->mname_hi ?? '' }} {{ $profile->lname_hi ?? '' }}</h3>
+                                                @else
+                                                <h3> {{ $profile->fname_en ?? '' }}
+                                                    {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
+                                                @endif
+
+
+
+                                                @if (Session::get('Lang') == 'hi')
+                                                <h5>({{ $profile->desi_name_hi ?? '' }})</h5>
+                                                @else
+                                                <h5>({{ $profile->desi_name_en ?? '' }})</h5>
+                                                @endif
 
                                             @if ($profile->landline_number != '' && $profile->landline_number != null)
                                                 <p><strong><i class="fa fa-phone"></i> :</strong>
@@ -99,7 +131,7 @@
                                 <div data-aos-mirror="true" data-aos="fade-right" class="title-before"> </div>
 
                                 @if (Session::get('Lang') == 'hi')
-                                    <h2>{{ $item['department']->name_en ?? '' }}</h2>
+                                    <h2>{{ $item['department']->name_hi ?? '' }}</h2>
                                 @else
                                     <h2>{{ $item['department']->name_en ?? '' }}</h2>
                                 @endif
@@ -120,9 +152,21 @@
                                                     alt=""
                                                     tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
                                             </div>
-                                            <h3> {{ $profile->fname_en ?? '' }}
-                                                {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
+                                          
+                                                @if (Session::get('Lang') == 'hi')
+                                                <h3> {{ $profile->fname_hi ?? '' }}
+                                                    {{ $profile->mname_hi ?? '' }} {{ $profile->lname_hi ?? '' }}</h3>
+                                                @else
+                                                <h3> {{ $profile->fname_en ?? '' }}
+                                                    {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
+                                                @endif
+
+                                            @if (Session::get('Lang') == 'hi')
+                                            <h5>({{ $profile->desi_name_hi ?? '' }})</h5>
+                                            @else
                                             <h5>({{ $profile->desi_name_en ?? '' }})</h5>
+                                            @endif
+
 
                                             @if ($profile->landline_number != '' && $profile->landline_number != null)
                                                 <p><strong><i class="fa fa-phone"></i> :</strong>
@@ -132,7 +176,7 @@
                                                 </p>
                                             @endif
 
-                                            
+
                                             <p> {{ $profile->extention_number ?? '' }}</p>
 
                                             <?php

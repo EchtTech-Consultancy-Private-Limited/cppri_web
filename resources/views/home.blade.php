@@ -17,7 +17,7 @@
     </style>
 
     <section class="wrapper banner-wrapper">
-        <h1 style="display: none">Banner</h1>
+        <h1 class="d-none">Banner</h1>
         <div id="flexSlider" class="flexslider">
             <ul class="slides">
                 @if (isset($banner) && count($banner) > 0)
@@ -46,8 +46,8 @@
     </section>
 
     <section class="latest-news">
-        <h3 style="display: none;">Latest News</h3>
-        <div class="row">
+        <h3 class="d-none">Latest News</h3>
+        <div class="row px-0">
             <div class="col-md-2">
                 <div class="latest-new-title">
                     <p class="change-color-code">
@@ -75,8 +75,8 @@
 
                                     @if ($news_managements->tab_type == '1')
                                         @if (!empty($url))
-                                            <a href="{{ url($url) }}" onclick="return confirm('{{ $alertMessage }}')"
-                                                target="_blank" style="font-weight:bold">
+                                            <a href="{{ url($url) }}" onclick="return confirm('{{ $alertMessage  ??''}}')"
+                                                target="_blank" >
 
                                                 @if (Session::get('Lang') == 'hi')
                                                     {{ $title_hi ?? '' }}
@@ -88,7 +88,7 @@
                                         @endif
                                     @else
                                         @if (!empty($url))
-                                            <a href="{{ url($url) }}" style="font-weight: bold">
+                                            <a href="{{ url($url) }}" >
                                                 @if (Session::get('Lang') == 'hi')
                                                     {{ $title_hi ?? '' }}
                                                 @else
@@ -100,7 +100,7 @@
                                 </span>
                             @endforeach
                         @else
-                            <h5 style="font-weight:bold">No news available.</h5>
+                            <h5 >No news available.</h5>
                         @endif
                     </div>
                 </div>
@@ -110,7 +110,7 @@
     <div class="wrapper" id="skipCont"></div>
     <!--/#skipCont-->
     <section id="fontSize" class="wrapper body-wrapper ">
-        <h2 style="display: none;">Body</h2>
+        <h2 class="d-none">Body</h2>
         <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott">
             <div class="container common-container four_content body-container top-body-container padding-top-bott2">
                 <div class="minister clearfix animate__animated animate__backInRight animate__delay-3s">
@@ -171,8 +171,8 @@
 
                     </p>
                     <br>
-                    {{-- <a href="javascript:void(0);" title="Click here to know more">Read more <i
-                            class="fa fa-angle-right"></i></a> --}}
+                    <a href="javascript:void(0);" title="Click here to know more">Read more <i
+                            class="fa fa-angle-right"></i></a> 
                 </div>
             </div>
         </div>
@@ -184,7 +184,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="banner-content-wrapper services-heading">
-                            <h2 class="text-white mt-0">
+                            <h2 class="mt-0">
                                 @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Services') }}
                                 @else
@@ -199,8 +199,8 @@
                 <div class="row p-0">
                     <div class="col-md-8">
                         <!-- <div class="title-style-3 mb-20">
-                                                                                                            <h2 class="border-bottom-color">Services</h2>
-                                                                                                        </div> -->
+                                                                                                                    <h2 class="border-bottom-color">Services</h2>
+                                                                                                                </div> -->
                         <div class="row p-0">
                             <!--Icon Box Start-->
                             <div class="col-md-4 col-sm-4">
@@ -394,7 +394,7 @@
                                     <!-- <h2>External Link 2</h2> -->
                                     <a href="{{ url('public-grievance-cell') }}"
                                         title="External link that opens in new tab"
-                                        onclick="return confirm('{{ $alertMessage }}')" target="_blank">
+                                        onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank">
 
                                         <img src="{{ asset('assets-cppri/images/public.png') }}" alt="icon"
                                             class="cell-icon-sec">
@@ -436,7 +436,7 @@
                                 <div class="banner-box-content">
                                     <!-- <h2>External Link 3</h2> -->
                                     <a href="{{ url('webmail') }}" title="External link that opens in new tab"
-                                        onclick="return confirm('{{ $alertMessage }}')" target="_blank">
+                                        onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank">
                                         <img src="{{ asset('assets-cppri/images/mail.png') }}" alt="icon"
                                             class="cell-icon-sec">
                                         <p>
@@ -463,75 +463,75 @@
 
 
         <!-- <div class="links-wrapper change-color-code">
-                                                                                            <div class="container common-container ptb-10">
+                                                                                                    <div class="container common-container ptb-10">
 
 
-                                                                                                <div class="row">
-                                                                                                    <div class="col-md-12">
-                                                                                                        <div class="banner-content-wrapper services-heading">
-                                                                                                            <h2 class="text-white mt-0">
-                                                                                                                @if (Session::get('Lang') == 'hi')
+                                                                                                        <div class="row">
+                                                                                                            <div class="col-md-12">
+                                                                                                                <div class="banner-content-wrapper services-heading">
+                                                                                                                    <h2 class="text-white mt-0">
+                                                                                                                        @if (Session::get('Lang') == 'hi')
     {{ __('messages.Services') }}
 @else
     {{ __('messages.Services') }}
     @endif
-                                                                                                            </h2>
+                                                                                                                    </h2>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+
+
+                                                                                                        <div class="icon-box">
+                                                                                                            <a href="javascript:void();">
+                                                                                                                <span class="icon-box-ico">
+                                                                                                                    <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}" alt="">
+                                                                                                                </span>
+                                                                                                                <span class="icon-box-text">R &amp; D Projects</span>
+                                                                                                            </a>
+                                                                                                        </div>
+
+                                                                                                        <div class="icon-box">
+                                                                                                            <a href="javascript:void();">
+                                                                                                                <span class="icon-box-ico">
+                                                                                                                    <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt="">
+                                                                                                                </span>
+                                                                                                                <span class="icon-box-text">Technical Services </span>
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                        <div class="icon-box">
+                                                                                                            <a href="javascript:void();">
+                                                                                                                <span class="icon-box-ico">
+                                                                                                                    <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt="">
+                                                                                                                </span>
+                                                                                                                <span class="icon-box-text">Our Achievements</span>
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                        <div class="icon-box">
+                                                                                                            <a href="javascript:void();">
+                                                                                                                <span class="icon-box-ico">
+                                                                                                                    <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt="">
+                                                                                                                </span>
+                                                                                                                <span class="icon-box-text">Publications &amp; Reports</span>
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                        <div class="icon-box">
+                                                                                                            <a href="javascript:void();">
+                                                                                                                <span class="icon-box-ico">
+                                                                                                                    <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt="">
+                                                                                                                </span>
+                                                                                                                <span class="icon-box-text">Institute Membership</span>
+                                                                                                            </a>
+                                                                                                        </div>
+                                                                                                        <div class="icon-box">
+                                                                                                            <a href="javascript:void();">
+                                                                                                                <span class="icon-box-ico">
+                                                                                                                    <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt="">
+                                                                                                                </span>
+                                                                                                                <span class="icon-box-text">Tender</span>
+                                                                                                            </a>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                </div>
-
-
-                                                                                                <div class="icon-box">
-                                                                                                    <a href="javascript:void();">
-                                                                                                        <span class="icon-box-ico">
-                                                                                                            <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}" alt="">
-                                                                                                        </span>
-                                                                                                        <span class="icon-box-text">R &amp; D Projects</span>
-                                                                                                    </a>
-                                                                                                </div>
-
-                                                                                                <div class="icon-box">
-                                                                                                    <a href="javascript:void();">
-                                                                                                        <span class="icon-box-ico">
-                                                                                                            <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt="">
-                                                                                                        </span>
-                                                                                                        <span class="icon-box-text">Technical Services </span>
-                                                                                                    </a>
-                                                                                                </div>
-                                                                                                <div class="icon-box">
-                                                                                                    <a href="javascript:void();">
-                                                                                                        <span class="icon-box-ico">
-                                                                                                            <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt="">
-                                                                                                        </span>
-                                                                                                        <span class="icon-box-text">Our Achievements</span>
-                                                                                                    </a>
-                                                                                                </div>
-                                                                                                <div class="icon-box">
-                                                                                                    <a href="javascript:void();">
-                                                                                                        <span class="icon-box-ico">
-                                                                                                            <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt="">
-                                                                                                        </span>
-                                                                                                        <span class="icon-box-text">Publications &amp; Reports</span>
-                                                                                                    </a>
-                                                                                                </div>
-                                                                                                <div class="icon-box">
-                                                                                                    <a href="javascript:void();">
-                                                                                                        <span class="icon-box-ico">
-                                                                                                            <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt="">
-                                                                                                        </span>
-                                                                                                        <span class="icon-box-text">Institute Membership</span>
-                                                                                                    </a>
-                                                                                                </div>
-                                                                                                <div class="icon-box">
-                                                                                                    <a href="javascript:void();">
-                                                                                                        <span class="icon-box-ico">
-                                                                                                            <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt="">
-                                                                                                        </span>
-                                                                                                        <span class="icon-box-text">Tender</span>
-                                                                                                    </a>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div> -->
+                                                                                                </div> -->
 
 
         <!-- <div class="wrapper home-banner"> -->
@@ -567,20 +567,20 @@
                                                         @if (isset($notification) && count($notification) > 0)
                                                             @foreach ($notification as $notifications)
                                                                 <li>
-
                                                                     @php
                                                                         $notiUrl = $notifications->url_link ?? 'javascript:void(0)';
                                                                     @endphp
                                                                     <div class="list-content">
                                                                         @if (Session::get('Lang') == 'hi')
-                                                                            {{ $press_releases->recent_activities_hi ?? '' }}
+                                                                            {{ $notifications->recent_activities_hi ?? '' }}
                                                                         @else
-                                                                            {{ $press_releases->recent_activities_en ?? '' }}
+                                                                            {{ $notifications->recent_activities_en ?? '' }}
                                                                         @endif
+
                                                                         &nbsp;
 
                                                                         @if ($notifications->tab_type == 1)
-                                                                            <a onclick="return confirm('{{ $alertMessage }}')"
+                                                                            <a onclick="return confirm('{{ $alertMessage ?? '' }}')"
                                                                                 target="_blank"
                                                                                 href="{{ $notiUrl ?? '' }}"
                                                                                 class="text-danger">Click
@@ -594,7 +594,7 @@
                                                                 </li>
                                                             @endforeach
                                                         @else
-                                                            <h5 style="font-weight:bold">No notifications available.</h5>
+                                                            <h5 >No notifications available.</h5>
                                                         @endif
 
                                                         {{-- <li>
@@ -664,28 +664,28 @@
                                                 <p class="text-slide01 pause" onclick="changeClass01()"></p>
                                                 <div class="scroll-text01 scroll-left">
                                                     <ul class="list">
-
-
                                                         @if (isset($press_release) && count($press_release) > 0)
                                                             @foreach ($press_release as $press_releases)
+                                                            
+                                                                @php
+                                                                    $pressUrl = $press_releases->url_link ?? 'javascript:void(0)';
+                                                                @endphp
+
                                                                 <li>
-                                                                    @if ($notifications->tab_type == 1)
-                                                                        <a onclick="return confirm('{{ $alertMessage }}')"
-                                                                            target="_blank" href="{{ $notiUrl ?? '' }}">
+                                                                    @if ($press_releases->tab_type == 1)
+                                                                        <a onclick="return confirm('{{ $alertMessage ?? '' }}')"
+                                                                            target="_blank"
+                                                                            href="{{ $pressUrl ?? '' }}">
                                                                             <div class="list-content">
-
-
                                                                                 @if (Session::get('Lang') == 'hi')
                                                                                     {{ $press_releases->recent_activities_hi ?? '' }}
                                                                                 @else
                                                                                     {{ $press_releases->recent_activities_en ?? '' }}
                                                                                 @endif
-
-
                                                                             </div>
                                                                         </a>
                                                                     @else
-                                                                        <a href="{{ $notiUrl ?? '' }}">
+                                                                        <a href="{{ $pressUrl ?? '' }}">
                                                                             <div class="list-content">
                                                                                 @if (Session::get('Lang') == 'hi')
                                                                                     {{ $press_releases->recent_activities_hi ?? '' }}
@@ -698,7 +698,7 @@
                                                                 </li>
                                                             @endforeach
                                                         @else
-                                                            <h5 style="font-weight:bold">No press releases available.</h5>
+                                                            <h5 >No press releases available.</h5>
                                                         @endif
 
 
@@ -886,32 +886,32 @@
                     <!--News Box End-->
                     <!--News Box Start-->
                     <!-- <div class="col-md-3  col-sm-6">
-                                                                                                                       <div class="news-box">
-                                                                                                                         <div class="new-thumb"> <span class="cat c3">Policies</span> <img src="images/cppri/modi.jpg" alt="">
-                                                                                                                         </div>
-                                                                                                                         <div class="new-txt">
-                                                                                                                           
-                                                                                                                           <h6><a href="javascript:void(0);">Our Policies Programs</a></h6>
-                                                                                                                           <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="javascript:void(0);" title="">...read more</a>
-                                                                                                                           </p>
-                                                                                                                         </div>
-                                                                                                                        
-                                                                                                                       </div>
-                                                                                                                     </div> -->
+                                                                                                                               <div class="news-box">
+                                                                                                                                 <div class="new-thumb"> <span class="cat c3">Policies</span> <img src="images/cppri/modi.jpg" alt="">
+                                                                                                                                 </div>
+                                                                                                                                 <div class="new-txt">
+                                                                                                                                   
+                                                                                                                                   <h6><a href="javascript:void(0);">Our Policies Programs</a></h6>
+                                                                                                                                   <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="javascript:void(0);" title="">...read more</a>
+                                                                                                                                   </p>
+                                                                                                                                 </div>
+                                                                                                                                
+                                                                                                                               </div>
+                                                                                                                             </div> -->
                     <!--News Box End-->
                     <!--News Box Start-->
                     <!-- <div class="col-md-3  col-sm-6">
-                                                                                                                       <div class="news-box">
-                                                                                                                         <div class="new-thumb"> <span class="cat c4">Education</span> <img src="images/h3citynews-4.jpg" alt="">
-                                                                                                                         </div>
-                                                                                                                         <div class="new-txt">
-                                                                                                                           
-                                                                                                                           <h6><a href="javascript:void(0);">Our Education Programs</a></h6>
-                                                                                                                           <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="javascript:void(0);" title="">...read more</a>
-                                                                                                                           </p>
-                                                                                                                         </div>
-                                                                                                                       </div>
-                                                                                                                     </div> -->
+                                                                                                                               <div class="news-box">
+                                                                                                                                 <div class="new-thumb"> <span class="cat c4">Education</span> <img src="images/h3citynews-4.jpg" alt="">
+                                                                                                                                 </div>
+                                                                                                                                 <div class="new-txt">
+                                                                                                                                   
+                                                                                                                                   <h6><a href="javascript:void(0);">Our Education Programs</a></h6>
+                                                                                                                                   <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="javascript:void(0);" title="">...read more</a>
+                                                                                                                                   </p>
+                                                                                                                                 </div>
+                                                                                                                               </div>
+                                                                                                                             </div> -->
                     <!--News Box End-->
                 </div>
             </div>
@@ -1129,37 +1129,37 @@
 
     <!--Client logo start-->
     <section class="wrapper carousel-wrapper clientail">
-        <h2 style="display: none;">Carousel</h2>
+        <h2 class="d-none">Carousel</h2>
         <div class="container common-container four_content carousel-container">
             <div id="flexCarousel" class="flexslider carousel">
                 <ul class="slides">
-                    <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                    <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank"
                             href="http://digitalindia.gov.in/" title="Digital India"><img
                                 src="{{ asset('assets-cppri/images/carousel/digital-india.png') }}"
                                 alt="Digital India"></a>
                     </li>
-                    <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                    <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank"
                             href="http://www.makeinindia.com/" title="Make In India"> <img
                                 src="{{ asset('assets-cppri/images/carousel/makeinindia.png') }}"
                                 alt="Make In India"></a>
                     </li>
-                    <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank" href="http://india.gov.in/"
-                            title="National Portal of India"><img
+                    <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank"
+                            href="http://india.gov.in/" title="National Portal of India"><img
                                 src="{{ asset('assets-cppri/images/carousel/india-gov.png') }}"
                                 alt="National Portal of India"></a></li>
-                    <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                    <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank"
                             href="http://goidirectory.nic.in/" title="GOI Web Directory"><img
                                 src="{{ asset('assets-cppri/images/carousel/goidirectory.png') }}"
                                 alt="GOI Web Directory"></a></li>
-                    <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank" href="https://data.gov.in/"
-                            title="Data portal"><img src="{{ asset('assets-cppri/images/carousel/data-gov.png') }}"
-                                alt="Data portal"></a>
+                    <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank"
+                            href="https://data.gov.in/" title="Data portal"><img
+                                src="{{ asset('assets-cppri/images/carousel/data-gov.png') }}" alt="Data portal"></a>
                     </li>
-                    <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank" href="https://mygov.in/"
-                            title="MyGov"><img src="{{ asset('assets-cppri/images/carousel/mygov.png') }}"
-                                alt="MyGov Portal"></a>
+                    <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank"
+                            href="https://mygov.in/" title="MyGov"><img
+                                src="{{ asset('assets-cppri/images/carousel/mygov.png') }}" alt="MyGov Portal"></a>
                     </li>
-                    <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                    <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank"
                             href="http://www.dcpulppaper.org/index.html"
                             title="Development Council for Pulp Paper & Allied Industries"><img
                                 src="{{ asset('assets-cppri/images/carousel/Development-logo.png') }}"

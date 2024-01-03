@@ -6,27 +6,27 @@
     <div class="container common-container mb-20">
         <div class="row p-0">
             <!-- <div class="col-md-6 col-lg-6">
-                                                   
-                                                </div> -->
+                                                                   
+                                                                </div> -->
             <!-- <div class="col-md-6 col-lg-6">
-                                                 <div class="contact-item">
-                                                    <div class="contact-icon">
-                                                       <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                    </div>
-                                                    <div class="contact-info">
-                                                       <h3>Delhi</h3>
-                                                      
-                                                          <ul>
-                                                             <li>A-55, Third Floor, Gujranwala Town,</li>
-                                                             <li>Part-1, Opposite Vinayak Hospital, Delhi -110009, India</li>
-                                                             <li>Nr. Metro Station is "Model Town"</li>
-                                                             <li><strong>Contact No.</strong> 011-49027213, +91-9910909169</li>
-                                                             <li><a href=""> <strong>Email:</strong> cppri@yahoo.com</a></li>
-                                                          </ul>
-                                                       
-                                                    </div>
-                                                 </div>
-                                              </div> -->
+                                                                 <div class="contact-item">
+                                                                    <div class="contact-icon">
+                                                                       <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                                    </div>
+                                                                    <div class="contact-info">
+                                                                       <h3>Delhi</h3>
+                                                                      
+                                                                          <ul>
+                                                                             <li>A-55, Third Floor, Gujranwala Town,</li>
+                                                                             <li>Part-1, Opposite Vinayak Hospital, Delhi -110009, India</li>
+                                                                             <li>Nr. Metro Station is "Model Town"</li>
+                                                                             <li><strong>Contact No.</strong> 011-49027213, +91-9910909169</li>
+                                                                             <li><a href=""> <strong>Email:</strong> cppri@yahoo.com</a></li>
+                                                                          </ul>
+                                                                       
+                                                                    </div>
+                                                                 </div>
+                                                              </div> -->
             <div class="col-md-6 col-lg-6">
 
                 <div class="contact-item">
@@ -121,11 +121,20 @@
                 </div>
             </div>
 
-            <div class="col-md-12 mb-20 mt-20">
+            <div class="col-md-12 mb-4 mt-3">
 
                 <div id="datatable">
 
-                    <h3 class="master-title mt-20 text-center mb-20">Employee Details</h3>
+                    <h3 class="master-title mt-20 text-center mb-3">
+                        @if (Session::get('Lang') == 'hi')
+                        {{ __('messages.Employee_Details') }}
+                    @else
+                        {{ __('messages.Employee_Details') }}
+                    @endif
+
+
+                       
+                    </h3>
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
@@ -146,9 +155,20 @@
                                                      @else src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif
                                                 title="{{ $employees->fname_en ?? '' }} {{ $employees->mname_en ?? '' }} {{ $employees->lname_en ?? '' }}">
                                         </td>
-                                        <td>{{ $employees->fname_en ?? '' }} {{ $employees->mname_en ?? '' }}
-                                            {{ $employees->lname_en ?? '' }}</td>
-                                        <td>{{ $employees->desi_name_en ?? '' }}</td>
+
+                                        @if (Session::get('Lang') == 'hi')
+                                            <td>{{ $employees->fname_hi ?? '' }} {{ $employees->mname_hi ?? '' }}
+                                                {{ $employees->lname_hi ?? '' }}</td>
+                                        @else
+                                            <td>{{ $employees->fname_en ?? '' }} {{ $employees->mname_en ?? '' }}
+                                                {{ $employees->lname_en ?? '' }}</td>
+                                        @endif
+
+                                        @if (Session::get('Lang') == 'hi')
+                                            <td>{{ $employees->desi_name_hi ?? '' }}</td>
+                                        @else
+                                            <td>{{ $employees->desi_name_en ?? '' }}</td>
+                                        @endif
 
 
                                         @if ($employees->landline_number != '' && $employees->landline_number != null)

@@ -28,7 +28,7 @@ return [
     'Linkedin'=>'Linkedin',
     'Instagram'=>'Instagram',
     'Total_Visitors'=>'Total Visitors',
-    'Last_Updated'=>'आखरी अपडेट',
+    'Last_Updated'=>'Last Updated',
     'Linking_Policy'=>'Linking Policy',
     'Privacy_Policy'=>'Privacy Policy',
     'Disclaimer'=>'Disclaimer',
@@ -38,7 +38,19 @@ return [
     'address'=>' Paper Mill Road, Himmat Nagar, Saharanpur-247001, India',
     'About_Us'=>'About Us',
     'Divisions/Cells'=>'Divisions/Cells',
-    'Quick_Links'=>'Quick Links'
+    'Quick_Links'=>'Quick Links',
+     'Contact_Us'=>'Contact Us',
+     'SiteMap'=>'SiteMap',
+     'Main_menu'=>'Main menu',
+     'Footer_Menu'=>'Footer Menu',
+     'Screen_Reader_Access'=>'Screen Reader Access',
+     'Employee_Details'=>'Employee Details',
+     'Director_Desk'=>'Director Desk',
+     'Employee_Directory'=>'Employee Directory'
+
+
+
+    
 
 
     
