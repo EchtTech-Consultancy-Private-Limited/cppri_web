@@ -98,11 +98,24 @@ class HomeController extends Controller
         }
     }
 
-    public function getContentAllPages(Request $request, $slug)
+    public function getContentAllPages(Request $request, $slug, $middelSlug = null, $lastSlugs = null)
     {
-        //  dd($slug);
+
+        // dd($middelSlug);
         try {
-            $menus = DB::table('website_menu_management')->whereurl($slug)->first();
+
+            if ($lastSlugs != null) {
+                $lastUrl = DB::table('website_menu_management')->whereurl($slug)->first();
+                $middelUrl = DB::table('website_menu_management')->whereurl($middelSlug)->first();
+                $menus = DB::table('website_menu_management')->whereurl($lastSlugs)->first();
+            } elseif ($middelSlug != null) {
+                $middelUrl = DB::table('website_menu_management')->whereurl($slug)->first();
+                $menus = DB::table('website_menu_management')->whereurl($middelSlug)->first();
+                // dd('second');
+            } else {
+                $menus = DB::table('website_menu_management')->whereurl($slug)->first();
+            }
+
 
             if ($menus != '') {
 
@@ -110,26 +123,68 @@ class HomeController extends Controller
                     $sideMenu = DB::table('website_menu_management')->wherename_en($menus->name_en)->first('parent_id');
                     $sideMenuParent = DB::table('website_menu_management')->whereuid($sideMenu->parent_id)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->first();
                     $sideMenuChild = DB::table('website_menu_management')->whereparent_id($sideMenuParent->uid)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
+
+                    if ($sideMenuParent?->parent_id != 0) {
+                        $psideMenuParent = DB::table('website_menu_management')->whereuid($sideMenuParent->parent_id)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->first();
+                    } else {
+                        $psideMenuParent = "";
+                    }
                 } else {
 
                     $sideMenuParent = "";
                     $sideMenuChild = [];
                 }
 
-                if (Session::get('Lang') == 'hi') {
-                    $title_name = $menus->name_hi;
+
+                if ($lastSlugs != null) {
+
+                    if (Session::get('Lang') == 'hi') {
+                        $lastBred = $lastUrl->name_hi;
+                    } else {
+                        $lastBred = $lastUrl->name_en;
+                    }
+
+
+                    if (Session::get('Lang') == 'hi') {
+                        $middelBred = $middelUrl->name_hi;
+                    } else {
+                        $middelBred = $middelUrl->name_en;
+                    }
+
+                    if (Session::get('Lang') == 'hi') {
+                        $title_name = $menus->name_hi;
+                    } else {
+                        $title_name = $menus->name_en;
+                    }
+                } elseif ($middelSlug != null) {
+
+                    if (Session::get('Lang') == 'hi') {
+                        $middelBred = $middelUrl->name_hi;
+                    } else {
+                        $middelBred = $middelUrl->name_en;
+                        // dd($middelBred);
+                    }
+
+                    if (Session::get('Lang') == 'hi') {
+                        $title_name = $menus->name_hi;
+                    } else {
+                        $title_name = $menus->name_en;
+                    }
                 } else {
-                    $title_name = $menus->name_en;
+
+                    if (Session::get('Lang') == 'hi') {
+                        $title_name = $menus->name_hi;
+                    } else {
+                        $title_name = $menus->name_en;
+                    }
                 }
+
 
                 $dynamic_content_page_metatag = DB::table('dynamic_content_page_metatag')
                     ->where('soft_delete', 0)
                     ->where('menu_uid', $menus->uid)
                     ->orderBy('sort_order', 'ASC')
                     ->get();
-
-
-                // dd($dynamic_content_page_metatag);
 
                 if (count($dynamic_content_page_metatag) > 0) {
 
@@ -167,31 +222,45 @@ class HomeController extends Controller
                         ];
                     }
 
-
-                    //dd($organizedData);
-
                     if ($menus?->parent_id != 0) {
                         $sideMenu = DB::table('website_menu_management')->wherename_en($menus->name_en)->first('parent_id');
                         $sideMenuParent = DB::table('website_menu_management')->whereuid($sideMenu->parent_id)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->first();
                         $sideMenuChild = DB::table('website_menu_management')->whereparent_id($sideMenuParent->uid)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
+
+                        if ($sideMenuParent?->parent_id != 0) {
+
+                            $psideMenuParent = DB::table('website_menu_management')->whereuid($sideMenuParent->parent_id)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->first();
+                        } else {
+                            $psideMenuParent = "";
+                        }
                     } else {
                         $sideMenuParent = "";
                         $sideMenuChild = [];
                     }
-
                     $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
 
-                    return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData, 'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
+                    if ($lastSlugs != null) {
+                        return view('master-page', ['psideMenuParent' => $psideMenuParent, 'lastBred' => $lastBred, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData, 'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
+                    } elseif ($middelSlug != null) {
+                        return view('master-page', ['psideMenuParent' => $psideMenuParent, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData, 'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
+                    } else {
+                        return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData, 'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
+                    }
                 } else {
-
 
                     if (Session::get('Lang') == 'hi') {
                         $content = "जल्द आ रहा है";
                     } else {
                         $content = "Coming Soon...";
                     }
-                    // dd($menus);
-                    return view('master-page', ['content' => $content, 'title_name' => $title_name, 'sideMenuChild' => $sideMenuChild]);
+
+                    if ($lastSlugs != null) {
+                        return view('master-page', ['psideMenuParent' => $psideMenuParent, 'lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name,  'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
+                    } elseif ($middelSlug != null) {
+                        return view('master-page', ['psideMenuParent' => $psideMenuParent, 'middelBred' => $middelBred, 'content' => $content, 'title_name' => $title_name,  'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
+                    } else {
+                        return view('master-page', ['title_name' => $title_name, 'content' => $content, 'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
+                    }
                 }
             } else {
                 return view('pages.error');
@@ -327,12 +396,10 @@ class HomeController extends Controller
         return back()->with('success', 'Record Add Successfully');
     }
 
-
     public function siteMap()
     {
         return view('pages.siteMap');
     }
-
 
     public function ComingSoon()
     {
@@ -351,7 +418,6 @@ class HomeController extends Controller
 
     public function directorDesk()
     {
-
         try {
 
             $designation = DB::table('emp_depart_designations')
