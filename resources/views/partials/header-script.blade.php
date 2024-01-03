@@ -23,7 +23,7 @@
 <link href="{{ asset('assets-cppri/css/empcarddirectory.css') }}" rel="stylesheet">
 
 
-<link href="{{ asset('assets-cppri/css/dropdownaccordiancss.css') }}" rel="stylesheet">
+<!-- <link href="{{ asset('assets-cppri/css/dropdownaccordiancss.css') }}" rel="stylesheet"> -->
 
 
 
