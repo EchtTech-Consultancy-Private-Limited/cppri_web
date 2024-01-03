@@ -52,7 +52,7 @@
                         @if (isset($Director) && $Director != '')
                             <section id="paragraph" class="wrapper paragraph-wrapper">
                                 <div class=" common-container four_content">
-                                    <h3 class="dir-dsk-title mb-25">
+                                    <h3 class="dir-dsk-title mt-3 mb-3">
 
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Director_Desk') }}

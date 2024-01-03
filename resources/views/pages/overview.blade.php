@@ -38,7 +38,7 @@
 
                     <section id="paragraph" class="wrapper paragraph-wrapper">
                         <div class=" common-container four_content">
-                            <h3 class="dir-dsk-title mb-20">Overview </h3>
+                            <h3 class="dir-dsk-title mt-3">Overview </h3>
                             <div class="row p-0 mb-20">
 
                                 <div class="col-md-8">
@@ -57,7 +57,7 @@
                                     </p>
                                     <p>All affairs of CPPRI are managed by 18 membered Council of Association,
                                         comprising of representatives from Paper Industry, Department of Industrial
-                                        Policy & Promotion (DIPP), and Department. of Science & Technology (DST),
+                                        Policy & Promotion (DIPP), and Department of Science & Technology (DST),
                                         Council of Scientific and Industrial Research (CSIR), Indian Council of Forestry
                                         Research & Education (ICFRE) and IIT Roorkee. The Secretary (DIPP), Ministry of
                                         Commerce and Industry, Govt. of India is the President of the Council of

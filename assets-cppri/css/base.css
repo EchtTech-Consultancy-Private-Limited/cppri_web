@@ -12,6 +12,12 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 }
+h3{
+	font-size: 23px !important;
+}
+li{
+	font-size: 14px;
+}
 
 article,
 aside,
@@ -48,6 +54,8 @@ a {
 	transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
 	-webkit-transition: all 0.2s ease-in-out;
+	font-size: 14px;
+	color: #1a4f91;
 }
 
 a:focus,
@@ -774,6 +782,7 @@ h3.sub-title.bold {
 	display: flex;
 	padding: 12px 0 10px;
 	justify-content: space-between;
+	font-weight: 400;
 }
 
 .logo-cmf {
@@ -786,7 +795,7 @@ h3.sub-title.bold {
 .copyright-content {
 	color: #fff;
 	float: right;
-	font-size: 100%;
+	font-size: 13px;
 	/* line-height: 150%; */
 	padding: 0px 25px 0px 0;
 	text-align: left;
@@ -1568,6 +1577,7 @@ a {
 	height: 25px;
 	position: relative;
 	bottom: 5px;
+	font-weight: 600;
 }
 
 .common-left ul li span.li_eng {
@@ -2010,7 +2020,7 @@ table {
   }
   
   blockquote{
-	font-size: 1.4em;
+	font-size: 1.2em;
     margin: 20px auto !important;
     font-family: Open Sans;
     font-style: italic;
@@ -2039,3 +2049,172 @@ table {
   }
 
  
+
+
+  /* ************************ */
+
+  
+.master-dropdown-button .dropdown {
+	display: inline-block;
+	position: relative;
+  }
+  
+  .master-dropdown-button .dd-button {
+	display: inline-block;
+	border: 1px solid gray;
+	border-radius: 4px;
+	padding: 10px 30px 10px 20px;
+	background-color: #ffffff;
+	cursor: pointer;
+	white-space: nowrap;
+  }
+  
+  .master-dropdown-button .dd-button:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 15px;
+	transform: translateY(-50%);
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid black;
+  }
+  
+  .master-dropdown-button .dd-button:hover {
+	background-color: #eeeeee;
+  }
+  
+  
+  .master-dropdown-button .dd-input {
+	display: none !important;
+  }
+  
+  .master-dropdown-button .dd-menu {
+	position: absolute;
+	top: 100%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 0;
+	margin: 2px 0 0 0;
+	box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+	background-color: #ffffff;
+	list-style-type: none;
+  }
+  
+  .master-dropdown-button .dd-input + .dd-menu {
+	display: none ;
+  } 
+  
+  .master-dropdown-button .dd-input:checked + .dd-menu {
+	display: block;
+  } 
+  
+  .master-dropdown-button .dd-menu li {
+	padding: 10px 20px;
+	cursor: pointer;
+	white-space: nowrap;
+  }
+  
+  .master-dropdown-button .dd-menu li:hover {
+	background-color: #f6f6f6;
+  }
+  
+  .master-dropdown-button .dd-menu li a {
+	display: block;
+	margin: -10px -20px;
+	padding: 10px 20px;
+  }
+  
+  .master-dropdown-button .dd-menu li.divider{
+	padding: 0;
+	border-bottom: 1px solid #cccccc;
+  }
+
+
+ul{
+	padding: 0 !important;
+	margin-top: 0 !important;
+    margin-bottom: 10px !important;
+}
+
+.main-sidebar .accordion-item{
+	background-color: inherit !important;
+	width: 100%;
+	position: relative;
+}
+.main-sidebar .accordion-item:hover li a{
+	color: #fff !important;
+}
+
+
+.main-sidebar .accordion-item a{
+	display: block;
+	color: #000;
+	width: 100%;
+}
+.main-sidebar .accordion-item .nav-link.collapsed::after{
+	content: '\f078';
+	font-family: 'fontAwesome';
+	position: absolute;
+	right: 14px;
+	top: 0px;
+	rotate: 0deg;
+}
+.main-sidebar .accordion-item a::after{
+	content: '\f078';
+	font-family: 'fontAwesome';
+	position: absolute;
+	right: 14px;
+	top: 0px;
+	rotate: -90deg;
+}
+
+/* .main-sidebar .accordion-item .collapsed{
+	display: block;
+	color: #000;
+} */
+
+/* .main-sidebar .accordion::after{
+    content: '\f078';
+	font-family: 'fontAwesome';
+	position: absolute;
+	right: 14px;
+	top: 10px;
+} */
+
+.main-sidebar ul li:hover::after {
+    color: #fff !important;  
+}
+
+p{
+	font-size: 14px !important;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.last-updated span{
+	font-size: 13px;
+}
+
+.list-content {
+   color: #1a4f91;
+}
+
+.latest-news .marquee h5{
+	line-height: 40px;
+    font-size: 16px;
+}
+
+.contact-item a{
+	color: #1a4f91;
+}
+
+.btn-primary{
+	background-color: #286090 !important;
+	border: none !important;
+}

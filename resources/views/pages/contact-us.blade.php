@@ -121,11 +121,11 @@
                 </div>
             </div>
 
-            <div class="col-md-12 mb-20 mt-20">
+            <div class="col-md-12 mb-4 mt-3">
 
                 <div id="datatable">
 
-                    <h3 class="master-title mt-20 text-center mb-20">
+                    <h3 class="master-title mt-20 text-center mb-3">
                         @if (Session::get('Lang') == 'hi')
                         {{ __('messages.Employee_Details') }}
                     @else

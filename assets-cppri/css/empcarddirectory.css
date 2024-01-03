@@ -75,6 +75,7 @@ p.email-text-styl {
     align-items: center;
     justify-content: center;
     padding: 43px 0px 45px 0px;
+    width: 100%;
 }  
 .employee-dir-page h3
 {
