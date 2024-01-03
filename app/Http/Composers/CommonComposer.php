@@ -95,7 +95,7 @@ class CommonComposer
 
     function checkLanguage()
     {
-        if (Session::get('locale') == 'hi') {
+        if (Session::get('Lang') == 'hi') {
             return 'यह लिंक आपको एक बाहरी वेब साइट पर ले जाएगा।';
         } else {
             return 'This link will take you to an external web site.';

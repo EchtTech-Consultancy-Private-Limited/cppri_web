@@ -169,7 +169,7 @@
                                         
 
                                             @if ($quickLinks->tab_type == 1)
-                                                <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                                                <li><a onclick="return confirm('{{ $alertMessage ??''}}')" target="_blank"
                                                         href="{{ $quickLinkurl ?? '' }}">
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $quickLinks->name_hi ?? '' }}
