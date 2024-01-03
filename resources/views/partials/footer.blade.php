@@ -12,11 +12,11 @@
                                 <h3 class="footer-title">
 
 
-                                @if (Session::get('Lang') == 'hi')
-                                    {{ __('messages.About_Us') }} 
-                                @else
-                                    {{ __('messages.About_Us') }} 
-                                @endif
+                                    @if (Session::get('Lang') == 'hi')
+                                        {{ __('messages.About_Us') }}
+                                    @else
+                                        {{ __('messages.About_Us') }}
+                                    @endif
 
 
                                 </h3>
@@ -62,10 +62,10 @@
 
 
                                     @if (Session::get('Lang') == 'hi')
-                                    {{ __('messages.Divisions/Cells') }} 
-                                @else
-                                    {{ __('messages.Divisions/Cells') }} 
-                                @endif
+                                        {{ __('messages.Divisions/Cells') }}
+                                    @else
+                                        {{ __('messages.Divisions/Cells') }}
+                                    @endif
 
 
                                 </h3>
@@ -152,10 +152,10 @@
                                     <h3 class="footer-title">
 
                                         @if (Session::get('Lang') == 'hi')
-                                        {{ __('messages.Quick_Links') }} 
-                                    @else
-                                        {{ __('messages.Quick_Links') }} 
-                                    @endif
+                                            {{ __('messages.Quick_Links') }}
+                                        @else
+                                            {{ __('messages.Quick_Links') }}
+                                        @endif
 
 
 
@@ -166,11 +166,11 @@
                                                 $quickLinkurl = $quickLinks->url ?? 'javascript:void(0)';
                                             @endphp
 
-                                        
+
 
                                             @if ($quickLinks->tab_type == 1)
-                                                <li><a onclick="return confirm('{{ $alertMessage ??''}}')" target="_blank"
-                                                        href="{{ $quickLinkurl ?? '' }}">
+                                                <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')"
+                                                        target="_blank" href="{{ $quickLinkurl ?? '' }}">
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $quickLinks->name_hi ?? '' }}
                                                         @else
@@ -193,14 +193,22 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <h3 class="footer-title">Contact Us</h3>
+                        <h3 class="footer-title">
+
+                            @if (Session::get('Lang') == 'hi')
+                                {{ __('messages.Contact_Us') }}
+                            @else
+                                {{ __('messages.Contact_Us') }}
+                            @endif
+
+                        </h3>
                         <ul class="contact-us-footer">
                             <li><i class="fa fa-map-marker" aria-hidden="true"></i> <a href="javascript:void();">
 
                                     @if (Session::get('Lang') == 'hi')
-                                        {{ __('messages.address') }} 
+                                        {{ __('messages.address') }}
                                     @else
-                                        {{ __('messages.address') }} 
+                                        {{ __('messages.address') }}
                                     @endif
 
                                 </a></li>
@@ -226,32 +234,32 @@
     <div class="footer-bottom-wrapper">
         <div class="container common-container four_content footer-bottom-container">
             <div class="footer-content">
-                <div class="copyright-content"> © Copyright 2023 <strong>CPPRI Sahranpur.</strong><span> All Rights
+                <div class="copyright-content"> © Copyright  {{ now()->year }} <strong>CPPRI Sahranpur.</strong><span> All Rights
                         Reserved. </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="f-link-t">
                         <a href="{{ url('linking-policy') }}">
 
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Linking_Policy') }} 
+                                {{ __('messages.Linking_Policy') }}
                             @else
-                                {{ __('messages.Linking_Policy') }} 
+                                {{ __('messages.Linking_Policy') }}
                             @endif
 
                         </a> |
                         <a href="{{ url('privacy-policy') }}">
 
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Privacy_Policy') }} 
+                                {{ __('messages.Privacy_Policy') }}
                             @else
-                                {{ __('messages.Privacy_Policy') }} 
+                                {{ __('messages.Privacy_Policy') }}
                             @endif
 
                         </a> |
                         <a href="{{ url('disclaimer') }}">
 
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Disclaimer') }} 
+                                {{ __('messages.Disclaimer') }}
                             @else
-                                {{ __('messages.Disclaimer') }} 
+                                {{ __('messages.Disclaimer') }}
                             @endif
 
                         </a> |
@@ -259,26 +267,26 @@
 
 
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Help') }} 
+                                {{ __('messages.Help') }}
                             @else
-                                {{ __('messages.Help') }} 
+                                {{ __('messages.Help') }}
                             @endif
 
                         </a> |
                         <a href="{{ url('cookies-policy') }}">
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Cookies_Policy') }} 
+                                {{ __('messages.Cookies_Policy') }}
                             @else
-                                {{ __('messages.Cookies_Policy') }} 
+                                {{ __('messages.Cookies_Policy') }}
                             @endif
                         </a> |
                         <a href="{{ url('terms-&-conditions') }}">
 
 
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Terms_&_Conditions') }} 
+                                {{ __('messages.Terms_&_Conditions') }}
                             @else
-                                {{ __('messages.Terms_&_Conditions') }} 
+                                {{ __('messages.Terms_&_Conditions') }}
                             @endif
                         </a>
                     </span></div>
@@ -296,9 +304,9 @@
                     <span>
 
                         @if (Session::get('Lang') == 'hi')
-                            {{ __('messages.Total_Visitors') }} 
+                            {{ __('messages.Total_Visitors') }}
                         @else
-                            {{ __('messages.Total_Visitors') }} 
+                            {{ __('messages.Total_Visitors') }}
                         @endif
 
                         <strong>{{ $visitCounter ?? '' }}</strong>
@@ -336,6 +344,3 @@
         </div>
     </div>
 </div>
-
-
-

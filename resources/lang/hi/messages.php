@@ -38,6 +38,14 @@ return [
     'About_Us'=>'हमारे बारे में',
     'Divisions/Cells'=>'प्रभाग/प्रकोष्ठ',
     'Quick_Links'=>'क्विक_लिंक्स',
-    'Last_Updated'=>'अंतिम अद्यतन'
+    'Last_Updated'=>'अंतिम अद्यतन',
+    'Contact_Us'=>'संपर्क करें',
+    'SiteMap'=>'साइट मैप',
+    'Main_menu'=>'मुख्य मेन्यू',
+    'Footer_Menu'=>'Footer Menu',
+    'Screen_Reader_Access'=>'स्क्रीन रीडर एक्सेस',
+    'Employee_Details'=>'कर्मचारी विवरण',
+    'Director_Desk'=>'निदेशक डेस्क',
+    'Employee_Directory'=>'कर्मचारी निर्देशिका'
      
 ];
