@@ -847,17 +847,19 @@ a.view:hover {
 }
 
 .minister .min-info h4 {
-	font-weight:600;
-	color:#000;
-	font-size:100%;
-	margin-bottom:0;
+	font-weight: 600;
+    color: #000;
+    margin-bottom: 0;
+    font-size: 14px;
+    margin-top: 9px;   
 }
 .minister .min-info h5 {
-	font-weight:500;
-	color:#302d2d;
-	padding-bottom:0px;
-	margin-bottom:0;
-	font-size:97%;
+	font-weight: 500;
+    color: #302d2d;
+    padding-bottom: 0px;
+    margin-bottom: 0;
+    font-size: 81%;
+    margin-top: 7px;
 }
 
 
@@ -929,3 +931,7 @@ button.dt-button.buttons-print:hover {
 
 
 
+.body-container .content-wrapper ul.list h5{
+	font-size: 14px;
+	padding: 0 10px;
+}

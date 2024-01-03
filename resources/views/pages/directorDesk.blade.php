@@ -36,7 +36,7 @@
                         @if(isset($Director) && $Director != '' )
                         <section id="paragraph" class="wrapper paragraph-wrapper">
                             <div class=" common-container four_content">
-                                <h3 class="dir-dsk-title mb-25">Director Desk</h3>
+                                <h3 class="dir-dsk-title mt-3 mb-3">Director Desk</h3>
                                 <div class="row p-0">
                                     <div class="col-md-3">
                                         <div class="addevent-box text-center">

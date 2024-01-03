@@ -38,7 +38,7 @@
 
                     <section id="paragraph" class="wrapper paragraph-wrapper">
                         <div class=" common-container four_content">
-                            <h3 class="dir-dsk-title mb-20">Overview </h3>
+                            <h3 class="dir-dsk-title mt-3">Overview </h3>
                             <div class="row p-0 mb-20">
 
                                 <div class="col-md-8">

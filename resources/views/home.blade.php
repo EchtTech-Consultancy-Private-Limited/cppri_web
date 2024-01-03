@@ -47,7 +47,7 @@
 
     <section class="latest-news">
         <h3 style="display: none;">Latest News</h3>
-        <div class="row">
+        <div class="row px-0">
             <div class="col-md-2">
                 <div class="latest-new-title">
                     <p class="change-color-code">
@@ -184,7 +184,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="banner-content-wrapper services-heading">
-                            <h2 class="text-white mt-0">
+                            <h2 class="mt-0">
                                 @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Services') }}
                                 @else

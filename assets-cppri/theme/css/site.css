@@ -320,7 +320,9 @@ ul#nav li a i.fa-home {
 	list-style-type: none;
 	display: inline-block;
 	font-size: 100%;
-	color: #666666
+	color: #666666;
+	font-size: 14px;
+	
 }
 
 .breadcam li a {
@@ -1755,7 +1757,9 @@ ul.ul-v>li a {
 
 .footer-top-wrapper ul li a,
 .copyright-content span {
-	color: #fff
+	color: #fff;
+	font-size: 14px;
+	font-weight: 400;
 }
 
 .inner-content h1 {
@@ -3192,7 +3196,7 @@ h2.border-bottom-color {
 	color: #1a4f91;
 	font-weight: 700;
 	text-transform: capitalize;
-	font-size: 150%;
+	font-size: 140%;
 }
 
 p.banner-title-tag-line {
@@ -4112,12 +4116,12 @@ div#costumModal8 button.close {
 img.md-img {
 	border-radius: 10px;
 }
-
 footer .footer-title {
-	color: #FFF;
-	font-size: 15px;
-	text-align: left;
-	font-weight: 600;
+    color: #FFF;
+	font-size: 16px !important;
+    text-align: left;
+    font-weight: 600;
+    margin: 10px 0px 17px;
 }
 
 .footer-top-wrapper ul.contact-us-footer li:before {
@@ -4555,10 +4559,11 @@ img.cell-icon-sec {
 	.main-sidebar ul li
 	{
 		padding: 10px 10px;
-    border-bottom: 1px solid #ccc;
+    /* border-bottom: 1px solid #ccc; */
     display: flex;
     align-items: center;
     font-size: 14px;
+	margin: 5px 0;
 	}
 	.main-sidebar ul li:last-child
 	{
@@ -5285,7 +5290,7 @@ textarea:focus, input:focus{
 
 .emp-crddir-inf h3
 {
-	font-size: 15px;
+	font-size: 15px !important;
     margin-top: 10px;
     margin-bottom: 4px;
     font-weight: 700;
@@ -5515,7 +5520,7 @@ textarea:focus, input:focus{
 .contact-page-map
 {
 	width:100%;
-	height:630px;
+	height:650px;
     border: 0;
 }
 .sub-sec h2 .img-b {
@@ -5820,4 +5825,8 @@ table.dataTable tbody td {
 .vision-mission ul li {
     color: #fff !important;
     line-height: 26px !important;
+}
+
+.employee-directry-type.employee-dir-page h2 {
+    font-size: 115% !important;
 }

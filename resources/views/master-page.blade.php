@@ -55,12 +55,12 @@
                 @if (isset($sideMenuChild) && count($sideMenuChild) > 0)
                 <div class="main-sidebar">
 
+                  
+                    <ul>
                     @foreach ($sideMenuChild as $sideMenuChilds)
                     @php
                     $sideMenuChildsurl = $sideMenuChilds->url ?? 'javascript:void(0)';
                     @endphp
-                    <ul>
-
                         <li class="   @if (request()->is($sideMenuChildsurl)) qm-active @endif">
                             <div class="list-start">
                                 <i class="fa fa-chevron-right" aria-hidden="true"></i>
@@ -73,29 +73,32 @@
                                 </a>
                             </div>
                         </li>
-                        <div class="accordion accordion-flush" id="sidebarDropdown">
+                        @endforeach
+                        <li class="accordion accordion-flush position-relative" id="sidebarDropdown">
                                 <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <div class="list-start">
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                <a class="nav-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                         Dropdown Item 1
-                                    </button>
-                                    </h2>
+                                    </a>
+                            </div>
+                                    
                                     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#sidebarDropdown">
                                     <div class="accordion-body">
                                         <ul>
-                                            <li> item 1</li>
-                                            <li> item 2</li>
-                                            <li> item 3</li>
+                                            <li> <a href="#">Item 1</a></li>
+                                            <li> <a href="#">Item 2</a></li>
+                                            <li> <a href="#">Item 3</a></li>
                                         </ul>
                                     </div>
                                     </div>
                                 </div>
                                 
-                                </div>
+                                </li>
 
 
                     </ul>
-                    @endforeach
+                   
 
                 </div>
                 @endif
