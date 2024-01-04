@@ -5125,7 +5125,7 @@ img.cell-icon-sec {
   .qm-active 
   {
 	padding-left: 10px !important;
-	background-color: #1a4f91;
+	background-color: #1a4f91 !important;
     border-radius: 4px;
 	border: none;
   }
