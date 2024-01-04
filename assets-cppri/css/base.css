@@ -2319,3 +2319,28 @@ display: flex;
 	border-radius: 10px !important;
   }
 
+ul li ul li{
+	list-style: circle !important;
+}
+
+
+table tr td:last-child {
+    border-right: 1px solid #ddd !important;
+}
+
+table tr td {
+    border-top: 0 !important;
+    border-left: 1px solid #ddd !important;
+    border-right: none !important;
+}
+
+.sub-title {
+    font-size: 19px !important;
+    color: #046ba2;
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+table .multiple-pdf{
+	display: block;
+}

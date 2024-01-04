@@ -82,7 +82,7 @@
 
                                             <div class="scroller-tbl">
 
-                                                <table id="example" class="display" style="width:100%">
+                                                <table id="example" class="display">
 
                                                     <thead>
                                                         <tr>
@@ -100,12 +100,12 @@
                                                                 <td>{{ date('d F Y', strtotime($data['tender']->created_at ?? '')) }}
                                                                 </td>
 
-                                                                <td>
+                                                                <td class=''>
                                                                     @foreach ($data['tender_pdfs'] as $pdf)
-                                                                        <a href="{{ asset('resources/uploads/TenderManagement/' . $pdf->public_url) }}"
+                                                                       <span class='multiple-pdf'> <a href="{{ asset('resources/uploads/TenderManagement/' . $pdf->public_url) }}"
                                                                             download>View</a> <i class="fa fa-file-pdf-o">
                                                                             ({{ $pdf->pdfimage_size ?? '' }})
-                                                                        </i>
+                                                                        </i></span>
                                                                     @endforeach
                                                                 </td>
 
