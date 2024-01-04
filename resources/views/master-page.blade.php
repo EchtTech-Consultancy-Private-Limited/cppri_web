@@ -171,7 +171,7 @@
                                                 title="View more about heading 2">View More</a>
                                         </div> --}}
                                     </div>
-                                </div>
+                                 </div>   
                             
 
                                 
