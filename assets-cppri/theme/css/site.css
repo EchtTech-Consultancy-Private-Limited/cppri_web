@@ -4537,11 +4537,11 @@ img.cell-icon-sec {
 
     .main-sidebar
 	{
-		border: 1px solid #ccc;
-		border-radius: 8px;
+		border: 1px solid transparent;
+		border-radius: 6px;
 		padding: 10px 10px 0px 10px;
 /*		margin: 2em 0em;*/
-		box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 4px;
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 14px;
 		transition: 0.3s;
 	}
 	.main-sidebar:hover
@@ -4564,6 +4564,8 @@ img.cell-icon-sec {
     align-items: center;
     font-size: 14px;
 	margin: 5px 0;
+	background-color: #ecf4ff;
+    border-radius: 3px;
 	}
 	.main-sidebar ul li:last-child
 	{

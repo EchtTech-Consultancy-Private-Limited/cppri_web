@@ -2145,7 +2145,7 @@ ul{
 	position: relative;
 }
 .main-sidebar .accordion-item:hover li a{
-	color: #fff !important;
+	/* color: #fff !important; */
 }
 
 
@@ -2161,6 +2161,8 @@ ul{
 	right: 14px;
 	top: 0px;
 	rotate: 0deg;
+	color: #7e7e7e;
+    font-size: 12px;
 }
 .main-sidebar .accordion-item a::after{
 	content: '\f078';
@@ -2169,6 +2171,7 @@ ul{
 	right: 14px;
 	top: 0px;
 	rotate: -90deg;
+	color: #fff;
 }
 
 /* .main-sidebar .accordion-item .collapsed{
@@ -2226,4 +2229,18 @@ p{
     margin-right: 10px;
     font-size: 12px;
     margin-top: 5px;
+}
+
+.main-sidebar .accordion-item ul li{
+	color: #fff;
+}
+.main-sidebar .accordion-item ul li:hover{
+	background-color: red;
+	color: #fff;
+}
+.main-sidebar .accordion:hover a{
+	color: #000;
+}
+.accordion:hover a{
+   color: #000;
 }
