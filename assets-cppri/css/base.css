@@ -2218,3 +2218,12 @@ p{
 	background-color: #286090 !important;
 	border: none !important;
 }
+
+.main-sidebar .list-start a::before{
+	content: "\f054";
+	font-family: 'fontAwesome';
+	color: #49aa41;
+    margin-right: 10px;
+    font-size: 12px;
+    margin-top: 5px;
+}
