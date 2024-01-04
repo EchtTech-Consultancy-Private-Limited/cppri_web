@@ -15,6 +15,7 @@
                     </div>
                 </div>
             </div>
+            
         @else
             <div id="flexSlider" class="flexslider bigbanner"
                 style="background-image: url('{{ asset('assets-cppri/images/agnipath-banner-1200-185.png') }}');">
