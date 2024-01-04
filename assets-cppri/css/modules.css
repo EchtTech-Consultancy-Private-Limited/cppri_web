@@ -880,7 +880,7 @@ span.list-dt{display:block;font-size:90%;color:#666;float:left;width:100%;paddin
 .list-single-arrow ul li{background:url(../images/ico-list-sngl-arrow.png) no-repeat 1px 6px; padding-left:20px;}
 .main-content ul li{ padding-left:0px; list-style-type:square;list-style-position:outside;margin-left:20px;}
 .list-circle ul li{ padding-left:0px; list-style-type:circle;list-style-position:outside;margin-left:20px;}
-.main-content ul li{ padding-left:0px; list-style-type:circle;list-style-position:outside;margin-left:20px;}
+.main-content ul li{ padding-left:0px; list-style-type:disc;list-style-position:outside;margin-left:20px;}
 
 /*===========Base Styles===========*/
 h1,h2,h3,h4,h5,h6{font-weight:700; margin-bottom:20px;color:#212020;}

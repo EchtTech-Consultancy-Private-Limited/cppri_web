@@ -4,17 +4,6 @@
 @endsection
 @section('content')
 
-    <style>
-        .p-item-center {
-            padding-top: 21% !important;
-            text-align: center !important;
-        }
-
-        .p-item-center.text-white {
-            padding-top: 45% !important;
-            color: #fff !important;
-        }
-    </style>
 
     <section class="wrapper banner-wrapper">
         <h1 class="d-none">Banner</h1>

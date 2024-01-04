@@ -52,7 +52,7 @@ Route::get('/feedback', [HomeController::class, 'Feedback']);
 Route::post('/feedback', [HomeController::class, 'feedbackStore']);
 Route::get('about-us/director-desk', [HomeController::class, 'directorDesk']);
 Route::get('about-us/employee-directory', [HomeController::class, 'employeeDirectory']);
-Route::get('/{Slug}/{middelSlug?}/{lastSlug?}', [HomeController::class, 'getContentAllPages']);
+Route::get('/{Slug}/{middelSlug?}/{lastSlug?}/{finalSlug?}', [HomeController::class, 'getContentAllPages']);
 });
 
 //default behaviour, always keep as last entry

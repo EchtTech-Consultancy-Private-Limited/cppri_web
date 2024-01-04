@@ -1,37 +1,37 @@
-var baseurl = window.location;
+var baseurl = window.location.href;
 
-  //alert(baseurl + "set-language");
-  function setlang(value) {
-	alert(value)
-	$.ajax({
-	  url: "set-language",
-	  data: { data: value },
-	  success: function (result) {
-        console.log(result);
-		location.reload();
-	  }
-	});
+ // console.log(baseurl +"set-language");
+
+function setlang(value) {
+    $.ajax({
+        url: baseurl +"/set-language",
+        data: { data: value },
+        success: function (result) {
+            //console.log(result);
+            location.reload();
+        }
+    });
 }
 
 
-(function() {
+(function () {
 
     // store the slider in a local variable
     var $window = $(window),
-    flexslider;
+        flexslider;
 
     // tiny helper function to add breakpoints
     function getGridSize() {
-    return (window.innerWidth < 280) ? 1 :
-    (window.innerWidth < 600) ? 2 :
-    (window.innerWidth < 800) ? 2 :
-    (window.innerWidth < 900) ? 2 : 5;
+        return (window.innerWidth < 280) ? 1 :
+            (window.innerWidth < 600) ? 2 :
+                (window.innerWidth < 800) ? 2 :
+                    (window.innerWidth < 900) ? 2 : 5;
     }
 
-    $window.load(function() {
+    $window.load(function () {
 
         // Carouse2
-     $('#flexCarouse2').flexslider({
+        $('#flexCarouse2').flexslider({
             animation: "slide",
             animationLoop: false,
             itemWidth: 380,
@@ -44,25 +44,25 @@ var baseurl = window.location;
             pauseText: 'Pause',
             playText: 'Play',
             controlNav: false,
-            start: function(slider){
-              $('body').removeClass('loading');
-              if (slider.pagingCount === 1) slider.addClass('flex-centered');
+            start: function (slider) {
+                $('body').removeClass('loading');
+                if (slider.pagingCount === 1) slider.addClass('flex-centered');
             }
-          });
+        });
 
     });
 
-    }());
+}());
 
 
 
-$(window).load(function(){
-// Slider
+$(window).load(function () {
+    // Slider
     $('#flexSlider').flexslider({
         animation: "slide",
         pausePlay: true,
         controlNav: true,
-        start: function(slider){
+        start: function (slider) {
             $('body').removeClass('loading');
         }
     });
@@ -70,15 +70,15 @@ $(window).load(function(){
     $('#flexSlider1').flexslider({
         animation: "slide",
         controlNav: false,
-        start: function(slider){
-        $('body').removeClass('loading');
+        start: function (slider) {
+            $('body').removeClass('loading');
         }
     });
     $('#flexSlider2').flexslider({
         animation: "slide",
         controlNav: false,
-        start: function(slider){
-        $('body').removeClass('loading');
+        start: function (slider) {
+            $('body').removeClass('loading');
         }
     });
 
@@ -87,7 +87,7 @@ $(window).load(function(){
         controlNav: false,
         directionNav: false,
         direction: "vertical",
-        easing:'linear',
+        easing: 'linear',
         prevText: " ",
         nextText: " ",
         minItems: 2,
@@ -96,28 +96,28 @@ $(window).load(function(){
         itemMargin: 0,
         pausePlay: true,
         pauseOnHover: true,
-        slideshowSpeed:1000,
-        animationSpeed:10000,
+        slideshowSpeed: 1000,
+        animationSpeed: 10000,
 
     });
 
     $('#contSlider2').flexslider({
         animation: "slide",
         controlNav: false,
-        start: function(slider){
-        $('body').removeClass('loading');
+        start: function (slider) {
+            $('body').removeClass('loading');
         }
     });
-  
 
 
-// Carousel
+
+    // Carousel
     $('#flexCarousel').flexslider({
         animation: "slide",
         itemWidth: 150,
         itemMargin: 30,
-        animationLoop:true,
-        loop:true,
+        animationLoop: true,
+        loop: true,
         minItems: 2,
         maxItems: 5,
         slideshow: 1,
@@ -126,11 +126,11 @@ $(window).load(function(){
         pauseText: 'Pause',
         playText: 'Play',
         controlNav: false,
-        start: function(slider){
+        start: function (slider) {
             $('body').removeClass('loading');
             if (slider.pagingCount === 1) slider.addClass('flex-centered');
         }
-        });
+    });
 
 
     // Carouse2
@@ -160,117 +160,117 @@ $(window).load(function(){
         animationLoop: false,
         itemWidth: 168,
         itemMargin: 20,
-        minItems:1,
+        minItems: 1,
         maxItems: 4,
         slideshow: 1,
         move: 1,
         controlNav: false,
-        start: function(slider){
+        start: function (slider) {
             $('body').removeClass('loading');
             //if (slider.pagingCount === 1) slider.addClass('flex-centered');
         }
-        });
+    });
     // breaking_news
 
     $('#breaking_news').flexslider({
-    animation: "slide",
-    controlNav: false,
-    animationLoop: true,
-    directionNav: false,
-    direction: "horizontal",
-    slideshowSpeed: 7000,
-    animationSpeed: 600,
+        animation: "slide",
+        controlNav: false,
+        animationLoop: true,
+        directionNav: false,
+        direction: "horizontal",
+        slideshowSpeed: 7000,
+        animationSpeed: 600,
         initDelay: 1000,
         pausePlay: true,
-    pauseText: '',
-    playText: '',
-    pauseOnHover: false
+        pauseText: '',
+        playText: '',
+        pauseOnHover: false
     });
 
     // Gallery
-        $('#galleryCarousel').flexslider({
+    $('#galleryCarousel').flexslider({
         animation: "fade",
         controlNav: "thumbnails",
-        start: function(slider){
+        start: function (slider) {
             $('body').removeClass('loading');
         }
-        });
     });
+});
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('figure img').ma5gallery({
-        preload:true
+        preload: true
     });
 
     $('#socialTab').easyResponsiveTabs({
-            type: 'default', //Types: default, vertical, accordion
-            width: 'auto', //auto or any width like 600px
-            fit: true, // 100% fit in a container
-            tabidentify: 'socialTab_1', // The tab groups identifier
-            activate: function(event) { // Callback function if tab is switched
-                var $tab = $(this);
-                var $info = $('#nested-tabInfo');
-                var $name = $('span', $info);
-                $name.text($tab.text());
-                $info.show();
-            }
-        });
+        type: 'default', //Types: default, vertical, accordion
+        width: 'auto', //auto or any width like 600px
+        fit: true, // 100% fit in a container
+        tabidentify: 'socialTab_1', // The tab groups identifier
+        activate: function (event) { // Callback function if tab is switched
+            var $tab = $(this);
+            var $info = $('#nested-tabInfo');
+            var $name = $('span', $info);
+            $name.text($tab.text());
+            $info.show();
+        }
+    });
 
     $('#feedTab').easyResponsiveTabs({
-            type: 'default', //Types: default, vertical, accordion
-            width: 'auto', //auto or any width like 600px
-            fit: true, // 100% fit in a container
-            tabidentify: 'feedTab_1', // The tab groups identifier
-            activate: function(event) { // Callback function if tab is switched
-                var $tab = $(this);
-                var $info = $('#nested-tabInfo');
-                var $name = $('span', $info);
-                $name.text($tab.text());
-                $info.show();
-            }
-        });
+        type: 'default', //Types: default, vertical, accordion
+        width: 'auto', //auto or any width like 600px
+        fit: true, // 100% fit in a container
+        tabidentify: 'feedTab_1', // The tab groups identifier
+        activate: function (event) { // Callback function if tab is switched
+            var $tab = $(this);
+            var $info = $('#nested-tabInfo');
+            var $name = $('span', $info);
+            $name.text($tab.text());
+            $info.show();
+        }
+    });
 
-    $('.resp-tabs-list li a').click(function(event){
-                event.preventDefault();
-            })
+    $('.resp-tabs-list li a').click(function (event) {
+        event.preventDefault();
+    })
 
 });
 
-    var a = 0;
-    $(window).scroll(function() {
+var a = 0;
+$(window).scroll(function () {
 
-      var oTop = $('#counter').offset().top - window.innerHeight;
-      if (a == 0 && $(window).scrollTop() > oTop) {
+    var oTop = $('#counter').offset().top - window.innerHeight;
+    if (a == 0 && $(window).scrollTop() > oTop) {
         $('.count').each(function () {
-        $(this).prop('Counter',0).animate({
-            Counter: $(this).text()
-        }, {
-            duration: 4000,
-            easing: 'swing',
-            step: function (now) {
-                $(this).text(Math.ceil(now));
-            }
+            $(this).prop('Counter', 0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 4000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
         });
-    });
         a = 1;
-      }
+    }
 
-    });
+});
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('figure img').ma5gallery({
-        preload:true
+        preload: true
     });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     //Horizontal Tab
     $('#parentHorizontalTab').easyResponsiveTabs({
         type: 'default', //Types: default, vertical, accordion
         width: 'auto', //auto or any width like 600px
         fit: true, // 100% fit in a container
         tabidentify: 'hor_1', // The tab groups identifier
-        activate: function(event) { // Callback function if tab is switched
+        activate: function (event) { // Callback function if tab is switched
             var $tab = $(this);
             var $info = $('#nested-tabInfo');
             var $name = $('span', $info);
@@ -292,93 +292,113 @@ $(document).ready(function() {
     });
 
 
-        var videoPlayButton,
+    var videoPlayButton,
         videoWrapper = document.getElementsByClassName('video-wrapper')[0],
         video = document.getElementsByTagName('video')[0],
         videoMethods = {
-            renderVideoPlayButton: function() {
-                    if (videoWrapper.contains(video)) {
+            renderVideoPlayButton: function () {
+                if (videoWrapper.contains(video)) {
                     this.formatVideoPlayButton()
                     video.classList.add('has-media-controls-hidden')
                     videoPlayButton = document.getElementsByClassName('video-overlay-play-button')[0]
                     videoPlayButton.addEventListener('click', this.hideVideoPlayButton)
-                    }
+                }
             },
-            formatVideoPlayButton: function() {
-                    videoWrapper.insertAdjacentHTML('beforeend', '\
+            formatVideoPlayButton: function () {
+                videoWrapper.insertAdjacentHTML('beforeend', '\
                     <svg class="video-overlay-play-button" viewBox="0 0 200 200" alt="Play video">\
                         <circle cx="100" cy="100" r="90" fill="none" stroke-width="15" stroke="#fff"/>\
                         <polygon points="70, 55 70, 145 145, 100" fill="#fff"/>\
                     </svg>\
                     ')
             },
-            hideVideoPlayButton: function() {
-                    video.play()
-                    videoPlayButton.classList.add('is-hidden')
-                    video.classList.remove('has-media-controls-hidden')
-                    video.setAttribute('controls', 'controls')
+            hideVideoPlayButton: function () {
+                video.play()
+                videoPlayButton.classList.add('is-hidden')
+                video.classList.remove('has-media-controls-hidden')
+                video.setAttribute('controls', 'controls')
             }
         }
-        videoMethods.renderVideoPlayButton()
+    videoMethods.renderVideoPlayButton()
 });
 
 // ====Tab scrolling text====
-function changeClass(){
+function changeClass() {
     var x = document.getElementsByClassName("text-slide");
     var y = document.getElementsByClassName("scroll-text");
-    x[0].classList.toggle ("pause");
+    x[0].classList.toggle("pause");
     y[0].classList.toggle("scroll-left");
 }
-function changeClass01(){
+function changeClass01() {
     var x = document.getElementsByClassName("text-slide01");
     var z = document.getElementsByClassName("scroll-text01");
-    x[0].classList.toggle ("pause");
+    x[0].classList.toggle("pause");
     z[0].classList.toggle("scroll-left");
 }
-function changeClass1(){
+function changeClass1() {
     var x = document.getElementsByClassName("text-slide1");
     var z = document.getElementsByClassName("scroll-text-1");
-    x[0].classList.toggle ("pause");
+    x[0].classList.toggle("pause");
     z[0].classList.toggle("scroll-left");
 }
 
 // ===== Scroll to Top ====
-$(document).ready(function(){
-    $(document).scroll(function() {
+$(document).ready(function () {
+    $(document).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('#scroll').fadeIn();
         } else {
             $('#scroll').fadeOut();
         }
     });
-    $('#scroll').click(function(){
+    $('#scroll').click(function () {
         $("html, body").animate({ scrollTop: 0 }, 800);
         return false;
     });
- });
- function ctime(){
+});
+function ctime() {
     if (!document.getElementById)
-    return
-    timeElement=document.getElementById("timeid")
-    var curdate=new Date()
-    var hours=curdate.getHours()
-    var minutes=curdate.getMinutes()
-    var seconds=curdate.getSeconds()
-    var DayNight="PM"
-    if (hours<12) DayNight="AM";
-    if (hours>12) hours=hours-12;
-    if (hours==0) hours=12;
-    if (minutes<=9) minutes="0"+minutes;
-    if (seconds<=9) seconds="0"+seconds;
-    var ctime=hours+":"+minutes+":"+seconds+" "+DayNight;
-    timeElement.innerHTML="<p class='time'>"+ctime+"</p>"
-    setTimeout("ctime()",1000)
-    }
-    window.onload=ctime
+        return
+    timeElement = document.getElementById("timeid")
+    var curdate = new Date()
+    var hours = curdate.getHours()
+    var minutes = curdate.getMinutes()
+    var seconds = curdate.getSeconds()
+    var DayNight = "PM"
+    if (hours < 12) DayNight = "AM";
+    if (hours > 12) hours = hours - 12;
+    if (hours == 0) hours = 12;
+    if (minutes <= 9) minutes = "0" + minutes;
+    if (seconds <= 9) seconds = "0" + seconds;
+    var ctime = hours + ":" + minutes + ":" + seconds + " " + DayNight;
+    timeElement.innerHTML = "<p class='time'>" + ctime + "</p>"
+    setTimeout("ctime()", 1000)
+}
+window.onload = ctime;
 
-    $("document").ready(function(){
-        setTimeout(function(){
-           $("div.alert").remove();
-        }, 5000 ); // 5 secs
-    
-    });
+$("document").ready(function () {
+    setTimeout(function () {
+        $("div.alert").remove();
+    }, 5000); // 5 secs
+
+});
+
+$(document).ready(()=>{
+    $('#sidebarDropdown').click(()=>{
+        console.log("hellow world");
+        $('.main-sidebar ul .accordion').css({
+            'background-color': "#1a4f91"
+        })
+        $('.main-sidebar ul .accordion a[data-bs-target="#flush-collapseOne"]').css({
+            'color':"#fff"
+        })
+      
+    })
+
+    $('#sidebarDropdown2').click(()=>{
+        console.log('hellow world')
+        $('#sidebarDropdown2').css({
+            'background-color': '#000'
+        })
+    })
+})

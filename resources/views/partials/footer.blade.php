@@ -233,8 +233,10 @@
 
     <div class="footer-bottom-wrapper">
         <div class="container common-container four_content footer-bottom-container">
-            <div class="footer-content">
-                <div class="copyright-content"> © Copyright  {{ now()->year }} <strong>CPPRI Sahranpur.</strong><span> All Rights
+            <div class="footer-content align-items-center">
+                <div class="copyright-content"> 
+                    <p class='m-0 text-left text-white'>
+                    © Copyright  {{ now()->year }} <strong>CPPRI Sahranpur.</strong><span> All Rights
                         Reserved. </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="f-link-t">
                         <a href="{{ url('linking-policy') }}">
 
@@ -289,8 +291,10 @@
                                 {{ __('messages.Terms_&_Conditions') }}
                             @endif
                         </a>
-                    </span></div>
-                <div class="last-updated">
+                    </span>
+                
+                </div>
+                <div class="last-updated d-flex">
                     <span>
 
                         @if (Session::get('Lang') == 'hi')
@@ -311,6 +315,7 @@
 
                         <strong>{{ $visitCounter ?? '' }}</strong>
                     </span>
+                    </p>
                 </div>
             </div>
         </div>
