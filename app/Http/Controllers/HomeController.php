@@ -66,7 +66,7 @@ class HomeController extends Controller
     //language
     public function SetLang(Request $request)
     {
-        //dd($request->data);
+       // dd($request->data);
         session()->put('Lang', $request->data);
         App::setLocale($request->data);
         return response()->json(['data' => $request->data, True]);
@@ -102,7 +102,8 @@ class HomeController extends Controller
     {
 
         // dd($middelSlug);
-        try {
+        // dd($lastSlugs);
+        // try {
 
             if ($lastSlugs != null) {
                 $lastUrl = DB::table('website_menu_management')->whereurl($slug)->first();
@@ -111,11 +112,9 @@ class HomeController extends Controller
             } elseif ($middelSlug != null) {
                 $middelUrl = DB::table('website_menu_management')->whereurl($slug)->first();
                 $menus = DB::table('website_menu_management')->whereurl($middelSlug)->first();
-                // dd('second');
             } else {
                 $menus = DB::table('website_menu_management')->whereurl($slug)->first();
             }
-
 
             if ($menus != '') {
 
@@ -126,8 +125,12 @@ class HomeController extends Controller
 
                     if ($sideMenuParent?->parent_id != 0) {
                         $psideMenuParent = DB::table('website_menu_management')->whereuid($sideMenuParent->parent_id)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->first();
+                       
+                       // dd($psideMenuParent);
+
                     } else {
                         $psideMenuParent = "";
+                        //dd($psideMenuParent);
                     }
                 } else {
 
@@ -228,8 +231,10 @@ class HomeController extends Controller
                         $sideMenuChild = DB::table('website_menu_management')->whereparent_id($sideMenuParent->uid)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
 
                         if ($sideMenuParent?->parent_id != 0) {
-
                             $psideMenuParent = DB::table('website_menu_management')->whereuid($sideMenuParent->parent_id)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->first();
+                             
+                         //   dd($psideMenuParent);
+                     
                         } else {
                             $psideMenuParent = "";
                         }
@@ -237,12 +242,13 @@ class HomeController extends Controller
                         $sideMenuParent = "";
                         $sideMenuChild = [];
                     }
+
                     $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
 
                     if ($lastSlugs != null) {
-                        return view('master-page', ['psideMenuParent' => $psideMenuParent, 'lastBred' => $lastBred, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData, 'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
+                        return view('master-page', ['lastBred' => $lastBred,'psideMenuParent' => $psideMenuParent, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData, 'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
                     } elseif ($middelSlug != null) {
-                        return view('master-page', ['psideMenuParent' => $psideMenuParent, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData, 'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
+                        return view('master-page', ['middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData, 'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
                     } else {
                         return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData, 'sideMenuChild' => $sideMenuChild, 'sideMenuParent' => $sideMenuParent]);
                     }
@@ -265,17 +271,17 @@ class HomeController extends Controller
             } else {
                 return view('pages.error');
             }
-        } catch (\Exception $e) {
-            \Log::error('An exception occurred: ' . $e->getMessage());
-            return view('pages.error');
-        } catch (\PDOException $e) {
-            \Log::error('A PDOException occurred: ' . $e->getMessage());
-            return view('pages.error');
-        } catch (\Throwable $e) {
-            // Catch any other types of exceptions that implement the Throwable interface.
-            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-            return view('pages.error');
-        }
+        // } catch (\Exception $e) {
+        //     \Log::error('An exception occurred: ' . $e->getMessage());
+        //     return view('pages.error');
+        // } catch (\PDOException $e) {
+        //     \Log::error('A PDOException occurred: ' . $e->getMessage());
+        //     return view('pages.error');
+        // } catch (\Throwable $e) {
+        //     // Catch any other types of exceptions that implement the Throwable interface.
+        //     \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+        //     return view('pages.error');
+        // }
     }
 
 
