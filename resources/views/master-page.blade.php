@@ -41,14 +41,14 @@
                         </a></li>
 
                     @if (isset($lastBred))
-                        <li>{{   ucfirst(strtolower($lastBred))  ?? '' }}</li> >
+                        <li>{{ ucfirst(strtolower($lastBred)) ?? '' }}</li> >
                     @endif
 
                     @if (isset($middelBred))
-                        <li>{{  ucfirst(strtolower($middelBred))   ?? '' }}</li> >
+                        <li>{{ ucfirst(strtolower($middelBred)) ?? '' }}</li> >
                     @endif
 
-                    <li>{{ ucfirst(strtolower($title_name))  ?? '' }}</li>
+                    <li>{{ ucfirst(strtolower($title_name)) ?? '' }}</li>
 
                 </ul>
             </div>
@@ -66,15 +66,24 @@
                             @foreach ($sideMenuChild as $sideMenuChilds)
                                 @if (isset($lastBred))
                                     @php
-                                        $sideMenuChildsurl = $psideMenuParent->url ?? 'javascript:void(0)' .'/'.$sideMenuParent->url ?? 'javascript:void(0)' . '/' . $sideMenuChilds->url ?? 'javascript:void(0)';
+                                        $sideMenuChildsurl = '';
+                                        if (isset($psideMenuParent->url, $sideMenuParent->url, $sideMenuChilds->url)) {
+                                            $sideMenuChildsurl = $psideMenuParent->url . '/' . $sideMenuParent->url . '/' . $sideMenuChilds->url;
+                                        }
                                     @endphp
                                 @elseif (isset($middelBred))
                                     @php
-                                        $sideMenuChildsurl = $sideMenuParent->url ?? 'javascript:void(0)' . '/' . $sideMenuChilds->url ?? 'javascript:void(0)';
+                                        $sideMenuChildsurl = '';
+                                        if (isset($sideMenuParent->url, $sideMenuChilds->url)) {
+                                            $sideMenuChildsurl = $sideMenuParent->url . '/' . $sideMenuChilds->url;
+                                        }
                                     @endphp
                                 @else
                                     @php
-                                        $sideMenuChildsurl = $sideMenuChilds->url ?? 'javascript:void(0)';
+                                        $sideMenuChildsurl = '';
+                                        if (isset($sideMenuChilds->url)) {
+                                            $sideMenuChildsurl = $sideMenuChilds->url;
+                                        }
                                     @endphp
                                 @endif
 
@@ -82,7 +91,7 @@
                                     <li class=" @if (request()->is($sideMenuChildsurl)) qm-active @endif">
                                         <div class="list-start">
                                             <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                            <a href="{{ url($sideMenuChildsurl) ??'' }}" class="nav-link">
+                                            <a href="{{ url($sideMenuChildsurl) ?? '' }}" class="nav-link">
                                                 @if (Session::get('Lang') == 'hi')
                                                     {{ $sideMenuChilds->name_hi ?? '' }}
                                                 @else
@@ -90,7 +99,7 @@
                                                 @endif
                                             </a>
                                         </div>
-                                        
+
                                     </li>
 
                                 </ul>
@@ -229,7 +238,7 @@
                                             <div class=" col-md-4 ">
                                                 <div class="img-con-sec">
                                                     <div class="img-card">
-                                                        <img src="{{ asset('resources/uploads/PageContentGallery/' . $data->public_url) ??'' }}"
+                                                        <img src="{{ asset('resources/uploads/PageContentGallery/' . $data->public_url) ?? '' }}"
                                                             alt="{{ $data->image_title ?? '' }}"
                                                             title="{{ $data->image_title ?? '' }}">
                                                     </div>
