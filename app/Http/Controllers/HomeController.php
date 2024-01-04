@@ -66,7 +66,6 @@ class HomeController extends Controller
     //language
     public function SetLang(Request $request)
     {
-       // dd($request->data);
         session()->put('Lang', $request->data);
         App::setLocale($request->data);
         return response()->json(['data' => $request->data, True]);
@@ -98,12 +97,19 @@ class HomeController extends Controller
         }
     }
 
-    public function getContentAllPages(Request $request, $slug, $middelSlug = null, $lastSlugs = null)
+    public function getContentAllPages(Request $request, $slug, $middelSlug = null, $lastSlugs = null,$finalSlug =null)
     {
+        $slugsToCheck = [$lastSlugs, $middelSlug, $finalSlug];
 
-        // dd($middelSlug);
-        // dd($lastSlugs);
-        // try {
+        if (in_array("set-language", $slugsToCheck)) {
+            session()->put('Lang', $request->data);
+            App::setLocale($request->data);
+            return response()->json(['data' => $request->data, 'success' => true]);
+        } else {
+            // Handle the case when none of the slugs match
+        }
+        
+        try {
 
             if ($lastSlugs != null) {
                 $lastUrl = DB::table('website_menu_management')->whereurl($slug)->first();
@@ -271,17 +277,17 @@ class HomeController extends Controller
             } else {
                 return view('pages.error');
             }
-        // } catch (\Exception $e) {
-        //     \Log::error('An exception occurred: ' . $e->getMessage());
-        //     return view('pages.error');
-        // } catch (\PDOException $e) {
-        //     \Log::error('A PDOException occurred: ' . $e->getMessage());
-        //     return view('pages.error');
-        // } catch (\Throwable $e) {
-        //     // Catch any other types of exceptions that implement the Throwable interface.
-        //     \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-        //     return view('pages.error');
-        // }
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        }
     }
 
 

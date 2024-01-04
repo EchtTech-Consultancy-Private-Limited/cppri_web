@@ -64,24 +64,29 @@
                         <div class="main-sidebar">
 
                             @foreach ($sideMenuChild as $sideMenuChilds)
+                            
                                 @if (isset($lastBred))
+
                                     @php
                                         $sideMenuChildsurl = '';
-                                        if (isset($psideMenuParent->url, $sideMenuParent->url, $sideMenuChilds->url)) {
+                                        if (isset($psideMenuParent->url, $sideMenuParent->url, $sideMenuChilds->url) && 
+                                             !empty($psideMenuParent->url) && 
+                                             !empty($sideMenuParent->url) && 
+                                             !empty($sideMenuChilds->url)){
                                             $sideMenuChildsurl = $psideMenuParent->url . '/' . $sideMenuParent->url . '/' . $sideMenuChilds->url;
                                         }
                                     @endphp
                                 @elseif (isset($middelBred))
                                     @php
                                         $sideMenuChildsurl = '';
-                                        if (isset($sideMenuParent->url, $sideMenuChilds->url)) {
+                                        if (isset($sideMenuParent->url, $sideMenuChilds->url) && !empty($sideMenuParent->url) && !empty($sideMenuChilds->url)){
                                             $sideMenuChildsurl = $sideMenuParent->url . '/' . $sideMenuChilds->url;
                                         }
                                     @endphp
                                 @else
                                     @php
                                         $sideMenuChildsurl = '';
-                                        if (isset($sideMenuChilds->url)) {
+                                        if (isset($sideMenuChilds->url) && !empty($sideMenuChilds->url)){
                                             $sideMenuChildsurl = $sideMenuChilds->url;
                                         }
                                     @endphp
