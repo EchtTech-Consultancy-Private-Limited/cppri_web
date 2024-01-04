@@ -63,7 +63,7 @@
                     @endphp
                         <li class="   @if (request()->is($sideMenuChildsurl)) qm-active @endif">
                             <div class="list-start">
-                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                
                                 <a href="{{ url($sideMenuChildsurl) }}" class="nav-link">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ $sideMenuChilds->name_hi ?? '' }}
@@ -77,24 +77,42 @@
                         <li class="accordion accordion-flush position-relative" id="sidebarDropdown">
                                 <div class="accordion-item">
                                 <div class="list-start">
-                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                <a class="nav-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <a class="nav-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                         Dropdown Item 1
                                     </a>
-                            </div>
-                                    
+                                </div>
                                     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#sidebarDropdown">
-                                    <div class="accordion-body">
+                                    <div class="accordion-body p-0">
                                         <ul>
                                             <li> <a href="#">Item 1</a></li>
                                             <li> <a href="#">Item 2</a></li>
-                                            <li> <a href="#">Item 3</a></li>
+                                            <li class='p-0'>
+                                                <ul class="w-100">
+                                                <li class="accordion accordion-flush position-relative p-0" id="sidebarDropdown2">
+                                                        <div class="accordion-item">
+                                                        <div class="list-start">
+                                                            <a class="nav-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                                                Dropdown Item 1
+                                                            </a>
+                                                        </div>
+                                                            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#sidebarDropdown2">
+                                                            <div class="accordion-body p-0">
+                                                                <ul>
+                                                                    <li> <a href="#">Item 1</a></li>
+                                                                    <li> <a href="#">Item 2</a></li>
+                                                                    <li> <a href="#">Item 3</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                 </li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </div>
                                     </div>
                                 </div>
-                                
-                                </li>
+                         </li>
 
 
                     </ul>
