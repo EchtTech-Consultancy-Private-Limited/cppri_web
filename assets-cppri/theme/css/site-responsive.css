@@ -8,7 +8,23 @@
 		margin: 0px 0px;
 	}
 }
-
+@media(min-width:1290px){
+	.banner-wrapper .flex-control-nav:before {
+		border-bottom: 42px solid var(--pseudo-bordercolor);
+		border-left: 13px solid transparent;
+		left: -13px;
+	}
+}
+@media(max-width:1590px) and (min-width:1290px){
+	.banner-wrapper .flex-control-nav:before {
+		border-bottom: 42px solid var(--pseudo-bordercolor);
+		border-left: 13px solid transparent;
+		top: 0px;
+		left: -13px;
+		position: absolute;
+	}
+	
+}
 @media all and (max-width: 1200px) {
 	.logo a strong {
 		padding-top: 22px;

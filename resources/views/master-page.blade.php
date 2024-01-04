@@ -41,11 +41,11 @@
                     </a></li>
 
                 @if (isset($lastBred))
-                <li>{{ ucfirst(strtolower($lastBred)) ?? '' }}</li> >
+                <li><a href="#">{{ ucfirst(strtolower($lastBred)) ?? '' }}</a></li> 
                 @endif
 
                 @if (isset($middelBred))
-                <li>{{ ucfirst(strtolower($middelBred)) ?? '' }}</li> >
+                <li><a href="#">{{ ucfirst(strtolower($middelBred)) ?? '' }}</a></li> 
                 @endif
 
                 <li>{{ ucfirst(strtolower($title_name)) ?? '' }}</li>
@@ -126,8 +126,8 @@
                                             <li> <a href="#">Item 1</a></li>
                                             <li> <a href="#">Item 2</a></li>
                                             <li class = 'p-0'>
-                                                <ul class='w-100 p-0'>
-                                                    <li class="accordion accordion-flush position-relative"
+                                                <ul class='w-100 p-0 m-0'>
+                                                    <li class="accordion accordion-flush position-relative m-0"
                                                         id="sidebarDropdown2">
                                                         <div class="accordion-item">
                                                             <div class="list-start">
@@ -145,7 +145,7 @@
                                                                 class="accordion-collapse collapse"
                                                                 data-bs-parent="#sidebarDropdown2">
                                                                 <div class="accordion-body">
-                                                                    <ul>
+                                                                    <ul class = ''>
                                                                         <li> <a href="#">Item 1</a></li>
                                                                         <li> <a href="#">Item 2</a></li>
                                                                         <li> <a href="#">Item 3</a></li>
@@ -551,6 +551,8 @@
 </div>
 </div>
 </div>
+
+
 
 
 @endsection

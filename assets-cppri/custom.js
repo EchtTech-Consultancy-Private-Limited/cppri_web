@@ -374,7 +374,7 @@ function ctime() {
     timeElement.innerHTML = "<p class='time'>" + ctime + "</p>"
     setTimeout("ctime()", 1000)
 }
-window.onload = ctime
+window.onload = ctime;
 
 $("document").ready(function () {
     setTimeout(function () {
@@ -382,3 +382,23 @@ $("document").ready(function () {
     }, 5000); // 5 secs
 
 });
+
+$(document).ready(()=>{
+    $('#sidebarDropdown').click(()=>{
+        console.log("hellow world");
+        $('.main-sidebar ul .accordion').css({
+            'background-color': "#1a4f91"
+        })
+        $('.main-sidebar ul .accordion a[data-bs-target="#flush-collapseOne"]').css({
+            'color':"#fff"
+        })
+      
+    })
+
+    $('#sidebarDropdown2').click(()=>{
+        console.log('hellow world')
+        $('#sidebarDropdown2').css({
+            'background-color': '#000'
+        })
+    })
+})
