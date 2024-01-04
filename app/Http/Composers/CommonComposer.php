@@ -93,6 +93,8 @@ class CommonComposer
         return $branch;
     }
 
+
+
     function checkLanguage()
     {
         if (Session::get('Lang') == 'hi') {

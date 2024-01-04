@@ -1,190 +1,144 @@
 @extends('layout.master')
 @section('title')
-{{ __('RAV') }}
+    {{ __('RAV') }}
 @endsection
 @section('content')
-<section class="wrapper banner-wrapper">
-    @if (isset($organizedData['banner']) && $organizedData['banner'] != '')
-    <div id="flexSlider" class="flexslider bigbanner"
-        style="background-image: url('{{ asset('resources/uploads/pagebanner/' . $organizedData['banner']->public_url) }}');">
-        <div class="inner-banner-text">
-            <div class="text-banner-content">
-                <h2>
-                    {{ ucfirst(strtolower($title_name)) ?? '' }}
-                </h2>
+    <section class="wrapper banner-wrapper">
+        @if (isset($organizedData['banner']) && $organizedData['banner'] != '')
+            <div id="flexSlider" class="flexslider bigbanner"
+                style="background-image: url('{{ asset('resources/uploads/pagebanner/' . $organizedData['banner']->public_url) }}');">
+                <div class="inner-banner-text">
+                    <div class="text-banner-content">
+                        <h2>
+                            {{ ucfirst(strtolower($title_name)) ?? '' }}
+                        </h2>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    @else
-    <div id="flexSlider" class="flexslider bigbanner"
-        style="background-image: url('{{ asset('assets-cppri/images/agnipath-banner-1200-185.png') }}');">
-        <div class="inner-banner-text">
-            <div class="text-banner-content">
-                <h2>
-                    {{ ucfirst(strtolower($title_name)) ?? '' }}
-                </h2>
+        @else
+            <div id="flexSlider" class="flexslider bigbanner"
+                style="background-image: url('{{ asset('assets-cppri/images/agnipath-banner-1200-185.png') }}');">
+                <div class="inner-banner-text">
+                    <div class="text-banner-content">
+                        <h2>
+                            {{ ucfirst(strtolower($title_name)) ?? '' }}
+                        </h2>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    @endif
-</section>
-<div class="bg-wrapper inner-wrapper">
-    <div class="breadcam-bg breadcam">
-        <div class="container common-container four_content ">
-            <ul>
-                <li><a href="{{ route('/') }}">
-                        @if (Session::get('Lang') == 'hi')
-                        होम पेज
-                        @else
-                        Home
-                        @endif
-                    </a></li>
-
-                @if (isset($lastBred))
-                <li>{{ ucfirst(strtolower($lastBred)) ?? '' }}</li> >
-                @endif
-
-                @if (isset($middelBred))
-                <li>{{ ucfirst(strtolower($middelBred)) ?? '' }}</li> >
-                @endif
-
-                <li>{{ ucfirst(strtolower($title_name)) ?? '' }}</li>
-
-            </ul>
-        </div>
-    </div>
-</div>
-<div class="wrapper" id="skipCont"></div>
-<div class="sidebar-main-nav ptb-50">
-    <div class="container common-container pr-0">
-        <!--/.nav-wrapper-->
-        <div class="row pr-0">
-            <div class="col-md-3 sidebar-main-nav-colmd3">
-                @if (isset($sideMenuChild) && count($sideMenuChild) > 0)
-                <div class="main-sidebar">
-
-                    @foreach ($sideMenuChild as $sideMenuChilds)
+        @endif
+    </section>
+    <div class="bg-wrapper inner-wrapper">
+        <div class="breadcam-bg breadcam">
+            <div class="container common-container four_content ">
+                <ul>
+                    <li><a href="{{ route('/') }}">
+                            @if (Session::get('Lang') == 'hi')
+                                होम पेज
+                            @else
+                                Home
+                            @endif
+                        </a></li>
 
                     @if (isset($lastBred))
-
-                    @php
-                    $sideMenuChildsurl = '';
-                    if (isset($psideMenuParent->url, $sideMenuParent->url, $sideMenuChilds->url) &&
-                    !empty($psideMenuParent->url) &&
-                    !empty($sideMenuParent->url) &&
-                    !empty($sideMenuChilds->url)){
-                    $sideMenuChildsurl = $psideMenuParent->url . '/' . $sideMenuParent->url . '/' .
-                    $sideMenuChilds->url;
-                    }
-                    @endphp
-                    @elseif (isset($middelBred))
-                    @php
-                    $sideMenuChildsurl = '';
-                    if (isset($sideMenuParent->url, $sideMenuChilds->url) && !empty($sideMenuParent->url) &&
-                    !empty($sideMenuChilds->url)){
-                    $sideMenuChildsurl = $sideMenuParent->url . '/' . $sideMenuChilds->url;
-                    }
-                    @endphp
-                    @else
-                    @php
-                    $sideMenuChildsurl = '';
-                    if (isset($sideMenuChilds->url) && !empty($sideMenuChilds->url)){
-                    $sideMenuChildsurl = $sideMenuChilds->url;
-                    }
-                    @endphp
+                        <li>{{ ucfirst(strtolower($lastBred)) ?? '' }}</li> >
                     @endif
 
-                    <ul>
-                        <li class=" @if (request()->is($sideMenuChildsurl)) qm-active @endif">
-                            <div class="list-start">
-                               
-                                <a href="{{ url($sideMenuChildsurl) ?? '' }}" class="nav-link">
-                                    @if (Session::get('Lang') == 'hi')
-                                    {{ $sideMenuChilds->name_hi ?? '' }}
-                                    @else
-                                    {{ $sideMenuChilds->name_en ?? '' }}
-                                    @endif
-                                </a>
-                            </div>
+                    @if (isset($middelBred))
+                        <li>{{ ucfirst(strtolower($middelBred)) ?? '' }}</li> >
+                    @endif
 
-                        </li>
-                        @endforeach
-                        <li class="accordion accordion-flush position-relative" id="sidebarDropdown">
-                            <div class="accordion-item">
-                                <div class="list-start">
-                                    <a class="nav-link collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                        aria-controls="flush-collapseOne">
-                                        Dropdown Item 1
-                                    </a>
-                                </div>
+                    <li>{{ ucfirst(strtolower($title_name)) ?? '' }}</li>
 
-                                <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                    data-bs-parent="#sidebarDropdown">
-                                    <div class="accordion-body p-0">
-                                        <ul class='p-0'>
-                                            <li> <a href="#">Item 1</a></li>
-                                            <li> <a href="#">Item 2</a></li>
-                                            <li class = 'p-0'>
-                                                <ul class='w-100 p-0'>
-                                                    <li class="accordion accordion-flush position-relative"
-                                                        id="sidebarDropdown2">
-                                                        <div class="accordion-item">
-                                                            <div class="list-start">
-                                                               
-                                                                <a class="nav-link collapsed" type="button"
-                                                                    data-bs-toggle="collapse"
-                                                                    data-bs-target="#flush-collapseTwo"
-                                                                    aria-expanded="false"
-                                                                    aria-controls="flush-collapseTwo">
-                                                                    Dropdown Item 1
-                                                                </a>
-                                                            </div>
-
-                                                            <div id="flush-collapseTwo"
-                                                                class="accordion-collapse collapse"
-                                                                data-bs-parent="#sidebarDropdown2">
-                                                                <div class="accordion-body">
-                                                                    <ul>
-                                                                        <li> <a href="#">Item 1</a></li>
-                                                                        <li> <a href="#">Item 2</a></li>
-                                                                        <li> <a href="#">Item 3</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li>
-
-                    </ul>
-                   
-
-                </div>
-                @endif
+                </ul>
             </div>
+        </div>
+    </div>
+    <div class="wrapper" id="skipCont"></div>
+    <div class="sidebar-main-nav ptb-50">
+        <div class="container common-container pr-0">
+            <!--/.nav-wrapper-->
+            <div class="row pr-0">
+                @if(isset($parentMenut) != '') 
+                <div class="col-md-3 sidebar-main-nav-colmd3">
+                  
+                    <div class="main-sidebar">
+                        <ul>
+                            @if (isset($tree) && count($tree) > 0)
+                                @foreach ($tree as $index =>$trees)
+                                    @if (count($trees->children) > 0)
+                                        <li class="accordion accordion-flush position-relative" id="sidebarDropdown_{{ $index }}">
+                                            <div class="accordion-item">
+                                                <div class="list-start">
+                                                    <a class="nav-link collapsed" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapseOne_{{ $index }}" aria-expanded="false"
+                                                        aria-controls="flush-collapseOne">
+                                                        @if (Session::get('Lang') == 'hi')
+                                                            {{ $trees->name_hi ?? '' }}
+                                                        @else
+                                                            {{ $trees->name_en ?? '' }}
+                                                        @endif
+                                                    </a>
+                                                </div>
+
+                                                <div id="flush-collapseOne_{{ $index }}" class="accordion-collapse collapse"
+                                                    data-bs-parent="#sidebarDropdown_{{ $index }}">
+                                                    <div class="accordion-body p-0">
+                                                        <ul class='p-0'>
+                                                            @foreach ($trees->children as $childTree)
+                                                                <li> <a href="{{ url($parentMenut->url.'/'.$trees->url.'/'.$childTree->url) }}">
+
+                                                                        @if (Session::get('Lang') == 'hi')
+                                                                            {{ $childTree->name_hi ?? '' }}
+                                                                        @else
+                                                                            {{ $childTree->name_en ?? '' }}
+                                                                        @endif
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </li>
+                                    @else
+                                        <li class=" @if (request()->is($parentMenut->url.'/'.$trees->url)) qm-active @endif">
+                                            <div class="list-start">
+                                             
+                                                <a href="{{ $trees->url }}" class="nav-link">
+                                                    @if (Session::get('Lang') == 'hi')
+                                                        {{ $trees->name_hi ?? '' }}
+                                                    @else
+                                                        {{ $trees->name_en ?? '' }}
+                                                    @endif
+                                                </a>
+                                            </div>
+
+                                        </li>
+                                    @endif
+                                @endforeach
+                               
+                            @endif
+                        </ul>
+                    </div>
+                </div>
+                @endif 
 
 
 
-            @if (isset($sideMenuChild) && count($sideMenuChild) > 0)
-            <div class="col-md-9 m-p-0">
-                @else
-                <div class="col m-p-0">
-                    @endif
+                @if (isset($parentMenut))
+                    <div class="col-md-9 m-p-0">
+                    @else
+                        <div class="col m-p-0">
+                @endif
 
-
+                {{-- <div class="col-md-9 m-p-0"> --}}
                     <div class="main-content">
                         <!--/#skipCont-->
                         <div id="fontSize" class="wrapper body-wrapper ">
                             @if (isset($content))
-                            <h1>{{ $content }}</h1>
+                                <h1>{{ $content }}</h1>
                             @endif
 
                             <!--/#page-head-->
@@ -192,27 +146,25 @@
                                 <div class="container common-container four_content pm-0">
                                     <div class="align-lt">
                                         <h2 class="mt-0 mb-20">
-                                            @if (isset($organizedData['metatag']->page_title_en) &&
-                                            !blank($organizedData['metatag']->page_title_en))
-                                            @if (Session::get('Lang') == 'hi')
-                                            {{ $organizedData['metatag']->page_title_hi ?? '' }}
-                                            @else
-                                            {{ $organizedData['metatag']->page_title_en ?? '' }}
-                                            @endif
+                                            @if (isset($organizedData['metatag']->page_title_en) && !blank($organizedData['metatag']->page_title_en))
+                                                @if (Session::get('Lang') == 'hi')
+                                                    {{ $organizedData['metatag']->page_title_hi ?? '' }}
+                                                @else
+                                                    {{ $organizedData['metatag']->page_title_en ?? '' }}
+                                                @endif
                                             @endif
                                         </h2>
                                         {{-- <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}"
                                         alt> --}}
                                         <!-- <h3>Headline goes here...</h3> -->
-                                        @if (isset($organizedData['content']->page_content_en) &&
-                                        !blank($organizedData['content']->page_content_en))
-                                        <p>
-                                            @if (Session::get('Lang') == 'hi')
-                                            {!! $organizedData['content']->page_content_hi ?? '' !!}
-                                            @else
-                                            {!! $organizedData['content']->page_content_en ?? '' !!}
-                                            @endif
-                                        </p>
+                                        @if (isset($organizedData['content']->page_content_en) && !blank($organizedData['content']->page_content_en))
+                                            <p>
+                                                @if (Session::get('Lang') == 'hi')
+                                                    {!! $organizedData['content']->page_content_hi ?? '' !!}
+                                                @else
+                                                    {!! $organizedData['content']->page_content_en ?? '' !!}
+                                                @endif
+                                            </p>
                                         @endif
                                         {{-- <div class="text-center">
                                             <a href="#" class="more more gallery-more-btn"
@@ -252,72 +204,72 @@
                             <!--/#list-->
                             <!--/#article-->
                             @if (isset($organizedData['pdf']) && count($organizedData['pdf']) > 0)
-                            <section id="datatable">
-                                <div class="container common-container">
-                                    <div class="row p-0 ">
-                                        <div class="col-md-12">
-                                            {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
+                                <section id="datatable">
+                                    <div class="container common-container">
+                                        <div class="row p-0 ">
+                                            <div class="col-md-12">
+                                                {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
 
-                                            <div class="scroller-tbl">
+                                                <div class="scroller-tbl">
 
-                                                <table id="example" class="display" style="width:100%">
+                                                    <table id="example" class="display" style="width:100%">
 
-                                                    <thead>
-                                                        <tr>
-                                                            <th> Title</th>
-                                                            <th> Date</th>
-                                                            <th> View/Download</th>
-                                                        </tr>
-                                                    </thead>
+                                                        <thead>
+                                                            <tr>
+                                                                <th> Title</th>
+                                                                <th> Date</th>
+                                                                <th> View/Download</th>
+                                                            </tr>
+                                                        </thead>
 
 
-                                                    <tbody>
-                                                        @foreach ($organizedData['pdf'] as $data)
-                                                        <tr>
-                                                            <td>{{ $data->pdf_title ?? '' }}</td>
-                                                            <td>{{ date('d F Y', strtotime($data->start_date ?? '')) }}
-                                                            </td>
-                                                            <td><a href="{{ asset('resources/uploads/PageContentPdf/' . $data->public_url) }}"
-                                                                    download>View</a> <i class="fa fa-file-pdf-o">
-                                                                    ({{ $data->pdfimage_size ?? '' }})
-                                                                </i>
-                                                            </td>
-                                                        </tr>
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
+                                                        <tbody>
+                                                            @foreach ($organizedData['pdf'] as $data)
+                                                                <tr>
+                                                                    <td>{{ $data->pdf_title ?? '' }}</td>
+                                                                    <td>{{ date('d F Y', strtotime($data->start_date ?? '')) }}
+                                                                    </td>
+                                                                    <td><a href="{{ asset('resources/uploads/PageContentPdf/' . $data->public_url) }}"
+                                                                            download>View</a> <i class="fa fa-file-pdf-o">
+                                                                            ({{ $data->pdfimage_size ?? '' }})
+                                                                        </i>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                            </section>
+                                </section>
                             @endif
 
                             @if (isset($organizedData['gallery']) && count($organizedData['gallery']) > 0)
-                            <section class="image-gallery">
-                                <div class="container common-container">
-                                    {{-- <h3 class="master-title mt-0 mb-20">Image Gallery</h3> --}}
-                                    <div class="row main-gallery p-0">
-                                        @foreach ($organizedData['gallery'] as $data)
-                                        <div class=" col-md-4 ">
-                                            <div class="img-con-sec">
-                                                <div class="img-card">
-                                                    <img src="{{ asset('resources/uploads/PageContentGallery/' . $data->public_url) ?? '' }}"
-                                                        alt="{{ $data->image_title ?? '' }}"
-                                                        title="{{ $data->image_title ?? '' }}">
+                                <section class="image-gallery">
+                                    <div class="container common-container">
+                                        {{-- <h3 class="master-title mt-0 mb-20">Image Gallery</h3> --}}
+                                        <div class="row main-gallery p-0">
+                                            @foreach ($organizedData['gallery'] as $data)
+                                                <div class=" col-md-4 ">
+                                                    <div class="img-con-sec">
+                                                        <div class="img-card">
+                                                            <img src="{{ asset('resources/uploads/PageContentGallery/' . $data->public_url) ?? '' }}"
+                                                                alt="{{ $data->image_title ?? '' }}"
+                                                                title="{{ $data->image_title ?? '' }}">
+                                                        </div>
+                                                        <p>{{ $data->image_title ?? '' }}</p>
+                                                    </div>
                                                 </div>
-                                                <p>{{ $data->image_title ?? '' }}</p>
-                                            </div>
-                                        </div>
-                                        @endforeach
+                                            @endforeach
 
-                                        {{-- <div class="col-md-12 text-center">
+                                            {{-- <div class="col-md-12 text-center">
                                             <a href="#" class="more gallery-more-btn"
                                                 title="View more about heading 1">View More</a>
                                             </div> --}}
+                                        </div>
                                     </div>
-                                </div>
-                            </section>
+                                </section>
                             @endif
 
                             {{-- <section class="vid-image-gallery ptb-30">
@@ -351,7 +303,7 @@
             </section> --}}
 
 
-            {{-- <section class="cppri-tabs-section">
+                            {{-- <section class="cppri-tabs-section">
                                 <div class="container common-container">
                                     <h3 class="master-title mb-20 mt-0">Tabs Section</h3>
                                     <div class="tabs">
@@ -462,7 +414,7 @@
                                 </div>
                             </section> --}}
 
-            {{-- <section class="ptb-30 pb-0">
+                            {{-- <section class="ptb-30 pb-0">
                                 <div class="container common-container">
                                     <h3 class="master-title mt-0 mb-20">Accordions</h3>
                                     <div class="row">
@@ -545,12 +497,10 @@
                                     </div>
                                 </div>
                             </section> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
-</div>
-</div>
-
-
 @endsection
