@@ -30,6 +30,7 @@
                                 Home
                             @endif
                         </a></li>
+                    <li><a href="javascript:void();">About us</a></li>   
                     <li><a href="javascript:void();">
                             @if (Session::get('Lang') == 'hi')
                                 {{ __('messages.Director_Desk') }}
