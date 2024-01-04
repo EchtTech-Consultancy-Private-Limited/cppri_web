@@ -233,9 +233,9 @@
 
     <div class="footer-bottom-wrapper">
         <div class="container common-container four_content footer-bottom-container">
-            <div class="footer-content">
+            <div class="footer-content align-items-center">
                 <div class="copyright-content"> 
-                    <p>
+                    <p class='m-0 text-left text-white'>
                     © Copyright  {{ now()->year }} <strong>CPPRI Sahranpur.</strong><span> All Rights
                         Reserved. </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="f-link-t">
                         <a href="{{ url('linking-policy') }}">
@@ -294,7 +294,7 @@
                     </span>
                 
                 </div>
-                <div class="last-updated">
+                <div class="last-updated d-flex">
                     <span>
 
                         @if (Session::get('Lang') == 'hi')
