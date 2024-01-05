@@ -19,6 +19,7 @@
 <link href="{{ asset('assets-cppri/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
 <link href="{{ asset('assets-cppri/css/flexslider.css') }}" rel="stylesheet" media="all">
 <link href="{{ asset('assets-cppri/css/megamenu.css') }}" rel="stylesheet" media="all">
+<link href="{{ asset('assets-cppri/css/magnific-popup.min.css') }}" rel="stylesheet" media="all">
 
 <link href="{{ asset('assets-cppri/css/print.css') }}" rel="stylesheet">
 <link href="{{ asset('assets-cppri/css/empcarddirectory.css') }}" rel="stylesheet">

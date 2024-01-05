@@ -80,6 +80,7 @@
 <script src="{{ asset('assets-cppri/js/datatablebutton.js') }}"></script>
 <script src="{{ asset('assets-cppri/js/datatablebuttonprint.js') }}"></script>
 <script src="{{ asset('assets-cppri/js/masterpagejs.js') }}"></script>
+<script src="{{ asset('assets-cppri/js/magnificpopup.js') }}"></script>
 <!-- <script src="{{ asset('assets-cppri/js/dropdownbootstrapminjs.js') }}"></script> -->
 
 <div id="fb-root"></div>

@@ -588,4 +588,8 @@ class HomeController extends Controller
     {
         return view('pages.press_relesead');
     }
+    public function photoGallery()
+    {
+        return view('pages.photo_gallery');
+    }
 }
