@@ -4,6 +4,7 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="">
 <meta name="author" content="">
+<script src="https://www.google.com/recaptcha/api.js"></script>
 
 <link rel="apple-touch-icon" href="{{ asset('assets-cppri/images/favicon.ico') }}">
 {{-- <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}"> --}}

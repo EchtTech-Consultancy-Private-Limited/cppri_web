@@ -1,6 +1,6 @@
 var baseurl = window.location.href;
 
- // console.log(baseurl +"set-language");
+ //console.log(baseurl +"set-language");
 
 function setlang(value) {
     $.ajax({

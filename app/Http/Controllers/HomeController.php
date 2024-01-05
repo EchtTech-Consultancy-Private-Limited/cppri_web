@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App;
-use  Route, DB, Session, Schema, Cookie;
+use  Route, DB, Session, Schema, Cookie, Closure;
 use Illuminate\Http\Request;
 use App\Models\contactUs;
 use App\Models\feedback;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
@@ -14,54 +15,6 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    // public function search(Request $request)
-    // {
-    //     try {
-    //         $keyword = $request->input('search_key', '');
-    //         $databaseName = env('DB_DATABASE');
-    //         $tables = DB::select("SHOW TABLES FROM $databaseName");
-
-    //         $dataArray = [];
-
-    //         foreach ($tables as $table) {
-    //             $columns = DB::select("SHOW COLUMNS FROM $table->Tables_in_cppri_db");
-
-    //             foreach ($columns as $column) {
-    //                 $results = DB::table($table->Tables_in_cppri_db)
-    //                     ->where($column->Field, 'LIKE', '%' . $keyword . '%')
-    //                     ->get();
-
-    //                 foreach ($results as $result) {
-    //                     $this->collectData($result, $dataArray);
-    //                 }
-    //             }
-    //         }
-
-    //         $uniqueData = array_values(array_unique($dataArray));
-
-    //         return view('pages.search', [
-    //             'dynamicPageContent' => $uniqueData,
-    //             'keyword' => $keyword
-    //         ]);
-    //     } catch (\Exception $e) {
-    //         // Handle the exception, log it, and provide user feedback.
-    //         return view('pages.error', ['error' => $e->getMessage()]);
-    //     }
-    // }
-
-    // private function collectData($result, &$dataArray)
-    // {
-    //     $fields = ['page_title_en', 'title_name_en', 'description_en', 'page_content_en', 'question_en', 'answer_en'];
-
-    //     foreach ($fields as $field) {
-    //         if (isset($result->$field)) {
-    //             array_push($dataArray, $result->$field);
-    //         }
-    //     }
-    // }
-
-
 
     //language
     public function SetLang(Request $request)
@@ -99,6 +52,7 @@ class HomeController extends Controller
 
     public function getContentAllPages(Request $request, $slug, $middelSlug = null, $lastSlugs = null, $finalSlug = null)
     {
+        //dd('hii');
         $slugsToCheck = [$lastSlugs, $middelSlug, $finalSlug];
 
         if (in_array("set-language", $slugsToCheck)) {
@@ -108,6 +62,7 @@ class HomeController extends Controller
         } else {
             // Handle the case when none of the slugs match
         }
+
 
         try {
 
@@ -133,19 +88,20 @@ class HomeController extends Controller
                                     $tree[] = $menu;
                                 }
                             }
-                        }else{
+                        } else {
                             $parentMenut = '';
                             $tree = [];
                         }
-                    }else{
+                    } else {
                         $parentMenut = '';
                         $tree = [];
                     }
                 }
             } elseif ($middelSlug != null) {
+               
                 $middelUrl = DB::table('website_menu_management')->whereurl($slug)->first();
                 $menus = DB::table('website_menu_management')->whereurl($middelSlug)->first();
-                if ($menus !='') {
+                if ($menus != '') {
                     $allmenus = DB::table('website_menu_management')->orderBy('sort_order', 'ASC')->get();
                     $parentMenut = DB::table('website_menu_management')->where('uid', $menus->parent_id)->first();
                     if (!empty($parentMenut)) {
@@ -160,7 +116,7 @@ class HomeController extends Controller
                                 $tree[] = $menu;
                             }
                         }
-                    }else{
+                    } else {
                         $parentMenut = '';
                         $tree = [];
                     }
@@ -213,14 +169,16 @@ class HomeController extends Controller
                         $title_name = $menus->name_en;
                     }
                 }
-
+                $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
+               
 
                 $dynamic_content_page_metatag = DB::table('dynamic_content_page_metatag')
                     ->where('soft_delete', 0)
                     ->where('menu_uid', $menus->uid)
                     ->orderBy('sort_order', 'ASC')
                     ->get();
-
+                    
+                    //dd($dynamic_content_page_metatag);
                 if (count($dynamic_content_page_metatag) > 0) {
 
                     $organizedData = [];
@@ -257,7 +215,6 @@ class HomeController extends Controller
                         ];
                     }
 
-                    $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
 
                     if ($lastSlugs != null) {
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'lastBred' => $lastBred, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
@@ -266,8 +223,66 @@ class HomeController extends Controller
                     } else {
                         return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
                     }
-                } else {
+                   
+                } elseif ($middelSlug != null && $middelSlug == 'director-desk') {
+                 
+                  
+                    $designation = DB::table('emp_depart_designations')
+                        ->where('name_en', 'LIKE', 'Director')
+                        ->where('soft_delete', 0)
+                        ->orderBy('short_order', 'ASC')
+                        ->where('publice_status', 1)
+                        ->first();
 
+                    if ($designation != '') {
+
+                        $Director = DB::table('employee_directories')
+                            ->where('designation_id', $designation->uid)
+                            ->where('soft_delete', 0)
+                            ->orderBy('short_order', 'ASC')
+                            ->where('publice_status', 1)
+                            ->first();
+                        return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'Director' => $Director]);
+                    }
+                } elseif ($middelSlug != null && $middelSlug == 'employee-directory') {
+
+                    $designationData = [];
+
+                    $department = DB::table('emp_depart_designations')
+                        ->where('soft_delete', 0)
+                        ->orderBy('short_order', 'ASC')
+                        ->whereparent_id(0)
+                        ->where('publice_status', 1)
+                        ->get();
+
+                    if (Count($department) > 0) {
+
+                        foreach ($department as $designation) {
+
+                            $data = DB::table('employee_directories as emp')
+                                ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
+                                ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
+                                ->where('emp.soft_delete', 0)
+                                ->where('department_id', $designation->uid)
+                                ->orderBy('emp.short_order', 'ASC')
+                                ->where('emp.publice_status', 1)
+                                ->get();
+                            //  dd( $data);
+
+                            $designationData[] = [
+                                'department' => $designation,
+                                'data' => $data,
+                            ];
+                        }
+                        // dd($designationData);
+
+                        $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
+
+                        // return view('pages.employeeDirectory', ['sortedDesignationData' => $sortedDesignationData]);
+
+                        return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'sortedDesignationData' => $sortedDesignationData]);
+                    }
+                } else {
                     if (Session::get('Lang') == 'hi') {
                         $content = "जल्द आ रहा है";
                     } else {
@@ -398,13 +413,18 @@ class HomeController extends Controller
 
     public function feedbackStore(Request $request)
     {
-        // dd($request->all());
         $request->validate([
             'name' => 'required',
-            'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
+            'email' => ['required', 'string', 'email', 'max:50', 'email:rfc'],
             'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
             'message' => 'required',
-            // 'CaptchaCode' => 'required|valid_captcha',
+            'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
+                $g_response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                    'secret' => config('services.recaptcha.secret_key'),
+                    'response' => $value,
+                    'remoteip' => \request()->ip()
+                ]);
+            }],
         ]);
 
         $data = new feedback;
@@ -436,119 +456,124 @@ class HomeController extends Controller
         return view('pages.error');
     }
 
-    public function directorDesk()
-    {
-        try {
+    // public function directorDesk()
+    // {
+    //     try {
+    //         $designation = DB::table('emp_depart_designations')
+    //             ->where('name_en', 'LIKE', 'Director')
+    //             ->where('soft_delete', 0)
+    //             ->orderBy('short_order', 'ASC')
+    //             ->where('publice_status', 1)
+    //             ->first();
 
-            $designation = DB::table('emp_depart_designations')
-                ->where('name_en', 'LIKE', 'Director')
-                ->where('soft_delete', 0)
-                ->orderBy('short_order', 'ASC')
-                ->where('publice_status', 1)
-                ->first();
+    //         if ($designation != '') {
 
-            if ($designation != '') {
+    //             $Director = DB::table('employee_directories')
+    //                 ->where('designation_id', $designation->uid)
+    //                 ->where('soft_delete', 0)
+    //                 ->orderBy('short_order', 'ASC')
+    //                 ->where('publice_status', 1)
+    //                 ->first();
 
-                $Director = DB::table('employee_directories')
-                    ->where('designation_id', $designation->uid)
-                    ->where('soft_delete', 0)
-                    ->orderBy('short_order', 'ASC')
-                    ->where('publice_status', 1)
-                    ->first();
+    //             return view('pages.directorDesk', ['Director' => $Director]);
+    //         } else {
 
-                //  dd($Director);
+    //             if (Session::get('Lang') == 'hi') {
+    //                 $content = "जल्द आ रहा है";
+    //             } else {
+    //                 $content = "Coming Soon...";
+    //             }
+    //             // dd($menus);
+    //             return view('pages.directorDesk', ['content' => $content]);
+    //         }
+    //     } catch (\Exception $e) {
+    //         \Log::error('An exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\PDOException $e) {
+    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\Throwable $e) {
+    //         // Catch any other types of exceptions that implement the Throwable interface.
+    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     }
+    // }
+    // public function employeeDirectory()
+    // {
+    //     try {
+    //         $designationData = [];
 
-                return view('pages.directorDesk', ['Director' => $Director]);
-            } else {
+    //         $department = DB::table('emp_depart_designations')
+    //             ->where('soft_delete', 0)
+    //             ->orderBy('short_order', 'ASC')
+    //             ->whereparent_id(0)
+    //             ->where('publice_status', 1)
+    //             ->get();
 
-                if (Session::get('Lang') == 'hi') {
-                    $content = "जल्द आ रहा है";
-                } else {
-                    $content = "Coming Soon...";
-                }
-                // dd($menus);
-                return view('pages.directorDesk', ['content' => $content]);
-            }
-        } catch (\Exception $e) {
-            \Log::error('An exception occurred: ' . $e->getMessage());
-            return view('pages.error');
-        } catch (\PDOException $e) {
-            \Log::error('A PDOException occurred: ' . $e->getMessage());
-            return view('pages.error');
-        } catch (\Throwable $e) {
-            // Catch any other types of exceptions that implement the Throwable interface.
-            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-            return view('pages.error');
-        }
-    }
-    public function employeeDirectory()
-    {
-        try {
-            $designationData = [];
+    //         if (Count($department) > 0) {
 
-            $department = DB::table('emp_depart_designations')
-                ->where('soft_delete', 0)
-                ->orderBy('short_order', 'ASC')
-                ->whereparent_id(0)
-                ->where('publice_status', 1)
-                ->get();
+    //             foreach ($department as $designation) {
 
-            if (Count($department) > 0) {
+    //                 $data = DB::table('employee_directories as emp')
+    //                     ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
+    //                     ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
+    //                     ->where('emp.soft_delete', 0)
+    //                     ->where('department_id', $designation->uid)
+    //                     ->orderBy('emp.short_order', 'ASC')
+    //                     ->where('emp.publice_status', 1)
+    //                     ->get();
+    //                 //  dd( $data);
 
-                foreach ($department as $designation) {
+    //                 $designationData[] = [
+    //                     'department' => $designation,
+    //                     'data' => $data,
+    //                 ];
+    //             }
+    //             // dd($designationData);
 
-                    $data = DB::table('employee_directories as emp')
-                        ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
-                        ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
-                        ->where('emp.soft_delete', 0)
-                        ->where('department_id', $designation->uid)
-                        ->orderBy('emp.short_order', 'ASC')
-                        ->where('emp.publice_status', 1)
-                        ->get();
-                    //  dd( $data);
+    //             $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
 
-                    $designationData[] = [
-                        'department' => $designation,
-                        'data' => $data,
-                    ];
-                }
-                // dd($designationData);
+    //             return view('pages.employeeDirectory', ['sortedDesignationData' => $sortedDesignationData]);
+    //         } else {
 
-                $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
-
-                return view('pages.employeeDirectory', ['sortedDesignationData' => $sortedDesignationData]);
-            } else {
-
-                if (Session::get('Lang') == 'hi') {
-                    $content = "जल्द आ रहा है";
-                } else {
-                    $content = "Coming Soon...";
-                }
-                // dd($menus);
-                return view('pages.employeeDirectory', ['content' => $content]);
-            }
-        } catch (\Exception $e) {
-            \Log::error('An exception occurred: ' . $e->getMessage());
-            return view('pages.error');
-        } catch (\PDOException $e) {
-            \Log::error('A PDOException occurred: ' . $e->getMessage());
-            return view('pages.error');
-        } catch (\Throwable $e) {
-            // Catch any other types of exceptions that implement the Throwable interface.
-            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-            return view('pages.error');
-        }
-    }
+    //             if (Session::get('Lang') == 'hi') {
+    //                 $content = "जल्द आ रहा है";
+    //             } else {
+    //                 $content = "Coming Soon...";
+    //             }
+    //             // dd($menus);
+    //             return view('pages.employeeDirectory', ['content' => $content]);
+    //         }
+    //     } catch (\Exception $e) {
+    //         \Log::error('An exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\PDOException $e) {
+    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\Throwable $e) {
+    //         // Catch any other types of exceptions that implement the Throwable interface.
+    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     }
+    // }
 
     public function contactStroe(Request $request)
     {
-        // dd($request->all());
+
         $request->validate([
             'name' => 'required',
             'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
             'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
             'message' => 'required',
-            // 'CaptchaCode' => 'required|valid_captcha',
+            'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
+                $g_response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                    'secret' => config('services.recaptcha.secret_key'),
+                    'response' => $value,
+                    'remoteip' => \request()->ip()
+                ]);
+
+                //dd($g_response->json());
+            }],
         ]);
 
         $data = new contactUs;
