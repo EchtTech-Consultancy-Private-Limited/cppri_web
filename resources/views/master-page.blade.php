@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    {{ __('RAV') }}
+{{ __('RAV') }}
 @endsection
 @section('content')
     <section class="wrapper banner-wrapper">
@@ -71,7 +71,7 @@
                                             $treesUrl = $trees->url ?? '';
                                         @endphp
                                         @if (count($trees->children) > 0)
-                                            <li class="accordion accordion-flush position-relative"
+                                            <li class="accordion accordion-flush position-relative sl-accordion"
                                                 id="sidebarDropdown_{{ $index }}">
                                                 <div class="accordion-item">
                                                     <div class="list-start">
@@ -91,7 +91,7 @@
                                                         class="accordion-collapse collapse"
                                                         data-bs-parent="#sidebarDropdown_{{ $index }}">
                                                         <div class="accordion-body p-0">
-                                                            <ul class='p-0'>
+                                                            <ul class='p-0 m-0 mt-3'>
                                                                 @foreach ($trees->children as $childTree)
                                                                     @php
                                                                         $chiltreeUrl = $childTree->url ?? '';

@@ -713,7 +713,7 @@
                                                         </li> --}}
                                                     </ul>
                                                 </div>
-                                                <div class="view-footer"><a href="javascript:void();"
+                                                <div class="view-footer"><a href="{{url('press-released')}}"
                                                         title="Read More"><span>
                                                             @if (Session::get('Lang') == 'hi')
                                                                 {{ __('messages.Read_More') }}
