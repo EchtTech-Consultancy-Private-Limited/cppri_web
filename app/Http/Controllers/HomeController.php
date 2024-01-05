@@ -98,7 +98,7 @@ class HomeController extends Controller
                     }
                 }
             } elseif ($middelSlug != null) {
-               
+
                 $middelUrl = DB::table('website_menu_management')->whereurl($slug)->first();
                 $menus = DB::table('website_menu_management')->whereurl($middelSlug)->first();
                 if ($menus != '') {
@@ -170,15 +170,15 @@ class HomeController extends Controller
                     }
                 }
                 $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
-               
+
 
                 $dynamic_content_page_metatag = DB::table('dynamic_content_page_metatag')
                     ->where('soft_delete', 0)
                     ->where('menu_uid', $menus->uid)
                     ->orderBy('sort_order', 'ASC')
                     ->get();
-                    
-                    //dd($dynamic_content_page_metatag);
+                // dd($middelSlug);
+                //dd($dynamic_content_page_metatag);
                 if (count($dynamic_content_page_metatag) > 0) {
 
                     $organizedData = [];
@@ -223,10 +223,7 @@ class HomeController extends Controller
                     } else {
                         return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
                     }
-                   
                 } elseif ($middelSlug != null && $middelSlug == 'director-desk') {
-                 
-                  
                     $designation = DB::table('emp_depart_designations')
                         ->where('name_en', 'LIKE', 'Director')
                         ->where('soft_delete', 0)
@@ -246,6 +243,7 @@ class HomeController extends Controller
                     }
                 } elseif ($middelSlug != null && $middelSlug == 'employee-directory') {
 
+                    //dd('hii');
                     $designationData = [];
 
                     $department = DB::table('emp_depart_designations')
@@ -588,5 +586,49 @@ class HomeController extends Controller
     public function showPressReleased()
     {
         return view('pages.press_relesead');
+    }
+    public function photoGallery()
+    {
+        try {
+        $galleryManagementRecords = DB::table('gallery_management')
+            ->where('type', 0)
+            ->where('soft_delete', 0)
+            ->get();
+
+        $galleryDetails = DB::table('gallery_details')
+            ->where('soft_delete', 0)
+            ->get();
+       
+        if (!empty($galleryManagementRecords) && !empty($galleryDetails)) {
+            $tree = [];
+
+            foreach ($galleryManagementRecords as $menu) {
+                $menu->children = [];
+
+                foreach ($galleryDetails as $detail) {
+                    if ($menu->uid == $detail->gallery_id) {
+                        $menu->children[] = $detail;
+                    }
+                }
+
+                $tree[] = $menu;
+            }
+        } else {
+            $tree = [];
+        }
+       
+        return view('pages.photo_gallery', ['tree' => $tree]);
+
+    } catch (\Exception $e) {
+        \Log::error('An exception occurred: ' . $e->getMessage());
+        return view('pages.error');
+    } catch (\PDOException $e) {
+        \Log::error('A PDOException occurred: ' . $e->getMessage());
+        return view('pages.error');
+    } catch (\Throwable $e) {
+        // Catch any other types of exceptions that implement the Throwable interface.
+        \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+        return view('pages.error');
+    }   
     }
 }

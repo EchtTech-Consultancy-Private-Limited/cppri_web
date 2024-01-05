@@ -41,11 +41,11 @@
                         </a></li>
 
                     @if (isset($lastBred))
-                        <li>{{ ucfirst(strtolower($lastBred)) ?? '' }}</li> >
+                        <li><a>{{ ucfirst(strtolower($lastBred)) ?? '' }}</a></li> 
                     @endif
 
                     @if (isset($middelBred))
-                        <li>{{ ucfirst(strtolower($middelBred)) ?? '' }}</li> >
+                        <li><a>{{ ucfirst(strtolower($middelBred)) ?? '' }}</a></li> 
                     @endif
 
                     <li>{{ ucfirst(strtolower($title_name)) ?? '' }}</li>
@@ -71,7 +71,7 @@
                                             $treesUrl = $trees->url ?? '';
                                         @endphp
                                         @if (count($trees->children) > 0)
-                                            <li class="accordion accordion-flush position-relative sl-accordion"
+                                              <li class="accordion accordion-flush position-relative sl-accordion"
                                                 id="sidebarDropdown_{{ $index }}">
                                                 <div class="accordion-item">
                                                     <div class="list-start">

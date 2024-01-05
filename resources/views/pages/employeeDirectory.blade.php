@@ -139,7 +139,7 @@
                                     <h2>{{ $item['department']->name_en ?? '' }}</h2>
                                 @endif
 
-                                <div data-aos-mirror="true" data-aos="fade-left" class="title-after"> </div>
+                                 <div data-aos-mirror="true" data-aos="fade-left" class="title-after"> </div>
                             </div>
                         </div>
                         @if (isset($item['data']) && count($item['data']) > 0)

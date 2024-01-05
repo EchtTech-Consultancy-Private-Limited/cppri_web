@@ -157,7 +157,7 @@
                 </section>
             </div>
         </div>
-    </section>
+     </section>
 
 </div>
 @endsection
