@@ -2344,3 +2344,19 @@ table tr td {
 table .multiple-pdf{
 	display: block;
 }
+
+.main-sidebar ul .accordion:hover .nav-link.collapsed{
+	color: #fff !important;
+}
+
+.main-sidebar .accordion:hover a{
+	padding-left: 0 !important;
+}
+
+.main-sidebar .accordion:hover a::after{
+	color: #fff !important;
+}
+
+.tl-accordion {
+    background: #ecf4ff !important;
+}

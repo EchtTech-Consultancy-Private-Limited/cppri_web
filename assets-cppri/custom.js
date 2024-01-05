@@ -384,7 +384,7 @@ $("document").ready(function () {
 });
 
 $(document).ready(()=>{
-    $('.accordion').click(()=>{
+    $('.sl-accordion').click(()=>{
         console.log("hellow world");
         $('.main-sidebar ul .accordion').css({
             'background-color': "#1a4f91"

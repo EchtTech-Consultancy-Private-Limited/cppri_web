@@ -549,4 +549,9 @@ class HomeController extends Controller
         $data->save();
         return back()->with('success', 'Record Add Successfully');
     }
+
+    public function showPressReleased()
+    {
+        return view('pages.press_relesead');
+    }
 }
