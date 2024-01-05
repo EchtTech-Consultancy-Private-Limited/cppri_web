@@ -2360,3 +2360,40 @@ table .multiple-pdf{
 .tl-accordion {
     background: #ecf4ff !important;
 }
+
+
+/* press released page */
+
+.press_date {
+    font-size: 13px;
+    color: #727272;
+}
+
+.pr-card .card-title {
+    margin: 6px 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+.card.pr-card {
+    margin-top: 15px;
+}
+
+
+.card.pr-card .pr-type {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 14px;
+    background: #ff6c00;
+    color: #fff;
+    padding: 1px 11px;
+    border-radius: 10px;
+}
+
+.card.pr-card .prn-type{
+	font-size: 13px;
+    color: red;
+}
+.card.pr-card p{
+	margin: 0px;
+}
