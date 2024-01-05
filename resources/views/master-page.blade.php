@@ -15,7 +15,6 @@
                     </div>
                 </div>
             </div>
-            
         @else
             <div id="flexSlider" class="flexslider bigbanner"
                 style="background-image: url('{{ asset('assets-cppri/images/agnipath-banner-1200-185.png') }}');">
@@ -60,20 +59,71 @@
         <div class="container common-container pr-0">
             <!--/.nav-wrapper-->
             <div class="row pr-0">
-                @if(isset($parentMenut) != '') 
-                <div class="col-md-3 sidebar-main-nav-colmd3">
-                  
-                    <div class="main-sidebar">
-                        <ul>
-                            @if (isset($tree) && count($tree) > 0)
-                                @foreach ($tree as $index =>$trees)
-                                    @if (count($trees->children) > 0)
-                                        <li class="accordion accordion-flush position-relative" id="sidebarDropdown_{{ $index }}">
-                                            <div class="accordion-item">
+                @if (isset($parentMenut) != '')
+                    <div class="col-md-3 sidebar-main-nav-colmd3">
+
+                        <div class="main-sidebar">
+                            <ul>
+                                @if (isset($tree) && count($tree) > 0)
+                                    @foreach ($tree as $index => $trees)
+                                        @php
+                                            $parentMenuUrl = $parentMenut->url ?? '';
+                                            $treesUrl = $trees->url ?? '';
+                                        @endphp
+                                        @if (count($trees->children) > 0)
+                                            <li class="accordion accordion-flush position-relative"
+                                                id="sidebarDropdown_{{ $index }}">
+                                                <div class="accordion-item">
+                                                    <div class="list-start">
+                                                        <a class="nav-link collapsed " type="button"
+                                                            data-bs-toggle="collapse"
+                                                            data-bs-target="#flush-collapseOne_{{ $index }}"
+                                                            aria-expanded="false" aria-controls="flush-collapseOne">
+                                                            @if (Session::get('Lang') == 'hi')
+                                                                {{ $trees->name_hi ?? '' }}
+                                                            @else
+                                                                {{ $trees->name_en ?? '' }}
+                                                            @endif
+                                                        </a>
+                                                    </div>
+
+                                                    <div id="flush-collapseOne_{{ $index }}"
+                                                        class="accordion-collapse collapse"
+                                                        data-bs-parent="#sidebarDropdown_{{ $index }}">
+                                                        <div class="accordion-body p-0">
+                                                            <ul class='p-0'>
+                                                                @foreach ($trees->children as $childTree)
+                                                                    @php
+                                                                        $chiltreeUrl = $childTree->url ?? '';
+                                                                    @endphp
+
+                                                                    <li> <a href="{{ url($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl) }}"
+                                                                            class="
+                                                                            
+                                                                            @if (request()->is($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl)) qm-active @endif
+                                                                            
+                                                                            ">
+
+                                                                            @if (Session::get('Lang') == 'hi')
+                                                                                {{ $childTree->name_hi ?? '' }}
+                                                                            @else
+                                                                                {{ $childTree->name_en ?? '' }}
+                                                                            @endif
+                                                                        </a>
+                                                                    </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </li>
+                                        @else
+                                            <li class="@if (request()->is($parentMenuUrl.'/'.$treesUrl)) qm-active @endif">
                                                 <div class="list-start">
-                                                    <a class="nav-link collapsed " type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#flush-collapseOne_{{ $index }}" aria-expanded="false"
-                                                        aria-controls="flush-collapseOne">
+
+                                                    <a href="{{ url($parentMenuUrl . '/' . $treesUrl) }}" class="nav-link">
+                                                  
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $trees->name_hi ?? '' }}
                                                         @else
@@ -82,49 +132,14 @@
                                                     </a>
                                                 </div>
 
-                                                <div id="flush-collapseOne_{{ $index }}" class="accordion-collapse collapse"
-                                                    data-bs-parent="#sidebarDropdown_{{ $index }}">
-                                                    <div class="accordion-body p-0">
-                                                        <ul class='p-0'>
-                                                            @foreach ($trees->children as $childTree)
-                                                                <li> <a href="{{ url($parentMenut->url.'/'.$trees->url.'/'.$childTree->url) }}">
-
-                                                                        @if (Session::get('Lang') == 'hi')
-                                                                            {{ $childTree->name_hi ?? '' }}
-                                                                        @else
-                                                                            {{ $childTree->name_en ?? '' }}
-                                                                        @endif
-                                                                    </a>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </li>
-                                    @else
-                                        <li class=" @if (request()->is($parentMenut->url.'/'.$trees->url)) qm-active @endif">
-                                            <div class="list-start">
-                                             
-                                                <a href="{{ $trees->url }}" class="nav-link">
-                                                    @if (Session::get('Lang') == 'hi')
-                                                        {{ $trees->name_hi ?? '' }}
-                                                    @else
-                                                        {{ $trees->name_en ?? '' }}
-                                                    @endif
-                                                </a>
-                                            </div>
-
-                                        </li>
-                                    @endif
-                                @endforeach
-                               
-                            @endif
-                        </ul>
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                @endif
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                @endif 
+                @endif
 
 
 
@@ -135,47 +150,47 @@
                 @endif
 
                 {{-- <div class="col-md-9 m-p-0"> --}}
-                    <div class="main-content">
-                        <!--/#skipCont-->
-                        <div id="fontSize" class="wrapper body-wrapper ">
-                            @if (isset($content))
-                                <h1>{{ $content }}</h1>
-                            @endif
+                <div class="main-content">
+                    <!--/#skipCont-->
+                    <div id="fontSize" class="wrapper body-wrapper ">
+                        @if (isset($content))
+                            <h1>{{ $content }}</h1>
+                        @endif
 
-                            <!--/#page-head-->
-                            <section id="paragraph" class="wrapper paragraph-wrapper">
-                                <div class="container common-container four_content pm-0">
-                                    <div class="align-lt">
-                                        <h2 class="mt-0 mb-20">
-                                            @if (isset($organizedData['metatag']->page_title_en) && !blank($organizedData['metatag']->page_title_en))
-                                                @if (Session::get('Lang') == 'hi')
-                                                    {{ $organizedData['metatag']->page_title_hi ?? '' }}
-                                                @else
-                                                    {{ $organizedData['metatag']->page_title_en ?? '' }}
-                                                @endif
+                        <!--/#page-head-->
+                        <section id="paragraph" class="wrapper paragraph-wrapper">
+                            <div class="container common-container four_content pm-0">
+                                <div class="align-lt">
+                                    <h2 class="mt-0 mb-20">
+                                        @if (isset($organizedData['metatag']->page_title_en) && !blank($organizedData['metatag']->page_title_en))
+                                            @if (Session::get('Lang') == 'hi')
+                                                {{ $organizedData['metatag']->page_title_hi ?? '' }}
+                                            @else
+                                                {{ $organizedData['metatag']->page_title_en ?? '' }}
                                             @endif
-                                        </h2>
-                                        {{-- <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}"
-                                        alt> --}}
-                                        <!-- <h3>Headline goes here...</h3> -->
-                                        @if (isset($organizedData['content']->page_content_en) && !blank($organizedData['content']->page_content_en))
-                                            <p>
-                                                @if (Session::get('Lang') == 'hi')
-                                                    {!! $organizedData['content']->page_content_hi ?? '' !!}
-                                                @else
-                                                    {!! $organizedData['content']->page_content_en ?? '' !!}
-                                                @endif
-                                            </p>
                                         @endif
-                                        {{-- <div class="text-center">
+                                    </h2>
+                                    {{-- <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}"
+                                        alt> --}}
+                                    <!-- <h3>Headline goes here...</h3> -->
+                                    @if (isset($organizedData['content']->page_content_en) && !blank($organizedData['content']->page_content_en))
+                                        <p>
+                                            @if (Session::get('Lang') == 'hi')
+                                                {!! $organizedData['content']->page_content_hi ?? '' !!}
+                                            @else
+                                                {!! $organizedData['content']->page_content_en ?? '' !!}
+                                            @endif
+                                        </p>
+                                    @endif
+                                    {{-- <div class="text-center">
                                             <a href="#" class="more more gallery-more-btn"
                                                 title="View more about heading 2">View More</a>
                                         </div> --}}
-                                    </div>
                                 </div>
-                            </section>
-                            <!--/#paragraph-->
-                            {{-- <section id="list" class="wrapper list-wrapper ptb-30">
+                            </div>
+                        </section>
+                        <!--/#paragraph-->
+                        {{-- <section id="list" class="wrapper list-wrapper ptb-30">
                                 <div class="container common-container four_content pm-0">
                                     <h3 class="master-title mt-0">List</h3>
                                     <div class="list list-circle">
@@ -202,81 +217,81 @@
                                       </div> -->
                                 </div>
                             </section> --}}
-                            <!--/#list-->
-                            <!--/#article-->
-                            @if (isset($organizedData['pdf']) && count($organizedData['pdf']) > 0)
-                                <section id="datatable">
-                                    <div class="container common-container">
-                                        <div class="row p-0 ">
-                                            <div class="col-md-12">
-                                                {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
+                        <!--/#list-->
+                        <!--/#article-->
+                        @if (isset($organizedData['pdf']) && count($organizedData['pdf']) > 0)
+                            <section id="datatable">
+                                <div class="container common-container">
+                                    <div class="row p-0 ">
+                                        <div class="col-md-12">
+                                            {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
 
-                                                <div class="scroller-tbl">
+                                            <div class="scroller-tbl">
 
-                                                    <table id="example" class="display" style="width:100%">
+                                                <table id="example" class="display" style="width:100%">
 
-                                                        <thead>
-                                                            <tr>
-                                                                <th> Title</th>
-                                                                <th> Date</th>
-                                                                <th> View/Download</th>
-                                                            </tr>
-                                                        </thead>
+                                                    <thead>
+                                                        <tr>
+                                                            <th> Title</th>
+                                                            <th> Date</th>
+                                                            <th> View/Download</th>
+                                                        </tr>
+                                                    </thead>
 
 
                                                     <tbody>
                                                         @foreach ($organizedData['pdf'] as $data)
-                                                        <tr>
-                                                            <td>{{ $data->pdf_title ?? '' }}</td>
-                                                            <td>{{ date('d F Y', strtotime($data->start_date ?? '')) }}
-                                                            </td>
-                                                            <td class='d-grid'>
-                                                                <span>
-                                                                <a href="{{ asset('resources/uploads/PageContentPdf/' . $data->public_url) }}"
-                                                                    download>View</a> <i class="fa fa-file-pdf-o">
-                                                                    ({{ $data->pdfimage_size ?? '' }})
-                                                                </i>
-                                                                </span>
-                                                            </td>
-                                                        </tr>
+                                                            <tr>
+                                                                <td>{{ $data->pdf_title ?? '' }}</td>
+                                                                <td>{{ date('d F Y', strtotime($data->start_date ?? '')) }}
+                                                                </td>
+                                                                <td class='d-grid'>
+                                                                    <span>
+                                                                        <a href="{{ asset('resources/uploads/PageContentPdf/' . $data->public_url) }}"
+                                                                            download>View</a> <i class="fa fa-file-pdf-o">
+                                                                            ({{ $data->pdfimage_size ?? '' }})
+                                                                        </i>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
                                                         @endforeach
                                                     </tbody>
                                                 </table>
 
-                                                </div>
                                             </div>
                                         </div>
-                                </section>
-                            @endif
+                                    </div>
+                            </section>
+                        @endif
 
-                            @if (isset($organizedData['gallery']) && count($organizedData['gallery']) > 0)
-                                <section class="image-gallery">
-                                    <div class="container common-container">
-                                        {{-- <h3 class="master-title mt-0 mb-20">Image Gallery</h3> --}}
-                                        <div class="row main-gallery p-0">
-                                            @foreach ($organizedData['gallery'] as $data)
-                                                <div class=" col-md-4 ">
-                                                    <div class="img-con-sec">
-                                                        <div class="img-card">
-                                                            <img src="{{ asset('resources/uploads/PageContentGallery/' . $data->public_url) ?? '' }}"
-                                                                alt="{{ $data->image_title ?? '' }}"
-                                                                title="{{ $data->image_title ?? '' }}">
-                                                        </div>
-                                                        <p>{{ $data->image_title ?? '' }}</p>
+                        @if (isset($organizedData['gallery']) && count($organizedData['gallery']) > 0)
+                            <section class="image-gallery">
+                                <div class="container common-container">
+                                    {{-- <h3 class="master-title mt-0 mb-20">Image Gallery</h3> --}}
+                                    <div class="row main-gallery p-0">
+                                        @foreach ($organizedData['gallery'] as $data)
+                                            <div class=" col-md-4 ">
+                                                <div class="img-con-sec">
+                                                    <div class="img-card">
+                                                        <img src="{{ asset('resources/uploads/PageContentGallery/' . $data->public_url) ?? '' }}"
+                                                            alt="{{ $data->image_title ?? '' }}"
+                                                            title="{{ $data->image_title ?? '' }}">
                                                     </div>
+                                                    <p>{{ $data->image_title ?? '' }}</p>
                                                 </div>
-                                            @endforeach
+                                            </div>
+                                        @endforeach
 
-                                            {{-- <div class="col-md-12 text-center">
+                                        {{-- <div class="col-md-12 text-center">
                                             <a href="#" class="more gallery-more-btn"
                                                 title="View more about heading 1">View More</a>
                                             </div> --}}
-                                        </div>
                                     </div>
-                                </section>
-                            @endif
+                                </div>
+                            </section>
+                        @endif
 
-                            {{-- <section class="vid-image-gallery ptb-30">
+                        {{-- <section class="vid-image-gallery ptb-30">
                                 <div class="container common-container">
                                     <h3 class="master-title mb-20 mt-0">Video Gallery</h3>
                                     <div class="row vid-main-gallery p-0">
@@ -307,7 +322,7 @@
             </section> --}}
 
 
-                            {{-- <section class="cppri-tabs-section">
+                        {{-- <section class="cppri-tabs-section">
                                 <div class="container common-container">
                                     <h3 class="master-title mb-20 mt-0">Tabs Section</h3>
                                     <div class="tabs">
@@ -418,7 +433,7 @@
                                 </div>
                             </section> --}}
 
-                            {{-- <section class="ptb-30 pb-0">
+                        {{-- <section class="ptb-30 pb-0">
                                 <div class="container common-container">
                                     <h3 class="master-title mt-0 mb-20">Accordions</h3>
                                     <div class="row">
@@ -501,10 +516,10 @@
                                     </div>
                                 </div>
                             </section> --}}
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
