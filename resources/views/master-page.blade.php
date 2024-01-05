@@ -71,7 +71,7 @@
                                             $treesUrl = $trees->url ?? '';
                                         @endphp
                                         @if (count($trees->children) > 0)
-                                            <li class="accordion accordion-flush position-relative sl-accordion"
+                                              <li class="accordion accordion-flush position-relative sl-accordion"
                                                 id="sidebarDropdown_{{ $index }}">
                                                 <div class="accordion-item">
                                                     <div class="list-start">
