@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App;
-use  Route, DB, Session, Schema, Cookie;
+use  Route, DB, Session, Schema, Cookie, Closure;
 use Illuminate\Http\Request;
 use App\Models\contactUs;
 use App\Models\feedback;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
@@ -398,14 +399,21 @@ class HomeController extends Controller
 
     public function feedbackStore(Request $request)
     {
-        // dd($request->all());
         $request->validate([
             'name' => 'required',
-            'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
+            'email' => ['required', 'string', 'email', 'max:50', 'email:rfc'],
             'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
             'message' => 'required',
-            // 'CaptchaCode' => 'required|valid_captcha',
+            'g-recaptcha-response' => ['required',function (string $attribute, mixed $value, Closure $fail) {
+                $g_response =Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify',[
+                    'secret' => config('services.recaptcha.secret_key'),
+                    'response' => $value,
+                    'remoteip' => \request()->ip()
+                ]);
+     
+            }],
         ]);
+        
 
         $data = new feedback;
         $data->name = $request->name;
@@ -542,13 +550,21 @@ class HomeController extends Controller
 
     public function contactStroe(Request $request)
     {
-        // dd($request->all());
+
         $request->validate([
             'name' => 'required',
             'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
             'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
             'message' => 'required',
-            // 'CaptchaCode' => 'required|valid_captcha',
+            'g-recaptcha-response' => ['required',function (string $attribute, mixed $value, Closure $fail) {
+                $g_response =Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify',[
+                    'secret' => config('services.recaptcha.secret_key'),
+                    'response' => $value,
+                    'remoteip' => \request()->ip()
+                ]);
+     
+                //dd($g_response->json());
+            }],
         ]);
 
         $data = new contactUs;
