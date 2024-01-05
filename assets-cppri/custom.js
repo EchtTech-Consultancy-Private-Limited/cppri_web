@@ -407,7 +407,7 @@ $(document).ready(()=>{
 
 
 
-    jQuery('.image-popup').magnificPopup({
+      jQuery('.image-popup').magnificPopup({
         type: 'image',
       mainClass: 'mfp-with-zoom', 
       gallery:{
