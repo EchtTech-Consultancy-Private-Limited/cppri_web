@@ -109,183 +109,193 @@ class HomeController extends Controller
             // Handle the case when none of the slugs match
         }
 
-        // try {
-
-        if ($lastSlugs != null) {
-            $lastUrl = DB::table('website_menu_management')->whereurl($slug)->first();
-            $middelUrl = DB::table('website_menu_management')->whereurl($middelSlug)->first();
-            $menus = DB::table('website_menu_management')->whereurl($lastSlugs)->first();
-            if ($menus) {
-                $allmenus = DB::table('website_menu_management')->orderBy('sort_order', 'ASC')->get();
-                $firstParent = DB::table('website_menu_management')->where('uid', $menus->parent_id)->first();
-                $parentMenut = DB::table('website_menu_management')->where('uid', $firstParent->parent_id)->first();
-
-                foreach ($allmenus as $menu) {
-                    if ($menu->parent_id == $parentMenut->uid) {
-                        $menu->children = [];
-                        foreach ($allmenus as $childMenu) {
-                            if ($childMenu->parent_id == $menu->uid) {
-                                $menu->children[] = $childMenu;
-                            }
-                        }
-                        $tree[] = $menu;
-                    }
-                }
-            }
-        } elseif ($middelSlug != null) {
-            $middelUrl = DB::table('website_menu_management')->whereurl($slug)->first();
-            $menus = DB::table('website_menu_management')->whereurl($middelSlug)->first();
-
-            if ($menus) {
-                $allmenus = DB::table('website_menu_management')->orderBy('sort_order', 'ASC')->get();
-                $parentMenut = DB::table('website_menu_management')->where('uid', $menus->parent_id)->first();
-                foreach ($allmenus as $menu) {
-                    if ($menu->parent_id == $parentMenut->uid) {
-                        $menu->children = [];
-                        foreach ($allmenus as $childMenu) {
-                            if ($childMenu->parent_id == $menu->uid) {
-                                $menu->children[] = $childMenu;
-                            }
-                        }
-                        $tree[] = $menu;
-                    }
-                }
-            }
-        } else {
-            $menus = DB::table('website_menu_management')->whereurl($slug)->first();
-        }
-
-        if ($menus != '') {
+        try {
 
             if ($lastSlugs != null) {
+                $lastUrl = DB::table('website_menu_management')->whereurl($slug)->first();
+                $middelUrl = DB::table('website_menu_management')->whereurl($middelSlug)->first();
+                $menus = DB::table('website_menu_management')->whereurl($lastSlugs)->first();
+                if ($menus != '') {
+                    $allmenus = DB::table('website_menu_management')->orderBy('sort_order', 'ASC')->get();
+                    $firstParent = DB::table('website_menu_management')->where('uid', $menus->parent_id)->first();
+                    if (!empty($firstParent)) {
+                        $parentMenut = DB::table('website_menu_management')->where('uid', optional($firstParent)->parent_id)->first();
+                        if (!empty($parentMenut)) {
+                            foreach ($allmenus as $menu) {
 
-                if (Session::get('Lang') == 'hi') {
-                    $lastBred = $lastUrl->name_hi;
-                } else {
-                    $lastBred = $lastUrl->name_en;
-                }
-
-
-                if (Session::get('Lang') == 'hi') {
-                    $middelBred = $middelUrl->name_hi;
-                } else {
-                    $middelBred = $middelUrl->name_en;
-                }
-
-                if (Session::get('Lang') == 'hi') {
-                    $title_name = $menus->name_hi;
-                } else {
-                    $title_name = $menus->name_en;
+                                if ($parentMenut && $menu->parent_id == $parentMenut->uid) {
+                                    $menu->children = [];
+                                    foreach ($allmenus as $childMenu) {
+                                        if ($childMenu->parent_id == $menu->uid) {
+                                            $menu->children[] = $childMenu;
+                                        }
+                                    }
+                                    $tree[] = $menu;
+                                }
+                            }
+                        }else{
+                            $parentMenut = '';
+                            $tree = [];
+                        }
+                    }else{
+                        $parentMenut = '';
+                        $tree = [];
+                    }
                 }
             } elseif ($middelSlug != null) {
-
-                if (Session::get('Lang') == 'hi') {
-                    $middelBred = $middelUrl->name_hi;
-                } else {
-                    $middelBred = $middelUrl->name_en;
-                    // dd($middelBred);
-                }
-
-                if (Session::get('Lang') == 'hi') {
-                    $title_name = $menus->name_hi;
-                } else {
-                    $title_name = $menus->name_en;
-                }
-            } else {
-
-                if (Session::get('Lang') == 'hi') {
-                    $title_name = $menus->name_hi;
-                } else {
-                    $title_name = $menus->name_en;
-                }
-            }
-
-
-            $dynamic_content_page_metatag = DB::table('dynamic_content_page_metatag')
-                ->where('soft_delete', 0)
-                ->where('menu_uid', $menus->uid)
-                ->orderBy('sort_order', 'ASC')
-                ->get();
-
-            if (count($dynamic_content_page_metatag) > 0) {
-
-                $organizedData = [];
-
-                foreach ($dynamic_content_page_metatag as $dynamic_content_page_metatags) {
-
-                    $dynamic_content_page_pdf = DB::table('dynamic_content_page_pdf')
-                        ->wheredcpm_id($dynamic_content_page_metatags->uid)
-                        ->where('soft_delete', 0)
-                        ->latest('start_date')
-                        ->get();
-
-                    $dynamic_page_banner = DB::table('dynamic_page_banner')
-                        ->where('soft_delete', 0)
-                        ->wheredcpm_id($dynamic_content_page_metatags->uid)
-                        ->first();
-
-                    $dynamic_content_page_gallery = DB::table('dynamic_content_page_gallery')
-                        ->wheredcpm_id($dynamic_content_page_metatags->uid)
-                        ->where('soft_delete', 0)
-                        ->get();
-
-                    $dynamic_page_content = DB::table('dynamic_page_content')
-                        ->wheredcpm_id($dynamic_content_page_metatags->uid)
-                        ->where('soft_delete', 0)
-                        ->first();
-
-                    $organizedData = [
-                        'metatag' => $dynamic_content_page_metatags,
-                        'content' => $dynamic_page_content,
-                        'pdf' => $dynamic_content_page_pdf,
-                        'gallery' => $dynamic_content_page_gallery,
-                        'banner' => $dynamic_page_banner,
-                    ];
-                }
-
-                // if ($menus?->parent_id != 0) {
-
-                // }
-
-                $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
-
-                if ($lastSlugs != null) {
-                    return view('master-page', ['parentMenut' => $parentMenut,'tree' => $tree, 'lastBred' => $lastBred, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
-                } elseif ($middelSlug != null) {
-                    return view('master-page', ['parentMenut' => $parentMenut,'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
-                } else {
-                    return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' =>$organizedData,]);
+                $middelUrl = DB::table('website_menu_management')->whereurl($slug)->first();
+                $menus = DB::table('website_menu_management')->whereurl($middelSlug)->first();
+                if ($menus !='') {
+                    $allmenus = DB::table('website_menu_management')->orderBy('sort_order', 'ASC')->get();
+                    $parentMenut = DB::table('website_menu_management')->where('uid', $menus->parent_id)->first();
+                    if (!empty($parentMenut)) {
+                        foreach ($allmenus as $menu) {
+                            if ($menu->parent_id == $parentMenut->uid) {
+                                $menu->children = [];
+                                foreach ($allmenus as $childMenu) {
+                                    if ($childMenu->parent_id == $menu->uid) {
+                                        $menu->children[] = $childMenu;
+                                    }
+                                }
+                                $tree[] = $menu;
+                            }
+                        }
+                    }else{
+                        $parentMenut = '';
+                        $tree = [];
+                    }
                 }
             } else {
+                $menus = DB::table('website_menu_management')->whereurl($slug)->first();
+            }
 
-                if (Session::get('Lang') == 'hi') {
-                    $content = "जल्द आ रहा है";
-                } else {
-                    $content = "Coming Soon...";
-                }
+            if ($menus != '') {
 
                 if ($lastSlugs != null) {
-                    return view('master-page', ['lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name,]);
+
+                    if (Session::get('Lang') == 'hi') {
+                        $lastBred = $lastUrl->name_hi;
+                    } else {
+                        $lastBred = $lastUrl->name_en;
+                    }
+
+
+                    if (Session::get('Lang') == 'hi') {
+                        $middelBred = $middelUrl->name_hi;
+                    } else {
+                        $middelBred = $middelUrl->name_en;
+                    }
+
+                    if (Session::get('Lang') == 'hi') {
+                        $title_name = $menus->name_hi;
+                    } else {
+                        $title_name = $menus->name_en;
+                    }
                 } elseif ($middelSlug != null) {
-                    return view('master-page', ['middelBred' => $middelBred, 'content' => $content, 'title_name' => $title_name,]);
+
+                    if (Session::get('Lang') == 'hi') {
+                        $middelBred = $middelUrl->name_hi;
+                    } else {
+                        $middelBred = $middelUrl->name_en;
+                        // dd($middelBred);
+                    }
+
+                    if (Session::get('Lang') == 'hi') {
+                        $title_name = $menus->name_hi;
+                    } else {
+                        $title_name = $menus->name_en;
+                    }
                 } else {
-                    return view('master-page', ['title_name' => $title_name, 'content' => $content,]);
+
+                    if (Session::get('Lang') == 'hi') {
+                        $title_name = $menus->name_hi;
+                    } else {
+                        $title_name = $menus->name_en;
+                    }
                 }
+
+
+                $dynamic_content_page_metatag = DB::table('dynamic_content_page_metatag')
+                    ->where('soft_delete', 0)
+                    ->where('menu_uid', $menus->uid)
+                    ->orderBy('sort_order', 'ASC')
+                    ->get();
+
+                if (count($dynamic_content_page_metatag) > 0) {
+
+                    $organizedData = [];
+
+                    foreach ($dynamic_content_page_metatag as $dynamic_content_page_metatags) {
+
+                        $dynamic_content_page_pdf = DB::table('dynamic_content_page_pdf')
+                            ->wheredcpm_id($dynamic_content_page_metatags->uid)
+                            ->where('soft_delete', 0)
+                            ->latest('start_date')
+                            ->get();
+
+                        $dynamic_page_banner = DB::table('dynamic_page_banner')
+                            ->where('soft_delete', 0)
+                            ->wheredcpm_id($dynamic_content_page_metatags->uid)
+                            ->first();
+
+                        $dynamic_content_page_gallery = DB::table('dynamic_content_page_gallery')
+                            ->wheredcpm_id($dynamic_content_page_metatags->uid)
+                            ->where('soft_delete', 0)
+                            ->get();
+
+                        $dynamic_page_content = DB::table('dynamic_page_content')
+                            ->wheredcpm_id($dynamic_content_page_metatags->uid)
+                            ->where('soft_delete', 0)
+                            ->first();
+
+                        $organizedData = [
+                            'metatag' => $dynamic_content_page_metatags,
+                            'content' => $dynamic_page_content,
+                            'pdf' => $dynamic_content_page_pdf,
+                            'gallery' => $dynamic_content_page_gallery,
+                            'banner' => $dynamic_page_banner,
+                        ];
+                    }
+
+                    $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
+
+                    if ($lastSlugs != null) {
+                        return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'lastBred' => $lastBred, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
+                    } elseif ($middelSlug != null) {
+                        return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
+                    } else {
+                        return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
+                    }
+                } else {
+
+                    if (Session::get('Lang') == 'hi') {
+                        $content = "जल्द आ रहा है";
+                    } else {
+                        $content = "Coming Soon...";
+                    }
+
+                    if ($lastSlugs != null) {
+                        return view('master-page', ['lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name,]);
+                    } elseif ($middelSlug != null) {
+                        return view('master-page', ['middelBred' => $middelBred, 'content' => $content, 'title_name' => $title_name,]);
+                    } else {
+                        return view('master-page', ['title_name' => $title_name, 'content' => $content,]);
+                    }
+                }
+            } else {
+                return view('pages.error');
             }
-        } else {
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
             return view('pages.error');
         }
-        // } catch (\Exception $e) {
-        //     \Log::error('An exception occurred: ' . $e->getMessage());
-        //     return view('pages.error');
-        // } catch (\PDOException $e) {
-        //     \Log::error('A PDOException occurred: ' . $e->getMessage());
-        //     return view('pages.error');
-        // } catch (\Throwable $e) {
-        //     // Catch any other types of exceptions that implement the Throwable interface.
-        //     \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-        //     return view('pages.error');
-        // }
     }
 
 
