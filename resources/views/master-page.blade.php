@@ -41,11 +41,11 @@
                         </a></li>
 
                     @if (isset($lastBred))
-                        <li>{{ ucfirst(strtolower($lastBred)) ?? '' }}</li> >
+                        <li><a>{{ ucfirst(strtolower($lastBred)) ?? '' }}</a></li> 
                     @endif
 
                     @if (isset($middelBred))
-                        <li>{{ ucfirst(strtolower($middelBred)) ?? '' }}</li> >
+                        <li><a>{{ ucfirst(strtolower($middelBred)) ?? '' }}</a></li> 
                     @endif
 
                     <li>{{ ucfirst(strtolower($title_name)) ?? '' }}</li>
