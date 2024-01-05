@@ -177,7 +177,7 @@ class HomeController extends Controller
                     ->where('menu_uid', $menus->uid)
                     ->orderBy('sort_order', 'ASC')
                     ->get();
-                    
+                   // dd($middelSlug);
                     //dd($dynamic_content_page_metatag);
                 if (count($dynamic_content_page_metatag) > 0) {
 
@@ -225,8 +225,6 @@ class HomeController extends Controller
                     }
                    
                 } elseif ($middelSlug != null && $middelSlug == 'director-desk') {
-                 
-                  
                     $designation = DB::table('emp_depart_designations')
                         ->where('name_en', 'LIKE', 'Director')
                         ->where('soft_delete', 0)
@@ -246,6 +244,7 @@ class HomeController extends Controller
                     }
                 } elseif ($middelSlug != null && $middelSlug == 'employee-directory') {
 
+                    //dd('hii');
                     $designationData = [];
 
                     $department = DB::table('emp_depart_designations')
