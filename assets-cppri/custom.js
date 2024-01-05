@@ -384,10 +384,13 @@ $("document").ready(function () {
 });
 
 $(document).ready(()=>{
-    $('#sidebarDropdown').click(()=>{
+    $('.accordion').click(()=>{
         console.log("hellow world");
         $('.main-sidebar ul .accordion').css({
             'background-color': "#1a4f91"
+        })
+        $('.main-sidebar ul .accordion .list-start a').css({
+            'color': "#fff"
         })
         $('.main-sidebar ul .accordion a[data-bs-target="#flush-collapseOne"]').css({
             'color':"#fff"

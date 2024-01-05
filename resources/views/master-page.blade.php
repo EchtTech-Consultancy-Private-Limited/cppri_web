@@ -71,7 +71,7 @@
                                         <li class="accordion accordion-flush position-relative" id="sidebarDropdown_{{ $index }}">
                                             <div class="accordion-item">
                                                 <div class="list-start">
-                                                    <a class="nav-link collapsed" type="button" data-bs-toggle="collapse"
+                                                    <a class="nav-link collapsed " type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#flush-collapseOne_{{ $index }}" aria-expanded="false"
                                                         aria-controls="flush-collapseOne">
                                                         @if (Session::get('Lang') == 'hi')
