@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-{{ __('RAV') }}
+    {{ __('RAV') }}
 @endsection
 @section('content')
     <section class="wrapper banner-wrapper">
@@ -119,11 +119,11 @@
 
                                             </li>
                                         @else
-                                            <li class="@if (request()->is($parentMenuUrl.'/'.$treesUrl)) qm-active @endif">
+                                            <li class="@if (request()->is($parentMenuUrl . '/' . $treesUrl)) qm-active @endif">
                                                 <div class="list-start">
 
                                                     <a href="{{ url($parentMenuUrl . '/' . $treesUrl) }}" class="nav-link">
-                                                  
+
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $trees->name_hi ?? '' }}
                                                         @else
@@ -140,8 +140,6 @@
                         </div>
                     </div>
                 @endif
-
-
 
                 @if (isset($parentMenut))
                     <div class="col-md-9 m-p-0">
@@ -291,231 +289,232 @@
                             </section>
                         @endif
 
-                        {{-- <section class="vid-image-gallery ptb-30">
-                                <div class="container common-container">
-                                    <h3 class="master-title mb-20 mt-0">Video Gallery</h3>
-                                    <div class="row vid-main-gallery p-0">
-                                        <div class="col-md-6">
-                                            <div class="vid-card">
-                                                <video controls="controls">
-                                                    <source
-                                                        src="{{ asset('assets-cppri/images/photo_gallery/video.mp4') }}"
-                            type="video/mp4" />
-                            </video>
-                            <p>Video title 1 go here</p>
-                        </div>
-                    </div>
-                    <div class=" col-md-6 ">
-                        <div class="vid-card">
-                            <video controls="controls">
-                                <source src="{{ asset('assets-cppri/images/photo_gallery/video.mp4') }}"
-                                    type="video/mp4" />
-                            </video>
-                            <p>Video title 2 go here</p>
-                        </div>
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <a href="#" class="more gallery-more-btn" title="View more about heading 1">View More</a>
-                    </div>
-                </div>
-            </div>
-            </section> --}}
+                        @if (isset($Director) && $Director != '')
+                            <section id="paragraph" class="wrapper paragraph-wrapper">
+                                <div class=" common-container four_content">
+                                    <h3 class="dir-dsk-title mt-3 mb-3">
+
+                                        @if (Session::get('Lang') == 'hi')
+                                            {{ __('messages.Director_Desk') }}
+                                        @else
+                                            {{ __('messages.Director_Desk') }}
+                                        @endif
 
 
-                        {{-- <section class="cppri-tabs-section">
-                                <div class="container common-container">
-                                    <h3 class="master-title mb-20 mt-0">Tabs Section</h3>
-                                    <div class="tabs">
-                                        <input type="radio" id="tab1" name="tab-control" checked>
-                                        <input type="radio" id="tab2" name="tab-control">
-                                        <input type="radio" id="tab3" name="tab-control">
-                                        <input type="radio" id="tab4" name="tab-control">
-                                        <ul>
-                                            <li title="Features"><label for="tab1">
-                                                    <span>Features</span></label>
-                                            </li>
-                                            <li title="Delivery Contents"><label for="tab2">
-                                                    <span>Contents</span></label>
-                                            </li>
-                                            <li title="Shipping"><label for="tab3">
-                                                    <span>Shipping</span></label>
-                                            </li>
-                                            <li title="Returns"><label for="tab4">
-                                                    <span>Returns</span></label>
-                                            </li>
-                                        </ul>
-                                        <div class="slider">
-                                            <div class="indicator"></div>
+                                    </h3>
+                                    <div class="row p-0">
+                                        <div class="col-md-3">
+                                            <div class="addevent-box text-center">
+                                                <div class="profile-img">
+                                                    @if ($Director->public_url != '')
+                                                        <img src="{{ asset('resources/uploads/empDirectory/' . $Director->public_url) }}"
+                                                            alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                            title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                            loading="lazy">
+                                                    @else
+                                                        <img src="{{ asset('assets-cppri/images/profile--.jpg') }}"
+                                                            alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                            title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                            loading="lazy">
+                                                    @endif
+
+
+                                                    <h4 class="pb-10" tabindex="0">
+
+                                                        @if (Session::get('Lang') == 'hi')
+                                                            {{ $Director->fname_hi ?? '' }}
+                                                            {{ $Director->mname_hi ?? '' }}
+                                                            {{ $Director->lname_hi ?? '' }}
+                                                        @else
+                                                            {{ $Director->fname_en ?? '' }}
+                                                            {{ $Director->mname_en ?? '' }}
+                                                            {{ $Director->lname_en ?? '' }}
+                                                        @endif
+
+
+
+                                                    </h4>
+                                                </div>
+
+
+
+                                            </div>
                                         </div>
-                                        <div class="content">
-                                            <section>
-                                                <h2>Features</h2>
-                                                Lorem ipsum dolor sit amet1, consectetur
-                                                adipisicing elit. Ea dolorem sequi, quo tempore in eum obcaecati
-                                                atque quibusdam officiis est dolorum minima deleniti ratione molestias
-                                                numquam. Voluptas voluptates quibusdam cum?
-                                                Lorem ipsum dolor sit amet1, consectetur
-                                                adipisicing elit. Ea dolorem sequi, quo tempore in eum obcaecati
-                                                atque quibusdam officiis est dolorum minima deleniti ratione molestias
-                                                numquam. Voluptas voluptates quibusdam cum?
-                                                Lorem ipsum dolor sit amet1, consectetur
-                                                adipisicing elit. Ea dolorem sequi, quo tempore in eum obcaecati
-                                                atque quibusdam officiis est dolorum minima deleniti ratione molestias
-                                                numquam. Voluptas voluptates quibusdam cum?
-                                                Lorem ipsum dolor sit amet1, consectetur
-                                                adipisicing elit. Ea dolorem sequi, quo tempore in eum obcaecati
-                                                atque quibusdam officiis est dolorum minima deleniti ratione molestias
-                                                numquam. Voluptas voluptates quibusdam cum?
-                                            </section>
-                                            <section>
-                                                <h2>Delivery Contents</h2>
-                                                Lorem ipsum dolor sit amet, consectetur2 adipisicing elit.
-                                                Autem quas adipisci a accusantium eius ut voluptatibus ad impedit nulla,
-                                                ipsa qui. Quasi temporibus eos commodi aliquid impedit
-                                                amet, similique nulla.
-                                                Lorem ipsum dolor sit amet, consectetur2 adipisicing elit.
-                                                Autem quas adipisci a accusantium eius ut voluptatibus ad impedit nulla,
-                                                ipsa qui. Quasi temporibus eos commodi aliquid impedit
-                                                amet, similique nulla.
-                                                Lorem ipsum dolor sit amet1, consectetur
-                                                adipisicing elit. Ea dolorem sequi, quo tempore in eum obcaecati
-                                                atque quibusdam officiis est dolorum minima deleniti ratione molestias
-                                                numquam. Voluptas voluptates quibusdam cum?
-                                                Lorem ipsum dolor sit amet1, consectetur
-                                                adipisicing elit. Ea dolorem sequi, quo tempore in eum obcaecati
-                                                atque quibusdam officiis est dolorum minima deleniti ratione molestias
-                                                numquam. Voluptas voluptates quibusdam cum?
-                                            </section>
-                                            <section>
-                                                <h2>Shipping</h2>
-                                                Lorem ipsum dolor sit amet, consectetur3 adipisicing elit.
-                                                Quam nemo ducimus eius, magnam error quisquam sunt voluptate
-                                                labore, excepturi numquam! Alias libero optio sed harum
-                                                debitis! Veniam, quia in eum.
-                                                Lorem ipsum dolor sit amet, consectetur3 adipisicing elit.
-                                                Quam nemo ducimus eius, magnam error quisquam sunt voluptate
-                                                labore, excepturi numquam! Alias libero optio sed harum
-                                                debitis! Veniam, quia in eum.
-                                                Lorem ipsum dolor sit amet1, consectetur
-                                                adipisicing elit. Ea dolorem sequi, quo tempore in eum obcaecati
-                                                atque quibusdam officiis est dolorum minima deleniti ratione molestias
-                                                numquam. Voluptas voluptates quibusdam cum?
-                                                Lorem ipsum dolor sit amet1, consectetur
-                                                adipisicing elit. Ea dolorem sequi, quo tempore in eum obcaecati
-                                                atque quibusdam officiis est dolorum minima deleniti ratione molestias
-                                                numquam. Voluptas voluptates quibusdam cum?
-                                            </section>
-                                            <section>
-                                                <h2>Returns</h2>
-                                                Lorem ipsum dolor sit amet, consectetur4 adipisicing elit.
-                                                Ipsa dicta vero rerum?
-                                                Eaque repudiandae architecto libero reprehenderit
-                                                aliquam magnam ratione quidem?
-                                                Nobis doloribus molestiae enim deserunt
-                                                necessitatibus eaque quidem incidunt.
-                                                Lorem ipsum dolor sit amet, consectetur4 adipisicing elit.
-                                                Ipsa dicta vero rerum?
-                                                Eaque repudiandae architecto libero reprehenderit
-                                                aliquam magnam ratione quidem?
-                                                Nobis doloribus molestiae enim deserunt
-                                                necessitatibus eaque quidem incidunt.
-                                                Lorem ipsum dolor sit amet1, consectetur
-                                                adipisicing elit. Ea dolorem sequi, quo tempore in eum obcaecati
-                                                atque quibusdam officiis est dolorum minima deleniti ratione molestias
-                                                numquam. Voluptas voluptates quibusdam cum?
-                                                Lorem ipsum dolor sit amet1, consectetur
-                                                adipisicing elit. Ea dolorem sequi, quo tempore in eum obcaecati
-                                                atque quibusdam officiis est dolorum minima deleniti ratione molestias
-                                                numquam. Voluptas voluptates quibusdam cum?
-                                            </section>
+                                        <div class="col-md-9">
+                                            <p>
+
+
+                                                @if (Session::get('Lang') == 'hi')
+                                                    {!! $Director->description_hi !!}
+                                                @else
+                                                    {!! $Director->description_en !!}
+                                                @endif
+
+                                            </p>
+
                                         </div>
                                     </div>
                                 </div>
-                            </section> --}}
+                            </section>
+                        @endif
 
-                        {{-- <section class="ptb-30 pb-0">
-                                <div class="container common-container">
-                                    <h3 class="master-title mt-0 mb-20">Accordions</h3>
-                                    <div class="row">
-                                        <div class="col-md-12 p-0">
-                                            <div class="panel-group" id="accordion">
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a class="accordion-toggle" data-toggle="collapse"
-                                                                data-parent="#accordion" href="#collapseOne">
-                                                                Collapsible Group Item #1
-                                                            </a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="collapseOne" class="panel-collapse collapse in">
-                                                        <div class="panel-body">
-                                                            Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                                            accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                                                            non cupidatat skateboard dolor brunch. Food truck quinoa
-                                                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                                                            put a bird on it squid single-origin coffee nulla assumenda
-                                                            shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                                                            wes anderson cred nesciunt sapiente ea proident. Ad vegan
-                                                            excepteur butcher vice lomo. Leggings occaecat craft beer
-                                                            farm-to-table, raw denim aesthetic synth nesciunt you probably
-                                                            haven't heard of them accusamus labore sustainable VHS.
+                        @if (isset($sortedDesignationData) && count($sortedDesignationData) > 0)
+                        @foreach ($sortedDesignationData as $item)
+                            @if ($item['department']->name_en == 'Director')
+                                <div class="row">
+                                    <div class="col-md-12 display-content">
+                                        <div class="employee-directry-type employee-dir-page">
+                                            <div data-aos-mirror="true" data-aos="fade-right" class="title-before"></div>
+                                            <h3>
+            
+                                                @if (Session::get('Lang') == 'hi')
+                                                    <h2>{{ $item['department']->name_hi ?? '' }}</h2>
+                                                @else
+                                                    <h2>{{ $item['department']->name_en ?? '' }}</h2>
+                                                @endif
+            
+            
+                                            </h3>
+                                            <div data-aos-mirror="true" data-aos="fade-left" class="title-after"></div>
+                                        </div>
+                                    </div>
+                                    @if (isset($item['data']) && count($item['data']) > 0)
+                                        @foreach ($item['data'] as $profile)
+                                            <div class="direct-centre emp-card-det">
+                                                <div class="card-emp-dir">
+            
+                                                    <div class="emp-crddir-inf">
+                                                        <div class="img-circle-prof">
+                                                            <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
+                                                              @else
+                                                               src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif
+                                                                alt=""
+                                                                tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a class="accordion-toggle" data-toggle="collapse"
-                                                                data-parent="#accordion" href="#collapseTwo">
-                                                                Collapsible Group Item #2
-                                                            </a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="collapseTwo" class="panel-collapse collapse">
-                                                        <div class="panel-body">
-                                                            Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                                            accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                                                            non cupidatat skateboard dolor brunch. Food truck quinoa
-                                                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                                                            put a bird on it squid single-origin coffee nulla assumenda
-                                                            shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                                                            wes anderson cred nesciunt sapiente ea proident. Ad vegan
-                                                            excepteur butcher vice lomo. Leggings occaecat craft beer
-                                                            farm-to-table, raw denim aesthetic synth nesciunt you probably
-                                                            haven't heard of them accusamus labore sustainable VHS.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a class="accordion-toggle" data-toggle="collapse"
-                                                                data-parent="#accordion" href="#collapseThree">
-                                                                Collapsible Group Item #3
-                                                            </a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="collapseThree" class="panel-collapse collapse">
-                                                        <div class="panel-body">
-                                                            Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                                            accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                                                            non cupidatat skateboard dolor brunch. Food truck quinoa
-                                                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                                                            put a bird on it squid single-origin coffee nulla assumenda
-                                                            shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                                                            wes anderson cred nesciunt sapiente ea proident. Ad vegan
-                                                            excepteur butcher vice lomo. Leggings occaecat craft beer
-                                                            farm-to-table, raw denim aesthetic synth nesciunt you probably
-                                                            haven't heard of them accusamus labore sustainable VHS.
-                                                        </div>
+                                                    
+            
+            
+                                                            @if (Session::get('Lang') == 'hi')
+                                                            <h3> {{ $profile->fname_hi ?? '' }}
+                                                                {{ $profile->mname_hi ?? '' }} {{ $profile->lname_hi ?? '' }}</h3>
+                                                            @else
+                                                            <h3> {{ $profile->fname_en ?? '' }}
+                                                                {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
+                                                            @endif
+            
+            
+            
+                                                            @if (Session::get('Lang') == 'hi')
+                                                            <h5>({{ $profile->desi_name_hi ?? '' }})</h5>
+                                                            @else
+                                                            <h5>({{ $profile->desi_name_en ?? '' }})</h5>
+                                                            @endif
+            
+                                                        @if ($profile->landline_number != '' && $profile->landline_number != null)
+                                                            <p><strong><i class="fa fa-phone"></i> :</strong>
+                                                                {{ $profile->landline_number ?? '' }} </p>
+                                                        @else
+                                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile }}
+                                                            </p>
+                                                        @endif
+            
+                                                        <p><strong>{{ $profile->extention_number ?? '' }}<strong></p>
+            
+            
+                                                        <?php
+                                                        $email_address = $profile->email;
+                                                        $str = $email_address;
+                                                        $var = str_replace('@', '[at]', $str);
+                                                        $email = str_replace('.', '[dot]', $var);
+                                                        ?>
+            
+                                                        <p><strong><i class="fa fa-envelope-o mr-2" aria-hidden="true"></i> :</strong>
+                                                            <span>{{ $email ?? '' }}</span>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
+                                        @endforeach
+                                    @endif
+            
+                                </div>
+                            @else
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="employee-directry-type employee-dir-page">
+                                            <div data-aos-mirror="true" data-aos="fade-right" class="title-before"> </div>
+            
+                                            @if (Session::get('Lang') == 'hi')
+                                                <h2>{{ $item['department']->name_hi ?? '' }}</h2>
+                                            @else
+                                                <h2>{{ $item['department']->name_en ?? '' }}</h2>
+                                            @endif
+            
+                                            <div data-aos-mirror="true" data-aos="fade-left" class="title-after"> </div>
                                         </div>
                                     </div>
+                                    @if (isset($item['data']) && count($item['data']) > 0)
+                                        @foreach ($item['data'] as $profile)
+                                            <div class="col-md-3 emp-card-det">
+                                                <div class="card-emp-dir emp-dir-main">
+            
+                                                    <div class="emp-crddir-inf">
+                                                        <div class="img-circle-prof">
+                                                            <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
+                                                        @else
+                                                          src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif
+                                                                alt=""
+                                                                tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
+                                                        </div>
+                                                      
+                                                            @if (Session::get('Lang') == 'hi')
+                                                            <h3> {{ $profile->fname_hi ?? '' }}
+                                                                {{ $profile->mname_hi ?? '' }} {{ $profile->lname_hi ?? '' }}</h3>
+                                                            @else
+                                                            <h3> {{ $profile->fname_en ?? '' }}
+                                                                {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}</h3>
+                                                            @endif
+            
+                                                        @if (Session::get('Lang') == 'hi')
+                                                        <h5>({{ $profile->desi_name_hi ?? '' }})</h5>
+                                                        @else
+                                                        <h5>({{ $profile->desi_name_en ?? '' }})</h5>
+                                                        @endif
+            
+            
+                                                        @if ($profile->landline_number != '' && $profile->landline_number != null)
+                                                            <p><strong><i class="fa fa-phone"></i> :</strong>
+                                                                {{ $profile->landline_number ?? '' }} </p>
+                                                        @else
+                                                            <p><strong><i class="fa fa-phone"></i> :</strong> {{ $profile->mobile }}
+                                                            </p>
+                                                        @endif
+            
+            
+                                                        <p> {{ $profile->extention_number ?? '' }}</p>
+            
+                                                        <?php
+                                                        $email_address = $profile->email;
+                                                        $str = $email_address;
+                                                        $var = str_replace('@', '[at]', $str);
+                                                        $email = str_replace('.', '[dot]', $var);
+                                                        ?>
+            
+                                                        <p class="email-text-styl"><i class="fa fa-envelope-o mr-2 w-10"
+                                                                aria-hidden="true"></i> <span class="w-90">{{ $email }}</span>
+                                                        </p>
+            
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @endif
                                 </div>
-                            </section> --}}
+                            @endif
+                        @endforeach
+                    @endif
+
+
                     </div>
                 </div>
             </div>
