@@ -66,7 +66,7 @@
                             </script>
                         @endif
 
-                        <form action="{{ url('contact-us') }}" method="post">
+                        <form action="{{ url('contact-us') }}" method="post" id="contact_form" >
                             @csrf
                             <h3>Fill This Form To Reach Us</h3>
                             <div class="info">
@@ -96,7 +96,7 @@
                                     <div class="text-danger">{{ $errors->first('message') }}</div>
                                 @endif
                             </div>
-                            <div class="captcha-box row p-0">
+                            {{-- <div class="captcha-box row p-0">
                                 <div class="info col-md-6">
                                     <input class="captcha-input" type="text" name="Captcha" placeholder="Enter Captcha">
                                 </div>
@@ -105,9 +105,16 @@
                                     <button class="btn btn-primary"><i class="fa fa-refresh"
                                             aria-hidden="true"></i></button>
                                 </div>
+                            </div> --}}
+                            <div class="mt-4 mb-4">
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+                                @endif
                             </div>
                             <div class="text-center">
-                                <button class="more gallery-more-btn" type="submit">Submit</button>
+                                <button class="g-recaptcha btn btn-primary"
+                                    data-sitekey="{{ config('services.recaptcha.site_key') }}" data-callback='onSubmit'
+                                    data-action='login' id="send">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -201,4 +208,9 @@
             </div>
         </div>
     </div>
+    <script>
+        function onSubmit(token) {
+            document.getElementById("contact_form").submit();
+        }
+    </script>
 @endsection

@@ -24,7 +24,7 @@
                                     <ul>
                                         @foreach ($footerMenu->slice(0, 6) as $footerMenus)
                                             @php
-                                                $footerurl = $footerMenus->url ?? 'javascript:void(0)';
+                                                $footerurl =  $footerMenus->url ?? 'javascript:void(0)';
                                             @endphp
 
 
@@ -40,7 +40,7 @@
                                                     </a>
                                                 </li>
                                             @else
-                                                <li><a href="{{ url($footerurl) ?? '' }}">
+                                                <li><a href="{{ url('/about-us/'.$footerurl) ?? '' }}">
 
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $footerMenus->name_hi ?? '' }}
@@ -157,8 +157,6 @@
                                             {{ __('messages.Quick_Links') }}
                                         @endif
 
-
-
                                     </h3>
                                     <ul>
                                         @foreach ($quickLink as $quickLinks)
@@ -166,11 +164,9 @@
                                                 $quickLinkurl = $quickLinks->url ?? 'javascript:void(0)';
                                             @endphp
 
-
-
                                             @if ($quickLinks->tab_type == 1)
                                                 <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')"
-                                                        target="_blank" href="{{ $quickLinkurl ?? '' }}">
+                                                        target="_blank" href="{{ '/quick-links/' . ($quickLinkurl ?? '') }}">
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $quickLinks->name_hi ?? '' }}
                                                         @else
@@ -178,7 +174,7 @@
                                                         @endif
                                                     </a></li>
                                             @else
-                                                <li><a href="{{ url($quickLinkurl) ?? '' }}">
+                                                <li><a href="{{ url('/quick-links/'.$quickLinkurl) ?? '' }}">
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $quickLinks->name_hi ?? '' }}
                                                         @else
