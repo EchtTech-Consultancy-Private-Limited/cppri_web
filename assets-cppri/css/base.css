@@ -715,7 +715,7 @@ h3.sub-title.bold {
 
 .footer-top-wrapper ul li {
 	float: left;
-	color: #888888;
+	color: #bdb9b9;
 	margin-bottom: 7px;
 	display: flex;
 	align-items: center;
@@ -1722,14 +1722,14 @@ a {
 }
 
 .new-txt h6 {
-    line-height: 26px;
-    font-size: 18px;
+    line-height: 26px;   
     font-weight: 600;
     margin: 0 0 3px;
     letter-spacing: -.5px;
 }
 .new-txt h6 a {
     color: #222;
+	font-size: 18px;
 }
 .city-news .new-txt p {
     color: #000;
@@ -2498,4 +2498,24 @@ table .multiple-pdf{
 
 .overflow-auto-org {
     overflow: auto;
+}
+
+.date-nowrap{white-space: nowrap;}
+
+.archive-btn {
+    background: #F44336;
+    border-radius: 5px;
+    padding: 5px 15px;
+    color: #fff;
+    float: right;
+    margin-bottom: 12px;
+    font-size: 16px;
+	border: 1px solid #F44336;
+	font-weight: 600;
+}
+
+.archive-btn:hover{
+	background: #fff;
+	color: #F44336;
+	
 }

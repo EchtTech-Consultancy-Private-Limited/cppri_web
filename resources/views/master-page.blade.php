@@ -187,7 +187,7 @@
                                 <div class="container common-container">
                                     <div class="row p-0 ">
                                         <div class="col-md-12">
-                                            {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
+                                        <a href="javascript:void(0);" title="Click here to Archive" class="archive-btn">Archive</a>
 
                                             <div class="scroller-tbl">
 
@@ -206,14 +206,14 @@
                                                         @foreach ($organizedData['pdf'] as $data)
                                                             <tr>
                                                                 <td>{{ $data->pdf_title ?? '' }}</td>
-                                                                <td>{{ date('d F Y', strtotime($data->start_date ?? '')) }}
+                                                                <td class="date-nowrap">{{ date('d F Y', strtotime($data->start_date ?? '')) }}
                                                                 </td>
-                                                                <td class='d-grid'>
+                                                                <td>
                                                                     <span>
                                                                         <a href="{{ asset('resources/uploads/PageContentPdf/' . $data->public_url) }}"
-                                                                            download>View</a> <i class="fa fa-file-pdf-o">
+                                                                            download>View</a> <i class="fa fa-file-pdf-o text-danger"></i>
                                                                             ({{ $data->pdfimage_size ?? '' }})
-                                                                        </i>
+                                                                        
                                                                     </span>
                                                                 </td>
                                                             </tr>

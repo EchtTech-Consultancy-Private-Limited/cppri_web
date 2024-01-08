@@ -1583,6 +1583,7 @@ h2.resp-accordion:first-child {}
 	outline: none;
 	color: #fff;
 	font-weight: 500;
+	font-size: 16px;
 }
 
 .resp-tabs-list li.resp-tab-active a {
@@ -5585,8 +5586,8 @@ textarea:focus, input:focus{
 
 .bg-white-tender {
     background: #fff;
-    height: 343px;
-    margin-top: 5px;
+    height: 345px;
+    margin-top: 11px;
 }
 h2.instagram-c {
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
