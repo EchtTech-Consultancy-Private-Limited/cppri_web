@@ -40,6 +40,21 @@ use App\Http\Controllers\CMSControllers\RtiAssetsController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+ute::post('login', [LoginController::class, 'authenticate'])->name('authenticate');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('forget-user', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget-user');
+Route::post('forget-change', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forgetuser');
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset-password');
+Route::post('update_password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('update_password');
+Route::get('/reload-captcha', [LoginController::class, 'reloadCaptcha']);
+
+Route::post('mimeimagecheck', [CommonAPIController::class, 'imageMimeCheck'])->name('mimeimagecheck');
+Route::post('mimepdfcheck', [CommonAPIController::class, 'pdfMimeCheck'])->name('mimepdfcheck');
+// capture analytics
+Route::post('analytics', [AnalyticsController::class, 'store'])->name('store-analytics');
+
+Route::get('/image/{path}', [ImageController::class, 'encryptPath']);
+
 Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(function () {
     
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
