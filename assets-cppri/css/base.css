@@ -1337,6 +1337,7 @@ tr:hover td {
 	padding: 0px 0px;
 	border-left: 0px solid #eeeeee;
 	border-top: 1px solid #cecece;
+	list-style: none !important;
 	/*background: #434343;*/
 }
 
@@ -1995,13 +1996,24 @@ table {
 	color: #333;
   }
 
+
+
+  thead + tbody tr:first-child{
+	background-color: #fff;
+	
+  }
+
   table tr:first-child{
 	background-color: #1a4f91;
 	color: #ffffff !important;
   }
 
+  thead + tbody tr:first-child td {
+    color: #333 !important;
+}
+
   table tr:first-child td{
-	/* color: #fff !important; */
+	color: #fff !important;
 	font-weight: 700;
   }
   
@@ -2180,6 +2192,9 @@ ul{
 	color: #747474;
     font-size: 13px;
 	
+}
+.main-sidebar .menu-active .accordion-item li::after{
+	color: #fff !important;
 }
 
 /* .main-sidebar .accordion-item .collapsed{

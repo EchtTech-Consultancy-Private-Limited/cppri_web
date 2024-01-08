@@ -51,6 +51,7 @@ return [
      'Feedback'=>'Feedback',
      'Search_Page'=>'Search Page',
      'RTI'=>'RTI',
+     'Career'=>'Career'
 
 
 
