@@ -424,7 +424,7 @@
                                     </div>
                                     @if (isset($item['data']) && count($item['data']) > 0)
                                         @foreach ($item['data'] as $profile)
-                                            <div class="col-md-3 emp-card-det">
+                                            <div class="col-md-4 emp-card-det">
                                                 <div class="card-emp-dir emp-dir-main">
             
                                                     <div class="emp-crddir-inf">

@@ -32,6 +32,11 @@
 	}
 	
 }
+@media all and (max-width: 1290px) {
+	.copyright-content p, .copyright-content span, .copyright-content a, .last-updated {
+		font-size: 12px !important;
+	}
+}
 @media all and (max-width: 1200px) {
 	.logo a strong {
 		padding-top: 22px;

@@ -465,6 +465,6 @@ $(document).ready(function() {
 				enabled: true
 			}
 		}).magnificPopup('open');
-	});
+	    });
 	
 });
