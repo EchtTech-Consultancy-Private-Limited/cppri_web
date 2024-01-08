@@ -2519,3 +2519,7 @@ table .multiple-pdf{
 	color: #F44336;
 	
 }
+
+.main-sidebar .qm-active .list-start a::before{
+	color: #fff !important;
+}
