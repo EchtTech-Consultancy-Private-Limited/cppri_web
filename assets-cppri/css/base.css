@@ -715,7 +715,7 @@ h3.sub-title.bold {
 
 .footer-top-wrapper ul li {
 	float: left;
-	color: #888888;
+	color: #bdb9b9;
 	margin-bottom: 7px;
 	display: flex;
 	align-items: center;
@@ -1337,6 +1337,7 @@ tr:hover td {
 	padding: 0px 0px;
 	border-left: 0px solid #eeeeee;
 	border-top: 1px solid #cecece;
+	list-style: none !important;
 	/*background: #434343;*/
 }
 
@@ -1722,14 +1723,14 @@ a {
 }
 
 .new-txt h6 {
-    line-height: 26px;
-    font-size: 18px;
+    line-height: 26px;   
     font-weight: 600;
     margin: 0 0 3px;
     letter-spacing: -.5px;
 }
 .new-txt h6 a {
     color: #222;
+	font-size: 18px;
 }
 .city-news .new-txt p {
     color: #000;
@@ -1995,13 +1996,24 @@ table {
 	color: #333;
   }
 
+
+
+  thead + tbody tr:first-child{
+	background-color: #fff;
+	
+  }
+
   table tr:first-child{
 	background-color: #1a4f91;
 	color: #ffffff !important;
   }
 
+  thead + tbody tr:first-child td {
+    color: #333 !important;
+}
+
   table tr:first-child td{
-	/* color: #fff !important; */
+	color: #fff !important;
 	font-weight: 700;
   }
   
@@ -2170,7 +2182,7 @@ ul{
 	color: #7e7e7e;
     font-size: 12px;
 }
-.main-sidebar .accordion-item a::after{
+.main-sidebar .accordion-item li::after{
 	content: '\f078';
 	font-family: 'fontAwesome';
 	position: absolute;
@@ -2491,4 +2503,31 @@ table .multiple-pdf{
 
 .main-sidebar .accordion:hover a[data-bs-toggle="collapse"]{
 	color: #fff !important;
+}
+.partition-bg-wrap.vision-mission li {
+    padding-right: 15px;
+}
+
+.overflow-auto-org {
+    overflow: auto;
+}
+
+.date-nowrap{white-space: nowrap;}
+
+.archive-btn {
+    background: #F44336;
+    border-radius: 5px;
+    padding: 5px 15px;
+    color: #fff;
+    float: right;
+    margin-bottom: 12px;
+    font-size: 16px;
+	border: 1px solid #F44336;
+	font-weight: 600;
+}
+
+.archive-btn:hover{
+	background: #fff;
+	color: #F44336;
+	
 }

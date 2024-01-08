@@ -79,7 +79,7 @@
                                     <div class="row p-0 ">
                                         <div class="col-md-12">
                                             {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
-
+                                            <a href="javascript:void(0);" title="Click here to Archive" class="archive-btn">Archive</a>
                                             <div class="scroller-tbl">
 
                                                 <table id="example" class="display">
@@ -97,15 +97,15 @@
                                                         @foreach ($tenderData as $data)
                                                             <tr>
                                                                 <td>{{ $data['tender']->title_name_en ?? '' }}</td>
-                                                                <td>{{ date('d F Y', strtotime($data['tender']->created_at ?? '')) }}
+                                                                <td class="date-nowrap">{{ date('d F Y', strtotime($data['tender']->created_at ?? '')) }}
                                                                 </td>
 
                                                                 <td class=''>
                                                                     @foreach ($data['tender_pdfs'] as $pdf)
                                                                        <span class='multiple-pdf'> <a href="{{ asset('resources/uploads/TenderManagement/' . $pdf->public_url) }}"
-                                                                            download>View</a> <i class="fa fa-file-pdf-o">
+                                                                            download>View</a> <i class="fa fa-file-pdf-o text-danger"></i>
                                                                             ({{ $pdf->pdfimage_size ?? '' }})
-                                                                        </i></span>
+                                                                         </span>
                                                                     @endforeach
                                                                 </td>
 
