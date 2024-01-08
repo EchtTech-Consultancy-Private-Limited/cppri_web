@@ -155,6 +155,7 @@
                             <h1>{{ $content }}</h1>
                         @endif
 
+                        @if(isset($organizedData) && isset($organizedData['metatag']) != '')
                         <!--/#page-head-->
                         <section id="paragraph" class="wrapper paragraph-wrapper">
                             <div class="container common-container four_content pm-0">
@@ -168,9 +169,7 @@
                                             @endif
                                         @endif
                                     </h2>
-                                    {{-- <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}"
-                                        alt> --}}
-                                    <!-- <h3>Headline goes here...</h3> -->
+                                   
                                     @if (isset($organizedData['content']->page_content_en) && !blank($organizedData['content']->page_content_en))
                                         <p>
                                             @if (Session::get('Lang') == 'hi')
@@ -180,43 +179,13 @@
                                             @endif
                                         </p>
                                     @endif
-                                    {{-- <div class="text-center">
-                                            <a href="#" class="more more gallery-more-btn"
-                                                title="View more about heading 2">View More</a>
-                                        </div> --}}
+                                   
                                 </div>
                             </div>
                         </section>
-                        <!--/#paragraph-->
-                        {{-- <section id="list" class="wrapper list-wrapper ptb-30">
-                                <div class="container common-container four_content pm-0">
-                                    <h3 class="master-title mt-0">List</h3>
-                                    <div class="list list-circle">
-                                        <!-- <h4 class="head-style-list" >List 1</h4> -->
-                                        <ul class="clearfix mb-0">
-                                            <li>To make CPPRI a Centre of Excellence with Focus in the area of Technology
-                                                Transfer</li>
-                                            <li>To make Indian Paper Industry sustainable and Globally Competitive.</li>
-                                            <li>In pursuit of cleaner Production, Resource Conversation & Quality Excellence
-                                                in Pulp & Paper Industry</li>
-                                            <!-- <li>List Item 4</li> -->
-                                        </ul>
-                                    </div>
-                                    <hr />
-                                    <!-- <h3 class="master-title" >Ordered List</h3>
-                                      <div class="order-list mg-top">
-                                         <h4 class="head-style-list" >List 2</h4>
-                                         <ol type="1" class="clearfix">
-                                            <li>List Item </li>
-                                            <li>List Item </li>
-                                            <li>List Item </li>
-                                            <li>List Item </li>
-                                         </ol>
-                                      </div> -->
-                                </div>
-                            </section> --}}
-                        <!--/#list-->
-                        <!--/#article-->
+                        @endif
+                        
+
                         @if (isset($organizedData['pdf']) && count($organizedData['pdf']) > 0)
                             <section id="datatable">
                                 <div class="container common-container">
