@@ -37,7 +37,6 @@ require __DIR__ .'/cms_web.php';
 Route::middleware(['visitingcounter'])->group(function () {
 
 Route::get('/search', [SearchController::class, 'getSearchData'])->name('search');
-Route::get('/tender', [HomeController::class, 'tenderData'])->name('tenderData');
 Route::get('/rti', [HomeController::class, 'rtiData'])->name('rtiData');
 Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('set-language',[HomeController::class,'SetLang']);
@@ -54,6 +53,13 @@ Route::post('/feedback', [HomeController::class, 'feedbackStore']);
 // Route::get('about-us/employee-directory', [HomeController::class, 'employeeDirectory']);
 Route::get('press-released', [HomeController::class, 'showPressReleased']);
 Route::get('photo-gallery', [HomeController::class,'photoGallery']);
+//tender
+Route::get('/tender', [HomeController::class, 'tenderData'])->name('tenderData');
+Route::get('tender-archive', [HomeController::class,'tenderArchive']);
+//carrer
+Route::get('/career', [HomeController::class,'careerData'])->name('careerData');
+Route::get('career-archive', [HomeController::class,'careerArchive']);
+
 Route::get('/{Slug}/{middelSlug?}/{lastSlug?}/{finalSlug?}', [HomeController::class, 'getContentAllPages']);
 });
 
