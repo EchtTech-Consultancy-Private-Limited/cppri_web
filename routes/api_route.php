@@ -215,9 +215,6 @@ use App\Http\Controllers\CMSControllers\Api\RtiAssetsAPIController;
             Route::post('/update-rtia',[RtiAssetsAPIController::class,'update'])->name('rtiassets-update');
             Route::delete('/delete-rtia/{id}',[RtiAssetsAPIController::class,'destroy'])->name('rtiassets-delete');
     
-            
-            /****** Asset Approver Route*/
-            Route::delete('/delete-rtia/{id}',[RtiAssetsAPIController::class,'destroy'])->name('rtiassets-delete');
     
         });
     });

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CMSControllers\API\CommonAPIController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\CMSControllers\DashboardController;
@@ -27,6 +28,7 @@ use App\Http\Controllers\CMSControllers\EmployeeDirectoryController;
 use App\Http\Controllers\CMSControllers\PopupAdvertisingController;
 use App\Http\Controllers\CMSControllers\RecentActivityController;
 use App\Http\Controllers\CMSControllers\RtiAssetsController;
+use App\Http\Controllers\CMSControllers\ImageController;
 
 
 /*
@@ -42,6 +44,8 @@ use App\Http\Controllers\CMSControllers\RtiAssetsController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('forget-user', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget-user');
@@ -177,9 +181,9 @@ Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(f
         });
     
     Route::prefix('careers')->group(function(){
-        Route::get('/careers-create', [CareerManagementController::class, 'create'])->name('careers.create');
-        Route::get('/careers-list', [CareerManagementController::class, 'index'])->name('careers.list');
-        Route::get('/careers-edit', [CareerManagementController::class, 'edit'])->name('careers.edit');
+        Route::get('/careers-create', [EmpDepartDesignationController::class, 'create'])->name('careers.create');
+        Route::get('/careers-list', [EmpDepartDesignationController::class, 'index'])->name('careers.list');
+        Route::get('/careers-edit', [EmpDepartDesignationController::class, 'edit'])->name('careers.edit');
         });
     
     Route::prefix('rtiassets')->group(function(){
@@ -191,5 +195,3 @@ Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(f
 
 require __DIR__ .'/api_route.php';
 //include_once('api_route.php');
-
-
