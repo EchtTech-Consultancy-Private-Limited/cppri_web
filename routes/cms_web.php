@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\CMSControllers\DashboardController;
 use App\Http\Controllers\CMSControllers\DeveloperTeamController;
 use App\Http\Controllers\CMSControllers\UserManagementController;
