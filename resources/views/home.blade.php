@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    {{ __('RAV') }}
+    {{ __('CPPRI') }}
 @endsection
 @section('content')
 
@@ -1039,8 +1039,8 @@
 
                                     @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Photo_Gallery ') }}
-                                    @else
-                                        {{ __('messages.Photo_Gallery') }}
+                                     @else
+                                       {{ __('messages.Photo_Gallery') }}
                                     @endif
 
 
@@ -1054,7 +1054,7 @@
                                     @if (isset($image_gallery_details) && count($image_gallery_details) > 0)
                                         <ul class="slides">
 
-                                            @foreach ($image_gallery_details as $image_gallerys)
+                                            @foreach ($image_gallery_details->slice(0,3) as $image_gallerys)
                                                 <li data-thumb="{{ asset('resources/uploads/GalleryManagement/' . $image_gallerys->public_url) ?? '' }}"
                                                     data-thumb-alt="Slide 1">
                                                     <img src="{{ asset('resources/uploads/GalleryManagement/' . $image_gallerys->public_url) ?? '' }}"

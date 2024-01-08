@@ -33,7 +33,7 @@
 	
 }
 @media all and (max-width: 1290px) {
-	.copyright-content p, .copyright-content span, .copyright-content a, .last-updated {
+	.copyright-content p, .copyright-content span, .copyright-content a, .last-updated span{
 		font-size: 12px !important;
 	}
 }
@@ -2068,7 +2068,6 @@
 	.wrapper.home-banner .container {
 		/* width: 96%; */
 	}
-
 	.minister-box {
 		padding: 0px 10px 0px;
 	}

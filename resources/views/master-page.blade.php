@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    {{ __('RAV') }}
+    {{ __('CPPRI') }}
 @endsection
 @section('content')
     <section class="wrapper banner-wrapper">
@@ -88,7 +88,7 @@
                                                     </div>
 
                                                     <div id="flush-collapseOne_{{ $index }}"
-                                                        class="accordion-collapse collapse"
+                                                        class="accordion-collapse collapse "
                                                         data-bs-parent="#sidebarDropdown_{{ $index }}">
                                                         <div class="accordion-body p-0">
                                                             <ul class='p-0 m-0 mt-3'>
@@ -97,12 +97,9 @@
                                                                         $chiltreeUrl = $childTree->url ?? '';
                                                                     @endphp
 
-                                                                    <li> <a href="{{ url($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl) }}"
-                                                                            class="
-                                                                            
-                                                                            @if (request()->is($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl)) qm-active @endif
-                                                                            
-                                                                            ">
+                                                                    <li class="@if (request()->is($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl)) qm-active @endif">
+                                                                         <a href="{{ url($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl) }}"
+                                                                            class="">
 
                                                                             @if (Session::get('Lang') == 'hi')
                                                                                 {{ $childTree->name_hi ?? '' }}
@@ -337,8 +334,7 @@
                                                     <h2>{{ $item['department']->name_hi ?? '' }}</h2>
                                                 @else
                                                     <h2>{{ $item['department']->name_en ?? '' }}</h2>
-                                                @endif
-            
+                                                @endif            
             
                                             </h3>
                                             <div data-aos-mirror="true" data-aos="fade-left" class="title-after"></div>

@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    {{ __('RAV') }}
+    {{ __('CPPRI') }}
 @endsection
 @section('content')
     <section class="wrapper banner-wrapper">
@@ -10,7 +10,11 @@
                 <div class="inner-banner-text">
                     <div class="text-banner-content">
                         <h2>
-                           RTI
+                            @if (Session::get('Lang') == 'hi')
+                            {{ __('messages.RTI') }}
+                        @else
+                            {{ __('messages.RTI') }}
+                        @endif
                         </h2>
                     </div>
                 </div>
@@ -21,7 +25,13 @@
                 <div class="inner-banner-text">
                     <div class="text-banner-content">
                         <h2>
-                            RTI
+
+                            @if (Session::get('Lang') == 'hi')
+                                {{ __('messages.RTI') }}
+                            @else
+                                {{ __('messages.RTI') }}
+                            @endif
+
                         </h2>
                     </div>
                 </div>
@@ -33,14 +43,20 @@
             <div class="container common-container four_content ">
                 <ul>
                     <li><a href="{{ route('/') }}">
-                              @if (Session::get('Lang') == 'hi')
+                            @if (Session::get('Lang') == 'hi')
                                 होम पेज
-                              @else
+                            @else
                                 Home
-                              @endif
+                            @endif
                         </a></li>
 
-                    <li>RTI</li>
+                    <li>
+                        @if (Session::get('Lang') == 'hi')
+                            {{ __('messages.RTI') }}
+                        @else
+                            {{ __('messages.RTI') }}
+                        @endif
+                    </li>
 
                 </ul>
             </div>
@@ -51,48 +67,45 @@
         <div class="container common-container pr-0">
             <!--/.nav-wrapper-->
             <div class="row pr-0">
-                              
-                    <div class="main-content">
-                        <!--/#skipCont-->
-                        <div id="fontSize" class="wrapper body-wrapper ">
-                            @if (isset($content))
-                                <h1>{{ $content }}</h1>
-                            @endif
 
-                            <!--/#page-head-->
-                            <section id="paragraph" class="wrapper paragraph-wrapper">
-                                <div class="container common-container four_content pm-0">
-                                    <div class="align-lt">
-                                        <h2 class="mt-0 mb-20">
-                                            @if (isset($rtiData) && !blank($rtiData))
+                <div class="main-content">
+                    <!--/#skipCont-->
+                    <div id="fontSize" class="wrapper body-wrapper ">
+                        @if (isset($content))
+                            <h1>{{ $content }}</h1>
+                        @endif
 
-                                                @if (Session::get('Lang') == 'hi')
-                                                    {{ $rtiData->title_name_hi  ??"" }}
-                                                @else
-                                                    {{ $rtiData->title_name_en ??"" }}
-                                                @endif
-                                         
-                                        </h2>
-                                            <p>
-                                                @if (Session::get('Lang') == 'hi')
-                                                    {!! $rtiData->description_hi  ??'' !!}
-                                                @else
-                                                    {!! $rtiData->description_en  ??'' !!}
-                                                @endif
-                                            </p>
+                        <!--/#page-head-->
+                        <section id="paragraph" class="wrapper paragraph-wrapper">
+                            <div class="container common-container four_content pm-0">
+                                <div class="align-lt">
+                                    <h2 class="mt-0 mb-20">
+                                        @if (isset($rtiData) && !blank($rtiData))
+                                            @if (Session::get('Lang') == 'hi')
+                                                {{ $rtiData->title_name_hi ?? '' }}
+                                            @else
+                                                {{ $rtiData->title_name_en ?? '' }}
+                                            @endif
 
-
+                                    </h2>
+                                    <p>
+                                        @if (Session::get('Lang') == 'hi')
+                                            {!! $rtiData->description_hi ?? '' !!}
+                                        @else
+                                            {!! $rtiData->description_en ?? '' !!}
                                         @endif
-                                        
-                                    </div>
+                                    </p>
+                                    @endif
+
                                 </div>
-                            </section>
-                
-                        </div>
+                            </div>
+                        </section>
+
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 @endsection

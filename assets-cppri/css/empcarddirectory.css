@@ -46,8 +46,9 @@ p.email-text-styl {
 }
 .img-circle-prof img
 {
-    border: 2px solid #1a4f91;
+    /* border: 2px solid #1a4f91; */
     border-radius: 50%;
+    background-color: #fff;
 }
 .emp-crddir-inf p
 {
@@ -77,6 +78,7 @@ p.email-text-styl {
     padding: 43px 0px 45px 0px;
     width: 100%;
 }  
+
 .employee-dir-page h3
 {
        margin-bottom: 0px;
