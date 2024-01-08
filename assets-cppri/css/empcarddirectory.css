@@ -46,8 +46,9 @@ p.email-text-styl {
 }
 .img-circle-prof img
 {
-    border: 2px solid #1a4f91;
+    /* border: 2px solid #1a4f91; */
     border-radius: 50%;
+    background-color: #fff;
 }
 .emp-crddir-inf p
 {
