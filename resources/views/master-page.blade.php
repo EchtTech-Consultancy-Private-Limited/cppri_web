@@ -337,8 +337,7 @@
                                                     <h2>{{ $item['department']->name_hi ?? '' }}</h2>
                                                 @else
                                                     <h2>{{ $item['department']->name_en ?? '' }}</h2>
-                                                @endif
-            
+                                                @endif            
             
                                             </h3>
                                             <div data-aos-mirror="true" data-aos="fade-left" class="title-after"></div>
