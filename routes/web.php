@@ -67,5 +67,5 @@ Route::get('/{Slug}/{middelSlug?}/{lastSlug?}/{finalSlug?}', [HomeController::cl
 
 //default behaviour, always keep as last entry
 Route::any('{url}', function(){
-    return redirect('login');
+    return redirect('/');
 })->where('url', '.*');

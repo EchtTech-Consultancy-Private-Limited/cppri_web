@@ -55,7 +55,7 @@
     </div>
 </div>
 <div class="wrapper" id="skipCont"></div>
-<div class="sidebar-main-nav ptb-50">
+<div class="sidebar-main-nav ptb-50" id="mainsidebar">
     <div class="container common-container pr-0">
         <!--/.nav-wrapper-->
         <div class="row pr-0">
