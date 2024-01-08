@@ -4,6 +4,7 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="">
 <meta name="author" content="">
+<script src="https://www.google.com/recaptcha/api.js"></script>
 
 <link rel="apple-touch-icon" href="{{ asset('assets-cppri/images/favicon.ico') }}">
 {{-- <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}"> --}}
@@ -18,6 +19,7 @@
 <link href="{{ asset('assets-cppri/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
 <link href="{{ asset('assets-cppri/css/flexslider.css') }}" rel="stylesheet" media="all">
 <link href="{{ asset('assets-cppri/css/megamenu.css') }}" rel="stylesheet" media="all">
+<link href="{{ asset('assets-cppri/css/magnific-popup.min.css') }}" rel="stylesheet" media="all">
 
 <link href="{{ asset('assets-cppri/css/print.css') }}" rel="stylesheet">
 <link href="{{ asset('assets-cppri/css/empcarddirectory.css') }}" rel="stylesheet">
@@ -49,3 +51,8 @@
 
 <link rel="stylesheet" href="{{ asset('assets-cppri/css/toastr.min.css') }}">
 <script src="{{ asset('assets-cppri/js/toastr.min.js')}}"></script>
+
+
+<script>
+    var baseUrl1 = {!! json_encode(url('/')) !!}
+</script>

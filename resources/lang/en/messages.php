@@ -46,7 +46,12 @@ return [
      'Screen_Reader_Access'=>'Screen Reader Access',
      'Employee_Details'=>'Employee Details',
      'Director_Desk'=>'Director Desk',
-     'Employee_Directory'=>'Employee Directory'
+     'Employee_Directory'=>'Employee Directory',
+     'photo_gallery'=>'Photo Gallery',
+     'Feedback'=>'Feedback',
+     'Search_Page'=>'Search Page',
+     'RTI'=>'RTI',
+     'Career'=>'Career'
 
 
 

@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    {{ __('RAV') }}
+    {{ __('CPPRI') }}
 @endsection
 @section('content')
 
@@ -37,7 +37,7 @@
     <section class="latest-news">
         <h3 class="d-none">Latest News</h3>
         <div class="row px-0">
-            <div class="col-md-2">
+            <div class="col-md-2 col-4">
                 <div class="latest-new-title">
                     <p class="change-color-code">
                         @if (Session::get('Lang') == 'hi')
@@ -48,7 +48,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-10 col-8">
                 <div class="marquee">
 
 
@@ -159,8 +159,8 @@
                         @endif
 
                     </p>
-                    <br>
-                    <a href="javascript:void(0);" title="Click here to know more">Read more <i
+                
+                    <a href="javascript:void(0);" title="Click here to know more" class="change-border-color-text">Read more <i
                             class="fa fa-angle-right"></i></a> 
                 </div>
             </div>
@@ -173,7 +173,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="banner-content-wrapper services-heading">
-                            <h2 class="mt-0">
+                            <h2 class="mt-0 change-border-color-text">
                                 @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Services') }}
                                 @else
@@ -192,7 +192,7 @@
                                                                                                                 </div> -->
                         <div class="row p-0">
                             <!--Icon Box Start-->
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-4 col-6">
                                 <div class="deprt-icon-box">
                                     <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}"
                                         alt="">
@@ -214,7 +214,7 @@
                             </div>
                             <!--Icon Box End-->
                             <!--Icon Box Start-->
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-4 col-6">
                                 <div class="deprt-icon-box">
                                     <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt="">
                                     <h6> <a href="javascript:void(0);">
@@ -239,7 +239,7 @@
                             </div>
                             <!--Icon Box End-->
                             <!--Icon Box Start-->
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-4 col-6">
                                 <div class="deprt-icon-box">
                                     <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt="">
                                     <h6> <a href="javascript:void(0);">
@@ -262,7 +262,7 @@
                             </div>
                             <!--Icon Box End-->
                             <!--Icon Box Start-->
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-4 col-6">
                                 <div class="deprt-icon-box">
                                     <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}"
                                         alt="">
@@ -287,7 +287,7 @@
                             </div>
                             <!--Icon Box End-->
                             <!--Icon Box Start-->
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-4 col-6">
                                 <div class="deprt-icon-box">
                                     <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}"
                                         alt="">
@@ -313,7 +313,7 @@
                             </div>
                             <!--Icon Box End-->
                             <!--Icon Box Start-->
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-4 col-6">
                                 <div class="deprt-icon-box">
                                     <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt="">
                                     <h6> <a href="javascript:void(0);">
@@ -533,7 +533,7 @@
                             <div class="page-tab-res clearfix">
                                 <div id="parentHorizontalTab">
                                     <ul class="resp-tabs-list hor_1 change-color-code">
-                                        <li class="border-l"><a href="javascript:viod(0)" id="tab-list-1">
+                                        <li class="border-l change-border-color-text"><a href="javascript:viod(0)" id="tab-list-1" class="change-text-color">
 
                                                 @if (Session::get('Lang') == 'hi')
                                                     {{ __('messages.Notification') }}
@@ -609,7 +609,7 @@
                                                     </ul>
                                                 </div>
                                                 <div class="view-footer"><a href="javascript:void();"
-                                                        title="Read More"><span>
+                                                        title="Read More" class="change-border-color-text"><span>
 
 
                                                             @if (Session::get('Lang') == 'hi')
@@ -633,8 +633,8 @@
                             <div class="page-tab-res clearfix">
                                 <div id="parentHorizontalTab">
                                     <ul class="resp-tabs-list hor_1 change-color-code">
-                                        <li class="border-l resp-tab-item hor_1 resp-tab-active"><a
-                                                href="javascript:viod(0)" id="tab-list-1">
+                                        <li class="border-l resp-tab-item hor_1 resp-tab-active change-border-color-text"><a
+                                                href="javascript:viod(0)" id="tab-list-1" class="change-text-color">
 
                                                 @if (Session::get('Lang') == 'hi')
                                                     {{ __('messages.Press_Release') }}
@@ -713,8 +713,8 @@
                                                         </li> --}}
                                                     </ul>
                                                 </div>
-                                                <div class="view-footer"><a href="javascript:void();"
-                                                        title="Read More"><span>
+                                                <div class="view-footer"><a href="{{url('press-released')}}"
+                                                        title="Read More" class="change-border-color-text"><span>
                                                             @if (Session::get('Lang') == 'hi')
                                                                 {{ __('messages.Read_More') }}
                                                             @else
@@ -733,7 +733,7 @@
                     <div class="left-col-2">
                         <div class="box-bg-color change-color-code">
                             <div class="tender">
-                                <h2>
+                                <h2 class="change-border-color-text">
                                     @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Tender') }}
                                     @else
@@ -756,7 +756,7 @@
                                                     download>
                                                     <div class="date">
 
-                                                        <span>{{ date('d', strtotime($tender_managements->start_date)) }}</span>
+                                                        <span class="change-color-code">{{ date('d', strtotime($tender_managements->start_date)) }}</span>
                                                         <em>{{ date('M Y', strtotime($tender_managements->start_date)) }}</em>
 
                                                     </div>
@@ -783,7 +783,7 @@
 
                             </div>
                             <div class="view-footer"><a href="{{ url('tender') }}"
-                                    title="Know More About Tenders"><span>
+                                    title="Know More About Tenders" class="change-border-color-text"><span>
 
                                         @if (Session::get('Lang') == 'hi')
                                             {{ __('messages.View_all_Tenders') }}
@@ -816,7 +816,7 @@
                                 <div class="col-md-4 p-0">
                                     <div class="new-thumb">
                                         <div>
-                                            <span class="cat c1">Academic Program</span> <img
+                                            <span class="cat c1 change-color-code">Academic Program</span> <img
                                                 src="{{ asset('assets-cppri/images/msc.jpg') }}" alt="">
 
                                         </div>
@@ -832,7 +832,7 @@
                                             trained manpower, Forest
                                             Research University ( Deemed University)...
                                         </p>
-                                        <a class="button" href="javascript:void(0)">More Details <i
+                                        <a class="button change-text-color" href="javascript:void(0)">More Details <i
                                                 class="fa fa-chevron-right" aria-hidden="true"></i></a>
 
                                     </div>
@@ -848,7 +848,7 @@
                                 <div class="col-md-4 p-0">
                                     <div class="new-thumb">
                                         <div>
-                                            <span class="cat c1">Training Program</span> <img
+                                            <span class="cat c1 change-color-code">Training Program</span> <img
                                                 src="{{ asset('assets-cppri/images/phd.jpg') }}" alt="">
 
                                         </div>
@@ -864,7 +864,7 @@
                                             similique
                                             molestiae, quod laborum natus molestias...
                                         </p>
-                                        <a class="button" href="javascript:void(0)">More Details <i
+                                        <a class="button change-text-color" href="javascript:void(0)">More Details <i
                                                 class="fa fa-chevron-right" aria-hidden="true"></i></a>
 
                                     </div>
@@ -1039,13 +1039,13 @@
 
                                     @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Photo_Gallery ') }}
-                                    @else
-                                        {{ __('messages.Photo_Gallery') }}
+                                     @else
+                                       {{ __('messages.Photo_Gallery') }}
                                     @endif
 
 
                                 </h3>
-                                <a class="bttn-more bttn-view" href="javascript:viod(0)"
+                                <a class="bttn-more bttn-view" href="{{ url('photo-gallery') }}"
                                     title="View all Photo Gallery"><span>View
                                         All</span></a>
                             </div>
@@ -1054,7 +1054,7 @@
                                     @if (isset($image_gallery_details) && count($image_gallery_details) > 0)
                                         <ul class="slides">
 
-                                            @foreach ($image_gallery_details as $image_gallerys)
+                                            @foreach ($image_gallery_details->slice(0,3) as $image_gallerys)
                                                 <li data-thumb="{{ asset('resources/uploads/GalleryManagement/' . $image_gallerys->public_url) ?? '' }}"
                                                     data-thumb-alt="Slide 1">
                                                     <img src="{{ asset('resources/uploads/GalleryManagement/' . $image_gallerys->public_url) ?? '' }}"

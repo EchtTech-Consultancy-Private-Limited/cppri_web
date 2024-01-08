@@ -4,12 +4,10 @@
 		padding-top: 10px;
 	}
 	.resp-tab-content li span.ico-txt {
-		margin: 0px 0px;
+		  margin: 0px 0px;
 	}
 }
-@media (max-width:1300px){
-	
-}
+
 @media all and (max-width: 1200px) {
 	.logo a strong {
 		padding-top: 22px;

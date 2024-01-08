@@ -48,6 +48,8 @@
         $(".banner-wrapper .flex-control-nav").css('background', a);
         $(".banner-wrapper .flex-pauseplay").css('background', a);
         $(".latest-new-title:before").css('border-color', a);
+        $(".change-border-color-text").css({"border-color": a, "color": a});
+        $(".change-text-color").css('color', a);
     })
 </script>
 
@@ -80,6 +82,7 @@
 <script src="{{ asset('assets-cppri/js/datatablebutton.js') }}"></script>
 <script src="{{ asset('assets-cppri/js/datatablebuttonprint.js') }}"></script>
 <script src="{{ asset('assets-cppri/js/masterpagejs.js') }}"></script>
+<script src="{{ asset('assets-cppri/js/magnificpopup.js') }}"></script>
 <!-- <script src="{{ asset('assets-cppri/js/dropdownbootstrapminjs.js') }}"></script> -->
 
 <div id="fb-root"></div>

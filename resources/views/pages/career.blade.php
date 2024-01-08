@@ -10,11 +10,7 @@
                 <div class="inner-banner-text">
                     <div class="text-banner-content">
                         <h2>
-                            @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Tender') }}
-                            @else
-                                {{ __('messages.Tender') }}
-                            @endif
+                            Career
                         </h2>
                     </div>
                 </div>
@@ -25,11 +21,7 @@
                 <div class="inner-banner-text">
                     <div class="text-banner-content">
                         <h2>
-                            @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Tender') }}
-                            @else
-                                {{ __('messages.Tender') }}
-                            @endif
+                            Career
                         </h2>
                     </div>
                 </div>
@@ -49,11 +41,7 @@
                         </a></li>
 
                     <li>
-                        @if (Session::get('Lang') == 'hi')
-                            {{ __('messages.Tender') }}
-                        @else
-                            {{ __('messages.Tender') }}
-                        @endif
+                        Career
                     </li>
 
                 </ul>
@@ -73,7 +61,7 @@
                         @endif
 
                         <!--/#page-head-->
-                        @if (isset($tenderData) && count($tenderData) > 0)
+                        @if (isset($careerData) && count($careerData) > 0)
                             <section id="datatable">
                                 <div class="container common-container">
                                     <div class="row p-0 ">
@@ -92,21 +80,20 @@
                                                         </tr>
                                                     </thead>
 
-
                                                     <tbody>
-                                                        @foreach ($tenderData as $data)
-                                                          @if(count($data['tender_pdfs']) > 0 ) 
+                                                        @foreach ($careerData as $data)
+                                                          @if(count($data['career_pdfs']) > 0 ) 
                                                             <tr>
-                                                                <td>{{ $data['tender']->title_name_en ?? '' }}</td>
-                                                                <td class="date-nowrap">{{ date('d F Y', strtotime($data['tender']->created_at ?? '')) }}
+                                                                <td>{{ $data['career']->title_name_en ?? '' }}</td>
+                                                                <td>{{ date('d F Y', strtotime($data['career']->created_at ?? '')) }}
                                                                 </td>
 
                                                                 <td class=''>
-                                                                    @foreach ($data['tender_pdfs'] as $pdf)
-                                                                       <span class='multiple-pdf'> <a href="{{ asset('resources/uploads/TenderManagement/' . $pdf->public_url) }}"
-                                                                            download>View</a> <i class="fa fa-file-pdf-o text-danger"></i>
+                                                                    @foreach ($data['career_pdfs'] as $pdf)
+                                                                       <span class='multiple-pdf'> <a href="{{ asset('resources/uploads/CareerManagement/' . $pdf->public_url) }}"
+                                                                            download>View</a> <i class="fa fa-file-pdf-o">
                                                                             ({{ $pdf->pdfimage_size ?? '' }})
-                                                                         </span>
+                                                                        </i></span>
                                                                     @endforeach
                                                                 </td>
 
@@ -115,14 +102,11 @@
                                                         @endforeach
                                                     </tbody>
                                                 </table>
-
                                             </div>
                                         </div>
                                     </div>
                             </section>
                         @endif
-
-
                     </div>
                 </div>
             </div>

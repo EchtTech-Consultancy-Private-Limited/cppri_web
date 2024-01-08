@@ -1,6 +1,6 @@
 var baseurl = window.location.href;
 
- // console.log(baseurl +"set-language");
+ //console.log(baseurl +"set-language");
 
 function setlang(value) {
     $.ajax({
@@ -384,17 +384,17 @@ $("document").ready(function () {
 });
 
 $(document).ready(()=>{
-    $('.accordion').click(()=>{
-        console.log("hellow world");
-        $('.main-sidebar ul .accordion').css({
-            'background-color': "#1a4f91"
-        })
-        $('.main-sidebar ul .accordion .list-start a').css({
-            'color': "#fff"
-        })
-        $('.main-sidebar ul .accordion a[data-bs-target="#flush-collapseOne"]').css({
-            'color':"#fff"
-        })
+    $('.sl-accordion').click(()=>{
+        // console.log("hellow world");
+        // $('.main-sidebar ul .accordion').css({
+        //     'background-color': "#1a4f91"
+        // })
+        // $('.main-sidebar ul .accordion .list-start a').css({
+        //     'color': "#fff"
+        // })
+        // $('.main-sidebar ul .accordion a[data-bs-target="#flush-collapseOne"]').css({
+        //     'color':"#fff"
+        // })
       
     })
 
@@ -404,4 +404,145 @@ $(document).ready(()=>{
             'background-color': '#000'
         })
     })
+
+
+
+    //   jQuery('.image-popup').magnificPopup({
+    //     type: 'image',
+    //   mainClass: 'mfp-with-zoom', 
+    //   gallery:{
+    //             enabled:true
+    //         },
+    
+    //   zoom: {
+    //     enabled: true, 
+    
+    //     duration: 300, // duration of the effect, in milliseconds
+    //     easing: 'ease-in-out', // CSS transition easing function
+    
+    //     opener: function(openerElement) {
+    
+    //       return openerElement.is('img') ? openerElement : openerElement.find('img');
+    //     }
+    // }
+    //   });
 })
+
+
+$(document).ready(function() {
+
+    $('.image-popup').magnificPopup({
+
+        type: 'image',
+
+        mainClass: 'mfp-with-zoom',
+
+        gallery: {
+
+            enabled: true
+
+        },
+
+
+    });
+
+
+
+});
+
+
+$(document).ready(function() {
+
+	$('a.btn-gallery').on('click', function(event) {
+		event.preventDefault();
+		
+		var gallery = $(this).attr('href');
+    
+		$(gallery).magnificPopup({
+      delegate: 'a',
+			type:'image',
+			gallery: {
+				enabled: true
+			}
+		}).magnificPopup('open');
+	    });
+
+        // let test = document.querySelectorAll('.accordion-collapse .accordion-body ul li');
+        // test.forEach((e)=>{
+        //     if(e.className == 'qm-active'){
+        //         let currentElementId = (((e.parentNode).parentNode).parentNode).id;
+            
+        //         let accordion = (((((e.parentNode).parentNode).parentNode).parentNode).parentNode);
+        //         let currentElement = document.getElementById(currentElementId);
+        //         currentElement.classList.add('show');
+        //         let mainParentElement = (((((e.parentNode).parentNode).parentNode).parentNode).firstElementChild.firstElementChild.classList.remove('collapsed'));
+        //     }
+  
+           
+        // })
+
+        let test = document.querySelectorAll('.accordion-collapse .accordion-body ul li');
+
+test.forEach((e) => {
+    if (e.classList.contains('qm-active')) {
+        let currentElementId = e.closest('.accordion').id;
+        let menu_active = document.getElementById(currentElementId).classList.add('menu-active')
+        console.log(currentElementId);
+        let accordion = e.closest('.accordion');
+        let currentElement = document.getElementById(currentElementId);
+        console.log(currentElement.firstElementChild.childNodes[3])
+        let addClass = currentElement.firstElementChild.childNodes[3];
+
+        if (addClass) {
+            addClass.classList.add('show');
+        }
+
+        let mainParentElement =currentElement.firstElementChild.childNodes[1].childNodes[1];
+        console.log(mainParentElement)
+        if (mainParentElement) {
+            mainParentElement.classList.remove('collapsed');
+        }
+    }
+});
+
+    //     let test = $('.accordion-collapse .accordion-body ul li');
+    //    test.each((e)=>{
+    //     console.log(e.hasClass('qm-active'));
+    //    })
+
+
+    $('.accordion-item').on('click', function () {
+        // Collapse all other accordion items
+        $('.accordion-item').not(this).find('.collapse').collapse('hide');
+    });
+});
+        $('.accordion').click((e)=>{
+           console.log(e.attr('id'))
+        })
+	
+
+
+
+
+$('#mobile_no').keypress(function (e) {
+    var regex = new RegExp("^[0-9_]");
+    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+    if (regex.test(str)) {
+        return true;
+    }
+    e.preventDefault();
+    return false;
+});
+
+
+$('.preventnumeric').keypress(function(e) {
+    //alert("yes");
+    var regex = new RegExp(/^[a-zA-Z\s]+$/);
+    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+    if (regex.test(str)) {
+        return true;
+    }
+    e.preventDefault();
+    return false;
+});
+

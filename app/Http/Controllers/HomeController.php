@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App;
-use  Route, DB, Session, Schema, Cookie;
+use  Route, DB, Session, Schema, Cookie, Closure;
 use Illuminate\Http\Request;
 use App\Models\contactUs;
 use App\Models\feedback;
+use Illuminate\Support\Facades\Http;
+use App\Http\Helpers\CustomCaptcha;
 
 class HomeController extends Controller
 {
@@ -14,54 +16,6 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    // public function search(Request $request)
-    // {
-    //     try {
-    //         $keyword = $request->input('search_key', '');
-    //         $databaseName = env('DB_DATABASE');
-    //         $tables = DB::select("SHOW TABLES FROM $databaseName");
-
-    //         $dataArray = [];
-
-    //         foreach ($tables as $table) {
-    //             $columns = DB::select("SHOW COLUMNS FROM $table->Tables_in_cppri_db");
-
-    //             foreach ($columns as $column) {
-    //                 $results = DB::table($table->Tables_in_cppri_db)
-    //                     ->where($column->Field, 'LIKE', '%' . $keyword . '%')
-    //                     ->get();
-
-    //                 foreach ($results as $result) {
-    //                     $this->collectData($result, $dataArray);
-    //                 }
-    //             }
-    //         }
-
-    //         $uniqueData = array_values(array_unique($dataArray));
-
-    //         return view('pages.search', [
-    //             'dynamicPageContent' => $uniqueData,
-    //             'keyword' => $keyword
-    //         ]);
-    //     } catch (\Exception $e) {
-    //         // Handle the exception, log it, and provide user feedback.
-    //         return view('pages.error', ['error' => $e->getMessage()]);
-    //     }
-    // }
-
-    // private function collectData($result, &$dataArray)
-    // {
-    //     $fields = ['page_title_en', 'title_name_en', 'description_en', 'page_content_en', 'question_en', 'answer_en'];
-
-    //     foreach ($fields as $field) {
-    //         if (isset($result->$field)) {
-    //             array_push($dataArray, $result->$field);
-    //         }
-    //     }
-    // }
-
-
 
     //language
     public function SetLang(Request $request)
@@ -71,8 +25,180 @@ class HomeController extends Controller
         return response()->json(['data' => $request->data, True]);
     }
 
+      //career
+      public function careerData()
+      {
+         // dd('hii');
+          try {
+              $careerData = []; 
+  
+              $career = DB::table('career_management')
+                  ->where('soft_delete', 0)
+                  ->latest('created_at')
+                  ->get();
+  
+              if (count($career) > 0) {
+                  foreach ($career as $careers) {
+                      $career_pdfs = DB::table('career_management_details')
+                          ->where('soft_delete', 0)
+                          ->where('tender_id', $careers->uid)
+                          ->whereDate('archivel_date', '>', now()->toDateString()) 
+                          ->latest('created_at')
+                          ->get();
+  
+                          $careerData[] = [
+                          'carrer' => $career,
+                          'career_pdfs' => $career_pdfs
+                      ];
+                  }
+              }
+              return view('pages.career', ['careerData' => $careerData]);
+  
+  
+          } catch (\Exception $e) {
+              \Log::error('An exception occurred: ' . $e->getMessage());
+              return view('pages.error');
+          } catch (\PDOException $e) {
+              \Log::error('A PDOException occurred: ' . $e->getMessage());
+              return view('pages.error');
+          } catch (\Throwable $e) {
+              // Catch any other types of exceptions that implement the Throwable interface.
+              \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+              return view('pages.error');
+          }
+      }
+  
+      public function careerArchive()
+      {
+          try {
+              $careerData = []; 
+  
+              $career = DB::table('career_management')
+                  ->where('soft_delete', 0)
+                  ->latest('created_at')
+                  ->get();
+  
+              if (count($career) > 0) {
+                  foreach ($career as $careers) {
+                      $career_pdfs = DB::table('career_management_details')
+                          ->where('soft_delete', 0)
+                          ->where('tender_id', $careers->uid)
+                          ->whereDate('archivel_date', '<', now()->toDateString()) 
+                          ->latest('created_at')
+                          ->get();
+  
+                          $careerData[] = [
+                          'carrer' => $career,
+                          'career_pdfs' => $career_pdfs
+                      ];
+                  }
+              }
+              return view('pages.careerArchive', ['careerData' => $careerData]);
+  
+  
+          } catch (\Exception $e) {
+              \Log::error('An exception occurred: ' . $e->getMessage());
+              return view('pages.error');
+          } catch (\PDOException $e) {
+              \Log::error('A PDOException occurred: ' . $e->getMessage());
+              return view('pages.error');
+          } catch (\Throwable $e) {
+              // Catch any other types of exceptions that implement the Throwable interface.
+              \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+              return view('pages.error');
+          }
+      }
+
+        //tender
+    public function tenderData()
+    {
+        try {
+            $tenderData = []; 
+
+            $tenders = DB::table('tender_management')
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->get();
+
+            if (count($tenders) > 0) {
+                foreach ($tenders as $tender) {
+                    $tender_pdfs = DB::table('tender_details')
+                        ->where('soft_delete', 0)
+                        ->where('tender_id', $tender->uid)
+                        ->whereDate('archivel_date', '>', now()->toDateString()) 
+                        ->latest('created_at')
+                        ->get();
+
+                    $tenderData[] = [
+                        'tender' => $tender,
+                        'tender_pdfs' => $tender_pdfs
+                    ];
+                }
+            }
+            return view('pages.tender', ['tenderData' => $tenderData]);
+
+
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        }
+    }
+
+    public function tenderArchive(){
+
+        try {
+            $tenderData = []; // Initialize the array to store all tender data
+
+            $tenders = DB::table('tender_management')
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->get();
+
+            if (count($tenders) > 0) {
+                foreach ($tenders as $tender) {
+                    $tender_pdfs = DB::table('tender_details')
+                        ->where('soft_delete', 0)
+                        ->where('tender_id', $tender->uid)
+                        ->whereDate('archivel_date', '<', now()->toDateString()) 
+                        ->latest('created_at')
+                        ->get();
+
+                    $tenderData[] = [
+                        'tender' => $tender,
+                        'tender_pdfs' => $tender_pdfs
+                    ];
+                }
+            }
+          
+            return view('pages.tenderArchive', ['tenderData' => $tenderData]);
+
+
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        }
+
+    }
     public function contactUs()
     {
+        $CustomCaptchas = new CustomCaptcha;
+        $CustomCaptch = $CustomCaptchas->generateRandomAdditionExpression();
+        Session::put('contactCapcode', $CustomCaptch['answer']);
+
         try {
             $employee = DB::table('employee_directories as emp')
                 ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
@@ -83,7 +209,10 @@ class HomeController extends Controller
                 ->get();
             //dd($employee);
 
-            return view('pages.contact-us', ['employee' => $employee]);
+            return view('pages.contact-us', [
+                'employee' => $employee,
+                'CustomCaptch' => $CustomCaptch
+            ]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -99,6 +228,7 @@ class HomeController extends Controller
 
     public function getContentAllPages(Request $request, $slug, $middelSlug = null, $lastSlugs = null, $finalSlug = null)
     {
+        //dd('hii');
         $slugsToCheck = [$lastSlugs, $middelSlug, $finalSlug];
 
         if (in_array("set-language", $slugsToCheck)) {
@@ -133,19 +263,20 @@ class HomeController extends Controller
                                     $tree[] = $menu;
                                 }
                             }
-                        }else{
+                        } else {
                             $parentMenut = '';
                             $tree = [];
                         }
-                    }else{
+                    } else {
                         $parentMenut = '';
                         $tree = [];
                     }
                 }
             } elseif ($middelSlug != null) {
+
                 $middelUrl = DB::table('website_menu_management')->whereurl($slug)->first();
                 $menus = DB::table('website_menu_management')->whereurl($middelSlug)->first();
-                if ($menus !='') {
+                if ($menus != '') {
                     $allmenus = DB::table('website_menu_management')->orderBy('sort_order', 'ASC')->get();
                     $parentMenut = DB::table('website_menu_management')->where('uid', $menus->parent_id)->first();
                     if (!empty($parentMenut)) {
@@ -160,7 +291,7 @@ class HomeController extends Controller
                                 $tree[] = $menu;
                             }
                         }
-                    }else{
+                    } else {
                         $parentMenut = '';
                         $tree = [];
                     }
@@ -213,6 +344,7 @@ class HomeController extends Controller
                         $title_name = $menus->name_en;
                     }
                 }
+                $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
 
 
                 $dynamic_content_page_metatag = DB::table('dynamic_content_page_metatag')
@@ -220,7 +352,7 @@ class HomeController extends Controller
                     ->where('menu_uid', $menus->uid)
                     ->orderBy('sort_order', 'ASC')
                     ->get();
-
+                
                 if (count($dynamic_content_page_metatag) > 0) {
 
                     $organizedData = [];
@@ -230,8 +362,11 @@ class HomeController extends Controller
                         $dynamic_content_page_pdf = DB::table('dynamic_content_page_pdf')
                             ->wheredcpm_id($dynamic_content_page_metatags->uid)
                             ->where('soft_delete', 0)
+
                             ->latest('start_date')
                             ->get();
+
+                          //  dd($dynamic_content_page_pdf);
 
                         $dynamic_page_banner = DB::table('dynamic_page_banner')
                             ->where('soft_delete', 0)
@@ -257,7 +392,6 @@ class HomeController extends Controller
                         ];
                     }
 
-                    $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
 
                     if ($lastSlugs != null) {
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'lastBred' => $lastBred, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
@@ -266,8 +400,64 @@ class HomeController extends Controller
                     } else {
                         return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
                     }
-                } else {
+                } elseif ($middelSlug != null && $middelSlug == 'director-desk') {
+                    $designation = DB::table('emp_depart_designations')
+                        ->where('name_en', 'LIKE', 'Director')
+                        ->where('soft_delete', 0)
+                        ->orderBy('short_order', 'ASC')
+                        ->where('publice_status', 1)
+                        ->first();
 
+                    if ($designation != '') {
+
+                        $Director = DB::table('employee_directories')
+                            ->where('designation_id', $designation->uid)
+                            ->where('soft_delete', 0)
+                            ->orderBy('short_order', 'ASC')
+                            ->where('publice_status', 1)
+                            ->first();
+                        return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'Director' => $Director]);
+                    }
+                } elseif ($middelSlug != null && $middelSlug == 'employee-directory') {
+
+                    //dd('hii');
+                    $designationData = [];
+
+                    $department = DB::table('emp_depart_designations')
+                        ->where('soft_delete', 0)
+                        ->orderBy('short_order', 'ASC')
+                        ->whereparent_id(0)
+                        ->where('publice_status', 1)
+                        ->get();
+
+                    if (Count($department) > 0) {
+
+                        foreach ($department as $designation) {
+
+                            $data = DB::table('employee_directories as emp')
+                                ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
+                                ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
+                                ->where('emp.soft_delete', 0)
+                                ->where('department_id', $designation->uid)
+                                ->orderBy('emp.short_order', 'ASC')
+                                ->where('emp.publice_status', 1)
+                                ->get();
+                            //  dd( $data);
+
+                            $designationData[] = [
+                                'department' => $designation,
+                                'data' => $data,
+                            ];
+                        }
+                        // dd($designationData);
+
+                        $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
+
+                        // return view('pages.employeeDirectory', ['sortedDesignationData' => $sortedDesignationData]);
+
+                        return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'sortedDesignationData' => $sortedDesignationData]);
+                    }
+                } else {
                     if (Session::get('Lang') == 'hi') {
                         $content = "जल्द आ रहा है";
                     } else {
@@ -297,54 +487,11 @@ class HomeController extends Controller
             return view('pages.error');
         }
     }
-
-
-    public function tenderData()
-    {
-        try {
-            $tenderData = []; // Initialize the array to store all tender data
-
-            $tenders = DB::table('tender_management')
-                ->where('soft_delete', 0)
-                ->latest('created_at')
-                ->get();
-
-            if (count($tenders) > 0) {
-                foreach ($tenders as $tender) {
-                    $tender_pdfs = DB::table('tender_details')
-                        ->where('soft_delete', 0)
-                        ->where('tender_id', $tender->uid)
-                        ->latest('created_at')
-                        ->get();
-
-                    $tenderData[] = [
-                        'tender' => $tender,
-                        'tender_pdfs' => $tender_pdfs
-                    ];
-                }
-            }
-            // dd($tenderData);
-            return view('pages.tender', ['tenderData' => $tenderData]);
-        } catch (\Exception $e) {
-            \Log::error('An exception occurred: ' . $e->getMessage());
-            return view('pages.error');
-        } catch (\PDOException $e) {
-            \Log::error('A PDOException occurred: ' . $e->getMessage());
-            return view('pages.error');
-        } catch (\Throwable $e) {
-            // Catch any other types of exceptions that implement the Throwable interface.
-            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-            return view('pages.error');
-        }
-    }
-
-    public function rtiData()
-    {
-
+    
+    public function rtiData(){
         try {
 
             $rtiData;
-
             $rti_assets = DB::table('rti_assets')
                 ->where('soft_delete', 0)
                 ->latest('created_at')
@@ -392,21 +539,25 @@ class HomeController extends Controller
 
     public function Feedback()
     {
-        return view('pages.feedback');
+        $CustomCaptchas = new CustomCaptcha;
+        $CustomCaptch = $CustomCaptchas->generateRandomAdditionExpression();
+        Session::put('feedbackCapcode', $CustomCaptch['answer']);
+        return view('pages.feedback', ['CustomCaptch' => $CustomCaptch]);
     }
-
 
     public function feedbackStore(Request $request)
     {
-        // dd($request->all());
-        $request->validate([
-            'name' => 'required',
-            'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
-            'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
-            'message' => 'required',
-            // 'CaptchaCode' => 'required|valid_captcha',
-        ]);
+        if (Session::get('feedbackCapcode') != $request->SecurityCode) {
+            return back()->with('captchaError',"Captcha Invalid!.");
+        } else {
+            $request->validate([
+                'name' => 'required',
+                'email' => ['required', 'string', 'email', 'max:50', 'email:rfc'],
+                'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
+                'message' => 'required',
 
+            ]);
+        }
         $data = new feedback;
         $data->name = $request->name;
         $data->email = $request->email;
@@ -436,121 +587,119 @@ class HomeController extends Controller
         return view('pages.error');
     }
 
-    public function directorDesk()
-    {
-        try {
+    // public function directorDesk()
+    // {
+    //     try {
+    //         $designation = DB::table('emp_depart_designations')
+    //             ->where('name_en', 'LIKE', 'Director')
+    //             ->where('soft_delete', 0)
+    //             ->orderBy('short_order', 'ASC')
+    //             ->where('publice_status', 1)
+    //             ->first();
 
-            $designation = DB::table('emp_depart_designations')
-                ->where('name_en', 'LIKE', 'Director')
-                ->where('soft_delete', 0)
-                ->orderBy('short_order', 'ASC')
-                ->where('publice_status', 1)
-                ->first();
+    //         if ($designation != '') {
 
-            if ($designation != '') {
+    //             $Director = DB::table('employee_directories')
+    //                 ->where('designation_id', $designation->uid)
+    //                 ->where('soft_delete', 0)
+    //                 ->orderBy('short_order', 'ASC')
+    //                 ->where('publice_status', 1)
+    //                 ->first();
 
-                $Director = DB::table('employee_directories')
-                    ->where('designation_id', $designation->uid)
-                    ->where('soft_delete', 0)
-                    ->orderBy('short_order', 'ASC')
-                    ->where('publice_status', 1)
-                    ->first();
+    //             return view('pages.directorDesk', ['Director' => $Director]);
+    //         } else {
 
-                //  dd($Director);
+    //             if (Session::get('Lang') == 'hi') {
+    //                 $content = "जल्द आ रहा है";
+    //             } else {
+    //                 $content = "Coming Soon...";
+    //             }
+    //             // dd($menus);
+    //             return view('pages.directorDesk', ['content' => $content]);
+    //         }
+    //     } catch (\Exception $e) {
+    //         \Log::error('An exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\PDOException $e) {
+    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\Throwable $e) {
+    //         // Catch any other types of exceptions that implement the Throwable interface.
+    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     }
+    // }
+    // public function employeeDirectory()
+    // {
+    //     try {
+    //         $designationData = [];
 
-                return view('pages.directorDesk', ['Director' => $Director]);
-            } else {
+    //         $department = DB::table('emp_depart_designations')
+    //             ->where('soft_delete', 0)
+    //             ->orderBy('short_order', 'ASC')
+    //             ->whereparent_id(0)
+    //             ->where('publice_status', 1)
+    //             ->get();
 
-                if (Session::get('Lang') == 'hi') {
-                    $content = "जल्द आ रहा है";
-                } else {
-                    $content = "Coming Soon...";
-                }
-                // dd($menus);
-                return view('pages.directorDesk', ['content' => $content]);
-            }
-        } catch (\Exception $e) {
-            \Log::error('An exception occurred: ' . $e->getMessage());
-            return view('pages.error');
-        } catch (\PDOException $e) {
-            \Log::error('A PDOException occurred: ' . $e->getMessage());
-            return view('pages.error');
-        } catch (\Throwable $e) {
-            // Catch any other types of exceptions that implement the Throwable interface.
-            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-            return view('pages.error');
-        }
-    }
-    public function employeeDirectory()
-    {
-        try {
-            $designationData = [];
+    //         if (Count($department) > 0) {
 
-            $department = DB::table('emp_depart_designations')
-                ->where('soft_delete', 0)
-                ->orderBy('short_order', 'ASC')
-                ->whereparent_id(0)
-                ->where('publice_status', 1)
-                ->get();
+    //             foreach ($department as $designation) {
 
-            if (Count($department) > 0) {
+    //                 $data = DB::table('employee_directories as emp')
+    //                     ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
+    //                     ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
+    //                     ->where('emp.soft_delete', 0)
+    //                     ->where('department_id', $designation->uid)
+    //                     ->orderBy('emp.short_order', 'ASC')
+    //                     ->where('emp.publice_status', 1)
+    //                     ->get();
+    //                 //  dd( $data);
 
-                foreach ($department as $designation) {
+    //                 $designationData[] = [
+    //                     'department' => $designation,
+    //                     'data' => $data,
+    //                 ];
+    //             }
+    //             // dd($designationData);
 
-                    $data = DB::table('employee_directories as emp')
-                        ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
-                        ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
-                        ->where('emp.soft_delete', 0)
-                        ->where('department_id', $designation->uid)
-                        ->orderBy('emp.short_order', 'ASC')
-                        ->where('emp.publice_status', 1)
-                        ->get();
-                    //  dd( $data);
+    //             $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
 
-                    $designationData[] = [
-                        'department' => $designation,
-                        'data' => $data,
-                    ];
-                }
-                // dd($designationData);
+    //             return view('pages.employeeDirectory', ['sortedDesignationData' => $sortedDesignationData]);
+    //         } else {
 
-                $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
-
-                return view('pages.employeeDirectory', ['sortedDesignationData' => $sortedDesignationData]);
-            } else {
-
-                if (Session::get('Lang') == 'hi') {
-                    $content = "जल्द आ रहा है";
-                } else {
-                    $content = "Coming Soon...";
-                }
-                // dd($menus);
-                return view('pages.employeeDirectory', ['content' => $content]);
-            }
-        } catch (\Exception $e) {
-            \Log::error('An exception occurred: ' . $e->getMessage());
-            return view('pages.error');
-        } catch (\PDOException $e) {
-            \Log::error('A PDOException occurred: ' . $e->getMessage());
-            return view('pages.error');
-        } catch (\Throwable $e) {
-            // Catch any other types of exceptions that implement the Throwable interface.
-            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-            return view('pages.error');
-        }
-    }
+    //             if (Session::get('Lang') == 'hi') {
+    //                 $content = "जल्द आ रहा है";
+    //             } else {
+    //                 $content = "Coming Soon...";
+    //             }
+    //             // dd($menus);
+    //             return view('pages.employeeDirectory', ['content' => $content]);
+    //         }
+    //     } catch (\Exception $e) {
+    //         \Log::error('An exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\PDOException $e) {
+    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\Throwable $e) {
+    //         // Catch any other types of exceptions that implement the Throwable interface.
+    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     }
+    // }
 
     public function contactStroe(Request $request)
     {
-        // dd($request->all());
-        $request->validate([
-            'name' => 'required',
-            'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
-            'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
-            'message' => 'required',
-            // 'CaptchaCode' => 'required|valid_captcha',
-        ]);
-
+        if (Session::get('contactCapcode') != $request->SecurityCode) {
+            return back()->with('captchaError',"Captcha Invalid!.");
+        } else {
+            $request->validate([
+                'name' => 'required',
+                'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
+                'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
+                'message' => 'required',
+            ]);
+        }
         $data = new contactUs;
         $data->name = $request->name;
         $data->email = $request->email;
@@ -559,4 +708,55 @@ class HomeController extends Controller
         $data->save();
         return back()->with('success', 'Record Add Successfully');
     }
+
+    public function showPressReleased()
+    {
+        return view('pages.press_relesead');
+    }
+    public function photoGallery()
+    {
+        try {
+            $galleryManagementRecords = DB::table('gallery_management')
+                ->where('type', 0)->latest('created_at')
+                ->where('soft_delete', 0)
+                ->get();
+
+            $galleryDetails = DB::table('gallery_details')
+                ->where('soft_delete', 0)->latest('created_at')
+                ->get();
+
+            if (!empty($galleryManagementRecords) && !empty($galleryDetails)) {
+                $tree = [];
+
+                foreach ($galleryManagementRecords as $menu) {
+                    $menu->children = [];
+
+                    foreach ($galleryDetails as $detail) {
+                        if ($menu->uid == $detail->gallery_id) {
+                            $menu->children[] = $detail;
+                        }
+                    }
+                    $tree[] = $menu;
+                }
+            } else {
+                $tree = [];
+            }
+
+            return view('pages.photo_gallery', ['tree' => $tree]);
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        }
+    }
+
+  
+  
 }
+

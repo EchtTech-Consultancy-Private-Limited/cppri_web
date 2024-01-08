@@ -10,11 +10,7 @@
                 <div class="inner-banner-text">
                     <div class="text-banner-content">
                         <h2>
-                            @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Tender') }}
-                            @else
-                                {{ __('messages.Tender') }}
-                            @endif
+                            Archive
                         </h2>
                     </div>
                 </div>
@@ -25,11 +21,7 @@
                 <div class="inner-banner-text">
                     <div class="text-banner-content">
                         <h2>
-                            @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Tender') }}
-                            @else
-                                {{ __('messages.Tender') }}
-                            @endif
+                            Archive
                         </h2>
                     </div>
                 </div>
@@ -48,12 +40,8 @@
                             @endif
                         </a></li>
 
-                    <li>
-                        @if (Session::get('Lang') == 'hi')
-                            {{ __('messages.Tender') }}
-                        @else
-                            {{ __('messages.Tender') }}
-                        @endif
+                    <li >
+                        Archive
                     </li>
 
                 </ul>
@@ -79,7 +67,7 @@
                                     <div class="row p-0 ">
                                         <div class="col-md-12">
                                             {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
-                                            <a href="{{ url('tender-archive') }}" title="Click here to Archive" class="archive-btn">Archive</a>
+                                            <a href="javascript:void(0);" title="Click here to Archive" class="archive-btn">Archive</a>
                                             <div class="scroller-tbl">
 
                                                 <table id="example" class="display">
@@ -95,23 +83,21 @@
 
                                                     <tbody>
                                                         @foreach ($tenderData as $data)
-                                                          @if(count($data['tender_pdfs']) > 0 ) 
                                                             <tr>
                                                                 <td>{{ $data['tender']->title_name_en ?? '' }}</td>
-                                                                <td class="date-nowrap">{{ date('d F Y', strtotime($data['tender']->created_at ?? '')) }}
+                                                                <td>{{ date('d F Y', strtotime($data['tender']->created_at ?? '')) }}
                                                                 </td>
 
                                                                 <td class=''>
                                                                     @foreach ($data['tender_pdfs'] as $pdf)
                                                                        <span class='multiple-pdf'> <a href="{{ asset('resources/uploads/TenderManagement/' . $pdf->public_url) }}"
-                                                                            download>View</a> <i class="fa fa-file-pdf-o text-danger"></i>
+                                                                            download>View</a> <i class="fa fa-file-pdf-o">
                                                                             ({{ $pdf->pdfimage_size ?? '' }})
-                                                                         </span>
+                                                                        </i></span>
                                                                     @endforeach
                                                                 </td>
 
                                                             </tr>
-                                                          @endif  
                                                         @endforeach
                                                     </tbody>
                                                 </table>

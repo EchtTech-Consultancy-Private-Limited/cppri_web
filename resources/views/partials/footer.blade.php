@@ -24,7 +24,7 @@
                                     <ul>
                                         @foreach ($footerMenu->slice(0, 6) as $footerMenus)
                                             @php
-                                                $footerurl = $footerMenus->url ?? 'javascript:void(0)';
+                                                $footerurl = $footerMenus->footer_url ?? 'javascript:void(0)';
                                             @endphp
 
 
@@ -39,6 +39,7 @@
                                                         @endif
                                                     </a>
                                                 </li>
+                                          
                                             @else
                                                 <li><a href="{{ url($footerurl) ?? '' }}">
 
@@ -74,7 +75,7 @@
                                         <ul>
                                             @foreach ($footerMenu->slice(6, 6) as $footerMenus)
                                                 @php
-                                                    $footerurl = $footerMenus->url ?? 'javascript:void(0)';
+                                                    $footerurl = $footerMenus->footer_url ?? 'javascript:void(0)';
                                                 @endphp
                                                 @if ($footerMenus->tab_type == 1)
                                                     <li>
@@ -87,6 +88,7 @@
                                                             @endif
                                                         </a>
                                                     </li>
+                                                
                                                 @else
                                                     <li>
                                                         <a href="{{ url($footerurl) ?? '' }}">
@@ -113,7 +115,7 @@
                                         <ul>
                                             @foreach ($footerMenu->slice(12, 6) as $footerMenus)
                                                 @php
-                                                    $footerurl = $footerMenus->url ?? 'javascript:void(0)';
+                                                    $footerurl = $footerMenus->footer_url ?? 'javascript:void(0)';
                                                 @endphp
                                                 @if ($footerMenus->tab_type == 1)
                                                     <li>
@@ -126,6 +128,7 @@
                                                             @endif
                                                         </a>
                                                     </li>
+                                               
                                                 @else
                                                     <li>
                                                         <a href="{{ url($footerurl) ?? '' }}">
@@ -157,8 +160,6 @@
                                             {{ __('messages.Quick_Links') }}
                                         @endif
 
-
-
                                     </h3>
                                     <ul>
                                         @foreach ($quickLink as $quickLinks)
@@ -166,11 +167,10 @@
                                                 $quickLinkurl = $quickLinks->url ?? 'javascript:void(0)';
                                             @endphp
 
-
-
                                             @if ($quickLinks->tab_type == 1)
                                                 <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')"
-                                                        target="_blank" href="{{ $quickLinkurl ?? '' }}">
+                                                        target="_blank"
+                                                        href="{{ '/quick-links/' . ($quickLinkurl ?? '') }}">
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $quickLinks->name_hi ?? '' }}
                                                         @else
@@ -178,7 +178,7 @@
                                                         @endif
                                                     </a></li>
                                             @else
-                                                <li><a href="{{ url($quickLinkurl) ?? '' }}">
+                                                <li><a href="{{ url('/quick-links/' . $quickLinkurl) ?? '' }}">
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $quickLinks->name_hi ?? '' }}
                                                         @else
@@ -234,65 +234,65 @@
     <div class="footer-bottom-wrapper">
         <div class="container common-container four_content footer-bottom-container">
             <div class="footer-content align-items-center">
-                <div class="copyright-content"> 
+                <div class="copyright-content">
                     <p class='m-0 text-left text-white'>
-                    © Copyright  {{ now()->year }} <strong>CPPRI Sahranpur.</strong><span> All Rights
-                        Reserved. </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="f-link-t">
-                        <a href="{{ url('linking-policy') }}">
+                        © Copyright {{ now()->year }} <strong>CPPRI Sahranpur.</strong><span> All Rights
+                            Reserved. </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="f-link-t">
+                            <a href="{{ url('linking-policy') }}">
 
-                            @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Linking_Policy') }}
-                            @else
-                                {{ __('messages.Linking_Policy') }}
-                            @endif
+                                @if (Session::get('Lang') == 'hi')
+                                    {{ __('messages.Linking_Policy') }}
+                                @else
+                                    {{ __('messages.Linking_Policy') }}
+                                @endif
 
-                        </a> |
-                        <a href="{{ url('privacy-policy') }}">
+                            </a> |
+                            <a href="{{ url('privacy-policy') }}">
 
-                            @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Privacy_Policy') }}
-                            @else
-                                {{ __('messages.Privacy_Policy') }}
-                            @endif
+                                @if (Session::get('Lang') == 'hi')
+                                    {{ __('messages.Privacy_Policy') }}
+                                @else
+                                    {{ __('messages.Privacy_Policy') }}
+                                @endif
 
-                        </a> |
-                        <a href="{{ url('disclaimer') }}">
+                            </a> |
+                            <a href="{{ url('disclaimer') }}">
 
-                            @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Disclaimer') }}
-                            @else
-                                {{ __('messages.Disclaimer') }}
-                            @endif
+                                @if (Session::get('Lang') == 'hi')
+                                    {{ __('messages.Disclaimer') }}
+                                @else
+                                    {{ __('messages.Disclaimer') }}
+                                @endif
 
-                        </a> |
-                        <a href="{{ url('help') }}">
-
-
-                            @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Help') }}
-                            @else
-                                {{ __('messages.Help') }}
-                            @endif
-
-                        </a> |
-                        <a href="{{ url('cookies-policy') }}">
-                            @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Cookies_Policy') }}
-                            @else
-                                {{ __('messages.Cookies_Policy') }}
-                            @endif
-                        </a> |
-                        <a href="{{ url('terms-&-conditions') }}">
+                            </a> |
+                            <a href="{{ url('help') }}">
 
 
-                            @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Terms_&_Conditions') }}
-                            @else
-                                {{ __('messages.Terms_&_Conditions') }}
-                            @endif
-                        </a>
-                    </span>
-                
+                                @if (Session::get('Lang') == 'hi')
+                                    {{ __('messages.Help') }}
+                                @else
+                                    {{ __('messages.Help') }}
+                                @endif
+
+                            </a> |
+                            <a href="{{ url('cookies-policy') }}">
+                                @if (Session::get('Lang') == 'hi')
+                                    {{ __('messages.Cookies_Policy') }}
+                                @else
+                                    {{ __('messages.Cookies_Policy') }}
+                                @endif
+                            </a> |
+                            <a href="{{ url('terms-&-conditions') }}">
+
+
+                                @if (Session::get('Lang') == 'hi')
+                                    {{ __('messages.Terms_&_Conditions') }}
+                                @else
+                                    {{ __('messages.Terms_&_Conditions') }}
+                                @endif
+                            </a>
+                        </span>
+
                 </div>
                 <div class="last-updated d-flex">
                     <span>
@@ -303,7 +303,11 @@
                             {{ __('messages.Last_Updated') }} :
                         @endif
 
-                        <strong>28-12-23</strong>
+                        <strong>
+
+                            <?php echo date('Y-m-d ', strtotime(date('y-m-d'))); ?>
+
+                        </strong>
                     </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <span>
 

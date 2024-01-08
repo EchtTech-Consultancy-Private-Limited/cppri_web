@@ -29,12 +29,14 @@ class SearchController extends Controller
     $dataarray = [];
     foreach ($Dbtable as $t) {
       $colums = "SHOW COLUMNS FROM $t->Tables_in_cppri_db";
-      // dd($colums);
+      //  dd($colums);
       $Dbcolum = DB::select($colums);
       foreach ($Dbcolum as $c) {
         if (DB::table($t->Tables_in_cppri_db)->where($c->Field, 'LIKE', '%' . $keyword . '%')->exists()) {
           $data = DB::table($t->Tables_in_cppri_db)->where($c->Field, 'LIKE', '%' . $keyword . '%')->get();
+         // dd($data);
           foreach ($data as $r) {
+           
             if (isset($r->page_title_en)) {
               array_push(($dataarray), $r->page_title_en);
             }
@@ -58,6 +60,8 @@ class SearchController extends Controller
       }
     }
     $actual = array_values(array_unique($dataarray));
+
+//dd($actual);
     return view('pages.search', ['data' => $actual]);
   }
 }
