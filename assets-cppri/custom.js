@@ -516,3 +516,33 @@ test.forEach((e) => {
         $('.accordion-item').not(this).find('.collapse').collapse('hide');
     });
 });
+        $('.accordion').click((e)=>{
+           console.log(e.attr('id'))
+        })
+	
+
+
+
+
+$('#mobile_no').keypress(function (e) {
+    var regex = new RegExp("^[0-9_]");
+    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+    if (regex.test(str)) {
+        return true;
+    }
+    e.preventDefault();
+    return false;
+});
+
+
+$('.preventnumeric').keypress(function(e) {
+    //alert("yes");
+    var regex = new RegExp(/^[a-zA-Z\s]+$/);
+    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+    if (regex.test(str)) {
+        return true;
+    }
+    e.preventDefault();
+    return false;
+});
+

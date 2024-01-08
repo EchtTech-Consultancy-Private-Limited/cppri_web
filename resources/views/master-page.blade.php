@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-{{ __('RAV') }}
+    {{ __('CPPRI') }}
 @endsection
 @section('content')
 <section class="wrapper banner-wrapper">
@@ -189,7 +189,7 @@
                                 <div class="container common-container">
                                     <div class="row p-0 ">
                                         <div class="col-md-12">
-                                            {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
+                                        <a href="javascript:void(0);" title="Click here to Archive" class="archive-btn">Archive</a>
 
                                             <div class="scroller-tbl">
 
@@ -206,19 +206,19 @@
 
                                                     <tbody>
                                                         @foreach ($organizedData['pdf'] as $data)
-                                                        <tr>
-                                                            <td>{{ $data->pdf_title ?? '' }}</td>
-                                                            <td>{{ date('d F Y', strtotime($data->start_date ?? '')) }}
-                                                            </td>
-                                                            <td class='d-grid'>
-                                                                <span>
-                                                                    <a href="{{ asset('resources/uploads/PageContentPdf/' . $data->public_url) }}"
-                                                                        download>View</a> <i class="fa fa-file-pdf-o">
-                                                                        ({{ $data->pdfimage_size ?? '' }})
-                                                                    </i>
-                                                                </span>
-                                                            </td>
-                                                        </tr>
+                                                            <tr>
+                                                                <td>{{ $data->pdf_title ?? '' }}</td>
+                                                                <td class="date-nowrap">{{ date('d F Y', strtotime($data->start_date ?? '')) }}
+                                                                </td>
+                                                                <td>
+                                                                    <span>
+                                                                        <a href="{{ asset('resources/uploads/PageContentPdf/' . $data->public_url) }}"
+                                                                            download>View</a> <i class="fa fa-file-pdf-o text-danger"></i>
+                                                                            ({{ $data->pdfimage_size ?? '' }})
+                                                                        
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
                                                         @endforeach
                                                     </tbody>
                                                 </table>
@@ -260,6 +260,8 @@
                             @if (isset($Director) && $Director != '')
                             <section id="paragraph" class="wrapper paragraph-wrapper">
                                 <div class="common-container four_content">
+                                   
+                                    <div class="row">
                                     <h3 class="dir-dsk-title mt-0 mb-3">
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Director_Desk') }}
@@ -267,8 +269,7 @@
                                         {{ __('messages.Director_Desk') }}
                                         @endif
                                     </h3>
-                                    <div class="row p-0">
-                                        <div class="col-md-3">
+                                        <div class="col-md-4 col-lg-3">
                                             <div class="addevent-box text-center">
                                                 <div class="profile-img">
                                                     @if ($Director->public_url != '')
@@ -305,7 +306,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-md-9">
+                                        <div class="col-md-8 col-lg-9">
                                             <p>
 
 
@@ -423,7 +424,7 @@
                                 </div>
                                 @if (isset($item['data']) && count($item['data']) > 0)
                                 @foreach ($item['data'] as $profile)
-                                <div class="col-md-4 emp-card-det">
+                                <div class="col-md-6 col-lg-4 emp-card-det">
                                     <div class="card-emp-dir emp-dir-main">
 
                                         <div class="emp-crddir-inf">

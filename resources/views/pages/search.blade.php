@@ -9,7 +9,11 @@
             <div class="inner-banner-text">
                 <div class="text-banner-content">
                     <h2>
-                        Search Page
+                        @if (Session::get('Lang') == 'hi')
+                                {{ __('messages.Search_Page') }}
+                            @else
+                                {{ __('messages.Search_Page') }}
+                            @endif
                     </h2>
                 </div>
             </div>
@@ -19,9 +23,20 @@
         <div class="breadcam-bg breadcam">
             <div class="container common-container four_content ">
                 <ul>
-                    <li><a href="home.html">Home </a></li>
-                    <li><a href="javascript:void();">Search Page</a></li>
-
+                    <li><a href="home.html">
+                            @if (Session::get('Lang') == 'hi')
+                                होम पेज
+                            @else
+                                Home
+                            @endif
+                        </a></li>
+                    <li><a href="javascript:void();">
+                            @if (Session::get('Lang') == 'hi')
+                                {{ __('messages.Search_Page') }}
+                            @else
+                                {{ __('messages.Search_Page') }}
+                            @endif
+                        </a></li>
                 </ul>
             </div>
         </div>
@@ -30,8 +45,8 @@
     <section class="sidebar-main-nav ptb-30">
         <div class="container common-container">
             <form name="searchForm" action="{{ url('/search') }}" method="get" class="row info1 mb-20">
-                <input type="search" name="search_key" id="search_key"  value="{{ request('search_key') ?? '' }}"class="col-md-4" required
-                    placeholder="Search here...">
+                <input type="search" name="search_key" id="search_key"
+                    value="{{ request('search_key') ?? '' }}"class="col-md-4" required placeholder="Search here...">
                 <div class="col-md-2">
                     <button class="more gallery-more-btn" type="submit">Search</button>
                 </div>

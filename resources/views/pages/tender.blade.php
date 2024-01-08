@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    {{ __('RAV') }}
+    {{ __('CPPRI') }}
 @endsection
 @section('content')
     <section class="wrapper banner-wrapper">
@@ -79,7 +79,7 @@
                                     <div class="row p-0 ">
                                         <div class="col-md-12">
                                             {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
-
+                                            <a href="javascript:void(0);" title="Click here to Archive" class="archive-btn">Archive</a>
                                             <div class="scroller-tbl">
 
                                                 <table id="example" class="display">
