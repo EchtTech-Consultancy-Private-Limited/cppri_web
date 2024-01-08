@@ -34,7 +34,9 @@ class SearchController extends Controller
       foreach ($Dbcolum as $c) {
         if (DB::table($t->Tables_in_cppri_db)->where($c->Field, 'LIKE', '%' . $keyword . '%')->exists()) {
           $data = DB::table($t->Tables_in_cppri_db)->where($c->Field, 'LIKE', '%' . $keyword . '%')->get();
+         // dd($data);
           foreach ($data as $r) {
+           
             if (isset($r->page_title_en)) {
               array_push(($dataarray), $r->page_title_en);
             }
@@ -59,7 +61,7 @@ class SearchController extends Controller
     }
     $actual = array_values(array_unique($dataarray));
 
-    dd($actual);
+//dd($actual);
     return view('pages.search', ['data' => $actual]);
   }
 }

@@ -2539,3 +2539,6 @@ table .multiple-pdf{
     width: 85px;
     margin-right: 15px;
 }
+.main-sidebar .qm-active .list-start a::before{
+	color: #fff !important;
+}

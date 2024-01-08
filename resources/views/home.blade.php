@@ -37,7 +37,7 @@
     <section class="latest-news">
         <h3 class="d-none">Latest News</h3>
         <div class="row px-0">
-            <div class="col-md-2">
+            <div class="col-md-2 col-4">
                 <div class="latest-new-title">
                     <p class="change-color-code">
                         @if (Session::get('Lang') == 'hi')
@@ -48,7 +48,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-10 col-8">
                 <div class="marquee">
 
 
@@ -159,7 +159,7 @@
                         @endif
 
                     </p>
-                    <br>
+                
                     <a href="javascript:void(0);" title="Click here to know more" class="change-border-color-text">Read more <i
                             class="fa fa-angle-right"></i></a> 
                 </div>
@@ -192,7 +192,7 @@
                                                                                                                 </div> -->
                         <div class="row p-0">
                             <!--Icon Box Start-->
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-4 col-6">
                                 <div class="deprt-icon-box">
                                     <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}"
                                         alt="">
@@ -214,7 +214,7 @@
                             </div>
                             <!--Icon Box End-->
                             <!--Icon Box Start-->
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-4 col-6">
                                 <div class="deprt-icon-box">
                                     <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt="">
                                     <h6> <a href="javascript:void(0);">
@@ -239,7 +239,7 @@
                             </div>
                             <!--Icon Box End-->
                             <!--Icon Box Start-->
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-4 col-6">
                                 <div class="deprt-icon-box">
                                     <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt="">
                                     <h6> <a href="javascript:void(0);">
@@ -262,7 +262,7 @@
                             </div>
                             <!--Icon Box End-->
                             <!--Icon Box Start-->
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-4 col-6">
                                 <div class="deprt-icon-box">
                                     <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}"
                                         alt="">
@@ -287,7 +287,7 @@
                             </div>
                             <!--Icon Box End-->
                             <!--Icon Box Start-->
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-4 col-6">
                                 <div class="deprt-icon-box">
                                     <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}"
                                         alt="">
@@ -313,7 +313,7 @@
                             </div>
                             <!--Icon Box End-->
                             <!--Icon Box Start-->
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-4 col-6">
                                 <div class="deprt-icon-box">
                                     <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt="">
                                     <h6> <a href="javascript:void(0);">

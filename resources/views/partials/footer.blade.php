@@ -24,7 +24,7 @@
                                     <ul>
                                         @foreach ($footerMenu->slice(0, 6) as $footerMenus)
                                             @php
-                                                $footerurl = $footerMenus->url ?? 'javascript:void(0)';
+                                                $footerurl = $footerMenus->footer_url ?? 'javascript:void(0)';
                                             @endphp
 
 
@@ -39,18 +39,9 @@
                                                         @endif
                                                     </a>
                                                 </li>
-                                            {{-- @elseif($footerMenus->tab_type == 0)
-                                                <li>
-                                                    <a href="{{ $footerurl ?? '' }}">
-                                                        @if (Session::get('Lang') == 'hi')
-                                                            {{ $footerMenus->name_hi ?? '' }}
-                                                        @else
-                                                            {{ $footerMenus->name_en ?? '' }}
-                                                        @endif
-                                                    </a>
-                                                </li> --}}
+                                          
                                             @else
-                                                <li><a href="{{ url('/about-us/' . $footerurl) ?? '' }}">
+                                                <li><a href="{{ url($footerurl) ?? '' }}">
 
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $footerMenus->name_hi ?? '' }}
@@ -84,7 +75,7 @@
                                         <ul>
                                             @foreach ($footerMenu->slice(6, 6) as $footerMenus)
                                                 @php
-                                                    $footerurl = $footerMenus->url ?? 'javascript:void(0)';
+                                                    $footerurl = $footerMenus->footer_url ?? 'javascript:void(0)';
                                                 @endphp
                                                 @if ($footerMenus->tab_type == 1)
                                                     <li>
@@ -97,16 +88,7 @@
                                                             @endif
                                                         </a>
                                                     </li>
-                                                {{-- @elseif($footerMenus->tab_type == 0)
-                                                    <li>
-                                                        <a href="{{ $footerurl ?? '' }}">
-                                                            @if (Session::get('Lang') == 'hi')
-                                                                {{ $footerMenus->name_hi ?? '' }}
-                                                            @else
-                                                                {{ $footerMenus->name_en ?? '' }}
-                                                            @endif
-                                                        </a>
-                                                    </li> --}}
+                                                
                                                 @else
                                                     <li>
                                                         <a href="{{ url($footerurl) ?? '' }}">
@@ -133,7 +115,7 @@
                                         <ul>
                                             @foreach ($footerMenu->slice(12, 6) as $footerMenus)
                                                 @php
-                                                    $footerurl = $footerMenus->url ?? 'javascript:void(0)';
+                                                    $footerurl = $footerMenus->footer_url ?? 'javascript:void(0)';
                                                 @endphp
                                                 @if ($footerMenus->tab_type == 1)
                                                     <li>
@@ -146,16 +128,7 @@
                                                             @endif
                                                         </a>
                                                     </li>
-                                                {{-- @elseif($footerMenus->tab_type == 0)
-                                                    <li>
-                                                        <a href="{{ $footerurl ?? '' }}">
-                                                            @if (Session::get('Lang') == 'hi')
-                                                                {{ $footerMenus->name_hi ?? '' }}
-                                                            @else
-                                                                {{ $footerMenus->name_en ?? '' }}
-                                                            @endif
-                                                        </a>
-                                                    </li> --}}
+                                               
                                                 @else
                                                     <li>
                                                         <a href="{{ url($footerurl) ?? '' }}">
