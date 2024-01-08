@@ -2177,7 +2177,9 @@ ul{
 	right: 14px;
 	top: 0px;
 	rotate: -90deg;
-	color: #fff;
+	color: #747474;
+    font-size: 13px;
+	
 }
 
 /* .main-sidebar .accordion-item .collapsed{
@@ -2486,4 +2488,8 @@ table .multiple-pdf{
     z-index: 99999999999 !important;
     background: #000;
 	opacity: 1 !important;
+}
+
+.main-sidebar .accordion:hover a[data-bs-toggle="collapse"]{
+	color: #fff !important;
 }

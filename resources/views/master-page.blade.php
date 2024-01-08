@@ -88,7 +88,7 @@
                                                     </div>
 
                                                     <div id="flush-collapseOne_{{ $index }}"
-                                                        class="accordion-collapse collapse"
+                                                        class="accordion-collapse collapse "
                                                         data-bs-parent="#sidebarDropdown_{{ $index }}">
                                                         <div class="accordion-body p-0">
                                                             <ul class='p-0 m-0 mt-3'>
@@ -97,12 +97,9 @@
                                                                         $chiltreeUrl = $childTree->url ?? '';
                                                                     @endphp
 
-                                                                    <li> <a href="{{ url($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl) }}"
-                                                                            class="
-                                                                            
-                                                                            @if (request()->is($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl)) qm-active @endif
-                                                                            
-                                                                            ">
+                                                                    <li class="@if (request()->is($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl)) qm-active @endif">
+                                                                         <a href="{{ url($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl) }}"
+                                                                            class="">
 
                                                                             @if (Session::get('Lang') == 'hi')
                                                                                 {{ $childTree->name_hi ?? '' }}
@@ -260,16 +257,13 @@
 
                         @if (isset($Director) && $Director != '')
                             <section id="paragraph" class="wrapper paragraph-wrapper">
-                                <div class=" common-container four_content">
-                                    <h3 class="dir-dsk-title mt-3 mb-3">
-
+                                <div class="common-container four_content">
+                                    <h3 class="dir-dsk-title mt-0 mb-3">
                                         @if (Session::get('Lang') == 'hi')
                                             {{ __('messages.Director_Desk') }}
                                         @else
                                             {{ __('messages.Director_Desk') }}
                                         @endif
-
-
                                     </h3>
                                     <div class="row p-0">
                                         <div class="col-md-3">

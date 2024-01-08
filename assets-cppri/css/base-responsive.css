@@ -744,7 +744,7 @@
 	.logo-text h3 {
 		color: #1a4f91;
 		margin: 0;
-		font-size: 12px;
+		font-size: 12px !important;
 		line-height: 18px;
 		font-weight: 800;
 	}
