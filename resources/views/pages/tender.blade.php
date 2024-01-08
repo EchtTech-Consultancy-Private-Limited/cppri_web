@@ -79,7 +79,7 @@
                                     <div class="row p-0 ">
                                         <div class="col-md-12">
                                             {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
-                                            <a href="javascript:void(0);" title="Click here to Archive" class="archive-btn">Archive</a>
+                                            <a href="{{ url('tender-archive') }}" title="Click here to Archive" class="archive-btn">Archive</a>
                                             <div class="scroller-tbl">
 
                                                 <table id="example" class="display">
@@ -95,6 +95,7 @@
 
                                                     <tbody>
                                                         @foreach ($tenderData as $data)
+                                                          @if(count($data['tender_pdfs']) > 0 ) 
                                                             <tr>
                                                                 <td>{{ $data['tender']->title_name_en ?? '' }}</td>
                                                                 <td>{{ date('d F Y', strtotime($data['tender']->created_at ?? '')) }}
@@ -110,6 +111,7 @@
                                                                 </td>
 
                                                             </tr>
+                                                          @endif  
                                                         @endforeach
                                                     </tbody>
                                                 </table>

@@ -25,6 +25,174 @@ class HomeController extends Controller
         return response()->json(['data' => $request->data, True]);
     }
 
+      //career
+      public function careerData()
+      {
+          dd('hii');
+          // try {
+              $careerData = []; 
+  
+              $career = DB::table('career_management')
+                  ->where('soft_delete', 0)
+                  ->latest('created_at')
+                  ->get();
+  
+              if (count($career) > 0) {
+                  foreach ($career as $careers) {
+                      $career_pdfs = DB::table('career_management_details')
+                          ->where('soft_delete', 0)
+                          ->where('tender_id', $careers->uid)
+                          ->whereDate('archivel_date', '>', now()->toDateString()) 
+                          ->latest('created_at')
+                          ->get();
+  
+                          $careerData[] = [
+                          'carrer' => $career,
+                          'career_pdfs' => $career_pdfs
+                      ];
+                  }
+              }
+              return view('pages.career', ['careerData' => $careerData]);
+  
+  
+          // } catch (\Exception $e) {
+          //     \Log::error('An exception occurred: ' . $e->getMessage());
+          //     return view('pages.error');
+          // } catch (\PDOException $e) {
+          //     \Log::error('A PDOException occurred: ' . $e->getMessage());
+          //     return view('pages.error');
+          // } catch (\Throwable $e) {
+          //     // Catch any other types of exceptions that implement the Throwable interface.
+          //     \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+          //     return view('pages.error');
+          // }
+      }
+  
+      public function careerArchive()
+      {
+          // try {
+              $careerData = []; 
+  
+              $career = DB::table('career_management')
+                  ->where('soft_delete', 0)
+                  ->latest('created_at')
+                  ->get();
+  
+              if (count($career) > 0) {
+                  foreach ($career as $careers) {
+                      $career_pdfs = DB::table('career_management_details')
+                          ->where('soft_delete', 0)
+                          ->where('tender_id', $careers->uid)
+                          ->whereDate('archivel_date', '<', now()->toDateString()) 
+                          ->latest('created_at')
+                          ->get();
+  
+                          $careerData[] = [
+                          'carrer' => $career,
+                          'career_pdfs' => $career_pdfs
+                      ];
+                  }
+              }
+              return view('pages.careerArchive', ['careerData' => $careerData]);
+  
+  
+          // } catch (\Exception $e) {
+          //     \Log::error('An exception occurred: ' . $e->getMessage());
+          //     return view('pages.error');
+          // } catch (\PDOException $e) {
+          //     \Log::error('A PDOException occurred: ' . $e->getMessage());
+          //     return view('pages.error');
+          // } catch (\Throwable $e) {
+          //     // Catch any other types of exceptions that implement the Throwable interface.
+          //     \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+          //     return view('pages.error');
+          // }
+      }
+
+        //tender
+    public function tenderData()
+    {
+        try {
+            $tenderData = []; 
+
+            $tenders = DB::table('tender_management')
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->get();
+
+            if (count($tenders) > 0) {
+                foreach ($tenders as $tender) {
+                    $tender_pdfs = DB::table('tender_details')
+                        ->where('soft_delete', 0)
+                        ->where('tender_id', $tender->uid)
+                        ->whereDate('archivel_date', '>', now()->toDateString()) 
+                        ->latest('created_at')
+                        ->get();
+
+                    $tenderData[] = [
+                        'tender' => $tender,
+                        'tender_pdfs' => $tender_pdfs
+                    ];
+                }
+            }
+            return view('pages.tender', ['tenderData' => $tenderData]);
+
+
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        }
+    }
+
+    public function tenderArchive(){
+
+        try {
+            $tenderData = []; // Initialize the array to store all tender data
+
+            $tenders = DB::table('tender_management')
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->get();
+
+            if (count($tenders) > 0) {
+                foreach ($tenders as $tender) {
+                    $tender_pdfs = DB::table('tender_details')
+                        ->where('soft_delete', 0)
+                        ->where('tender_id', $tender->uid)
+                        ->whereDate('archivel_date', '<', now()->toDateString()) 
+                        ->latest('created_at')
+                        ->get();
+
+                    $tenderData[] = [
+                        'tender' => $tender,
+                        'tender_pdfs' => $tender_pdfs
+                    ];
+                }
+            }
+          
+            return view('pages.tenderArchive', ['tenderData' => $tenderData]);
+
+
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        }
+
+    }
     public function contactUs()
     {
         $CustomCaptchas = new CustomCaptcha;
@@ -70,7 +238,6 @@ class HomeController extends Controller
         } else {
             // Handle the case when none of the slugs match
         }
-
 
         try {
 
@@ -185,8 +352,7 @@ class HomeController extends Controller
                     ->where('menu_uid', $menus->uid)
                     ->orderBy('sort_order', 'ASC')
                     ->get();
-                // dd($middelSlug);
-                //dd($dynamic_content_page_metatag);
+                
                 if (count($dynamic_content_page_metatag) > 0) {
 
                     $organizedData = [];
@@ -196,8 +362,11 @@ class HomeController extends Controller
                         $dynamic_content_page_pdf = DB::table('dynamic_content_page_pdf')
                             ->wheredcpm_id($dynamic_content_page_metatags->uid)
                             ->where('soft_delete', 0)
+
                             ->latest('start_date')
                             ->get();
+
+                          //  dd($dynamic_content_page_pdf);
 
                         $dynamic_page_banner = DB::table('dynamic_page_banner')
                             ->where('soft_delete', 0)
@@ -318,44 +487,7 @@ class HomeController extends Controller
             return view('pages.error');
         }
     }
-    public function tenderData()
-    {
-        try {
-            $tenderData = []; // Initialize the array to store all tender data
-
-            $tenders = DB::table('tender_management')
-                ->where('soft_delete', 0)
-                ->latest('created_at')
-                ->get();
-
-            if (count($tenders) > 0) {
-                foreach ($tenders as $tender) {
-                    $tender_pdfs = DB::table('tender_details')
-                        ->where('soft_delete', 0)
-                        ->where('tender_id', $tender->uid)
-                        ->latest('created_at')
-                        ->get();
-
-                    $tenderData[] = [
-                        'tender' => $tender,
-                        'tender_pdfs' => $tender_pdfs
-                    ];
-                }
-            }
-            // dd($tenderData);
-            return view('pages.tender', ['tenderData' => $tenderData]);
-        } catch (\Exception $e) {
-            \Log::error('An exception occurred: ' . $e->getMessage());
-            return view('pages.error');
-        } catch (\PDOException $e) {
-            \Log::error('A PDOException occurred: ' . $e->getMessage());
-            return view('pages.error');
-        } catch (\Throwable $e) {
-            // Catch any other types of exceptions that implement the Throwable interface.
-            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-            return view('pages.error');
-        }
-    }
+    
     public function rtiData(){
         try {
 
@@ -623,4 +755,8 @@ class HomeController extends Controller
             return view('pages.error');
         }
     }
+
+  
+  
 }
+
