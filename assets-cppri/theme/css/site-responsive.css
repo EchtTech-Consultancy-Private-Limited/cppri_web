@@ -2068,7 +2068,6 @@
 	.wrapper.home-banner .container {
 		/* width: 96%; */
 	}
-
 	.minister-box {
 		padding: 0px 10px 0px;
 	}
@@ -2084,7 +2083,11 @@
 
 @media screen and (max-width: 767px) {
 	.ul-hierarch {
-		flex-direction: column;
+		flex-direction: row;
+	}
+
+	.dir-top-hier {
+		width: 50% !important;
 	}
 
 	.city-news {
