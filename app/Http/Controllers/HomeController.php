@@ -355,6 +355,7 @@ class HomeController extends Controller
     {
 
         try {
+            
             $rtiData;
             $rti_assets = DB::table('rti_assets')
                 ->where('soft_delete', 0)
@@ -589,12 +590,12 @@ class HomeController extends Controller
     {
         try {
         $galleryManagementRecords = DB::table('gallery_management')
-            ->where('type', 0)
+            ->where('type', 0)->latest('created_at')
             ->where('soft_delete', 0)
             ->get();
 
         $galleryDetails = DB::table('gallery_details')
-            ->where('soft_delete', 0)
+            ->where('soft_delete', 0)->latest('created_at')
             ->get();
        
         if (!empty($galleryManagementRecords) && !empty($galleryDetails)) {
