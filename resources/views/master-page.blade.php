@@ -258,6 +258,8 @@
                         @if (isset($Director) && $Director != '')
                             <section id="paragraph" class="wrapper paragraph-wrapper">
                                 <div class="common-container four_content">
+                                   
+                                    <div class="row">
                                     <h3 class="dir-dsk-title mt-0 mb-3">
                                         @if (Session::get('Lang') == 'hi')
                                             {{ __('messages.Director_Desk') }}
@@ -265,8 +267,7 @@
                                             {{ __('messages.Director_Desk') }}
                                         @endif
                                     </h3>
-                                    <div class="row p-0">
-                                        <div class="col-md-3">
+                                        <div class="col-md-4 col-lg-3">
                                             <div class="addevent-box text-center">
                                                 <div class="profile-img">
                                                     @if ($Director->public_url != '')
@@ -303,7 +304,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-md-9">
+                                        <div class="col-md-8 col-lg-9">
                                             <p>
 
 
@@ -326,7 +327,7 @@
                             @if ($item['department']->name_en == 'Director')
                                 <div class="row">
                                     <div class="col-md-12 display-content">
-                                        <div class="employee-directry-type employee-dir-page">
+                                        <div class="employee-directry-type employee-dir-page pt-0">
                                             <div data-aos-mirror="true" data-aos="fade-right" class="title-before"></div>
                                             <h3>
             
@@ -417,7 +418,7 @@
                                     </div>
                                     @if (isset($item['data']) && count($item['data']) > 0)
                                         @foreach ($item['data'] as $profile)
-                                            <div class="col-md-4 emp-card-det">
+                                            <div class="col-md-6 col-lg-4 emp-card-det">
                                                 <div class="card-emp-dir emp-dir-main">
             
                                                     <div class="emp-crddir-inf">

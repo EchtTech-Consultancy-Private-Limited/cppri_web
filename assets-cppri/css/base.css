@@ -2492,3 +2492,10 @@ table .multiple-pdf{
 .main-sidebar .accordion:hover a[data-bs-toggle="collapse"]{
 	color: #fff !important;
 }
+.partition-bg-wrap.vision-mission li {
+    padding-right: 15px;
+}
+
+.overflow-auto-org {
+    overflow: auto;
+}

@@ -3149,11 +3149,11 @@ h2 small {
 }
 
 .align-lt img {
-	float: left;
+	/* float: left;
 	margin-right: 15px;
 	width: 290px;
 	border-radius: 10px;
-	margin-bottom: 3%;
+	margin-bottom: 3%; */
 }
 .align-lt h2 
 {
@@ -5754,6 +5754,7 @@ table.dataTable tbody td {
 }
 .deprt-icon-box h6 a {
     color: #222;
+	font-size: 18px;
 }
 .deprt-icon-box a.rm {
     background: #d94148;
@@ -5843,4 +5844,5 @@ table.dataTable tbody td {
 }
 .employee-directry-type.employee-dir-page h2 {
     font-size: 115% !important;
+	margin-bottom: 0px;
 }
