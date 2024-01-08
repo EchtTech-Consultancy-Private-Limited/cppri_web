@@ -40,7 +40,7 @@ use App\Http\Controllers\CMSControllers\RtiAssetsController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-ute::post('login', [LoginController::class, 'authenticate'])->name('authenticate');
+Route::post('login', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('forget-user', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget-user');
 Route::post('forget-change', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forgetuser');
