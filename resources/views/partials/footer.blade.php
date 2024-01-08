@@ -299,7 +299,11 @@
                             {{ __('messages.Last_Updated') }} :
                         @endif
 
-                        <strong>28-12-23</strong>
+                        <strong>
+
+                         <?php   echo date('Y-m-d ', strtotime(date('y-m-d')));  ?>
+
+                        </strong>
                     </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <span>
 

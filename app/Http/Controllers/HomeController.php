@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\contactUs;
 use App\Models\feedback;
 use Illuminate\Support\Facades\Http;
+use App\Http\Helpers\CustomCaptcha;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,10 @@ class HomeController extends Controller
 
     public function contactUs()
     {
+        $CustomCaptchas = new CustomCaptcha;
+        $CustomCaptch = $CustomCaptchas->generateRandomAdditionExpression();
+        Session::put('contactCapcode', $CustomCaptch['answer']);
+
         try {
             $employee = DB::table('employee_directories as emp')
                 ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
@@ -36,7 +41,10 @@ class HomeController extends Controller
                 ->get();
             //dd($employee);
 
-            return view('pages.contact-us', ['employee' => $employee]);
+            return view('pages.contact-us', [
+                'employee' => $employee,
+                'CustomCaptch' => $CustomCaptch
+            ]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -310,8 +318,6 @@ class HomeController extends Controller
             return view('pages.error');
         }
     }
-
-
     public function tenderData()
     {
         try {
@@ -350,12 +356,9 @@ class HomeController extends Controller
             return view('pages.error');
         }
     }
-
-    public function rtiData()
-    {
-
+    public function rtiData(){
         try {
-            
+
             $rtiData;
             $rti_assets = DB::table('rti_assets')
                 ->where('soft_delete', 0)
@@ -404,26 +407,25 @@ class HomeController extends Controller
 
     public function Feedback()
     {
-        return view('pages.feedback');
+        $CustomCaptchas = new CustomCaptcha;
+        $CustomCaptch = $CustomCaptchas->generateRandomAdditionExpression();
+        Session::put('feedbackCapcode', $CustomCaptch['answer']);
+        return view('pages.feedback', ['CustomCaptch' => $CustomCaptch]);
     }
-
 
     public function feedbackStore(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => ['required', 'string', 'email', 'max:50', 'email:rfc'],
-            'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
-            'message' => 'required',
-            'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
-                $g_response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-                    'secret' => config('services.recaptcha.secret_key'),
-                    'response' => $value,
-                    'remoteip' => \request()->ip()
-                ]);
-            }],
-        ]);
+        if (Session::get('feedbackCapcode') != $request->SecurityCode) {
+            return back()->with('captchaError',"Captcha Invalid!.");
+        } else {
+            $request->validate([
+                'name' => 'required',
+                'email' => ['required', 'string', 'email', 'max:50', 'email:rfc'],
+                'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
+                'message' => 'required',
 
+            ]);
+        }
         $data = new feedback;
         $data->name = $request->name;
         $data->email = $request->email;
@@ -556,23 +558,16 @@ class HomeController extends Controller
 
     public function contactStroe(Request $request)
     {
-
-        $request->validate([
-            'name' => 'required',
-            'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
-            'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
-            'message' => 'required',
-            'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
-                $g_response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-                    'secret' => config('services.recaptcha.secret_key'),
-                    'response' => $value,
-                    'remoteip' => \request()->ip()
-                ]);
-
-                //dd($g_response->json());
-            }],
-        ]);
-
+        if (Session::get('contactCapcode') != $request->SecurityCode) {
+            return back()->with('captchaError',"Captcha Invalid!.");
+        } else {
+            $request->validate([
+                'name' => 'required',
+                'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
+                'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
+                'message' => 'required',
+            ]);
+        }
         $data = new contactUs;
         $data->name = $request->name;
         $data->email = $request->email;
@@ -589,44 +584,43 @@ class HomeController extends Controller
     public function photoGallery()
     {
         try {
-        $galleryManagementRecords = DB::table('gallery_management')
-            ->where('type', 0)->latest('created_at')
-            ->where('soft_delete', 0)
-            ->get();
+            $galleryManagementRecords = DB::table('gallery_management')
+                ->where('type', 0)->latest('created_at')
+                ->where('soft_delete', 0)
+                ->get();
 
-        $galleryDetails = DB::table('gallery_details')
-            ->where('soft_delete', 0)->latest('created_at')
-            ->get();
-       
-        if (!empty($galleryManagementRecords) && !empty($galleryDetails)) {
-            $tree = [];
+            $galleryDetails = DB::table('gallery_details')
+                ->where('soft_delete', 0)->latest('created_at')
+                ->get();
 
-            foreach ($galleryManagementRecords as $menu) {
-                $menu->children = [];
+            if (!empty($galleryManagementRecords) && !empty($galleryDetails)) {
+                $tree = [];
 
-                foreach ($galleryDetails as $detail) {
-                    if ($menu->uid == $detail->gallery_id) {
-                        $menu->children[] = $detail;
+                foreach ($galleryManagementRecords as $menu) {
+                    $menu->children = [];
+
+                    foreach ($galleryDetails as $detail) {
+                        if ($menu->uid == $detail->gallery_id) {
+                            $menu->children[] = $detail;
+                        }
                     }
+                    $tree[] = $menu;
                 }
-                $tree[] = $menu;
+            } else {
+                $tree = [];
             }
-        } else {
-            $tree = [];
-        }
-       
-        return view('pages.photo_gallery',['tree' => $tree]);
 
-    } catch (\Exception $e) {
-        \Log::error('An exception occurred: ' . $e->getMessage());
-        return view('pages.error');
-    } catch (\PDOException $e) {
-        \Log::error('A PDOException occurred: ' . $e->getMessage());
-        return view('pages.error');
-    } catch (\Throwable $e) {
-        // Catch any other types of exceptions that implement the Throwable interface.
-        \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-        return view('pages.error');
-    }   
+            return view('pages.photo_gallery', ['tree' => $tree]);
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        }
     }
 }
