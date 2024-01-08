@@ -2118,6 +2118,24 @@
 }
 
 @media screen and (max-width: 767px) {
+	.sub-nav {
+		background: inherit;
+		color: #fff !important;
+		border: none;
+	}
+	.main-menu .sub-nav ul li {
+		border-bottom: 1px solid rgba(0, 0, 0, .1) !important;
+		margin: 0;
+	}
+	.title-before, .title-after {
+		width: 40px;
+	}
+	.employee-directry-type {
+		font-size: 1em;
+	}
+	.employee-dir-page {
+		padding: 10px 0px 34px 0px;
+	}
 	.ul-hierarch {
 		flex-direction: row;
 	}
