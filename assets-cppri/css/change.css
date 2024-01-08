@@ -217,7 +217,7 @@ ul#header-nav a img{background:#ffff00 ;}
 .common-right ul li.ico-sitemap a {
 	background-position:-90px -61px !important;
 }
-.flex-pauseplay {
+.flex-pauseplay, .sidebar-main-nav, .main-sidebar ul li {
     background: #000;
 }   
 .flex-pauseplay a {
@@ -246,7 +246,7 @@ tr:nth-of-type(2n+1) {
 .banner-wrapper .flex-control-nav:before{
 	border-bottom: 40px solid #000;
 }
-.view-footer a, .banner-content-wrapper a{
+.view-footer a, .banner-content-wrapper a, .main-sidebar ul li{
 	border: 1px solid #fff;
 }
 p.banner-title-tag-line:after, .minister-sub1:after{
