@@ -355,9 +355,7 @@ class HomeController extends Controller
     {
 
         try {
-
             $rtiData;
-
             $rti_assets = DB::table('rti_assets')
                 ->where('soft_delete', 0)
                 ->latest('created_at')
@@ -610,14 +608,13 @@ class HomeController extends Controller
                         $menu->children[] = $detail;
                     }
                 }
-
                 $tree[] = $menu;
             }
         } else {
             $tree = [];
         }
        
-        return view('pages.photo_gallery', ['tree' => $tree]);
+        return view('pages.photo_gallery',['tree' => $tree]);
 
     } catch (\Exception $e) {
         \Log::error('An exception occurred: ' . $e->getMessage());

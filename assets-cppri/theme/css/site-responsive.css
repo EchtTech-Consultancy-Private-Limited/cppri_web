@@ -15,6 +15,13 @@
 		left: -13px;
 	}
 }
+
+@media (min-width:991px){
+	img.mfp-img{
+		width: 500px !important;
+	}
+}
+
 @media(max-width:1590px) and (min-width:1290px){
 	.banner-wrapper .flex-control-nav:before {
 		border-bottom: 42px solid var(--pseudo-bordercolor);
@@ -24,6 +31,11 @@
 		position: absolute;
 	}
 	
+}
+@media all and (max-width: 1290px) {
+	.copyright-content p, .copyright-content span, .copyright-content a, .last-updated {
+		font-size: 12px !important;
+	}
 }
 @media all and (max-width: 1200px) {
 	.logo a strong {

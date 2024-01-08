@@ -407,23 +407,64 @@ $(document).ready(()=>{
 
 
 
-      jQuery('.image-popup').magnificPopup({
-        type: 'image',
-      mainClass: 'mfp-with-zoom', 
-      gallery:{
-                enabled:true
-            },
+    //   jQuery('.image-popup').magnificPopup({
+    //     type: 'image',
+    //   mainClass: 'mfp-with-zoom', 
+    //   gallery:{
+    //             enabled:true
+    //         },
     
-      zoom: {
-        enabled: true, 
+    //   zoom: {
+    //     enabled: true, 
     
-        duration: 300, // duration of the effect, in milliseconds
-        easing: 'ease-in-out', // CSS transition easing function
+    //     duration: 300, // duration of the effect, in milliseconds
+    //     easing: 'ease-in-out', // CSS transition easing function
     
-        opener: function(openerElement) {
+    //     opener: function(openerElement) {
     
-          return openerElement.is('img') ? openerElement : openerElement.find('img');
-        }
-    }
-      });
+    //       return openerElement.is('img') ? openerElement : openerElement.find('img');
+    //     }
+    // }
+    //   });
 })
+
+
+$(document).ready(function() {
+
+    $('.image-popup').magnificPopup({
+
+        type: 'image',
+
+        mainClass: 'mfp-with-zoom',
+
+        gallery: {
+
+            enabled: true
+
+        },
+
+
+    });
+
+
+
+});
+
+
+$(document).ready(function() {
+
+	$('a.btn-gallery').on('click', function(event) {
+		event.preventDefault();
+		
+		var gallery = $(this).attr('href');
+    
+		$(gallery).magnificPopup({
+      delegate: 'a',
+			type:'image',
+			gallery: {
+				enabled: true
+			}
+		}).magnificPopup('open');
+	    });
+	
+});
