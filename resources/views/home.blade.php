@@ -1045,7 +1045,7 @@
 
 
                                 </h3>
-                                <a class="bttn-more bttn-view" href="javascript:viod(0)"
+                                <a class="bttn-more bttn-view" href="{{ url('photo-gallery') }}"
                                     title="View all Photo Gallery"><span>View
                                         All</span></a>
                             </div>
