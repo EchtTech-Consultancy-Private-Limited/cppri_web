@@ -156,7 +156,6 @@
                         @endif
 
                         @if(isset($organizedData) && isset($organizedData['metatag']) != '')
-                        <!--/#page-head-->
                         <section id="paragraph" class="wrapper paragraph-wrapper">
                             <div class="container common-container four_content pm-0">
                                 <div class="align-lt">
@@ -257,6 +256,7 @@
                                 </div>
                             </section>
                         @endif
+
 
                         @if (isset($Director) && $Director != '')
                             <section id="paragraph" class="wrapper paragraph-wrapper">
@@ -481,7 +481,7 @@
                                 </div>
                             @endif
                         @endforeach
-                    @endif
+                        @endif
 
 
                     </div>
