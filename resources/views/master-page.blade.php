@@ -153,7 +153,6 @@
                         @endif
 
                         @if(isset($organizedData) && isset($organizedData['metatag']) != '')
-                        <!--/#page-head-->
                         <section id="paragraph" class="wrapper paragraph-wrapper">
                             <div class="container common-container four_content pm-0">
                                 <div class="align-lt">
@@ -255,18 +254,16 @@
                             </section>
                         @endif
 
+
                         @if (isset($Director) && $Director != '')
                             <section id="paragraph" class="wrapper paragraph-wrapper">
-                                <div class=" common-container four_content">
-                                    <h3 class="dir-dsk-title mt-3 mb-3">
-
+                                <div class="common-container four_content">
+                                    <h3 class="dir-dsk-title mt-0 mb-3">
                                         @if (Session::get('Lang') == 'hi')
                                             {{ __('messages.Director_Desk') }}
                                         @else
                                             {{ __('messages.Director_Desk') }}
                                         @endif
-
-
                                     </h3>
                                     <div class="row p-0">
                                         <div class="col-md-3">
@@ -478,7 +475,7 @@
                                 </div>
                             @endif
                         @endforeach
-                    @endif
+                        @endif
 
 
                     </div>
