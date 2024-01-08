@@ -46,6 +46,11 @@ return [
     'Screen_Reader_Access'=>'स्क्रीन रीडर एक्सेस',
     'Employee_Details'=>'कर्मचारी विवरण',
     'Director_Desk'=>'निदेशक डेस्क',
-    'Employee_Directory'=>'कर्मचारी निर्देशिका'
+    'Employee_Directory'=>'कर्मचारी निर्देशिका',
+    'photo_gallery'=>'फोटो गैलरी',
+    'Feedback'=>'प्रतिक्रिया',
+     'Search_Page'=>'पृष्ठ खोजें',
+     'RTI'=>'सूचना का अधिकार',
+
      
 ];

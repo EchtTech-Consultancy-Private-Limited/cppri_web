@@ -385,16 +385,16 @@ $("document").ready(function () {
 
 $(document).ready(()=>{
     $('.sl-accordion').click(()=>{
-        console.log("hellow world");
-        $('.main-sidebar ul .accordion').css({
-            'background-color': "#1a4f91"
-        })
-        $('.main-sidebar ul .accordion .list-start a').css({
-            'color': "#fff"
-        })
-        $('.main-sidebar ul .accordion a[data-bs-target="#flush-collapseOne"]').css({
-            'color':"#fff"
-        })
+        // console.log("hellow world");
+        // $('.main-sidebar ul .accordion').css({
+        //     'background-color': "#1a4f91"
+        // })
+        // $('.main-sidebar ul .accordion .list-start a').css({
+        //     'color': "#fff"
+        // })
+        // $('.main-sidebar ul .accordion a[data-bs-target="#flush-collapseOne"]').css({
+        //     'color':"#fff"
+        // })
       
     })
 
@@ -466,5 +466,12 @@ $(document).ready(function() {
 			}
 		}).magnificPopup('open');
 	    });
+
+        let menuActive = $('.accordion .accordion-body ul li');
+        console.log(menuActive);
+
+        $('.accordion').click((e)=>{
+           console.log(e.attr('id'))
+        })
 	
 });

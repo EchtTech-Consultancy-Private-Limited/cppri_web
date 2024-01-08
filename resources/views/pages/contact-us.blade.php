@@ -5,28 +5,6 @@
 @section('content')
     <div class="container common-container mb-20">
         <div class="row p-0">
-            <!-- <div class="col-md-6 col-lg-6">
-                                                                   
-                                                                </div> -->
-            <!-- <div class="col-md-6 col-lg-6">
-                                                                 <div class="contact-item">
-                                                                    <div class="contact-icon">
-                                                                       <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                                    </div>
-                                                                    <div class="contact-info">
-                                                                       <h3>Delhi</h3>
-                                                                      
-                                                                          <ul>
-                                                                             <li>A-55, Third Floor, Gujranwala Town,</li>
-                                                                             <li>Part-1, Opposite Vinayak Hospital, Delhi -110009, India</li>
-                                                                             <li>Nr. Metro Station is "Model Town"</li>
-                                                                             <li><strong>Contact No.</strong> 011-49027213, +91-9910909169</li>
-                                                                             <li><a href=""> <strong>Email:</strong> cppri@yahoo.com</a></li>
-                                                                          </ul>
-                                                                       
-                                                                    </div>
-                                                                 </div>
-                                                              </div> -->
             <div class="col-md-6 col-lg-6">
 
                 <div class="contact-item">

@@ -9,7 +9,12 @@
             <div class="inner-banner-text">
                 <div class="text-banner-content">
                     <h2>
-                        Feedback
+
+                        @if (Session::get('Lang') == 'hi')
+                            {{ __('messages.Feedback') }}
+                        @else
+                            {{ __('messages.Feedback') }}
+                        @endif
                     </h2>
                 </div>
             </div>
@@ -19,8 +24,22 @@
         <div class="breadcam-bg breadcam">
             <div class="container common-container four_content ">
                 <ul>
-                    <li><a href="home.html">Home </a></li>
-                    <li><a href="javascript:void();">Feedback</a></li>
+                    <li><a href="home.html">
+                            @if (Session::get('Lang') == 'hi')
+                                होम पेज
+                            @else
+                                Home
+                            @endif
+                        </a></li>
+                    <li><a href="javascript:void();">
+
+                            @if (Session::get('Lang') == 'hi')
+                                {{ __('messages.Feedback') }}
+                            @else
+                                {{ __('messages.Feedback') }}
+                            @endif
+
+                        </a></li>
 
                 </ul>
             </div>
@@ -102,9 +121,8 @@
                              
                                 >Submit</button> --}}
                                 <button class="g-recaptcha btn btn-primary"
-                                            data-sitekey="{{ config('services.recaptcha.site_key') }}"
-                                            data-callback='onSubmit'
-                                            data-action='login' id="send">Submit</button>
+                                    data-sitekey="{{ config('services.recaptcha.site_key') }}" data-callback='onSubmit'
+                                    data-action='login' id="send">Submit</button>
                             </div>
                         </form>
                     </div>
