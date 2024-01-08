@@ -69,4 +69,3 @@ Route::get('/{Slug}/{middelSlug?}/{lastSlug?}/{finalSlug?}', [HomeController::cl
 Route::any('{url}', function(){
     return redirect('login');
 })->where('url', '.*');
-
