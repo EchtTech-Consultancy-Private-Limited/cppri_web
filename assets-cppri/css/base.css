@@ -2193,6 +2193,9 @@ ul{
     font-size: 13px;
 	
 }
+.main-sidebar .menu-active .accordion-item li::after{
+	color: #fff !important;
+}
 
 /* .main-sidebar .accordion-item .collapsed{
 	display: block;
