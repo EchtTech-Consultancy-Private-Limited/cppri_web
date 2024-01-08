@@ -28,8 +28,8 @@ class HomeController extends Controller
       //career
       public function careerData()
       {
-          dd('hii');
-          // try {
+         // dd('hii');
+          try {
               $careerData = []; 
   
               $career = DB::table('career_management')
@@ -55,22 +55,22 @@ class HomeController extends Controller
               return view('pages.career', ['careerData' => $careerData]);
   
   
-          // } catch (\Exception $e) {
-          //     \Log::error('An exception occurred: ' . $e->getMessage());
-          //     return view('pages.error');
-          // } catch (\PDOException $e) {
-          //     \Log::error('A PDOException occurred: ' . $e->getMessage());
-          //     return view('pages.error');
-          // } catch (\Throwable $e) {
-          //     // Catch any other types of exceptions that implement the Throwable interface.
-          //     \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-          //     return view('pages.error');
-          // }
+          } catch (\Exception $e) {
+              \Log::error('An exception occurred: ' . $e->getMessage());
+              return view('pages.error');
+          } catch (\PDOException $e) {
+              \Log::error('A PDOException occurred: ' . $e->getMessage());
+              return view('pages.error');
+          } catch (\Throwable $e) {
+              // Catch any other types of exceptions that implement the Throwable interface.
+              \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+              return view('pages.error');
+          }
       }
   
       public function careerArchive()
       {
-          // try {
+          try {
               $careerData = []; 
   
               $career = DB::table('career_management')
@@ -96,17 +96,17 @@ class HomeController extends Controller
               return view('pages.careerArchive', ['careerData' => $careerData]);
   
   
-          // } catch (\Exception $e) {
-          //     \Log::error('An exception occurred: ' . $e->getMessage());
-          //     return view('pages.error');
-          // } catch (\PDOException $e) {
-          //     \Log::error('A PDOException occurred: ' . $e->getMessage());
-          //     return view('pages.error');
-          // } catch (\Throwable $e) {
-          //     // Catch any other types of exceptions that implement the Throwable interface.
-          //     \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-          //     return view('pages.error');
-          // }
+          } catch (\Exception $e) {
+              \Log::error('An exception occurred: ' . $e->getMessage());
+              return view('pages.error');
+          } catch (\PDOException $e) {
+              \Log::error('A PDOException occurred: ' . $e->getMessage());
+              return view('pages.error');
+          } catch (\Throwable $e) {
+              // Catch any other types of exceptions that implement the Throwable interface.
+              \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+              return view('pages.error');
+          }
       }
 
         //tender
