@@ -3,7 +3,6 @@ namespace App\Http\Helpers;
 
 use DB,Log;
 
-
 class CustomCaptcha {
 
     function generateRandomAdditionExpression() {

@@ -34,6 +34,13 @@
                             </script>
                         @endif
 
+                        @if (Session::has('captchaError'))
+                            <script>
+                                toastr.error('{{ Session::get('captchaError') }}')
+                            </script>
+                        @endif
+
+
                         @if ($errors->any())
                             <script>
                                 $(document).ready(function() {
@@ -48,7 +55,7 @@
                             @csrf
                             <h3>Fill This Form To Reach Us</h3>
                             <div class="info">
-                                <input class="fname" type="text" name="name" placeholder="Full name" required>
+                                <input class="fname preventnumeric" type="text" name="name"  placeholder="Full name" required>
 
                                 @if ($errors->has('name'))
                                     <div class="text-danger">{{ $errors->first('name') }}</div>
@@ -60,7 +67,7 @@
                                     <div class="text-danger">{{ $errors->first('email') }}</div>
                                 @endif
 
-                                <input type="number" name="phone" placeholder="Phone number" required>
+                                <input type="text" id="mobile_no" name="phone" placeholder="Phone number" minlength="10" maxlength="10" required>
 
                                 @if ($errors->has('phone'))
                                     <div class="text-danger">{{ $errors->first('phone') }}</div>
@@ -74,25 +81,17 @@
                                     <div class="text-danger">{{ $errors->first('message') }}</div>
                                 @endif
                             </div>
-                            {{-- <div class="captcha-box row p-0">
-                                <div class="info col-md-6">
-                                    <input class="captcha-input" type="text" name="Captcha" placeholder="Enter Captcha">
+                           
+                            <div class="form-group mt-4 mb-4">
+                                <div class="captcha-box d-flex align-item-center">
+                                   <label for="captcha" class="security-code">Security Code : <?php echo $CustomCaptch['expression']; ?> </label> <span class="equalto">=</span>
+                                   <input id="SecurityCode" type="text" class="form-control SecurityCode" placeholder="Enter Security Code" name="SecurityCode" required>
                                 </div>
-                                <div class="captcha-image col-md-6">
-                                    <img src="{{ asset('assets-cppri/images/captcha-handler.jpg') }}" alt="captcha image">
-                                    <button class="btn btn-primary"><i class="fa fa-refresh"
-                                            aria-hidden="true"></i></button>
-                                </div>
-                            </div> --}}
-                            <div class="mt-4 mb-4">
-                                @if ($errors->has('g-recaptcha-response'))
-                                    <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
-                                @endif
-                            </div>
+                             </div>
                             <div class="text-center">
                                 <button class="g-recaptcha btn btn-primary"
-                                    data-sitekey="{{ config('services.recaptcha.site_key') }}" data-callback='onSubmit'
-                                    data-action='login' id="send">Submit</button>
+                                  
+                                   >Submit</button>
                             </div>
                         </form>
                     </div>
@@ -186,9 +185,5 @@
             </div>
         </div>
     </div>
-    <script>
-        function onSubmit(token) {
-            document.getElementById("contact_form").submit();
-        }
-    </script>
+   
 @endsection
