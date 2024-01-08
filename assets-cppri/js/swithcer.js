@@ -112,8 +112,8 @@ jQuery(document).ready(function(){
 		document.cookie="username=John Doe";
 		jQuery(".light").show();
 		jQuery(".dark").hide();
-		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl+"/assets-cppri/css/change.css'>");
-		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl+"/assets-cppri	/theme/css/site-change.css'>");
+		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/css/change.css'>");
+		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/theme/css/site-change.css'>");
 		
 		
 	});
@@ -129,8 +129,8 @@ jQuery(document).ready(function(){
 
 	});
 	if(getCookie('contrast') == "1") {
-		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl+"/assets-cppri/css/change.css'>");
-		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl+"/assets-cppri	/theme/css/site-change.css'>");
+		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/css/change.css'>");
+		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/theme/css/site-change.css'>");
 		// jQuery(".national_emblem").attr("src","assets/images/emblem-light.png"); // high contrast
 		
 		
