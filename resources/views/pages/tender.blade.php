@@ -98,15 +98,15 @@
                                                           @if(count($data['tender_pdfs']) > 0 ) 
                                                             <tr>
                                                                 <td>{{ $data['tender']->title_name_en ?? '' }}</td>
-                                                                <td>{{ date('d F Y', strtotime($data['tender']->created_at ?? '')) }}
+                                                                <td class="date-nowrap">{{ date('d F Y', strtotime($data['tender']->created_at ?? '')) }}
                                                                 </td>
 
                                                                 <td class=''>
                                                                     @foreach ($data['tender_pdfs'] as $pdf)
                                                                        <span class='multiple-pdf'> <a href="{{ asset('resources/uploads/TenderManagement/' . $pdf->public_url) }}"
-                                                                            download>View</a> <i class="fa fa-file-pdf-o">
+                                                                            download>View</a> <i class="fa fa-file-pdf-o text-danger"></i>
                                                                             ({{ $pdf->pdfimage_size ?? '' }})
-                                                                        </i></span>
+                                                                         </span>
                                                                     @endforeach
                                                                 </td>
 

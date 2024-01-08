@@ -237,7 +237,7 @@
 	.common-wrapper .container.common-container.four_content {
 		max-width: 100%;
 		width: 100% !important;
-		padding: 0;
+		padding: 0px 15px;
 		height: auto;
 	}
 
@@ -2510,7 +2510,7 @@
 }
 
 
-@media(min-width:991px) and (max-width:1200px) {
+@media(min-width:991px) and (max-width:1300px) {
 	.banner-wrapper .flexslider .slides>li {
 
 		height: 400px;
@@ -2519,6 +2519,9 @@
 	.banner-wrapper .flexslider .slides img {
 		object-fit: cover;
 		height: 400px;
+	}
+	.common-wrapper .container.common-container.four_content {
+		padding: 2px 27px;
 	}
 
 }
