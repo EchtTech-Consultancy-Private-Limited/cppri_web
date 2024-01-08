@@ -2193,6 +2193,9 @@ ul{
     font-size: 13px;
 	
 }
+.main-sidebar .menu-active .accordion-item li::after{
+	color: #fff !important;
+}
 
 /* .main-sidebar .accordion-item .collapsed{
 	display: block;
@@ -2530,4 +2533,8 @@ table .multiple-pdf{
 	background: #fff;
 	color: #F44336;
 	
+}
+
+.main-sidebar .qm-active .list-start a::before{
+	color: #fff !important;
 }

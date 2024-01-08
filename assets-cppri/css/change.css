@@ -188,7 +188,7 @@ ul#header-nav a img{background:#ffff00 ;}
 
 .new-txt span.duration, .dir-dsk-title{color: #ddd;}
 
-.flex-direction-nav a:before, .page-tab .text-slide, .page-tab .text-slide01, .pb-10 {
+.flex-direction-nav a:before, .page-tab .text-slide, .page-tab .text-slide01, .pb-10, .list-content {
     color: #ffff00;
 }
 .flex-control-paging li a {
