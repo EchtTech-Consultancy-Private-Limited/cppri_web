@@ -195,5 +195,3 @@ Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(f
 
 require __DIR__ .'/api_route.php';
 //include_once('api_route.php');
-
-
