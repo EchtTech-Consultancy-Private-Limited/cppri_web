@@ -91,9 +91,9 @@
                                                                 <td class=''>
                                                                     @foreach ($data['tender_pdfs'] as $pdf)
                                                                        <span class='multiple-pdf'> <a href="{{ asset('resources/uploads/TenderManagement/' . $pdf->public_url) }}"
-                                                                            download>View</a> <i class="fa fa-file-pdf-o">
+                                                                            download>View</a> <i class="fa fa-file-pdf-o text-danger"></i>
                                                                             ({{ $pdf->pdfimage_size ?? '' }})
-                                                                        </i></span>
+                                                                        </span>
                                                                     @endforeach
                                                                 </td>
 

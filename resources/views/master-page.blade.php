@@ -193,7 +193,7 @@
 
                                             <div class="scroller-tbl">
 
-                                                <table id="example" class="display" style="width:100%">
+                                                <table id="example" class="display w-100" >
 
                                                     <thead>
                                                         <tr>
