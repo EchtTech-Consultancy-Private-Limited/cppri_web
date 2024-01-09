@@ -21,7 +21,7 @@ body .nav-wrapper ul li a{
     border-left: 0px solid #444;
     border-top: 1px solid #444;
 }
-.common-wrapper{background:#272727;}
+.common-wrapper{background:#000;}
  .toggle-nav-bar .menu-icon {
 background:url(../images/toggle-bar-light.png) no-repeat;
 }
@@ -46,6 +46,7 @@ background:url(../images/toggle-bar-light.png) no-repeat;
 .footer-bottom-wrapper {
 	background-color:#000;
 	color:#fff;
+	background-image: none;
 }
 .nav-wrapper ul li {
 	border-left:1px solid #3b3b3b;
@@ -238,10 +239,11 @@ tr:nth-of-type(2n+1) {
     background: #000;
 }
 #scroll:hover{
-	background: #272727;
+	background: #000;
 }
-#scroll{
-	background: #555;
+#scroll {
+    background: none;
+    border: 2px solid #fff;
 }
 .banner-wrapper .flex-control-nav:before{
 	border-bottom: 40px solid #000;

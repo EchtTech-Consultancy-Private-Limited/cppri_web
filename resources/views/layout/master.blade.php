@@ -15,11 +15,11 @@
                 </noscript>
                 @include('partials.top-head')
             </div>
-            <p id="scroll" style="display: none;" class="change-color-code"><span></span></p>
+            <p id="scroll"   class="change-color-code "><span></span></p>
         </div>
         <!--Top-Header Section end-->
         <section class="wrapper header-wrapper">
-            <h3 style="display: none;">Top-Header Section end</h3>
+            <h3   class="d-none">Top-Header Section end</h3>
             <div class="container common-container four_content  header-container">
                 <div class="logo">
                     <a href="{{ url('/') }}" title="Home" rel="home" class="header__logo" id="logo">
@@ -63,7 +63,7 @@
         </section>
         <!--/.header-wrapper-->
         <section class="wrapper megamenu-wraper change-color-code">
-            <h3 style="display: none;">Megamenu</h3>
+            <!-- <h3 >Megamenu</h3> -->
             @include('partials.menu-header')
         </section>
     </header>
