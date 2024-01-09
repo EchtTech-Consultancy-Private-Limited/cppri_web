@@ -426,6 +426,7 @@ h2.border-bottom-color{
 
 .main-sidebar ul li:hover{
     background-color: #222;
+    border: 1px solid #fff;
 }
 
 table th {
@@ -457,4 +458,39 @@ table td, table th, table tr{
     border: 1px solid #fff !important;
     box-shadow: none;
     background: #000 !important;
+}
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    border: 1px solid #fff !important;
+}
+
+.text-danger{
+    color: #fff !important;
+}
+
+.depart-info .deprt-icon-box, .left-col-2 h2, ul.resp-tabs-list, .box-bg-color, .news-box, .contact-item, .cppri-contact-form, .scroll-table1, table.dataTable tbody tr td{
+    background-color: #000;
+    color: #fff !important;
+}
+
+button.dt-button.buttons-print, .archive-btn {
+    background: #000;color: #fff !important; border: 1px solid #fff;
+}
+
+button.dt-button.buttons-print:hover, .archive-btn:hover {
+    background: #000 !important;
+    color: #fff !important;
+    border: 1px solid #fff;
+}
+button.dt-button.buttons-print:hover span{
+    color: #fff !important;
+}
+
+thead + tbody tr:first-child td, .breadcam li:last-child {
+    color: #fff !important;
+}
+
+.main-sidebar ul li:last-child {
+    border-bottom: 1px solid #fff;
 }
