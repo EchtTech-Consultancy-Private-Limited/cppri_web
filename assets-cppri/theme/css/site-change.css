@@ -494,3 +494,19 @@ thead + tbody tr:first-child td, .breadcam li:last-child {
 .main-sidebar ul li:last-child {
     border-bottom: 1px solid #fff;
 }
+
+blockquote {
+    background: #000;
+    text-transform: capitalize;
+    color: #fff !important;
+    border-color: #fff;
+    border-left-color: #fff !important;
+}
+
+blockquote::before, blockquote::after {
+    color: #fff;
+}
+
+.container.common-container {
+    background: #000;
+}
