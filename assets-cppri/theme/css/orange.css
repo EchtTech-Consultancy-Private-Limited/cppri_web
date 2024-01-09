@@ -15,8 +15,6 @@
 
 
 
-
-
 .inner-wrapper p {
 	color: #212020;
 	font-size: 100%;
@@ -38,9 +36,6 @@ html
 }
 
 :root{
-
-
-
 	--button-radius:5px;
 	--box-radius:10px;
 }
@@ -5860,14 +5855,7 @@ table.dataTable tbody td {
     color: #fff !important;
     line-height: 26px !important;
 }
-
-
-
-
-
-
-
 .employee-directry-type.employee-dir-page h2 {
-    font-size: 116% !important;
+    font-size: 115% !important;
 	margin-bottom: 0px;
 }
