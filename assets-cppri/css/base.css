@@ -2527,7 +2527,7 @@ table .multiple-pdf{
     font-size: 16px;
 	border: 1px solid #F44336;
 	font-weight: 600;
-}
+} 
 
 .archive-btn:hover{
 	background: #fff;
@@ -2541,4 +2541,4 @@ table .multiple-pdf{
 }
 .main-sidebar .qm-active .list-start a::before{
 	color: #fff !important;
-}
+}  
