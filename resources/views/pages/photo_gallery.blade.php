@@ -2,10 +2,10 @@
 @section('title')
     {{ __('CPPRI') }}
 @endsection
-<link rel="stylesheet" type="text/css"
+<!-- <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
 <link rel='stylesheet'
-    href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+    href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'> -->
 
 @section('content')
     <section class="wrapper banner-wrapper">

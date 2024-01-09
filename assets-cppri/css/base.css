@@ -1161,7 +1161,7 @@ tr:hover td {
 .common-right ul li {
 	float: left;
 	position: relative;
-	height: 36px;
+	height: 37px;
 	font-size: 65%;
 	text-align: center;
 	border-left: 1px solid #e2e0e0;
@@ -2541,4 +2541,38 @@ table .multiple-pdf{
 }
 .main-sidebar .qm-active .list-start a::before{
 	color: #fff !important;
+
 }  
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+	border: 1px solid  #1a4f91 !important;
+}
+
+.scroller-tbl .dataTables_wrapper .dataTables_paginate .paginate_button:active{
+	background-color: #1A4F91 !important;
+}
+
+.scroller-tbl .dataTables_wrapper .dataTables_paginate .paginate_button.current, .scroller-tbl .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+	color: #fff !important;
+	background-color: #1A4F91 !important;
+   
+}
+
+.scroller-tbl .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .scroller-tbl .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .scroller-tbl .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+    cursor: default;
+    color: #fff !important;
+    border: 1px solid #425974 !important;
+    box-shadow: none;
+    background: #425974 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous, .dataTables_wrapper .dataTables_paginate .paginate_button.next{
+	background-color: #1A4F91 !important;
+	color: #fff !important;
+}
+
+.highlighted-query {
+	background-color: yellow;
+}
+

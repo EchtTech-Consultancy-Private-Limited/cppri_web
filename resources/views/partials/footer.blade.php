@@ -340,7 +340,7 @@
 </div>
 </div>
 </div> --}}
-<div id="costumModal8" class="modal" data-easein="shrinkIn" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- <div id="costumModal8" class="modal" data-easein="shrinkIn" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
@@ -349,6 +349,18 @@
                 </button>
                 <img src="{{ asset('assets-cppri/images/CoronaAppeal.gif') }}" data-id="show" alt=""
                     class="md-img show-model">
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div id="costumModal8" class="modal fade" data-bs-easein="shrinkIn" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"> <i class="fa fa-times" aria-hidden="true"></i> </button>
+                <img src="{{ asset('assets-cppri/images/CoronaAppeal.gif') }}" data-id="show" alt="" class="md-img show-model">
             </div>
         </div>
     </div>
