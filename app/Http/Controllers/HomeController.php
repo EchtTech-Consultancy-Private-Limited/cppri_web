@@ -757,6 +757,16 @@ class HomeController extends Controller
     }
 
   
+    public function academicProgram()
+    {
+        return view('pages.academic_program');
+    }
+    public function trainingProgram()
+    {
+        return view('pages.training_program');
+    }
   
 }
+
+
 

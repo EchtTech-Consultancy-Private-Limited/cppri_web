@@ -2147,7 +2147,7 @@ em {
 	font-size: 1px;
 	background: url(../images/ico-goi-search.png) no-repeat center center #49aa41;
 	position: absolute;
-	top: 5px;
+	top: 0px;
 	left: 229px;
 	padding: 5px 20px;
 	margin: 0;
@@ -2717,7 +2717,7 @@ h2.resp-accordion {
 }
 
 .common-wrapper .container.common-container.four_content {
-	padding: 2px 16px;
+	padding: 0px 16px;
 	width: 100%;
 	position: relative;
 	z-index: 1;
