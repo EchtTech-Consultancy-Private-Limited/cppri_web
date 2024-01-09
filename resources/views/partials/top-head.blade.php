@@ -87,7 +87,7 @@
                         <li> <a href="javascript:void(0);" class="high-contrast dark"
                                 title="High Contrast">A</a>
                         </li>
-                        <li> <a href="javascript:void(0);" class="high-contrast light d-none"
+                        <li> <a href="javascript:void(0);" class="high-contrast light"
                                 title="Normal Contrast" >A</a> </li>
                     </ul>
                 </li>
