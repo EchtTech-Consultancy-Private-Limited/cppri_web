@@ -79,11 +79,7 @@
                 @endphp
             @endif
 
-            <style>
-                .highlighted-query {
-                    background-color: yellow;
-                }
-            </style>
+            
 
             <div class="col-md-12 p-0 mb-20">
                 @if (empty($dynamicPageContent))
@@ -110,7 +106,7 @@
                         <h5>{!! $data[$i] !!}</h5>
                     @endfor
                 @else
-                    <h4 style="color:red">No data found ....</h4>
+                    <h4 class="text-danger">No data found ....</h4>
                 @endif
             </div>
 

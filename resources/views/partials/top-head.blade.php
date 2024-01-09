@@ -75,7 +75,7 @@
                             alt="Accessibility Dropdown"> -->
                             <i class="fa fa-wheelchair" aria-hidden="true"></i>
                     </a>
-                    <ul style="visibility: hidden;">
+                    <ul class='invisible'>
                         <li> <a onClick="set_font_size(&#39;increase&#39;)" title="Increase font size"
                                 href="javascript:void(0);">A<sup>+</sup>
                             </a>
@@ -87,8 +87,8 @@
                         <li> <a href="javascript:void(0);" class="high-contrast dark"
                                 title="High Contrast">A</a>
                         </li>
-                        <li> <a href="javascript:void(0);" class="high-contrast light"
-                                title="Normal Contrast" style="display: none;">A</a> </li>
+                        <li> <a href="javascript:void(0);" class="high-contrast light d-none"
+                                title="Normal Contrast" >A</a> </li>
                     </ul>
                 </li>
                 <li class="ico-social cf">
@@ -141,7 +141,7 @@
                
                 <li class="hindi cmf_lan d-hide">
                     <label class="de-lag">
-                        <span style="display: none;">Language</span>
+                        <span class="d-none">Language</span>
                         <select class="Select Language" onchange="setlang(value);" tabindex="0">
                             <option value="en" @if (Session::get('Lang') == 'en') selected @endif>
                                 English</option>

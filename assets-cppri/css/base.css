@@ -2569,3 +2569,7 @@ table .multiple-pdf{
 	background-color: #1A4F91 !important;
 	color: #fff !important;
 }
+
+.highlighted-query {
+	background-color: yellow;
+}

@@ -110,8 +110,8 @@
                             <div class="form-group mt-4 mb-4">
                                 <div class="captcha-box d-flex align-item-center">
                                     <label for="captcha" class="security-code">Security Code : <?php echo $CustomCaptch['expression']; ?> </label>
-                                    <span class="equalto">=</span>
-                                    <input id="SecurityCode" type="text" class="form-control SecurityCode"
+                                    <span class="equalto pe-2">=</span>
+                                    <input id="SecurityCode" type="text" class="form-control SecurityCode w-auto"
                                         placeholder="Enter Security Code" name="SecurityCode" required>
                                 </div>
                             </div>
