@@ -510,3 +510,7 @@ blockquote::before, blockquote::after {
 .container.common-container {
     background: #000;
 }
+.footer-top-wrapper, .footer-bottom-wrapper {
+	background-color: var(--primary-color);
+}
+

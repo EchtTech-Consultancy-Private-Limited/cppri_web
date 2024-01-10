@@ -5873,7 +5873,9 @@ span.equalto {
 	width: 60% !important;
 }
 
-
+.main-content ul li {
+	font-size: 14px;
+}
 .employee-directry-type.employee-dir-page h2 {
     font-size: 116% !important;
 	margin-bottom: 0px;
