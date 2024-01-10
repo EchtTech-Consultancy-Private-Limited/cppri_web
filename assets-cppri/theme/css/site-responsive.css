@@ -2098,7 +2098,7 @@
 	.common-left ul {
 		overflow: hidden;
 		border-bottom: 1px solid #e2e0e0;
-		margin-bottom: 0px;
+		margin-bottom: 0px !important;
 	}
 
 	.video-wrapper {
