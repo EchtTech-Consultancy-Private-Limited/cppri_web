@@ -4022,11 +4022,11 @@ table.dataTable tbody td {
 }
 
 .deprt-icon-box a.rm {
-    background: #d94148;
+    background: var(--primary-color);
 }
 
 .deprt-icon-box:hover h6 a {
-    color: #d94148;
+    color: var(--primary-color);
 }
 
 
