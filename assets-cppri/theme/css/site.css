@@ -1718,9 +1718,9 @@ ul.ul-v>li a {
 	padding: 25px 0px;
 }
 
-.left-block .left-col-2 {
-	width: 32.4%;
-	display: inline-block;
+.left-block .left-col-2 {				
+	/* width: 32.4%; */
+	display: block;
 	padding: 0;
 	border: 0px solid #ece7e7;
 	/* background: #fff; */

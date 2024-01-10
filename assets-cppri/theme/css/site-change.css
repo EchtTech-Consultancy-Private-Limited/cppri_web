@@ -1,3 +1,8 @@
+:root{
+    --primary-color:#000;
+}
+
+
 body a{color:#ff0!important}
 .gray-bg{filter: grayscale(100%);}
 .item-list li{background-color:#353535}
@@ -514,3 +519,6 @@ blockquote::before, blockquote::after {
 	background-color: var(--primary-color);
 }
 
+.main-content ul {
+    margin-left: 15px !important;
+}
