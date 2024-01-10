@@ -2575,3 +2575,7 @@ table .multiple-pdf{
 	background-color: yellow;
 }
 
+iframe#instagram-embed-0 {
+    min-width: 270px !important;
+}
+
