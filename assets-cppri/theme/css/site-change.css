@@ -142,15 +142,15 @@ h2, p, #counter .count, .text-heading, .inner-content h2{
     background: #000;
 }
 
-.banner-wrapper .flex-direction-nav a::before {
+.banner-wrapper .flex-direction-nav a::before, ul.sitemap li a, .list ul li::marker {
 
-    color: #FF0;
+    color: #FF0 !important;
    
 }
 
 #flexCarouse2 .flex-direction-nav a:before {
     
-    color: #ff0;
+    color: #ff0 !important;
 }
 
 
