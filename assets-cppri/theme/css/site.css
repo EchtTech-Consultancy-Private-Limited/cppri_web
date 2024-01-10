@@ -15,6 +15,8 @@
 
 
 
+
+
 .inner-wrapper p {
 	color: #212020;
 	font-size: 100%;
@@ -36,6 +38,9 @@ html
 }
 
 :root{
+
+
+
 	--button-radius:5px;
 	--box-radius:10px;
 }
@@ -3369,7 +3374,7 @@ marquee.news-marquee a {
 
 
 .banner-box p {
-	font-size: 115%;
+	font-size: 115% !important;
    
     padding-left: 5px;
     /* color: #fff; */
@@ -5159,8 +5164,9 @@ img.cell-icon-sec {
 
   .list-start 
   {
-	display: flex;
+	/* display: flex; */
 	align-items: start;
+	width: 100%;
   }
 
   .sub-nav-group li:hover 
@@ -5855,7 +5861,22 @@ table.dataTable tbody td {
     color: #fff !important;
     line-height: 26px !important;
 }
+
+label.security-code {
+	width: 35%;
+}
+span.equalto {
+	width: 5% !important;
+}
+
+.SecurityCode {
+	width: 60% !important;
+}
+
+.main-content ul li {
+	font-size: 14px;
+}
 .employee-directry-type.employee-dir-page h2 {
-    font-size: 115% !important;
+    font-size: 116% !important;
 	margin-bottom: 0px;
 }

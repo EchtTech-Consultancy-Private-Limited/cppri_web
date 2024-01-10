@@ -96,8 +96,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: '';
-	content: none;
+	content: '';  
 }
 
 img {
@@ -1089,7 +1088,7 @@ tr:hover td {
 
 	div#example_filter {
 		width: 65%;
-		float: right !important;
+		/* float: left !important; */
 		text-align: right;
 	}
 	div#example_filter label {
@@ -2215,7 +2214,7 @@ ul{
 }
 
 p{
-	font-size: 14px !important;
+	font-size: 90% !important;
 }
 
 .h1, .h2, .h3, h1, h2, h3 {

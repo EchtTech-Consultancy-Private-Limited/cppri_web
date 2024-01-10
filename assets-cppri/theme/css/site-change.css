@@ -3,8 +3,8 @@ body a{color:#ff0!important}
 .item-list li{background-color:#353535}
 .b-bg,.g-bg,.y-bg,.y_d-bg,.resp-tabs-list li.resp-tab-active{background-color:#000!important}
 .resp-tabs-container{background-color:#000;border:1px solid #000!important;border-top-color:#444!important}
-.resp-tab-content ul.list li{color:#fff;border-bottom:1px solid #222}
-.bttn{border:1px solid #222!important}
+.resp-tab-content ul.list li{color:#fff;border-bottom:1px solid #000}
+.bttn{border:1px solid #000!important}
 .minister-box {
     /* border-bottom: none; */
 }
@@ -38,19 +38,19 @@ a:hover img {
 }
 
 .color-blue{color:#fff}
-.gallery-area a{background:#222; border-left: 1px solid #000;}
-.main-menu > ul > li.active > a,.main-menu > ul > li > a:focus,.main-menu > ul > li:hover > a,.main-menu > ul > li > a:hover,.main-menu > ul > li > a.home,.nav-item > a.open{background:#222}
+.gallery-area a{background:#000; border-left: 1px solid #000;}
+.main-menu > ul > li.active > a,.main-menu > ul > li > a:focus,.main-menu > ul > li:hover > a,.main-menu > ul > li > a:hover,.main-menu > ul > li > a.home,.nav-item > a.open{background:#000}
 .megamenu-wraper .showhide em{background:#fff none repeat scroll 0 0}
 .main-menu .sub-nav ul li a{color:#ff0!important}
-.imp-link{background-color:#222;border:1px solid #000}
+.imp-link{background-color:#000;border:1px solid #000}
 .blue-bg{background:#191919}
 .new-letter .new-icon{background-color:#191919}
 .new-letter .new-text{background-color:#191919}
-.new-letter .new-icon{background-color:#222}
+.new-letter .new-icon{background-color:#000}
 .imp-img-cir ul.ul-v > li a .img-cr,.flex-control-paging li a.flex-active {background:#fff}
 .breadcam-bg {
     background-color: #000;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid #000;
 }
 .megamenu-wraper {
     background: #000;
@@ -69,7 +69,7 @@ a:hover img {
     color: #ffff00;
 }
 .sub-nav {
-    background: #222;
+    background: #000;
 }
 .view-footer-tab a {
      border: 1px solid #000;
@@ -114,7 +114,7 @@ h2, p, #counter .count, .text-heading, .inner-content h2{
     color: #FFF;
 }
 .r-rc, .r-cs {
-    background: #666;
+    background: #000;
     color: #FFF;
 }
 .r-cs {
@@ -126,7 +126,7 @@ h2, p, #counter .count, .text-heading, .inner-content h2{
 }
 .resp-tabs-list li {
     background-color: #5a5a5a;
-    border-top: 10px solid #222222;
+    border-top: 10px solid #000222;
 }
 .resp-tabs-list li.resp-tab-active {
         background-color: #444!important;
@@ -155,7 +155,7 @@ h2, p, #counter .count, .text-heading, .inner-content h2{
 
 
 .tab-section {
-    background: #666;
+    background: #000;
 }
 .resp-tabs-list li.resp-tab-active, .resp-tabs-list li:hover {
     border-right: 1px solid transparent !important;
@@ -230,7 +230,7 @@ border: 1px solid #000;
 	.resp-tabs-container ul.list li:before{display: none;}
 	.cmf_lan select {
     color: #ff0;
-   background: #666 !important;
+   background: #000 !important;
 }
 
 .list .date em{border: 1px solid;}
@@ -238,7 +238,7 @@ border: 1px solid #000;
 
 
 .gallery-area h3 {
-    background: #222;
+    background: #000;
     color: #fff;
 }
 
@@ -410,7 +410,7 @@ h2.border-bottom-color{
 }
 
 .qm-active{
-    background-color: #222 !important;
+    background-color: #000 !important;
 }
 
 .align-lt h2{
@@ -425,7 +425,7 @@ h2.border-bottom-color{
 }
 
 .main-sidebar ul li:hover{
-    background-color: #222;
+    background-color: #000;
     border: 1px solid #fff;
 }
 
@@ -510,3 +510,7 @@ blockquote::before, blockquote::after {
 .container.common-container {
     background: #000;
 }
+.footer-top-wrapper, .footer-bottom-wrapper {
+	background-color: var(--primary-color);
+}
+

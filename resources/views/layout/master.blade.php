@@ -15,7 +15,7 @@
                 </noscript>
                 @include('partials.top-head')
             </div>
-            <p id="scroll"   class="change-color-code "><span></span></p>
+            <p id="scroll" class="change-color-code "><span></span></p>
         </div>
         <!--Top-Header Section end-->
         <section class="wrapper header-wrapper">

@@ -45,7 +45,7 @@
 
 <section class="wrapper paragraph-wrapper ptb-30">
     <div class="container common-container four_content">
-        <div class="align-lt">
+        <div class="align-lt scroller-tbl">
             <h2 class="mt-0 mb-20">
                 @if (Session::get('Lang') == 'hi')
                 {{ __('messages.Screen_Reader_Access') }}

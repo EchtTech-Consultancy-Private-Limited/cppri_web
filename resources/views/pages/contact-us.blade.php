@@ -105,7 +105,7 @@
                 </div>
             </div>
 
-            <div class="col-md-12 mb-4 mt-3">
+            <div class="col-md-12 mb-4 mt-3 scroller-tbl">
 
                 <div id="datatable">
 
