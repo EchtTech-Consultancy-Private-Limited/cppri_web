@@ -5862,7 +5862,9 @@ table.dataTable tbody td {
 }
 
 
-
+.main-content ul li {
+	font-size: 14px;
+}
 
 
 

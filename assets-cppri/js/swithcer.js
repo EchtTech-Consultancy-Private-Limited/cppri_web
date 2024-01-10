@@ -112,6 +112,7 @@ jQuery(document).ready(function(){
 		document.cookie="username=John Doe";
 		jQuery(".light").show();
 		jQuery(".dark").hide();
+		$(".border-r").css({'display':'none'})
 		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/css/change.css'>");
 		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/theme/css/site-change.css'>");
 		
@@ -123,6 +124,7 @@ jQuery(document).ready(function(){
 		document.cookie = 'contrast' +"="+ 0 +"; expires="+expireDate.toGMTString()+"; path=/";		
 		jQuery(".light").hide();
 		jQuery(".dark").show();		
+		$(".border-r").css({'display':'block'})
 		jQuery("[href*='change.css']").remove();
 		jQuery("[href*='site-change.css']").remove();
 		
@@ -138,49 +140,69 @@ jQuery(document).ready(function(){
 	}
 	if(getCookie('contrast') == "0" ) {
 		jQuery("[href*='/css/change.css']").remove();
-		
-		
+	}
+	
+	if(getCookie('contrast') == "2" ) {
+		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/theme/css/green.css'>");
+	}
+	if(getCookie('contrast') == "3" ) {
+		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/theme/css/blue.css'>");
+	}
+	if(getCookie('contrast') == "4" ) {
+		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/theme/css/purple.css'>");
+	}
+	if(getCookie('contrast') == "5" ) {
+		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/theme/css/orange.css'>");
 	}
 
 
 	// blue
-	jQuery('.blue').click(function(){	
+	jQuery('#blue').click(function(){	
 		var thirtyDays = 1000*60*60*24*30;
 		var expireDate = new Date((new Date()).valueOf() + thirtyDays);		
-		document.cookie = 'contrast' +"="+ 1 +"; expires="+expireDate.toGMTString()+"; path=/";
-		document.cookie="username=John Doe";
-		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/css/blue.css'>");
+		document.cookie = 'contrast' +"="+ 3 +"; expires="+expireDate.toGMTString()+"; path=/";
+		
+		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/theme/css/blue.css'>");
+		jQuery("[href*='green.css']").remove();
+		jQuery("[href*='orange.css']").remove();
+		jQuery("[href*='purple.css']").remove();
 		
 		
 	});
 	// purple
-	jQuery('.purple').click(function(){	
+	jQuery('#purple').click(function(){	
 		var thirtyDays = 1000*60*60*24*30;
 		var expireDate = new Date((new Date()).valueOf() + thirtyDays);		
-		document.cookie = 'contrast' +"="+ 1 +"; expires="+expireDate.toGMTString()+"; path=/";
-		document.cookie="username=John Doe";
-		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/css/purple.css'>");
+		document.cookie = 'contrast' +"="+ 4 +"; expires="+expireDate.toGMTString()+"; path=/";
+		
+		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/theme/css/purple.css'>");
+		jQuery("[href*='green.css']").remove();
+		jQuery("[href*='orange.css']").remove();
+		jQuery("[href*='blue.css']").remove();
 		
 		
 	});
 	// orange
-	jQuery('.orange').click(function(){	
+	jQuery('#orange').click(function(){	
 		var thirtyDays = 1000*60*60*24*30;
 		var expireDate = new Date((new Date()).valueOf() + thirtyDays);		
-		document.cookie = 'contrast' +"="+ 1 +"; expires="+expireDate.toGMTString()+"; path=/";
-		document.cookie="username=John Doe";
-		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/css/orange.css'>");
+		document.cookie = 'contrast' +"="+ 5 +"; expires="+expireDate.toGMTString()+"; path=/";
 		
+		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/theme/css/orange.css'>");
+		jQuery("[href*='green.css']").remove();
+		jQuery("[href*='purple.css']").remove();
+		jQuery("[href*='blue.css']").remove();
 		
 	});
 	// green
-	jQuery('.green').click(function(){	
+	jQuery('#green').click(function(){	
 		var thirtyDays = 1000*60*60*24*30;
 		var expireDate = new Date((new Date()).valueOf() + thirtyDays);		
-		document.cookie = 'contrast' +"="+ 1 +"; expires="+expireDate.toGMTString()+"; path=/";
-		document.cookie="username=John Doe";
-		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/css/green.css'>");
-		
+		document.cookie = 'contrast' +"="+ 2 +"; expires="+expireDate.toGMTString()+"; path=/";
+		jQuery('head').append("<link rel='stylesheet' type='text/css' media='screen' href='"+baseUrl1+"/assets-cppri/theme/css/green.css'>");
+		jQuery("[href*='purple.css']").remove();
+		jQuery("[href*='orange.css']").remove();
+		jQuery("[href*='blue.css']").remove();
 		
 	});
 });
