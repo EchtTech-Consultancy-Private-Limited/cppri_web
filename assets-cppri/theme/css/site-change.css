@@ -522,3 +522,14 @@ blockquote::before, blockquote::after {
 .main-content ul {
     margin-left: 15px !important;
 }
+
+.emp-crddir-inf {
+    border: 3px solid #fff;
+}
+.emp-crddir-inf h3, .emp-crddir-inf h5{
+    color: #fff ;
+}
+
+.title-before, .title-after{
+    background-color: #fff;
+}
