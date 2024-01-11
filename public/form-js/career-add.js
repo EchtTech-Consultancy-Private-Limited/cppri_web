@@ -42,7 +42,7 @@ var KTAppCareerSave = function () {
                    formData.append("kt_description_hi", $('#kt_summernote_hi').summernote('code'));
                 axios.post(crudUrlTemplate.create_career,formData, {
                    }).then(function (response) {
-                   if (response) {
+                   if (response.data.status ==200) {
                      $('#loading').removeClass('loading');
                      $('#loading-content').removeClass('loading-content');
                       toastr.success(
@@ -54,7 +54,7 @@ var KTAppCareerSave = function () {
                          if (history.scrollRestoration) {
                             history.scrollRestoration = 'manual';
                          }
-                         location.href = 'career-create'; // reload page
+                         location.href = 'careers-create'; // reload page
                       }, 1500);
                       
                    } else {

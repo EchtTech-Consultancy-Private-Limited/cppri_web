@@ -115,7 +115,7 @@
                                     <div class="col-md-3 fv-row">
                                         <input class="form-check-input" type="radio" placeholder="" name="notification_others" value="1" <?php if($data->notification_others =='1'){ echo 'checked'; }else{ echo ''; } ?> />
                                          <!--begin::Label-->
-                                         <label class="required fs-6 fw-semibold mb-2">Notification</label>
+                                         <label class="required fs-6 fw-semibold mb-2">{{config('FormRadioText.radio1')}}</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <!--end::Input-->
@@ -127,7 +127,7 @@
                                         <input class="form-check-input" type="radio" placeholder="" name="notification_others" value="2" <?php if($data->notification_others =='2'){ echo 'checked'; }else{ echo ''; } ?> />
                                         <!--end::Input-->
                                         <!--begin::Label-->
-                                        <label class="required fs-6 fw-semibold mb-2">Others (Press Release)</label>
+                                        <label class="required fs-6 fw-semibold mb-2">{{config('FormRadioText.radio2')}}</label>
                                         <!--end::Label-->
                                     </div>
                                     <!--end::Col-->

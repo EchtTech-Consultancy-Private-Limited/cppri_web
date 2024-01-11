@@ -5,9 +5,12 @@ use App\Http\Controllers\Controller;
 
 use App\Models\CMSModels\CareerManagement;
 use Illuminate\Http\Request;
+use App\Http\Traits\AccessModelTrait;
+use DB;
 
 class CareerManagementController extends Controller
 {
+    use AccessModelTrait;
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +24,7 @@ class CareerManagementController extends Controller
             $crudUrlTemplate['list'] = route('career-list');
         }
         if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
-            $crudUrlTemplate['edit'] = route('career.edit', ['id' => 'xxxx']);
+            $crudUrlTemplate['edit'] = route('careers.edit', ['id' => 'xxxx']);
         }
         if(isset($this->abortIfAccessNotAllowed()['delete']) && $this->abortIfAccessNotAllowed()['delete'] !=''){
             $crudUrlTemplate['delete'] = route('career-delete', ['id' => 'xxxx']);
@@ -29,7 +32,7 @@ class CareerManagementController extends Controller
         
         //$crudUrlTemplate['view'] = route('websitecoresetting.websitecoresetting-list');
 
-        return view('cms-view.career-management.carreer_list',
+        return view('cms-view.career-management.career_list',
             ['crudUrlTemplate' =>  json_encode($crudUrlTemplate)
         
         ]);
@@ -49,7 +52,7 @@ class CareerManagementController extends Controller
             $accessPermission = $this->checkAccessMessage();
         }
 
-        return view('cms-view.career-management.carreer_add',
+        return view('cms-view.career-management.career_add',
             ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),    
             'textMessage' =>$accessPermission??''
         
@@ -84,7 +87,7 @@ class CareerManagementController extends Controller
      * @param  \App\Models\CareerManagement  $careerManagement
      * @return \Illuminate\Http\Response
      */
-    public function edit(CareerManagement $careerManagement)
+    public function edit(CareerManagement $careerManagement, Request $request)
     {
         $crudUrlTemplate = array();
         if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){

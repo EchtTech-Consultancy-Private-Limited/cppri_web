@@ -4,10 +4,18 @@ namespace App\Http\Controllers\CMSControllers\API;
 use App\Http\Controllers\Controller;
 
 use App\Models\CMSModels\CareerManagement;
+use App\Http\Requests\ImagesMimesCheck;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
+use Ramsey\Uuid\Uuid;
+use App\Http\Traits\PdfImageSizeTrait;
+use DB, Validator;
+use Carbon\Carbon;
 
 class CareerManagementAPIController extends Controller
 {
+    use PdfImageSizeTrait;
     /**
      * Display a listing of the resource.
      *
@@ -82,8 +90,8 @@ class CareerManagementAPIController extends Controller
                         'description_hi' => $request->kt_description_hi,
                         
                     ]);
-                if(!empty($request->kt_tender_add_multiple_options)){
-                    foreach($request->kt_tender_add_multiple_options as $key=>$value)
+                if(!empty($request->kt_career_add_multiple_options)){
+                    foreach($request->kt_career_add_multiple_options as $key=>$value)
                         {
                             if(!empty($value['pdfname'])){
                             $size = $this->getFileSize($value['pdfname']->getSize());
