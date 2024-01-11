@@ -200,13 +200,13 @@
                         <div class="col-md-4 col-6">
                             <div class="deprt-icon-box">
                                 <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}" alt="">
-                                <h6> <a href="javascript:void(0);">
+                                <div class="serv-h"> <a href="javascript:void(0);">
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.R_&_D_Projects') }}
                                         @else
                                         {{ __('messages.R_&_D_Projects') }}
                                         @endif
-                                    </a> </h6>
+                                    </a> </div class="serv-h">
                                 <a class="rm" href="{{ url('r-&-d-projects') }}">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Read_More') }}
@@ -221,7 +221,7 @@
                         <div class="col-md-4 col-6">
                             <div class="deprt-icon-box">
                                 <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt="">
-                                <h6> <a href="javascript:void(0);">
+                                <div class="serv-h"> <a href="javascript:void(0);">
 
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Technical_Services') }}
@@ -231,7 +231,7 @@
 
 
 
-                                    </a> </h6>
+                                    </a> </div class="serv-h">
                                 <a class="rm" href="{{ url('technical-services') }}">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Read_More') }}
@@ -246,7 +246,7 @@
                         <div class="col-md-4 col-6">
                             <div class="deprt-icon-box">
                                 <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt="">
-                                <h6> <a href="javascript:void(0);">
+                                <div class="serv-h"> <a href="javascript:void(0);">
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Our_Achievements') }}
                                         @else
@@ -254,7 +254,7 @@
                                         @endif
 
 
-                                    </a> </h6>
+                                    </a> </div class="serv-h">
                                 <a class="rm" href="{{ url('our-achievements') }}">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Read_More') }}
@@ -269,7 +269,7 @@
                         <div class="col-md-4 col-6">
                             <div class="deprt-icon-box">
                                 <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt="">
-                                <h6> <a href="javascript:void(0);">
+                                <div class="serv-h"> <a href="javascript:void(0);">
 
 
                                         @if (Session::get('Lang') == 'hi')
@@ -278,7 +278,7 @@
                                         {{ __('messages.Publications_Reports') }}
                                         @endif
 
-                                    </a> </h6>
+                                    </a> </div class="serv-h">
                                 <a class="rm" href="{{ url('publications-&-reports') }}">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Read_More') }}
@@ -293,7 +293,7 @@
                         <div class="col-md-4 col-6">
                             <div class="deprt-icon-box">
                                 <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt="">
-                                <h6> <a href="javascript:void(0);">
+                                <div class="serv-h"> <a href="javascript:void(0);">
 
 
                                         @if (Session::get('Lang') == 'hi')
@@ -303,7 +303,7 @@
                                         @endif
 
 
-                                    </a> </h6>
+                                    </a> </div class="serv-h">
                                 <a class="rm" href="{{ url('institute-membership') }}">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Read_More') }}
@@ -318,7 +318,7 @@
                         <div class="col-md-4 col-6">
                             <div class="deprt-icon-box">
                                 <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt="">
-                                <h6> <a href="javascript:void(0);">
+                                <div class="serv-h"> <a href="javascript:void(0);">
 
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Tender') }}
@@ -326,7 +326,7 @@
                                         {{ __('messages.Tender') }}
                                         @endif
 
-                                    </a> </h6>
+                                    </a> </div class="serv-h">
                                 <a class="rm" href="{{ url('tender') }}">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Read_More') }}
