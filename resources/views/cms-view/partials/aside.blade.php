@@ -162,6 +162,17 @@
                </div>
             </div>
          </div>
+         <div  data-kt-menu-trigger="click"  class="menu-item menu-accordion {{ set_active(['news/news-create','news/news-list']) }} {{ (request()->is('careers/careers-create/*')) ? 'hover show' : '' }}{{ (request()->is('careers/careers-list/*')) ? 'hover show' : '' }}" >
+            <span class="menu-link" ><span  class="menu-icon" ><i class="ki-outline ki-element-7 fs-2"></i></span><span  class="menu-title" >{{ config('menu.careermanagement') }}</span><span  class="menu-arrow" ></span></span><!--end:Menu link--><!--begin:Menu sub-->
+            <div  class="menu-sub menu-sub-accordion {{ set_active(['careers/careers-create','careers/careers-list']) }} {{ (request()->is('careers/careers-create/*')) ? 'hover show' : '' }}{{ (request()->is('careers/careers-list/*')) ? 'hover show' : '' }}" >
+               <div  class="menu-item" >
+                  <a class="menu-link {{ set_active1(['careers/careers-create']) }} {{ (request()->is('careers/careers-create/*')) ? 'active' : '' }}"  href="{{ route('careers.create') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Create</span></a><!--end:Menu link-->
+               </div>
+               <div  class="menu-item" >
+                  <a class="menu-link {{ set_active1(['careers/careers-list']) }} {{ (request()->is('careers/careers-list/*')) ? 'active' : '' }}"  href="{{ route('careers.list') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >List</span></a><!--end:Menu link-->
+               </div>
+            </div>
+         </div>
          <div  data-kt-menu-trigger="click"  class="menu-item menu-accordion {{ set_active(['news/news-create','news/news-list']) }} {{ (request()->is('news/news-create/*')) ? 'hover show' : '' }}{{ (request()->is('news/news-list/*')) ? 'hover show' : '' }}" >
             <span class="menu-link" ><span  class="menu-icon" ><i class="ki-outline ki-element-7 fs-2"></i></span><span  class="menu-title" >{{ config('menu.newsmanagement') }}</span><span  class="menu-arrow" ></span></span><!--end:Menu link--><!--begin:Menu sub-->
             <div  class="menu-sub menu-sub-accordion {{ set_active(['news/news-create','news/news-list']) }} {{ (request()->is('news/news-create/*')) ? 'hover show' : '' }}{{ (request()->is('news/news-list/*')) ? 'hover show' : '' }}" >

@@ -19,7 +19,7 @@
    <!--begin::Card body-->
    <div class="card-body">
       <!--begin::Form-->
-      <form id="kt_tenders_update_form" class="form d-flex flex-column flex-lg-row" enctype="multipart/form-data">
+      <form id="kt_career_update_form" class="form d-flex flex-column flex-lg-row" enctype="multipart/form-data">
          <!--begin::Main column-->
          <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
             <!--end:::Tabs-->
@@ -151,7 +151,7 @@
                         <!--begin::News-->
                         <div class="card-header">
                            <div class="card-title">
-                              <h2>Add New Tenders</h2>
+                              <h2>Add New Careers</h2>
                            </div>
                         </div>
                         <!--end::Card header-->
@@ -160,15 +160,15 @@
                            <!--begin::Input group-->
                            <div class="" data-kt-ecommerce-catalog-add-product="auto-options">
                               <!--begin::Repeater-->
-                              <div id="kt_tender_add_multiple_options">
+                              <div id="kt_career_add_multiple_options">
                                  <!--begin::Form group-->
                                  <div class="form-group">
                                     <label class="required form-label mw-100 w-175px">Pdf Title</label>
-                                    <!-- <label class="required form-label mw-100 w-175px" style="margin-left: 12px;">Tender Description</label> -->
+                                    <!-- <label class="required form-label mw-100 w-175px" style="margin-left: 12px;">career Description</label> -->
                                     <label class="required form-label mw-100 w-175px" style="margin-left: 12px;">Start Date</label>
                                     <label class="required form-label mw-100 w-175px" style="margin-left: 12px;">End Date</label>
                                     <label class="required form-label mw-100 w-175px">PDF Format</label>
-                                    <div data-repeater-list="kt_tender_add_multiple_options" class="d-flex flex-column gap-3">
+                                    <div data-repeater-list="kt_career_add_multiple_options" class="d-flex flex-column gap-3">
                                        @if(isset($pdfData))
                                        @foreach($pdfData as $pdfDatas)
                                        <div data-repeater-item class="form-group d-flex flex-wrap align-items-center gap-5">
@@ -182,7 +182,7 @@
                                           <button type="button" id="removeRow" data-repeater-delete class="btn btn-sm btn-icon btn-light-danger">
                                              <i class="ki-outline ki-cross fs-1"></i> 
                                           </button>
-                                          <a href="{{ asset('resources/uploads/TenderManagement/'.$pdfDatas->public_url) }}" target="_blank" download>
+                                          <a href="{{ asset('resources/uploads/CareerManagement/'.$pdfDatas->public_url) }}" target="_blank" download>
                                              <i class="ki-outline ki-file fs-1"></i>
                                           </a>
                                         <button type="button" data-id="{{ $pdfDatas->uid }}" class="btn btn-sm btn-icon btn-light-danger delete-single-record" title="Data Delete">
@@ -194,8 +194,8 @@
                                        <div data-repeater-item class="form-group d-flex flex-wrap align-items-center gap-5">
                                           <!--begin::Input-->
                                           <input type="text" class="form-control mw-100 w-175px" name="pdftitle" placeholder="pdf title Name" />
-                                          <input type="date" class="form-control mw-100 w-175px" name="startdate" placeholder="Tender Description" />
-                                          <input type="date" class="form-control mw-100 w-175px" name="enddate" placeholder="Tender Description" />
+                                          <input type="date" class="form-control mw-100 w-175px" name="startdate" placeholder="career Description" />
+                                          <input type="date" class="form-control mw-100 w-175px" name="enddate" placeholder="career Description" />
                                           <input type="file" class="form-control mw-100 w-175px checkmimepdf" name="pdfname" accept=".pdf" />
                                           <!--end::Input-->
                                           <button type="button" id="removeRow" data-repeater-delete class="btn btn-sm btn-icon btn-light-danger">
@@ -237,7 +237,7 @@
                </a>
                <!--end::Button-->
                <!--begin::Button-->
-               <button type="submit" id="kt_update_tender_submit" class="btn btn-primary submit-tender-btn">
+               <button type="submit" id="kt_update_career_submit" class="btn btn-primary submit-career-btn">
                <span class="indicator-label">
                {{config('FormField.save_button')}}
                </span>

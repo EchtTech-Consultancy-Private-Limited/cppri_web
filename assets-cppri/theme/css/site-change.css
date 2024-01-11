@@ -142,15 +142,18 @@ h2, p, #counter .count, .text-heading, .inner-content h2{
     color: #FFF!important;
     border-bottom: 3px solid #FFF;
 }
-.banner-wrapper .flex-pauseplay {
+.banner-wrapper .flex-pauseplay, .press-release-overlay {
    
-    background: #000;
+    background: #000 !important;
 }
 
 .banner-wrapper .flex-direction-nav a::before, ul.sitemap li a, .list ul li::marker {
 
-    color: #FF0 !important;
-   
+    color: #FF0 !important;   
+}
+
+.page-tab .scroll-text01, .page-tab .scroll-test01 {
+	border-bottom: 1px solid;
 }
 
 #flexCarouse2 .flex-direction-nav a:before {

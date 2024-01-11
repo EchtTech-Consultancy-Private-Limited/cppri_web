@@ -812,7 +812,7 @@
         </div>
     </div>
 
-    <section class="wf100 city-news p75">
+    <section class="wf100 city-news p75 bg-white">
         <div class="container common-container four_content banner-container">
             <div class="title-style-3">
                 <!-- <h3 class="h11">Our Programs</h3> -->
@@ -1012,7 +1012,6 @@
                         <h2 class="instagram-c">
                             <div class="img-b"><img src="{{ asset('assets-cppri/images/instagram.png') }}" alt="icon">
                             </div>
-
                             @if (Session::get('Lang') == 'hi')
                             {{ __('messages.Instagram') }}
                             @else
