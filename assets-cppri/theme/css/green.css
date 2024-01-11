@@ -831,3 +831,16 @@ table th, button.dt-button.buttons-print{
     font-size: 18px;
     margin-top: 0px;
 }
+
+
+section#paragraph blockquote {
+    border-left: 8px solid var(--primary-color) !important;
+}
+
+section#paragraph blockquote::before, section#paragraph blockquote::after{
+	color: var(--primary-color);
+}
+
+.main-sidebar .list-start a::before, .emp-crddir-inf h3, .emp-crddir-inf h5{
+	color: var(--primary-color) !important;
+}

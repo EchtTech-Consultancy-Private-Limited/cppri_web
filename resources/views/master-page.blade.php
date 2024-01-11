@@ -145,7 +145,7 @@
                     @endif
 
                     {{-- <div class="col-md-9 m-p-0"> --}}
-                    <div class="main-content">
+                    <div class="main-content director-desk">
                         <!--/#skipCont-->
                         <div id="fontSize" class="wrapper body-wrapper ">
                             @if (isset($content))
@@ -328,8 +328,8 @@
                             @foreach ($sortedDesignationData as $item)
                             @if ($item['department']->name_en == 'Director')
                             <div class="row">
-                                <div class="col-md-12 display-content">
-                                    <div class="employee-directry-type employee-dir-page">
+                                <div class="col-md-12 display-content  ">
+                                    <div class="employee-directry-type employee-dir-page pt-3">
                                         <div data-aos-mirror="true" data-aos="fade-right" class="title-before"></div>
                                         <h3>
 
@@ -386,7 +386,7 @@
                                             </p>
                                             @endif
 
-                                            <p><strong>{{ $profile->extention_number ?? '' }}<strong></p>
+                                            <p>{{ $profile->extention_number ?? '' }}</p>
 
 
                                             <?php

@@ -1958,6 +1958,7 @@ span#timeid {
 .emp-dir-main .emp-crddir-inf p, .emp-dir-main .emp-crddir-inf h5 {
     margin-top: 2px;
 	margin-bottom: 0;
+	padding: 2px 0px;
 }
 
 .align-item-center-item-2{align-items: center; display: flex; margin-bottom: 40px;}
@@ -2162,7 +2163,7 @@ ul{
 	position: relative;
 }
 .main-sidebar .accordion-item:hover li a{
-	/* color: #fff !important; */
+	color: #fff !important;
 }
 
 
@@ -2592,7 +2593,7 @@ iframe#instagram-embed-0 {
 }
 
 a:focus {
-    border: 1px solid #333 !important;
+    /* border: 1px solid #333 !important; */
 }
 
 .header__logo:focus .d-flex-logo {
