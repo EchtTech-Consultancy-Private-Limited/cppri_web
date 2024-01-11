@@ -189,7 +189,7 @@
                                 <div class="container common-container">
                                     <div class="row p-0 ">
                                         <div class="col-md-12">
-                                        <a href="javascript:void(0);" title="Click here to Archive" class="archive-btn">Archive</a>
+                                        {{-- <a href="javascript:void(0);" title="Click here to Archive" class="archive-btn">Archive</a> --}}
 
                                             <div class="scroller-tbl">
 
