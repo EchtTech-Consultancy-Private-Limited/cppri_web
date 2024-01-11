@@ -4,10 +4,10 @@
             <ul>
                 <li class="border-r">
                     <div class="circle-boxes">
-                        <div onclick="changeToAfterbefore()" class="c-box blue  color" data-id="#1a4f91" title="Blue"></div>
-                        <div onclick="changeToAfterbefore()" class="c-box green color" data-id="#007473" title="Green"></div>
-                        <div onclick="changeToAfterbefore()" class="c-box orange color" data-id="#ca5e04" title="Orange"></div>
-                        <div onclick="changeToAfterbefore()" class="c-box purple color" data-id="#2a2f67" title="Purple"></div>
+                        <div  class="c-box blue  " id="blue" data-id="#1a4f91" title="Blue"></div>
+                        <div  class="c-box green " id="green" data-id="#007473" title="Green"></div>
+                        <div  class="c-box orange " id="orange" data-id="#ca5e04" title="Orange"></div>
+                        <div  class="c-box purple " id="purple" data-id="#2a2f67" title="Purple"></div>
                     </div>
                 </li>
                 <li class="gov-india timer-date-c">
@@ -87,7 +87,7 @@
                         <li> <a href="javascript:void(0);" class="high-contrast dark"
                                 title="High Contrast">A</a>
                         </li>
-                        <li> <a href="javascript:void(0);" class="high-contrast light d-none"
+                        <li> <a href="javascript:void(0);" class="high-contrast light"
                                 title="Normal Contrast" >A</a> </li>
                     </ul>
                 </li>

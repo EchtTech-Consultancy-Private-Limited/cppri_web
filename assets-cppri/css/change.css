@@ -1,18 +1,18 @@
 @charset "utf-8";
 body {
-	background:#000;
+	background:#000 !important;
 	color:#fff;
 }
 body a, .footer-bottom-wrapper a,
 body .nav-wrapper ul li a{
-	color:#ffff00;
+	color:#ffff00 !important;
 }
 .top-wrapper {
-	background:#000;
+	background:#000 !important;
 }
 .header-wrapper,.common-wrapper {
     border-bottom: 1px solid #333;
-    background: #000;
+    background: #000 !important;
 }
 .video-icon {
     background: #333;
@@ -21,13 +21,13 @@ body .nav-wrapper ul li a{
     border-left: 0px solid #444;
     border-top: 1px solid #444;
 }
-.common-wrapper{background:#272727;}
+.common-wrapper{background:#000 !important;}
  .toggle-nav-bar .menu-icon {
 background:url(../images/toggle-bar-light.png) no-repeat;
 }
 
 .nav-wrapper {
-	background:#000;
+	background:#000 !important;
 }
 
 .top-left a span {
@@ -40,12 +40,13 @@ background:url(../images/toggle-bar-light.png) no-repeat;
     color: #fff;
 }
 .footer-top-wrapper {
-	background:#000;
+	background:#000 !important;
 	border-top:1px solid #fff;
 }
 .footer-bottom-wrapper {
-	background-color:#000;
+	background-color:#000 !important;
 	color:#fff;
+	background-image: none;
 }
 .nav-wrapper ul li {
 	border-left:1px solid #3b3b3b;
@@ -63,16 +64,16 @@ background:url(../images/toggle-bar-light.png) no-repeat;
 	background:#1a1a1a;
 }
 .bttn {
-	background:#000;
+	background:#000 !important;
 	border:1px solid #fff;
 	padding:4px 9px;
 }
 .bttn:hover {
-	background:#000;
+	background:#000 !important;
 	color:#fff;
 }
 .inp-search {
-	background:#000;
+	background:#000 !important;
 	border:1px solid #fff;
 	color:#fff;
 }
@@ -80,7 +81,7 @@ background:url(../images/toggle-bar-light.png) no-repeat;
 	background-color:#303030;
 }
 .lan select, .ft-lan select {
-	background:#000;
+	background:#000 !important;
 	color:#fff;
 	border:1px solid #fff;
 }
@@ -127,7 +128,7 @@ background:#212121 !important;
     background: #000 !important;
 }
 .main-menu a.btn-more.opened, .main-menu a.btn-more.opened:hover, .main-menu a.btn-more.opened:focus {
-	background: #000 url(../images/close.png) no-repeat center bottom 20px !important;
+	background: #000 !important url(../images/close.png) no-repeat center bottom 20px !important;
 }
 
 .sw-logo{display:inline-block;}
@@ -160,7 +161,7 @@ footer .footer-top-wrapper ul li a{color:#ffff00;}
 ul#header-nav a img{background:#ffff00 ;}
 
 .depart-info .deprt-icon-box, .left-col-2 h2, ul.resp-tabs-list, .box-bg-color, .news-box, .contact-item, .cppri-contact-form, .scroll-table1, table.dataTable tbody tr{
-	background:#000;
+	background:#000 !important;
 	border: 1px solid #fff;
 }
 
@@ -189,7 +190,7 @@ ul#header-nav a img{background:#ffff00 ;}
 .new-txt span.duration, .dir-dsk-title{color: #ddd;}
 
 .flex-direction-nav a:before, .page-tab .text-slide, .page-tab .text-slide01, .pb-10, .list-content {
-    color: #ffff00;
+    color: #ffff00 !important;
 }
 .flex-control-paging li a {
     width: 11px;
@@ -218,7 +219,7 @@ ul#header-nav a img{background:#ffff00 ;}
 	background-position:-90px -61px !important;
 }
 .flex-pauseplay, .sidebar-main-nav, .main-sidebar ul li {
-    background: #000;
+    background: #000 !important;
 }   
 .flex-pauseplay a {
     color: #ffff00 !important;
@@ -235,18 +236,19 @@ tr:nth-of-type(2n+1) {
 }
 .gray-bg, .banner-box.banner-box-2, .banner-box.banner-box-1, .banner-box.banner-box-1 .banner-box-content, .banner-box.banner-box-2 .banner-box-content,
 .banner-wrapper .flex-control-nav {
-    background: #000;
+    background: #000 !important;
 }
-#scroll:hover{
-	background: #272727;
+#scroll:hover, .main-sidebar .accordion-item ul li:hover{
+	background: #000 !important;
 }
-#scroll{
-	background: #555;
+#scroll {
+    background: none;
+    border: 2px solid #fff;
 }
 .banner-wrapper .flex-control-nav:before{
-	border-bottom: 40px solid #000;
+	border-bottom: 42px solid #000 !important;
 }
-.view-footer a, .banner-content-wrapper a, .main-sidebar ul li{
+.view-footer a, .banner-content-wrapper a, .main-sidebar ul li, blockquote{
 	border: 1px solid #fff;
 }
 p.banner-title-tag-line:after, .minister-sub1:after{
@@ -276,6 +278,10 @@ a#btn-more-toggle:hover {
     color: #fff;
 }
 .banner-content-wrapper a:hover {
-    color: #555 !important;
+    color: #ffff00 !important;
     border: 1px solid #555;
+}
+
+li.border-r {
+    display: none;
 }

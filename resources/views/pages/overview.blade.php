@@ -75,6 +75,7 @@
                                     </div>
 
                                     <div class="col-md-12 mt-4">
+                                    <h3 class="dir-dsk-title mt-3">Quality Policy</h3>
                                         <blockquote>
                                             CPPRI is committed to develop itself into a premier research institute, with
                                             focus on the Pulp & Paper industry both in India and abroad. A quality

@@ -1,17 +1,34 @@
-var baseurl = window.location.href;
+// var baseurl = window.location.href;
 
- //console.log(baseurl +"set-language");
+//  //console.log(baseurl +"set-language");
 
+// function setlang(value) {
+//     $.ajax({
+//         url: baseurl +"/set-language",
+//         data: { data: value },
+//         success: function (result) {
+//             //console.log(result);
+//             location.reload();
+//         }
+//     });
+// }
+
+
+var baseurl = window.location.origin;
+
+//alert(baseurl + "/set-language");
 function setlang(value) {
+    // alert(value)
     $.ajax({
-        url: baseurl +"/set-language",
+        url: baseurl + "/set-language",
         data: { data: value },
         success: function (result) {
-            //console.log(result);
+            //alert(result.data);
             location.reload();
         }
     });
 }
+
 
 
 (function () {

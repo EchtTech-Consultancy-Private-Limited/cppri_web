@@ -44,7 +44,6 @@ use App\Http\Controllers\CMSControllers\ImageController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');

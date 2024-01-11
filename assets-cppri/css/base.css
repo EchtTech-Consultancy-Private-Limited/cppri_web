@@ -96,8 +96,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: '';
-	content: none;
+	content: '';  
 }
 
 img {
@@ -1089,7 +1088,7 @@ tr:hover td {
 
 	div#example_filter {
 		width: 65%;
-		float: right !important;
+		/* float: left !important; */
 		text-align: right;
 	}
 	div#example_filter label {
@@ -2031,7 +2030,7 @@ table {
 	font-weight: 400 !important;
   }
   
-  blockquote{
+  section#paragraph blockquote{
 	font-size: 1em;
     margin: 20px auto !important;
     font-family: Open Sans;
@@ -2046,7 +2045,7 @@ table {
 
   }
   
-  blockquote::before{
+  section#paragraph blockquote::before{
 	font-family:Arial;
 	content: "\201C";
 	color:#49aa41;
@@ -2056,7 +2055,7 @@ table {
 	top:-10px;
   }
   
-  blockquote::after{
+  section#paragraph blockquote::after{
 	font-family: Arial;
     content: "\201D";
     color: #49aa41;
@@ -2215,7 +2214,7 @@ ul{
 }
 
 p{
-	font-size: 14px !important;
+	font-size: 90% !important;
 }
 
 .h1, .h2, .h3, h1, h2, h3 {
@@ -2527,7 +2526,7 @@ table .multiple-pdf{
     font-size: 16px;
 	border: 1px solid #F44336;
 	font-weight: 600;
-}
+} 
 
 .archive-btn:hover{
 	background: #fff;
@@ -2541,10 +2540,12 @@ table .multiple-pdf{
 }
 .main-sidebar .qm-active .list-start a::before{
 	color: #fff !important;
-}
+
+}  
+
 
 .dataTables_wrapper .dataTables_paginate .paginate_button{
-	border: 1px solid  #1a71dd !important;
+	border: 1px solid  #1a4f91 !important;
 }
 
 .scroller-tbl .dataTables_wrapper .dataTables_paginate .paginate_button:active{
@@ -2573,3 +2574,22 @@ table .multiple-pdf{
 .highlighted-query {
 	background-color: yellow;
 }
+
+iframe#instagram-embed-0 {
+    min-width: 270px !important;
+}
+
+.env a:focus + .sng-env{
+	opacity: 1;
+    -webkit-transform: rotateX(0deg);
+    transition: all 500ms ease-in-out;
+}
+
+a:focus {
+    border: 1px solid #333 !important;
+}
+
+.header__logo:focus .d-flex-logo {
+    border: 1px solid #333 !important;
+}
+

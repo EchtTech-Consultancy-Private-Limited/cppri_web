@@ -50,7 +50,7 @@
                                                 </a>
                                             @else
                                             <li class="env">
-                                                <a href="javascript:void();">
+                                                <a href="javascript:void();" class="sub-menu-drop-f">
                                                     @if (Session::get('Lang') == 'hi')
                                                         {{ $subMenus->name_hi ?? '' }}
                                                     @else
@@ -71,6 +71,7 @@
                                                             @else
                                                                 {{ $ChildMenus->name_en ?? '' }}
                                                             @endif
+</a>
                                                     </li>
                                                 @else
                                                     <li><a href="{{ url($url.'/'.$subMenusurl.'/'.$Childurl) ?? '' }}">
@@ -79,15 +80,16 @@
                                                             @else
                                                                 {{ $ChildMenus->name_en ?? '' }}
                                                             @endif
+</a>
                                                     </li>
                                                 @endif
-                                                </a>
+                                                
                                             @endforeach
                                         </ul>
                                         </li>
                                     @else
                                         @if ($subMenus->tab_type == 1)
-                                            <li>
+                                            <li class="remove-show-class">
                                                 <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
                                                     href="{{ $subMenusurl ?? '' }}">
                                                     @if (Session::get('Lang') == 'hi')
@@ -98,7 +100,7 @@
                                                 </a>
                                             </li>
                                         @else
-                                            <li><a href="{{ url($url.'/'.$subMenusurl) ?? '' }}">
+                                            <li class="remove-show-class"><a href="{{ url($url.'/'.$subMenusurl) ?? '' }}">
                                                     @if (Session::get('Lang') == 'hi')
                                                         {{ $subMenus->name_hi ?? '' }}
                                                     @else

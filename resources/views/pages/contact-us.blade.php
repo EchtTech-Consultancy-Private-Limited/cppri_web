@@ -100,12 +100,12 @@
             <div class="col-md-6 col-lg-6">
                 <div class="cppr-delhi-map mt-20">
                     <iframe class="contact-page-map"
-                        src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d55319.00582157767!2d77.5276646366165!3d29.93808155109714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m5!1s0x390e955539027377%3A0xb81659c41c66e528!2scppri!3m2!1d29.938011799999998!2d77.5626843!4m0!5e0!3m2!1sen!2sin!4v1522997631006"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13829.761151495672!2d77.5626843!3d29.9380118!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e955539027377%3A0xb81659c41c66e528!2sCentral%20Pulp%20%26%20Paper%20Research%20Institute!5e0!3m2!1sen!2sin!4v1704890243916!5m2!1sen!2sin"
                         allowfullscreen=""></iframe>
                 </div>
             </div>
 
-            <div class="col-md-12 mb-4 mt-3">
+            <div class="col-md-12 mb-4 mt-3 scroller-tbl">
 
                 <div id="datatable">
 

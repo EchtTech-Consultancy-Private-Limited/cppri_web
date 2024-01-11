@@ -79,7 +79,7 @@ $(document).ready(function(e) {
 	});*/
 
 });
-		  
+		//   $('#main_menu').hide();
 function menu_toggle(){		
 	//$('.megamenu-wraper .container .showhide').css('display', 'block');
 	//$('.megamenu-wraper .container').prepend('');	
@@ -180,4 +180,24 @@ $(document).ready(function(e) {
 	});
 	}
 });
+
+
+$('ul.sub-nav-group .remove-show-class a').focus(function(){
+	$('a.sub-menu-drop-f.show-menu').removeClass('show-menu');		
+})
+
+$('.env a.sub-menu-drop-f').focus(function(){
+	$('a.sub-menu-drop-f.show-menu').removeClass('show-menu');		
+	$(this).addClass('show-menu');
+})
+
+
+// Tabindex js
+
+$(document).ready(function () {  
+
+    $("p, h1, h2, h3, h4, h5, h6,a, button,.c-box,.li_eng.responsive_go_eng").attr('tabindex', '0');
+});
+
+
 
