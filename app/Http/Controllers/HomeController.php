@@ -14,7 +14,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $titleName = 'Home';
+        return view('home',['title'=>$titleName]);
     }
 
     //language
@@ -28,6 +29,7 @@ class HomeController extends Controller
       //career
       public function careerData()
       {
+        $titleName = 'Career';
          // dd('hii');
           try {
               $careerData = []; 
@@ -52,7 +54,7 @@ class HomeController extends Controller
                       ];
                   }
               }
-              return view('pages.career', ['careerData' => $careerData]);
+              return view('pages.career', ['title'=>$titleName, 'careerData' => $careerData]);
   
   
           } catch (\Exception $e) {
@@ -70,6 +72,7 @@ class HomeController extends Controller
   
       public function careerArchive()
       {
+        $titleName = 'Career Archive';
           try {
               $careerData = []; 
   
@@ -93,7 +96,7 @@ class HomeController extends Controller
                       ];
                   }
               }
-              return view('pages.careerArchive', ['careerData' => $careerData]);
+              return view('pages.careerArchive', ['title'=>$titleName,'careerData' => $careerData]);
   
   
           } catch (\Exception $e) {
@@ -112,6 +115,7 @@ class HomeController extends Controller
         //tender
     public function tenderData()
     {
+        $titleName = 'Tender';
         try {
             $tenderData = []; 
 
@@ -135,7 +139,7 @@ class HomeController extends Controller
                     ];
                 }
             }
-            return view('pages.tender', ['tenderData' => $tenderData]);
+            return view('pages.tender', ['title'=>$titleName, 'tenderData' => $tenderData]);
 
 
         } catch (\Exception $e) {
@@ -152,7 +156,7 @@ class HomeController extends Controller
     }
 
     public function tenderArchive(){
-
+        $titleName = 'Tender Archive';
         try {
             $tenderData = []; // Initialize the array to store all tender data
 
@@ -177,7 +181,7 @@ class HomeController extends Controller
                 }
             }
           
-            return view('pages.tenderArchive', ['tenderData' => $tenderData]);
+            return view('pages.tenderArchive', ['title'=>$titleName ,'tenderData' => $tenderData]);
 
 
         } catch (\Exception $e) {
@@ -195,6 +199,7 @@ class HomeController extends Controller
     }
     public function contactUs()
     {
+        $titleName = 'Contact Us';
         $CustomCaptchas = new CustomCaptcha;
         $CustomCaptch = $CustomCaptchas->generateRandomAdditionExpression();
         Session::put('contactCapcode', $CustomCaptch['answer']);
@@ -210,6 +215,7 @@ class HomeController extends Controller
             //dd($employee);
 
             return view('pages.contact-us', [
+                'title'=>$titleName ,
                 'employee' => $employee,
                 'CustomCaptch' => $CustomCaptch
             ]);
@@ -489,6 +495,7 @@ class HomeController extends Controller
     }
     
     public function rtiData(){
+        $titleName = 'RTI';
         try {
 
             $rtiData;
@@ -516,9 +523,9 @@ class HomeController extends Controller
                 } else {
                     $content = "Coming Soon...";
                 }
-                return view('pages.rti', ['content' => $content]);
+                return view('pages.rti', ['title'=>$titleName, 'content' => $content]);
             }
-            return view('pages.rti', ['rtiData' => $rtiData]);
+            return view('pages.rti', ['title'=>$titleName ,'rtiData' => $rtiData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -539,10 +546,11 @@ class HomeController extends Controller
 
     public function Feedback()
     {
+        $titleName = 'FeedBack';
         $CustomCaptchas = new CustomCaptcha;
         $CustomCaptch = $CustomCaptchas->generateRandomAdditionExpression();
         Session::put('feedbackCapcode', $CustomCaptch['answer']);
-        return view('pages.feedback', ['CustomCaptch' => $CustomCaptch]);
+        return view('pages.feedback', ['title'=>$titleName ,'CustomCaptch' => $CustomCaptch]);
     }
 
     public function feedbackStore(Request $request)
@@ -569,7 +577,8 @@ class HomeController extends Controller
 
     public function siteMap()
     {
-        return view('pages.siteMap');
+        $titleName = 'SITE MAP';
+        return view('pages.siteMap',['title'=>$titleName ]);
     }
 
     public function ComingSoon()
@@ -579,12 +588,14 @@ class HomeController extends Controller
 
     public function ScreenReaderAccess()
     {
-        return view('pages.screen_reader_access');
+        $titleName = 'Screen Reader Access';
+        return view('pages.screen_reader_access',['title'=>$titleName ]);
     }
 
     public function error()
     {
-        return view('pages.error');
+        $titleName = 'Error';
+        return view('pages.error',['title'=>$titleName ]);
     }
 
     // public function directorDesk()
@@ -690,6 +701,7 @@ class HomeController extends Controller
 
     public function contactStroe(Request $request)
     {
+        
         if (Session::get('contactCapcode') != $request->SecurityCode) {
             return back()->with('captchaError',"Captcha Invalid!.");
         } else {
@@ -711,10 +723,12 @@ class HomeController extends Controller
 
     public function showPressReleased()
     {
-        return view('pages.press_relesead');
+        $titleName = 'Show Press Releaed';
+        return view('pages.press_relesead',['title'=>$titleName ]);
     }
     public function photoGallery()
     {
+        $titleName = 'Photo Gallery';
         try {
             $galleryManagementRecords = DB::table('gallery_management')
                 ->where('type', 0)->latest('created_at')
@@ -742,7 +756,7 @@ class HomeController extends Controller
                 $tree = [];
             }
 
-            return view('pages.photo_gallery', ['tree' => $tree]);
+            return view('pages.photo_gallery', ['title'=>$titleName,'tree' => $tree]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -759,11 +773,13 @@ class HomeController extends Controller
   
     public function academicProgram()
     {
-        return view('pages.academic_program');
+        $titleName = 'Academic Program';
+        return view('pages.academic_program',['title'=>$titleName ]);
     }
     public function trainingProgram()
     {
-        return view('pages.training_program');
+        $titleName = 'Training';
+        return view('pages.training_program',['title'=>$titleName ]);
     }
   
 }

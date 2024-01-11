@@ -4,14 +4,13 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<script src="https://www.google.com/recaptcha/api.js"></script>
-
-<link rel="apple-touch-icon" href="{{ asset('assets-cppri/images/favicon.ico') }}">
-{{-- <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}"> --}}
-
-<title>Central Pulp &amp; Paper Research Institute</title>
+<title>
+    @section('title')
+        {{ config('app.name') }}
+    @show
+</title>
 <!-- Custom styles for this template -->
-
+<link rel="apple-touch-icon" href="{{ asset('assets-cppri/images/favicon.ico') }}">
 <link href="{{ asset('assets-cppri/css/base.css') }}" rel="stylesheet">
 <link href="{{ asset('assets-cppri/css/base-responsive.css') }}" rel="stylesheet">
 <link href="{{ asset('assets-cppri/css/grid.css') }}" rel="stylesheet" media="all">
