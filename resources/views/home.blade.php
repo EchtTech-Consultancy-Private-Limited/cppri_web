@@ -37,7 +37,7 @@
 <section class="latest-news">
     <h3 class="d-none">Latest News</h3>
     <div class="row px-0">
-        <div class="col-md-2 col-4">
+        <div class="col-md-3 col-4">
             <div class="latest-new-title">
                 <p class="change-color-code">
                     @if (Session::get('Lang') == 'hi')
@@ -48,7 +48,7 @@
                 </p>
             </div>
         </div>
-        <div class="col-md-10 col-8">
+        <div class="col-md-9 col-8">
             <div class="marquee">
 
 
@@ -101,66 +101,72 @@
     <h2 class="d-none">Body</h2>
     <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott">
         <div class="container common-container four_content body-container top-body-container padding-top-bott2">
-            <div class="minister clearfix animate__animated animate__backInRight animate__delay-3s">
-                <div class="minister-box clearfix">
-                    <div class="minister-sub">
-                        <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
-                                alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>
-                        <div class="min-info">
-                            <h4>Dr. M K Gupta</h4>
-                            <h5><a href="javascript:void(0);" title="Minister of Coal"><span>Director </span></a>
-                            </h5>
+            <div class="row">
+
+                <div
+                    class="banner-content-wrapper animate__animated animate__backInLeft animate__delay-3s col-md-12 col-lg-8 order-md-2 order-lg-1 pe-md-5 p-0">
+                    <h2 class="border-bottom-color">
+
+                        @if (Session::get('Lang') == 'hi')
+                        {{ __('messages.Welcome_to') }} 
+                        @else
+                        {{ __('messages.Welcome_to') }} 
+                        @endif
+
+
+                        <span>CPPRI</span>
+                    </h2>
+                    <!-- <p class="banner-title-tag-line">Welcome to the website of Ministry/Department, Government of India.</p> -->
+                    <p class="banner-content ">
+
+                        @if (Session::get('Lang') == 'hi')
+                        {{ __('messages.about1') }}
+                        @else
+                        {{ __('messages.about1') }}
+                        @endif
+
+                    </p>
+
+
+                    <p class="banner-content">
+
+                        @if (Session::get('Lang') == 'hi')
+                        {{ __('messages.about2') }}
+                        @else
+                        {{ __('messages.about2') }}
+                        @endif
+
+                    </p>
+
+                    <a href="javascript:void(0);" title="Click here to know more" class="change-border-color-text">Read
+                        more
+                        <i class="fa fa-angle-right"></i></a>
+                </div>
+                <div
+                    class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-12 col-lg-4 order-md-1 order-lg-2">
+                    <div class="minister-box clearfix row px-0">
+                        <div class="minister-sub col-md-6">
+                            <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
+                                    alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>
+                            <div class="min-info">
+                                <h4>Dr. M K Gupta</h4>
+                                <h5><a href="javascript:void(0);" title="Minister of Coal"><span>Director </span></a>
+                                </h5>
+                            </div>
                         </div>
-                    </div>
-                    <div class="minister-sub">
-                        <div class="minister-image"><img src="{{ asset('assets-cppri/images/a_k_dixit.png') }}"
-                                alt="minister of state coal and mines" title="Dr. A. K. Dixit Scientist-F">
-                        </div>
-                        <div class="min-info">
-                            <h4>Dr. A. K. Dixit</h4>
-                            <h5><a href="javascript:void(0);" title="Minister of State"><span>Scientist-F</span>
-                                </a>
-                            </h5>
+                        <div class="minister-sub col-md-6">
+                            <div class="minister-image"><img src="{{ asset('assets-cppri/images/a_k_dixit.png') }}"
+                                    alt="minister of state coal and mines" title="Dr. A. K. Dixit Scientist-F">
+                            </div>
+                            <div class="min-info">
+                                <h4>Dr. A. K. Dixit</h4>
+                                <h5><a href="javascript:void(0);" title="Minister of State"><span>Scientist-F</span>
+                                    </a>
+                                </h5>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="banner-content-wrapper animate__animated animate__backInLeft animate__delay-3s">
-                <h2 class="border-bottom-color">
-
-                    @if (Session::get('Lang') == 'hi')
-                    {{ __('messages.Welcome_to') }} :
-                    @else
-                    {{ __('messages.Welcome_to') }} :
-                    @endif
-
-
-                    <span>CPPRI</span>
-                </h2>
-                <!-- <p class="banner-title-tag-line">Welcome to the website of Ministry/Department, Government of India.</p> -->
-                <p class="banner-content mb-0">
-
-                    @if (Session::get('Lang') == 'hi')
-                    {{ __('messages.about1') }}
-                    @else
-                    {{ __('messages.about1') }}
-                    @endif
-
-                </p>
-
-
-                <p class="banner-content">
-
-                    @if (Session::get('Lang') == 'hi')
-                    {{ __('messages.about2') }}
-                    @else
-                    {{ __('messages.about2') }}
-                    @endif
-
-                </p>
-
-                <a href="javascript:void(0);" title="Click here to know more" class="change-border-color-text">Read more
-                    <i class="fa fa-angle-right"></i></a>
             </div>
         </div>
     </div>
@@ -185,7 +191,7 @@
                 </div>
             </div>
             <div class="row p-0">
-                <div class="col-md-8">
+                <div class="col-md-12 col-lg-8">
                     <!-- <div class="title-style-3 mb-20">
                                                                                                                     <h2 class="border-bottom-color">Services</h2>
                                                                                                                 </div> -->
@@ -336,7 +342,7 @@
                         <!--Icon Box End-->
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-12 col-lg-4">
                     <div class="banner-box-wrapper">
                         <div class="banner-box banner-box-1">
                             <div class="banner-box-content">
@@ -519,67 +525,68 @@
 
     <!-- <div class="wrapper home-banner"> -->
     <div class="wrapper banner-bg-white">
-        <div class="container common-container four_content banner-container body-container top-body-container">
+        <div class="container common-container four_content banner-container body-container top-body-container pe-0">
 
-            <div class="left-block">
-                <div class="left-col-2">
-                    <div class="page-tab clearfix">
-                        <div class="page-tab-res clearfix">
-                            <div id="parentHorizontalTab">
-                                <ul class="resp-tabs-list hor_1 change-color-code">
-                                    <li class="border-l change-border-color-text"><a href="javascript:viod(0)"
-                                            id="tab-list-1" class="change-text-color">
+            <div class="left-block row py-5 px-0">
+                <div class="col-md-4 col-lg-4">
+                    <div class="left-col-2 ">
+                        <div class="page-tab clearfix">
+                            <div class="page-tab-res clearfix">
+                                <div id="parentHorizontalTab">
+                                    <ul class="resp-tabs-list hor_1 change-color-code">
+                                        <li class="border-l change-border-color-text"><a href="javascript:viod(0)"
+                                                id="tab-list-1" class="change-text-color">
 
-                                            @if (Session::get('Lang') == 'hi')
-                                            {{ __('messages.Notification') }}
-                                            @else
-                                            {{ __('messages.Notification') }}
-                                            @endif
-
-
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="resp-tabs-container hor_1">
-                                    <div class="clearfix" id="hor_1_tab_item-0">
-                                        <div class="content-wrapper">
-                                            <p class="text-slide pause" onclick="changeClass()"></p>
-                                            <div class="scroll-text scroll-left">
-                                                <ul class="list">
+                                                @if (Session::get('Lang') == 'hi')
+                                                {{ __('messages.Notification') }}
+                                                @else
+                                                {{ __('messages.Notification') }}
+                                                @endif
 
 
-                                                    @if (isset($notification) && count($notification) > 0)
-                                                    @foreach ($notification as $notifications)
-                                                    <li>
-                                                        @php
-                                                        $notiUrl = $notifications->url_link ?? 'javascript:void(0)';
-                                                        @endphp
-                                                        <div class="list-content">
-                                                            @if (Session::get('Lang') == 'hi')
-                                                            {{ $notifications->recent_activities_hi ?? '' }}
-                                                            @else
-                                                            {{ $notifications->recent_activities_en ?? '' }}
-                                                            @endif
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="resp-tabs-container hor_1">
+                                        <div class="clearfix" id="hor_1_tab_item-0">
+                                            <div class="content-wrapper">
+                                                <p class="text-slide pause" onclick="changeClass()"></p>
+                                                <div class="scroll-text scroll-left">
+                                                    <ul class="list">
 
-                                                            &nbsp;
 
-                                                            @if ($notifications->tab_type == 1)
-                                                            <a onclick="return confirm('{{ $alertMessage ?? '' }}')"
-                                                                target="_blank" href="{{ $notiUrl ?? '' }}"
-                                                                class="text-danger">Click
-                                                                here to apply</a>
-                                                            @else
-                                                            <a href="{{ $notiUrl ?? '' }}" class="text-danger">Click
-                                                                here to apply</a>
-                                                            @endif
-                                                        </div>
-                                                    </li>
-                                                    @endforeach
-                                                    @else
-                                                    <h5>No notifications available.</h5>
-                                                    @endif
+                                                        @if (isset($notification) && count($notification) > 0)
+                                                        @foreach ($notification as $notifications)
+                                                        <li>
+                                                            @php
+                                                            $notiUrl = $notifications->url_link ?? 'javascript:void(0)';
+                                                            @endphp
+                                                            <div class="list-content">
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                {{ $notifications->recent_activities_hi ?? '' }}
+                                                                @else
+                                                                {{ $notifications->recent_activities_en ?? '' }}
+                                                                @endif
 
-                                                    {{-- <li>
+                                                                &nbsp;
+
+                                                                @if ($notifications->tab_type == 1)
+                                                                <a onclick="return confirm('{{ $alertMessage ?? '' }}')"
+                                                                    target="_blank" href="{{ $notiUrl ?? '' }}"
+                                                                    class="text-danger">Click
+                                                                    here to apply</a>
+                                                                @else
+                                                                <a href="{{ $notiUrl ?? '' }}" class="text-danger">Click
+                                                                    here to apply</a>
+                                                                @endif
+                                                            </div>
+                                                        </li>
+                                                        @endforeach
+                                                        @else
+                                                        <h5>No notifications available.</h5>
+                                                        @endif
+
+                                                        {{-- <li>
                                                             <div class="list-content">
                                                                 <a href="https://centralpulppaperresearchinstitute.webex.com/centralpulppaperresearchinstitute/j.php?MTID=m639c2a7e8a854b99da321b648df0ade6"
                                                                     target="_blank">Online Public Grievance Redressal
@@ -599,20 +606,21 @@
                                                             </div>
                                                         </li> --}}
 
-                                                </ul>
+                                                    </ul>
+                                                </div>
+                                                <div class="view-footer"><a href="javascript:void();" title="Read More"
+                                                        class="change-border-color-text"><span>
+
+
+                                                            @if (Session::get('Lang') == 'hi')
+                                                            {{ __('messages.Read_More') }}
+                                                            @else
+                                                            {{ __('messages.Read_More') }}
+                                                            @endif
+
+                                                            <i class="fa fa-angle-right"></i>
+                                                        </span></a></div>
                                             </div>
-                                            <div class="view-footer"><a href="javascript:void();" title="Read More"
-                                                    class="change-border-color-text"><span>
-
-
-                                                        @if (Session::get('Lang') == 'hi')
-                                                        {{ __('messages.Read_More') }}
-                                                        @else
-                                                        {{ __('messages.Read_More') }}
-                                                        @endif
-
-                                                        <i class="fa fa-angle-right"></i>
-                                                    </span></a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -621,69 +629,71 @@
                     </div>
                 </div>
 
-                <div class="left-col-2">
-                    <div class="page-tab clearfix">
-                        <div class="page-tab-res clearfix">
-                            <div id="parentHorizontalTab">
-                                <ul class="resp-tabs-list hor_1 change-color-code">
-                                    <li class="border-l resp-tab-item hor_1 resp-tab-active change-border-color-text"><a
-                                            href="javascript:viod(0)" id="tab-list-1" class="change-text-color">
+                <div class="col-md-4 col-lg-4">
+                    <div class="left-col-2 ">
+                        <div class="page-tab clearfix">
+                            <div class="page-tab-res clearfix">
+                                <div id="parentHorizontalTab">
+                                    <ul class="resp-tabs-list hor_1 change-color-code">
+                                        <li
+                                            class="border-l resp-tab-item hor_1 resp-tab-active change-border-color-text">
+                                            <a href="javascript:viod(0)" id="tab-list-1" class="change-text-color">
 
-                                            @if (Session::get('Lang') == 'hi')
-                                            {{ __('messages.Press_Release') }}
-                                            @else
-                                            {{ __('messages.Press_Release') }}
-                                            @endif
+                                                @if (Session::get('Lang') == 'hi')
+                                                {{ __('messages.Press_Release') }}
+                                                @else
+                                                {{ __('messages.Press_Release') }}
+                                                @endif
 
 
-                                        </a>
-                                    </li>
+                                            </a>
+                                        </li>
 
-                                </ul>
-                                <div class="resp-tabs-container hor_1">
-                                    <div class="clearfix" id="hor_1_tab_item-1">
-                                        <div class="content-wrapper">
-                                            <p class="text-slide01 pause" onclick="changeClass01()"></p>
-                                            <div class="scroll-text01 scroll-left">
-                                                <ul class="list">
-                                                    @if (isset($press_release) && count($press_release) > 0)
-                                                    @foreach ($press_release as $press_releases)
+                                    </ul>
+                                    <div class="resp-tabs-container hor_1">
+                                        <div class="clearfix" id="hor_1_tab_item-1">
+                                            <div class="content-wrapper">
+                                                <p class="text-slide01 pause" onclick="changeClass01()"></p>
+                                                <div class="scroll-text01 scroll-left">
+                                                    <ul class="list">
+                                                        @if (isset($press_release) && count($press_release) > 0)
+                                                        @foreach ($press_release as $press_releases)
 
-                                                    @php
-                                                    $pressUrl = $press_releases->url_link ?? 'javascript:void(0)';
-                                                    @endphp
+                                                        @php
+                                                        $pressUrl = $press_releases->url_link ?? 'javascript:void(0)';
+                                                        @endphp
 
-                                                    <li>
-                                                        @if ($press_releases->tab_type == 1)
-                                                        <a onclick="return confirm('{{ $alertMessage ?? '' }}')"
-                                                            target="_blank" href="{{ $pressUrl ?? '' }}">
-                                                            <div class="list-content">
-                                                                @if (Session::get('Lang') == 'hi')
-                                                                {{ $press_releases->recent_activities_hi ?? '' }}
-                                                                @else
-                                                                {{ $press_releases->recent_activities_en ?? '' }}
-                                                                @endif
-                                                            </div>
-                                                        </a>
+                                                        <li>
+                                                            @if ($press_releases->tab_type == 1)
+                                                            <a onclick="return confirm('{{ $alertMessage ?? '' }}')"
+                                                                target="_blank" href="{{ $pressUrl ?? '' }}">
+                                                                <div class="list-content">
+                                                                    @if (Session::get('Lang') == 'hi')
+                                                                    {{ $press_releases->recent_activities_hi ?? '' }}
+                                                                    @else
+                                                                    {{ $press_releases->recent_activities_en ?? '' }}
+                                                                    @endif
+                                                                </div>
+                                                            </a>
+                                                            @else
+                                                            <a href="{{ $pressUrl ?? '' }}">
+                                                                <div class="list-content">
+                                                                    @if (Session::get('Lang') == 'hi')
+                                                                    {{ $press_releases->recent_activities_hi ?? '' }}
+                                                                    @else
+                                                                    {{ $press_releases->recent_activities_en ?? '' }}
+                                                                    @endif
+                                                                </div>
+                                                            </a>
+                                                            @endif
+                                                        </li>
+                                                        @endforeach
                                                         @else
-                                                        <a href="{{ $pressUrl ?? '' }}">
-                                                            <div class="list-content">
-                                                                @if (Session::get('Lang') == 'hi')
-                                                                {{ $press_releases->recent_activities_hi ?? '' }}
-                                                                @else
-                                                                {{ $press_releases->recent_activities_en ?? '' }}
-                                                                @endif
-                                                            </div>
-                                                        </a>
+                                                        <h5>No press releases available.</h5>
                                                         @endif
-                                                    </li>
-                                                    @endforeach
-                                                    @else
-                                                    <h5>No press releases available.</h5>
-                                                    @endif
 
 
-                                                    {{-- <li>
+                                                        {{-- <li>
                                                             <div class="list-content">Description of Press Release 1
                                                                 goes here
                                                                 mm-dd-yyyy - File type (size) DD-MM-YYYY. </div>
@@ -703,89 +713,92 @@
                                                                 goes here
                                                                 mm-dd-yyyy - File type (size) DD-MM-YYYY.</div>
                                                         </li> --}}
-                                                </ul>
+                                                    </ul>
+                                                </div>
+                                                <div class="view-footer"><a href="{{url('press-released')}}"
+                                                        title="Read More" class="change-border-color-text"><span>
+                                                            @if (Session::get('Lang') == 'hi')
+                                                            {{ __('messages.Read_More') }}
+                                                            @else
+                                                            {{ __('messages.Read_More') }}
+                                                            @endif
+                                                            <i class="fa fa-angle-right"></i>
+                                                        </span></a></div>
                                             </div>
-                                            <div class="view-footer"><a href="{{url('press-released')}}"
-                                                    title="Read More" class="change-border-color-text"><span>
-                                                        @if (Session::get('Lang') == 'hi')
-                                                        {{ __('messages.Read_More') }}
-                                                        @else
-                                                        {{ __('messages.Read_More') }}
-                                                        @endif
-                                                        <i class="fa fa-angle-right"></i>
-                                                    </span></a></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
-
-                <div class="left-col-2">
-                    <div class="box-bg-color change-color-code">
-                        <div class="tender">
-                            <h2 class="change-border-color-text">
-                                @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Tender') }}
-                                @else
-                                {{ __('messages.Tender') }}
-                                @endif
-
-                            </h2>
-                        </div>
-                        <p class="text-slide1 pause tender-play-btn" onclick="changeClass1()"></p>
-                    </div>
-                    <div class="bg-white-tender">
-                        <div class="scroll-text-1 scroll-left">
-                            <ul class="list">
-
-
-                                @if (isset($tender_management) && count($tender_management) > 0)
-                                @foreach ($tender_management as $tender_managements)
-                                <li>
-                                    <a href="{{ asset('resources/uploads/TenderManagement/' . $tender_managements->public_url) }}"
-                                        download>
-                                        <div class="date">
-
-                                            <span
-                                                class="change-color-code">{{ date('d', strtotime($tender_managements->start_date)) }}</span>
-                                            <em>{{ date('M Y', strtotime($tender_managements->start_date)) }}</em>
-
-                                        </div>
-
-                                        <div class="list-content">
-                                            {{ $tender_managements->pdf_title ?? '' }} - File type
-                                            ({{ $tender_managements->file_extension ?? '' }} -
-                                            {{ $tender_managements->pdfimage_size ?? '' }})
-                                        </div>
-                                    </a>
-                                </li>
-                                @endforeach
-                                @else
-                                <li>
-                                    <div class="date">
-                                        <span>{{ \Carbon\Carbon::now()->format('d') }}</span><em>{{ \Carbon\Carbon::now()->format('M Y') }}</em>
-                                    </div>
-                                    <div class="list-content">No Tender available
-                                    </div>
-                                </li>
-                                @endif
-
-                            </ul>
-
-                        </div>
-                        <div class="view-footer"><a href="{{ url('tender') }}" title="Know More About Tenders"
-                                class="change-border-color-text"><span>
-
+                <div class="col-md-4 col-lg-4 pe-0">
+                    <div class="left-col-2">
+                        <div class="box-bg-color change-color-code">
+                            <div class="tender">
+                                <h2 class="change-border-color-text">
                                     @if (Session::get('Lang') == 'hi')
-                                    {{ __('messages.View_all_Tenders') }}
+                                    {{ __('messages.Tender') }}
                                     @else
-                                    {{ __('messages.View_all_Tenders') }}
+                                    {{ __('messages.Tender') }}
                                     @endif
 
-                                    <i class="fa fa-angle-right"></i>
-                                </span></a>
+                                </h2>
+                            </div>
+                            <p class="text-slide1 pause tender-play-btn" onclick="changeClass1()"></p>
+                        </div>
+                        <div class="bg-white-tender">
+                            <div class="scroll-text-1 scroll-left">
+                                <ul class="list">
+
+
+                                    @if (isset($tender_management) && count($tender_management) > 0)
+                                    @foreach ($tender_management as $tender_managements)
+                                    <li>
+                                        <a href="{{ asset('resources/uploads/TenderManagement/' . $tender_managements->public_url) }}"
+                                            download>
+                                            <div class="date">
+
+                                                <span
+                                                    class="change-color-code">{{ date('d', strtotime($tender_managements->start_date)) }}</span>
+                                                <em>{{ date('M Y', strtotime($tender_managements->start_date)) }}</em>
+
+                                            </div>
+
+                                            <div class="list-content">
+                                                {{ $tender_managements->pdf_title ?? '' }} - File type
+                                                ({{ $tender_managements->file_extension ?? '' }} -
+                                                {{ $tender_managements->pdfimage_size ?? '' }})
+                                            </div>
+                                        </a>
+                                    </li>
+                                    @endforeach
+                                    @else
+                                    <li>
+                                        <div class="date">
+                                            <span>{{ \Carbon\Carbon::now()->format('d') }}</span><em>{{ \Carbon\Carbon::now()->format('M Y') }}</em>
+                                        </div>
+                                        <div class="list-content">No Tender available
+                                        </div>
+                                    </li>
+                                    @endif
+
+                                </ul>
+
+                            </div>
+                            <div class="view-footer"><a href="{{ url('tender') }}" title="Know More About Tenders"
+                                    class="change-border-color-text"><span>
+
+                                        @if (Session::get('Lang') == 'hi')
+                                        {{ __('messages.View_all_Tenders') }}
+                                        @else
+                                        {{ __('messages.View_all_Tenders') }}
+                                        @endif
+
+                                        <i class="fa fa-angle-right"></i>
+                                    </span></a>
+                            </div>
                         </div>
                     </div>
                 </div>

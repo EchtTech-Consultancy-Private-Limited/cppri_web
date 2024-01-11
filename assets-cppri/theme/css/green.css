@@ -15,6 +15,9 @@
 	--menu-bg-color:#f3ffff;
 
 }
+blockquote::after{
+	color: var(--primary-color);
+}
 
 
 
@@ -347,13 +350,6 @@ a.read-more:hover {
 
 .whats-new .viewall:hover {
 	background: #145171
-}
-
-.minister {
-	background: #fff none repeat scroll 0 0;
-	float: right;
-	width: 34%;
-	/*border:1px solid #e1dddd*/
 }
 
 .bttn {
@@ -1058,20 +1054,6 @@ ul.ul-v>li a {
 	color: #0d0e44;
 	font-weight: 600;
 	font-size: 1em
-}
-
-
-.left-block .left-col-2 {
-	width: 32.4%;
-	display: inline-block;
-	padding: 0;
-	border: 0px solid #ece7e7;
-	/* background: #fff; */
-	background: transparent;
-	padding-bottom: 10px;
-	border-radius: var(--box-radius);
-	height: 400px;
-	box-shadow: 0px 5px 15px 0 rgba(0,0,0,.4);
 }
 
 .imp-img-cir ul.ul-v>li a .img-cr {
@@ -2058,41 +2040,11 @@ h2 small {
 	text-transform: uppercase;
 }
 
-.body-container ul.list {
-	padding-bottom: 5px;
-	margin-left: -5px;
-}
 
-.top-body-container p {
-	padding-bottom: 3px;
-	/* cursor: pointer; */
-}
 
-.flex-pauseplay a {
-	height: 24px;
-}
 
-.flex-pauseplay a {
-	bottom: 10px !important;
-}
 
-.body-container ul.list li {
-	background-size: 0px;
-	padding-left: 0px;
-	border-bottom: 1px solid #ccc;
-	margin-bottom: 10px;
-	padding-bottom: 10px;
-	overflow: hidden;
-}
 
-.date {
-	float: left;
-	padding-right: 10px;
-	width: 25%;
-	border-radius: 5px !important;
-    overflow: hidden;
-   
-}
 
 .list .date span {
 	background: var(--primary-color);
@@ -2230,25 +2182,6 @@ h2 small {
 	color: var(--inner-page-title-color);
 }
 
-.align-rt img {
-	float: right;
-}
-
-.wrapper.home-banner {
-	/* background: #f4f7fc;  */
-    background-repeat:no-repeat;
-    padding: 20px 0px;
-    background-image: url(../images/about-banner.png) !important;
-    background-position: bottom;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-.banner-content-wrapper {
-	width: 66%;
-    float: left;
-    padding-right: 3%;
-}
 
 h2.border-bottom-color {
     border-bottom: 5px solid var(--secondary-color);
@@ -2335,46 +2268,12 @@ a.portgolio-button:hover, .banner-content-wrapper a:hover {
 	border:1px solid var(--secondary-color);
 }
 
-.banner-right-wrapper {
-	width: 32%;
-	display: inline-block;
-	text-align: center;
-}
-
-.banner-content-wrapper a i {
-    font-weight: 600;
-    font-size: 14px;
-    margin-left: 4px;
-}
-
-.banner-box {
-	text-align: left;
-	color: #fff;
-	text-transform: uppercase;
-	margin: 15px 0px 0px 8px;
-	padding: 15px 30px;
-	box-shadow: 0 0px 4px rgba(0,0,0,.1);
-}
 
 .banner-box h2 {
 	padding-bottom: 5px;
 	margin-top: 0px;
 }
 
-/* .banner-box:after {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: #ff003b;
-    transition: all .35s;
-}
-
-.banner-box:hover:after{
-	width: 100%;
-  } */
 
 .banner-box.banner-box-1 {
 	/* background: #DF3322; */
@@ -2726,29 +2625,9 @@ a.portgolio-button:hover {
 	text-transform: uppercase;
 }
 
-.left-block .left-col-2:nth-child(1) h2 {}
 
-.left-block .left-col-2:nth-child(1) h2:before {
-	content: " ";
-	/* position: absolute; */
-	/* background: url('../images/new.png'); */
-	/* background-repeat: no-repeat; */
-	/* width: 30px; */
-	/* height: 40px; */
-	/* position: absolute; */
-	/* left: -30px; */
-}
 
-.left-block .left-col-2:nth-child(2) h2:before {
-	content: " ";
-	position: absolute;
-	background: url('../images/tenders.png');
-	background-repeat: no-repeat;
-	width: 40px;
-	height: 40px;
-	position: absolute;
-	left: -40px;
-}
+
 
 #scroll {
 	position: fixed;
@@ -2863,11 +2742,7 @@ h2.resp-accordion {
 	display: none;
 }
 
-.content-wrapper {
-	position: relative;
-	padding: 0px 0px 10px;
-    /* border-bottom: 1px solid #ddd; */
-}
+
 
 a{
 	text-decoration: none !important;
@@ -4137,4 +4012,23 @@ table th, button.dt-button.buttons-print{
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
 	background-color: var(--primary-color);
+}
+
+.title-before, .title-after {
+    background-color: var(--primary-color);
+}
+.btn-primary:hover, .btn-primary{
+	background-color: var(--primary-color) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous, .dataTables_wrapper .dataTables_paginate .paginate_button.next, .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+	background-color: var(--primary-color) !important;
+	color: #fff !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+	background-color: var(--primary-color);
+}
+
+.scroller-tbl .dataTables_wrapper .dataTables_paginate .paginate_button:active {
+    background-color: var(--primary-color) !important;
 }

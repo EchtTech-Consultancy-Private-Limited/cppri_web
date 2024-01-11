@@ -79,7 +79,7 @@ $(document).ready(function(e) {
 	});*/
 
 });
-		  
+		//   $('#main_menu').hide();
 function menu_toggle(){		
 	//$('.megamenu-wraper .container .showhide').css('display', 'block');
 	//$('.megamenu-wraper .container').prepend('');	
@@ -181,3 +181,9 @@ $(document).ready(function(e) {
 	}
 });
 
+
+
+$('ul.sub-nav-group .env a').focus(()=>{
+	$('ul.sub-nav-group .env a').addClass('show-menu');
+	// alert("Show menu");
+})

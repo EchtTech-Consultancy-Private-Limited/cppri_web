@@ -203,21 +203,19 @@
 
                         </h3>
                         <ul class="contact-us-footer">
-                            <li><i class="fa fa-map-marker" aria-hidden="true"></i> <a href="javascript:void();">
-
-                                    @if (Session::get('Lang') == 'hi')
+                            <li><i class="fa fa-map-marker" aria-hidden="true"></i> 
+                            @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.address') }}
                                     @else
                                         {{ __('messages.address') }}
-                                    @endif
-
-                                </a></li>
-                            <li><i class="fa fa-phone"></i> <a href="javascript:void();">(0132) - 2714050, 2714061,
+                                    @endif</li>
+                            <li><i class="fa fa-phone"></i>
+                            (0132) - 2714050, 2714061,
                                     2714062,
-                                    2714059</a></li>
-                            <li><i class="fa fa-fax"></i> <a href="javascript:void();">(0132)-2714052</a></li>
+                                    2714059</li>
+                            <li><i class="fa fa-fax"></i> (0132)-2714052</li>
                             <li><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                <a href="mailto:director.cppri@gmail.com">director.cppri[at]gmail.com </a>
+                            director[dot]cppri[at]gmail.com
                             </li>
                             <li>
                                 <div class="footer-img-logo">

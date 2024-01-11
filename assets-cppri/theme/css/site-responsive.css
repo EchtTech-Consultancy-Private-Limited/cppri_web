@@ -427,7 +427,7 @@
 
 @media(min-width:961px) and (max-width:1150px) {
 	.resp-tabs-list li {
-		padding: 13px 0.7em;
+		/* padding: 13px 0.7em; */
 	}
 
 	.new-letter {
@@ -500,6 +500,19 @@
 }
 
 @media (min-width:768px) and (max-width:960px) {
+	.banner-box {
+		width: 32%;
+		float: left;
+		margin: 12px 9.8px 0px 0px !important;
+	}
+	.banner-box.banner-box-1 {
+		margin-top: 20px;
+	}
+	.latest-new-title:before {
+		border-bottom: 47px solid white;
+		border-left: 18px solid var(--pseudo-bordercolor);
+		width: 0;
+	}
 	.minister-box {
 		max-width: 100%;
 	}
@@ -2118,6 +2131,9 @@
 }
 
 @media screen and (max-width: 767px) {
+	.body-container ul.list li {
+		display: flex;
+	}
 	.sub-nav {
 		background: inherit;
 		color: #fff !important;
