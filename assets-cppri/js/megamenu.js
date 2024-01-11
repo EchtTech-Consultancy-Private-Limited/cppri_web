@@ -182,8 +182,22 @@ $(document).ready(function(e) {
 });
 
 
-
-$('ul.sub-nav-group .env a').focus(()=>{
-	$('ul.sub-nav-group .env a').addClass('show-menu');
-	// alert("Show menu");
+$('ul.sub-nav-group .remove-show-class a').focus(function(){
+	$('a.sub-menu-drop-f.show-menu').removeClass('show-menu');		
 })
+
+$('.env a.sub-menu-drop-f').focus(function(){
+	$('a.sub-menu-drop-f.show-menu').removeClass('show-menu');		
+	$(this).addClass('show-menu');
+})
+
+
+// Tabindex js
+
+$(document).ready(function () {  
+
+    $("p, h1, h2, h3, h4, h5, h6,a, button,.c-box,.li_eng.responsive_go_eng").attr('tabindex', '0');
+});
+
+
+

@@ -2579,3 +2579,17 @@ iframe#instagram-embed-0 {
     min-width: 270px !important;
 }
 
+.env a:focus + .sng-env{
+	opacity: 1;
+    -webkit-transform: rotateX(0deg);
+    transition: all 500ms ease-in-out;
+}
+
+a:focus {
+    border: 1px solid #333 !important;
+}
+
+.header__logo:focus .d-flex-logo {
+    border: 1px solid #333 !important;
+}
+
