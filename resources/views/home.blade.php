@@ -527,8 +527,8 @@
     <div class="wrapper banner-bg-white overflow-hidden">
     <div class="press-release-overlay"></div>
 
-        <div class="press-release-background-image position-absolute z-index-0">
-            <img src="{{ asset('assets-cppri/images/press-release.png') }}" alt="background image">
+        <div class="press-release-background-image position-absolute z-index-0 h-100 w-100">
+            <img src="{{ asset('assets-cppri/images/press-release.png') }}" class="h-100 w-100" alt="background image">
         </div>
         <div class="container common-container four_content banner-container body-container top-body-container pe-0 z-index-2">
 
@@ -556,7 +556,7 @@
                                         <div class="clearfix" id="hor_1_tab_item-0">
                                             <div class="content-wrapper">
                                                 <p class="text-slide pause" onclick="changeClass()"></p>
-                                                <div class="scroll-text scroll-left">
+                                                <div class="scroll-text scroll-left p-2">
                                                     <ul class="list">
 
 
@@ -659,7 +659,7 @@
                                         <div class="clearfix" id="hor_1_tab_item-1">
                                             <div class="content-wrapper">
                                                 <p class="text-slide01 pause" onclick="changeClass01()"></p>
-                                                <div class="scroll-text01 scroll-left">
+                                                <div class="scroll-text01 scroll-left p-2">
                                                     <ul class="list">
                                                         @if (isset($press_release) && count($press_release) > 0)
                                                         @foreach ($press_release as $press_releases)

@@ -5933,21 +5933,18 @@ span#timeid p {
 	opacity: 0.4;
 }
 
-.container.common-container {
-    z-index: 2;
-}
+
 .news-box:hover .new-txt h6 a {
     color: initial !important;
 }
 .main-sidebar li a {
-    font-size: 16px;
-	align-items: center;
-	font-weight: 600;
+	font-size: 15px;
+    align-items: center;
+    font-weight: 500;
 }
 
 .main-sidebar .accordion-item .nav-link.collapsed {
     display: flex;
-    color: #000;
     width: 100%;
     padding-right: 11px;
 	align-items: center;
@@ -5980,4 +5977,11 @@ blockquote {
 
 .copyright-content a {
    font-size: 13px !important;
+}
+.menu-active li a {
+    color: #fff !important;
+}
+
+.z-index-2{
+	z-index: 2;
 }
