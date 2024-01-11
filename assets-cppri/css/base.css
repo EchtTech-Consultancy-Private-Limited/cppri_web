@@ -2163,7 +2163,7 @@ ul{
 	position: relative;
 }
 .main-sidebar .accordion-item:hover li a{
-	color: #fff !important;
+	/* color: #fff !important; */
 }
 
 
@@ -2369,7 +2369,7 @@ table .multiple-pdf{
 }
 
 .main-sidebar ul .accordion:hover .nav-link.collapsed{
-	color: #fff !important;
+	color: #333 !important;
 }
 
 .main-sidebar .accordion:hover a{
@@ -2377,7 +2377,7 @@ table .multiple-pdf{
 }
 
 .main-sidebar .accordion:hover a::after{
-	color: #fff !important;
+	/* color: #fff !important; */
 }
 
 .tl-accordion {
@@ -2511,7 +2511,7 @@ table .multiple-pdf{
 }
 
 .main-sidebar .accordion:hover a[data-bs-toggle="collapse"]{
-	color: #fff !important;
+	/* color: #fff !important; */
 }
 .partition-bg-wrap.vision-mission li {
     padding-right: 15px;

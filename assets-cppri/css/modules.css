@@ -872,7 +872,8 @@ a.view:hover {
     padding-bottom: 0px;
     font-weight: normal;
     float: left;
-    width: 100%;}
+    /* width: 100%; */
+}
 .main-content ul li a{display:block; color:inherit; }
 .main-content ul li a:hover{text-decoration:underline;}
 .main-content ul li:last-child{border-bottom:0;}
