@@ -292,7 +292,7 @@
                         </span>
 
                 </div>
-                <div class="last-updated d-flex">
+                <div class="last-updated d-flex align-items-center">
                     <span>
 
                         @if (Session::get('Lang') == 'hi')
@@ -303,7 +303,7 @@
 
                         <strong>
 
-                            <?php echo date('Y-m-d ', strtotime(date('y-m-d'))); ?>
+                            <?php echo date('d-m-Y ', strtotime(date('y-m-d'))); ?>
 
                         </strong>
                     </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

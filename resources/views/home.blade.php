@@ -524,8 +524,13 @@
 
 
     <!-- <div class="wrapper home-banner"> -->
-    <div class="wrapper banner-bg-white">
-        <div class="container common-container four_content banner-container body-container top-body-container pe-0">
+    <div class="wrapper banner-bg-white overflow-hidden">
+    <div class="press-release-overlay"></div>
+
+        <div class="press-release-background-image position-absolute z-index-0">
+            <img src="{{ asset('assets-cppri/images/press-release.png') }}" alt="background image">
+        </div>
+        <div class="container common-container four_content banner-container body-container top-body-container pe-0 z-index-2">
 
             <div class="left-block row py-5 px-0">
                 <div class="col-md-4 col-lg-4">
