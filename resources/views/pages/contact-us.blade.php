@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    {{ __('CPPRI') }}
+    {{ __('CPPRI |'.' '.$title) }}
 @endsection
 @section('content')
     <div class="container common-container mb-20">

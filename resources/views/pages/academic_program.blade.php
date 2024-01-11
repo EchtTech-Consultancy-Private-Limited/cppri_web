@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    {{ __('CPPRI') }}
+    {{ __('CPPRI |'.' '.$title??'') }}
 @endsection
 @section('content')
     <section class="wrapper banner-wrapper">
