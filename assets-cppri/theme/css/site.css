@@ -1606,7 +1606,7 @@ h2.resp-accordion:first-child {}
 
 .resp-tabs-list li.resp-tab-active a {
 	color: var(--primary-color);
-	font-weight: 600;
+	font-weight: bold;
 }
 
 .panel-feed .resp-tabs-list li a {
@@ -2449,6 +2449,14 @@ h2.resp-tab-title:last-child {
     border-radius: 50px;
     border: 1px solid var(--primary-color);
 	transition: all .3s ease-in-out	;
+	line-height: 37px;
+    padding: 0 14px;
+}
+
+.env a.show-menu + .sng-env {
+    opacity: 1;
+    -webkit-transform: rotateX(0deg);
+    transition: all 500ms ease-in-out;
 }
 
 .page-tab-inner {
@@ -2967,15 +2975,16 @@ h2 small {
 .view-footer a {
 	padding: 5px 8px;
     font-size: 65%;
-    margin-top: 5px !important;
+    margin-top: 11px !important;
     text-align: right;
-	display: inline-block;
-	text-decoration: none;
-	float: right;
-	border: 1px solid var(--primary-color);
-	color: var(--primary-color);
-	margin-top: 4px;
-	margin-right: 15px;
+    display: inline-block;
+    text-decoration: none;
+    float: right;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    margin-top: 14px;
+    margin-right: 10px;
+    margin-bottom: 6px;
 }
 
 .view-footer a:hover {
@@ -3201,8 +3210,9 @@ h2 small {
 
 h2.border-bottom-color {
     border-bottom: 5px solid var(--secondary-color);
-    padding-bottom: 12px !important;
+    padding-bottom: 9px !important;
 	display: inline-block;
+	text-transform: none !important;
 }
 
 .banner-content-wrapper h2 {
@@ -3215,7 +3225,7 @@ h2.border-bottom-color {
 	color: var(--primary-color);
 	font-weight: 700;
 	text-transform: capitalize;
-	font-size: 140%;
+	font-size: 115%;
 }
 
 p.banner-title-tag-line {
@@ -3840,10 +3850,10 @@ a{
 }
 
 .page-tab .view-footer a {
-	margin-right: 15px;
-	margin-bottom: 0px;
-	border-radius: var(--button-radius);
-	margin-top: 4px;
+	margin-right: 9px;
+    margin-bottom: 6px;
+    border-radius: var(--button-radius);
+    margin-top: 10px !important;
 }
 
 .body-container .content-wrapper ul.list {
@@ -4150,6 +4160,7 @@ footer .footer-title {
 ul.contact-us-footer li i {
 	color: #ffffff;
 	font-size: 14px;
+	margin-right: 15px;
 }
 
 ul.column-count {
@@ -5605,7 +5616,7 @@ textarea:focus, input:focus{
 
 .bg-white-tender {
     background: #fff;
-    height: 345px;
+    height: 357px;
     margin-top: 11px;
 }
 h2.instagram-c {
@@ -5880,4 +5891,22 @@ span.equalto {
 .employee-directry-type.employee-dir-page h2 {
     font-size: 116% !important;
 	margin-bottom: 0px;
+}
+
+.footer-top-wrapper ul.contact-us-footer li{
+	color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+	display: flex;
+	align-items: baseline;
+}
+
+span#timeid p {
+    font-weight: 600;
+    color: #333;
+}
+
+.timer-date-c span.li_eng.responsive_go_eng {
+    color: #333;
+    font-weight: 600;
 }

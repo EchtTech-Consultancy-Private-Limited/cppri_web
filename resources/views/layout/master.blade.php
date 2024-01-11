@@ -39,10 +39,7 @@
                 <div class="header-right clearfix">
                     <div class="right-content clearfix">
                         <div class="float-element">
-                            <a class="sw-logo Beti_Bachao mr-2" onclick="return confirm('{{ $alertMessage ??'' }}')" target="_blank" href="https://www.pmindia.gov.in/en/government_tr_rec/beti-bachao-beti-padhao-caring-for-the-girl-child/"
-                                title="Beti Bachao Beti Padhao">
-                                <img src="{{ asset('assets-cppri/images/Beti_Bachao.png') }}" alt="Swachh Bharat">
-                            </a>
+                           
                             <a class="sw-logo g20-logo" onclick="return confirm('{{ $alertMessage ??'' }}')" target="_blank" href="https://www.g20.org/en/"
                                 title="G20">
                                 <img src="{{ asset('assets-cppri/images/g20-logo.png') }}" alt="Swachh Bharat">
@@ -50,6 +47,10 @@
                             <a class="sw-logo swachhbharat" onclick="return confirm('{{ $alertMessage ??''}}')" target="_blank" href="https://swachhbharat.mygov.in/"
                                 title="Swachh Bharat">
                                 <img src="{{ asset('assets-cppri/images/swach-bharat.png') }}" alt="Swachh Bharat">
+                            </a>
+                            <a class="sw-logo Beti_Bachao mr-2" onclick="return confirm('{{ $alertMessage ??'' }}')" target="_blank" href="https://www.pmindia.gov.in/en/government_tr_rec/beti-bachao-beti-padhao-caring-for-the-girl-child/"
+                                title="Beti Bachao Beti Padhao">
+                                <img src="{{ asset('assets-cppri/images/Beti_Bachao.png') }}" alt="Swachh Bharat">
                             </a>
                             <a class="sw-logo envelop" onclick="return confirm('{{ $alertMessage  ??''}}')" target="_blank" href="https://www.india.gov.in/"
                                 title="Satyamev Jayate">

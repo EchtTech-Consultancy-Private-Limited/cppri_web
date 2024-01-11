@@ -104,20 +104,20 @@
             <div class="row">
 
                 <div
-                    class="banner-content-wrapper animate__animated animate__backInLeft animate__delay-3s col-md-12 col-lg-8 order-md-2 order-lg-1">
+                    class="banner-content-wrapper animate__animated animate__backInLeft animate__delay-3s col-md-12 col-lg-8 order-md-2 order-lg-1 pe-md-5 p-0">
                     <h2 class="border-bottom-color">
 
                         @if (Session::get('Lang') == 'hi')
-                        {{ __('messages.Welcome_to') }} :
+                        {{ __('messages.Welcome_to') }} 
                         @else
-                        {{ __('messages.Welcome_to') }} :
+                        {{ __('messages.Welcome_to') }} 
                         @endif
 
 
                         <span>CPPRI</span>
                     </h2>
                     <!-- <p class="banner-title-tag-line">Welcome to the website of Ministry/Department, Government of India.</p> -->
-                    <p class="banner-content mb-0">
+                    <p class="banner-content ">
 
                         @if (Session::get('Lang') == 'hi')
                         {{ __('messages.about1') }}
@@ -144,7 +144,7 @@
                 </div>
                 <div
                     class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-12 col-lg-4 order-md-1 order-lg-2">
-                    <div class="minister-box clearfix row">
+                    <div class="minister-box clearfix row px-0">
                         <div class="minister-sub col-md-6">
                             <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
                                     alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>
@@ -525,9 +525,9 @@
 
     <!-- <div class="wrapper home-banner"> -->
     <div class="wrapper banner-bg-white">
-        <div class="container common-container four_content banner-container body-container top-body-container">
+        <div class="container common-container four_content banner-container body-container top-body-container pe-0">
 
-            <div class="left-block row py-5">
+            <div class="left-block row py-5 px-0">
                 <div class="col-md-4 col-lg-4">
                     <div class="left-col-2 ">
                         <div class="page-tab clearfix">
@@ -733,7 +733,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-4 col-lg-4">
+                <div class="col-md-4 col-lg-4 pe-0">
                     <div class="left-col-2">
                         <div class="box-bg-color change-color-code">
                             <div class="tender">
