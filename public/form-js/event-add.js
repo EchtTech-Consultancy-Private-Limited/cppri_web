@@ -52,7 +52,7 @@ var KTAppEventSave = function () {
                 axios.post(crudUrlTemplate.create_event,
                             formData, {
                    }).then(function (response) {
-                   if (response) {
+                   if (response.data.status ==200) {
                      $('#loading').removeClass('loading');
                      $('#loading-content').removeClass('loading-content');
                       toastr.success(

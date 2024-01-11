@@ -155,7 +155,7 @@ var KTDatatablesBasicPaginations = function() {
 									if (history.scrollRestoration) {
 									   history.scrollRestoration = 'manual';
 									}
-									location.href = 'career-list'; // reload page
+									location.href = 'careers-list'; // reload page
 								 }, 1500);
 
 							})

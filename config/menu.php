@@ -1,7 +1,7 @@
 <?php 
 
 return[
-        'dashboard' => 'Dashboards',
+        'dashboard' => 'Dashboard',
         'usermanagement' => 'User Management',
         'permissions' => 'Permissions',
         'employeedirectory' => 'Employee Directory',
@@ -10,13 +10,14 @@ return[
         'RTIassets' => 'RTI Assets',
         'dynamicformpages' => 'Dynamic Form Pages',
         'websitemenu' => 'Website Menu',
-        'websitecoresettings' => 'Website Core Settings',
+        'websitecoresettings' => 'Website Core Setting',
         'homepagebanner' => 'Home Page Banner',
-        'dynamiccontentpage' => 'Pages Content',
+        'dynamiccontentpage' => 'Page Content',
         'gallerymanagement' => 'Gallery Management',
+        'careermanagement' =>'Career Management',
         'newsmanagement' => 'News Management',
-        'tendersmanagement' => 'Tenders Management',
-        'eventsmanagement' => 'Events Management',
+        'tendersmanagement' => 'Tender Management',
+        'eventsmanagement' => 'Event Management',
         'datamanagement' => 'Data Management',
         'modulemanagement' => 'Module Management',
         'logs' => 'Logs',
