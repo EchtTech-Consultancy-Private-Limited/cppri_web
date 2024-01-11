@@ -181,3 +181,9 @@ $(document).ready(function(e) {
 	}
 });
 
+
+
+$('ul.sub-nav-group .env a').focus(()=>{
+	$('ul.sub-nav-group .env a').addClass('show-menu');
+	// alert("Show menu");
+})
