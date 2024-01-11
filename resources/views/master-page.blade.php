@@ -262,13 +262,13 @@
                                 <div class="common-container four_content">
                                    
                                     <div class="row">
-                                    <h3 class="dir-dsk-title mt-0 mb-3">
+                                    <h2 class="dir-dsk-title mt-0 mb-3">
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Director_Desk') }}
                                         @else
                                         {{ __('messages.Director_Desk') }}
                                         @endif
-                                    </h3>
+                                    </h2>
                                         <div class="col-md-4 col-lg-3">
                                             <div class="addevent-box text-center">
                                                 <div class="profile-img">
