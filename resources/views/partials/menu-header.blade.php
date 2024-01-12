@@ -6,206 +6,194 @@
 
 
             @if (isset($headerMenu) && count($headerMenu) > 0)
-            @foreach ($headerMenu as $headerMenus)
-            @php
-            $url = $headerMenus->url ?? 'javascript:void(0)';
-            @endphp
-            @if (isset($headerMenus->children) && count($headerMenus->children) > 0)
-            @if ($headerMenus->tab_type == 1)
-            <li class="nav-item">
-                <a onclick="return confirm('{{ $alertMessage }}')" target="_blank" href="javascript:void(0)">
-                    @if (Session::get('Lang') == 'hi')
-                    {{ $headerMenus->name_hi ?? '' }}
-                    @else
-                    {{ $headerMenus->name_en ?? '' }}
-                    @endif
-                </a>
-                @else
-            <li class="nav-item"><a href="javascript:void(0)">
-                    @if (Session::get('Lang') == 'hi')
-                    {{ $headerMenus->name_hi ?? '' }}
-                    @else
-                    {{ $headerMenus->name_en ?? '' }}
-                    @endif
-                </a>
-                @endif
-                <div class="sub-nav">
-                    <ul class="sub-nav-group">
-                        @foreach ($headerMenus->children as $subMenus)
-                        @php
-                        $subMenusurl = $subMenus->url ?? 'javascript:void(0)';
-                        @endphp
-
-                        @if (isset($subMenus->children) && count($subMenus->children) > 0)
-                        @if ($subMenus->tab_type == 1)
-                        <li class="env">
-                            <a href="javascript:void(0)" onclick="return confirm('{{ $alertMessage }}')"
-                                target="_blank">
-                                @if (Session::get('Lang') == 'hi')
-                                {{ $subMenus->name_hi ?? '' }}
-                                @else
-                                {{ $subMenus->name_en ?? '' }}
-                                @endif
-                            </a>
+                @foreach ($headerMenu as $headerMenus)
+                    @php
+                        $url = $headerMenus->url ?? 'javascript:void(0)';
+                    @endphp
+                    @if (isset($headerMenus->children) && count($headerMenus->children) > 0)
+                        @if ($headerMenus->tab_type == 1)
+                            <li class="nav-item">
+                                <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                                    href="javascript:void(0)">
+                                    @if (Session::get('Lang') == 'hi')
+                                        {{ $headerMenus->name_hi ?? '' }}
+                                    @else
+                                        {{ $headerMenus->name_en ?? '' }}
+                                    @endif
+                                </a>
                             @else
-                        <li class="env">
-                            <a href="javascript:void();" class="sub-menu-drop-f">
-                                @if (Session::get('Lang') == 'hi')
-                                {{ $subMenus->name_hi ?? '' }}
-                                @else
-                                {{ $subMenus->name_en ?? '' }}
-                                @endif
-                            </a>
-                            @endif
+                            <li class="nav-item"><a href="javascript:void(0)">
+                                    @if (Session::get('Lang') == 'hi')
+                                        {{ $headerMenus->name_hi ?? '' }}
+                                    @else
+                                        {{ $headerMenus->name_en ?? '' }}
+                                    @endif
+                                </a>
+                        @endif
+                        <div class="sub-nav">
+                            <ul class="sub-nav-group">
+                                @foreach ($headerMenus->children as $subMenus)
+                                    @php
+                                        $subMenusurl = $subMenus->url ?? 'javascript:void(0)';
+                                    @endphp
 
-                            <ul class="sub-nav-group sng-env">
-                                @foreach ($subMenus->children as $ChildMenus)
-                                @php
-                                $Childurl = $ChildMenus->url ?? 'javascript:void(0)';
-                                @endphp
-                                @if ($ChildMenus->tab_type == 1)
-                                <li><a href="{{ $Childurl ?? '' }}">
-                                        @if (Session::get('Lang') == 'hi')
-                                        {{ $ChildMenus->name_hi ?? '' }}
-                                        @else
-                                        {{ $ChildMenus->name_en ?? '' }}
+                                    @if (isset($subMenus->children) && count($subMenus->children) > 0)
+                                        @if ($subMenus->tab_type == 1)
+                                            <li class="env">
+                                                <a href="javascript:void(0)"
+                                                    onclick="return confirm('{{ $alertMessage }}')" target="_blank">
+                                                    @if (Session::get('Lang') == 'hi')
+                                                        {{ $subMenus->name_hi ?? '' }}
+                                                    @else
+                                                        {{ $subMenus->name_en ?? '' }}
+                                                    @endif
+                                                </a>
+                                            @else
+                                            <li class="env">
+                                                <a href="javascript:void();" class="sub-menu-drop-f">
+                                                    @if (Session::get('Lang') == 'hi')
+                                                        {{ $subMenus->name_hi ?? '' }}
+                                                    @else
+                                                        {{ $subMenus->name_en ?? '' }}
+                                                    @endif
+                                                </a>
                                         @endif
-                                    </a>
-                                </li>
-                                @else
-                                <li><a href="{{ url($url.'/'.$subMenusurl.'/'.$Childurl) ?? '' }}">
-                                        @if (Session::get('Lang') == 'hi')
-                                        {{ $ChildMenus->name_hi ?? '' }}
-                                        @else
-                                        {{ $ChildMenus->name_en ?? '' }}
-                                        @endif
-                                    </a>
-                                </li>
-                                @endif
+                                        <ul class="sub-nav-group sng-env">
+                                            @foreach ($subMenus->children as $ChildMenus)
+                                                @php
+                                                    $ChildMenusurl = $ChildMenus->url ?? 'javascript:void(0)';
+                                                @endphp
 
+                                                @if (isset($ChildMenus->children) && count($ChildMenus->children) > 0)
+                                                    @if ($ChildMenus->tab_type == 1)
+                                                        <li class="env sub-menu-drop-g">
+                                                            <a href="javascript:void(0)"
+                                                                onclick="return confirm('{{ $alertMessage }}')"
+                                                                target="_blank">
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                    {{ $ChildMenus->name_hi ?? '' }}
+                                                                @else
+                                                                    {{ $ChildMenus->name_en ?? '' }}
+                                                                @endif
+                                                            </a>
+                                                        @else
+                                                        <li class="env sub-menu-drop-g">
+                                                            <a href="javascript:void();" class="sub-menu-drop-f">
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                    {{ $ChildMenus->name_hi ?? '' }}
+                                                                @else
+                                                                    {{ $ChildMenus->name_en ?? '' }}
+                                                                @endif
+                                                            </a>
+                                                    @endif
+
+                                                    <ul class="sub-nav-group sng-env">
+                                                        @foreach ($ChildMenus->children as $subChildMenus)
+                                                            @php
+                                                                $subChildurl = $subChildMenus->url ?? 'javascript:void(0)';
+                                                            @endphp
+                                                            @if ($subChildMenus->tab_type == 1)
+                                                                <li><a href="{{ $subChildurl ?? '' }}">
+                                                                        @if (Session::get('Lang') == 'hi')
+                                                                            {{ $subChildMenus->name_hi ?? '' }}
+                                                                        @else
+                                                                            {{ $subChildMenus->name_en ?? '' }}
+                                                                        @endif
+                                                                    </a>
+                                                                </li>
+                                                            @else
+                                                                <li><a
+                                                                        href="{{ url($url . '/' . $subMenusurl . '/' . $ChildMenusurl . '/' . $subChildurl) ?? '' }}">
+                                                                        @if (Session::get('Lang') == 'hi')
+                                                                            {{ $subChildMenus->name_hi ?? '' }}
+                                                                        @else
+                                                                            {{ $subChildMenus->name_en ?? '' }}
+                                                                        @endif
+                                                                    </a>
+                                                                </li>
+                                                            @endif
+                                                        @endforeach
+                                                    </ul>
+                                                    </li>
+                                                @else
+                                                    @if ($ChildMenus->tab_type == 1)
+                                                        <li class="remove-show-class">
+                                                            <a onclick="return confirm('{{ $alertMessage }}')"
+                                                                target="_blank" href="{{ $ChildMenusurl ?? '' }}">
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                    {{ $ChildMenus->name_hi ?? '' }}
+                                                                @else
+                                                                    {{ $ChildMenus->name_en ?? '' }}
+                                                                @endif
+                                                            </a>
+                                                        </li>
+                                                    @else
+                                                        <li class="remove-show-class"><a
+                                                                href="{{ url($url . '/' . $subMenusurl . '/' . $ChildMenusurl) ?? '' }}">
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                    {{ $ChildMenus->name_hi ?? '' }}
+                                                                @else
+                                                                    {{ $ChildMenus->name_en ?? '' }}
+                                                                @endif
+                                                            </a></li>
+                                                    @endif
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                        </li>
+                                    @else
+                                        @if ($subMenus->tab_type == 1)
+                                            <li class="remove-show-class">
+                                                <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                                                    href="{{ $subMenusurl ?? '' }}">
+                                                    @if (Session::get('Lang') == 'hi')
+                                                        {{ $subMenus->name_hi ?? '' }}
+                                                    @else
+                                                        {{ $subMenus->name_en ?? '' }}
+                                                    @endif
+                                                </a>
+                                            </li>
+                                        @else
+                                            <li class="remove-show-class"><a
+                                                    href="{{ url($url . '/' . $subMenusurl) ?? '' }}">
+                                                    @if (Session::get('Lang') == 'hi')
+                                                        {{ $subMenus->name_hi ?? '' }}
+                                                    @else
+                                                        {{ $subMenus->name_en ?? '' }}
+                                                    @endif
+                                                </a></li>
+                                        @endif
+                                    @endif
                                 @endforeach
                             </ul>
+                        </div>
+
                         </li>
-                        @else
-                        @if ($subMenus->tab_type == 1)
-                        <li class="remove-show-class">
-                            <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
-                                href="{{ $subMenusurl ?? '' }}">
-                                @if (Session::get('Lang') == 'hi')
-                                {{ $subMenus->name_hi ?? '' }}
-                                @else
-                                {{ $subMenus->name_en ?? '' }}
-                                @endif
-                            </a>
-                        </li>
-                        @else
-                        <li class="remove-show-class"><a href="{{ url($url.'/'.$subMenusurl) ?? '' }}">
-                                @if (Session::get('Lang') == 'hi')
-                                {{ $subMenus->name_hi ?? '' }}
-                                @else
-                                {{ $subMenus->name_en ?? '' }}
-                                @endif
-                            </a></li>
-                        @endif
-                        @endif
-                        @endforeach
-
-
-                        <!-- fourth menu submenu start -->
-                        <li class="env">
-                            <a href="javascript:void();" class="sub-menu-drop-f " tabindex="0">
-                                Pulping &amp;&nbsp;Bleaching
-                            </a>
-
-                            <ul class="sub-nav-group sng-env">
-                                <li><a href="http://localhost/cppri-website/cppri-website/division/pulping-&amp;-bleaching/objectives-pulping"
-                                        tabindex="0">
-                                        Objectives Pulping
-                                    </a>
-                                </li>
-
-                                <li><a href="http://localhost/cppri-website/cppri-website/division/pulping-&amp;-bleaching/services-offered-pulping"
-                                        tabindex="0">
-                                        Services Offered Pulping
-                                    </a>
-                                </li>
-
-                                <li><a href="http://localhost/cppri-website/cppri-website/division/pulping-&amp;-bleaching/facilities-available-pulping-and-bleaching"
-                                        tabindex="0">
-                                        Facilities Available Pulping and Bleaching
-                                    </a>
-                                </li>
-
-                                <li><a href="http://localhost/cppri-website/cppri-website/division/pulping-&amp;-bleaching/achievements-of-pulping-and-bleaching"
-                                        tabindex="0">
-
-                                        Achievements of Pulping and Bleaching
-                                    </a>
-                                </li>
-
-                                <li class="env sub-menu-drop-g">
-                                    <a href="javascript:void();" class="sub-menu-drop-f " tabindex="0">
-                                        Pulping &amp;&nbsp;Bleaching
-                                    </a>
-
-                                    <ul class="sub-nav-group sng-env">
-                                        <li><a href="http://localhost/cppri-website/cppri-website/division/pulping-&amp;-bleaching/objectives-pulping"
-                                                tabindex="0">
-                                                Objectives Pulping
-                                            </a>
-                                        </li>
-
-                                        <li><a href="http://localhost/cppri-website/cppri-website/division/pulping-&amp;-bleaching/services-offered-pulping"
-                                                tabindex="0">
-                                                Services Offered Pulping
-                                            </a>
-                                        </li>
-
-                                        <li><a href="http://localhost/cppri-website/cppri-website/division/pulping-&amp;-bleaching/facilities-available-pulping-and-bleaching"
-                                                tabindex="0">
-                                                Facilities Available Pulping and Bleaching
-                                            </a>
-                                        </li>
-
-                                      
-
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- fourth menu submenu end -->
-
-                    </ul>
-
-
-
-                </div>
-
-            </li>
-            @else
-            @if ($headerMenus->tab_type == 1)
-            <li class="nav-item">
-                <a onclick="return confirm('{{ $alertMessage }}')" target="_blank" href="{{ $url ?? '' }}">
-                    @if (Session::get('Lang') == 'hi')
-                    {{ $headerMenus->name_hi ?? '' }}
                     @else
-                    {{ $headerMenus->name_en ?? '' }}
+                        @if ($headerMenus->tab_type == 1)
+                            <li class="nav-item">
+                                <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
+                                    href="{{ $url ?? '' }}">
+                                    @if (Session::get('Lang') == 'hi')
+                                        {{ $headerMenus->name_hi ?? '' }}
+                                    @else
+                                        {{ $headerMenus->name_en ?? '' }}
+                                    @endif
+                                </a>
+                            </li>
+                        @else
+                            <li class="nav-item"><a href="{{ url($url) ?? '' }} ">
+                                    @if (Session::get('Lang') == 'hi')
+                                        {{ $headerMenus->name_hi ?? '' }}
+                                    @else
+                                        {{ $headerMenus->name_en ?? '' }}
+                                    @endif
+                                </a></li>
+                        @endif
                     @endif
-                </a>
-            </li>
+                @endforeach
             @else
-            <li class="nav-item"><a href="{{ url($url) ?? '' }} ">
-                    @if (Session::get('Lang') == 'hi')
-                    {{ $headerMenus->name_hi ?? '' }}
-                    @else
-                    {{ $headerMenus->name_en ?? '' }}
-                    @endif
-                </a></li>
-            @endif
-            @endif
-            @endforeach
-            @else
-            <h5>No menu items available.</h5>
+                <h5>No menu items available.</h5>
             @endif
 
 
