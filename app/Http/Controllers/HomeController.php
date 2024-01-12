@@ -486,10 +486,10 @@ class HomeController extends Controller
     //         return view('pages.error');
     //     }
     // }
-    public function getContentAllPages(Request $request, $slug, $middelSlug = null, $lastSlugs = null, $finalSlug = null)
+    public function getContentAllPages(Request $request, $slug, $middelSlug = null, $lastSlugs = null, $finalSlug = null,$finallastSlug = null)
     {
         //dd('hii');
-        $slugsToCheck = [$lastSlugs, $middelSlug, $finalSlug];
+        $slugsToCheck = [$lastSlugs, $middelSlug, $finalSlug,$finallastSlug];
 
         if (in_array("set-language", $slugsToCheck)) {
             session()->put('Lang', $request->data);
@@ -596,7 +596,6 @@ class HomeController extends Controller
             }
 
             if ($menus != '') {
-// dd($finalUrl->name_hi);
                 
                 if ($finalSlug != null) {
 
@@ -668,12 +667,13 @@ class HomeController extends Controller
                 }
                 $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
 
-
                 $dynamic_content_page_metatag = DB::table('dynamic_content_page_metatag')
                     ->where('soft_delete', 0)
                     ->where('menu_uid', $menus->uid)
                     ->orderBy('sort_order', 'ASC')
                     ->get();
+
+                   // dd($dynamic_content_page_metatag);
 
                 if (count($dynamic_content_page_metatag) > 0) {
 
@@ -788,9 +788,13 @@ class HomeController extends Controller
                     }
 
                     if ($finalSlug != null) {
-                        return view('master-page', ['finalBred'=>$finalBred,'parentMenut' => $parentMenut, 'tree' => $tree, 'lastBred' => $lastBred, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
+                      
+                        return view('master-page', ['finalBred'=>$finalBred,'lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name,]);
+           
                     }else if ($lastSlugs != null) {
+
                         return view('master-page', ['lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name,]);
+                  
                     } elseif ($middelSlug != null) {
                         return view('master-page', ['middelBred' => $middelBred, 'content' => $content, 'title_name' => $title_name,]);
                     } else {
