@@ -522,16 +522,16 @@ test.forEach((e) => {
     }
 });
 
-    //          let test = $('.accordion-collapse .accordion-body ul li');
+    //     let test = $('.accordion-collapse .accordion-body ul li');
     //    test.each((e)=>{
     //     console.log(e.hasClass('qm-active'));
     //    })
 
 
-    $('.accordion-item').on('click', function () {
-        // Collapse all other accordion items
-        $('.accordion-item').not(this).find('.collapse').collapse('hide');
-    });
+    // $('.accordion-item').on('click', function () {
+    //     // Collapse all other accordion items
+    //     $('.accordion-item').not(this).find('.collapse').collapse('hide');
+    // });
 });
         // $('.accordion').click((e)=>{
         //    console.log(e.attr('id'))
