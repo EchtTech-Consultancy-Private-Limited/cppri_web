@@ -522,7 +522,7 @@ test.forEach((e) => {
     }
 });
 
-    //     let test = $('.accordion-collapse .accordion-body ul li');
+    //          let test = $('.accordion-collapse .accordion-body ul li');
     //    test.each((e)=>{
     //     console.log(e.hasClass('qm-active'));
     //    })

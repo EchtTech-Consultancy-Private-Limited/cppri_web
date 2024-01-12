@@ -8,7 +8,7 @@ const accordionBtns = document.querySelectorAll(".accordion");
  accordion.onclick = function () {
     this.classList.toggle("is-open");
 
-    let content = this.nextElementSibling;
+         let content = this.nextElementSibling;
     console.log(content);
 
     if (content.style.maxHeight) {

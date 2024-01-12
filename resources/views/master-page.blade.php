@@ -182,7 +182,7 @@
                                                     {!! $organizedData['content']->page_content_en ?? '' !!}
                                                 @endif
                                             </p>
-                                        @endif
+                                              @endif
 
                                     </div>
                                 </div>
