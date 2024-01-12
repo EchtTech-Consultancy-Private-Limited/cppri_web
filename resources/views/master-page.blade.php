@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    {{ __('CPPRI |'.' '.$title_name) }}
+{{ __('CPPRI |'.' '.$title_name) }}
 @endsection
 @section('content')
 <section class="wrapper banner-wrapper">
@@ -134,6 +134,73 @@
                         @endforeach
                         @endif
                     </ul>
+
+  <!-- fourth layer sidebar -->
+
+                    <!-- <ul>
+                        <li class="accordion accordion-flush position-relative sl-accordion" id="sidebarDropdown_0">
+                            <div class="accordion-item">
+                                <div class="list-start" id="flush-headingOne_0">
+                                    <a class="nav-link collapsed " type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseOne_0" aria-expanded="false"
+                                        aria-controls="flush-collapseOne" tabindex="0">
+                                        Pulping &amp;&nbsp;Bleaching
+                                    </a>
+                                </div>
+
+                                <div id="flush-collapseOne_0" class="accordion-collapse collapse "
+                                    aria-labelledby="flush-headingOne_0" data-bs-parent="#sidebarDropdown_0">
+                                    <div class="accordion-body p-0">
+                                        <ul class="p-0 m-0 mt-3">
+ second layer of fourth layer sidebar menu 
+                                            <li class="">
+                                                <ul>
+                                                    <li class="accordion accordion-flush position-relative tl-accordion"
+                                                        id="fourthL_sescond">
+                                                        <div class="accordion-item">
+                                                            <div class="list-start" id="flush_fourthL_sescond">
+                                                                <a class="nav-link collapsed " type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#flush-collapseOne_0"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="flush-collapseOne" tabindex="0">
+                                                                    Pulping &amp;&nbsp;Bleaching
+                                                                </a>
+                                                            </div>
+
+                                                            <div id="flush-collapseOne_0"
+                                                                class="accordion-collapse collapse "
+                                                                aria-labelledby="flush_fourthL_sescond"
+                                                                data-bs-parent="#fourthL_sescond">
+                                                                <div class="accordion-body p-0">
+                                                                    <ul class="p-0 m-0 mt-3">
+
+                                                                        <li class="">
+                                                                            <a href="https://dev.cppri.staggings.in/division/pulping-&amp;-bleaching/objectives-pulping"
+                                                                                class="" tabindex="0">
+
+                                                                                Objectives
+                                                                            </a>
+                                                                        </li>
+
+
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+
+                                        </ul> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                    </ul>
                 </div>
             </div>
             @endif
@@ -189,11 +256,11 @@
                                 <div class="container common-container">
                                     <div class="row p-0 ">
                                         <div class="col-md-12">
-                                        {{-- <a href="javascript:void(0);" title="Click here to Archive" class="archive-btn">Archive</a> --}}
+                                            {{-- <a href="javascript:void(0);" title="Click here to Archive" class="archive-btn">Archive</a> --}}
 
                                             <div class="scroller-tbl">
 
-                                                <table id="example" class="display w-100" >
+                                                <table id="example" class="display w-100">
 
                                                     <thead>
                                                         <tr>
@@ -206,19 +273,21 @@
 
                                                     <tbody>
                                                         @foreach ($organizedData['pdf'] as $data)
-                                                            <tr>
-                                                                <td>{{ $data->pdf_title ?? '' }}</td>
-                                                                <td class="date-nowrap">{{ date('d F Y', strtotime($data->start_date ?? '')) }}
-                                                                </td>
-                                                                <td>
-                                                                    <span>
-                                                                        <a href="{{ asset('resources/uploads/PageContentPdf/' . $data->public_url) }}"
-                                                                            download>View</a> <i class="fa fa-file-pdf-o text-danger"></i>
-                                                                            ({{ $data->pdfimage_size ?? '' }})
-                                                                        
-                                                                    </span>
-                                                                </td>
-                                                            </tr>
+                                                        <tr>
+                                                            <td>{{ $data->pdf_title ?? '' }}</td>
+                                                            <td class="date-nowrap">
+                                                                {{ date('d F Y', strtotime($data->start_date ?? '')) }}
+                                                            </td>
+                                                            <td>
+                                                                <span>
+                                                                    <a href="{{ asset('resources/uploads/PageContentPdf/' . $data->public_url) }}"
+                                                                        download>View</a> <i
+                                                                        class="fa fa-file-pdf-o text-danger"></i>
+                                                                    ({{ $data->pdfimage_size ?? '' }})
+
+                                                                </span>
+                                                            </td>
+                                                        </tr>
                                                         @endforeach
                                                     </tbody>
                                                 </table>
@@ -260,15 +329,15 @@
                             @if (isset($Director) && $Director != '')
                             <section id="paragraph" class="wrapper paragraph-wrapper">
                                 <div class="common-container four_content">
-                                   
+
                                     <div class="row">
-                                    <h2 class="dir-dsk-title mt-0 mb-3">
-                                        @if (Session::get('Lang') == 'hi')
-                                        {{ __('messages.Director_Desk') }}
-                                        @else
-                                        {{ __('messages.Director_Desk') }}
-                                        @endif
-                                    </h2>
+                                        <h2 class="dir-dsk-title mt-0 mb-3">
+                                            @if (Session::get('Lang') == 'hi')
+                                            {{ __('messages.Director_Desk') }}
+                                            @else
+                                            {{ __('messages.Director_Desk') }}
+                                            @endif
+                                        </h2>
                                         <div class="col-md-4 col-lg-3">
                                             <div class="addevent-box text-center">
                                                 <div class="profile-img">

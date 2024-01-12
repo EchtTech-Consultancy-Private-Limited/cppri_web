@@ -6022,3 +6022,14 @@ blockquote {
 .align-lt ul li{
 	width: 100%;
 }
+
+	/* .sub-menu-drop-g:hover .sub-nav-group.sng-env{
+		display: block;
+	} */
+
+	.env.sub-menu-drop-g .sng-env{
+		opacity: 0 ;
+	}
+	.env.sub-menu-drop-g:hover .sng-env{
+		opacity: 1 !important;
+	}

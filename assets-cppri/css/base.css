@@ -2194,7 +2194,7 @@ ul{
 	
 }
 .main-sidebar .menu-active .accordion-item li::after{
-	color: #fff !important;
+	/* color: #fff !important; */
 }
 
 /* .main-sidebar .accordion-item .collapsed{
