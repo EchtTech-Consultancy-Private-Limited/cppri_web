@@ -63,7 +63,7 @@ html[xmlns] .banner-slider .slides {
   transition: all 1s ease;
 }
 .flex-direction-nav {
-  *height: 0;
+  height: 0;
 }
 .flex-direction-nav a {
   text-decoration: none;
@@ -865,7 +865,7 @@ a.view:hover {
 
 /*===========List===========*/
 .list{ padding:0; float: left; width: 100%;overflow: hidden;}
-.main-content ul{float:left;width:100%;}
+.main-content ul{float:left;width:100%; padding-left: 27px !important;}
 .main-content ul li{color: #333333 !important;
     font-size: 91% !important;
     margin-bottom: 5px;
@@ -873,6 +873,7 @@ a.view:hover {
     font-weight: normal;
     float: left;
     /* width: 100%; */
+	
 }
 .main-content ul li a{display:block; color:inherit; }
 .main-content ul li a:hover{text-decoration:underline;}
@@ -887,7 +888,7 @@ span.list-dt{display:block;font-size:90%;color:#666;float:left;width:100%;paddin
 .list-single-arrow ul li{background:url(../images/ico-list-sngl-arrow.png) no-repeat 1px 6px; padding-left:20px;}
 .main-content ul li{ padding-left:0px; list-style-type:square;list-style-position:outside;margin-left:20px;}
 .list-circle ul li{ padding-left:0px; list-style-type:circle;list-style-position:outside;margin-left:20px;}
-.main-content ul li{ padding-left:0px; list-style-type:disc;list-style-position:outside;margin-left:20px;}
+.main-content ul li{ padding-left:0px; list-style-type:disc;list-style-position:outside;margin-left:0px;}
 
 /*===========Base Styles===========*/
 h1,h2,h3,h4,h5,h6{font-weight:700; margin-bottom:20px;color:#212020;}

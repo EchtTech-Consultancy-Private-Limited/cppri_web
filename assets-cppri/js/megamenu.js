@@ -197,6 +197,8 @@ $('.env a.sub-menu-drop-f').focus(function(){
 $(document).ready(function () {  
 
     $("p, h1, h2, h3, h4, h5, h6,a, button,.c-box,.li_eng.responsive_go_eng").attr('tabindex', '0');
+
+
 });
 
 
