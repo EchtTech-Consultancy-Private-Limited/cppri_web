@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function index()
     {
         $titleName = 'Home';
-        return view('home',['title'=>$titleName]);
+        return view('home', ['title' => $titleName]);
     }
 
     //language
@@ -26,122 +26,76 @@ class HomeController extends Controller
         return response()->json(['data' => $request->data, True]);
     }
 
-      //career
-      public function careerData()
-      {
-        $titleName = 'Career';
-         // dd('hii');
-          try {
-              $careerData = []; 
-  
-              $career = DB::table('career_management')
-                  ->where('soft_delete', 0)
-                  ->latest('created_at')
-                  ->get();
-  
-              if (count($career) > 0) {
-                  foreach ($career as $careers) {
-                      $career_pdfs = DB::table('career_management_details')
-                          ->where('soft_delete', 0)
-                          ->where('tender_id', $careers->uid)
-                          ->whereDate('archivel_date', '>', now()->toDateString()) 
-                          ->latest('created_at')
-                          ->get();
-  
-                          $careerData[] = [
-                          'carrer' => $career,
-                          'career_pdfs' => $career_pdfs
-                      ];
-                  }
-              }
-              return view('pages.career', ['title'=>$titleName, 'careerData' => $careerData]);
-  
-  
-          } catch (\Exception $e) {
-              \Log::error('An exception occurred: ' . $e->getMessage());
-              return view('pages.error');
-          } catch (\PDOException $e) {
-              \Log::error('A PDOException occurred: ' . $e->getMessage());
-              return view('pages.error');
-          } catch (\Throwable $e) {
-              // Catch any other types of exceptions that implement the Throwable interface.
-              \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-              return view('pages.error');
-          }
-      }
-  
-      public function careerArchive()
-      {
-        $titleName = 'Career Archive';
-          try {
-              $careerData = []; 
-  
-              $career = DB::table('career_management')
-                  ->where('soft_delete', 0)
-                  ->latest('created_at')
-                  ->get();
-  
-              if (count($career) > 0) {
-                  foreach ($career as $careers) {
-                      $career_pdfs = DB::table('career_management_details')
-                          ->where('soft_delete', 0)
-                          ->where('tender_id', $careers->uid)
-                          ->whereDate('archivel_date', '<', now()->toDateString()) 
-                          ->latest('created_at')
-                          ->get();
-  
-                          $careerData[] = [
-                          'carrer' => $career,
-                          'career_pdfs' => $career_pdfs
-                      ];
-                  }
-              }
-              return view('pages.careerArchive', ['title'=>$titleName,'careerData' => $careerData]);
-  
-  
-          } catch (\Exception $e) {
-              \Log::error('An exception occurred: ' . $e->getMessage());
-              return view('pages.error');
-          } catch (\PDOException $e) {
-              \Log::error('A PDOException occurred: ' . $e->getMessage());
-              return view('pages.error');
-          } catch (\Throwable $e) {
-              // Catch any other types of exceptions that implement the Throwable interface.
-              \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-              return view('pages.error');
-          }
-      }
-
-        //tender
-    public function tenderData()
+    //career
+    public function careerData()
     {
-        $titleName = 'Tender';
-        try {
-            $tenderData = []; 
+        $titleName = 'Career';
+          try {
+        $careerData = [];
 
-            $tenders = DB::table('tender_management')
+        $career = DB::table('career_management')
+            ->where('soft_delete', 0)
+            ->latest('created_at')
+            ->get();
+
+        if (count($career) > 0) {
+            foreach ($career as $careers) {
+                $career_pdfs = DB::table('career_management_details')
+                    ->where('soft_delete', 0)
+                    ->where('career_management_id', $careers->uid)
+                    ->whereDate('archivel_date', '>', now()->toDateString())
+                    ->latest('created_at')
+                    ->get();
+
+                $careerData[] = [
+                    'carrer' => $career,
+                    'career_pdfs' => $career_pdfs
+                ];
+            }
+        }
+        return view('pages.career', ['title' => $titleName, 'careerData' => $careerData]);
+
+
+          } catch (\Exception $e) {
+              \Log::error('An exception occurred: ' . $e->getMessage());
+              return view('pages.error');
+          } catch (\PDOException $e) {
+              \Log::error('A PDOException occurred: ' . $e->getMessage());
+              return view('pages.error');
+          } catch (\Throwable $e) {
+              // Catch any other types of exceptions that implement the Throwable interface.
+              \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+              return view('pages.error');
+          }
+    }
+
+    public function careerArchive()
+    {
+        $titleName = 'Career Archive';
+        try {
+            $careerData = [];
+
+            $career = DB::table('career_management')
                 ->where('soft_delete', 0)
                 ->latest('created_at')
                 ->get();
 
-            if (count($tenders) > 0) {
-                foreach ($tenders as $tender) {
-                    $tender_pdfs = DB::table('tender_details')
+            if (count($career) > 0) {
+                foreach ($career as $careers) {
+                    $career_pdfs = DB::table('career_management_details')
                         ->where('soft_delete', 0)
-                        ->where('tender_id', $tender->uid)
-                        ->whereDate('archivel_date', '>', now()->toDateString()) 
+                        ->where('career_management_id', $careers->uid)
+                        ->whereDate('archivel_date', '<', now()->toDateString())
                         ->latest('created_at')
                         ->get();
 
-                    $tenderData[] = [
-                        'tender' => $tender,
-                        'tender_pdfs' => $tender_pdfs
+                    $careerData[] = [
+                        'carrer' => $career,
+                        'career_pdfs' => $career_pdfs
                     ];
                 }
             }
-            return view('pages.tender', ['title'=>$titleName, 'tenderData' => $tenderData]);
-
-
+            return view('pages.careerArchive', ['title' => $titleName, 'careerData' => $careerData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -155,7 +109,49 @@ class HomeController extends Controller
         }
     }
 
-    public function tenderArchive(){
+    //tender
+    public function tenderData()
+    {
+        $titleName = 'Tender';
+        try {
+            $tenderData = [];
+
+            $tenders = DB::table('tender_management')
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->get();
+
+            if (count($tenders) > 0) {
+                foreach ($tenders as $tender) {
+                    $tender_pdfs = DB::table('tender_details')
+                        ->where('soft_delete', 0)
+                        ->where('tender_id', $tender->uid)
+                        ->whereDate('archivel_date', '>', now()->toDateString())
+                        ->latest('created_at')
+                        ->get();
+
+                    $tenderData[] = [
+                        'tender' => $tender,
+                        'tender_pdfs' => $tender_pdfs
+                    ];
+                }
+            }
+            return view('pages.tender', ['title' => $titleName, 'tenderData' => $tenderData]);
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        }
+    }
+
+    public function tenderArchive()
+    {
         $titleName = 'Tender Archive';
         try {
             $tenderData = []; // Initialize the array to store all tender data
@@ -170,7 +166,7 @@ class HomeController extends Controller
                     $tender_pdfs = DB::table('tender_details')
                         ->where('soft_delete', 0)
                         ->where('tender_id', $tender->uid)
-                        ->whereDate('archivel_date', '<', now()->toDateString()) 
+                        ->whereDate('archivel_date', '<', now()->toDateString())
                         ->latest('created_at')
                         ->get();
 
@@ -180,10 +176,8 @@ class HomeController extends Controller
                     ];
                 }
             }
-          
-            return view('pages.tenderArchive', ['title'=>$titleName ,'tenderData' => $tenderData]);
 
-
+            return view('pages.tenderArchive', ['title' => $titleName, 'tenderData' => $tenderData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -195,7 +189,6 @@ class HomeController extends Controller
             \Log::error('An unexpected exception occurred: ' . $e->getMessage());
             return view('pages.error');
         }
-
     }
     public function contactUs()
     {
@@ -215,7 +208,7 @@ class HomeController extends Controller
             //dd($employee);
 
             return view('pages.contact-us', [
-                'title'=>$titleName ,
+                'title' => $titleName,
                 'employee' => $employee,
                 'CustomCaptch' => $CustomCaptch
             ]);
@@ -358,7 +351,7 @@ class HomeController extends Controller
                     ->where('menu_uid', $menus->uid)
                     ->orderBy('sort_order', 'ASC')
                     ->get();
-                
+
                 if (count($dynamic_content_page_metatag) > 0) {
 
                     $organizedData = [];
@@ -372,7 +365,7 @@ class HomeController extends Controller
                             ->latest('start_date')
                             ->get();
 
-                          //  dd($dynamic_content_page_pdf);
+                        //  dd($dynamic_content_page_pdf);
 
                         $dynamic_page_banner = DB::table('dynamic_page_banner')
                             ->where('soft_delete', 0)
@@ -493,8 +486,9 @@ class HomeController extends Controller
             return view('pages.error');
         }
     }
-    
-    public function rtiData(){
+
+    public function rtiData()
+    {
         $titleName = 'RTI';
         try {
 
@@ -523,9 +517,9 @@ class HomeController extends Controller
                 } else {
                     $content = "Coming Soon...";
                 }
-                return view('pages.rti', ['title'=>$titleName, 'content' => $content]);
+                return view('pages.rti', ['title' => $titleName, 'content' => $content]);
             }
-            return view('pages.rti', ['title'=>$titleName ,'rtiData' => $rtiData]);
+            return view('pages.rti', ['title' => $titleName, 'rtiData' => $rtiData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -550,13 +544,13 @@ class HomeController extends Controller
         $CustomCaptchas = new CustomCaptcha;
         $CustomCaptch = $CustomCaptchas->generateRandomAdditionExpression();
         Session::put('feedbackCapcode', $CustomCaptch['answer']);
-        return view('pages.feedback', ['title'=>$titleName ,'CustomCaptch' => $CustomCaptch]);
+        return view('pages.feedback', ['title' => $titleName, 'CustomCaptch' => $CustomCaptch]);
     }
 
     public function feedbackStore(Request $request)
     {
         if (Session::get('feedbackCapcode') != $request->SecurityCode) {
-            return back()->with('captchaError',"Captcha Invalid!.");
+            return back()->with('captchaError', "Captcha Invalid!.");
         } else {
             $request->validate([
                 'name' => 'required',
@@ -578,7 +572,7 @@ class HomeController extends Controller
     public function siteMap()
     {
         $titleName = 'SITE MAP';
-        return view('pages.siteMap',['title'=>$titleName ]);
+        return view('pages.siteMap', ['title' => $titleName]);
     }
 
     public function ComingSoon()
@@ -589,13 +583,13 @@ class HomeController extends Controller
     public function ScreenReaderAccess()
     {
         $titleName = 'Screen Reader Access';
-        return view('pages.screen_reader_access',['title'=>$titleName ]);
+        return view('pages.screen_reader_access', ['title' => $titleName]);
     }
 
     public function error()
     {
         $titleName = 'Error';
-        return view('pages.error',['title'=>$titleName ]);
+        return view('pages.error', ['title' => $titleName]);
     }
 
     // public function directorDesk()
@@ -701,9 +695,9 @@ class HomeController extends Controller
 
     public function contactStroe(Request $request)
     {
-        
+
         if (Session::get('contactCapcode') != $request->SecurityCode) {
-            return back()->with('captchaError',"Captcha Invalid!.");
+            return back()->with('captchaError', "Captcha Invalid!.");
         } else {
             $request->validate([
                 'name' => 'required',
@@ -724,7 +718,7 @@ class HomeController extends Controller
     public function showPressReleased()
     {
         $titleName = 'Show Press Releaed';
-        return view('pages.press_relesead',['title'=>$titleName ]);
+        return view('pages.press_relesead', ['title' => $titleName]);
     }
     public function photoGallery()
     {
@@ -756,7 +750,7 @@ class HomeController extends Controller
                 $tree = [];
             }
 
-            return view('pages.photo_gallery', ['title'=>$titleName,'tree' => $tree]);
+            return view('pages.photo_gallery', ['title' => $titleName, 'tree' => $tree]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -770,19 +764,15 @@ class HomeController extends Controller
         }
     }
 
-  
+
     public function academicProgram()
     {
         $titleName = 'Academic Program';
-        return view('pages.academic_program',['title'=>$titleName ]);
+        return view('pages.academic_program', ['title' => $titleName]);
     }
     public function trainingProgram()
     {
         $titleName = 'Training';
-        return view('pages.training_program',['title'=>$titleName ]);
+        return view('pages.training_program', ['title' => $titleName]);
     }
-  
 }
-
-
-
