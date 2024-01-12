@@ -533,9 +533,9 @@ test.forEach((e) => {
         $('.accordion-item').not(this).find('.collapse').collapse('hide');
     });
 });
-        $('.accordion').click((e)=>{
-           console.log(e.attr('id'))
-        })
+        // $('.accordion').click((e)=>{
+        //    console.log(e.attr('id'))
+        // })
 	
 
 
@@ -563,16 +563,24 @@ $('.preventnumeric').keypress(function(e) {
     return false;
 });
 
+// let sl_accordion = $('.sl-accordion');
 
-// window.onscroll = function() {myFunction()};
+// sl_accordion.each(function(index, element) {
+//     $(element).click(function(){
+//         alert(this)
+// $(this).addClass('menu-accordion-click');
+//     })
+// });
+$(document).ready(function() {
+    let sl_accordion = $('.sl-accordion');
 
-// var navbar = document.getElementById("mainsidebar");
-// var sticky = navbar.offsetTop;
+    sl_accordion.click(function() {
+        // Remove the 'menu-accordion-click' class from all elements with the class '.sl-accordion'
+        // sl_accordion.removeClass('menu-accordion-click');
 
-// function myFunction() {
-//   if (window.pageYOffset >= sticky) {
-//     navbar.classList.add("sticky")
-//   } else {
-//     navbar.classList.remove("sticky");
-//   }
-// }
+        // Add the 'menu-accordion-click' class to the clicked element
+        $(this).toggleClass('menu-accordion-click');
+        // alert('click');
+
+    });
+});
