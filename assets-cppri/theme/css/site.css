@@ -6093,34 +6093,16 @@ blockquote {
 	{
 		color: #fff ;
 	}
-	.sticky-sidebar{
-		position: fixed;
-		top: 0;
-	}
-
+	
 
 
 	/* ghhhhhhhhhhhhhhhhhhhhhhhh */
 
 
-	.sticky {
-		position: fixed;
-		top: 0;
-		width: 100%;
-	  }
-	  
-	  .sticky + .content {
-		padding-top: 60px;
-	  }
-
-
-	  #main-sidebar.fixed {
-		position: fixed;
-		top: 0;
-	}
-
+	
 	.stickySidebar {
-	position: fixed;
-	top: 0;
+		position: fixed;
+		top: 5%;
+		transition: 0.2s ease-in-out;
 	}
 	
