@@ -2194,7 +2194,7 @@ ul{
 	
 }
 .main-sidebar .menu-active .accordion-item li::after{
-	color: #fff !important;
+	/* color: #fff !important; */
 }
 
 /* .main-sidebar .accordion-item .collapsed{
@@ -2369,7 +2369,7 @@ table .multiple-pdf{
 }
 
 .main-sidebar ul .accordion:hover .nav-link.collapsed{
-	color: #333 !important;
+	color: #fff !important;
 }
 
 .main-sidebar .accordion:hover a{
@@ -2515,8 +2515,10 @@ table .multiple-pdf{
 }
 .partition-bg-wrap.vision-mission li {
     padding-right: 15px;
+    color: #FFF !important;
+    list-style: none;
+    margin: 0;
 }
-
 .overflow-auto-org {
     overflow: auto;
 }

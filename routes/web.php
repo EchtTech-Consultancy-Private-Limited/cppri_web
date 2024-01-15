@@ -62,7 +62,7 @@ Route::get('tender-archive', [HomeController::class,'tenderArchive']);
 Route::get('/career', [HomeController::class,'careerData'])->name('careerData');
 Route::get('career-archive', [HomeController::class,'careerArchive']);
 
-Route::get('/{Slug}/{middelSlug?}/{lastSlug?}/{finalSlug?}', [HomeController::class, 'getContentAllPages']);
+Route::get('/{Slug}/{middelSlug?}/{lastSlug?}/{finalSlug?}/{finallastSlug?}', [HomeController::class, 'getContentAllPages']);
 });
 
 

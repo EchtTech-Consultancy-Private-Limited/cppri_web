@@ -58,32 +58,86 @@
                                                     @endif
                                                 </a>
                                         @endif
-
                                         <ul class="sub-nav-group sng-env">
                                             @foreach ($subMenus->children as $ChildMenus)
                                                 @php
-                                                    $Childurl = $ChildMenus->url ?? 'javascript:void(0)';
+                                                    $ChildMenusurl = $ChildMenus->url ?? 'javascript:void(0)';
                                                 @endphp
-                                                @if ($ChildMenus->tab_type == 1)
-                                                    <li><a href="{{ $Childurl ?? '' }}">
-                                                            @if (Session::get('Lang') == 'hi')
-                                                                {{ $ChildMenus->name_hi ?? '' }}
+
+                                                @if (isset($ChildMenus->children) && count($ChildMenus->children) > 0)
+                                                    @if ($ChildMenus->tab_type == 1)
+                                                        <li class="env sub-menu-drop-g">
+                                                            <a href="javascript:void(0)"
+                                                                onclick="return confirm('{{ $alertMessage }}')"
+                                                                target="_blank">
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                    {{ $ChildMenus->name_hi ?? '' }}
+                                                                @else
+                                                                    {{ $ChildMenus->name_en ?? '' }}
+                                                                @endif
+                                                            </a>
+                                                        @else
+                                                        <li class="env sub-menu-drop-g">
+                                                            <a href="javascript:void();" class="sub-menu-drop-f">
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                    {{ $ChildMenus->name_hi ?? '' }}
+                                                                @else
+                                                                    {{ $ChildMenus->name_en ?? '' }}
+                                                                @endif
+                                                            </a>
+                                                    @endif
+
+                                                    <ul class="sub-nav-group sng-env">
+                                                        @foreach ($ChildMenus->children as $subChildMenus)
+                                                            @php
+                                                                $subChildurl = $subChildMenus->url ?? 'javascript:void(0)';
+                                                            @endphp
+                                                            @if ($subChildMenus->tab_type == 1)
+                                                                <li><a href="{{ $subChildurl ?? '' }}">
+                                                                        @if (Session::get('Lang') == 'hi')
+                                                                            {{ $subChildMenus->name_hi ?? '' }}
+                                                                        @else
+                                                                            {{ $subChildMenus->name_en ?? '' }}
+                                                                        @endif
+                                                                    </a>
+                                                                </li>
                                                             @else
-                                                                {{ $ChildMenus->name_en ?? '' }}
+                                                                <li><a
+                                                                        href="{{ url($url . '/' . $subMenusurl . '/' . $ChildMenusurl . '/' . $subChildurl) ?? '' }}">
+                                                                        @if (Session::get('Lang') == 'hi')
+                                                                            {{ $subChildMenus->name_hi ?? '' }}
+                                                                        @else
+                                                                            {{ $subChildMenus->name_en ?? '' }}
+                                                                        @endif
+                                                                    </a>
+                                                                </li>
                                                             @endif
-</a>
+                                                        @endforeach
+                                                    </ul>
                                                     </li>
                                                 @else
-                                                    <li><a href="{{ url($url.'/'.$subMenusurl.'/'.$Childurl) ?? '' }}">
-                                                            @if (Session::get('Lang') == 'hi')
-                                                                {{ $ChildMenus->name_hi ?? '' }}
-                                                            @else
-                                                                {{ $ChildMenus->name_en ?? '' }}
-                                                            @endif
-</a>
-                                                    </li>
+                                                    @if ($ChildMenus->tab_type == 1)
+                                                        <li class="remove-show-class">
+                                                            <a onclick="return confirm('{{ $alertMessage }}')"
+                                                                target="_blank" href="{{ $ChildMenusurl ?? '' }}">
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                    {{ $ChildMenus->name_hi ?? '' }}
+                                                                @else
+                                                                    {{ $ChildMenus->name_en ?? '' }}
+                                                                @endif
+                                                            </a>
+                                                        </li>
+                                                    @else
+                                                        <li class="remove-show-class"><a
+                                                                href="{{ url($url . '/' . $subMenusurl . '/' . $ChildMenusurl) ?? '' }}">
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                    {{ $ChildMenus->name_hi ?? '' }}
+                                                                @else
+                                                                    {{ $ChildMenus->name_en ?? '' }}
+                                                                @endif
+                                                            </a></li>
+                                                    @endif
                                                 @endif
-                                                
                                             @endforeach
                                         </ul>
                                         </li>
@@ -100,7 +154,8 @@
                                                 </a>
                                             </li>
                                         @else
-                                            <li class="remove-show-class"><a href="{{ url($url.'/'.$subMenusurl) ?? '' }}">
+                                            <li class="remove-show-class"><a
+                                                    href="{{ url($url . '/' . $subMenusurl) ?? '' }}">
                                                     @if (Session::get('Lang') == 'hi')
                                                         {{ $subMenus->name_hi ?? '' }}
                                                     @else
