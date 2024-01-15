@@ -593,3 +593,83 @@ $(document).ready(function() {
     fl_n_accordion.click
 
 });
+
+
+// sticky sidebar
+// console.log("sticky abnr")
+// $(document).ready(function () {
+//     var $window = $(window);
+//     var $sidebar = $(".main-sidebar");
+//     var $footerOffsetTop = $(".footer-wrapper").offset().top;
+//     var $sidebarOffset = $sidebar.offset();
+//     var $sidebarHeight = $sidebar.innerHeight();
+
+//     $window.scroll(function () {
+//         if ($window.scrollTop() > $sidebarOffset.top) {
+//             $sidebar.addClass("sticky-sidebar");
+//             console.log('working fine')
+//         } else {
+//             $sidebar.removeClass("sticky-sidebar");
+//         }
+
+//         if ($window.scrollTop() + $window.innerHeight() > $footerOffsetTop) {
+//             $sidebar.css({ "top": $footerOffsetTop - $window.scrollTop() - $sidebarHeight });
+//         } else {
+//             $sidebar.css({ "top": "0" });
+//         }
+//     });
+
+//     console.log("This is a sticky sidebar");
+// });
+
+
+$(function () {
+   
+});
+
+
+
+window.onscroll = function() {stickySidebar()};
+var $sidebar = $('#main-sidebar');
+console.log($sidebar)
+var top = $sidebar.offset().top - parseFloat($sidebar.css('marginTop').replace('auto', 0));
+console.log("top", top)
+console.log(top)
+var footTop = $('.footer-wrapper').offset().top - parseFloat($('.footer-wrapper').css('marginTop').replace('auto', 0));
+var maxY = footTop - $sidebar.outerHeight();
+console.log(maxY)
+console.log(top.innerHeight)
+$(window).scroll(function () {
+   
+});
+
+
+function stickySidebar() {
+    var y = $(this).scrollTop();
+    console.log('Scroll Position:', y);
+
+
+    if (y > top.innerHeight) {
+        if (y < maxY) {
+            $sidebar.addClass('stickySidebar').css('top', '');
+            console.log('Adding stickySidebar class');
+        } else {
+            $sidebar.removeClass('stickySidebar').css({
+                position: 'absolute',
+                // top: maxY + top.innerHeight + 'px'
+            });
+            console.log('Removing stickySidebar class');
+        }
+    } else {
+        $sidebar.removeClass('stickySidebar').css('top', '');
+        console.log('Removing stickySidebar class');
+    }
+}
+
+// Log initial values
+console.log('Initial top:', top);
+console.log('Initial maxY:', maxY);
+
+// Attach the function to the scroll event
+$(window).scroll(stickySidebar);
+
