@@ -66,9 +66,9 @@
         <!--/.nav-wrapper-->
         <div class="row pr-0">
             @if (isset($parentMenut) != '')
-            <div class="col-md-3 sidebar-main-nav-colmd3">
+            <div class="col-md-3 sidebar-main-nav-colmd3 position-relative">
 
-                <div class="main-sidebar">
+                <div class="main-sidebar" id="main-sidebar">
                     <ul>
                         @if (isset($tree) && count($tree) > 0)
                         @foreach ($tree as $index => $trees)
@@ -143,13 +143,13 @@
 
 
                         <!-- fourth layer sidebar -->
-    <li class="accordion accordion-flush position-relative fl-accordion" id="fl_sidebarDropdown_1">
+                        <!-- <li class="accordion accordion-flush position-relative fl-accordion" id="fl_sidebarDropdown_1">
                             <div class="accordion-item">
                                 <div class="list-start" id="fl_flush_headingOne_3">
                                     <a class="nav-link collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#fl_flush_collapseOne_1" aria-expanded="false"
                                         aria-controls="flush-collapseOne" tabindex="0">
-                                       Thid Layer
+                                        Thid Layer
                                     </a>
                                 </div>
 
@@ -160,22 +160,20 @@
                                         <ul class="p-0 m-0 mt-3">
 
                                             <li class="">
-                                                <a href="http://localhost/cppri-website/cppri-website/about-us/paper-museum-kagaj-sangralya/objective-of-paper-museum"
-                                                    class="" tabindex="0">
+                                                <a href="#" class="" tabindex="0">
 
                                                     Item 1
                                                 </a>
                                             </li>
 
                                             <li class="">
-                                                <a href="http://localhost/cppri-website/cppri-website/about-us/paper-museum-kagaj-sangralya/about-the-museum"
-                                                    class="" tabindex="0">
+                                                <a href="#" class="" tabindex="0">
 
-                                                   Item 2
+                                                    Item 2
                                                 </a>
                                             </li>
 
-                                            <!-- nested layer -->
+                                          
                                             <li class="accordion accordion-flush position-relative fl-n-accordion"
                                                 id="fl_sidebarDropdown_n_1">
                                                 <div class="accordion-item">
@@ -197,26 +195,23 @@
                                                             <ul class="p-0 m-0 mt-3">
 
                                                                 <li class="">
-                                                                    <a href="http://localhost/cppri-website/cppri-website/about-us/paper-museum-kagaj-sangralya/objective-of-paper-museum"
-                                                                        class="" tabindex="0">
+                                                                    <a href="#" class="" tabindex="0">
 
-                                                                       Item 1
+                                                                        Item 1
                                                                     </a>
                                                                 </li>
 
                                                                 <li class="">
-                                                                    <a href="http://localhost/cppri-website/cppri-website/about-us/paper-museum-kagaj-sangralya/about-the-museum"
-                                                                        class="" tabindex="0">
+                                                                    <a href="#" class="" tabindex="0">
 
                                                                         Item 2
                                                                     </a>
                                                                 </li>
 
                                                                 <li class="">
-                                                                    <a href="http://localhost/cppri-website/cppri-website/about-us/paper-museum-kagaj-sangralya/historical-perspective"
-                                                                        class="" tabindex="0">
+                                                                    <a href="#" class="" tabindex="0">
 
-                                                                       Item 3
+                                                                        Item 3
                                                                     </a>
                                                                 </li>
                                                             </ul>
@@ -225,13 +220,13 @@
                                                 </div>
 
                                             </li>
-                                            <!-- nested layer -->
+                                           
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
-                        </li>
+                        </li> -->
                         <!-- fourth layer sidebar -->
                         <!-- first and second -->
 
@@ -376,7 +371,7 @@
                                             {{ __('messages.Director_Desk') }}
                                             @endif
                                         </h2>
-                                        <div class="col-md-4 col-lg-3">
+                                        <!-- <div class="col-md-4 col-lg-3">
                                             <div class="addevent-box text-center">
                                                 <div class="profile-img">
                                                     @if ($Director->public_url != '')
@@ -412,8 +407,43 @@
 
 
                                             </div>
-                                        </div>
-                                        <div class="col-md-8 col-lg-9">
+                                        </div> -->
+                                        <div class="col-md-12 col-lg-12">
+                                            <div class="addevent-box text-center">
+                                                <div class="profile-img">
+                                                    @if ($Director->public_url != '')
+                                                    <img src="{{ asset('resources/uploads/empDirectory/' . $Director->public_url) }}"
+                                                        alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                        title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                        loading="lazy">
+                                                    @else
+                                                    <img src="{{ asset('assets-cppri/images/profile--.jpg') }}"
+                                                        alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                        title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                        loading="lazy">
+                                                    @endif
+
+
+                                                    <h4 class="pb-10" tabindex="0">
+
+                                                        @if (Session::get('Lang') == 'hi')
+                                                        {{ $Director->fname_hi ?? '' }}
+                                                        {{ $Director->mname_hi ?? '' }}
+                                                        {{ $Director->lname_hi ?? '' }}
+                                                        @else
+                                                        {{ $Director->fname_en ?? '' }}
+                                                        {{ $Director->mname_en ?? '' }}
+                                                        {{ $Director->lname_en ?? '' }}
+                                                        @endif
+
+
+
+                                                    </h4>
+                                                </div>
+
+
+
+                                            </div>
                                             <p>
 
 
