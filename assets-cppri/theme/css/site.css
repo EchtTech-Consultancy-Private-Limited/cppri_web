@@ -5559,13 +5559,16 @@ textarea:focus, input:focus{
 }
 .addevent-box 
 {
-	margin-bottom: 16px;
+	width: 210px;
+    height: 270px;
+    float: left;
+    margin: 0 23px 5px 0px;
 }
 
 .contact-page-map
 {
 	width:100%;
-	height:650px;
+	height:673px;
     border: 0;
 }
 .sub-sec h2 .img-b {
@@ -5976,7 +5979,16 @@ span#timeid p {
 .main-content ul {
     margin-left: 15px;
 }
+.main-content ul ul{
+	margin-top: 10px !important;
+    font-size: 14px !important;
+    margin: 0;
+    padding-left: 19px !important;
+}
 
+.main-content ul li ul li{
+	font-size: 14px !important;
+}
 blockquote {
     font-size: 100%;
 	text-transform: none !important;
@@ -6070,6 +6082,45 @@ blockquote {
 		color: #000 !important;
 	}
 
-
+	.main-sidebar .accordion.fl-accordion .accordion-item:hover .nav-link.collapsed::after{
+		color: #333;
+	}
+	
 
 	/* fourth layer accordion css */
+
+	.main-sidebar .accordion-item:hover .nav-link.collapsed::after
+	{
+		color: #fff ;
+	}
+	.sticky-sidebar{
+		position: fixed;
+		top: 0;
+	}
+
+
+
+	/* ghhhhhhhhhhhhhhhhhhhhhhhh */
+
+
+	.sticky {
+		position: fixed;
+		top: 0;
+		width: 100%;
+	  }
+	  
+	  .sticky + .content {
+		padding-top: 60px;
+	  }
+
+
+	  #main-sidebar.fixed {
+		position: fixed;
+		top: 0;
+	}
+
+	.stickySidebar {
+	position: fixed;
+	top: 0;
+	}
+	
