@@ -528,10 +528,10 @@ test.forEach((e) => {
     //    })
 
 
-    $('.accordion-item').on('click', function () {
-        // Collapse all other accordion items
-        $('.accordion-item').not(this).find('.collapse').collapse('hide');
-    });
+    // $('.accordion-item').on('click', function () {
+    //     // Collapse all other accordion items
+    //     $('.accordion-item').not(this).find('.collapse').collapse('hide');
+    // });
 });
         // $('.accordion').click((e)=>{
         //    console.log(e.attr('id'))
@@ -575,12 +575,21 @@ $(document).ready(function() {
     let sl_accordion = $('.sl-accordion');
 
     sl_accordion.click(function() {
-        // Remove the 'menu-accordion-click' class from all elements with the class '.sl-accordion'
-        // sl_accordion.removeClass('menu-accordion-click');
-
-        // Add the 'menu-accordion-click' class to the clicked element
+       
         $(this).toggleClass('menu-accordion-click');
         // alert('click');
 
     });
+    let fl_accordion = $('.fl-accordion');
+   
+
+    fl_accordion.click(function() {
+       
+        $(this).addClass('fl-accordion-active');
+        // alert('click');
+
+    });
+    let fl_n_accordion =$('.fl-n-accordion');
+    fl_n_accordion.click
+
 });
