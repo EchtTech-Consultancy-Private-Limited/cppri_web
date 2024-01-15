@@ -187,7 +187,7 @@ $('ul.sub-nav-group .remove-show-class a').focus(function(){
 })
 
 $('.env a.sub-menu-drop-f').focus(function(){
-	$('a.sub-menu-drop-f.show-menu').removeClass('show-menu');		
+	$('a.sub-menu-drop-f.show-menu').removeClass('show-menu');		 	
 	$(this).addClass('show-menu');
 })
 

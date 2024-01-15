@@ -115,6 +115,7 @@
                                                 </a>
                                             </li>
                                             @endforeach
+
                                         </ul>
                                     </div>
                                 </div>
@@ -142,88 +143,105 @@
 
 
                         <!-- fourth layer sidebar -->
+    <li class="accordion accordion-flush position-relative fl-accordion" id="fl_sidebarDropdown_1">
+                            <div class="accordion-item">
+                                <div class="list-start" id="fl_flush_headingOne_3">
+                                    <a class="nav-link collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#fl_flush_collapseOne_1" aria-expanded="false"
+                                        aria-controls="flush-collapseOne" tabindex="0">
+                                       Thid Layer
+                                    </a>
+                                </div>
 
-                        <!-- fourth layer sidebar -->
-                        <!-- first and second -->
-                        <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Accordion Item #1
-            </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
+                                <div id="fl_flush_collapseOne_1" class="accordion-collapse collapse"
+                                    aria-labelledby="fl_flush_headingOne_3" data-bs-parent="#fl_sidebarDropdown_1"
+                                    style="">
+                                    <div class="accordion-body p-0">
+                                        <ul class="p-0 m-0 mt-3">
 
-                <div class="accordion" id="sub-accordionExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="sub-headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Accordion Item #1
-                            </button>
-                        </h2>
-                        <div id="sub-collapseOne" class="accordion-collapse collapse show" aria-labelledby="sub-headingOne" data-bs-parent="#sub-accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the first item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="sub-headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseTwo" aria-expanded="false" aria-controls="sub-collapseTwo">
-                                Accordion Item #2
-                            </button>
-                        </h2>
-                        <div id="sub-collapseTwo" class="accordion-collapse collapse" aria-labelledby="sub-headingTwo" data-bs-parent="#sub-accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                            <li class="">
+                                                <a href="http://localhost/cppri-website/cppri-website/about-us/paper-museum-kagaj-sangralya/objective-of-paper-museum"
+                                                    class="" tabindex="0">
 
-    </div>
-</div>
-</div>
-<div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Accordion Item #2
-        </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-    </div>
-</div>
-<div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Accordion Item #3
-        </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-    </div>
-</div>
-</div>               
-                                            <!-- third and fourth layer end -->
-                                           
+                                                    Item 1
+                                                </a>
+                                            </li>
+
+                                            <li class="">
+                                                <a href="http://localhost/cppri-website/cppri-website/about-us/paper-museum-kagaj-sangralya/about-the-museum"
+                                                    class="" tabindex="0">
+
+                                                   Item 2
+                                                </a>
+                                            </li>
+
+                                            <!-- nested layer -->
+                                            <li class="accordion accordion-flush position-relative fl-n-accordion"
+                                                id="fl_sidebarDropdown_n_1">
+                                                <div class="accordion-item">
+                                                    <div class="list-start" id="fl_flush_headingOne_n_1">
+                                                        <a class="nav-link collapsed" type="button"
+                                                            data-bs-toggle="collapse"
+                                                            data-bs-target="#fl_flush_collapseOne_n_1"
+                                                            aria-expanded="false" aria-controls="flush-collapseOne"
+                                                            tabindex="0">
+                                                            Fourth Layer
+                                                        </a>
+                                                    </div>
+
+                                                    <div id="fl_flush_collapseOne_n_1"
+                                                        class="accordion-collapse collapse"
+                                                        aria-labelledby="fl_flush_headingOne_n_1"
+                                                        data-bs-parent="#fl_sidebarDropdown_n_1" style="">
+                                                        <div class="accordion-body p-0">
+                                                            <ul class="p-0 m-0 mt-3">
+
+                                                                <li class="">
+                                                                    <a href="http://localhost/cppri-website/cppri-website/about-us/paper-museum-kagaj-sangralya/objective-of-paper-museum"
+                                                                        class="" tabindex="0">
+
+                                                                       Item 1
+                                                                    </a>
+                                                                </li>
+
+                                                                <li class="">
+                                                                    <a href="http://localhost/cppri-website/cppri-website/about-us/paper-museum-kagaj-sangralya/about-the-museum"
+                                                                        class="" tabindex="0">
+
+                                                                        Item 2
+                                                                    </a>
+                                                                </li>
+
+                                                                <li class="">
+                                                                    <a href="http://localhost/cppri-website/cppri-website/about-us/paper-museum-kagaj-sangralya/historical-perspective"
+                                                                        class="" tabindex="0">
+
+                                                                       Item 3
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </li>
+                                            <!-- nested layer -->
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
                         </li>
+                        <!-- fourth layer sidebar -->
+                        <!-- first and second -->
+
+                        <!-- third and fourth layer end -->
 
                     </ul>
                 </div>
             </div>
+
+
             @endif
 
             @if (isset($parentMenut))
@@ -571,7 +589,8 @@
                                                             ?>
 
                                             <p class="email-text-styl"><i class="fa fa-envelope-o mr-2 w-10"
-                                                    aria-hidden="true"></i> <span class="w-90">{{ $email }}</span>
+                                                    aria-hidden="true"></i>
+                                                <span class="w-90">{{ $email }}</span>
                                             </p>
 
                                         </div>
@@ -591,4 +610,5 @@
             </div>
         </div>
     </div>
+
     @endsection

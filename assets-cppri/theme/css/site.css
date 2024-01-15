@@ -6033,3 +6033,43 @@ blockquote {
 	.env.sub-menu-drop-g:hover .sng-env{
 		opacity: 1 !important;
 	}
+	.env.sub-menu-drop-g:hover .sng-env.fl_sng_env{
+		z-index: 99999;
+	}
+
+	/* fourth layer accordion css */
+
+	.main-sidebar .accordion.fl-n-accordion::after {
+		content: '';
+	}
+
+
+	.main-sidebar .accordion.fl-accordion:hover .nav-link.collapsed{
+		color: #333 !important;
+	}
+	.main-sidebar .accordion.fl-accordion:hover {
+		background-color: #49aa41;
+	}
+	.main-sidebar .accordion.fl-accordion .list-start:hover a::before, .main-sidebar .accordion.fl-accordion:hover a::before {
+		color: #fff !important;
+	}
+	.main-sidebar .accordion.fl-accordion:hover .nav-link.collapsed{
+		color: #fff !important;
+	}
+	.main-sidebar .accordion.fl-accordion.fl-accordion-active:hover, .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover {
+		background-color: #f9f9f9;
+	}
+	.main-sidebar .accordion.fl-accordion.fl-accordion-active .list-start:hover a::before, .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover a::before {
+		color: #49aa41 !important;
+	}
+
+	.main-sidebar ul .accordion.fl-n-accordion:hover .nav-link.collapsed {
+		color: #333 !important;
+	}
+	.main-sidebar .accordion.fl-accordion:hover .fl-n-accordion .nav-link.collapsed{
+		color: #000 !important;
+	}
+
+
+
+	/* fourth layer accordion css */
