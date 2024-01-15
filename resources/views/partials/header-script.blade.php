@@ -10,7 +10,7 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="apple-touch-icon" href="{{ asset('assets-cppri/images/favicon.ico') }}">
+<link rel="apple-touch-icon" href="{{ asset('assets-cppri/images/flag.jpg') }}">
 <link href="{{ asset('assets-cppri/css/base.css') }}" rel="stylesheet">
 <link href="{{ asset('assets-cppri/css/base-responsive.css') }}" rel="stylesheet">
 <link href="{{ asset('assets-cppri/css/grid.css') }}" rel="stylesheet" media="all">

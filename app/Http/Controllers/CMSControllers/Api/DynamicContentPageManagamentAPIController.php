@@ -99,6 +99,7 @@ class DynamicContentPageManagamentAPIController extends Controller
                         'meta_tag' => $request->meta_tag,
                         'meta_tag_description' => $request->meta_description,
                         'meta_keywords' => $request->meta_keywords,
+                        'sort_order' => $request->sort_order??'',
                     ]);
                 
             if($result == true)
@@ -373,6 +374,7 @@ class DynamicContentPageManagamentAPIController extends Controller
                         'meta_tag' => $request->meta_tag,
                         'meta_tag_description' => $request->meta_description,
                         'meta_keywords' => $request->meta_keywords,
+                        'sort_order' => $request->sort_order??'0',
                     ]);
                 
             if($result == true)
