@@ -198,7 +198,7 @@
                   <div class="col-md-3 text-md-end">
                      <!--begin::Label-->
                      <label class="fs-6 fw-semibold form-label mt-3">
-                        <span class="required">Meta Keywords</span>
+                        <span class="required">Short Order</span>
                         <span class="ms-1"  data-bs-toggle="tooltip" title="Set keywords for the store separated by a comma." >
                         <i class="ki-outline ki-information-5 text-gray-500 fs-6"></i></span>           
                      </label>
@@ -206,7 +206,7 @@
                   </div>
                   <div class="col-md-9">
                      <!--begin::Input-->
-                     <input type="text" class="form-control form-control-solid" name="meta_keywords" value="" data-kt-ecommerce-settings-type="tagify" />
+                     <input type="number" class="form-control form-control-solid" name="sort_order" value="" data-kt-ecommerce-settings-type="tagify" />
                      <!--end::Input-->
                   </div>
                </div>
