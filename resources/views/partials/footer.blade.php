@@ -215,7 +215,7 @@
                                     2714059</li>
                             <li><i class="fa fa-fax"></i> (0132)-2714052</li>
                             <li><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                            director[dot]cppri[at]gmail.com
+                            director[dot]cppri[at]gmail[dot]com
                             </li>
                             <li>
                                 <div class="footer-img-logo">
@@ -223,6 +223,7 @@
                                 </div>
                             </li>
                         </ul>
+                        
                     </div>
                 </div>
             </div>

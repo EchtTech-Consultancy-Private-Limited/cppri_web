@@ -87,11 +87,10 @@
                                                     <thead>
                                                         <tr>
                                                             <th> Title</th>
-                                                            <th> Date</th>
+                                                            <th>Published Date</th>
                                                             <th> View/Download</th>
                                                         </tr>
                                                     </thead>
-
 
                                                     <tbody>
                                                         @foreach ($tenderData as $data)

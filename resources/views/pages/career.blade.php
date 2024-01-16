@@ -60,6 +60,7 @@
                             <h1>{{ $content }}</h1>
                         @endif
 
+                        
                         <!--/#page-head-->
                         @if (isset($careerData) && count($careerData) > 0)
                             <section id="datatable">
@@ -75,13 +76,14 @@
                                                     <thead>
                                                         <tr>
                                                             <th> Title</th>
-                                                            <th> Date</th>
+                                                            <th>Published Date</th>
                                                             <th> View/Download</th>
                                                         </tr>
                                                     </thead>
 
                                                     <tbody>
                                                         @foreach ($careerData as $data)
+                                                        
                                                           @if(count($data['career_pdfs']) > 0 ) 
                                                             <tr>
                                                                 <td>{{ $data['career']->title_name_en ?? '' }}</td>
@@ -96,7 +98,6 @@
                                                                         </i></span>
                                                                     @endforeach
                                                                 </td>
-
                                                             </tr>
                                                           @endif  
                                                         @endforeach

@@ -29,44 +29,43 @@ class HomeController extends Controller
     //career
     public function careerData()
     {
-        $titleName = 'Career';
-          try {
-        $careerData = [];
+        $titleName = 'Carrer';
+        try {
+            $careerData = [];
 
-        $career = DB::table('career_management')
-            ->where('soft_delete', 0)
-            ->latest('created_at')
-            ->get();
+            $career = DB::table('career_management')
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->get();
 
-        if (count($career) > 0) {
-            foreach ($career as $careers) {
+            $careerData = [];
+
+            foreach ($career as $careerItem) {
                 $career_pdfs = DB::table('career_management_details')
                     ->where('soft_delete', 0)
-                    ->where('career_management_id', $careers->uid)
+                    ->where('career_management_id', $careerItem->uid)
                     ->whereDate('archivel_date', '>', now()->toDateString())
                     ->latest('created_at')
                     ->get();
 
                 $careerData[] = [
-                    'carrer' => $career,
+                    'career' => $careerItem,
                     'career_pdfs' => $career_pdfs
                 ];
             }
+
+            return view('pages.career', ['title' => $titleName, 'careerData' => $careerData]);
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return view('pages.error');
         }
-        return view('pages.career', ['title' => $titleName, 'careerData' => $careerData]);
-
-
-          } catch (\Exception $e) {
-              \Log::error('An exception occurred: ' . $e->getMessage());
-              return view('pages.error');
-          } catch (\PDOException $e) {
-              \Log::error('A PDOException occurred: ' . $e->getMessage());
-              return view('pages.error');
-          } catch (\Throwable $e) {
-              // Catch any other types of exceptions that implement the Throwable interface.
-              \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-              return view('pages.error');
-          }
     }
 
     public function careerArchive()
@@ -80,21 +79,22 @@ class HomeController extends Controller
                 ->latest('created_at')
                 ->get();
 
-            if (count($career) > 0) {
-                foreach ($career as $careers) {
-                    $career_pdfs = DB::table('career_management_details')
-                        ->where('soft_delete', 0)
-                        ->where('career_management_id', $careers->uid)
-                        ->whereDate('archivel_date', '<', now()->toDateString())
-                        ->latest('created_at')
-                        ->get();
+            $careerData = [];
 
-                    $careerData[] = [
-                        'carrer' => $career,
-                        'career_pdfs' => $career_pdfs
-                    ];
-                }
+            foreach ($career as $careerItem) {
+                $career_pdfs = DB::table('career_management_details')
+                    ->where('soft_delete', 0)
+                    ->where('career_management_id', $careerItem->uid)
+                    ->whereDate('archivel_date', '<', now()->toDateString())
+                    ->latest('created_at')
+                    ->get();
+
+                $careerData[] = [
+                    'career' => $careerItem,
+                    'career_pdfs' => $career_pdfs
+                ];
             }
+
             return view('pages.careerArchive', ['title' => $titleName, 'careerData' => $careerData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
@@ -136,6 +136,8 @@ class HomeController extends Controller
                     ];
                 }
             }
+
+
             return view('pages.tender', ['title' => $titleName, 'tenderData' => $tenderData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
@@ -486,10 +488,10 @@ class HomeController extends Controller
     //         return view('pages.error');
     //     }
     // }
-    public function getContentAllPages(Request $request, $slug, $middelSlug = null, $lastSlugs = null, $finalSlug = null,$finallastSlug = null)
+    public function getContentAllPages(Request $request, $slug, $middelSlug = null, $lastSlugs = null, $finalSlug = null, $finallastSlug = null)
     {
         //dd('hii');
-        $slugsToCheck = [$lastSlugs, $middelSlug, $finalSlug,$finallastSlug];
+        $slugsToCheck = [$lastSlugs, $middelSlug, $finalSlug, $finallastSlug];
 
         if (in_array("set-language", $slugsToCheck)) {
             session()->put('Lang', $request->data);
@@ -535,8 +537,7 @@ class HomeController extends Controller
                         $tree = [];
                     }
                 }
-
-            }else if ($lastSlugs != null) {
+            } else if ($lastSlugs != null) {
                 $lastUrl = DB::table('website_menu_management')->whereurl($slug)->first();
                 $middelUrl = DB::table('website_menu_management')->whereurl($middelSlug)->first();
                 $menus = DB::table('website_menu_management')->whereurl($lastSlugs)->first();
@@ -596,7 +597,7 @@ class HomeController extends Controller
             }
 
             if ($menus != '') {
-                
+
                 if ($finalSlug != null) {
 
                     if (Session::get('Lang') == 'hi') {
@@ -621,9 +622,7 @@ class HomeController extends Controller
                     } else {
                         $title_name = $menus->name_en;
                     }
-                }
-
-                else if ($lastSlugs != null) {
+                } else if ($lastSlugs != null) {
 
                     if (Session::get('Lang') == 'hi') {
                         $lastBred = $lastUrl->name_hi;
@@ -673,7 +672,7 @@ class HomeController extends Controller
                     ->orderBy('sort_order', 'ASC')
                     ->get();
 
-                   // dd($dynamic_content_page_metatag);
+                // dd($dynamic_content_page_metatag);
 
                 if (count($dynamic_content_page_metatag) > 0) {
 
@@ -715,8 +714,8 @@ class HomeController extends Controller
                     }
 
                     if ($finalSlug != null) {
-                        return view('master-page', ['finalBred'=> $finalBred,'parentMenut' => $parentMenut, 'tree' => $tree, 'lastBred' => $lastBred, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
-                    }else if ($lastSlugs != null) {
+                        return view('master-page', ['finalBred' => $finalBred, 'parentMenut' => $parentMenut, 'tree' => $tree, 'lastBred' => $lastBred, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
+                    } else if ($lastSlugs != null) {
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'lastBred' => $lastBred, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
                     } elseif ($middelSlug != null) {
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
@@ -788,13 +787,11 @@ class HomeController extends Controller
                     }
 
                     if ($finalSlug != null) {
-                      
-                        return view('master-page', ['finalBred'=>$finalBred,'lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name,]);
-           
-                    }else if ($lastSlugs != null) {
+
+                        return view('master-page', ['finalBred' => $finalBred, 'lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name,]);
+                    } else if ($lastSlugs != null) {
 
                         return view('master-page', ['lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name,]);
-                  
                     } elseif ($middelSlug != null) {
                         return view('master-page', ['middelBred' => $middelBred, 'content' => $content, 'title_name' => $title_name,]);
                     } else {
