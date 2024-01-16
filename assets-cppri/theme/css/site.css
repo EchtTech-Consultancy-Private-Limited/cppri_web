@@ -6130,3 +6130,46 @@ blockquote {
 		width: 500px;
 		height: 200px;
 	}
+
+	/* marquee  */
+	/* .marquee_latest_news_container {
+		height: 30px;
+		overflow: hidden;
+		line-height: 30px;
+	  }
+	.marquee_latest_news_container .marquee_latest_news {
+		top: 0;
+		left: 100%;
+		width: 100%;
+		overflow: hidden;
+		position: absolute;
+		white-space: nowrap;
+		animation: marquee_latest_news 30s linear infinite;
+	  }
+	 */
+
+/* 	  
+	  @keyframes marquee_latest_news {
+		0% {
+		  left: 100%;
+		}
+		100% {
+		  left: -100%;
+		}
+	  } */
+
+
+	  /* marqueee    */
+	  
+	  .latest_news_marquee  a{
+		color: #333;
+		line-height: 37px;
+	  }
+	  .latest_news_marquee  a::before{
+		content: '\f0c1 ';
+		font-family: 'fontAwesome';
+		color: red;
+		font-size: 14px;
+		margin-right: 7px;
+
+	  }
