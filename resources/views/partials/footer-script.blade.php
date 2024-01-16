@@ -27,7 +27,9 @@
     });
 </script>
 
-
+<script src="{{ asset('assets-cppri/js/jquery.marquee.js')}}"></script>
+<script src="{{ asset('assets-cppri/js/jquery.marquee.min.js')}}"></script>
+<!-- <script src="{{ asset('assets-cppri/js/jquery.marqueedirection.js')}}"></script> -->
 
 
 <script>
@@ -40,6 +42,17 @@
             ]
         });
     });
+
+    $('.marquee-with-options').marquee({
+        speed: 200,
+        gap: 50,
+        delayBeforeStart: 0,
+        direction: 'left',
+        duplicated: true,
+        pauseOnHover: true
+      });
+
+
 
 
     $('.color').on('click', function() {

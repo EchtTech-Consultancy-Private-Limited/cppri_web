@@ -3254,13 +3254,14 @@ p.banner-content {
 }
 
 .banner-content-wrapper a {
-	border: 1px solid var(--primary-color);
+	border: 1px solid var(--secondary-color);
     padding: 9px 12px;
-    color: var(--primary-color);
+    color: var(--white);
     text-transform: uppercase;
     text-decoration: none !important;
     border-radius: var(--button-radius);
     font-size: 11px;
+	background-color: var(--secondary-color);
 }
 
 .ptb-20 {
@@ -3290,7 +3291,7 @@ a.portgolio-button:hover, .banner-content-wrapper a:hover {
 }
 
 .banner-content-wrapper a:hover {
-	color: var(--primary-color);
+	color: var(--);
 	border:1px solid var(--secondary-color);
 }
 
@@ -3574,6 +3575,9 @@ a.portgolio-button:hover {
 	border-bottom: 1px solid #ddd;
 }
 
+.scroll-left ul:hover {
+ animation-play-state: paused;
+}
 .scroll-left ul {
 	position: absolute;
 	width: 100%;
@@ -5636,15 +5640,15 @@ h2.instagram-c {
 }
 
 .banner-content-wrapper.services-heading h2{
-	color: var(--primary-color);
+	color: var(--white);
     width: 340px;
     height: 45px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     top: -84px;
-    background-color: #ffffff;
-    border: 2px solid var(--service-border-color);
+    background-color:  var(--primary-color);
+    /* border: 2px solid var(--service-border-color); */
     border-radius: 30px;
     text-transform: uppercase;
     z-index: 99;
@@ -6106,3 +6110,13 @@ blockquote {
 		transition: 0.2s ease-in-out;
 	}
 	
+
+	.z-index-9{
+		z-index: 9;
+	}
+
+
+	.tender_marquee{
+		width: 500px;
+		height: 200px;
+	}

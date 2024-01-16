@@ -37,6 +37,8 @@
 <script src="{{ asset('assets-cppri/js/jquery-3.6.0.min.js') }}"></script>
 <link rel="stylesheet" href="{{ asset('assets-cppri/css/toastr.min.css') }}">
 <script src="{{ asset('assets-cppri/js/toastr.min.js')}}"></script>
+<script src="{{ asset('assets-cppri/js/jquery.marquee.js')}}"></script>
+<!-- <script src="{{ asset('assets-cppri/js/jquery.marquee.min.js')}}"></script> -->
 <script>
     var baseUrl1 = {!! json_encode(url('/')) !!}
 </script>
