@@ -60,7 +60,7 @@ Route::get('/training-program', [HomeController::class,'trainingProgram']);
 Route::get('/tender', [HomeController::class, 'tenderData'])->name('tenderData');
 Route::get('tender-archive', [HomeController::class,'tenderArchive']);
 //carrer
-Route::get('/career', [HomeController::class,'careerData'])->name('careerData');
+Route::get('/careers', [HomeController::class,'careerData'])->name('careerData');
 Route::get('career-archive', [HomeController::class,'careerArchive']);
 
 Route::get('/{Slug}/{middelSlug?}/{lastSlug?}/{finalSlug?}/{finallastSlug?}', [HomeController::class, 'getContentAllPages']);
