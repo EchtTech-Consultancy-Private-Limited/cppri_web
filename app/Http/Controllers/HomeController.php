@@ -32,7 +32,6 @@ class HomeController extends Controller
         $titleName = 'Career';
           try {
         $careerData = [];
-
         $career = DB::table('career_management')
             ->where('soft_delete', 0)
             ->latest('created_at')
