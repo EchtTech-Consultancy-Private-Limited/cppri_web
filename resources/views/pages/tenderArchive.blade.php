@@ -80,7 +80,6 @@
                                                         </tr>
                                                     </thead>
 
-
                                                     <tbody>
                                                         @foreach ($tenderData as $data)
                                                             <tr>

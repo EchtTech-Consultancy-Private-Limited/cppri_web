@@ -60,6 +60,7 @@
                             <h1>{{ $content }}</h1>
                         @endif
 
+                        
                         <!--/#page-head-->
                         @if (isset($careerData) && count($careerData) > 0)
                             <section id="datatable">

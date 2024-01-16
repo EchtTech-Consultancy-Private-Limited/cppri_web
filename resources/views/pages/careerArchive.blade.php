@@ -80,6 +80,7 @@
                                                         </tr>
                                                     </thead>
 
+                                                    
                                                     <tbody>
                                                         @foreach ($careerData as $data)
                                                           @if(count($data['career_pdfs']) > 0 ) 
