@@ -33,17 +33,17 @@ $(document).ready(function() {
 
 
 <script>
-$(document).ready(function() {
-    $('#example').DataTable({
-        dom: 'Bfrtip',
-        order: [
-            [0, 'desc']
-        ],
-        buttons: [
-            'print'
-        ]
-    });
-});
+// $(document).ready(function() {
+//     $('#example').DataTable({
+//         dom: 'Bfrtip',
+//         order: [
+//             [0, 'desc']
+//         ],
+//         buttons: [
+//             'print'
+//         ]
+//     });
+// });
 
 $('.marquee-with-options').marquee({
     speed: 200,
