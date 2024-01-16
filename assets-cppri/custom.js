@@ -691,7 +691,7 @@ $(document).ready(function() {
 
 
 $('.latest_news_marquee').marquee({
-    speed: 500,
+    speed: 5000,
     gap: 50,
     delayBeforeStart: 0,
     direction: 'left',

@@ -1647,7 +1647,7 @@ a {
 	position: absolute;
 	top: 0;
 	right: 0;
-	border-bottom: 60px solid white;
+	border-bottom: 41px solid white;
 	border-left: 20px solid var(--pseudo-bordercolor);
 	width: 0;
 }

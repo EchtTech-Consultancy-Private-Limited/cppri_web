@@ -47,59 +47,54 @@
             </div>
         </div>
         <div class="col-md-9 col-8">
-        <div class='latest_news_marquee'>
-        <div class="float-left d-inline-block">
-             @if (isset($news_management) && count($news_management) > 0)
-                    @foreach ($news_management as $news_managements)
-                    <span>
-                        @php
-                        $url = $news_managements->public_url ?? '';
-                        $title_hi = $news_managements->title_name_hi ?? '';
-                        $title_en = $news_managements->title_name_en ?? '';
-                        @endphp
+            <div class="latest_news_marquee marquee-vertical" data-speed="80">
+                <div class="marquee-wrapper">
+                    <div class="marquee-content">
+                       <div class="float-left d-inline-block">
+                            @if (isset($news_management) && count($news_management) > 0)
+                            @foreach ($news_management as $news_managements)
+                            <span>
+                                @php
+                                $url = $news_managements->public_url ?? '';
+                                $title_hi = $news_managements->title_name_hi ?? '';
+                                $title_en = $news_managements->title_name_en ?? '';
+                                @endphp
 
-                        @if ($news_managements->tab_type == '1')
-                        @if (!empty($url))
-                        <a href="{{ url($url) }}" onclick="return confirm('{{ $alertMessage  ??''}}')" target="_blank">
+                                @if ($news_managements->tab_type == '1')
+                                @if (!empty($url))
+                                <a href="{{ url($url) }}" onclick="return confirm('{{ $alertMessage  ??''}}')"
+                                    target="_blank">
 
-                            @if (Session::get('Lang') == 'hi')
-                            {{ $title_hi ?? '' }}
+                                    @if (Session::get('Lang') == 'hi')
+                                    {{ $title_hi ?? '' }}
+                                    @else
+                                    {{ $title_en ?? '' }}
+                                    @endif
+
+                                </a>
+                                @endif
+                                @else
+                                @if (!empty($url))
+                                <a href="{{ url($url) }}">
+                                    @if (Session::get('Lang') == 'hi')
+                                    {{ $title_hi ?? '' }}
+                                    @else
+                                    {{ $title_en ?? '' }}
+                                    @endif
+                                </a>
+                                @endif
+                                @endif
+                            </span>
+                            @endforeach
                             @else
-                            {{ $title_en ?? '' }}
+                            <h5>No news available.</h5>
                             @endif
+                        </div>
 
-                        </a>
-                        @endif
-                        @else
-                        @if (!empty($url))
-                        <a href="{{ url($url) }}">
-                            @if (Session::get('Lang') == 'hi')
-                            {{ $title_hi ?? '' }}
-                            @else
-                            {{ $title_en ?? '' }}
-                            @endif
-                        </a>
-                        @endif
-                        @endif
-                    </span>
-                    @endforeach
-                    @else
-                    <h5>No news available.</h5>
-                    @endif
-             </div> 
-            
-    
-        </div>
-        <div class="latest_news_marquee marquee-vertical" data-speed="50">
-       
-        <div class="marquee-wrapper">
-            <div class="marquee-content">
-            
-           
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-          
+
         </div>
     </div>
 </section>
@@ -355,8 +350,8 @@
                 </div>
 
 
-                
-    
+
+
                 <div class="col-md-12 col-lg-4">
                     <div class="banner-box-wrapper">
                         <div class="banner-box banner-box-1">
