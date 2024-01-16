@@ -83,6 +83,7 @@
 
                                                     <tbody>
                                                         @foreach ($careerData as $data)
+                                                        
                                                           @if(count($data['career_pdfs']) > 0 ) 
                                                             <tr>
                                                                 <td>{{ $data['career']->title_name_en ?? '' }}</td>
@@ -97,7 +98,6 @@
                                                                         </i></span>
                                                                     @endforeach
                                                                 </td>
-
                                                             </tr>
                                                           @endif  
                                                         @endforeach
