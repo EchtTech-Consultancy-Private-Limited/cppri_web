@@ -573,10 +573,10 @@ $('.preventnumeric').keypress(function(e) {
 // });
 $(document).ready(function() {
     let sl_accordion = $('.sl-accordion');
-
+    
     sl_accordion.click(function() {
-       
-        $(this).toggleClass('menu-accordion-click');
+       sl_accordion.removeClass('menu-accordion-click');
+        $(this).addClass('menu-accordion-click');
         // alert('click');
 
     });
