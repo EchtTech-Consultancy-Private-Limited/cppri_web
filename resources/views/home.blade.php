@@ -50,7 +50,7 @@
             <div class="latest_news_marquee marquee-vertical" data-speed="80">
                 <div class="marquee-wrapper">
                     <div class="marquee-content">
-                       <div class="float-left d-inline-block">
+                       <div class="float-left d-inline-block me-3">
                             @if (isset($news_management) && count($news_management) > 0)
                             @foreach ($news_management as $news_managements)
                             <span>
