@@ -606,15 +606,15 @@ class HomeController extends Controller
                         $finalBred = $finalUrl->name_en;
                     }
                     if (Session::get('Lang') == 'hi') {
-                        $lastBred = $lastUrl->name_hi;
+                        $lastBred = $middelUrl->name_hi;
                     } else {
-                        $lastBred = $lastUrl->name_en;
+                        $lastBred = $middelUrl->name_en;
                     }
 
                     if (Session::get('Lang') == 'hi') {
-                        $middelBred = $middelUrl->name_hi;
+                        $middelBred = $lastUrl->name_hi;
                     } else {
-                        $middelBred = $middelUrl->name_en;
+                        $middelBred = $lastUrl->name_en;
                     }
 
                     if (Session::get('Lang') == 'hi') {
