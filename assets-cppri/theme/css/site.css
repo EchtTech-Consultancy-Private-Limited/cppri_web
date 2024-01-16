@@ -5977,6 +5977,9 @@ span#timeid p {
 .main-sidebar .list-start:hover a::before{
 	color: #fff !important;
 }
+.main-sidebar .menu-accordion-click .list-start:hover a::before{
+	color: #49aa41 !important;
+}
 .main-sidebar .menu-active .list-start:hover a::before{
 	color: #49aa41 !important;
 }
@@ -6170,7 +6173,7 @@ blockquote {
 		font-family: 'fontAwesome';
 		color: red;
 		font-size: 14px;
-		margin-right: 7px;
+		margin-right: 5px;
 
 	  }
 
