@@ -2989,7 +2989,7 @@ h2 small {
 
 .view-footer a:hover {
 	color: #000;
-	border: 1px solid var(--secondary-color);
+	border: 1px solid var(--primary-color);
 }
 
 .tender-play-btn {
@@ -3019,6 +3019,7 @@ h2 small {
 .body-container ul.list {
 	padding-bottom: 5px;
 	margin-left: -5px;
+	transition: all .3s ease-in-out;
 }
 
 .top-body-container p {
@@ -3283,7 +3284,7 @@ transition: all .3s ease-in-out !important;
 .page-tab .view-footer a:hover,
 .view-footer a:hover,
 a.portgolio-button:hover, .banner-content-wrapper a:hover {
-	background-color:var(--secondary-color);
+	background-color:var(--primary-color);
 	color: #fff !important;
 	text-decoration: none !important;
 	transform: scale(1.1) !important;
@@ -3291,7 +3292,8 @@ a.portgolio-button:hover, .banner-content-wrapper a:hover {
 
 .banner-content-wrapper a:hover {
 	color: var(--primary-color);
-	border:1px solid var(--secondary-color);
+	border:1px solid var(--primary-color) !important;
+	background-color: var(--primary-color) !important;
 }
 
 .banner-right-wrapper {
@@ -5636,15 +5638,15 @@ h2.instagram-c {
 }
 
 .banner-content-wrapper.services-heading h2{
-	color: var(--primary-color);
+	color: #fff;
     width: 340px;
     height: 45px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     top: -84px;
-    background-color: #ffffff;
-    border: 2px solid var(--service-border-color);
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     border-radius: 30px;
     text-transform: uppercase;
     z-index: 99;
@@ -5971,6 +5973,14 @@ span#timeid p {
 .main-sidebar .list-start:hover a::before{
 	color: #fff !important;
 }
+.main-sidebar .menu-active .list-start:hover a::before{
+	color: #49aa41 !important;
+}
+.main-sidebar .menu-active .list-start:hover a::after{
+	color: #747474 !important;
+}
+
+.main-sidebar .accordion.menu-active:hover .nav-link.collapsed{color: #000 !important;}
 
 .sl-accordion:hover .accordion a{
 	color: #fff;
@@ -6106,3 +6116,10 @@ blockquote {
 		transition: 0.2s ease-in-out;
 	}
 	
+
+	.scroll-left ul:hover{
+		animation: none;
+		transform: translateY(0%);		
+		transition: all .3s ease-in-out;
+		overflow-y: scroll;
+	}
