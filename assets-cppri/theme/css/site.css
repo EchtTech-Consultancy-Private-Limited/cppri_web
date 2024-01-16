@@ -6166,10 +6166,11 @@ blockquote {
 		line-height: 37px;
 	  }
 	  .latest_news_marquee  a::before{
-		content: '\f0c1 ';
+		content: '\f101 ';
 		font-family: 'fontAwesome';
 		color: red;
 		font-size: 14px;
 		margin-right: 7px;
 
 	  }
+

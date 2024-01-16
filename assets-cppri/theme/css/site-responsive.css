@@ -604,6 +604,11 @@
 }
 
 @media screen and (max-width: 768px) {
+	.header__logo .d-flex-logo {
+		display: contents;
+		width: 100%;
+		float: none;
+	}
 	.addevent-box {
 		width: 100%;
 		height: auto;
