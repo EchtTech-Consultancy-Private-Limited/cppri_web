@@ -142,6 +142,7 @@
                                         </ul>
                                         </li>
                                     @else
+                                    
                                         @if ($subMenus->tab_type == 1)
                                             <li class="remove-show-class">
                                                 <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
@@ -154,6 +155,7 @@
                                                 </a>
                                             </li>
                                         @else
+                                        @if($subMenusurl != 'feedback' && $subMenusurl != 'website-information-manage' && $subMenusurl != 'vigilance-cell' )
                                             <li class="remove-show-class"><a
                                                     href="{{ url($url . '/' . $subMenusurl) ?? '' }}">
                                                     @if (Session::get('Lang') == 'hi')
@@ -162,6 +164,7 @@
                                                         {{ $subMenus->name_en ?? '' }}
                                                     @endif
                                                 </a></li>
+                                              @endif  
                                         @endif
                                     @endif
                                 @endforeach

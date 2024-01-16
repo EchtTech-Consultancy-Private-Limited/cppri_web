@@ -49,6 +49,7 @@ Route::post('/contact-us',[HomeController::class,'contactStroe']);
 // Route::get('about-us/overview', [HomeController::class, 'overviewPage']);
 Route::get('/feedback', [HomeController::class, 'Feedback']);
 Route::post('/feedback', [HomeController::class, 'feedbackStore']);
+
 // Route::get('about-us/director-desk', [HomeController::class, 'directorDesk']);
 // Route::get('about-us/employee-directory', [HomeController::class, 'employeeDirectory']);
 Route::get('/press-released', [HomeController::class, 'showPressReleased']);
@@ -59,7 +60,7 @@ Route::get('/training-program', [HomeController::class,'trainingProgram']);
 Route::get('/tender', [HomeController::class, 'tenderData'])->name('tenderData');
 Route::get('tender-archive', [HomeController::class,'tenderArchive']);
 //carrer
-Route::get('/career', [HomeController::class,'careerData'])->name('careerData');
+Route::get('/careers', [HomeController::class,'careerData'])->name('careerData');
 Route::get('career-archive', [HomeController::class,'careerArchive']);
 
 Route::get('/{Slug}/{middelSlug?}/{lastSlug?}/{finalSlug?}/{finallastSlug?}', [HomeController::class, 'getContentAllPages']);
