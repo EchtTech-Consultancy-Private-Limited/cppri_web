@@ -92,7 +92,6 @@
                                                         </tr>
                                                     </thead>
 
-
                                                     <tbody>
                                                         @foreach ($tenderData as $data)
                                                           @if(count($data['tender_pdfs']) > 0 ) 
