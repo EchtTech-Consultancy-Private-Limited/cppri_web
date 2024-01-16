@@ -3,8 +3,6 @@
 {{ __('CPPRI | Home') }}
 @endsection
 @section('content')
-
-
 <section class="wrapper banner-wrapper">
     <h1 class="d-none">Banner</h1>
     <div id="flexSlider" class="flexslider">

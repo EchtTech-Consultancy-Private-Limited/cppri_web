@@ -528,10 +528,10 @@ test.forEach((e) => {
     //    })
 
 
-    $('.accordion-item').on('click', function () {
-        // Collapse all other accordion items
-        $('.accordion-item').not(this).find('.collapse').collapse('hide');
-    });
+    // $('.accordion-item').on('click', function () {
+    //     // Collapse all other accordion items
+    //     $('.accordion-item').not(this).find('.collapse').collapse('hide');
+    // });
 });
         // $('.accordion').click((e)=>{
         //    console.log(e.attr('id'))
@@ -575,12 +575,147 @@ $(document).ready(function() {
     let sl_accordion = $('.sl-accordion');
 
     sl_accordion.click(function() {
-        // Remove the 'menu-accordion-click' class from all elements with the class '.sl-accordion'
-        // sl_accordion.removeClass('menu-accordion-click');
-
-        // Add the 'menu-accordion-click' class to the clicked element
+       
         $(this).toggleClass('menu-accordion-click');
         // alert('click');
 
     });
+    let fl_accordion = $('.fl-accordion');
+   
+
+    fl_accordion.click(function() {
+       
+        $(this).addClass('fl-accordion-active');
+        // alert('click');
+
+    });
+    let fl_n_accordion =$('.fl-n-accordion');
+    fl_n_accordion.click
+
 });
+
+
+// sticky sidebar
+// console.log("sticky abnr")
+// $(document).ready(function () {
+//     var $window = $(window);
+//     var $sidebar = $(".main-sidebar");
+//     var $footerOffsetTop = $(".footer-wrapper").offset().top;
+//     var $sidebarOffset = $sidebar.offset();
+//     var $sidebarHeight = $sidebar.innerHeight();
+
+//     $window.scroll(function () {
+//         if ($window.scrollTop() > $sidebarOffset.top) {
+//             $sidebar.addClass("sticky-sidebar");
+//             console.log('working fine')
+//         } else {
+//             $sidebar.removeClass("sticky-sidebar");
+//         }
+
+//         if ($window.scrollTop() + $window.innerHeight() > $footerOffsetTop) {
+//             $sidebar.css({ "top": $footerOffsetTop - $window.scrollTop() - $sidebarHeight });
+//         } else {
+//             $sidebar.css({ "top": "0" });
+//         }
+//     });
+
+//     console.log("This is a sticky sidebar");
+// });
+
+
+$(function () {
+   
+});
+
+
+
+window.onscroll = function() {stickySidebar()};
+var $sidebar = $('#main-sidebar');
+
+var top = $sidebar.offset().top - parseFloat($sidebar.css('marginTop').replace('auto', 0));
+
+var footTop = $('.footer-wrapper').offset().top - parseFloat($('.footer-wrapper').css('marginTop').replace('auto', 0)); 
+var maxY = footTop - $sidebar.outerHeight();
+console.log(maxY);
+console.log(top.innerHeight);
+
+let width = window.innerWidth;
+console.log('footer top',footTop)
+
+function stickySidebar() {
+    var y = $(this).scrollTop();
+    console.log('Scroll Position:', y);
+console.log('y', y)
+console.log('top', top.innerHeight)
+if(width<1300 && width > 1080){
+let maxY = footTop - $sidebar.outerHeight() + 600;
+console.log(maxY)
+
+    if (y > top.innerHeight - 250) {
+        if (y < maxY) {
+            $sidebar.addClass('stickySidebar').css('top', '');
+            console.log('Adding stickySidebar class');
+        } else {
+            $sidebar.removeClass('stickySidebar').css({
+                position: 'absolute',
+                top: maxY + top.innerHeight + 'px'
+            });
+            console.log('Removing stickySidebar class');
+        }
+    } else {
+        $sidebar.removeClass('stickySidebar').css('top', '');
+        console.log('Removing stickySidebar class');
+    }
+}
+// for desktop width
+if(width<1500 && width > 1300){
+    if (y > top.innerHeight - 450) {
+        if (y < maxY) {
+            $sidebar.addClass('stickySidebar').css('top', '');
+            console.log('Adding stickySidebar class');
+        } else {
+            $sidebar.removeClass('stickySidebar').css({
+                position: 'absolute',
+                top: maxY + top.innerHeight + 'px'
+            });
+            console.log('Removing stickySidebar class');
+        }
+    } else {
+        $sidebar.removeClass('stickySidebar').css('top', '');
+        console.log('Removing stickySidebar class');
+    }
+}
+// for large screen
+if(width>1600){
+    if (y > top.innerHeight - 450) {
+        if (y < maxY) {
+            $sidebar.addClass('stickySidebar').css('top', '');
+            console.log('Adding stickySidebar class');
+        } else {
+            $sidebar.removeClass('stickySidebar').css({
+                position: 'absolute',
+                top: maxY + top.innerHeight + 'px'
+            });
+            console.log('Removing stickySidebar class');
+        }
+    } else {
+        $sidebar.removeClass('stickySidebar').css('top', '');
+        console.log('Removing stickySidebar class');
+    }
+}
+    
+}
+
+// Log initial values
+console.log('Initial top:', top);
+console.log('Initial maxY:', maxY);
+
+// Attach the function to the scroll event
+$(window).scroll(stickySidebar);
+
+
+
+
+// media query 
+
+

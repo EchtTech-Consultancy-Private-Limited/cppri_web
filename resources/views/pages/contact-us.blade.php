@@ -19,7 +19,7 @@
                             <li>Saharanpur - 247001, India</li>
                             <li> <strong>Phone:</strong> 0132 - 2714050, 2714059, 2714061, 2714062</li>
                             <li> <strong>Fax:</strong> 0132-2714052</li>
-                            <li><a href=""> <strong>Email:</strong> director.cppri@gmail.com</a></li>
+                            <li> <strong>Email:</strong> director[dot]cppri[at]gmail[dot]com</li>
                         </ul>
 
                     </div>

@@ -1035,10 +1035,10 @@ th {
 	color: #777;
 }
 
-tr:hover td {
+/* tr:hover td {
 	color: #1A4F91;
 	font-weight: 500;
-}
+} */
 
 .scroll-table1 {
 	overflow-x: auto;
@@ -2168,9 +2168,10 @@ ul{
 
 
 .main-sidebar .accordion-item a{
-	display: block;
+	/* display: block; */
 	color: #000 ;
 	width: 100%;
+	padding: 0 4px 0 0;
 }
 .main-sidebar .accordion-item .nav-link.collapsed::after{
 	content: '\f078';

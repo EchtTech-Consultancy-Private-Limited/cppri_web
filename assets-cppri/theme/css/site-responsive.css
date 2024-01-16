@@ -604,6 +604,12 @@
 }
 
 @media screen and (max-width: 768px) {
+	.addevent-box {
+		width: 100%;
+		height: auto;
+		float: none;
+		margin: 0;
+	}
 	.flex-direction-nav .flex-prev {
 		opacity: 1;
 		left: -14px !important;
