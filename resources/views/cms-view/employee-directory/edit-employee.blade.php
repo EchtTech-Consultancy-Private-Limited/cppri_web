@@ -62,11 +62,11 @@
                                         <!--begin::Input-->
                                         <select class="form-control mb-2 designation_id" name="designation_id" id="designation_id" data-control="select2" data-placeholder="Select an option">
                                             <option></option>
-                                            @foreach($department as $departments)
-                                            @if($departments->uid == $data->designation_id)
-                                                <option value="{{ $departments->uid }}" selected>{{ $departments->name_en  }}</option>
+                                            @foreach($designation as $designations)
+                                            @if($designations->uid == $data->designation_id)
+                                                <option value="{{ $designations->uid }}" selected>{{ $designations->name_en  }}</option>
                                             @else
-                                                <option value="{{ $departments->uid }}">{{ $departments->name_en  }}</option>
+                                                <option value="{{ $designations->uid }}">{{ $designations->name_en  }}</option>
                                             @endif
                                             @endforeach
                                         </select><!--end::Input-->
