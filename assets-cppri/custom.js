@@ -725,4 +725,23 @@ $('.color').on('click', function() {
     $(".change-text-color").css('color', a);
 })
 
-$('.latest_news_marquee_container').SimpleMarquee();
+// $('.latest_news_marquee_container').SimpleMarquee();
+
+
+// close accrodin
+document.querySelectorAll('.nav-link.collapsed').forEach(function (button) {
+    button.addEventListener('click', function () {
+        // Close all other accordion items
+        document.querySelectorAll('.accordion-collapse.show').forEach(function (collapse) {
+            if (collapse !== button.nextElementSibling) {
+                new bootstrap.Collapse(collapse);
+            }
+        });
+    });
+});
+console.log("closing");
+
+
+// paper mausem kagaj sangralay
+
+let sidebarDropdown_5 = $('#sidebarDropdown_5')

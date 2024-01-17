@@ -74,10 +74,12 @@
                         $treesUrl = $trees->url ?? '';
                         @endphp
                         @if (count($trees->children) > 0)
+
+
                         <li class="accordion accordion-flush position-relative sl-accordion"
                             id="sidebarDropdown_{{ $index }}">
                             <div class="accordion-item">
-                                <div class="list-start" id="flush-headingOne_{{ $index }}">
+                                <div class="list-start " id="flush-headingOne_{{ $index }}">
                                     <a class="nav-link collapsed " type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapseOne_{{ $index }}" aria-expanded="false"
                                         aria-controls="flush-collapseOne">
@@ -89,11 +91,11 @@
                                     </a>
                                 </div>
 
-                                <div id="flush-collapseOne_{{ $index }}" class="accordion-collapse collapse "
+                                <div id="flush-collapseOne_{{ $index }}" class="accordion-collapse collapse"
                                     aria-labelledby="flush-headingOne_{{ $index }}"
                                     data-bs-parent="#sidebarDropdown_{{ $index }}">
                                     <div class="accordion-body p-0">
-                                        <ul class='p-0 m-0 mt-3'>
+                                        <ul class="p-0 m-0 mt-3">
                                             @foreach ($trees->children as $childTree)
                                             @php
                                             $chiltreeUrl = $childTree->url ?? '';
@@ -103,7 +105,6 @@
                                                 class="@if (request()->is($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl)) qm-active @endif">
                                                 <a href="{{ url($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl) }}"
                                                     class="">
-
                                                     @if (Session::get('Lang') == 'hi')
                                                     {{ $childTree->name_hi ?? '' }}
                                                     @else
@@ -112,15 +113,15 @@
                                                 </a>
                                             </li>
                                             @endforeach
-
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-
                         </li>
+
                         @else
-                        @if($treesUrl != 'feedback' && $treesUrl != 'website-information-manage' && $treesUrl != 'vigilance-cell' )
+                        @if($treesUrl != 'feedback' && $treesUrl != 'website-information-manage' && $treesUrl !=
+                        'vigilance-cell' )
                         <li class="@if (request()->is($parentMenuUrl . '/' . $treesUrl)) qm-active @endif">
                             <div class="list-start">
 
@@ -459,8 +460,10 @@
 
 
 
-                                    <a href="{{ url('purchase-works-committee') }}" title=" Purchase Works Committee" class="btn btn-primary"> Purchase / Works / Committee</a>
-                                    <a href="{{url('rti-applications-responses')}}" title="RTI Application & Responses" class="btn btn-primary"> RTI Application & Responses</a>
+                                    <a href="{{ url('purchase-works-committee') }}" title=" Purchase Works Committee"
+                                        class="btn btn-primary"> Purchase / Works / Committee</a>
+                                    <a href="{{url('rti-applications-responses')}}" title="RTI Application & Responses"
+                                        class="btn btn-primary"> RTI Application & Responses</a>
                                 </div>
                             </section>
                             @endif
