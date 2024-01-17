@@ -143,6 +143,7 @@
                                     @else
                                     
                                         @if ($subMenus->tab_type == 1)
+                                            @if($subMenusurl != 'feedback' && $subMenusurl != 'website-information-manage' && $subMenusurl != 'vigilance-cell' )
                                             <li class="remove-show-class">
                                                 <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
                                                     href="{{ $subMenusurl ?? '' }}">
@@ -153,6 +154,7 @@
                                                     @endif
                                                 </a>
                                             </li>
+                                            @endif
                                         @else
                                         @if($subMenusurl != 'feedback' && $subMenusurl != 'website-information-manage' && $subMenusurl != 'vigilance-cell' )
                                             <li class="remove-show-class"><a
