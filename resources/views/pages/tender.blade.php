@@ -79,9 +79,9 @@
                                     <div class="row p-0 ">
                                         <div class="col-md-12">
                                             {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
-                                            <a href="{{ url('tender-archive') }}" title="Click here to Archive" class="archive-btn">Archive</a>
+                                          
                                             <div class="scroller-tbl">
-
+                                            <a href="{{ url('tender-archive') }}" title="Click here to Archive" class="archive-btn">Archive</a>
                                                 <table id="example" class="display">
 
                                                     <thead>
