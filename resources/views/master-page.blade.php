@@ -514,11 +514,6 @@
                                     </div>
 
 
-
-                                    <a href="{{ url('purchase-works-committee') }}" title=" Purchase Works Committee"
-                                        class="btn btn-primary"> Purchase / Works / Committee</a>
-                                    <a href="{{ url('rti-applications-responses') }}" title="RTI Application & Responses"
-                                        class="btn btn-primary"> RTI Application & Responses</a>
                                 </div>
                             </section>
                         @endif
