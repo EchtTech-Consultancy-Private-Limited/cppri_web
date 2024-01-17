@@ -61,12 +61,13 @@
                                             @foreach ($subMenus->children as $ChildMenus)
                                                 @php
                                                     $ChildMenusurl = $ChildMenus->url ?? 'javascript:void(0)';
+                                                    $ChildMenusurlfixed = $ChildMenus->footer_url ?? 'javascript:void(0)';
                                                 @endphp
 
                                                 @if (isset($ChildMenus->children) && count($ChildMenus->children) > 0)
                                                     @if ($ChildMenus->tab_type == 1)
                                                         <li class="env sub-menu-drop-g">
-                                                            <a href="javascript:void(0)"
+                                                            <a href="{{ url($ChildMenusurlfixed) }}"
                                                                 onclick="return confirm('{{ $alertMessage }}')"
                                                                 target="_blank">
                                                                 @if (Session::get('Lang') == 'hi')
@@ -77,7 +78,7 @@
                                                             </a>
                                                         @else
                                                         <li class="env sub-menu-drop-g">
-                                                            <a href="javascript:void();" class="sub-menu-drop-f">
+                                                            <a href="{{ url($ChildMenusurlfixed) }}" class="sub-menu-drop-f">
                                                                 @if (Session::get('Lang') == 'hi')
                                                                     {{ $ChildMenus->name_hi ?? '' }}
                                                                 @else
@@ -85,7 +86,7 @@
                                                                 @endif
                                                             </a>
                                                     @endif
-
+{{-- 
                                                     <ul class="sub-nav-group sng-env fl_sng_env">
                                                         @foreach ($ChildMenus->children as $subChildMenus)
                                                             @php
@@ -112,7 +113,7 @@
                                                                 </li>
                                                             @endif
                                                         @endforeach
-                                                    </ul>
+                                                    </ul> --}}
                                                     </li>
                                                 @else
                                                     @if ($ChildMenus->tab_type == 1)

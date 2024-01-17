@@ -803,6 +803,7 @@ class HomeController extends Controller
                         ->where('publice_status', 1)
                         ->get();
 
+                        //dd($department);
                     if (Count($department) > 0) {
 
                         foreach ($department as $designation) {
@@ -822,7 +823,7 @@ class HomeController extends Controller
                                 'data' => $data,
                             ];
                         }
-                        // dd($designationData);
+                         //dd($designationData);
 
                         $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
 
