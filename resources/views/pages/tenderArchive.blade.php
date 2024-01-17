@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    {{ __('CPPRI |'.' '.$title) }}
+    {{ __('CPPRI |' . ' ' . $title) }}
 @endsection
 @section('content')
     <section class="wrapper banner-wrapper">
@@ -40,7 +40,7 @@
                             @endif
                         </a></li>
 
-                    <li >
+                    <li>
                         Archive
                     </li>
 
@@ -61,15 +61,16 @@
                         @endif
 
                         <!--/#page-head-->
-                        @if (isset($tenderData) && count($tenderData) > 0)
-                            <section id="datatable">
-                                <div class="container common-container">
-                                    <div class="row p-0 ">
-                                        <div class="col-md-12">
-                                            {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
-                                            <a href="javascript:void(0);" title="Click here to Archive" class="archive-btn">Archive</a>
-                                            <div class="scroller-tbl">
 
+                        <section id="datatable">
+                            <div class="container common-container">
+                                <div class="row p-0 ">
+                                    <div class="col-md-12">
+                                        {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
+                                        {{-- <a href="javascript:void(0);" title="Click here to Archive"
+                                            class="archive-btn">Archive</a> --}}
+                                        <div class="scroller-tbl">
+                                            @if (isset($tender_pdfs) && count($tender_pdfs) > 0)
                                                 <table id="example" class="display">
 
                                                     <thead>
@@ -77,37 +78,37 @@
                                                             <th> Title</th>
                                                             <th>Published Date</th>
                                                             <th> View/Download</th>
+                                                            <th>Apply Here</th>
                                                         </tr>
                                                     </thead>
 
                                                     <tbody>
-                                                        @foreach ($tenderData as $data)
+                                                        @foreach ($tender_pdfs as $data)
                                                             <tr>
-                                                                <td>{{ $data['tender']->title_name_en ?? '' }}</td>
-                                                                <td>{{ date('d F Y', strtotime($data['tender']->created_at ?? '')) }}
+                                                                <td>{{ $data->pdf_title ?? '' }}</td>
+                                                                <td class="date-nowrap">
+                                                                    {{ date('d F Y', strtotime($data->created_at ?? '')) }}
                                                                 </td>
 
                                                                 <td class=''>
-                                                                    @foreach ($data['tender_pdfs'] as $pdf)
-                                                                       <span class='multiple-pdf'> <a href="{{ asset('resources/uploads/TenderManagement/' . $pdf->public_url) }}"
-                                                                            download>View</a> <i class="fa fa-file-pdf-o text-danger"></i>
-                                                                            ({{ $pdf->pdfimage_size ?? '' }})
-                                                                        </span>
-                                                                    @endforeach
+                                                                    <span class='multiple-pdf'> <a
+                                                                            href="{{ asset('resources/uploads/TenderManagement/' . $data->public_url) }}"
+                                                                            download>View</a> <i
+                                                                            class="fa fa-file-pdf-o text-danger"></i>
+                                                                        ({{ $data->pdfimage_size ?? '' }})
+                                                                    </span>
                                                                 </td>
-
+                                                                <td><a href="{{ $data->apply_url ?? '' }}"></a></td>
                                                             </tr>
                                                         @endforeach
                                                     </tbody>
                                                 </table>
-
-                                            </div>
+                                            @else
+                                            @endif
                                         </div>
                                     </div>
-                            </section>
-                        @endif
-
-
+                                </div>
+                        </section>
                     </div>
                 </div>
             </div>

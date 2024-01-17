@@ -123,6 +123,7 @@
 
                         </li>
                         @else
+                        @if($treesUrl != 'feedback' && $treesUrl != 'website-information-manage' && $treesUrl != 'vigilance-cell' )
                         <li class="@if (request()->is($parentMenuUrl . '/' . $treesUrl)) qm-active @endif">
                             <div class="list-start">
 
@@ -137,6 +138,7 @@
                             </div>
 
                         </li>
+                        @endif
                         @endif
                         @endforeach
                         @endif
