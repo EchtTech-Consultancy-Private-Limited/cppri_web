@@ -65,6 +65,7 @@
     <div class="wrapper" id="skipCont"></div>
     <div class="sidebar-main-nav ptb-50">
         <div class="container common-container pr-0">
+        <a href="{{url('rti-applications-responses')}}" title="RTI Application & Responses" class="btn btn-primary"> RTI Application & Responses</a>
             <!--/.nav-wrapper-->
             <div class="row pr-0">
 
