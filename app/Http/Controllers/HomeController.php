@@ -1127,4 +1127,14 @@ class HomeController extends Controller
         $titleName = 'Training';
         return view('pages.training_program', ['title' => $titleName]);
     }
+    public function purchaseWorksCommittee()
+    {
+        $titleName = 'Purchase Works Committee';
+        return view('pages.purchase_works_committee', ['title' => $titleName]);
+    }
+    public function rtiApplicationsResponse()
+    {
+        $titleName = 'Rti Applications Response';
+        return view('pages.rti_applications_responses', ['title' => $titleName]);
+    }
 }
