@@ -10,7 +10,7 @@
                 <div class="inner-banner-text">
                     <div class="text-banner-content">
                         <h2>
-                            Archive
+                            Tender Archive
                         </h2>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                 <div class="inner-banner-text">
                     <div class="text-banner-content">
                         <h2>
-                            Archive
+                            Tender Archive
                         </h2>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                         </a></li>
 
                     <li>
-                        Archive
+                        Tender Archive
                     </li>
 
                 </ul>
@@ -68,24 +68,41 @@
                                         {{-- <a href="javascript:void(0);" title="Click here to Archive"
                                             class="archive-btn">Archive</a> --}}
                                         <div class="scroller-tbl">
-                                            @if (isset($tender_pdfs) && count($tender_pdfs) > 0)
+                                          
                                                 <table id="example" class="display">
 
                                                     <thead>
                                                         <tr>
-                                                            <th> Title</th>
+                                                            <th>Title</th>
                                                             <th>Published Date</th>
+                                                            <th>Submission Date</th>
+                                                            <th>Opening Date</th>
                                                             <th> View/Download</th>
                                                             <th>Apply Here</th>
                                                         </tr>
                                                     </thead>
 
                                                     <tbody>
+                                                        @if (isset($tender_pdfs) && count($tender_pdfs) > 0)
                                                         @foreach ($tender_pdfs as $data)
                                                             <tr>
                                                                 <td>{{ $data->pdf_title ?? '' }}</td>
                                                                 <td class="date-nowrap">
-                                                                    {{ date('d F Y', strtotime($data->created_at ?? '')) }}
+                                                                    @if($data->start_date !='')
+                                                                    {{ date('d F Y', strtotime($data->start_date ?? '')) }}
+                                                                    @endif
+                                                                </td>
+
+                                                                <td class="date-nowrap">
+                                                                    @if($data->end_date !='')
+                                                                    {{ date('d F Y', strtotime($data->end_date ?? '')) }}
+                                                                    @endif
+                                                                </td>
+                                                                
+                                                                <td class="date-nowrap">
+                                                                    @if($data->opening_date !='')
+                                                                    {{ date('d F Y', strtotime($data->opening_date ?? '')) }}
+                                                                    @endif
                                                                 </td>
 
                                                                 <td class=''>
@@ -96,13 +113,19 @@
                                                                         ({{ $data->pdfimage_size ?? '' }})
                                                                     </span>
                                                                 </td>
-                                                                <td><a href="{{ $data->apply_url ?? '' }}"></a></td>
+                                                                
+                                                                <td>
+                                                                    @if($data->apply_url !='')
+                                                                    <a href="{{ $data->apply_url ?? '' }}"></a>
+                                                                    @endif
+                                                                </td>
                                                             </tr>
                                                         @endforeach
+                                                       
+                                                        @endif
                                                     </tbody>
                                                 </table>
-                                            @else
-                                            @endif
+                                           
                                         </div>
                                     </div>
                                 </div>

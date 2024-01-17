@@ -70,14 +70,14 @@
                                             class="archive-btn">Archive</a>
                                          @endif   
                                         <div class="scroller-tbl">
-                                            @if (isset($career_pdfs) && count($career_pdfs) > 0)
+                                           
                                                 <table id="example" class="display">
 
                                                     <thead>
                                                         <tr>
                                                             <th> Title</th>
                                                             <th>Published Date</th>
-                                                            <th> View/Download</th>
+                                                            <th>View/Download</th>
                                                             <th>Apply Here</th>
                                                         </tr>
                                                     </thead>
@@ -103,7 +103,7 @@
                                                           @endif  
                                                         @endforeach --}}
 
-
+                                                        @if (isset($career_pdfs) && count($career_pdfs) > 0)
                                                         @foreach ($career_pdfs as $data)
                                                             <tr>
                                                                 <td>{{ $data->pdf_title ?? '' }}</td>
@@ -122,10 +122,11 @@
                                                                 <td><a href="{{ $data->apply_url ?? '' }}"></a></td>
                                                             </tr>
                                                         @endforeach
+                                                     
+                                                        @endif
                                                     </tbody>
                                                 </table>
-                                            @else
-                                            @endif
+                                           
                                         </div>
                                     </div>
                                 </div>
