@@ -729,17 +729,18 @@ $('.color').on('click', function() {
 
 
 // close accrodin
-document.querySelectorAll('.nav-link.collapsed').forEach(function (button) {
-    button.addEventListener('click', function () {
-        // Close all other accordion items
-        document.querySelectorAll('.accordion-collapse.show').forEach(function (collapse) {
-            if (collapse !== button.nextElementSibling) {
-                new bootstrap.Collapse(collapse);
-            }
-        });
-    });
-});
-console.log("closing");
+// document.querySelectorAll('.nav-link.collapsed').forEach(function (button) {
+//     button.addEventListener('click', function () {
+//         // Close all other accordion items
+//         document.querySelectorAll('.accordion-collapse.show').forEach(function (collapse) {
+//             // Check if the current collapse is not a child of an element with class 'accordion'
+//             if (!collapse.closest('.accordion')) {
+//                 new bootstrap.Collapse(collapse);
+//             }
+//         });
+//     });
+// });
+
 
 
 // paper mausem kagaj sangralay
