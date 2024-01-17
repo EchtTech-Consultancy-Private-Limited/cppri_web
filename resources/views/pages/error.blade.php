@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-{{ __('CPPRI |'.' '.$title) }}
+{{ __('CPPRI |'.' '.'Error') }}
 @endsection
 @section('content')
 

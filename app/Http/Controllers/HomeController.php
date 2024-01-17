@@ -531,9 +531,12 @@ class HomeController extends Controller
                 $lastUrl = DB::table('website_menu_management')->whereurl($lastSlugs)->first();
                 $middelUrl = DB::table('website_menu_management')->whereurl($middelSlug)->first();
                 $menus = DB::table('website_menu_management')->whereurl($finalSlug)->first();
+
+                // dd($finalUrl);
                 if ($menus != '') {
                     $allmenus = DB::table('website_menu_management')->orderBy('sort_order', 'ASC')->get();
-                    $firstParent = DB::table('website_menu_management')->where('uid', $menus->parent_id)->first();
+                    $firstParent = DB::table('website_menu_management')->where('uid', $middelUrl->parent_id)->first();
+                     // dd($firstParent);
                     if (!empty($firstParent)) {
                         $parentMenut = DB::table('website_menu_management')->where('uid', optional($firstParent)->parent_id)->first();
                         // dd($parentMenut);
