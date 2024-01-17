@@ -531,28 +531,37 @@ class HomeController extends Controller
                 $lastUrl = DB::table('website_menu_management')->whereurl($lastSlugs)->first();
                 $middelUrl = DB::table('website_menu_management')->whereurl($middelSlug)->first();
                 $menus = DB::table('website_menu_management')->whereurl($finalSlug)->first();
-
-                // dd($finalUrl);
+               
                 if ($menus != '') {
                     $allmenus = DB::table('website_menu_management')->orderBy('sort_order', 'ASC')->get();
-                    $firstParent = DB::table('website_menu_management')->where('uid', $middelUrl->parent_id)->first();
-                     // dd($firstParent);
+                    $firstParent = DB::table('website_menu_management')->where('uid', $lastUrl->parent_id)->first();
+                      //dd($firstParent);
                     if (!empty($firstParent)) {
                         $parentMenut = DB::table('website_menu_management')->where('uid', optional($firstParent)->parent_id)->first();
-                        // dd($parentMenut);
+                         //dd($parentMenut);
                         if (!empty($parentMenut)) {
                             foreach ($allmenus as $menu) {
-
                                 if ($parentMenut && $menu->parent_id == $parentMenut->uid) {
                                     $menu->children = [];
+                            
                                     foreach ($allmenus as $childMenu) {
                                         if ($childMenu->parent_id == $menu->uid) {
+                                            $childMenu->children = [];
+                            
+                                            foreach ($allmenus as $grandchildMenu) {
+                                                if ($grandchildMenu->parent_id == $childMenu->uid) {
+                                                    $childMenu->children[] = $grandchildMenu;
+                                                }
+                                            }
+                            
                                             $menu->children[] = $childMenu;
                                         }
                                     }
+                            
                                     $tree[] = $menu;
                                 }
                             }
+                            
                         } else {
                             $parentMenut = '';
                             $tree = [];
@@ -562,6 +571,7 @@ class HomeController extends Controller
                         $tree = [];
                     }
                 }
+               // dd($tree);
             } else if ($lastSlugs != null) {
                 $lastUrl = DB::table('website_menu_management')->whereurl($slug)->first();
                 $middelUrl = DB::table('website_menu_management')->whereurl($middelSlug)->first();
@@ -578,6 +588,14 @@ class HomeController extends Controller
                                     $menu->children = [];
                                     foreach ($allmenus as $childMenu) {
                                         if ($childMenu->parent_id == $menu->uid) {
+                                            $childMenu->children = [];
+                            
+                                            foreach ($allmenus as $grandchildMenu) {
+                                                if ($grandchildMenu->parent_id == $childMenu->uid) {
+                                                    $childMenu->children[] = $grandchildMenu;
+                                                }
+                                            }
+                            
                                             $menu->children[] = $childMenu;
                                         }
                                     }
@@ -606,6 +624,14 @@ class HomeController extends Controller
                                 $menu->children = [];
                                 foreach ($allmenus as $childMenu) {
                                     if ($childMenu->parent_id == $menu->uid) {
+                                        $childMenu->children = [];
+                        
+                                        foreach ($allmenus as $grandchildMenu) {
+                                            if ($grandchildMenu->parent_id == $childMenu->uid) {
+                                                $childMenu->children[] = $grandchildMenu;
+                                            }
+                                        }
+                        
                                         $menu->children[] = $childMenu;
                                     }
                                 }
