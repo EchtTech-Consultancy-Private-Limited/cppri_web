@@ -6097,9 +6097,9 @@ blockquote {
 	.main-sidebar .accordion.fl-accordion:hover .nav-link.collapsed{
 		color: #333 !important;
 	}
-	.main-sidebar .accordion.fl-accordion:hover {
+	/* .main-sidebar .accordion.fl-accordion:hover {
 		background-color: #49aa41;
-	}
+	} */
 	.main-sidebar .accordion.fl-accordion .list-start:hover a::before, .main-sidebar .accordion.fl-accordion:hover a::before {
 		color: #fff !important;
 	}
@@ -6200,4 +6200,11 @@ blockquote {
 
 	  .main-sidebar .menu-accordion-click:hover .nav-link.collapsed {
 		color: #333 !important;
+	}
+	.main-sidebar .fl-accordion::after{
+		content: ' ' !important;
+	}
+
+	.sl-accordion:hover .fl-accordion  a{
+		color: #333;
 	}
