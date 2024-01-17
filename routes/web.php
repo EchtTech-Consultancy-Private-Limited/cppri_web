@@ -47,7 +47,7 @@ Route::get('/error',[HomeController::class,'error']);
 Route::get('/contact-us',[HomeController::class,'contactUs']);
 Route::post('/contact-us',[HomeController::class,'contactStroe']);
 // Route::get('about-us/overview', [HomeController::class, 'overviewPage']);
-Route::get('/feedback', [HomeController::class, 'Feedback']);
+Route::get('quick-links/feedback', [HomeController::class, 'Feedback']);
 Route::post('/feedback', [HomeController::class, 'feedbackStore']);
 
 // Route::get('about-us/director-desk', [HomeController::class, 'directorDesk']);
@@ -62,6 +62,8 @@ Route::get('tender-archive', [HomeController::class,'tenderArchive']);
 //carrer
 Route::get('/careers', [HomeController::class,'careerData'])->name('careerData');
 Route::get('career-archive', [HomeController::class,'careerArchive']);
+Route::get('rti-applications-responses', [HomeController::class,'rtiApplicationsResponse']);
+Route::get('purchase-works-committee', [HomeController::class,'purchaseWorksCommittee']);
 
 Route::get('/{Slug}/{middelSlug?}/{lastSlug?}/{finalSlug?}/{finallastSlug?}', [HomeController::class, 'getContentAllPages']);
 });

@@ -573,10 +573,10 @@ $('.preventnumeric').keypress(function(e) {
 // });
 $(document).ready(function() {
     let sl_accordion = $('.sl-accordion');
-
+    
     sl_accordion.click(function() {
-       
-        $(this).toggleClass('menu-accordion-click');
+       sl_accordion.removeClass('menu-accordion-click');
+        $(this).addClass('menu-accordion-click');
         // alert('click');
 
     });
@@ -698,3 +698,31 @@ $('.latest_news_marquee').marquee({
     duplicated: true,
     pauseOnHover: true
   });
+
+
+  $('.marquee-with-options').marquee({
+    speed: 200,
+    gap: 50,
+    delayBeforeStart: 0,
+    direction: 'left',
+    duplicated: true,
+    pauseOnHover: true
+});
+
+
+
+
+$('.color').on('click', function() {
+    let a = $(this).attr('data-id');
+    $(".change-color-code").css('background', a);
+    $(".banner-wrapper .flex-control-nav").css('background', a);
+    $(".banner-wrapper .flex-pauseplay").css('background', a);
+    $(".latest-new-title:before").css('border-color', a);
+    $(".change-border-color-text").css({
+        "border-color": a,
+        "color": a
+    });
+    $(".change-text-color").css('color', a);
+})
+
+$('.latest_news_marquee_container').SimpleMarquee();

@@ -47,10 +47,10 @@
             </div>
         </div>
         <div class="col-md-9 col-8">
-            <div class="latest_news_marquee marquee-vertical" data-speed="80">
+            <div class="latest_news_marquee marquee-vertical" data-speed="70">
                 <div class="marquee-wrapper">
                     <div class="marquee-content">
-                       <div class="float-left d-inline-block me-3">
+                       <div class="float-left d-inline-block ">
                             @if (isset($news_management) && count($news_management) > 0)
                             @foreach ($news_management as $news_managements)
                             <span>
@@ -62,7 +62,7 @@
 
                                 @if ($news_managements->tab_type == '1')
                                 @if (!empty($url))
-                                <a href="{{ url($url) }}" onclick="return confirm('{{ $alertMessage  ??''}}')"
+                                <a href="{{ url($url) }}" class="me-3" onclick="return confirm('{{ $alertMessage  ??''}}')"
                                     target="_blank">
 
                                     @if (Session::get('Lang') == 'hi')
@@ -75,7 +75,7 @@
                                 @endif
                                 @else
                                 @if (!empty($url))
-                                <a href="{{ url($url) }}">
+                                <a href="{{ url($url) }}" class="me-3">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ $title_hi ?? '' }}
                                     @else
