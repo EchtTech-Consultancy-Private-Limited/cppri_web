@@ -65,13 +65,13 @@
     <div class="wrapper" id="skipCont"></div>
     <div class="sidebar-main-nav ptb-50">
         <div class="container common-container pr-0">
-        <a href="{{url('rti-applications-responses')}}" title="RTI Application & Responses" class="btn btn-primary"> RTI Application & Responses</a>
             <!--/.nav-wrapper-->
             <div class="row pr-0">
 
                 <div class="main-content">
                     <!--/#skipCont-->
                     <div id="fontSize" class="wrapper body-wrapper ">
+
                         @if (isset($content))
                             <h1>{{ $content }}</h1>
                         @endif
@@ -79,6 +79,7 @@
                         <!--/#page-head-->
                         <section id="paragraph" class="wrapper paragraph-wrapper">
                             <div class="container common-container four_content pm-0">
+                               
                                 <div class="align-lt">
                                     <h2 class="mt-0 mb-20">
                                         @if (isset($rtiData) && !blank($rtiData))

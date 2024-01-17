@@ -2980,16 +2980,18 @@ h2 small {
     display: inline-block;
     text-decoration: none;
     float: right;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    color: var(--white);
     margin-top: 14px;
     margin-right: 10px;
     margin-bottom: 6px;
+	background-color: var(--secondary-color);
 }
 
 .view-footer a:hover {
 	color: #000;
 	border: 1px solid var(--primary-color);
+	background-color: var(--primary-color);
 }
 
 .tender-play-btn {
