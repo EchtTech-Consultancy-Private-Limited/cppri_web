@@ -2980,16 +2980,18 @@ h2 small {
     display: inline-block;
     text-decoration: none;
     float: right;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    color: var(--white);
     margin-top: 14px;
     margin-right: 10px;
     margin-bottom: 6px;
+	background-color: var(--secondary-color);
 }
 
 .view-footer a:hover {
 	color: #000;
 	border: 1px solid var(--primary-color);
+	background-color: var(--primary-color);
 }
 
 .tender-play-btn {
@@ -5974,8 +5976,27 @@ span#timeid p {
     font-size: 18px;
     margin-top: 0px;
 }
-.main-sidebar .list-start:hover a::before{
+.main-sidebar  .list-start:hover a::before{
 	color: #fff !important;
+}
+.main-sidebar li:hover .list-start a::before{
+	color: #fff !important;
+}
+.main-sidebar .sl-accordion:hover .list-start a::before{
+	color: #fff !important;
+}
+.main-sidebar .sl-accordion.menu-accordion-click:hover .list-start a::before{
+	color: #49aa41 !important;
+}
+.main-sidebar .sl-accordion.menu-active:hover .list-start a::before{
+	color: #49aa41 !important;
+}
+
+.main-sidebar .sl-accordion:hover .nav-link.collapsed::after{
+	color: #fff ;
+}
+.main-sidebar .sl-accordion.menu-accordion-click:hover .nav-link.collapsed::after{
+	color: #333 ;
 }
 .main-sidebar .menu-accordion-click .list-start:hover a::before{
 	color: #49aa41 !important;
@@ -6177,3 +6198,6 @@ blockquote {
 
 	  }
 
+	  .main-sidebar .menu-accordion-click:hover .nav-link.collapsed {
+		color: #333 !important;
+	}

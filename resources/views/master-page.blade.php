@@ -100,20 +100,76 @@
                                                                     @php
                                                                         $chiltreeUrl = $childTree->url ?? '';
                                                                     @endphp
+                                                                    @if (isset($childTree->children) && count($childTree->children) > 0)
+                                                                        <li class="accordion accordion-flush position-relative fl-accordion"
+                                                                            id="fl_sidebarDropdown_1">
+                                                                            <div class="accordion-item">
+                                                                                <div class="list-start"
+                                                                                    id="fl_flush_headingOne_3">
+                                                                                    <a class="nav-link collapsed"
+                                                                                        type="button"
+                                                                                        data-bs-toggle="collapse"
+                                                                                        data-bs-target="#fl_flush_collapseOne_1"
+                                                                                        aria-expanded="false"
+                                                                                        aria-controls="flush-collapseOne"
+                                                                                        tabindex="0">
+                                                                                        @if (Session::get('Lang') == 'hi')
+                                                                                            {{ $childTree->name_hi ?? '' }}
+                                                                                        @else
+                                                                                            {{ $childTree->name_en ?? '' }}
+                                                                                        @endif
+                                                                                    </a>
+                                                                                </div>
 
-                                                                    <li
-                                                                        class="@if (request()->is($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl)) qm-active @endif">
-                                                                        <a href="{{ url($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl) }}"
-                                                                            class="">
+                                                                                <div id="fl_flush_collapseOne_1"
+                                                                                    class="accordion-collapse collapse"
+                                                                                    aria-labelledby="fl_flush_headingOne_3"
+                                                                                    data-bs-parent="#fl_sidebarDropdown_1">
+                                                                                    <div class="accordion-body p-0">
+                                                                                        <ul class="p-0 m-0 mt-3">
 
-                                                                            @if (Session::get('Lang') == 'hi')
-                                                                                {{ $childTree->name_hi ?? '' }}
-                                                                            @else
-                                                                                {{ $childTree->name_en ?? '' }}
-                                                                            @endif
-                                                                        </a>
-                                                                    </li>
+                                                                                               @foreach ($childTree->children as $finalChild)
+                                                                                                @php 
+                                                                                                 $finalChildUrl = $finalChild->url ??''
+                                                                                                @endphp
+
+                                                                                               <li class="@if (request()->is($parentMenuUrl.'/'.$treesUrl.'/'.$chiltreeUrl.'/'.$finalChildUrl)) qm-active @endif">
+                                                                                
+                                                                                                    <a href="{{ url($parentMenuUrl.'/'.$treesUrl.'/'.$chiltreeUrl.'/'.$finalChildUrl) }}"
+                                                                                                          >
+                                                                                                        @if (Session::get('Lang') == 'hi')
+                                                                                                            {{ $finalChild->name_hi ?? '' }}
+                                                                                                        @else
+                                                                                                            {{ $finalChild->name_en ?? '' }}
+                                                                                                        @endif
+                                                                                                    </a>
+                                                                                            
+                                                                                            </li>
+                                                                                            @endforeach
+                                                                                         
+                                                                                            <!-- nested layer -->
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </li>
+                                                                    @else
+                                                                        <li
+                                                                            class="@if (request()->is($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl)) qm-active @endif">
+                                                                            <a href="{{ url($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl) }}"
+                                                                                class="">
+
+                                                                                @if (Session::get('Lang') == 'hi')
+                                                                                    {{ $childTree->name_hi ?? '' }}
+                                                                                @else
+                                                                                    {{ $childTree->name_en ?? '' }}
+                                                                                @endif
+                                                                            </a>
+                                                                        </li>
+                                                                    @endif
                                                                 @endforeach
+
 
                                                             </ul>
                                                         </div>
@@ -123,10 +179,10 @@
                                             </li>
                                         @else
                                             @if ($treesUrl != 'feedback' && $treesUrl != 'website-information-manage' && $treesUrl != 'vigilance-cell')
-                                                <li class="@if (request()->is($parentMenuUrl.'/'.$treesUrl)) qm-active @endif">
+                                                <li class="@if (request()->is($parentMenuUrl . '/' . $treesUrl)) qm-active @endif">
                                                     <div class="list-start">
 
-                                                        <a href="{{ url($parentMenuUrl.'/'.$treesUrl) }}"
+                                                        <a href="{{ url($parentMenuUrl . '/' . $treesUrl) }}"
                                                             class="nav-link">
                                                             @if (Session::get('Lang') == 'hi')
                                                                 {{ $trees->name_hi ?? '' }}
@@ -145,89 +201,89 @@
 
                                 <!-- fourth layer sidebar -->
                                 <!-- <li class="accordion accordion-flush position-relative fl-accordion" id="fl_sidebarDropdown_1">
-                                <div class="accordion-item">
-                                    <div class="list-start" id="fl_flush_headingOne_3">
-                                        <a class="nav-link collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#fl_flush_collapseOne_1" aria-expanded="false"
-                                            aria-controls="flush-collapseOne" tabindex="0">
-                                            Thid Layer
-                                        </a>
-                                    </div>
+                                        <div class="accordion-item">
+                                            <div class="list-start" id="fl_flush_headingOne_3">
+                                                <a class="nav-link collapsed" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#fl_flush_collapseOne_1" aria-expanded="false"
+                                                    aria-controls="flush-collapseOne" tabindex="0">
+                                                    Thid Layer
+                                                </a>
+                                            </div>
 
-                                    <div id="fl_flush_collapseOne_1" class="accordion-collapse collapse"
-                                        aria-labelledby="fl_flush_headingOne_3" data-bs-parent="#fl_sidebarDropdown_1"
-                                        style="">
-                                        <div class="accordion-body p-0">
-                                            <ul class="p-0 m-0 mt-3">
+                                            <div id="fl_flush_collapseOne_1" class="accordion-collapse collapse"
+                                                aria-labelledby="fl_flush_headingOne_3" data-bs-parent="#fl_sidebarDropdown_1"
+                                                style="">
+                                                <div class="accordion-body p-0">
+                                                    <ul class="p-0 m-0 mt-3">
 
-                                                <li class="">
-                                                    <a href="#" class="" tabindex="0">
+                                                        <li class="">
+                                                            <a href="#" class="" tabindex="0">
 
-                                                        Item 1
-                                                    </a>
-                                                </li>
-
-                                                <li class="">
-                                                    <a href="#" class="" tabindex="0">
-
-                                                        Item 2
-                                                    </a>
-                                                </li>
-
-                                              
-                                                <li class="accordion accordion-flush position-relative fl-n-accordion"
-                                                    id="fl_sidebarDropdown_n_1">
-                                                    <div class="accordion-item">
-                                                        <div class="list-start" id="fl_flush_headingOne_n_1">
-                                                            <a class="nav-link collapsed" type="button"
-                                                                data-bs-toggle="collapse"
-                                                                data-bs-target="#fl_flush_collapseOne_n_1"
-                                                                aria-expanded="false" aria-controls="flush-collapseOne"
-                                                                tabindex="0">
-                                                                Fourth Layer
+                                                                Item 1
                                                             </a>
-                                                        </div>
+                                                        </li>
 
-                                                        <div id="fl_flush_collapseOne_n_1"
-                                                            class="accordion-collapse collapse"
-                                                            aria-labelledby="fl_flush_headingOne_n_1"
-                                                            data-bs-parent="#fl_sidebarDropdown_n_1" style="">
-                                                            <div class="accordion-body p-0">
-                                                                <ul class="p-0 m-0 mt-3">
+                                                        <li class="">
+                                                            <a href="#" class="" tabindex="0">
 
-                                                                    <li class="">
-                                                                        <a href="#" class="" tabindex="0">
+                                                                Item 2
+                                                            </a>
+                                                        </li>
 
-                                                                            Item 1
-                                                                        </a>
-                                                                    </li>
+                                                      
+                                                        <li class="accordion accordion-flush position-relative fl-n-accordion"
+                                                            id="fl_sidebarDropdown_n_1">
+                                                            <div class="accordion-item">
+                                                                <div class="list-start" id="fl_flush_headingOne_n_1">
+                                                                    <a class="nav-link collapsed" type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#fl_flush_collapseOne_n_1"
+                                                                        aria-expanded="false" aria-controls="flush-collapseOne"
+                                                                        tabindex="0">
+                                                                        Fourth Layer
+                                                                    </a>
+                                                                </div>
 
-                                                                    <li class="">
-                                                                        <a href="#" class="" tabindex="0">
+                                                                <div id="fl_flush_collapseOne_n_1"
+                                                                    class="accordion-collapse collapse"
+                                                                    aria-labelledby="fl_flush_headingOne_n_1"
+                                                                    data-bs-parent="#fl_sidebarDropdown_n_1" style="">
+                                                                    <div class="accordion-body p-0">
+                                                                        <ul class="p-0 m-0 mt-3">
 
-                                                                            Item 2
-                                                                        </a>
-                                                                    </li>
+                                                                            <li class="">
+                                                                                <a href="#" class="" tabindex="0">
 
-                                                                    <li class="">
-                                                                        <a href="#" class="" tabindex="0">
+                                                                                    Item 1
+                                                                                </a>
+                                                                            </li>
 
-                                                                            Item 3
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
+                                                                            <li class="">
+                                                                                <a href="#" class="" tabindex="0">
+
+                                                                                    Item 2
+                                                                                </a>
+                                                                            </li>
+
+                                                                            <li class="">
+                                                                                <a href="#" class="" tabindex="0">
+
+                                                                                    Item 3
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
 
-                                                </li>
-                                               
-                                            </ul>
+                                                        </li>
+                                                       
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                            </li> -->
+                                    </li> -->
                                 <!-- fourth layer sidebar -->
                                 <!-- first and second -->
 
@@ -247,7 +303,7 @@
                 @endif
 
                 {{-- <div class="col-md-9 m-p-0"> --}}
-                <div class="main-content director-desk">
+                <div class="main-content ditiector-desk">
                     <!--/#skipCont-->
                     <div id="fontSize" class="wrapper body-wrapper ">
                         @if (isset($content))
@@ -371,42 +427,42 @@
                                             @endif
                                         </h2>
                                         <!-- <div class="col-md-4 col-lg-3">
-                                                <div class="addevent-box text-center">
-                                                    <div class="profile-img">
-                                                        @if ($Director->public_url != '')
+                                                        <div class="addevent-box text-center">
+                                                            <div class="profile-img">
+                                                                @if ($Director->public_url != '')
     <img src="{{ asset('resources/uploads/empDirectory/' . $Director->public_url) }}"
-                                                            alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
-                                                            title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
-                                                            loading="lazy">
+                                                                    alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                                    title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                                    loading="lazy">
 @else
     <img src="{{ asset('assets-cppri/images/profile--.jpg') }}"
-                                                            alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
-                                                            title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
-                                                            loading="lazy">
+                                                                    alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                                    title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                                    loading="lazy">
     @endif
 
 
-                                                        <h4 class="pb-10" tabindex="0">
+                                                                <h4 class="pb-10" tabindex="0">
 
-                                                            @if (Session::get('Lang') == 'hi')
+                                                                    @if (Session::get('Lang') == 'hi')
     {{ $Director->fname_hi ?? '' }}
-                                                            {{ $Director->mname_hi ?? '' }}
-                                                            {{ $Director->lname_hi ?? '' }}
+                                                                    {{ $Director->mname_hi ?? '' }}
+                                                                    {{ $Director->lname_hi ?? '' }}
 @else
     {{ $Director->fname_en ?? '' }}
-                                                            {{ $Director->mname_en ?? '' }}
-                                                            {{ $Director->lname_en ?? '' }}
+                                                                    {{ $Director->mname_en ?? '' }}
+                                                                    {{ $Director->lname_en ?? '' }}
     @endif
 
 
 
-                                                        </h4>
-                                                    </div>
+                                                                </h4>
+                                                            </div>
 
 
 
-                                                </div>
-                                            </div> -->
+                                                        </div>
+                                                    </div> -->
                                         <div class="col-md-12 col-lg-12">
                                             <div class="addevent-box text-center">
                                                 <div class="profile-img">
@@ -457,7 +513,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                 </div>
                             </section>
                         @endif
