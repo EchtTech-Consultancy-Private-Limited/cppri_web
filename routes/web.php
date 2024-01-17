@@ -62,6 +62,8 @@ Route::get('tender-archive', [HomeController::class,'tenderArchive']);
 //carrer
 Route::get('/careers', [HomeController::class,'careerData'])->name('careerData');
 Route::get('career-archive', [HomeController::class,'careerArchive']);
+Route::get('rti-applications-responses', [HomeController::class,'rtiApplicationsResponse']);
+Route::get('purchase-works-committee', [HomeController::class,'purchaseWorksCommittee']);
 
 Route::get('/{Slug}/{middelSlug?}/{lastSlug?}/{finalSlug?}/{finallastSlug?}', [HomeController::class, 'getContentAllPages']);
 });
