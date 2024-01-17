@@ -63,6 +63,7 @@
     <div class="wrapper" id="skipCont"></div>
     <div class="sidebar-main-nav ptb-50">
         <div class="container common-container pr-0">
+        <a href="{{ url('purchase-works-committee') }}" title=" Purchase Works Committee" class="btn btn-primary"> Purchase / Works / Committee</a>
             <!--/.nav-wrapper-->
             <div class="row pr-0">
                 <div class="main-content">
