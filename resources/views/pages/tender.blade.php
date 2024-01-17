@@ -63,9 +63,9 @@
     <div class="wrapper" id="skipCont"></div>
     <div class="sidebar-main-nav ptb-50">
         <div class="container common-container pr-0">
-        <a href="{{ url('purchase-works-committee') }}" title=" Purchase Works Committee" class="btn btn-primary"> Purchase / Works / Committee</a>
             <!--/.nav-wrapper-->
             <div class="row pr-0">
+               
                 <div class="main-content">
                     <!--/#skipCont-->
                     <div id="fontSize" class="wrapper body-wrapper ">
@@ -76,6 +76,9 @@
                         <section id="datatable">
                             <div class="container common-container">
                                 <div class="row p-0 ">
+                                <div class="col-md-12 d-flex justify-content-end mb-2">
+                    <a href="{{ url('purchase-works-committee') }}" title=" Purchase Works Committee" class="btn btn-primary"> Purchase / Works / Committee</a>
+                </div>
                                     <div class="col-md-12">
                                         {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
                                         @if(count($Archive_tender_pdfs) > 0 )

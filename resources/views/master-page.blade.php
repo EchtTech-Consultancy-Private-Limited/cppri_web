@@ -303,7 +303,7 @@
                 @endif
 
                 {{-- <div class="col-md-9 m-p-0"> --}}
-                <div class="main-content director-desk">
+                <div class="main-content ditiector-desk">
                     <!--/#skipCont-->
                     <div id="fontSize" class="wrapper body-wrapper ">
                         @if (isset($content))
