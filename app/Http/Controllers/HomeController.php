@@ -85,6 +85,11 @@ class HomeController extends Controller
     public function careerArchive()
     {
         $titleName = 'Career Archive';
+
+
+
+
+        
         try {
             // $careerData = [];
 

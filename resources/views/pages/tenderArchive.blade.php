@@ -59,9 +59,7 @@
                         @if (isset($content))
                             <h1>{{ $content }}</h1>
                         @endif
-
                         <!--/#page-head-->
-
                         <section id="datatable">
                             <div class="container common-container">
                                 <div class="row p-0 ">

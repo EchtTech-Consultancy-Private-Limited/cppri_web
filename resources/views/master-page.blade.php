@@ -39,9 +39,6 @@
                         Home
                         @endif
                     </a></li>
-
-
-
                 @if (isset($finalBred))
                 <li><a>{{ ucfirst(strtolower($finalBred)) ?? '' }}</a></li>
                 @endif
