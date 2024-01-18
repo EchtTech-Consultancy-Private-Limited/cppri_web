@@ -73,9 +73,10 @@
 
                                                     <thead>
                                                         <tr>
-                                                            <th> Title</th>
+                                                            <th>Sr.no</th>
+                                                            <th>Title</th>
                                                             <th>Published Date</th>
-                                                            <th> View/Download</th>
+                                                            <th>View/Download</th>
                                                             <th>Apply Here</th>
                                                         </tr>
                                                     </thead>
@@ -102,8 +103,9 @@
                                                           @endif  
                                                         @endforeach --}}
 
-                                                        @foreach ($career_pdfs as $data)
+                                                        @foreach ($career_pdfs as  $k=>$data)
                                                             <tr>
+                                                                <td>{{ $k+1 ?? '' }}</td> 
                                                                 <td>{{ $data->pdf_title ?? '' }}</td>
                                                                 <td class="date-nowrap">
                                                                     {{ date('d F Y', strtotime($data->created_at ?? '')) }}

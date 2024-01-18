@@ -344,6 +344,7 @@
 
                                                     <thead>
                                                         <tr>
+                                                            <th>Sr.no</th>
                                                             <th> Title</th>
                                                             <th>Published Date</th>
                                                             <th> View/Download</th>
@@ -352,21 +353,22 @@
 
 
                                                     <tbody>
-                                                        @foreach ($organizedData['pdf'] as $data)
-                                                        <tr>
-                                                            <td>{{ $data->pdf_title ?? '' }}</td>
-                                                            <td class="date-nowrap">
-                                                                {{ date('d F Y', strtotime($data->start_date ?? '')) }}
-                                                            </td>
-                                                            <td>
-                                                                <span>
-                                                                    <a href="{{ asset('resources/uploads/PageContentPdf/' . $data->public_url) }}"
-                                                                        download>View</a> <i
-                                                                        class="fa fa-file-pdf-o text-danger"></i>
-                                                                    ({{ $data->pdfimage_size ?? '' }})
-                                                                </span>
-                                                            </td>
-                                                        </tr>
+                                                        @foreach ($organizedData['pdf'] as $k=>$data)
+                                                            <tr>
+                                                                <td>{{ $k+1 ?? '' }}</td> 
+                                                                <td>{{ $data->pdf_title ?? '' }}</td>
+                                                                <td class="date-nowrap">
+                                                                    {{ date('d F Y', strtotime($data->start_date ?? '')) }}
+                                                                </td>
+                                                                <td>
+                                                                    <span>
+                                                                        <a href="{{ asset('resources/uploads/PageContentPdf/' . $data->public_url) }}"
+                                                                            download>View</a> <i
+                                                                            class="fa fa-file-pdf-o text-danger"></i>
+                                                                        ({{ $data->pdfimage_size ?? '' }})
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
                                                         @endforeach
                                                     </tbody>
                                                 </table>
