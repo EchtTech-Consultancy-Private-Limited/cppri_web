@@ -546,9 +546,6 @@ div#costumModal8 button.close {
 
  
   
-  .main-sidebar ul li:hover {
-    background-color: var(--primary-color);
-  }
 
 
   .qm-active 
@@ -563,9 +560,6 @@ div#costumModal8 button.close {
 	color: #fff !important;
   }
 
-  .menu-active {
-    background: var(--primary-color) !important;
-}
 
 
   .sub-nav-group li:hover 
@@ -816,25 +810,32 @@ table th, button.dt-button.buttons-print{
 .main-sidebar ul li:hover .list-start a::before{
 	color: var(--white);
 }
-.menu-active li a{
-	color: #000 !important;
-}
-.menu-active .qm-active a{
-	color: #fff !important;
-}
+
+/* 
 .main-sidebar .menu-active .list-start a::before {
     color: #fff !important;
-}
+} */
 
 
 section#paragraph blockquote {
     border-left: 8px solid var(--primary-color) !important;
 }
 
-section#paragraph blockquote::before, section#paragraph blockquote::after{
-	color: var(--primary-color);
+section#paragraph blockquote::before, section#paragraph blockquote::after, .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover a::before, .main-sidebar .accordion.fl-accordion.fl-accordion-active .list-start:hover a::before, .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover a::before{
+	color: var(--primary-color) !important;
 }
 
 .main-sidebar .list-start a::before, .emp-crddir-inf h3, .emp-crddir-inf h5{
 	color: var(--primary-color) !important;
+}
+
+.main-sidebar .sl-accordion:hover .list-start a::before, .main-sidebar li:hover .list-start a::before {
+    color: var(--primary-color) !important;
+}
+
+.main-sidebar .list-start a::before, .emp-crddir-inf h3, .emp-crddir-inf h5, .main-sidebar .sl-accordion.menu-active:hover .list-start a::before, .main-sidebar .accordion-item ul li.fl-accordion:hover a::before {
+    color: var(--primary-color) !important;
+}
+.main-sidebar .accordion.fl-accordion.fl-accordion-active:hover, .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover {
+    border: 1px solid var(--primary-color);
 }

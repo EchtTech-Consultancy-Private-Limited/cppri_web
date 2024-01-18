@@ -5153,14 +5153,17 @@ img.cell-icon-sec {
 	margin-top: 30px;
   }
   .main-sidebar ul li:hover {
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
     border-radius: 4px;
+	border: 1px solid var(--secondary-color);
   }
 
-  .main-sidebar ul li:hover a,  .main-sidebar ul li:hover i{
-   color: #fff;
-   padding-left: 5px !important;
-    
+  .main-sidebar ul li:hover a{
+   color: #333;
+  }
+
+  .main-sidebar ul li:hover i{
+	color: var(--secondary-color);
   }
 
 
@@ -5212,6 +5215,9 @@ img.cell-icon-sec {
 	float: right;
     position: absolute;
     right: 10px;
+}
+.main-menu .sub-nav ul li.env.sub-menu-drop-g::after {
+    content: ' ' !important;
 }
 
 .sub-nav-group 
@@ -5978,7 +5984,7 @@ span#timeid p {
     font-size: 13px;
 }
 .main-sidebar .accordion:hover .nav-link[data-bs-toggle="collapse"]::after {
-   color: #fff;
+   color: #747474;
 }
 .main-sidebar .accordion.menu-accordion-click:hover .nav-link[data-bs-toggle="collapse"]::after {
    color: #747474;
@@ -5996,10 +6002,10 @@ span#timeid p {
 	color: #fff !important;
 }
 .main-sidebar li:hover .list-start a::before{
-	color: #fff !important;
+	color: #49aa41 !important;
 }
-.main-sidebar .sl-accordion:hover .list-start a::before{
-	color: #fff !important;
+.main-sidebar .sl-accordion:hover .list-start a::before {
+    color: #49aa41 !important;
 }
 .main-sidebar .sl-accordion.menu-accordion-click:hover .list-start a::before{
 	color: #49aa41 !important;
@@ -6009,7 +6015,7 @@ span#timeid p {
 }
 
 .main-sidebar .sl-accordion:hover .nav-link.collapsed::after{
-	color: #fff ;
+	color: #747474 ;
 }
 .main-sidebar .sl-accordion.menu-active:hover .nav-link.collapsed::after{
 	color: #333 ;
@@ -6127,6 +6133,7 @@ blockquote {
 	}
 	.main-sidebar .accordion.fl-accordion.fl-accordion-active:hover, .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover {
 		background-color: #f9f9f9;
+		border: 1px solid #49aa41;
 	}
 	.main-sidebar .accordion.fl-accordion.fl-accordion-active .list-start:hover a::before, .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover a::before {
 		color: #49aa41 !important;
@@ -6148,7 +6155,7 @@ blockquote {
 
 	.main-sidebar .accordion-item:hover .nav-link.collapsed::after
 	{
-		color: #fff ;
+		color: #747474 ;
 	}
 	
 
