@@ -77,9 +77,10 @@
 
                                                     <thead>
                                                         <tr>
-                                                            <th>Sr.no</th>
+                                                            <th>Sr. No.</th>
                                                             <th> Title</th>
                                                             <th>Published Date</th>
+                                                            <th>Submission Date</th>
                                                             <th>View/Download</th>
                                                             <th>Apply Here</th>
                                                         </tr>
@@ -112,7 +113,11 @@
                                                                 <td>{{ $k+1 ?? '' }}</td> 
                                                                 <td>{{ $data->pdf_title ?? '' }}</td>
                                                                 <td class="date-nowrap">
-                                                                    {{ date('d F Y', strtotime($data->created_at ?? '')) }}
+                                                                    {{ date('d F Y', strtotime($data->start_date ?? '')) }}
+                                                                </td>
+
+                                                                <td class="date-nowrap">
+                                                                    {{ date('d F Y', strtotime($data->end_date ?? '')) }}
                                                                 </td>
 
                                                                 <td class=''>

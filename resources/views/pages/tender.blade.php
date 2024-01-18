@@ -91,7 +91,7 @@
 
                                                     <thead>
                                                         <tr>
-                                                            <th>Sr.no</th>
+                                                            <th>Sr. No.</th>
                                                             <th> Title</th>
                                                             <th>Published Date</th>
                                                             <th>Submission Date</th>
@@ -121,6 +121,7 @@
                                                                     @endif
                                                                 </td>
                                                                 <td class="date-nowrap">
+                                                                    
                                                                     @if($data->opening_date !='')
                                                                     {{ date('d F Y', strtotime($data->opening_date ?? '')) }}
                                                                     @endif
