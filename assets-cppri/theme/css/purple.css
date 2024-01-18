@@ -169,13 +169,13 @@ ul.resp-tabs-list {
 
 .view-footer a {
 	border: 1px solid var(--primary-color);
-	color: var(--primary-color);
+	color: var(--white);
 	margin-top: 4px;
 	margin-right: 15px;
 }
 
 .view-footer a:hover {
-	color: #000;
+	color: var(--white);
 	border: 1px solid var(--secondary-color);
 }
 
@@ -237,7 +237,7 @@ p.banner-title-tag-line:after {
 .banner-content-wrapper a {
 	border: 1px solid var(--primary-color);
     padding: 9px 12px;
-    color: var(--primary-color);
+    color: var(--white);
 }
 
 
@@ -653,8 +653,8 @@ div#costumModal8 button.close {
 
 
 .banner-content-wrapper.services-heading h2{
-	color: var(--primary-color);
-    background-color: #ffffff;
+	color: var(--white);
+    background-color: var(--primary-color);
     border: 2px solid var(--service-border-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
