@@ -66,219 +66,124 @@
             <div class="col-md-3 sidebar-main-nav-colmd3 position-relative">
 
                 <div class="main-sidebar" id="main-sidebar">
-                    <ul>
-                        @if (isset($tree) && count($tree) > 0)
-                        @foreach ($tree as $index => $trees)
-                        @php
-                        $parentMenuUrl = $parentMenut->url ?? '';
-                        $treesUrl = $trees->url ?? '';
-                        @endphp
-                        @if (count($trees->children) > 0)
-                        <li class="accordion accordion-flush position-relative sl-accordion" id="sidebarDropdown_{{ $index }}">
-    <div class="accordion-item">
-        <div class="list-start" id="flush-headingOne_{{ $index }}">
-            <a class="nav-link collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseOne_{{ $index }}" aria-expanded="false"
-                aria-controls="flush-collapseOne" tabindex="0">
-                @if (Session::get('Lang') == 'hi')
-                    {{ $trees->name_hi ?? '' }}
-                @else
-                    {{ $trees->name_en ?? '' }}
-                @endif
-            </a>
-        </div>
+                <ul>
+    @if (isset($tree) && count($tree) > 0)
+        @foreach ($tree as $index => $trees)
+            @php
+                $parentMenuUrl = $parentMenut->url ?? '';
+                $treesUrl = $trees->url ?? '';
+            @endphp
+            @if (count($trees->children) > 0)
+                <li class="accordion accordion-flush position-relative sl-accordion" id="sidebarDropdown_{{ $index }}">
+                    <div class="accordion-item">
+                        <div class="list-start" id="flush-headingOne_{{ $index }}">
+                            <a class="nav-link collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne_{{ $index }}" aria-expanded="false"
+                                aria-controls="flush-collapseOne" tabindex="0">
+                                @if (Session::get('Lang') == 'hi')
+                                    {{ $trees->name_hi ?? '' }}
+                                @else
+                                    {{ $trees->name_en ?? '' }}
+                                @endif
+                            </a>
+                        </div>
 
-        <div id="flush-collapseOne_{{ $index }}" class="accordion-collapse collapse"
-            aria-labelledby="flush-headingOne_{{ $index }}" data-bs-parent="#sidebarDropdown_{{ $index }}">
-            <div class="accordion-body p-0">
-                <ul class='p-0 m-0 mt-3'>
-                    @foreach ($trees->children as $k => $childTree)
-                        @php
-                            $chiltreeUrl = $childTree->url ?? '';
-                        @endphp
-                        @if (isset($childTree->children) && count($childTree->children) > 0)
-                            <li class="accordion accordion-flush position-relative fl-accordion"
-                                id="fl_sidebarDropdown_{{$k}}">
-                                <div class="accordion-item">
-                                    <div class="list-start" id="fl_flush_headingOne_{{$k}}">
-                                        <a class="nav-link collapsed" type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#fl_flush_collapseOne_{{$k}}"
-                                            aria-expanded="false" aria-controls="fl_flush_collapseOne_{{$k}}"
-                                            tabindex="0">
-                                            @if (Session::get('Lang') == 'hi')
-                                                {{ $childTree->name_hi ?? '' }}
-                                            @else
-                                                {{ $childTree->name_en ?? '' }}
-                                            @endif
-                                        </a>
-                                    </div>
-
-                                    <div id="fl_flush_collapseOne_{{$k}}"
-                                        class="accordion-collapse collapse"
-                                        aria-labelledby="fl_flush_headingOne_{{$k}}"
-                                        data-bs-parent="#fl_sidebarDropdown_{{$k}}">
-                                        <div class="accordion-body p-0">
-                                            <ul class="p-0 m-0 mt-3">
-                                                @foreach ($childTree->children as $finalChild)
-                                                    @php
-                                                        $finalChildUrl = $finalChild->url ??''
-                                                    @endphp
-
-                                                    <li
-                                                        class="@if (request()->is($parentMenuUrl.'/'.$treesUrl.'/'.$chiltreeUrl.'/'.$finalChildUrl)) qm-active @endif">
-
-                                                        <a
-                                                            href="{{ url($parentMenuUrl.'/'.$treesUrl.'/'.$chiltreeUrl.'/'.$finalChildUrl) }}">
+                        <div id="flush-collapseOne_{{ $index }}" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne_{{ $index }}" data-bs-parent="#sidebarDropdown_{{ $index }}">
+                            <div class="accordion-body p-0">
+                                <ul class='p-0 m-0 mt-3'>
+                                    @foreach ($trees->children as $k => $childTree)
+                                        @php
+                                            $chiltreeUrl = $childTree->url ?? '';
+                                        @endphp
+                                        @if (isset($childTree->children) && count($childTree->children) > 0)
+                                            <li class="accordion accordion-flush position-relative fl-accordion"
+                                                id="fl_sidebarDropdown_{{$k}}">
+                                                <div class="accordion-item">
+                                                    <div class="list-start" id="fl_flush_headingOne_{{$k}}">
+                                                        <a class="nav-link collapsed" type="button"
+                                                            data-bs-toggle="collapse"
+                                                            data-bs-target="#fl_flush_collapseOne_{{$k}}"
+                                                            aria-expanded="false"
+                                                            aria-controls="fl_flush_collapseOne_{{$k}}" tabindex="0">
                                                             @if (Session::get('Lang') == 'hi')
-                                                                {{ $finalChild->name_hi ?? '' }}
+                                                                {{ $childTree->name_hi ?? '' }}
                                                             @else
-                                                                {{ $finalChild->name_en ?? '' }}
+                                                                {{ $childTree->name_en ?? '' }}
                                                             @endif
                                                         </a>
-                                                    </li>
-                                                @endforeach
+                                                    </div>
 
-                                                <!-- nested layer -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        @else
-                            <li
-                                class="@if (request()->is($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl)) qm-active @endif">
-                                <a href="{{ url($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl) }}"
-                                    class="">
+                                                    <div id="fl_flush_collapseOne_{{$k}}"
+                                                        class="accordion-collapse collapse"
+                                                        aria-labelledby="fl_flush_headingOne_{{$k}}"
+                                                        data-bs-parent="#fl_sidebarDropdown_{{$k}}">
+                                                        <div class="accordion-body p-0">
+                                                            <ul class="p-0 m-0 mt-3">
+                                                                @foreach ($childTree->children as $finalChild)
+                                                                    @php
+                                                                        $finalChildUrl = $finalChild->url ??''
+                                                                    @endphp
 
-                                    @if (Session::get('Lang') == 'hi')
-                                        {{ $childTree->name_hi ?? '' }}
-                                    @else
-                                        {{ $childTree->name_en ?? '' }}
-                                    @endif
-                                </a>
-                            </li>
-                        @endif
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    </div>
-</li>
+                                                                    <li
+                                                                        class="@if (request()->is($parentMenuUrl.'/'.$treesUrl.'/'.$chiltreeUrl.'/'.$finalChildUrl)) qm-active @endif">
 
-                        @else
-                        @if ($treesUrl != 'feedback' && $treesUrl != 'website-information-manage' && $treesUrl !=
-                        'vigilance-cell')
-                        <li class="@if (request()->is($parentMenuUrl . '/' . $treesUrl)) qm-active @endif">
-                            <div class="list-start">
+                                                                        <a
+                                                                            href="{{ url($parentMenuUrl.'/'.$treesUrl.'/'.$chiltreeUrl.'/'.$finalChildUrl) }}">
+                                                                            @if (Session::get('Lang') == 'hi')
+                                                                                {{ $finalChild->name_hi ?? '' }}
+                                                                            @else
+                                                                                {{ $finalChild->name_en ?? '' }}
+                                                                            @endif
+                                                                        </a>
+                                                                    </li>
+                                                                @endforeach
 
-                                <a href="{{ url($parentMenuUrl . '/' . $treesUrl) }}" class="nav-link">
-                                    @if (Session::get('Lang') == 'hi')
-                                    {{ $trees->name_hi ?? '' }}
-                                    @else
-                                    {{ $trees->name_en ?? '' }}
-                                    @endif
-                                </a>
-                            </div>
-
-                        </li>
-                        @endif
-                        @endif
-                        @endforeach
-                        @endif
-
-
-                        <!-- fourth layer sidebar -->
-                        <!-- <li class="accordion accordion-flush position-relative fl-accordion" id="fl_sidebarDropdown_1">
-                                        <div class="accordion-item">
-                                            <div class="list-start" id="fl_flush_headingOne_3">
-                                                <a class="nav-link collapsed" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#fl_flush_collapseOne_1" aria-expanded="false"
-                                                    aria-controls="flush-collapseOne" tabindex="0">
-                                                    Thid Layer
-                                                </a>
-                                            </div>
-
-                                            <div id="fl_flush_collapseOne_1" class="accordion-collapse collapse"
-                                                aria-labelledby="fl_flush_headingOne_3" data-bs-parent="#fl_sidebarDropdown_1"
-                                                style="">
-                                                <div class="accordion-body p-0">
-                                                    <ul class="p-0 m-0 mt-3">
-
-                                                        <li class="">
-                                                            <a href="#" class="" tabindex="0">
-
-                                                                Item 1
-                                                            </a>
-                                                        </li>
-
-                                                        <li class="">
-                                                            <a href="#" class="" tabindex="0">
-
-                                                                Item 2
-                                                            </a>
-                                                        </li>
-
-                                                      
-                                                        <li class="accordion accordion-flush position-relative fl-n-accordion"
-                                                            id="fl_sidebarDropdown_n_1">
-                                                            <div class="accordion-item">
-                                                                <div class="list-start" id="fl_flush_headingOne_n_1">
-                                                                    <a class="nav-link collapsed" type="button"
-                                                                        data-bs-toggle="collapse"
-                                                                        data-bs-target="#fl_flush_collapseOne_n_1"
-                                                                        aria-expanded="false" aria-controls="flush-collapseOne"
-                                                                        tabindex="0">
-                                                                        Fourth Layer
-                                                                    </a>
-                                                                </div>
-
-                                                                <div id="fl_flush_collapseOne_n_1"
-                                                                    class="accordion-collapse collapse"
-                                                                    aria-labelledby="fl_flush_headingOne_n_1"
-                                                                    data-bs-parent="#fl_sidebarDropdown_n_1" style="">
-                                                                    <div class="accordion-body p-0">
-                                                                        <ul class="p-0 m-0 mt-3">
-
-                                                                            <li class="">
-                                                                                <a href="#" class="" tabindex="0">
-
-                                                                                    Item 1
-                                                                                </a>
-                                                                            </li>
-
-                                                                            <li class="">
-                                                                                <a href="#" class="" tabindex="0">
-
-                                                                                    Item 2
-                                                                                </a>
-                                                                            </li>
-
-                                                                            <li class="">
-                                                                                <a href="#" class="" tabindex="0">
-
-                                                                                    Item 3
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </li>
-                                                       
-                                                    </ul>
+                                                                <!-- nested layer -->
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
+                                            </li>
+                                        @else
+                                            <li
+                                                class="@if (request()->is($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl)) qm-active @endif">
+                                                <a href="{{ url($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl) }}"
+                                                    class="">
 
-                                    </li> -->
-                        <!-- fourth layer sidebar -->
-                        <!-- first and second -->
+                                                    @if (Session::get('Lang') == 'hi')
+                                                        {{ $childTree->name_hi ?? '' }}
+                                                    @else
+                                                        {{ $childTree->name_en ?? '' }}
+                                                    @endif
+                                                </a>
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            @else
+                @if ($treesUrl != 'feedback' && $treesUrl != 'website-information-manage' && $treesUrl != 'vigilance-cell')
+                    <li class="@if (request()->is($parentMenuUrl . '/' . $treesUrl)) qm-active @endif">
+                        <div class="list-start">
+                            <a href="{{ url($parentMenuUrl . '/' . $treesUrl) }}" class="nav-link">
+                                @if (Session::get('Lang') == 'hi')
+                                    {{ $trees->name_hi ?? '' }}
+                                @else
+                                    {{ $trees->name_en ?? '' }}
+                                @endif
+                            </a>
+                        </div>
+                    </li>
+                @endif
+            @endif
+        @endforeach
+    @endif
+</ul>
 
-                        <!-- third and fourth layer end -->
-
-                    </ul>
                 </div>
             </div>
 
