@@ -91,7 +91,7 @@
 
                                                     <thead>
                                                         <tr>
-                                                            <th>Sr.no</th>
+                                                            <th>Sr.No.</th>
                                                             <th> Title</th>
                                                             <th>Published Date</th>
                                                             <th>Submission Date</th>

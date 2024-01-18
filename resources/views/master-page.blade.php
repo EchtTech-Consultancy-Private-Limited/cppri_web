@@ -344,7 +344,7 @@
 
                                                     <thead>
                                                         <tr>
-                                                            <th>Sr.no</th>
+                                                            <th>Sr.No.</th>
                                                             <th> Title</th>
                                                             <th>Published Date</th>
                                                             <th> View/Download</th>
