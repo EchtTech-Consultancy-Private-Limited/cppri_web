@@ -517,7 +517,7 @@ test.forEach((e) => {
         let mainParentElement =currentElement.firstElementChild.childNodes[1].childNodes[1];
         console.log(mainParentElement)
         if (mainParentElement) {
-            mainParentElement.classList.remove('collapsed');
+            mainParentElement.classList.add('collapsed');
         }
     }
 });
@@ -725,24 +725,22 @@ $('.color').on('click', function() {
     $(".change-text-color").css('color', a);
 })
 
-// $('.latest_news_marquee_container').SimpleMarquee();
+let accordion_collapse = $('.accordion-collapse.collapse');
 
-
-// close accrodin
-// document.querySelectorAll('.nav-link.collapsed').forEach(function (button) {
-//     button.addEventListener('click', function () {
-//         // Close all other accordion items
-//         document.querySelectorAll('.accordion-collapse.show').forEach(function (collapse) {
-//             // Check if the current collapse is not a child of an element with class 'accordion'
-//             if (!collapse.closest('.accordion')) {
-//                 new bootstrap.Collapse(collapse);
-//             }
-//         });
-//     });
-// });
-
-
+accordion_collapse.on('show.bs.collapse', function () {
+    // Hide other open collapse elements except for those with .accordion as parent
+    let parentAccordion = $(this).closest('.accordion');
+    accordion_collapse.not(parentAccordion).removeClass('show');
+});
 
 // paper mausem kagaj sangralay
 
 let sidebarDropdown_5 = $('#sidebarDropdown_5')
+let fl_accordion = $('.fl-accordion');
+// fl_accordion.parent().parent().parent().addClass('show');
+console.log(fl_accordion.parent().parent().parent())
+console.log();
+
+fl_accordion.click(function(){
+    fl_accordion.parent().parent().parent().addClass('show');
+})

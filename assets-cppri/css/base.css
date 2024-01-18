@@ -2185,7 +2185,7 @@ ul{
 	color: #7e7e7e;
     font-size: 12px;
 }
-.main-sidebar .accordion-item li::after{
+/* .main-sidebar .accordion-item li::after{
 	content: '\f078';
     font-family: 'fontAwesome';
     position: absolute;
@@ -2195,7 +2195,7 @@ ul{
     color: #747474;
     font-size: 13px;
 	
-}
+} */
 .main-sidebar .menu-active .accordion-item li::after{
 	/* color: #fff !important; */
 }
@@ -2516,8 +2516,11 @@ table .multiple-pdf{
 	opacity: 1 !important;
 }
 
-.main-sidebar .accordion:hover a[data-bs-toggle="collapse"]{
-	/* color: #fff !important; */
+.main-sidebar .accordion:hover a[aria-expanded="true"]{
+	color: #fff !important;
+}
+.main-sidebar .accordion.menu-accordion-click:hover a{
+	color: #333 !important;
 }
 .partition-bg-wrap.vision-mission li {
     padding-right: 15px;
