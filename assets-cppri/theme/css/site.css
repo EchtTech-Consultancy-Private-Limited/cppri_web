@@ -5967,6 +5967,22 @@ span#timeid p {
     color: #7e7e7e;
     font-size: 12px;
 }
+.main-sidebar .accordion-item .nav-link[data-bs-toggle="collapse"]::after {
+    content: '\f078';
+    font-family: 'fontAwesome';
+    position: absolute;
+    right: -3px;
+    top: 7px;
+    rotate: -90deg;
+    color: #747474;
+    font-size: 13px;
+}
+.main-sidebar .accordion:hover .nav-link[data-bs-toggle="collapse"]::after {
+   color: #fff;
+}
+.main-sidebar .accordion.menu-accordion-click:hover .nav-link[data-bs-toggle="collapse"]::after {
+   color: #747474;
+}
 
 .main-sidebar .list-start a::before {
     content: "\f101";
@@ -6100,11 +6116,11 @@ blockquote {
 	/* .main-sidebar .accordion.fl-accordion:hover {
 		background-color: #49aa41;
 	} */
-	.main-sidebar .accordion.fl-accordion .list-start:hover a::before, .main-sidebar .accordion.fl-accordion:hover a::before {
-		color: #fff !important;
+	.main-sidebar .accordion.fl-accordion .list-start:hover a::before{
+		/* color: #fff !important; */
 	}
 	.main-sidebar .accordion.fl-accordion:hover .nav-link.collapsed{
-		color: #fff !important;
+		/* color: #fff !important; */
 	}
 	.main-sidebar .accordion.fl-accordion.fl-accordion-active:hover, .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover {
 		background-color: #f9f9f9;
@@ -6207,4 +6223,8 @@ blockquote {
 
 	.sl-accordion:hover .fl-accordion  a{
 		color: #333;
+	}
+
+	.qm-active a{
+		color: #fff !important;
 	}
