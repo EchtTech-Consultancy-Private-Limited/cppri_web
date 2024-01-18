@@ -6011,6 +6011,9 @@ span#timeid p {
 .main-sidebar .sl-accordion:hover .nav-link.collapsed::after{
 	color: #fff ;
 }
+.main-sidebar .sl-accordion.menu-active:hover .nav-link.collapsed::after{
+	color: #333 ;
+}
 .main-sidebar .sl-accordion.menu-accordion-click:hover .nav-link.collapsed::after{
 	color: #333 ;
 }
@@ -6226,5 +6229,38 @@ blockquote {
 	}
 
 	.qm-active a{
+		color: #fff !important;
+	}
+
+	.main-sidebar .accordion.sl-accordion:hover .show .fl-accordion.fl-accordion-active:hover a, .main-sidebar .accordion.fl-accordion.fl-accordion-active a{
+		color: #333 !important;
+	}
+
+	.main-sidebar ul li.sl-accordion:hover .fl-accordion.fl-accordion-active{
+		background-color: #fff;
+	}
+
+	.main-sidebar .sl-accordion:hover .fl-accordion.fl-accordion-active a::before{
+		color: #49aa41 !important;
+	}
+	.main-sidebar .sl-accordion:hover .fl-accordion.fl-accordion-active a::after{
+		color: #747474 !important;
+	}
+	
+
+	.main-sidebar .sl-accordion:hover .fl-accordion.menu-active{
+		background-color: #fff !important;
+	}
+	.main-sidebar .sl-accordion:hover .fl-accordion.menu-active a{
+		color: #333 !important;
+	}
+	.main-sidebar .sl-accordion:hover .fl-accordion.menu-active a::before{
+		color: #49aa41 !important;
+	}
+	.main-sidebar .sl-accordion:hover .fl-accordion.menu-active a::after{
+		color: #747474 !important;
+	}
+
+	.main-sidebar .sl-accordion .fl-accordion.menu-active .qm-active a, .main-sidebar .sl-accordion .fl-accordion.menu-active:hover .qm-active a{
 		color: #fff !important;
 	}

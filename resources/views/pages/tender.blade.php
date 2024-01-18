@@ -121,6 +121,7 @@
                                                                     @endif
                                                                 </td>
                                                                 <td class="date-nowrap">
+                                                                    
                                                                     @if($data->opening_date !='')
                                                                     {{ date('d F Y', strtotime($data->opening_date ?? '')) }}
                                                                     @endif
