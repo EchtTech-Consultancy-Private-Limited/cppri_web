@@ -73,6 +73,7 @@
 
                                                     <thead>
                                                         <tr>
+                                                            <th>Sr.no</th>
                                                             <th>Title</th>
                                                             <th>Published Date</th>
                                                             <th>Submission Date</th>
@@ -84,8 +85,9 @@
 
                                                     <tbody>
                                                         @if (isset($tender_pdfs) && count($tender_pdfs) > 0)
-                                                        @foreach ($tender_pdfs as $data)
+                                                        @foreach ($tender_pdfs as $k=>$data)
                                                             <tr>
+                                                                <td>{{ $k+1 ?? '' }}</td> 
                                                                 <td>{{ $data->pdf_title ?? '' }}</td>
                                                                 <td class="date-nowrap">
                                                                     @if($data->start_date !='')
