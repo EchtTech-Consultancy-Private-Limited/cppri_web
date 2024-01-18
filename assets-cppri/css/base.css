@@ -2265,7 +2265,7 @@ display: flex;
 }
 .main-sidebar .accordion-item ul li:hover{
 	background-color: #ededed;
-	border: 1px solid;
+	border: 1px solid #ddd;
 	
 }
 
@@ -2376,7 +2376,7 @@ table .multiple-pdf{
 }
 
 .main-sidebar ul .accordion:hover .nav-link.collapsed{
-	color: #fff !important;
+	color: #333 !important;
 }
 .main-sidebar ul .accordion.sl-accordion.menu-accordion-click:hover .nav-link.collapsed{
 	color: #000 !important;
@@ -2521,7 +2521,7 @@ table .multiple-pdf{
 }
 
 .main-sidebar .accordion:hover a[aria-expanded="true"]{
-	color: #fff !important;
+	color: #333 !important;
 }
 .main-sidebar .accordion.fl-accordion.menu-active.fl-accordion-active:hover a[aria-expanded="true"]{
 	color: #fff !important;
@@ -2534,7 +2534,7 @@ table .multiple-pdf{
 } */
 
 .main-sidebar ul li:hover .show ul li a {
-    color: #fff;
+    color: #333;
 }
 .main-sidebar ul li.menu-active .show ul li a,.main-sidebar ul li.menu-active:hover .show ul li a {
     color: #333;
