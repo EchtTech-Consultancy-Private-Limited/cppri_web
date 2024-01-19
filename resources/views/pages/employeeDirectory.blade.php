@@ -118,7 +118,7 @@
                                             ?>
 
                                             <p><strong><i class="fa fa-envelope-o mr-2" aria-hidden="true"></i> :</strong>
-                                                <span>{{ $email ?? '' }}</span>
+                                            {{ $email ?? '' }}
                                             </p>
                                         </div>
                                     </div>

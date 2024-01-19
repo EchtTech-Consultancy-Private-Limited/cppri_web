@@ -866,7 +866,8 @@
 
 	.latest-news p {
 		text-align: left;
-		font-size: 12px;
+		font-size: 13px !important;
+		padding: 0 8px !important;
 	}
 
 }
@@ -1350,8 +1351,13 @@
 	.minister-box {
 		text-align: center;
 		width: 100%;
+		margin: 0 !important;
 	}
 
+	.minister-sub:not(:last-child) {
+		border-right: 0px !important;
+		border-bottom: 1px solid #3233;
+	}
 	.digital-container .digital-content {
 		margin-top: 30px;
 		width: 53%;
@@ -1860,6 +1866,14 @@
 }
 
 @media all and (max-width: 767px) {
+	.emp-dir-main .emp-crddir-inf p, .emp-dir-main .emp-crddir-inf h5 {
+		margin-top: 0px;
+		margin-bottom: 0;
+		padding: 0px;
+	}
+	.emp-crddir-inf{
+		min-height: auto;
+	}
 	.flex-direction-nav .flex-next, .flex-direction-nav .flex-prev {
 		margin-top: -113px !important;
 		font-size: 20px;
@@ -1890,7 +1904,13 @@
 	.banner-wrapper .flex-control-nav {
 		display: none;
 	}
-
+	.sec-title2 .title {
+		text-align: left;
+	}
+	.main-content .vision-mission ul {
+		margin: 0;
+		padding-left: 0px !important;
+	}
 	.view-footer a {
 		padding: 5px 8px 5px;
 		font-size: 80%;
@@ -1899,11 +1919,35 @@
 		display: flex;
 		align-items: center;
 		float: right;
-		border: 1px solid #1a4f91;
-		color: #1a4f91;
+		
 		margin-top: 4px;
 	}
 
+	.director-desk-container .row{
+		padding: 0 ;
+	}
+
+	.ditiector-desk .row {
+		padding: 0;
+	}
+
+	.direct-centre .card-emp-dir {
+		width: 100% !important;
+		margin-bottom: 10px;
+
+	}
+	.align-lt h2 {
+		font-size: 18px !important;
+	}
+	.main-content .paragraph-wrapper ul {
+		padding-left: 12px !important;
+	}
+	.align-lt{
+		padding: 0 10px;
+	}
+	.employee-directry-type.employee-dir-page h2 {
+		font-size: 16px !important;
+	}
 	.bg-white-tender {
 		height: 330px;
 	}
@@ -2064,6 +2108,10 @@
 		width: 100%;
 		float: none;
 		padding-right: 0px;
+		margin: 29px 0 0;
+	}
+	.banner-content-wrapper.services-heading{
+		padding-bottom: 0 !important;
 	}
 
 	.banner-right-wrapper {
@@ -2080,7 +2128,10 @@
 	.banner-box h2 {
 		font-size: 140%;
 	}
-
+	.deprt-icon-box .serv-h a {
+		color: #222;
+		font-size: 15px;
+	}
 	.banner-box p {
 		font-size: 120%;
 	}
@@ -2179,7 +2230,7 @@
 
 	.city-news {
 		background: #f7f7f7;
-		padding: 15px 0 35px;
+		padding: 15px 0 20px;
 	}
 
 	.video-heading a {
@@ -2433,11 +2484,14 @@
 	}
 
 	.banner-box {
-		padding: 20px 30px;
+		padding: 13px 20px !important;
 	}
 
 	caption {
 		text-align: left;
+	}
+	.depart-info {
+		padding: 60px 0 22px;
 	}
 
 	.align-rt img {

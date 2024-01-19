@@ -313,7 +313,7 @@
 
 
                             @if (isset($Director) && $Director != '')
-                            <section id="paragraph" class="wrapper paragraph-wrapper">
+                            <section id="paragraph" class="wrapper paragraph-wrapper director-desk-container">
                                 <div class="common-container four_content">
 
                                     <div class="row">
@@ -575,7 +575,7 @@
 
                                             <p class="email-text-styl"><i class="fa fa-envelope-o mr-2 w-10"
                                                     aria-hidden="true"></i>
-                                                <span class="w-90">{{ $email }}</span>
+                                                    {{ $email }}
                                             </p>
 
                                         </div>
