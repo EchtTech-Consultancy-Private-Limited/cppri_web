@@ -6261,6 +6261,19 @@ blockquote {
 	.main-sidebar .sl-accordion:hover .fl-accordion.menu-active a{
 		color: #333 !important;
 	}
+	.dir-dsk-title {
+		font-size: 18px !important;
+	}
+	.profile-img h4 {
+		font-size: 16px !important;
+		padding: 8px 0 0 0;
+	}
+	.main-sidebar ul li {
+		padding: 5px 10px;
+		font-size: 14px;
+		margin: 12px 0;
+	}
+
 	.main-sidebar .sl-accordion:hover .fl-accordion.menu-active a::before{
 		color: #49aa41 !important;
 	}
@@ -6269,5 +6282,13 @@ blockquote {
 	}
 
 	.main-sidebar .sl-accordion .fl-accordion.menu-active .qm-active a, .main-sidebar .sl-accordion .fl-accordion.menu-active:hover .qm-active a{
+		color: #fff !important;
+	}
+
+	.latest_news_marquee a:hover {
+		color: var(--bs-primary);
+	}
+
+	.main-sidebar li.qm-active:hover .list-start a::before{
 		color: #fff !important;
 	}

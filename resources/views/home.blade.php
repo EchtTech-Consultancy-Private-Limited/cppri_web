@@ -110,7 +110,7 @@
             <div class="row">
 
                 <div
-                    class="banner-content-wrapper animate__animated animate__backInLeft animate__delay-3s col-md-12 col-lg-8 order-md-2 order-lg-1 pe-md-5 p-0">
+                    class="banner-content-wrapper animate__animated animate__backInLeft animate__delay-3s col-md-12 col-lg-8 order-2 order-md-1 pe-md-5 p-0">
                     <h2 class="border-bottom-color">
 
                         @if (Session::get('Lang') == 'hi')
@@ -149,7 +149,7 @@
                         <i class="fa fa-angle-right"></i></a>
                 </div>
                 <div
-                    class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-12 col-lg-4 order-md-1 order-lg-2">
+                    class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-12 col-lg-4 order-1 order-md-2">
                     <div class="minister-box clearfix row px-0">
                         <div class="minister-sub col-md-6">
                             <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
@@ -543,8 +543,8 @@
         <div
             class="container common-container four_content banner-container body-container top-body-container pe-0 z-index-2">
 
-            <div class="left-block row py-5 px-0">
-                <div class="col-md-4 col-lg-4">
+            <div class="left-block row  py-md-5 py-0 px-0">
+                <div class="col-md-4 col-lg-4 mb-3 mb-md-0">
                     <div class="left-col-2 ">
                         <div class="page-tab clearfix">
                             <div class="page-tab-res clearfix">
@@ -645,7 +645,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 col-lg-4">
+                <div class="col-md-4 col-lg-4 mb-3 mb-md-0">
                     <div class="left-col-2 ">
                         <div class="page-tab clearfix">
                             <div class="page-tab-res clearfix">
@@ -749,7 +749,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-4 col-lg-4 pe-0">
+                <div class="col-md-4 col-lg-4 pe-md-0">
                     <div class="left-col-2">
                         <div class="box-bg-color change-color-code">
                             <div class="tender">
