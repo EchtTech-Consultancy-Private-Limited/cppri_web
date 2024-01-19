@@ -5682,7 +5682,7 @@ table th img, table td img {
     object-fit: cover;
 }
 
-table th{text-align: center !important;font-size: 15px;}
+table th{text-align: center !important;font-size: 14px;}
 
 td, th{vertical-align: middle;}
 table.dataTable.stripe>tbody>tr.odd>*, table.dataTable.display>tbody>tr.odd>*{box-shadow: none !important;background:#fff;}
@@ -5757,7 +5757,7 @@ table.dataTable tbody tr {
 table.dataTable tbody td {
     padding: 5px 15px;
     color: #000;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .page-tab .scroll-text01, .page-tab .scroll-test01 {
@@ -6291,4 +6291,40 @@ blockquote {
 
 	.main-sidebar li.qm-active:hover .list-start a::before{
 		color: #fff !important;
+	}
+
+	table.dataTable thead>tr>th.sorting_asc:before, table.dataTable thead>tr>th.sorting_desc:after, table.dataTable thead>tr>td.sorting_asc:before, table.dataTable thead>tr>td.sorting_desc:after {
+		opacity: 1;
+	}
+
+	table.dataTable thead>tr>th.sorting:after, table.dataTable thead>tr>th.sorting_asc_disabled:after, table.dataTable thead>tr>th.sorting_desc_disabled:after, table.dataTable thead>tr>td.sorting:after, table.dataTable thead>tr>td.sorting_desc:after, table.dataTable thead>tr>td.sorting_asc_disabled:after, table.dataTable thead>tr>td.sorting_desc_disabled:after, table.dataTable thead>tr>th.sorting:before{
+		opacity: 0.7;
+	}
+
+	/* table.dataTable thead>tr>th.sorting.sorting_desc[aria-sort="ascending"]::after,	table.dataTable thead>tr>th.sorting.sorting_asc[aria-sort="descending"]::before{
+		opacity: 1 !important;
+	} */
+
+	/* table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>th.sorting_asc */
+ table.dataTable thead>tr>th.sorting_asc:after,table.dataTable thead>tr>th.sorting_desc:before{
+		opacity: 1 !important;
+	}
+	
+
+	td.download span{
+		font-size: 11px;
+		color: #626262;
+	}
+
+	td.download i, td.download a{
+		padding-right: 5px;
+	}
+
+	.dataTables_wrapper .dataTables_info {
+		font-size: 14px;
+		padding: 0;
+		margin: 22px 0 0 0;
+		background: #fff;
+		padding: 3px 13px;
+		border-radius: 4px;
 	}
