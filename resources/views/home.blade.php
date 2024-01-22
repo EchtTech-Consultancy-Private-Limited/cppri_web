@@ -144,7 +144,7 @@
 
                     </p>
 
-                    <a href="javascript:void(0);" title="Click here to know more" class="change-border-color-text">Read
+                    <a href="{{ url('about-us/overview') }}" title="Click here to know more" class="change-border-color-text">Read
                         more
                         <i class="fa fa-angle-right"></i></a>
                 </div>
