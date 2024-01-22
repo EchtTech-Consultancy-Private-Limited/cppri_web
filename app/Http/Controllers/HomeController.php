@@ -27,48 +27,229 @@ class HomeController extends Controller
     }
 
     //career
+    // public function careerData()
+    // {
+    //     $titleName = 'Carrer';
+    //     try {
+    //         // $careerData = [];
+
+    //         // $career = DB::table('career_management')
+    //         //     ->where('soft_delete', 0)
+    //         //     ->latest('created_at')
+    //         //     ->get();
+
+    //         // $careerData = [];
+
+    //         // foreach ($career as $careerItem) {
+    //         //     $career_pdfs = DB::table('career_management_details')
+    //         //         ->where('soft_delete', 0)
+    //         //         ->where('career_management_id', $careerItem->uid)
+    //         //         ->whereDate('archivel_date', '>', now()->toDateString())
+    //         //         ->latest('created_at')
+    //         //         ->get();
+
+    //         //     $careerData[] = [
+    //         //         'career' => $careerItem,
+    //         //         'career_pdfs' => $career_pdfs
+    //         //     ];
+    //         // }
+
+    //         $career_pdfs = DB::table('career_management_details')
+    //         ->where('soft_delete', 0)
+    //         // ->where('career_management_id', $careerItem->uid)
+    //         ->whereDate('archivel_date', '>', now()->toDateString())
+    //         ->latest('created_at')
+    //         ->get();
+
+    //         $Archive_career_pdfs = DB::table('career_management_details')
+    //         ->where('soft_delete', 0)
+    //         // ->where('career_management_id', $careerItem->uid)
+    //         ->whereDate('archivel_date', '<', now()->toDateString())
+    //         ->latest('created_at')
+    //         ->get();
+
+    //         return view('pages.career', ['title' => $titleName,'Archive_career_pdfs'=>$Archive_career_pdfs, 'career_pdfs' => $career_pdfs]);
+    //     } catch (\Exception $e) {
+    //         \Log::error('An exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\PDOException $e) {
+    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\Throwable $e) {
+    //         // Catch any other types of exceptions that implement the Throwable interface.
+    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     }
+    // }
+
+    // public function careerArchive()
+    // {
+    //     $titleName = 'Career Archive';
+
+
+
+
+
+    //     try {
+    //         // $careerData = [];
+
+    //         // $career = DB::table('career_management')
+    //         //     ->where('soft_delete', 0)
+    //         //     ->latest('created_at')
+    //         //     ->get();
+
+    //         // $careerData = [];
+
+    //         // foreach ($career as $careerItem) {
+    //         //     $career_pdfs = DB::table('career_management_details')
+    //         //         ->where('soft_delete', 0)
+    //         //         ->where('career_management_id', $careerItem->uid)
+    //         //         ->whereDate('archivel_date', '<', now()->toDateString())
+    //         //         ->latest('created_at')
+    //         //         ->get();
+
+    //         //     $careerData[] = [
+    //         //         'career' => $careerItem,
+    //         //         'career_pdfs' => $career_pdfs
+    //         //     ];
+    //         // }
+
+    //         $career_pdfs = DB::table('career_management_details')
+    //         ->where('soft_delete', 0)
+    //         // ->where('career_management_id', $careerItem->uid)
+    //         ->whereDate('archivel_date', '<', now()->toDateString())
+    //         ->latest('created_at')
+    //         ->get();
+
+    //         return view('pages.careerArchive', ['title' => $titleName, 'career_pdfs' => $career_pdfs]);
+    //     } catch (\Exception $e) {
+    //         \Log::error('An exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\PDOException $e) {
+    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\Throwable $e) {
+    //         // Catch any other types of exceptions that implement the Throwable interface.
+    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     }
+    // }
+
+    // //tender
+    // public function tenderData()
+    // {
+    //     $titleName = 'Tender';
+    //     try {
+
+    //         $tender_pdfs = DB::table('tender_details')
+    //             ->where('soft_delete', 0)
+    //             ->whereDate('archivel_date', '>', now()->toDateString())
+    //             ->latest('created_at')
+    //             ->get();
+
+    //             $Archive_tender_pdfs = DB::table('tender_details')
+    //             ->where('soft_delete', 0)
+    //             ->whereDate('archivel_date', '<', now()->toDateString())
+    //             ->latest('created_at')
+    //             ->get();
+
+
+    //         return view('pages.tender', ['title' => $titleName,'Archive_tender_pdfs'=>$Archive_tender_pdfs ,'tender_pdfs' => $tender_pdfs]);
+    //     } catch (\Exception $e) {
+    //         \Log::error('An exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\PDOException $e) {
+    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\Throwable $e) {
+    //         // Catch any other types of exceptions that implement the Throwable interface.
+    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     }
+    // }
+
+    // public function tenderArchive()
+    // {
+    //     $titleName = 'Tender Archive';
+    //     try {
+    //         // $tenderData = []; // Initialize the array to store all tender data
+
+    //         // $tenders = DB::table('tender_management')
+    //         //     ->where('soft_delete', 0)
+    //         //     ->latest('created_at')
+    //         //     ->get();
+
+    //         // if (count($tenders) > 0) {
+    //         //     foreach ($tenders as $tender) {
+    //         //         $tender_pdfs = DB::table('tender_details')
+    //         //             ->where('soft_delete', 0)
+    //         //             ->where('tender_id', $tender->uid)
+    //         //             ->whereDate('archivel_date', '<', now()->toDateString())
+    //         //             ->latest('created_at')
+    //         //             ->get();
+
+    //         //         $tenderData[] = [
+    //         //             'tender' => $tender,
+    //         //             'tender_pdfs' => $tender_pdfs
+    //         //         ];
+    //         //     }
+    //         // }
+
+    //         $tender_pdfs = DB::table('tender_details')
+    //         ->where('soft_delete', 0)
+    //         ->whereDate('archivel_date', '<', now()->toDateString())
+    //         ->latest('created_at')
+    //         ->get();
+
+    //         return view('pages.tenderArchive', ['title' => $titleName, 'tender_pdfs' => $tender_pdfs]);
+    //     } catch (\Exception $e) {
+    //         \Log::error('An exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\PDOException $e) {
+    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     } catch (\Throwable $e) {
+    //         // Catch any other types of exceptions that implement the Throwable interface.
+    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+    //         return view('pages.error');
+    //     }
+    // }
+
+
+
+    //career
     public function careerData()
     {
-        $titleName = 'Carrer';
+        $titleName = 'Career';
+
         try {
-            // $careerData = [];
+            $careerData = [];
 
-            // $career = DB::table('career_management')
-            //     ->where('soft_delete', 0)
-            //     ->latest('created_at')
-            //     ->get();
+            $career = DB::table('career_management')
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->get();
 
-            // $careerData = [];
+            $careerData = [];
 
-            // foreach ($career as $careerItem) {
-            //     $career_pdfs = DB::table('career_management_details')
-            //         ->where('soft_delete', 0)
-            //         ->where('career_management_id', $careerItem->uid)
-            //         ->whereDate('archivel_date', '>', now()->toDateString())
-            //         ->latest('created_at')
-            //         ->get();
+            foreach ($career as $careerItem) {
+                $career_pdfs = DB::table('career_management_details')
+                    ->where('soft_delete', 0)
+                    ->where('career_management_id', $careerItem->uid)
+                    ->whereDate('archivel_date', '>', now()->toDateString())
+                    ->latest('created_at')
+                    ->get();
 
-            //     $careerData[] = [
-            //         'career' => $careerItem,
-            //         'career_pdfs' => $career_pdfs
-            //     ];
-            // }
 
-            $career_pdfs = DB::table('career_management_details')
-            ->where('soft_delete', 0)
-            // ->where('career_management_id', $careerItem->uid)
-            ->whereDate('archivel_date', '>', now()->toDateString())
-            ->latest('created_at')
-            ->get();
-
-            $Archive_career_pdfs = DB::table('career_management_details')
-            ->where('soft_delete', 0)
-            // ->where('career_management_id', $careerItem->uid)
-            ->whereDate('archivel_date', '<', now()->toDateString())
-            ->latest('created_at')
-            ->get();
-
-            return view('pages.career', ['title' => $titleName,'Archive_career_pdfs'=>$Archive_career_pdfs, 'career_pdfs' => $career_pdfs]);
+                if (count($career_pdfs) > 0) {
+                    $careerData[] = [
+                        'career' => $careerItem,
+                        'career_pdfs' => $career_pdfs
+                    ];
+                }
+            }
+            //dd($careerData);
+            return view('pages.career', ['title' => $titleName, 'careerData' => $careerData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -85,43 +266,34 @@ class HomeController extends Controller
     public function careerArchive()
     {
         $titleName = 'Career Archive';
-
-
-
-
-        
         try {
-            // $careerData = [];
+            $careerData = [];
 
-            // $career = DB::table('career_management')
-            //     ->where('soft_delete', 0)
-            //     ->latest('created_at')
-            //     ->get();
+            $career = DB::table('career_management')
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->get();
 
-            // $careerData = [];
+            $careerData = [];
 
-            // foreach ($career as $careerItem) {
-            //     $career_pdfs = DB::table('career_management_details')
-            //         ->where('soft_delete', 0)
-            //         ->where('career_management_id', $careerItem->uid)
-            //         ->whereDate('archivel_date', '<', now()->toDateString())
-            //         ->latest('created_at')
-            //         ->get();
+            foreach ($career as $careerItem) {
+                $career_pdfs = DB::table('career_management_details')
+                    ->where('soft_delete', 0)
+                    ->where('career_management_id', $careerItem->uid)
+                    ->whereDate('archivel_date', '<', now()->toDateString())
+                    ->latest('created_at')
+                    ->get();
 
-            //     $careerData[] = [
-            //         'career' => $careerItem,
-            //         'career_pdfs' => $career_pdfs
-            //     ];
-            // }
 
-            $career_pdfs = DB::table('career_management_details')
-            ->where('soft_delete', 0)
-            // ->where('career_management_id', $careerItem->uid)
-            ->whereDate('archivel_date', '<', now()->toDateString())
-            ->latest('created_at')
-            ->get();
+                if (count($career_pdfs) > 0) {
+                    $careerData[] = [
+                        'career' => $careerItem,
+                        'career_pdfs' => $career_pdfs
+                    ];
+                }
+            }
 
-            return view('pages.careerArchive', ['title' => $titleName, 'career_pdfs' => $career_pdfs]);
+            return view('pages.careerArchive', ['title' => $titleName, 'careerData' => $careerData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -140,21 +312,34 @@ class HomeController extends Controller
     {
         $titleName = 'Tender';
         try {
-           
-            $tender_pdfs = DB::table('tender_details')
+            $tenderData = [];
+
+            $tenders = DB::table('tender_management')
                 ->where('soft_delete', 0)
-                ->whereDate('archivel_date', '>', now()->toDateString())
                 ->latest('created_at')
+                // ->whereDate('archivel_date', '>', now()->toDateString()) 
                 ->get();
 
-                $Archive_tender_pdfs = DB::table('tender_details')
-                ->where('soft_delete', 0)
-                ->whereDate('archivel_date', '<', now()->toDateString())
-                ->latest('created_at')
-                ->get();
+            // dd($tenders);
 
+            if (count($tenders) > 0) {
+                foreach ($tenders as $tender) {
+                    $tender_pdfs = DB::table('tender_details')
+                        ->where('soft_delete', 0)
+                        ->where('tender_id', $tender->uid)
+                        ->whereDate('archivel_date', '>', now()->toDateString())
+                        ->latest('created_at')
+                        ->get();
 
-            return view('pages.tender', ['title' => $titleName,'Archive_tender_pdfs'=>$Archive_tender_pdfs ,'tender_pdfs' => $tender_pdfs]);
+                    if (count($tender_pdfs) > 0) {
+                        $tenderData[] = [
+                            'tender' => $tender,
+                            'tender_pdfs' => $tender_pdfs
+                        ];
+                    }
+                }
+            }
+            return view('pages.tender', ['title' => $titleName, 'tenderData' => $tenderData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -172,36 +357,33 @@ class HomeController extends Controller
     {
         $titleName = 'Tender Archive';
         try {
-            // $tenderData = []; // Initialize the array to store all tender data
+            $tenderData = []; // Initialize the array to store all tender data
 
-            // $tenders = DB::table('tender_management')
-            //     ->where('soft_delete', 0)
-            //     ->latest('created_at')
-            //     ->get();
+            $tenders = DB::table('tender_management')
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                // ->whereDate('archivel_date', '<', now()->toDateString()) 
+                ->get();
 
-            // if (count($tenders) > 0) {
-            //     foreach ($tenders as $tender) {
-            //         $tender_pdfs = DB::table('tender_details')
-            //             ->where('soft_delete', 0)
-            //             ->where('tender_id', $tender->uid)
-            //             ->whereDate('archivel_date', '<', now()->toDateString())
-            //             ->latest('created_at')
-            //             ->get();
+            if (count($tenders) > 0) {
+                foreach ($tenders as $tender) {
+                    $tender_pdfs = DB::table('tender_details')
+                        ->where('soft_delete', 0)
+                        ->where('tender_id', $tender->uid)
+                        ->whereDate('archivel_date', '<', now()->toDateString())
+                        ->latest('created_at')
+                        ->get();
 
-            //         $tenderData[] = [
-            //             'tender' => $tender,
-            //             'tender_pdfs' => $tender_pdfs
-            //         ];
-            //     }
-            // }
+                    if (count($tender_pdfs) > 0) {
+                        $tenderData[] = [
+                            'tender' => $tender,
+                            'tender_pdfs' => $tender_pdfs
+                        ];
+                    }
+                }
+            }
 
-            $tender_pdfs = DB::table('tender_details')
-            ->where('soft_delete', 0)
-            ->whereDate('archivel_date', '<', now()->toDateString())
-            ->latest('created_at')
-            ->get();
-
-            return view('pages.tenderArchive', ['title' => $titleName, 'tender_pdfs' => $tender_pdfs]);
+            return view('pages.tenderArchive', ['title' => $titleName, 'tenderData' => $tenderData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -531,37 +713,36 @@ class HomeController extends Controller
                 $lastUrl = DB::table('website_menu_management')->whereurl($lastSlugs)->first();
                 $middelUrl = DB::table('website_menu_management')->whereurl($middelSlug)->first();
                 $menus = DB::table('website_menu_management')->whereurl($finalSlug)->first();
-               
+
                 if ($menus != '') {
                     $allmenus = DB::table('website_menu_management')->orderBy('sort_order', 'ASC')->get();
                     $firstParent = DB::table('website_menu_management')->where('uid', $lastUrl->parent_id)->first();
-                      //dd($firstParent);
+                    //dd($firstParent);
                     if (!empty($firstParent)) {
                         $parentMenut = DB::table('website_menu_management')->where('uid', optional($firstParent)->parent_id)->first();
-                         //dd($parentMenut);
+                        //dd($parentMenut);
                         if (!empty($parentMenut)) {
                             foreach ($allmenus as $menu) {
                                 if ($parentMenut && $menu->parent_id == $parentMenut->uid) {
                                     $menu->children = [];
-                            
+
                                     foreach ($allmenus as $childMenu) {
                                         if ($childMenu->parent_id == $menu->uid) {
                                             $childMenu->children = [];
-                            
+
                                             foreach ($allmenus as $grandchildMenu) {
                                                 if ($grandchildMenu->parent_id == $childMenu->uid) {
                                                     $childMenu->children[] = $grandchildMenu;
                                                 }
                                             }
-                            
+
                                             $menu->children[] = $childMenu;
                                         }
                                     }
-                            
+
                                     $tree[] = $menu;
                                 }
                             }
-                            
                         } else {
                             $parentMenut = '';
                             $tree = [];
@@ -571,7 +752,7 @@ class HomeController extends Controller
                         $tree = [];
                     }
                 }
-               // dd($tree);
+                // dd($tree);
             } else if ($lastSlugs != null) {
                 $lastUrl = DB::table('website_menu_management')->whereurl($slug)->first();
                 $middelUrl = DB::table('website_menu_management')->whereurl($middelSlug)->first();
@@ -589,13 +770,13 @@ class HomeController extends Controller
                                     foreach ($allmenus as $childMenu) {
                                         if ($childMenu->parent_id == $menu->uid) {
                                             $childMenu->children = [];
-                            
+
                                             foreach ($allmenus as $grandchildMenu) {
                                                 if ($grandchildMenu->parent_id == $childMenu->uid) {
                                                     $childMenu->children[] = $grandchildMenu;
                                                 }
                                             }
-                            
+
                                             $menu->children[] = $childMenu;
                                         }
                                     }
@@ -625,13 +806,13 @@ class HomeController extends Controller
                                 foreach ($allmenus as $childMenu) {
                                     if ($childMenu->parent_id == $menu->uid) {
                                         $childMenu->children = [];
-                        
+
                                         foreach ($allmenus as $grandchildMenu) {
                                             if ($grandchildMenu->parent_id == $childMenu->uid) {
                                                 $childMenu->children[] = $grandchildMenu;
                                             }
                                         }
-                        
+
                                         $menu->children[] = $childMenu;
                                     }
                                 }
@@ -803,7 +984,7 @@ class HomeController extends Controller
                         ->where('publice_status', 1)
                         ->get();
 
-                        //dd($department);
+                    //dd($department);
                     if (Count($department) > 0) {
 
                         foreach ($department as $designation) {
@@ -823,7 +1004,7 @@ class HomeController extends Controller
                                 'data' => $data,
                             ];
                         }
-                         //dd($designationData);
+                        //dd($designationData);
 
                         $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
 
