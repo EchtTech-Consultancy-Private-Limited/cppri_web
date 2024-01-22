@@ -223,6 +223,9 @@
 }
 
 @media all and (max-width: 960px) {
+	.main-menu {
+		display: none;
+	}
 	.resp-tab-content {
 		min-height: 364px;
 	}
@@ -610,9 +613,14 @@
 		float: none;
 	}
 	.addevent-box {
-		width: 100%;
+		width: 120px;
 		height: auto;
-		float: none;
+		float: left;
+		margin: 3px 16px 2px 0;
+	}
+	.profile-img h4 {
+		font-size: 13px !important;
+		padding: 8px 0 0 0;
 		margin: 0;
 	}
 	.flex-direction-nav .flex-prev {
@@ -1941,9 +1949,13 @@
 	}
 	.main-content .paragraph-wrapper ul {
 		padding-left: 12px !important;
+		margin-left: 6px;
 	}
 	.align-lt{
 		padding: 0 10px;
+	}
+	.four_content .align-lt{
+		padding: 0;
 	}
 	.employee-directry-type.employee-dir-page h2 {
 		font-size: 16px !important;
@@ -2199,11 +2211,33 @@
 }
 
 @media screen and (max-width: 767px) {
+	.nav-item .sub-nav .sub-nav-group .env .show-menu + .sub-nav-group.sng-env{
+		position: relative;
+		left: 0 !important;
+	}
+	.nav-item .sub-nav .sub-nav-group .env{
+		display: block !important;
+	}
+	.main-menu .sub-nav ul li.env::after {
+		float: right;
+		right: 10px;
+		top: 12px;
+	}
+	.nav-item .sub-nav .sub-nav-group .env .sub-nav-group.sng-env{
+	
+	}
+	.inner-banner-text h2, .inner-banner-text p {
+		font-size: 17px !important;
+		line-height: 1.5;
+	}
+	.env .sub-menu-drop-f .sng-env{
+		position: relative;
+	}
 	.body-container ul.list li {
 		display: flex;
 	}
 	.sub-nav {
-		background: inherit;
+		background: #224168;
 		color: #fff !important;
 		border: none;
 	}
