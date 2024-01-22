@@ -626,14 +626,11 @@
                                                 </div>
                                                 <div class="view-footer"><a href="javascript:void();" title="Read More"
                                                         class="change-border-color-text"><span>
-
-
                                                             @if (Session::get('Lang') == 'hi')
                                                             {{ __('messages.Read_More') }}
                                                             @else
                                                             {{ __('messages.Read_More') }}
                                                             @endif
-
                                                             <i class="fa fa-angle-right"></i>
                                                         </span></a></div>
                                             </div>
