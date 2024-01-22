@@ -110,7 +110,7 @@
             <div class="row">
 
                 <div
-                    class="banner-content-wrapper animate__animated animate__backInLeft animate__delay-3s col-md-12 col-lg-8 order-2 order-md-1 pe-md-5 p-0">
+                    class="banner-content-wrapper animate__animated animate__backInLeft animate__delay-3s col-md-12 col-lg-8 order-2 order-lg-1 pe-md-5 ">
                     <h2 class="border-bottom-color">
 
                         @if (Session::get('Lang') == 'hi')
@@ -149,7 +149,7 @@
                         <i class="fa fa-angle-right"></i></a>
                 </div>
                 <div
-                    class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-12 col-lg-4 order-1 order-md-2">
+                    class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-12 col-lg-4 order-1 order-lg-2">
                     <div class="minister-box clearfix row px-0">
                         <div class="minister-sub col-md-6">
                             <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
