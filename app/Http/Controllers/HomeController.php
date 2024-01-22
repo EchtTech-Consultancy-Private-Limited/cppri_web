@@ -932,15 +932,15 @@ class HomeController extends Controller
             return back()->with('captchaError', "Captcha Invalid!.");
         } else {
             $request->validate([
-                'name' => 'required',
+                'name' => 'required|string',
                 'email' => ['required', 'string', 'email', 'max:50', 'email:rfc'],
                 'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
-                'message' => 'required',
+                'message' => 'required|string',
 
             ]);
         }
         $data = new feedback;
-        $data->name = $request->name;
+        $data->name = strip_tags($request->name);
         $data->email = $request->email;
         $data->phone = $request->phone;
         $data->message = $request->message;
@@ -1079,14 +1079,14 @@ class HomeController extends Controller
             return back()->with('captchaError', "Captcha Invalid!.");
         } else {
             $request->validate([
-                'name' => 'required',
+                'name' => 'required|string',
                 'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
                 'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
-                'message' => 'required',
+                'message' => 'required|string',
             ]);
         }
         $data = new contactUs;
-        $data->name = $request->name;
+        $data->name = strip_tags($request->name);
         $data->email = $request->email;
         $data->phone = $request->phone;
         $data->message = $request->message;
