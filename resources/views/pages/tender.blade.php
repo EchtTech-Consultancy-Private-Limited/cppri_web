@@ -81,10 +81,10 @@
                 </div>
                                     <div class="col-md-12">
                                         {{-- <h3 class="master-title mt-0 mb-20">DataTable</h3> --}}
-                                        @if(count($Archive_tender_pdfs) > 0 )
+                                        {{-- @if(count($Archive_tender_pdfs) > 0 ) --}}
                                         <a href="{{ url('tender-archive') }}" title="Click here to Archive"
                                             class="archive-btn">Archive</a>
-                                         @endif   
+                                         {{-- @endif    --}}
                                         <div class="scroller-tbl">
                                            
                                                 <table id="example" class="display">
@@ -92,19 +92,17 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Sr. No.</th>
-                                                            <th> Title</th>
+                                                            <th>Title</th>
                                                             <th>Published Date</th>
                                                             <th>Submission Date</th>
                                                             <th>Opening Date</th>
                                                             <th> View/Download</th>
                                                             <th>Apply Here</th>
-
-
                                                         </tr>
                                                     </thead>
 
                                                     <tbody>
-                                                        @if (isset($tender_pdfs) && count($tender_pdfs) > 0)
+                                                        {{-- @if (isset($tender_pdfs) && count($tender_pdfs) > 0)
                                                         @foreach ($tender_pdfs as $k=> $data)
                                                             <tr>
                                                                 <td>{{ $k+1 ?? '' }}</td> 
@@ -144,7 +142,50 @@
                                                         @endforeach
                                                        
                                             
-                                                        @endif
+                                                        @endif --}}
+
+                                                        @if(isset($tenderData) &&  count($tenderData) > 0 )
+                                                        @foreach ($tenderData as $k=> $data)
+                                                        <tr>
+                                                          
+                                                            <td>{{ $k+1 }}</td>  
+                                                            <td>{{ $data['tender']->title_name_en ?? '' }}</td>
+                                                            <td>
+                                                                @if($data['tender']->start_date != '' )
+                                                                {{ date('d F Y', strtotime($data['tender']->start_date ?? '')) }}
+                                                                @endif
+                                                            </td>
+                                                            <td class="date-nowrap">
+                                                                @if($data['tender']->end_date != '' )
+                                                                {{ date('d F Y', strtotime($data['tender']->end_date ?? '')) }}
+                                                                @endif
+                                                            </td>
+                                                            <td class="date-nowrap">
+                                                                @if($data['tender']->opening_date != '' )
+                                                                {{ date('d F Y', strtotime($data['tender']->opening_date ?? '')) }}
+                                                                @endif
+                                                            </td>
+                                                            
+                                                            <td class=''>
+                                                                @foreach ($data['tender_pdfs'] as $pdf)
+                                                                   <span class='multiple-pdf'> <a href="{{ asset('resources/uploads/TenderManagement/' . $pdf->public_url) }}"
+                                                                        download>View</a> <i class="fa fa-file-pdf-o text-danger"></i>
+                                                                        ({{ $pdf->pdfimage_size ?? '' }})
+                                                                    </span>
+                                                                @endforeach
+                                                            </td>
+                                                           
+                                                                <td>
+                                                                    @if($data['tender']->apply_url !='')
+                                                                    <a href="{{ $data['tender']->apply_url ?? '' }}"></a>
+                                                                    @endif
+                                                                </td>
+                                                           
+
+                                                        </tr>
+                                                          @endforeach
+                                                          @endif
+                                                       
                                                     </tbody>
                                                 </table>
                                            
