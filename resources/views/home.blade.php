@@ -144,7 +144,7 @@
 
                     </p>
 
-                    <a href="javascript:void(0);" title="Click here to know more" class="change-border-color-text">Read
+                    <a href="{{url('about-us/overview')}}" title="Click here to know more" class="change-border-color-text">Read
                         more
                         <i class="fa fa-angle-right"></i></a>
                 </div>
@@ -156,7 +156,7 @@
                                     alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>
                             <div class="min-info">
                                 <h4>Dr. M K Gupta</h4>
-                                <h5><a href="javascript:void(0);" title="Minister of Coal"><span>Director </span></a>
+                                <h5><a href="{{url('about-us/director-desk')}}" title="Minister of Coal"><span>Director </span></a>
                                 </h5>
                             </div>
                         </div>

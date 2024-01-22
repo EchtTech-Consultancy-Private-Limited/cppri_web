@@ -94,13 +94,27 @@
                                                                 <td>{{ $data['career']->title_name_en ?? '' }}</td>
                                                                 <td>{{ date('d F Y', strtotime($data['career']->created_at ?? '')) }}
                                                                 </td>
+                                                                <td class="download">
+                                                                <a href="https://dev.cppri.staggings.in/resources/uploads/PageContentPdf/169898797025.pdf" download="" tabindex="0">View</a> <i class="fa fa-file-pdf-o text-danger"></i>
+                                                                            
+                                                                       
+                                                                    <span class="size">
+                                                                    (7.53MB)
+                                                                    </span>
+                                                                </td>
 
-                                                                <td class=''>
+
+                                                                <td class='download'>
                                                                     @foreach ($data['career_pdfs'] as $pdf)
-                                                                       <span class='multiple-pdf'> <a href="{{ asset('resources/uploads/CareerManagement/' . $pdf->public_url) }}"
-                                                                            download>View</a> <i class="fa fa-file-pdf-o">
-                                                                            ({{ $pdf->pdfimage_size ?? '' }})
-                                                                        </i></span>
+                                                                    <a href="{{ asset('resources/uploads/CareerManagement/' . $pdf->public_url) }}"
+                                                                            download>View</a>
+                                                                            <i class="fa fa-file-pdf-o">
+                                                                           
+                                                                           </i>
+                                                                             
+                                                                    <span class="size">
+                                                                    ({{ $pdf->pdfimage_size ?? '' }})
+                                                                    </span>
                                                                     @endforeach
                                                                 </td>
                                                             </tr>
@@ -120,11 +134,12 @@
                                                                     {{ date('d F Y', strtotime($data->end_date ?? '')) }}
                                                                 </td>
 
-                                                                <td class=''>
-                                                                    <span class='multiple-pdf'> <a
+                                                                <td class='download'>
+                                                                <a
                                                                             href="{{ asset('resources/uploads/TenderManagement/' . $data->public_url) }}"
                                                                             download>View</a> <i
                                                                             class="fa fa-file-pdf-o text-danger"></i>
+                                                                    <span class='size'>
                                                                         ({{ $data->pdfimage_size ?? '' }})
                                                                     </span>
                                                                 </td>
