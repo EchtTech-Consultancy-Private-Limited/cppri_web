@@ -25,14 +25,15 @@
 <link rel="stylesheet" href="{{ asset('assets-cppri/css/datatablemin.css') }}">
 <link rel="stylesheet" href="{{ asset('assets-cppri/css/datatablebuttonmin.css') }}">
 <!-- Theme styles for this template -->
-<link href="{{ url('assets-cppri/css/megamenu.css') }} " rel="stylesheet" media="all">
-<link href="{{ asset('assets-cppri/theme/css/site.css') }}" rel="stylesheet" media="all">
-<link href="{{ asset('assets-cppri/theme/css/site-responsive.css') }}" rel="stylesheet" media="all">
 <link href="{{ asset('assets-cppri/theme/css/ma5gallery.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('assets-cppri/theme/css/print.css') }}" rel="stylesheet" type="text/css" media="print">
 <link href="{{ asset('assets-cppri/css/modules.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('assets-cppri/css/bootstrap.min.css') }}">
 <link href="{{ asset('assets-cppri/css/animate.min.css') }}" rel="stylesheet">
+
+<link href="{{ url('assets-cppri/css/megamenu.css') }} " rel="stylesheet" media="all">
+<link href="{{ asset('assets-cppri/theme/css/site.css') }}" rel="stylesheet" media="all">
+<link href="{{ asset('assets-cppri/theme/css/site-responsive.css') }}" rel="stylesheet" media="all">
 <link href="{{ asset('assets-cppri/css/marquee-horizantal.css') }}" rel="stylesheet">
 <!-- Include jQuery -->
 <script src="{{ asset('assets-cppri/js/jquery-3.6.0.min.js') }}"></script>

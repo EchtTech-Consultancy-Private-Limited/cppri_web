@@ -265,12 +265,14 @@
                                                                 <td class="date-nowrap">
                                                                     {{ date('d F Y', strtotime($data->start_date ?? '')) }}
                                                                 </td>
-                                                                <td>
-                                                                    <span>
-                                                                        <a href="{{ asset('resources/uploads/PageContentPdf/' . $data->public_url) }}"
+                                                                <td class="download">
+                                                                <a href="{{ asset('resources/uploads/PageContentPdf/' . $data->public_url) }}"
                                                                             download>View</a> <i
                                                                             class="fa fa-file-pdf-o text-danger"></i>
-                                                                        ({{ $data->pdfimage_size ?? '' }})
+                                                                            
+                                                                       
+                                                                    <span class="size">
+                                                                    ({{ $data->pdfimage_size ?? '' }})
                                                                     </span>
                                                                 </td>
                                                             </tr>
