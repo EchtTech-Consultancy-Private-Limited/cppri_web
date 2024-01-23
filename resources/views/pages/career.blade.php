@@ -107,6 +107,7 @@
                                                                 </td>
                                                                 
                                                                 <td class=''>
+                                                                    @if(isset($data['career_pdfs']) && count($data['career_pdfs']) > 0)
                                                                     @foreach ($data['career_pdfs'] as $pdf)
                                                                         <span class='multiple-pdf'> <a
                                                                                 href="{{ asset('resources/uploads/CareerManagement/' . $pdf->public_url) }}"
@@ -115,6 +116,7 @@
                                                                             ({{ $pdf->pdfimage_size ?? '' }})
                                                                         </span>
                                                                     @endforeach
+                                                                    @endif
                                                                 </td>
 
                                                                
