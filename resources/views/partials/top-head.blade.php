@@ -106,12 +106,12 @@
                          
                     <ul>
                         @if ($social_links->facebook != '' && $social_links->facebook != 0)
-                        <li><a target="_blank" title="Facebook"
+                        <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank" title="Facebook"
                             href="{{ url($facebookUrl) ?? '' }}"><img alt="Facebook Page"
                                     src="{{ asset('assets-cppri/images/ico-facebook.png') }}"></a></li>
                         @endif      
                         @if ($social_links->twitter != '' && $social_links->twitter != 0)      
-                        <li><a target="_blank" title="Twitter"
+                        <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank" title="Twitter"
                             href="{{ url($twitterUrl) ?? '' }}"><img alt="Twitter Page"
                                     src="{{ asset('assets-cppri/images/ico-twitter.png') }}"></a></li>
                         @endif   
@@ -121,12 +121,12 @@
                                     src="{{ asset('assets-cppri/images/ico-youtube.png') }}"></a></li> --}}
 
                         @if ($social_links->instagram != '' && $social_links->instagram != 0)            
-                        <li><a target="_blank" title="Instagram"
+                        <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank" title="Instagram"
                             href="{{ url($instagramUrl) ?? '' }}"><img alt="Instagram Page"
                                     src="{{ asset('assets-cppri/images/instagram.png') }}"></a></li>
                         @endif            
                         @if ($social_links->linkedin != '' && $social_links->linkedin != 0)       
-                        <li><a target="_blank" title="Linkedin"
+                        <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank" title="Linkedin"
                             href="{{ url($linkedinUrl) ?? '' }}"><img alt="Linkedin"
                                     src="{{ asset('assets-cppri/images/linkedin1.png') }}"></a></li>
                         @endif            

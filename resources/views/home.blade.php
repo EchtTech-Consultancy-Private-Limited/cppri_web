@@ -774,8 +774,19 @@
                                             <div class="date">
 
                                                 <span
-                                                    class="change-color-code">{{ date('d', strtotime($tender_managements->start_date)) }}</span>
-                                                <em>{{ date('M Y', strtotime($tender_managements->start_date)) }}</em>
+                                                    class="change-color-code">
+                                                    @if($tender_managements->start_date != '')
+                                                    {{ date('d', strtotime($tender_managements->start_date)) }}
+                                                    @endif
+                                                
+                                                </span>
+                                                <em>
+                                                    @if($tender_managements->start_date != '')
+
+                                                    {{ date('M Y', strtotime($tender_managements->start_date)) }}
+                                                    @endif
+                                                
+                                                </em>
 
                                             </div>
 
@@ -1125,10 +1136,7 @@
                             </div>
                         </blockquote>
                         <script src="https://www.instagram.com/embed.js"></script>
-                        <script type="text/javascript" src="https://www.embedista.com/j/instagramfeed.js"></script>
-                        <div style="overflow: auto; position: absolute; height: 0pt; width: 0pt;"><a
-                                href="https://www.embedista.com/instagramfeed">Embed Instagram Post</a> Code Generator
-                        </div>
+                       
                     </div>
                     <style>
                     .boxes3 {
