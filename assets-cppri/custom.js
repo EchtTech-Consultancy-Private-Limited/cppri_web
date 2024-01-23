@@ -1,17 +1,3 @@
-// var baseurl = window.location.href;
-
-//  //console.log(baseurl +"set-language");
-
-// function setlang(value) {
-//     $.ajax({
-//         url: baseurl +"/set-language",
-//         data: { data: value },
-//         success: function (result) {
-//             //console.log(result);
-//             location.reload();
-//         }
-//     });
-// }
 
 
 var baseurl = window.location.origin;
@@ -125,50 +111,6 @@ $(window).load(function () {
             $('body').removeClass('loading');
         }
     });
-
-
-
-    // Carousel
-    $('#flexCarousel').flexslider({
-        animation: "slide",
-        itemWidth: 150,
-        itemMargin: 30,
-        animationLoop: true,
-        loop: true,
-        minItems: 2,
-        maxItems: 5,
-        slideshow: 1,
-        move: 1,
-        pausePlay: true,
-        pauseText: 'Pause',
-        playText: 'Play',
-        controlNav: false,
-        start: function (slider) {
-            $('body').removeClass('loading');
-            if (slider.pagingCount === 1) slider.addClass('flex-centered');
-        }
-    });
-
-
-    // Carouse2
-    /*$('#flexCarouse2').flexslider({
-        animation: "slide",
-        animationLoop: false,
-        itemWidth: 320,
-        itemMargin: 5,
-        minItems: 2,
-        maxItems: 3,
-        slideshow: 1,
-        move: 1,
-        pausePlay: true,
-        pauseText: 'Pause',
-        playText: 'Play',
-        controlNav: false,
-        start: function(slider){
-            $('body').removeClass('loading');
-            if (slider.pagingCount === 1) slider.addClass('flex-centered');
-        }
-        });*/
 
 
 
@@ -402,16 +344,7 @@ $("document").ready(function () {
 
 $(document).ready(()=>{
     $('.sl-accordion').click(()=>{
-        // console.log("hellow world");
-        // $('.main-sidebar ul .accordion').css({
-        //     'background-color': "#1a4f91"
-        // })
-        // $('.main-sidebar ul .accordion .list-start a').css({
-        //     'color': "#fff"
-        // })
-        // $('.main-sidebar ul .accordion a[data-bs-target="#flush-collapseOne"]').css({
-        //     'color':"#fff"
-        // })
+      
       
     })
 
@@ -423,26 +356,6 @@ $(document).ready(()=>{
     })
 
 
-
-    //   jQuery('.image-popup').magnificPopup({
-    //     type: 'image',
-    //   mainClass: 'mfp-with-zoom', 
-    //   gallery:{
-    //             enabled:true
-    //         },
-    
-    //   zoom: {
-    //     enabled: true, 
-    
-    //     duration: 300, // duration of the effect, in milliseconds
-    //     easing: 'ease-in-out', // CSS transition easing function
-    
-    //     opener: function(openerElement) {
-    
-    //       return openerElement.is('img') ? openerElement : openerElement.find('img');
-    //     }
-    // }
-    //   });
 })
 
 
@@ -773,3 +686,49 @@ console.log();
 fl_accordion.click(function(){
     fl_accordion.parent().parent().parent().addClass('show');
 })
+
+// sticky header
+
+// window.onscroll = function() {myFunction()};
+
+// // Get the header
+// var header = document.getElementById("menuHeader");
+
+// // Get the offset position of the navbar
+// var sticky = header.offsetTop;
+
+// // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+// function myFunction() {
+//   if (window.pageYOffset > sticky) {
+//     header.classList.add("sticky");
+//   } else {
+//     header.classList.remove("sticky");
+//   }
+// }
+
+
+
+$(document).ready(function() {
+    // Check if the modal should be shown today
+    if (!getCookie("modalShownToday")) {
+        // If it hasn't been shown today, show the modal
+        $(".modal").each(function(l) {
+            $(this).on("show.bs.modal", function(l) {
+                var o = $(this).attr("data-easein");
+                "shake" == o ? $(".modal-dialog").velocity("callout." + o) : "pulse" == o ?
+                    $(".modal-dialog").velocity("callout." + o) : "tada" == o ? $(
+                        ".modal-dialog").velocity("callout." + o) : "flash" == o ? $(
+                        ".modal-dialog").velocity("callout." + o) : "bounce" == o ? $(
+                        ".modal-dialog").velocity("callout." + o) : "swing" == o ? $(
+                        ".modal-dialog").velocity("callout." + o) : $(".modal-dialog")
+                    .velocity("transition." + o)
+            })
+        });
+
+        setTimeout(function() {
+            $('#costumModal8').modal('show');
+        }, 1000);
+        // Set a cookie with an expiration date one day from now
+        setCookie("modalShownToday", "true", 1);
+    }
+});

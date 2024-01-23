@@ -1,10 +1,4 @@
-//Style Sheet Switcher version 1.1 Oct 10th, 2006
 
-//Author: Dynamic Drive: http://www.dynamicdrive.com
-//Usage terms: http://www.dynamicdrive.com/notice.htm
-
-//Unofficial Update to fix Safari 5.1 glitch re: alternate stylesheets or the disabled property in regards to them
-// See: http://www.dynamicdrive.com/forums/showthread.php?p=259199 for more info
 
 var manual_or_random="manual" //"manual" or "random"
 var randomsetting="3 days" //"eachtime", "sessiononly", or "x days (replace x with desired integer)". Only applicable if mode is random.

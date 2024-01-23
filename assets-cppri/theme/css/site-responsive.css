@@ -391,9 +391,15 @@
 	}
 
 	.body-container ul.list li a {
-		display: inline;
+		/* display: inline; */
 	}
 
+	.body-container ul.list li a{
+		padding-right: 0;
+	}
+	.list-content {
+		width: 68%;
+	}
 	.sub-nav li {
 		background: none;
 	}
@@ -403,7 +409,12 @@
 		padding-right: 0;
 		width: 100%;
 	}
-
+	.new-thumb .cat {
+		right: 4px;
+		top: 6px;
+		padding: 0px 6px;
+		font-size: 11px;
+	}
 	.panel-feed {
 		padding-left: 0px;
 		width: 100%;
@@ -2075,6 +2086,14 @@
 }
 
 @media screen and (max-width: 812px) {
+
+	.welcome-text, .whats-new, .minister {
+		min-height: auto;
+	}
+	.bg-white-tender {
+		height: 347px;
+		margin-top: 11px;
+	}
 	.four_content .common-left ul li {
 		width: 10 0%;
 		padding: 10px 0px;
@@ -2088,7 +2107,7 @@
 	}
 
 	.minister-sub {
-		width: 30%;
+		/* width: 30%; */
 		padding: 15px 20px;
 	}
 
@@ -2160,7 +2179,7 @@
 	.scroll-left,
 	.scroll-text-1,
 	.scroll-text {
-		height: 317px;
+		height: 300px;
 	}
 
 	.banner-box-wrapper {
@@ -2199,6 +2218,7 @@
 	}
 	.minister-box {
 		padding: 0px 10px 0px;
+		margin: 0;
 	}
 
 	.page-tab .scroll-left,
