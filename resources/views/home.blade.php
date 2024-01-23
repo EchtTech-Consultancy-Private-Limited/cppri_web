@@ -1125,10 +1125,7 @@
                             </div>
                         </blockquote>
                         <script src="https://www.instagram.com/embed.js"></script>
-                        <script type="text/javascript" src="https://www.embedista.com/j/instagramfeed.js"></script>
-                        <div style="overflow: auto; position: absolute; height: 0pt; width: 0pt;"><a
-                                href="https://www.embedista.com/instagramfeed">Embed Instagram Post</a> Code Generator
-                        </div>
+                       
                     </div>
                     <style>
                     .boxes3 {
