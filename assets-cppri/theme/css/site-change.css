@@ -426,7 +426,7 @@ h2.border-bottom-color{
     color: #fff;
 }
 
-.menu-active{
+.menu-active,  .banner-content-wrapper a, .view-footer a{
     background-color: #000 !important;
 }
 .main-content ul li{
@@ -447,7 +447,7 @@ table.dataTable.stripe>tbody>tr.odd>*, table.dataTable.display>tbody>tr.odd>*{
     background-color: #000;
     color: #fff !important;
 }
-table td, table th, table tr{
+table td, table th, table tr, .main-sidebar{
     background-color: #000 !important;
     color: #fff !important;
 }
@@ -474,7 +474,7 @@ table td, table th, table tr{
     border: 1px solid #fff !important;
 }
 
-.text-danger{
+.text-danger, .latest_news_marquee a::before{
     color: #fff !important;
 }
 
@@ -492,11 +492,11 @@ button.dt-button.buttons-print:hover, .archive-btn:hover {
     color: #fff !important;
     border: 1px solid #fff;
 }
-button.dt-button.buttons-print:hover span{
+button.dt-button.buttons-print:hover span, .main-sidebar .accordion:hover a[aria-expanded="true"], .main-sidebar .accordion:hover a, .main-sidebar ul li:hover a, #scroll:hover, .main-sidebar .accordion-item ul li:hover,  .main-sidebar .accordion-item ul li:hover a, .main-sidebar ul .accordion:hover .nav-link.collapsed, .main-sidebar li:hover .list-start a::before{
     color: #fff !important;
 }
 
-thead + tbody tr:first-child td, .breadcam li:last-child {
+thead + tbody tr:first-child td, .breadcam li:last-child , section#paragraph blockquote::before, section#paragraph blockquote::after{
     color: #fff !important;
 }
 
@@ -516,11 +516,17 @@ blockquote::before, blockquote::after {
     color: #fff;
 }
 
-.container.common-container {
+.container.common-container, section#paragraph blockquote {
     background: #000;
+    border-color: #fff !important;
 }
-.footer-top-wrapper, .footer-bottom-wrapper {
+.footer-top-wrapper, .footer-bottom-wrapper{
 	background-color: var(--primary-color);
+}
+
+.dataTables_wrapper .dataTables_info{
+    background-color: #000;
+    border: 1px solid #fff;
 }
 
 .main-content ul {
@@ -530,10 +536,13 @@ blockquote::before, blockquote::after {
 .emp-crddir-inf {
     border: 3px solid #fff;
 }
-.emp-crddir-inf h3, .emp-crddir-inf h5, .main-sidebar .list-start a::before, .timer-date-c span.li_eng.responsive_go_eng{
-    color: #fff ;
+.emp-crddir-inf h3, .emp-crddir-inf h5, .main-sidebar .list-start a::before, .timer-date-c span.li_eng.responsive_go_eng, .main-sidebar .sl-accordion:hover .list-start a::before, .main-sidebar .accordion.menu-active:hover .nav-link.collapsed, .main-sidebar .sl-accordion.menu-active:hover .list-start a::before, .main-sidebar .accordion.menu-active:hover a[aria-expanded="true"], .main-sidebar .accordion.fl-accordion:hover .nav-link.collapsed, .main-sidebar .accordion-item ul li.fl-accordion:hover a::before, .main-sidebar .accordion.sl-accordion:hover .show .fl-accordion.fl-accordion-active:hover a, .main-sidebar .accordion.fl-accordion.fl-accordion-active a, .main-sidebar .accordion.fl-accordion.fl-accordion-active .list-start:hover a::before, .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover a::before, .main-sidebar .accordion.menu-active:hover .nav-link[data-bs-toggle="collapse"]::after, .main-sidebar .accordion-item ul li.fl-accordion:hover a::after, .main-sidebar .sl-accordion:hover .fl-accordion.fl-accordion-active a::before, .main-sidebar .sl-accordion:hover .fl-accordion.fl-accordion-active a::before{
+    color: #fff !important;
 }
 
+td.download span {
+    color: #a9a9a9;
+}
 .title-before, .title-after{
     background-color: #fff;
 }
@@ -543,3 +552,24 @@ blockquote::before, blockquote::after {
 }
 
 
+
+.rs-cta.style7 .partition-bg-wrap{
+    border: 1px solid #fff;
+}
+
+.main-sidebar .accordion.fl-accordion.fl-accordion-active:hover, .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover{
+    border-color: #fff;
+}
+
+.contact-item .contact-icon i{
+    background-color: #fff;
+    color: #000;
+}
+.btn-primary{
+    background-color: #fff !important;
+    color: #000;
+}
+
+table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_desc, table.dataTable thead>tr>th.sorting_asc_disabled, table.dataTable thead>tr>th.sorting_desc_disabled, table.dataTable thead>tr>td.sorting, table.dataTable thead>tr>td.sorting_asc, table.dataTable thead>tr>td.sorting_desc, table.dataTable thead>tr>td.sorting_asc_disabled, table.dataTable thead>tr>td.sorting_desc_disabled {
+    border-bottom: 1px solid #ddd;
+}
