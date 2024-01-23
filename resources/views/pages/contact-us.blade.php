@@ -122,6 +122,7 @@
                     <table id="example" class="display w-100" >
                         <thead>
                             <tr>
+                                <th>Sr. No</th>
                                 <th>Image</th>
                                 <th>Name</th>
                                 <th>Designation</th>
@@ -132,8 +133,9 @@
                         <tbody>
 
                             @if (isset($employee) && count($employee) > 0)
-                                @foreach ($employee as $employees)
+                                @foreach ($employee as $k=>$employees)
                                     <tr>
+                                        <td>{{ $k+1 }}</td>
                                         <td class="text-center"><img
                                                 @if ($employees->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $employees->public_url) }}"
                                                      @else src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif

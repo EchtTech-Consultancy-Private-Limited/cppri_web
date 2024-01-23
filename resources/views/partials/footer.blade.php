@@ -165,12 +165,13 @@
                                         @foreach ($quickLink as $quickLinks)
                                             @php
                                                 $quickLinkurl = $quickLinks->url ?? 'javascript:void(0)';
+                                                $footerurl = $quickLinks->footer_url ?? 'javascript:void(0)';
                                             @endphp
 
                                             @if ($quickLinks->tab_type == 1)
                                                 <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')"
                                                         target="_blank"
-                                                        href="{{ '/quick-links/' . ($quickLinkurl ?? '') }}">
+                                                        href="{{ $footerurl ?? '' }}">
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $quickLinks->name_hi ?? '' }}
                                                         @else
@@ -178,7 +179,7 @@
                                                         @endif
                                                     </a></li>
                                             @else
-                                                <li><a href="{{ url('/quick-links/' . $quickLinkurl) ?? '' }}">
+                                                <li><a href="{{ url($footerurl) ?? '' }}">
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $quickLinks->name_hi ?? '' }}
                                                         @else

@@ -62,7 +62,7 @@
 
                                 @if ($news_managements->tab_type == '1')
                                 @if (!empty($url))
-                                <a href="{{ url($url) }}" class="me-3" onclick="return confirm('{{ $alertMessage  ??''}}')"
+                                <a href="{{ url($url) ??'' }}" class="me-3" onclick="return confirm('{{ $alertMessage  ??''}}')"
                                     target="_blank">
 
                                     @if (Session::get('Lang') == 'hi')
@@ -75,7 +75,7 @@
                                 @endif
                                 @else
                                 @if (!empty($url))
-                                <a href="{{ url($url) }}" class="me-3">
+                                <a href="{{ $url  ??'' }}" class="me-3">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ $title_hi ?? '' }}
                                     @else
