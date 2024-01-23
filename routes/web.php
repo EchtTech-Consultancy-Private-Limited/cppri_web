@@ -47,7 +47,7 @@ Route::get('/error',[HomeController::class,'error']);
 Route::get('/contact-us',[HomeController::class,'contactUs']);
 Route::post('/contact-us',[HomeController::class,'contactStroe']);
 // Route::get('about-us/overview', [HomeController::class, 'overviewPage']);
-Route::get('quick-links/feedback', [HomeController::class, 'Feedback']);
+Route::get(' /feedback', [HomeController::class, 'Feedback']);
 Route::post('/feedback', [HomeController::class, 'feedbackStore']);
 
 // Route::get('about-us/director-desk', [HomeController::class, 'directorDesk']);
