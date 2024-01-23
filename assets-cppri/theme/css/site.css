@@ -1777,7 +1777,7 @@ ul.ul-v>li a {
 .footer-top-wrapper ul li a,
 .copyright-content span {
 	color: #fff;
-	font-size: 13px;
+	font-size: 14px;
 	font-weight: 400;
 }
 
@@ -3250,6 +3250,7 @@ p.banner-content {
 	padding: 5px 0px 0px;
 	font-size: 110%;
 	text-align: justify;
+	margin-bottom: 10px;
 }
 
 .mb-0{

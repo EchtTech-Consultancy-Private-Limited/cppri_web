@@ -96,19 +96,13 @@
                         <section id="paragraph" class="wrapper paragraph-wrapper">
                             <div class="container common-container four_content pm-0">
                                 <div class="align-lt">
-                                    <h2 class="mt-0 mb-20" tabindex="0">
+                                    <!-- <h2 class="mt-0 mb-20" tabindex="0">
                                         RTI Application & Responses
-                                    </h2>
+                                    </h2> -->
 
                                     <p tabindex="0">
                                     </p>
-                                    <section id="paragraph" class="wrapper paragraph-wrapper">
-                                        <div class=" common-container four_content">
-                                            <div class="row p-0 mb-20">
-
-                                            </div>
-                                        </div>
-                                    </section>
+                                   
 
                                 </div>
 
