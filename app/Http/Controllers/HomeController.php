@@ -409,6 +409,7 @@ class HomeController extends Controller
                 ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
                 ->where('emp.soft_delete', 0)
                 ->orderBy('emp.short_order', 'ASC')
+                ->orderBy('desi.short_order', 'ASC')
                 ->where('emp.publice_status', 1)
                 ->get();
             //dd($employee);
