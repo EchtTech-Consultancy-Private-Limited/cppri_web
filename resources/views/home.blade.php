@@ -774,8 +774,19 @@
                                             <div class="date">
 
                                                 <span
-                                                    class="change-color-code">{{ date('d', strtotime($tender_managements->start_date)) }}</span>
-                                                <em>{{ date('M Y', strtotime($tender_managements->start_date)) }}</em>
+                                                    class="change-color-code">
+                                                    @if($tender_managements->start_date != '')
+                                                    {{ date('d', strtotime($tender_managements->start_date)) }}
+                                                    @endif
+                                                
+                                                </span>
+                                                <em>
+                                                    @if($tender_managements->start_date != '')
+
+                                                    {{ date('M Y', strtotime($tender_managements->start_date)) }}
+                                                    @endif
+                                                
+                                                </em>
 
                                             </div>
 
