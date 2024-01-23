@@ -92,49 +92,36 @@
                                                     @if (isset($careerData) && count($careerData) > 0)
                                                         @foreach ($careerData as $k => $data)
                                                             <tr>
+
+                                                                <td>{{ $k + 1 }}</td>
                                                                 <td>{{ $data['career']->title_name_en ?? '' }}</td>
-                                                                <td>{{ date('d F Y', strtotime($data['career']->created_at ?? '')) }}
+                                                                <td>
+                                                                    @if ($data['career']->start_date != '')
+                                                                        {{ date('d F Y', strtotime($data['career']->start_date ?? '')) }}
+                                                                    @endif
                                                                 </td>
-                                                                <td class="download">
-                                                                <a href="https://dev.cppri.staggings.in/resources/uploads/PageContentPdf/169898797025.pdf" download="" tabindex="0">View</a> <i class="fa fa-file-pdf-o text-danger"></i>
-                                                                            
-                                                                       
-                                                                    <span class="size">
-                                                                    (7.53MB)
-                                                                    </span>
+                                                                <td class="date-nowrap">
+                                                                    @if ($data['career']->end_date != '')
+                                                                        {{ date('d F Y', strtotime($data['career']->end_date ?? '')) }}
+                                                                    @endif
                                                                 </td>
-
-
+                                                               
                                                                 <td class='download'>
+                                                                    @if(isset($data['career_pdfs']) && count($data['career_pdfs']) > 0)
                                                                     @foreach ($data['career_pdfs'] as $pdf)
                                                                     <a href="{{ asset('resources/uploads/CareerManagement/' . $pdf->public_url) }}"
-                                                                            download>View</a>
-                                                                            <i class="fa fa-file-pdf-o">
-                                                                           
-                                                                           </i>
-                                                                             
-                                                                    <span class="size">
-                                                                    ({{ $pdf->pdfimage_size ?? '' }})
+                                                                                download>View</a><i
+                                                                                class="fa fa-file-pdf-o text-danger"></i>
+                                                                       
+                                                                        <span class="size">
+                                                                        ({{ $pdf->pdfimage_size ?? '' }})
                                                                     </span>
                                                                     @endforeach
+                                                                    @endif
                                                                 </td>
 
                                                                
 
-                                                                <td class="date-nowrap">
-                                                                    {{ date('d F Y', strtotime($data->end_date ?? '')) }}
-                                                                </td>
-
-                                                                <td class='download'>
-                                                                <a
-                                                                            href="{{ asset('resources/uploads/TenderManagement/' . $data->public_url) }}"
-                                                                            download>View</a> <i
-                                                                            class="fa fa-file-pdf-o text-danger"></i>
-                                                                    <span class='size'>
-                                                                        ({{ $data->pdfimage_size ?? '' }})
-                                                                    </span>
-                                                                </td>
-                                                                <td><a href="{{ $data->apply_url ?? '' }}"></a></td>
                                                             </tr>
                                                         @endforeach
                                                     @endif
