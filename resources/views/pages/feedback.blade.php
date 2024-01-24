@@ -47,11 +47,19 @@
     </div>
 
     <div class="wrapper" id="skipCont"></div>
-    <div class="container common-container mb-20">
+    <div class="container common-container py-5">
         <div class="row p-0">
-            <div class="col-lg-2"></div>
-            <div class="col-md-12 col-lg-8">
-                <div class="cppri-contact-form">
+            <div class="col-lg-1"></div>
+            <div class="col-md-12 col-lg-9">
+               
+                <div class="cppri-contact-form ">
+                <div class="row px-0">
+                    <div class="col-md-6 ">
+                        <div class="cppri-contact-hero" >
+                            <img src="{{ asset('assets-cppri/images/cppri_contact_bg.png') }}" alt="feedback">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
                     <div class="main-block">
                         @if (Session::has('success'))
                             <script>
@@ -79,31 +87,42 @@
                             @csrf
                             <h3>Fill This Form To Reach Us</h3>
                             <div class="info">
+                                <div>
+                                <i class="fa fa-phone-square" aria-hidden="true"></i>
                                 <input class="fname preventnumeric" type="text" name="name"  placeholder="Full name" required>
 
                                 @if ($errors->has('name'))
                                     <div class="text-danger">{{ $errors->first('name') }}</div>
                                 @endif
-
+                                </div>
+                                <div>
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                 <input type="email" name="email" placeholder="Email" required>
 
                                 @if ($errors->has('email'))
                                     <div class="text-danger">{{ $errors->first('email') }}</div>
                                 @endif
-
+                                </div>
+                               
+                               <div>
+                               <i class="fa fa-mobile" aria-hidden="true"></i>
                                 <input type="text" id="mobile_no" name="phone" minlength="10" maxlength="10" placeholder="Phone number" required>
 
                                 @if ($errors->has('phone'))
                                     <div class="text-danger">{{ $errors->first('phone') }}</div>
                                 @endif
+                               </div>
 
                             </div>
                             <!-- <p>Message</p> -->
                             <div class="info">
-                                <textarea rows="3" name="message" required placeholder="Message here..."></textarea>
+                           <div>
+                           <i class="fa fa-comments" aria-hidden="true"></i>
+                                <textarea rows="1" name="message" required placeholder="Message here..."></textarea>
                                 @if ($errors->has('message'))
                                     <div class="text-danger">{{ $errors->first('message') }}</div>
                                 @endif
+                           </div>
                             </div>
 
 
@@ -115,17 +134,20 @@
                                         placeholder="Enter Security Code" name="SecurityCode" required>
                                 </div>
                             </div>
-                            <div class="mt-4 mb-4">
+                            <div class="mt-2 mb-4">
                                 @if ($errors->has('g-recaptcha-response'))
                                     <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
                                 @endif
                             </div>
                             <div class="text-center">
-                                <button class="g-recaptcha btn btn-primary" type="submit">Submit</button>
+                                <button class="g-recaptcha btn btn-primary rounded-2" type="submit">Submit</button>
 
                             </div>
                         </form>
                     </div>
+                    </div>
+                </div>
+                   
                 </div>
             </div>
 
