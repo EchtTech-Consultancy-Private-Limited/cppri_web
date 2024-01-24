@@ -4573,6 +4573,7 @@ button.dt-button.buttons-print:hover span {
     border-bottom: 1px solid #c7c7c7 !important;
     border-radius: 0 !important;
     width: 100%;
+	font-size: 14px !important;
 }
 .info textarea {
     padding-left: 14px;
@@ -5134,6 +5135,8 @@ table.dataTable tbody td {
 label.security-code {
     width: 40%;
 	color: #626262;
+	font-size: 14px;
+	cursor: auto;
 }
 span.equalto {
     width: 5% !important;
@@ -5143,6 +5146,7 @@ span.equalto {
     border: 0;
     border-bottom: 1px solid #c7c7c7;
     border-radius: 0;
+	font-size: 14px;
 }
 .main-content ul li {
     font-size: 14px;
@@ -5272,7 +5276,7 @@ span#timeid p {
     color: #fff;
 }
 .main-content ul {
-    margin-left: 15px;
+    margin-left: 0px;
 }
 .partition-bg-wrap.vision-mission ul {
     margin-left: 5px !important;
@@ -5567,7 +5571,7 @@ td.download a {
     /* background-color: #286090; */
     background-color: #286090;
     padding: 22px 0;
-    border-right-style: inset;
+    /* border-right-style: inset; */
     border-radius: 13px 0px 0px 7px;
 }
 
@@ -5591,5 +5595,5 @@ td.download a {
     position: absolute;
     top: 31%;
     color: #035ba7;
-    font-size: 17px;
+    font-size: 15px;
 }

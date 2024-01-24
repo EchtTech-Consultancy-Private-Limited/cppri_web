@@ -47,7 +47,7 @@
 </div>
 
 <div class="wrapper" id="skipCont"></div>
-<div class="container common-container py-5">
+<div class="container common-container py-md-5">
     <div class="row p-0">
         <div class="col-lg-1"></div>
         <div class="col-md-12 col-lg-9">
@@ -111,7 +111,7 @@
 
 <!-- ***************** -->
                                
-                            <div class="form-group mt-4 mb-4">
+                            <div class="form-group mt-md-3 mb-md-3 mt-2">
                                 <div class="captcha-box d-flex align-item-center">
                                     <label for="captcha" class="security-code">Security Code : <span class="text-danger"><?php echo $CustomCaptch['expression']; ?></span> </label>
                                     <span class="equalto pe-2">=</span>
