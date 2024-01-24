@@ -59,7 +59,7 @@
                             <img src="{{ asset('assets-cppri/images/cppri_contact_bg.png') }}" alt="feedback">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 d-flex align-items-center">
                         <div class="main-block">
                             @if (Session::has('success'))
                             <script>
@@ -79,7 +79,7 @@
                           
                             <form action="{{ url('feedback') }}" method="post" id="feedback_form">
                                 @csrf
-                                <h3>Fill this form to reach us</h3>
+                                <h3>Send your feedback</h3>
                                 <div class="info">
                                     <div>
                                     <i class="fa fa-user" aria-hidden="true"></i>
@@ -113,7 +113,7 @@
                                
                             <div class="form-group mt-4 mb-4">
                                 <div class="captcha-box d-flex align-item-center">
-                                    <label for="captcha" class="security-code">Security Code : <?php echo $CustomCaptch['expression']; ?> </label>
+                                    <label for="captcha" class="security-code">Security Code : <span class="text-danger"><?php echo $CustomCaptch['expression']; ?></span> </label>
                                     <span class="equalto pe-2">=</span>
                                     <input id="SecurityCode" type="text" class="form-control SecurityCode w-auto"
                                         placeholder="Enter Security Code" name="SecurityCode" required>
