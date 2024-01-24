@@ -88,7 +88,7 @@
                             <h3>Fill This Form To Reach Us</h3>
                             <div class="info">
                                 <div>
-                                <i class="fa fa-phone-square" aria-hidden="true"></i>
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
                                 <input class="fname preventnumeric" type="text" name="name"  placeholder="Full name" required>
 
                                 @if ($errors->has('name'))
