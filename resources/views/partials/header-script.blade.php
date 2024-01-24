@@ -41,6 +41,7 @@
 <script src="{{ asset('assets-cppri/js/toastr.min.js')}}"></script>
 <script src="{{ asset('assets-cppri/js/jquery.marquee.js')}}"></script>
 <!-- <script src="{{ asset('assets-cppri/js/jquery.marquee.min.js')}}"></script> -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <script>
     var baseUrl1 = {!! json_encode(url('/')) !!}
 </script>

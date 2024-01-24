@@ -300,17 +300,17 @@ $("document").ready(function () {
         $("div.alert").remove();
     }, 5000); // 5 secs
 });
-$(document).ready(()=>{
-    $('.sl-accordion').click(()=>{
+$(document).ready(() => {
+    $('.sl-accordion').click(() => {
     })
-    $('#sidebarDropdown2').click(()=>{
+    $('#sidebarDropdown2').click(() => {
         console.log('hellow world')
         $('#sidebarDropdown2').css({
             'background-color': '#000'
         })
     })
 })
-$(document).ready(function() {
+$(document).ready(function () {
     $('.image-popup').magnificPopup({
         type: 'image',
         mainClass: 'mfp-with-zoom',
@@ -319,73 +319,73 @@ $(document).ready(function() {
         },
     });
 });
-$(document).ready(function() {
-	$('a.btn-gallery').on('click', function(event) {
-		event.preventDefault();
-		var gallery = $(this).attr('href');
-		$(gallery).magnificPopup({
-      delegate: 'a',
-			type:'image',
-			gallery: {
-				enabled: true
-			}
-		}).magnificPopup('open');
-	    });
-        // let test = document.querySelectorAll('.accordion-collapse .accordion-body ul li');
-        // test.forEach((e)=>{
-        //     if(e.className == 'qm-active'){
-        //         let currentElementId = (((e.parentNode).parentNode).parentNode).id;
-        //         let accordion = (((((e.parentNode).parentNode).parentNode).parentNode).parentNode);
-        //         let currentElement = document.getElementById(currentElementId);
-        //         currentElement.classList.add('show');
-        //         let mainParentElement = (((((e.parentNode).parentNode).parentNode).parentNode).firstElementChild.firstElementChild.classList.remove('collapsed'));
-        //     }
-        // })
-        let test2 = document.querySelectorAll('.accordion-collapse .accordion-body ul li ul li');
-        test2.forEach((e) => {
-            if (e.classList.contains('qm-active')) {
-                let currentElementId = e.closest('.accordion').id;
-                console.log('sal;dkfj',  e.closest('.accordion'))
-                let mainParent =  e.closest('.accordion').parentElement.parentElement.parentElement.classList.add('show')
-                console.log('mainparent', mainParent)
-                let menu_active = document.getElementById(currentElementId).classList.add('menu-active')
-                console.log('menu-active', menu_active)
-                console.log(currentElementId);
-                let accordion = e.closest('.accordion');
-                let currentElement = document.getElementById(currentElementId);
-                console.log(currentElement.firstElementChild.childNodes[3])
-                let addClass = currentElement.firstElementChild.childNodes[3];
-                console.log('fl', addClass);
-                if (addClass) {
-                    addClass.classList.add('show');
-                }
-                let mainParentElement =currentElement.firstElementChild.childNodes[1].childNodes[1];
-                console.log(mainParentElement)
-                if (mainParentElement) {
-                    mainParentElement.classList.add('collapsed');
-                }
+$(document).ready(function () {
+    $('a.btn-gallery').on('click', function (event) {
+        event.preventDefault();
+        var gallery = $(this).attr('href');
+        $(gallery).magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            gallery: {
+                enabled: true
             }
-        });
-        let test = document.querySelectorAll('.accordion-collapse .accordion-body ul li');
-test.forEach((e) => {
-    if (e.classList.contains('qm-active')) {
-        let currentElementId = e.closest('.accordion').id;
-        let menu_active = document.getElementById(currentElementId).classList.add('menu-active')
-        console.log(currentElementId);
-        let accordion = e.closest('.accordion');
-        let currentElement = document.getElementById(currentElementId);
-        console.log(currentElement.firstElementChild.childNodes[3])
-        let addClass = currentElement.firstElementChild.childNodes[3];
-        if (addClass) {
-            addClass.classList.add('show');
+        }).magnificPopup('open');
+    });
+    // let test = document.querySelectorAll('.accordion-collapse .accordion-body ul li');
+    // test.forEach((e)=>{
+    //     if(e.className == 'qm-active'){
+    //         let currentElementId = (((e.parentNode).parentNode).parentNode).id;
+    //         let accordion = (((((e.parentNode).parentNode).parentNode).parentNode).parentNode);
+    //         let currentElement = document.getElementById(currentElementId);
+    //         currentElement.classList.add('show');
+    //         let mainParentElement = (((((e.parentNode).parentNode).parentNode).parentNode).firstElementChild.firstElementChild.classList.remove('collapsed'));
+    //     }
+    // })
+    let test2 = document.querySelectorAll('.accordion-collapse .accordion-body ul li ul li');
+    test2.forEach((e) => {
+        if (e.classList.contains('qm-active')) {
+            let currentElementId = e.closest('.accordion').id;
+            console.log('sal;dkfj', e.closest('.accordion'))
+            let mainParent = e.closest('.accordion').parentElement.parentElement.parentElement.classList.add('show')
+            console.log('mainparent', mainParent)
+            let menu_active = document.getElementById(currentElementId).classList.add('menu-active')
+            console.log('menu-active', menu_active)
+            console.log(currentElementId);
+            let accordion = e.closest('.accordion');
+            let currentElement = document.getElementById(currentElementId);
+            console.log(currentElement.firstElementChild.childNodes[3])
+            let addClass = currentElement.firstElementChild.childNodes[3];
+            console.log('fl', addClass);
+            if (addClass) {
+                addClass.classList.add('show');
+            }
+            let mainParentElement = currentElement.firstElementChild.childNodes[1].childNodes[1];
+            console.log(mainParentElement)
+            if (mainParentElement) {
+                mainParentElement.classList.add('collapsed');
+            }
         }
-        let mainParentElement =currentElement.firstElementChild.childNodes[1].childNodes[1];
-        console.log(mainParentElement)
-        if (mainParentElement) {
-            mainParentElement.classList.add('collapsed');
+    });
+    let test = document.querySelectorAll('.accordion-collapse .accordion-body ul li');
+    test.forEach((e) => {
+        if (e.classList.contains('qm-active')) {
+            let currentElementId = e.closest('.accordion').id;
+            let menu_active = document.getElementById(currentElementId).classList.add('menu-active')
+            console.log(currentElementId);
+            let accordion = e.closest('.accordion');
+            let currentElement = document.getElementById(currentElementId);
+            console.log(currentElement.firstElementChild.childNodes[3])
+            let addClass = currentElement.firstElementChild.childNodes[3];
+            if (addClass) {
+                addClass.classList.add('show');
+            }
+            let mainParentElement = currentElement.firstElementChild.childNodes[1].childNodes[1];
+            console.log(mainParentElement)
+            if (mainParentElement) {
+                mainParentElement.classList.add('collapsed');
+            }
         }
-    }
-});
+    });
     //     let test = $('.accordion-collapse .accordion-body ul li');
     //    test.each((e)=>{
     //     console.log(e.hasClass('qm-active'));
@@ -395,9 +395,9 @@ test.forEach((e) => {
     //     $('.accordion-item').not(this).find('.collapse').collapse('hide');
     // });
 });
-        // $('.accordion').click((e)=>{
-        //    console.log(e.attr('id'))
-        // })
+// $('.accordion').click((e)=>{
+//    console.log(e.attr('id'))
+// })
 $('#mobile_no').keypress(function (e) {
     var regex = new RegExp("^[0-9_]");
     var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
@@ -407,7 +407,7 @@ $('#mobile_no').keypress(function (e) {
     e.preventDefault();
     return false;
 });
-$('.preventnumeric').keypress(function(e) {
+$('.preventnumeric').keypress(function (e) {
     //alert("yes");
     var regex = new RegExp(/^[a-zA-Z\s]+$/);
     var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
@@ -424,7 +424,7 @@ $('.preventnumeric').keypress(function(e) {
 // $(this).addClass('menu-accordion-click');
 //     })
 // });
-$(document).ready(function() {
+$(document).ready(function () {
     // let sl_accordion = $('.sl-accordion');
     // sl_accordion.click(function() {
     //    sl_accordion.removeClass('menu-accordion-click');
@@ -432,11 +432,11 @@ $(document).ready(function() {
     //     // alert('click');
     // });
     let fl_accordion = $('.fl-accordion');
-    fl_accordion.click(function() {
+    fl_accordion.click(function () {
         $(this).addClass('fl-accordion-active');
         // alert('click');
     });
-    let fl_n_accordion =$('.fl-n-accordion');
+    let fl_n_accordion = $('.fl-n-accordion');
     fl_n_accordion.click
 });
 // window.onscroll = function() {stickySidebar()};
@@ -522,8 +522,8 @@ $('.latest_news_marquee').marquee({
     direction: 'left',
     duplicated: true,
     pauseOnHover: true
-  });
-  $('.marquee-with-options').marquee({
+});
+$('.marquee-with-options').marquee({
     speed: 200,
     gap: 50,
     delayBeforeStart: 0,
@@ -531,7 +531,7 @@ $('.latest_news_marquee').marquee({
     duplicated: true,
     pauseOnHover: true
 });
-$('.color').on('click', function() {
+$('.color').on('click', function () {
     let a = $(this).attr('data-id');
     $(".change-color-code").css('background', a);
     $(".banner-wrapper .flex-control-nav").css('background', a);
@@ -555,7 +555,7 @@ let fl_accordion = $('.fl-accordion');
 // fl_accordion.parent().parent().parent().addClass('show');
 console.log(fl_accordion.parent().parent().parent())
 console.log();
-fl_accordion.click(function(){
+fl_accordion.click(function () {
     fl_accordion.parent().parent().parent().addClass('show');
 })
 // sticky header
@@ -572,26 +572,125 @@ fl_accordion.click(function(){
 //     header.classList.remove("sticky");
 //   }
 // }
-$(document).ready(function() {
+$(document).ready(function () {
     // Check if the modal should be shown today
     if (!getCookie("modalShownToday")) {
         // If it hasn't been shown today, show the modal
-        $(".modal").each(function(l) {
-            $(this).on("show.bs.modal", function(l) {
+        $(".modal").each(function (l) {
+            $(this).on("show.bs.modal", function (l) {
                 var o = $(this).attr("data-easein");
                 "shake" == o ? $(".modal-dialog").velocity("callout." + o) : "pulse" == o ?
                     $(".modal-dialog").velocity("callout." + o) : "tada" == o ? $(
                         ".modal-dialog").velocity("callout." + o) : "flash" == o ? $(
-                        ".modal-dialog").velocity("callout." + o) : "bounce" == o ? $(
-                        ".modal-dialog").velocity("callout." + o) : "swing" == o ? $(
-                        ".modal-dialog").velocity("callout." + o) : $(".modal-dialog")
-                    .velocity("transition." + o)
+                            ".modal-dialog").velocity("callout." + o) : "bounce" == o ? $(
+                                ".modal-dialog").velocity("callout." + o) : "swing" == o ? $(
+                                    ".modal-dialog").velocity("callout." + o) : $(".modal-dialog")
+                                        .velocity("transition." + o)
             })
         });
-        setTimeout(function() {
+        setTimeout(function () {
             $('#costumModal8').modal('show');
         }, 1000);
         // Set a cookie with an expiration date one day from now
         setCookie("modalShownToday", "true", 1);
     }
+});
+
+
+
+$('#submitForm').click(function (e) {
+    // Prevent the default form submission
+    e.preventDefault();
+    var formData = $('#contact_form').serialize();
+
+    var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        }
+    });
+
+    $.ajax({
+        type: 'POST',
+        url: baseurl + '/contact-us',
+        data: formData,
+        success: function (response) {
+            if (response.success) {
+               
+                $('#contact_form')[0].reset();
+                toastr.success('Record Add Successfully');
+            } else if (response.captchaError)
+                toastr.error(response.captchaError)
+            else {
+                toastr.error('Oops something went wrong')
+            }
+        },
+        error: function (error) {
+            console.log(error.responseJSON.errors);
+            if (error.responseJSON && error.responseJSON.errors) {
+                var errors = error.responseJSON.errors;
+                for (var field in errors) {
+                    if (errors.hasOwnProperty(field)) {
+                        errors[field].forEach(function (errorMessage) {
+                            toastr.error(errorMessage);
+                        });
+                    }
+                }
+            } else {
+                console.log('Unexpected error:', error);
+            }
+
+        }
+    });
+});
+
+
+
+$('#feedback_button').click(function (e) {
+    // Prevent the default form submission
+    e.preventDefault();
+    var formData = $('#feedback_form').serialize();
+
+    var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        }
+    });
+
+    $.ajax({
+        type: 'POST',
+        url: baseurl + '/feedback',
+        data: formData,
+        success: function (response) {
+
+            if (response.success) {
+                $('#feedback_form')[0].reset();
+                toastr.success('Record Add Successfully');
+            } else if (response.captchaError)
+                toastr.error(response.captchaError)
+            else {
+                toastr.error('Oops something went wrong')
+            }
+        },
+        error: function (error) {
+            console.log(error.responseJSON.errors);
+            if (error.responseJSON && error.responseJSON.errors) {
+                var errors = error.responseJSON.errors;
+
+                for (var field in errors) {
+                    if (errors.hasOwnProperty(field)) {
+                        errors[field].forEach(function (errorMessage) {
+                            toastr.error(errorMessage);
+                        });
+                    }
+                }
+            } else {
+                console.log('Unexpected error:', error);
+            }
+
+        }
+    });
 });
