@@ -37,7 +37,7 @@ html
 }
 p{
 	text-align: justify;
-	margin-bottom: 1px;
+	margin-bottom: 15px;
 	line-height: 24px;
 }
 h3 
@@ -2451,12 +2451,14 @@ a.home span {
 	color: #937048;
 }
 h2 {
-	font-size: 150% !important;
 	padding-top: 0px !important;
 	padding-bottom: 0px !important;
 	font-weight: 700 !important;
 	clear: both;
 	text-transform: uppercase !important;
+	font-size: 22px !important;
+    color: #026aa1;
+    font-weight: 600 !important;
 }
 h2 small {
 	display: block;
@@ -2659,6 +2661,7 @@ h2 small {
 .align-lt h2 
 {
 	color: #026aa1;
+	margin: 10px 0 !important;
 }
 .align-rt img {
 	float: right;
@@ -2998,7 +3001,7 @@ a.portgolio-button:hover {
 .scroll-left ul {
 	position: absolute;
 	width: 100%;
-	height: 100%;
+	height: -webkit-fill-available;
 	/* Starting position */
 	-moz-transform: translateY(100%);
 	-webkit-transform: translateY(100%);
@@ -5036,7 +5039,7 @@ table.dataTable tbody td {
     margin-top: 0;
 	margin-bottom: 20px;
 }
-.ptb-40{padding: 40px 0px;}
+.ptb-40{padding: 20px 0px;}
 .white-color{color: #fff;}
 .vision-mission ul li {
     color: #fff !important;
@@ -5055,7 +5058,7 @@ span.equalto {
 	font-size: 14px;
 }
 .employee-directry-type.employee-dir-page h2 {
-    font-size: 116% !important;
+    font-size: 24px !important;
 	margin-bottom: 0px;
 }
 .footer-top-wrapper ul.contact-us-footer li{
@@ -5097,6 +5100,7 @@ span#timeid p {
 	font-size: 15px;
     align-items: center;
     font-weight: 500;
+	
 }
 .main-sidebar .accordion-item .nav-link.collapsed {
     display: flex;
@@ -5354,7 +5358,8 @@ blockquote {
 		color: #333 !important;
 	}
 	.dir-dsk-title {
-		font-size: 18px !important;
+		font-size: 22px !important;
+		margin: 10px 0px !important;
 	}
 	.profile-img h4 {
 		font-size: 16px !important;
@@ -5365,6 +5370,9 @@ blockquote {
 		font-size: 14px;
 		margin: 12px 0;
 		width: 100%;
+		border: 0;
+		border-bottom: 1px solid #ddd;
+		border-radius: 0;
 	}
 	.main-sidebar .sl-accordion:hover .fl-accordion.menu-active a::before{
 		color: #49aa41 !important;
@@ -5418,4 +5426,13 @@ blockquote {
 	} 
 	.sticky{
 		position: fixed;
+	}
+
+	.main-content.ditiector-desk {
+		background: linear-gradient(90deg, #1a4f910f, #1a4f910a);
+		border-radius: 10px;
+	}
+	.vision-mission .sec-title2 .title{
+		margin: 0 !important;
+		font-size: 22px !important;
 	}
