@@ -1,5 +1,4 @@
 "use strict";
-
 // Class Definition
 var KTAuthResetPassword = function () {
     // Elements
@@ -35,65 +34,6 @@ var KTAuthResetPassword = function () {
                 }
             }
         );
-
-    }
-
-    var handleSubmitDemo = function (e) {
-        submitButton.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            // Validate form
-            validator.validate().then(function (status) {
-                if (status == 'Valid') {
-                    // Show loading indication
-                    submitButton.setAttribute('data-kt-indicator', 'on');
-
-                    // Disable button to avoid multiple click
-                    submitButton.disabled = true;
-
-                    // Simulate ajax request
-                    setTimeout(function () {
-                        // Hide loading indication
-                        submitButton.removeAttribute('data-kt-indicator');
-
-                        // Enable button
-                        submitButton.disabled = false;
-
-                        // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                        Swal.fire({
-                            text: "We have send a password reset link to your email.",
-                            icon: "success",
-                            buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
-                            customClass: {
-                                confirmButton: "btn btn-primary"
-                            }
-                        }).then(function (result) {
-                            if (result.isConfirmed) {
-                                form.querySelector('[name="email"]').value = "";
-                                //form.submit();
-
-                                var redirectUrl = form.getAttribute('data-kt-redirect-url');
-                                if (redirectUrl) {
-                                    location.href = redirectUrl;
-                                }
-                            }
-                        });
-                    }, 1500);
-                } else {
-                    // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                    Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
-                        icon: "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
-                        customClass: {
-                            confirmButton: "btn btn-primary"
-                        }
-                    });
-                }
-            });
-        });
     }
 
     var handleSubmitAjax = function (e) {
@@ -113,65 +53,46 @@ var KTAuthResetPassword = function () {
 
                     // Check axios library docs: https://axios-http.com/docs/intro
                     axios.post(submitButton.closest('form').getAttribute('action'), new FormData(form)).then(function (response) {
-                        if (response) {
+                       if (response.status == 200) {
                             form.reset();
-
-                            // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                            Swal.fire({
-                                text: "We have send a password reset link to your email.",
-                                icon: "success",
-                                buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
-                                customClass: {
-                                    confirmButton: "btn btn-primary"
+                            toastr.success(
+                                "We have send a password reset link to your email!", 
+                                "Successfully reset link!", 
+                                {timeOut: 0, extendedTimeOut: 0, closeButton: true, closeDuration: 0}
+                             );
+                             setTimeout(function() {
+                                if (history.scrollRestoration) {
+                                   history.scrollRestoration = 'manual';
                                 }
-                            });
-
-                            const redirectUrl = form.getAttribute('data-kt-redirect-url');
-
-                            if (redirectUrl) {
-                                location.href = redirectUrl;
-                            }
+                                //location.href = response.data.redirectUrl; // reload page
+                             }, 1500);
+                           
                         } else {
-                            // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                            Swal.fire({
-                                text: "Sorry, the email is incorrect, please try again.",
-                                icon: "error",
-                                buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
-                                customClass: {
-                                    confirmButton: "btn btn-primary"
-                                }
-                            });
+                            toastr.error(
+                                'Sorry, '+error.response.data.message, 
+                                "email or password is incorrect", 
+                                {timeOut: 0, extendedTimeOut: 0, closeButton: true, closeDuration: 0}
+                             );
                         }
                     }).catch(function (error) {
-                        Swal.fire({
-                            text: "Sorry, looks like there are some errors detected, please try again.",
-                            icon: "error",
-                            buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
-                            customClass: {
-                                confirmButton: "btn btn-primary"
-                            }
-                        });
+                        toastr.error(
+                            'Sorry, '+error.response.data.message, 
+                            "error", 
+                            {timeOut: 0, extendedTimeOut: 0, closeButton: true, closeDuration: 0}
+                         );
                     }).then(() => {
                         // Hide loading indication
                         submitButton.removeAttribute('data-kt-indicator');
-
                         // Enable button
                         submitButton.disabled = false;
                     });
                 } else {
                     // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                    Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
-                        icon: "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
-                        customClass: {
-                            confirmButton: "btn btn-primary"
-                        }
-                    });
+                    toastr.error(
+                        "Sorry, looks like there are some errors detected, please try again.", 
+                        "error", 
+                        {timeOut: 0, extendedTimeOut: 0, closeButton: true, closeDuration: 0}
+                     );
                 }
             });
         });
@@ -198,7 +119,7 @@ var KTAuthResetPassword = function () {
             if (isValidUrl(form.getAttribute('action'))) {
                 handleSubmitAjax(); // use for ajax submit
             } else {
-                handleSubmitDemo(); // used for demo purposes only
+                handleSubmitAjax(); // used for demo purposes only
             }
         }
     };

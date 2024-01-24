@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    {{ __('CPPRI |'.' '.$title) }}
+    {{ __('CPPRI |' . ' ' . $title) }}
 @endsection
 @section('content')
     <div class="container common-container mb-20">
@@ -28,70 +28,41 @@
                 <div class="cppri-contact-form">
                     <div class="main-block">
 
-                        @if (Session::has('success'))
-                            <script>
-                                toastr.success('{{ Session::get('success') }}')
-                            </script>
-                        @endif
 
-                        @if (Session::has('captchaError'))
-                            <script>
-                                toastr.error('{{ Session::get('captchaError') }}')
-                            </script>
-                        @endif
-
-
-                        @if ($errors->any())
-                            <script>
-                                $(document).ready(function() {
-                                    @foreach ($errors->all() as $error)
-                                        toastr.error('{{ $error }}');
-                                    @endforeach
-                                });
-                            </script>
-                        @endif
-
-                        <form action="{{ url('contact-us') }}" method="post" id="contact_form" >
+                        <form id="contact_form">
                             @csrf
                             <h3>Fill This Form To Reach Us</h3>
                             <div class="info">
-                                <input class="fname preventnumeric" type="text" name="name"  placeholder="Full name" required>
+                                <input class="fname preventnumeric" type="text" name="name"
+                                    value="{{ old('name') }}" placeholder="Full name">
 
-                                @if ($errors->has('name'))
-                                    <div class="text-danger">{{ $errors->first('name') }}</div>
-                                @endif
+                            
+                                <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
 
-                                <input type="email" name="email" placeholder="Email" required>
+                            
+                                <input type="text" id="mobile_no" name="phone" placeholder="Phone number"
+                                    value="{{ old('phone') }}" minlength="10" maxlength="10">
 
-                                @if ($errors->has('email'))
-                                    <div class="text-danger">{{ $errors->first('email') }}</div>
-                                @endif
-
-                                <input type="text" id="mobile_no" name="phone" placeholder="Phone number" minlength="10" maxlength="10" required>
-
-                                @if ($errors->has('phone'))
-                                    <div class="text-danger">{{ $errors->first('phone') }}</div>
-                                @endif
+                              
 
                             </div>
                             <!-- <p>Message</p> -->
                             <div class="info">
-                                <textarea rows="3" name="message" required placeholder="Message here..."></textarea>
-                                @if ($errors->has('message'))
-                                    <div class="text-danger">{{ $errors->first('message') }}</div>
-                                @endif
+                                <textarea rows="3" name="message" placeholder="Message here...">{{ old('message') }}</textarea>
+                               
                             </div>
-                           
+
                             <div class="form-group mt-4 mb-4">
                                 <div class="captcha-box d-flex align-item-center">
-                                   <label for="captcha" class="security-code">Security Code : <?php echo $CustomCaptch['expression']; ?> </label> <span class="equalto">=</span>
-                                   <input id="SecurityCode" type="text" class="form-control SecurityCode" placeholder="Enter Security Code" name="SecurityCode" required>
+                                    <label for="captcha" class="security-code">Security Code : <?php echo $CustomCaptch['expression']; ?> </label>
+                                    <span class="equalto">=</span>
+                                    <input id="SecurityCode" type="text" class="form-control SecurityCode"
+                                        placeholder="Enter Security Code" name="SecurityCode" required>
                                 </div>
-                             </div>
+                            </div>
                             <div class="text-center">
-                                <button class="g-recaptcha btn btn-primary"
-                                  
-                                   >Submit</button>
+
+                                <button class="g-recaptcha btn btn-primary" type="button" id="submitForm">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -111,15 +82,15 @@
 
                     <h3 class="master-title mt-20 text-center mb-3">
                         @if (Session::get('Lang') == 'hi')
-                        {{ __('messages.Employee_Details') }}
-                    @else
-                        {{ __('messages.Employee_Details') }}
-                    @endif
+                            {{ __('messages.Employee_Details') }}
+                        @else
+                            {{ __('messages.Employee_Details') }}
+                        @endif
 
 
-                       
+
                     </h3>
-                    <table id="example" class="display w-100" >
+                    <table id="example" class="display w-100">
                         <thead>
                             <tr>
                                 <th>Sr. No</th>
@@ -133,9 +104,9 @@
                         <tbody>
 
                             @if (isset($employee) && count($employee) > 0)
-                                @foreach ($employee as $k=>$employees)
+                                @foreach ($employee as $k => $employees)
                                     <tr>
-                                        <td>{{ $k+1 }}</td>
+                                        <td>{{ $k + 1 }}</td>
                                         <td class="text-center"><img
                                                 @if ($employees->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $employees->public_url) }}"
                                                      @else src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif
@@ -187,5 +158,5 @@
             </div>
         </div>
     </div>
-   
+
 @endsection
