@@ -27,11 +27,9 @@
                     title="Default Banner">
             </li>
             @endif
-
         </ul>
     </div>
 </section>
-
 <section class="latest-news">
     <h3 class="d-none">Latest News</h3>
     <div class="row px-0">
@@ -50,7 +48,7 @@
             <div class="latest_news_marquee marquee-vertical" data-speed="70">
                 <div class="marquee-wrapper">
                     <div class="marquee-content">
-                       <div class="float-left d-inline-block ">
+                        <div class="float-left d-inline-block ">
                             @if (isset($news_management) && count($news_management) > 0)
                             @foreach ($news_management as $news_managements)
                             <span>
@@ -59,7 +57,6 @@
                                 $title_hi = $news_managements->title_name_hi ?? '';
                                 $title_en = $news_managements->title_name_en ?? '';
                                 @endphp
-
                                 @if ($news_managements->tab_type == '1')
                                 @if (!empty($url))
                                 <a href="{{ url($url) ??'' }}" class="me-3" onclick="return confirm('{{ $alertMessage  ??''}}')"
@@ -70,7 +67,6 @@
                                     @else
                                     {{ $title_en ?? '' }}
                                     @endif
-
                                 </a>
                                 @endif
                                 @else
@@ -90,17 +86,12 @@
                             <h5>No news available.</h5>
                             @endif
                         </div>
-
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
-
-
-
 <div class="wrapper" id="skipCont"></div>
 <!--/#skipCont-->
 <section id="fontSize" class="wrapper body-wrapper ">
@@ -108,43 +99,33 @@
     <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott">
         <div class="container common-container four_content body-container top-body-container padding-top-bott2">
             <div class="row">
-
                 <div
                     class="banner-content-wrapper animate__animated animate__backInLeft animate__delay-3s col-md-12 col-lg-8 order-2 order-lg-1 pe-md-5 ">
                     <h2 class="border-bottom-color">
-
                         @if (Session::get('Lang') == 'hi')
                         {{ __('messages.Welcome_to') }}
                         @else
                         {{ __('messages.Welcome_to') }}
                         @endif
-
-
                         <span>CPPRI</span>
                     </h2>
                     <!-- <p class="banner-title-tag-line">Welcome to the website of Ministry/Department, Government of India.</p> -->
                     <p class="banner-content ">
-
                         @if (Session::get('Lang') == 'hi')
                         {{ __('messages.about1') }}
                         @else
                         {{ __('messages.about1') }}
                         @endif
-
                     </p>
-
-
                     <p class="banner-content">
-
                         @if (Session::get('Lang') == 'hi')
                         {{ __('messages.about2') }}
                         @else
                         {{ __('messages.about2') }}
                         @endif
-
                     </p>
-
-                    <a href="{{url('about-us/overview')}}" title="Click here to know more" class="change-border-color-text">Read
+                    <a href="{{url('about-us/overview')}}" title="Click here to know more"
+                        class="change-border-color-text">Read
                         more
                         <i class="fa fa-angle-right"></i></a>
                 </div>
@@ -156,7 +137,8 @@
                                     alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>
                             <div class="min-info">
                                 <h4>Dr. M K Gupta</h4>
-                                <h5><a href="{{url('about-us/director-desk')}}" title="Minister of Coal"><span>Director </span></a>
+                                <h5><a href="{{url('about-us/director-desk')}}" title="Minister of Coal"><span>Director
+                                        </span></a>
                                 </h5>
                             </div>
                         </div>
@@ -176,9 +158,7 @@
             </div>
         </div>
     </div>
-
     <!-- Services section Start-->
-
     <section class="wf100 p75-50  depart-info">
         <div class="container common-container">
             <div class="row">
@@ -190,8 +170,6 @@
                             @else
                             {{ __('messages.Services') }}
                             @endif
-
-
                         </h2>
                     </div>
                 </div>
@@ -228,15 +206,11 @@
                             <div class="deprt-icon-box">
                                 <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt="">
                                 <div class="serv-h"> <a href="javascript:void(0);">
-
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Technical_Services') }}
                                         @else
                                         {{ __('messages.Technical_Services') }}
                                         @endif
-
-
-
                                     </a> </div class="serv-h">
                                 <a class="rm" href="{{ url('technical-services') }}">
                                     @if (Session::get('Lang') == 'hi')
@@ -258,8 +232,6 @@
                                         @else
                                         {{ __('messages.Our_Achievements') }}
                                         @endif
-
-
                                     </a> </div class="serv-h">
                                 <a class="rm" href="{{ url('our-achievements') }}">
                                     @if (Session::get('Lang') == 'hi')
@@ -276,14 +248,11 @@
                             <div class="deprt-icon-box">
                                 <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt="">
                                 <div class="serv-h"> <a href="javascript:void(0);">
-
-
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Publications_Reports') }}
                                         @else
                                         {{ __('messages.Publications_Reports') }}
                                         @endif
-
                                     </a> </div class="serv-h">
                                 <a class="rm" href="{{ url('publications-&-reports') }}">
                                     @if (Session::get('Lang') == 'hi')
@@ -300,15 +269,11 @@
                             <div class="deprt-icon-box">
                                 <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt="">
                                 <div class="serv-h"> <a href="javascript:void(0);">
-
-
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Institute_Membership') }}
                                         @else
                                         {{ __('messages.Institute_Membership') }}
                                         @endif
-
-
                                     </a> </div class="serv-h">
                                 <a class="rm" href="{{ url('institute-membership') }}">
                                     @if (Session::get('Lang') == 'hi')
@@ -325,13 +290,11 @@
                             <div class="deprt-icon-box">
                                 <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt="">
                                 <div class="serv-h"> <a href="javascript:void(0);">
-
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Tender') }}
                                         @else
                                         {{ __('messages.Tender') }}
                                         @endif
-
                                     </a> </div class="serv-h">
                                 <a class="rm" href="{{ url('tender') }}">
                                     @if (Session::get('Lang') == 'hi')
@@ -344,14 +307,9 @@
                         </div>
                         <!--Icon Box End-->
                         <!--Icon Box Start-->
-
                         <!--Icon Box End-->
                     </div>
                 </div>
-
-
-
-
                 <div class="col-md-12 col-lg-4">
                     <div class="banner-box-wrapper">
                         <div class="banner-box banner-box-1">
@@ -361,13 +319,11 @@
                                     <img src="{{ asset('assets-cppri/images/rti.png') }}" alt="icon"
                                         class="cell-icon-sec">
                                     <p>
-
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.RTI') }}
                                         @else
                                         {{ __('messages.RTI') }}
                                         @endif
-
                                     </p>
                                 </a>
                             </div>
@@ -375,17 +331,15 @@
                         <div class="banner-box banner-box-5 ">
                             <div class="banner-box-content">
                                 <!-- <h2>External Link 1</h2> -->
-                                <a href="{{ url('grievance-cell') }}" title="External link that opens in new tab">
+                                <a href="{{ url('grievance-cell') }}" title="GRIEVANCE CELL">
                                     <img src="{{ asset('assets-cppri/images/grivence_rti.png') }}" alt="icon"
                                         class="cell-icon-sec">
                                     <p>
-
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Grievance_Cell') }}
                                         @else
                                         {{ __('messages.Grievance_Cell') }}
                                         @endif
-
                                     </p>
                                 </a>
                             </div>
@@ -395,18 +349,14 @@
                                 <!-- <h2>External Link 2</h2> -->
                                 <a href="{{ url('public-grievance-cell') }}" title="External link that opens in new tab"
                                     onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank">
-
                                     <img src="{{ asset('assets-cppri/images/public.png') }}" alt="icon"
                                         class="cell-icon-sec">
                                     <p>
-
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Public_Grievance_Cell') }}
                                         @else
                                         {{ __('messages.Public_Grievance_Cell') }}
                                         @endif
-
-
                                     </p>
                                 </a>
                             </div>
@@ -418,15 +368,11 @@
                                     <img src="{{ asset('assets-cppri/images/regulation.png') }}" alt="icon"
                                         class="cell-icon-sec">
                                     <p>
-
-
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Rules_and_Regulation') }}
                                         @else
                                         {{ __('messages.Rules_and_Regulation') }}
                                         @endif
-
-
                                     </p>
                                 </a>
                             </div>
@@ -439,14 +385,11 @@
                                     <img src="{{ asset('assets-cppri/images/mail.png') }}" alt="icon"
                                         class="cell-icon-sec">
                                     <p>
-
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.Webmail') }}
                                         @else
                                         {{ __('messages.Webmail') }}
                                         @endif
-
-
                                     </p>
                                 </a>
                             </div>
@@ -456,93 +399,14 @@
             </div>
         </div>
     </section>
-
-    <!-- Services section END-->
-
-
-
-    <!-- <div class="links-wrapper change-color-code">
-                                                                                                    <div class="container common-container ptb-10">
-
-
-                                                                                                        <div class="row">
-                                                                                                            <div class="col-md-12">
-                                                                                                                <div class="banner-content-wrapper services-heading">
-                                                                                                                    <h2 class="text-white mt-0">
-                                                                                                                        @if (Session::get('Lang') == 'hi')
-    {{ __('messages.Services') }}
-@else
-    {{ __('messages.Services') }}
-    @endif
-                                                                                                                    </h2>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-
-
-                                                                                                        <div class="icon-box">
-                                                                                                            <a href="javascript:void();">
-                                                                                                                <span class="icon-box-ico">
-                                                                                                                    <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}" alt="">
-                                                                                                                </span>
-                                                                                                                <span class="icon-box-text">R &amp; D Projects</span>
-                                                                                                            </a>
-                                                                                                        </div>
-
-                                                                                                        <div class="icon-box">
-                                                                                                            <a href="javascript:void();">
-                                                                                                                <span class="icon-box-ico">
-                                                                                                                    <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt="">
-                                                                                                                </span>
-                                                                                                                <span class="icon-box-text">Technical Services </span>
-                                                                                                            </a>
-                                                                                                        </div>
-                                                                                                        <div class="icon-box">
-                                                                                                            <a href="javascript:void();">
-                                                                                                                <span class="icon-box-ico">
-                                                                                                                    <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt="">
-                                                                                                                </span>
-                                                                                                                <span class="icon-box-text">Our Achievements</span>
-                                                                                                            </a>
-                                                                                                        </div>
-                                                                                                        <div class="icon-box">
-                                                                                                            <a href="javascript:void();">
-                                                                                                                <span class="icon-box-ico">
-                                                                                                                    <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt="">
-                                                                                                                </span>
-                                                                                                                <span class="icon-box-text">Publications &amp; Reports</span>
-                                                                                                            </a>
-                                                                                                        </div>
-                                                                                                        <div class="icon-box">
-                                                                                                            <a href="javascript:void();">
-                                                                                                                <span class="icon-box-ico">
-                                                                                                                    <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt="">
-                                                                                                                </span>
-                                                                                                                <span class="icon-box-text">Institute Membership</span>
-                                                                                                            </a>
-                                                                                                        </div>
-                                                                                                        <div class="icon-box">
-                                                                                                            <a href="javascript:void();">
-                                                                                                                <span class="icon-box-ico">
-                                                                                                                    <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt="">
-                                                                                                                </span>
-                                                                                                                <span class="icon-box-text">Tender</span>
-                                                                                                            </a>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div> -->
-
-
-    <!-- <div class="wrapper home-banner"> -->
+<!-- Services section END--> <!-- <div class="links-wrapper change-color-code"> <div class="container common-container ptb-10"> <div class="row"> <div class="col-md-12"> <div class="banner-content-wrapper services-heading"> <h2 class="text-white mt-0"> @if (Session::get('Lang') == 'hi') {{ __('messages.Services') }} @else {{ __('messages.Services') }} @endif </h2> </div> </div> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}" alt=""> </span> <span class="icon-box-text">R &amp; D Projects</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt=""> </span> <span class="icon-box-text">Technical Services </span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt=""> </span> <span class="icon-box-text">Our Achievements</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt=""> </span> <span class="icon-box-text">Publications &amp; Reports</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt=""> </span> <span class="icon-box-text">Institute Membership</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt=""> </span> <span class="icon-box-text">Tender</span> </a> </div> </div> </div> --> <!-- <div class="wrapper home-banner"> -->
     <div class="wrapper banner-bg-white overflow-hidden">
         <div class="press-release-overlay"></div>
-
         <div class="press-release-background-image position-absolute z-index-0 h-100 w-100">
             <img src="{{ asset('assets-cppri/images/press-release.png') }}" class="h-100 w-100" alt="background image">
         </div>
         <div
             class="container common-container four_content banner-container body-container top-body-container pe-0 z-index-2">
-
             <div class="left-block row  py-md-5 py-0 px-0">
                 <div class="col-md-4 col-lg-4 mb-3 mb-md-0">
                     <div class="left-col-2 ">
@@ -552,14 +416,11 @@
                                     <ul class="resp-tabs-list hor_1 change-color-code">
                                         <li class="border-l change-border-color-text"><a href="javascript:viod(0)"
                                                 id="tab-list-1" class="change-text-color">
-
                                                 @if (Session::get('Lang') == 'hi')
                                                 {{ __('messages.Notification') }}
                                                 @else
                                                 {{ __('messages.Notification') }}
                                                 @endif
-
-
                                             </a>
                                         </li>
                                     </ul>
@@ -569,8 +430,6 @@
                                                 <p class="text-slide pause" onclick="changeClass()"></p>
                                                 <div class="scroll-text scroll-left p-2">
                                                     <ul class="list">
-
-
                                                         @if (isset($notification) && count($notification) > 0)
                                                         @foreach ($notification as $notifications)
                                                         <li>
@@ -583,9 +442,7 @@
                                                                 @else
                                                                 {{ $notifications->recent_activities_en ?? '' }}
                                                                 @endif
-
                                                                 &nbsp;
-
                                                                 @if ($notifications->tab_type == 1)
                                                                 <a onclick="return confirm('{{ $alertMessage ?? '' }}')"
                                                                     target="_blank" href="{{ $notiUrl ?? '' }}"
@@ -601,7 +458,6 @@
                                                         @else
                                                         <h5>No notifications available.</h5>
                                                         @endif
-
                                                         {{-- <li>
                                                             <div class="list-content">
                                                                 <a href="https://centralpulppaperresearchinstitute.webex.com/centralpulppaperresearchinstitute/j.php?MTID=m639c2a7e8a854b99da321b648df0ade6"
@@ -621,7 +477,6 @@
                                                                     here to apply</a>
                                                             </div>
                                                         </li> --}}
-
                                                     </ul>
                                                 </div>
                                                 <div class="view-footer"><a href="javascript:void();" title="Read More"
@@ -641,7 +496,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-4 col-lg-4 mb-3 mb-md-0">
                     <div class="left-col-2 ">
                         <div class="page-tab clearfix">
@@ -651,17 +505,13 @@
                                         <li
                                             class="border-l resp-tab-item hor_1 resp-tab-active change-border-color-text">
                                             <a href="javascript:viod(0)" id="tab-list-1" class="change-text-color">
-
                                                 @if (Session::get('Lang') == 'hi')
                                                 {{ __('messages.Press_Release') }}
                                                 @else
                                                 {{ __('messages.Press_Release') }}
                                                 @endif
-
-
                                             </a>
                                         </li>
-
                                     </ul>
                                     <div class="resp-tabs-container hor_1">
                                         <div class="clearfix" id="hor_1_tab_item-1">
@@ -671,11 +521,9 @@
                                                     <ul class="list">
                                                         @if (isset($press_release) && count($press_release) > 0)
                                                         @foreach ($press_release as $press_releases)
-
                                                         @php
                                                         $pressUrl = $press_releases->url_link ?? 'javascript:void(0)';
                                                         @endphp
-
                                                         <li>
                                                             @if ($press_releases->tab_type == 1)
                                                             <a onclick="return confirm('{{ $alertMessage ?? '' }}')"
@@ -704,8 +552,6 @@
                                                         @else
                                                         <h5>No press releases available.</h5>
                                                         @endif
-
-
                                                         {{-- <li>
                                                             <div class="list-content">Description of Press Release 1
                                                                 goes here
@@ -744,7 +590,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="col-md-4 col-lg-4 pe-md-0">
                     <div class="left-col-2">
@@ -756,7 +601,6 @@
                                     @else
                                     {{ __('messages.Tender') }}
                                     @endif
-
                                 </h2>
                             </div>
                             <p class="text-slide1 pause tender-play-btn" onclick="changeClass1()"></p>
@@ -764,21 +608,28 @@
                         <div class="bg-white-tender">
                             <div class="scroll-text-1 scroll-left">
                                 <ul class="list">
-
-
                                     @if (isset($tender_management) && count($tender_management) > 0)
                                     @foreach ($tender_management as $tender_managements)
                                     <li>
                                         <a href="{{ asset('resources/uploads/TenderManagement/' . $tender_managements->public_url) }}"
                                             download>
                                             <div class="date">
-
                                                 <span
-                                                    class="change-color-code">{{ date('d', strtotime($tender_managements->start_date)) }}</span>
-                                                <em>{{ date('M Y', strtotime($tender_managements->start_date)) }}</em>
+                                                    class="change-color-code">
+                                                    @if($tender_managements->start_date != '')
+                                                    {{ date('d', strtotime($tender_managements->start_date)) }}
+                                                    @endif
+                                                
+                                                </span>
+                                                <em>
+                                                    @if($tender_managements->start_date != '')
+
+                                                    {{ date('M Y', strtotime($tender_managements->start_date)) }}
+                                                    @endif
+                                                
+                                                </em>
 
                                             </div>
-
                                             <div class="list-content">
                                                 {{ $tender_managements->pdf_title ?? '' }} - File type
                                                 ({{ $tender_managements->file_extension ?? '' }} -
@@ -796,19 +647,15 @@
                                         </div>
                                     </li>
                                     @endif
-
                                 </ul>
-
                             </div>
                             <div class="view-footer"><a href="{{ url('tender') }}" title="Know More About Tenders"
                                     class="change-border-color-text"><span>
-
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.View_all_Tenders') }}
                                         @else
                                         {{ __('messages.View_all_Tenders') }}
                                         @endif
-
                                         <i class="fa fa-angle-right"></i>
                                     </span></a>
                             </div>
@@ -816,10 +663,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
     <section class="wf100 city-news p75 bg-white">
         <div class="container common-container four_content banner-container">
             <div class="title-style-3">
@@ -829,7 +674,6 @@
             <div class="row">
                 <!--News Box Start-->
                 <div class="col-md-6 col-sm-6 PL-LG-0">
-
                     <div class="news-box">
                         <div class="row">
                             <div class="col-md-4 p-0">
@@ -837,14 +681,11 @@
                                     <div>
                                         <span class="cat c1 change-color-code">Academic Program</span> <img
                                             src="{{ asset('assets-cppri/images/msc.jpg') }}" alt="Academic Program">
-
                                     </div>
-
                                 </div>
                             </div>
                             <div class="col-md-8 p-0">
                                 <div class="new-txt">
-
                                     <h6><a href="{{url('academic-program')}}">Academic Program</a></h6>
                                     <span class="duration">Duration- Two year (4 semesters) </span>
                                     <p> To meet the Indian Pulp &amp; Paper Industry’s requirement of technically
@@ -853,7 +694,6 @@
                                     </p>
                                     <a class="button change-text-color" href="{{url('academic-program')}}">More Details
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-
                                 </div>
                             </div>
                         </div>
@@ -869,14 +709,11 @@
                                     <div>
                                         <span class="cat c1 change-color-code">Training Program</span> <img
                                             src="{{ asset('assets-cppri/images/phd.jpg') }}" alt="">
-
                                     </div>
-
                                 </div>
                             </div>
                             <div class="col-md-8 p-0">
                                 <div class="new-txt">
-
                                     <h6><a href="{{url('academic-program')}}">Training Program</a></h6>
                                     <span class="duration">Duration- Depends on program stream </span>
                                     <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi vitae laudantium
@@ -885,7 +722,6 @@
                                     </p>
                                     <a class="button change-text-color" href="{{url('training-program')}}">More Details
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-
                                 </div>
                             </div>
                         </div>
@@ -898,12 +734,10 @@
                                                                                                                                  <div class="new-thumb"> <span class="cat c3">Policies</span> <img src="images/cppri/modi.jpg" alt="">
                                                                                                                                  </div>
                                                                                                                                  <div class="new-txt">
-                                                                                                                                   
                                                                                                                                    <h6><a href="javascript:void(0);">Our Policies Programs</a></h6>
                                                                                                                                    <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="javascript:void(0);" title="">...read more</a>
                                                                                                                                    </p>
                                                                                                                                  </div>
-                                                                                                                                
                                                                                                                                </div>
                                                                                                                              </div> -->
                 <!--News Box End-->
@@ -913,7 +747,6 @@
                                                                                                                                  <div class="new-thumb"> <span class="cat c4">Education</span> <img src="images/h3citynews-4.jpg" alt="">
                                                                                                                                  </div>
                                                                                                                                  <div class="new-txt">
-                                                                                                                                   
                                                                                                                                    <h6><a href="javascript:void(0);">Our Education Programs</a></h6>
                                                                                                                                    <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="javascript:void(0);" title="">...read more</a>
                                                                                                                                    </p>
@@ -924,24 +757,20 @@
             </div>
         </div>
     </section>
-
     <div class="wrapper banner-bg-white ptb-30 pb-0">
         <div class="container common-container four_content banner-container body-container top-body-container p-0">
-
-            <div class="col-md-3">
+         <div class="row">
+               <div class="col-lg-3 col-md-6">
                 <div class="social-box">
                     <div class="sub-sec">
                         <h2>
                             <div class="img-b"><img src="{{ asset('assets-cppri/images/facebook.png') }}" alt="icon">
                             </div>
-
                             @if (Session::get('Lang') == 'hi')
                             {{ __('messages.Facebook') }}
                             @else
                             {{ __('messages.Facebook') }}
                             @endif
-
-
                         </h2>
                     </div>
                     <div class="plug-box facebook-feed-content text-center">
@@ -957,20 +786,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-lg-3 col-md-6">
                 <div class="social-box">
                     <div class="sub-sec">
                         <h2 class="twitter-c">
                             <div class="img-b"><img src="{{ asset('assets-cppri/images/twitter.png') }}" alt="icon">
                             </div>
-
                             @if (Session::get('Lang') == 'hi')
                             {{ __('messages.Twitter') }}
                             @else
                             {{ __('messages.Twitter') }}
                             @endif
-
-
                         </h2>
                     </div>
                     <div class="plug-box twitter-feed-content p-2">
@@ -989,32 +815,25 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-lg-3 col-md-6">
                 <div class="social-box">
                     <div class="sub-sec">
                         <h2 class="linkedin-c">
                             <div class="img-b"><img src="{{ asset('assets-cppri/images/linkedin1.png') }}" alt="icon">
                             </div>
-
                             @if (Session::get('Lang') == 'hi')
                             {{ __('messages.Linkedin') }}
                             @else
                             {{ __('messages.Linkedin') }}
                             @endif
-
-
-
                         </h2>
                     </div>
-
                     <div class="plug-box linkedinfeed">
                         <img src="{{ asset('assets-cppri/images/linkedin_feed.PNG') }}" alt="">
                     </div>
-
                 </div>
             </div>
-
-            <div class="col-md-3">
+            <div class="col-lg-3 col-md-6">
                 <div class="social-box">
                     <div class="sub-sec">
                         <h2 class="instagram-c">
@@ -1027,10 +846,8 @@
                             @endif
                         </h2>
                     </div>
-
                     <div class="plug-box linkedinfeed">
                         <!-- <img src="{{ asset('assets-cppri/images/linkedin_feed.PNG') }}" alt=""> -->
-
                         <blockquote class="instagram-media"
                             data-instgrm-permalink="https://www.instagram.com/cpprisocial/" data-instgrm-version="12"
                             style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:288px; min-width:280px; padding:0; width:288px; width:288px;height:295px;max-height:100%; width:288px;">
@@ -1125,60 +942,31 @@
                             </div>
                         </blockquote>
                         <script src="https://www.instagram.com/embed.js"></script>
-                        <script type="text/javascript" src="https://www.embedista.com/j/instagramfeed.js"></script>
-                        <div style="overflow: auto; position: absolute; height: 0pt; width: 0pt;"><a
-                                href="https://www.embedista.com/instagramfeed">Embed Instagram Post</a> Code Generator
-                        </div>
+                       
                     </div>
-                    <style>
-                    .boxes3 {
-                        height: 175px;
-                        width: 153px;
-                    }
-
-                    #n img {
-                        max-height: none !important;
-                        max-width: none !important;
-                        background: none !important
-                    }
-
-                    #inst i {
-                        max-height: none !important;
-                        max-width: none !important;
-                        background: none !important
-                    }
-                    </style>
                 </div>
-
             </div>
-
+         </div>
         </div>
     </div>
-
     </div>
     </div>
-
     {{-- video and image section start --}}
     @if (
     (isset($image_management) && $image_management !== '' && $image_management !== null) ||
     (isset($video_management) && $video_management !== '' && $video_management !== null))
     <div class="wrapper home-btm-slider">
         <div class="container common-container four_content gallery-container">
-
             @if (isset($image_management) && $image_management !== '' && $image_management !== null &&
             isset($image_management->uid))
-
             <div class="gallery-area clearfix">
                 <div class="gallery-heading">
                     <h3 class="change-color-code">
-
                         @if (Session::get('Lang') == 'hi')
                         {{ __('messages.Photo_Gallery ') }}
                         @else
                         {{ __('messages.Photo_Gallery') }}
                         @endif
-
-
                     </h3>
                     <a class="bttn-more bttn-view" href="{{ url('photo-gallery') }}"
                         title="View all Photo Gallery"><span>View
@@ -1188,7 +976,6 @@
                     <div id="galleryCarousel" class="flexslider">
                         @if (isset($image_gallery_details) && count($image_gallery_details) > 0)
                         <ul class="slides">
-
                             @foreach ($image_gallery_details->slice(0,3) as $image_gallerys)
                             <li data-thumb="{{ asset('resources/uploads/GalleryManagement/' . $image_gallerys->public_url) ?? '' }}"
                                 data-thumb-alt="Slide 1">
@@ -1196,7 +983,6 @@
                                     alt="{{ $image_gallerys->title ?? '' }}" title="{{ $image_gallerys->title ?? '' }}">
                             </li>
                             @endforeach
-
                         </ul>
                         @else
                         <p class="p-item-center">No images found in the gallery.</p>
@@ -1207,9 +993,6 @@
             @else
             <p>No Image gallery management data found.</p>
             @endif
-
-
-
             @if (isset($video_management) && $video_management !== '' && $video_management !== null)
             <div class="gallery-right">
                 <div class="video-heading">
@@ -1228,7 +1011,6 @@
                     @php
                     $videourl = $video_gallery_details->public_url ?? 'javascript:void(0)';
                     @endphp
-
                     <video src="{{ url($videourl) ?? '' }}" title="{{ $video_gallery_details->title ?? '' }}" controls
                         autoplay muted>
                         <span>Your browser does not support HTML5 video.</span>
@@ -1247,8 +1029,6 @@
     {{-- video and image section end --}}
 </section>
 <!--/.body-wrapper-->
-
-
 <!--Client logo start-->
 <section class="wrapper carousel-wrapper clientail">
     <h2 class="d-none">Carousel</h2>
@@ -1289,5 +1069,4 @@
         </div>
 </section>
 <!--Client logo end-->
-
 @endsection
