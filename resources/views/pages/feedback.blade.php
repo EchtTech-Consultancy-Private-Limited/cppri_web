@@ -53,57 +53,24 @@
             <div class="col-md-12 col-lg-8">
                 <div class="cppri-contact-form">
                     <div class="main-block">
-                        @if (Session::has('success'))
-                            <script>
-                                toastr.success('{{ Session::get('success') }}')
-                            </script>
-                        @endif
+                      
 
-                        @if (Session::has('captchaError'))
-                            <script>
-                                toastr.error('{{ Session::get('captchaError') }}')
-                            </script>
-                        @endif
-
-
-                        @if ($errors->any())
-                            <script>
-                                $(document).ready(function() {
-                                    @foreach ($errors->all() as $error)
-                                        toastr.error('{{ $error }}');
-                                    @endforeach
-                                });
-                            </script>
-                        @endif
-                        <form action="{{ url('feedback') }}" method="post" id="feedback_form">
+                        <form id="feedback_form">
                             @csrf
                             <h3>Fill This Form To Reach Us</h3>
                             <div class="info">
-                                <input class="fname preventnumeric" type="text" name="name"   value="{{ old('name') }}" placeholder="Full name" required>
+                                <input class="fname preventnumeric" type="text" name="name"   value="{{ old('name') }}" placeholder="Full name" >
 
-                                @if ($errors->has('name'))
-                                    <div class="text-danger">{{ $errors->first('name') }}</div>
-                                @endif
 
-                                <input type="email" name="email" placeholder="Email"  value="{{ old('email') }}" required>
+                                <input type="email" name="email" placeholder="Email"  value="{{ old('email') }}" >
 
-                                @if ($errors->has('email'))
-                                    <div class="text-danger">{{ $errors->first('email') }}</div>
-                                @endif
-
-                                <input type="text" id="mobile_no" name="phone" minlength="10" value="{{ old('phone') }}" maxlength="10" placeholder="Phone number" required>
-
-                                @if ($errors->has('phone'))
-                                    <div class="text-danger">{{ $errors->first('phone') }}</div>
-                                @endif
+                             
+                                <input type="text" id="mobile_no" name="phone" minlength="10" value="{{ old('phone') }}" maxlength="10" placeholder="Phone number" >
 
                             </div>
-                            <!-- <p>Message</p> -->
+                           
                             <div class="info">
-                                <textarea rows="3" name="message" required placeholder="Message here..." >{{ old('message') }}</textarea>
-                                @if ($errors->has('message'))
-                                    <div class="text-danger">{{ $errors->first('message') }}</div>
-                                @endif
+                                <textarea rows="3" name="message"  placeholder="Message here..." >{{ old('message') }}</textarea>
                             </div>
 
 
@@ -121,7 +88,7 @@
                                 @endif
                             </div>
                             <div class="text-center">
-                                <button class="g-recaptcha btn btn-primary" type="submit">Submit</button>
+                                <button class="g-recaptcha btn btn-primary" id="feedback_button" type="submit">Submit</button>
 
                             </div>
                         </form>
@@ -132,9 +99,5 @@
         </div>
     </div>
 
-    {{-- <script>
-        function onSubmit(token) {
-            document.getElementById("feedback_form").submit();
-        }
-    </script> --}}
+   
 @endsection
