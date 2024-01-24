@@ -1,5 +1,4 @@
 "use strict";
-
 // Class Definition
 var KTAuthNewPassword = function() {
     // Elements
@@ -14,6 +13,17 @@ var KTAuthNewPassword = function() {
             form,
             {
                 fields: {
+                    'email': {
+                        validators: {
+                            regexp: {
+                                regexp: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                message: 'The value is not a valid email address',
+                            },
+                            notEmpty: {
+                                message: 'Email address is required'
+                            }
+                        }
+                    },
                     'password': {
                         validators: {
                             notEmpty: {
@@ -29,7 +39,7 @@ var KTAuthNewPassword = function() {
                             }
                         }
                     },
-                    'confirm-password': {
+                    'passwordconfirmation': {
                         validators: {
                             notEmpty: {
                                 message: 'The password confirmation is required'
@@ -107,13 +117,14 @@ var KTAuthNewPassword = function() {
                         }).then(function (result) {
                             if (result.isConfirmed) {
                                 form.querySelector('[name="password"]').value= "";
-                                form.querySelector('[name="confirm-password"]').value= "";
+                                form.querySelector('[name="passwordconfirmation"]').value= "";
+                                form.querySelector('[name="email"]').value= "";
                                 passwordMeter.reset();  // reset password meter
                                 //form.submit();
 
                                 var redirectUrl = form.getAttribute('data-kt-redirect-url');
                                 if (redirectUrl) {
-                                    location.href = redirectUrl;
+                                   // location.href = redirectUrl;
                                 }
                             }
                         });
@@ -132,9 +143,7 @@ var KTAuthNewPassword = function() {
                 }
             });
         });
-
     }
-
     var handleSubmitAjax = function (e) {
         // Handle form submit
         submitButton.addEventListener('click', function (e) {
@@ -154,54 +163,46 @@ var KTAuthNewPassword = function() {
 
                     // Check axios library docs: https://axios-http.com/docs/intro
                     axios.post(submitButton.closest('form').getAttribute('action'), new FormData(form)).then(function (response) {
-                        if (response) {
+                        if (response.status == 200) {
                             form.reset();
-
-                            const redirectUrl = form.getAttribute('data-kt-redirect-url');
-
-                            if (redirectUrl) {
-                                location.href = redirectUrl;
-                            }
-                        } else {
-                            // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                            Swal.fire({
-                                text: "Sorry, the email is incorrect, please try again.",
-                                icon: "error",
-                                buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
-                                customClass: {
-                                    confirmButton: "btn btn-primary"
+                            toastr.success(
+                                "We have send a password reset link to your email!", 
+                                "Successfully reset link!", 
+                                {timeOut: 0, extendedTimeOut: 0, closeButton: true, closeDuration: 0}
+                             );
+                             setTimeout(function() {
+                                if (history.scrollRestoration) {
+                                   history.scrollRestoration = 'manual';
                                 }
-                            });
+                                //location.href = response.data.redirectUrl; // reload page
+                             }, 1500);
+                           
+                        } else {
+                            toastr.error(
+                                'Sorry, '+error.response.data.message, 
+                                "email or password is incorrect", 
+                                {timeOut: 0, extendedTimeOut: 0, closeButton: true, closeDuration: 0}
+                             );
                         }
                     }).catch(function (error) {
-                        Swal.fire({
-                            text: "Sorry, looks like there are some errors detected, please try again.",
-                            icon: "error",
-                            buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
-                            customClass: {
-                                confirmButton: "btn btn-primary"
-                            }
-                        });
+                        toastr.error(
+                            'Sorry, '+error.response.data.message, 
+                            "error", 
+                            {timeOut: 0, extendedTimeOut: 0, closeButton: true, closeDuration: 0}
+                         );
                     }).then(() => {
                         // Hide loading indication
                         submitButton.removeAttribute('data-kt-indicator');
-
                         // Enable button
                         submitButton.disabled = false;
                     });
                 } else {
                     // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                    Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
-                        icon: "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
-                        customClass: {
-                            confirmButton: "btn btn-primary"
-                        }
-                    });
+                    toastr.error(
+                        "Sorry, looks like there are some errors detected, please try again.", 
+                        "error", 
+                        {timeOut: 0, extendedTimeOut: 0, closeButton: true, closeDuration: 0}
+                     );
                 }
             });
         });

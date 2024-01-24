@@ -114,7 +114,13 @@
                                     <label class="required fs-6 fw-semibold mb-2">Opening Date</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input class="form-control form-control-solid openingdate" type="date" placeholder="" name="openingdate" value="" />
+                                    <div class="position-relative d-flex align-items-center">
+                                       <!--begin::Icon-->
+                                       <i class="ki-outline ki-calendar-8 fs-2 position-absolute mx-4"></i>                                <!--end::Icon-->
+                                       <!--begin::Datepicker-->
+                                       <input class="form-control form-control-solid ps-12 flatpickr-input" placeholder="Select a date" name="due_date" type="text" readonly="readonly">
+                                       <!--end::Datepicker-->
+                                    </div>
                                     <!--end::Input-->
                                  </div>
                                  <!--end::Col-->
