@@ -1115,9 +1115,9 @@ class HomeController extends Controller
         } else {
             $request->validate([
                 'name' => 'required|string',
-                'email' => ['required', 'string', 'email', 'max:50', 'email:rfc'],
+                'email' => ['required', 'string', 'email', 'max:50', 'email:rfc','regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
                 'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
-                'message' => 'required|string',
+                'message' => 'required|string|regex:/^[a-zA-Z0-9\s.,!?]+$/',
 
             ]);
         }
@@ -1264,7 +1264,7 @@ class HomeController extends Controller
                 'name' => 'required|string',
                 'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
                 'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
-                'message' => 'required|string',
+                'message' => 'required|string|regex:/^[a-zA-Z0-9\s.,!?]+$/',
             ]);
         }
         $data = new contactUs;

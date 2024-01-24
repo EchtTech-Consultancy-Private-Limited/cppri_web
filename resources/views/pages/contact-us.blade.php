@@ -55,19 +55,19 @@
                             @csrf
                             <h3>Fill This Form To Reach Us</h3>
                             <div class="info">
-                                <input class="fname preventnumeric" type="text" name="name"  placeholder="Full name" required>
+                                <input class="fname preventnumeric" type="text" name="name"  value="{{ old('name') }}" placeholder="Full name" required>
 
                                 @if ($errors->has('name'))
                                     <div class="text-danger">{{ $errors->first('name') }}</div>
                                 @endif
 
-                                <input type="email" name="email" placeholder="Email" required>
+                                <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
                                     <div class="text-danger">{{ $errors->first('email') }}</div>
                                 @endif
 
-                                <input type="text" id="mobile_no" name="phone" placeholder="Phone number" minlength="10" maxlength="10" required>
+                                <input type="text" id="mobile_no" name="phone" placeholder="Phone number"  value="{{ old('phone') }}"  minlength="10" maxlength="10" required>
 
                                 @if ($errors->has('phone'))
                                     <div class="text-danger">{{ $errors->first('phone') }}</div>
@@ -76,7 +76,7 @@
                             </div>
                             <!-- <p>Message</p> -->
                             <div class="info">
-                                <textarea rows="3" name="message" required placeholder="Message here..."></textarea>
+                                <textarea rows="3" name="message" required placeholder="Message here..." >{{ old('message') }}</textarea>
                                 @if ($errors->has('message'))
                                     <div class="text-danger">{{ $errors->first('message') }}</div>
                                 @endif
