@@ -79,7 +79,7 @@
                           
                             <form action="{{ url('feedback') }}" method="post" id="feedback_form">
                                 @csrf
-                                <h3>Fill This Form To Reach Us</h3>
+                                <h3>Fill this form to reach us</h3>
                                 <div class="info">
                                     <div>
                                     <i class="fa fa-user" aria-hidden="true"></i>
