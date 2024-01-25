@@ -5614,3 +5614,16 @@ td.download a {
 .main-sidebar ul li:last-child:hover {
     border-bottom: 1px solid var(--secondary-color) !important;
 }
+
+.body-container .content-wrapper ul.list span{
+    font-size: 14px;
+    padding: 0 10px;
+}
+
+li.list-unstyled{
+    list-style-type: none !important;
+}
+li.list-unstyled::before{
+    content: ' ' !important;
+    width: 0 !important;
+}

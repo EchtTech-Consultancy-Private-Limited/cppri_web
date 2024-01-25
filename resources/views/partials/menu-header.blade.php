@@ -200,9 +200,9 @@
                     @endif
                 @endforeach
             @else
-                <h5>No menu items available.</h5>
+                <li>No menu items available.</li>
             @endif
-
+</ul>
 
     </nav>
     <!-- <nav class="main-menu clearfix" id="overflow_menu">
