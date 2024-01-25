@@ -139,36 +139,37 @@
                         @endif
                         @endforeach
                     </ul>
-            </li>
-            @else
+        </ul>
+        </li>
+        @else
 
-            @if ($subMenus->tab_type == 1)
-            @if($subMenusurl != 'feedback' && $subMenusurl != 'website-information-manage' && $subMenusurl !=
-            'vigilance-cell' )
-            <li class="remove-show-class">
-                <a onclick="return confirm('{{ $alertMessage }}')" target="_blank" href="{{ $subMenusurl ?? '' }}">
-                    @if (Session::get('Lang') == 'hi')
-                    {{ $subMenus->name_hi ?? '' }}
-                    @else
-                    {{ $subMenus->name_en ?? '' }}
-                    @endif
-                </a>
-            </li>
-            @endif
-            @else
-            @if($subMenusurl != 'feedback' && $subMenusurl != 'website-information-manage' && $subMenusurl !=
-            'vigilance-cell' )
-            <li class="remove-show-class"><a href="{{ url($url . '/' . $subMenusurl) ?? '' }}">
-                    @if (Session::get('Lang') == 'hi')
-                    {{ $subMenus->name_hi ?? '' }}
-                    @else
-                    {{ $subMenus->name_en ?? '' }}
-                    @endif
-                </a></li>
-            @endif
-            @endif
-            @endif
-            @endforeach
+        @if ($subMenus->tab_type == 1)
+        @if($subMenusurl != 'feedback' && $subMenusurl != 'website-information-manage' && $subMenusurl !=
+        'vigilance-cell' )
+        <li class="remove-show-class">
+            <a onclick="return confirm('{{ $alertMessage }}')" target="_blank" href="{{ $subMenusurl ?? '' }}">
+                @if (Session::get('Lang') == 'hi')
+                {{ $subMenus->name_hi ?? '' }}
+                @else
+                {{ $subMenus->name_en ?? '' }}
+                @endif
+            </a>
+        </li>
+        @endif
+        @else
+        @if($subMenusurl != 'feedback' && $subMenusurl != 'website-information-manage' && $subMenusurl !=
+        'vigilance-cell' )
+        <li class="remove-show-class"><a href="{{ url($url . '/' . $subMenusurl) ?? '' }}">
+                @if (Session::get('Lang') == 'hi')
+                {{ $subMenus->name_hi ?? '' }}
+                @else
+                {{ $subMenus->name_en ?? '' }}
+                @endif
+            </a></li>
+        @endif
+        @endif
+        @endif
+        @endforeach
 
         </ul>
 </div>
@@ -200,7 +201,7 @@
 <h5>No menu items available.</h5>
 @endif
 
-
+                                    </ul>
 </nav>
 <!-- <nav class="main-menu clearfix" id="overflow_menu">
         <ul class="nav-menu clearfix">

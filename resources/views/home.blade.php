@@ -412,10 +412,10 @@
                     <div class="left-col-2 ">
                         <div class="page-tab clearfix">
                             <div class="page-tab-res clearfix">
-                                <div id="">
+                                <div>
                                     <ul class="resp-tabs-list hor_1 change-color-code">
                                         <li class="border-l change-border-color-text"><a href="javascript:viod(0)"
-                                                id="tab-list-1" class="change-text-color">
+                                                 class="change-text-color">
                                                 @if (Session::get('Lang') == 'hi')
                                                 {{ __('messages.Notification') }}
                                                 @else
@@ -456,7 +456,7 @@
                                                         </li>
                                                         @endforeach
                                                         @else
-                                                        <p>No notifications available.</p>
+                                                        <span>No notifications available.</span>
                                                         @endif
                                                         {{-- <li>
                                                             <div class="list-content">
@@ -500,11 +500,11 @@
                     <div class="left-col-2 ">
                         <div class="page-tab clearfix">
                             <div class="page-tab-res clearfix">
-                                <div id="">
+                                <div>
                                     <ul class="resp-tabs-list hor_1 change-color-code">
                                         <li
                                             class="border-l resp-tab-item hor_1 resp-tab-active change-border-color-text">
-                                            <a href="javascript:viod(0)" id="tab-list-1" class="change-text-color">
+                                            <a href="javascript:viod(0)"  class="change-text-color">
                                                 @if (Session::get('Lang') == 'hi')
                                                 {{ __('messages.Press_Release') }}
                                                 @else
@@ -790,8 +790,8 @@
                 <div class="social-box">
                     <div class="sub-sec">
                         <h2 class="twitter-c">
-                            <div class="img-b"><img src="{{ asset('assets-cppri/images/twitter.png') }}" alt="icon">
-                            </div>
+                            <span class="img-b"><img src="{{ asset('assets-cppri/images/twitter.png') }}" alt="icon">
+                            </span>
                             @if (Session::get('Lang') == 'hi')
                             {{ __('messages.Twitter') }}
                             @else
@@ -819,8 +819,8 @@
                 <div class="social-box">
                     <div class="sub-sec">
                         <h2 class="linkedin-c">
-                            <div class="img-b"><img src="{{ asset('assets-cppri/images/linkedin1.png') }}" alt="icon">
-                            </div>
+                            <span class="img-b"><img src="{{ asset('assets-cppri/images/linkedin1.png') }}" alt="icon">
+                            </span>
                             @if (Session::get('Lang') == 'hi')
                             {{ __('messages.Linkedin') }}
                             @else
@@ -837,8 +837,8 @@
                 <div class="social-box">
                     <div class="sub-sec">
                         <h2 class="instagram-c">
-                            <div class="img-b"><img src="{{ asset('assets-cppri/images/instagram.png') }}" alt="icon">
-                            </div>
+                            <span class="img-b"><img src="{{ asset('assets-cppri/images/instagram.png') }}" alt="icon">
+                            </span>
                             @if (Session::get('Lang') == 'hi')
                             {{ __('messages.Instagram') }}
                             @else
