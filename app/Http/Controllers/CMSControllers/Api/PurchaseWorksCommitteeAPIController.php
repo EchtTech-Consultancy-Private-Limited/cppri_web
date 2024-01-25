@@ -80,7 +80,7 @@ class PurchaseWorksCommitteeAPIController extends Controller
                      'order_contract_no'=>'required|string',
                      'startdate'=>'required',
                      //'related_document'=>'required|mimes:pdf|max:10000',
-                     'amount' => 'required|numeric'
+                     'amount' => 'required'
                  ]);
                  if($validator->fails())
                  {
@@ -184,7 +184,8 @@ class PurchaseWorksCommitteeAPIController extends Controller
                 'order_contract_no'=>'required|string',
                 'startdate'=>'required',
                 //'related_document'=>'required|mimes:pdf|max:10000',
-                'amount' => 'required|numeric'
+                //'amount' => 'required|numeric'
+                'amount' => 'required'
         ]);
         if($validator->fails())
         {
