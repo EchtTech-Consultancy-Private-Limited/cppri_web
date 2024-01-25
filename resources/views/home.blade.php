@@ -190,7 +190,7 @@
                                         @else
                                         {{ __('messages.R_&_D_Projects') }}
                                         @endif
-                                    </a> </div class="serv-h">
+                                    </a> </div>
                                 <a class="rm" href="{{ url('r-&-d-projects') }}">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Read_More') }}
@@ -211,7 +211,7 @@
                                         @else
                                         {{ __('messages.Technical_Services') }}
                                         @endif
-                                    </a> </div class="serv-h">
+                                    </a> </div>
                                 <a class="rm" href="{{ url('technical-services') }}">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Read_More') }}
@@ -232,7 +232,7 @@
                                         @else
                                         {{ __('messages.Our_Achievements') }}
                                         @endif
-                                    </a> </div class="serv-h">
+                                    </a> </div>
                                 <a class="rm" href="{{ url('our-achievements') }}">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Read_More') }}
@@ -253,7 +253,7 @@
                                         @else
                                         {{ __('messages.Publications_Reports') }}
                                         @endif
-                                    </a> </div class="serv-h">
+                                    </a> </div>
                                 <a class="rm" href="{{ url('publications-&-reports') }}">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Read_More') }}
@@ -274,7 +274,7 @@
                                         @else
                                         {{ __('messages.Institute_Membership') }}
                                         @endif
-                                    </a> </div class="serv-h">
+                                    </a> </div>
                                 <a class="rm" href="{{ url('institute-membership') }}">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Read_More') }}
@@ -295,7 +295,7 @@
                                         @else
                                         {{ __('messages.Tender') }}
                                         @endif
-                                    </a> </div class="serv-h">
+                                    </a> </div>
                                 <a class="rm" href="{{ url('tender') }}">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Read_More') }}
@@ -412,7 +412,7 @@
                     <div class="left-col-2 ">
                         <div class="page-tab clearfix">
                             <div class="page-tab-res clearfix">
-                                <div id="parentHorizontalTab">
+                                <div id="">
                                     <ul class="resp-tabs-list hor_1 change-color-code">
                                         <li class="border-l change-border-color-text"><a href="javascript:viod(0)"
                                                 id="tab-list-1" class="change-text-color">
@@ -456,7 +456,7 @@
                                                         </li>
                                                         @endforeach
                                                         @else
-                                                        <h5>No notifications available.</h5>
+                                                        <p>No notifications available.</p>
                                                         @endif
                                                         {{-- <li>
                                                             <div class="list-content">
@@ -500,7 +500,7 @@
                     <div class="left-col-2 ">
                         <div class="page-tab clearfix">
                             <div class="page-tab-res clearfix">
-                                <div id="parentHorizontalTab">
+                                <div id="">
                                     <ul class="resp-tabs-list hor_1 change-color-code">
                                         <li
                                             class="border-l resp-tab-item hor_1 resp-tab-active change-border-color-text">
@@ -764,8 +764,8 @@
                 <div class="social-box">
                     <div class="sub-sec">
                         <h2>
-                            <div class="img-b"><img src="{{ asset('assets-cppri/images/facebook.png') }}" alt="icon">
-                            </div>
+                            <span class="img-b"><img src="{{ asset('assets-cppri/images/facebook.png') }}" alt="icon">
+                            </span>
                             @if (Session::get('Lang') == 'hi')
                             {{ __('messages.Facebook') }}
                             @else
@@ -871,8 +871,8 @@
                                     <div style="padding: 19% 0;"></div>
                                     <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg
                                             width="50px" height="50px" viewBox="0 0 60 60" version="1.1"
-                                            xmlns="https://www.w3.org/2000/svg"
-                                            xmlns:xlink="https://www.w3.org/1999/xlink">
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <g transform="translate(-511.000000, -20.000000)" fill="#000000">
                                                     <g>
@@ -936,8 +936,8 @@
                                     style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
                                     <a href="cpprisocial"
                                         style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
-                                        target="_blank">Shared post</a> on <time
-                                        style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;">Time</time>
+                                        target="_blank">Shared post</a> on <span
+                                        style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;">Time</span>
                                 </p>
                             </div>
                         </blockquote>
@@ -948,7 +948,7 @@
             </div>
          </div>
         </div>
-    </div>
+   
     </div>
     </div>
     {{-- video and image section start --}}
@@ -1067,6 +1067,7 @@
                 </li>
             </ul>
         </div>
+    </div>
 </section>
 <!--Client logo end-->
 @endsection
