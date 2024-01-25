@@ -176,8 +176,7 @@
             </div>
             <div class="row p-0">
                 <div class="col-md-12 col-lg-8">
-                    <!-- <div class="title-style-3 mb-20">
-                                                                                                                    <h2 class="border-bottom-color">Services</h2>
+                    <!-- <div class="title-style-3 mb-20"><h2 class="border-bottom-color">Services</h2>
                                                                                                                 </div> -->
                     <div class="row p-0">
                         <!--Icon Box Start-->
@@ -479,12 +478,12 @@
                                                         </li> --}}
                                                     </ul>
                                                 </div>
-                                                <div class="view-footer"><a href="javascript:void();" title="Read More"
+                                                <div class="view-footer"><a href="javascript:void();" title="View A ll"
                                                         class="change-border-color-text"><span>
                                                             @if (Session::get('Lang') == 'hi')
-                                                            {{ __('messages.Read_More') }}
+                                                            {{ __('messages.View_all') }}
                                                             @else
-                                                            {{ __('messages.Read_More') }}
+                                                            {{ __('messages.View_all') }}
                                                             @endif
                                                             <i class="fa fa-angle-right"></i>
                                                         </span></a></div>
@@ -575,11 +574,11 @@
                                                     </ul>
                                                 </div>
                                                 <div class="view-footer"><a href="{{url('press-released')}}"
-                                                        title="Read More" class="change-border-color-text"><span>
+                                                        title="View All" class="change-border-color-text"><span>
                                                             @if (Session::get('Lang') == 'hi')
-                                                            {{ __('messages.Read_More') }}
+                                                            {{ __('messages.View_all') }}
                                                             @else
-                                                            {{ __('messages.Read_More') }}
+                                                            {{ __('messages.View_all') }}
                                                             @endif
                                                             <i class="fa fa-angle-right"></i>
                                                         </span></a></div>
@@ -611,8 +610,7 @@
                                     @if (isset($tender_management) && count($tender_management) > 0)
                                     @foreach ($tender_management as $tender_managements)
                                     <li>
-                                        <a href="{{ asset('resources/uploads/TenderManagement/' . $tender_managements->public_url) }}"
-                                            download>
+                                        <a href="{{ url('tender') }}">
                                             <div class="date">
                                                 <span
                                                     class="change-color-code">
@@ -631,9 +629,10 @@
 
                                             </div>
                                             <div class="list-content">
-                                                {{ $tender_managements->pdf_title ?? '' }} - File type
+                                                {{ $tender_managements->title_name_en ?? '' }} 
+                                                {{-- - File type
                                                 ({{ $tender_managements->file_extension ?? '' }} -
-                                                {{ $tender_managements->pdfimage_size ?? '' }})
+                                                {{ $tender_managements->pdfimage_size ?? '' }}) --}}
                                             </div>
                                         </a>
                                     </li>
@@ -652,9 +651,9 @@
                             <div class="view-footer"><a href="{{ url('tender') }}" title="Know More About Tenders"
                                     class="change-border-color-text"><span>
                                         @if (Session::get('Lang') == 'hi')
-                                        {{ __('messages.View_all_Tenders') }}
+                                        {{ __('messages.View_all') }}
                                         @else
-                                        {{ __('messages.View_all_Tenders') }}
+                                        {{ __('messages.View_all') }}
                                         @endif
                                         <i class="fa fa-angle-right"></i>
                                     </span></a>

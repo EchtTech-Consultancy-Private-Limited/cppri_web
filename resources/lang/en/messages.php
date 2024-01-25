@@ -23,6 +23,7 @@ return [
     'Notification'=>'Notification',
     'Press_Release'=>'Press Release',
     'View_all_Tenders'=>'View all Tenders',
+    'View_all'=>'View all',
     'Facebook'=>'Facebook',
     'Twitter'=>'Twitter',
     'Linkedin'=>'Linkedin',
@@ -39,33 +40,19 @@ return [
     'About_Us'=>'About Us',
     'Divisions/Cells'=>'Divisions/Cells',
     'Quick_Links'=>'Quick Links',
-     'Contact_Us'=>'Contact Us',
-     'SiteMap'=>'SiteMap',
-     'Main_menu'=>'Main menu',
-     'Footer_Menu'=>'Footer Menu',
-     'Screen_Reader_Access'=>'Screen Reader Access',
-     'Employee_Details'=>'Employee Details',
-     'Director_Desk'=>'Director Desk',
-     'Employee_Directory'=>'Employee Directory',
-     'photo_gallery'=>'Photo Gallery',
-     'Feedback'=>'Feedback',
-     'Search_Page'=>'Search Page',
-     'RTI'=>'RTI',
-     'Career'=>'Career'
-
-
-
-    
-
-
-    
-
-    
-
-   
-
-
-    
+    'Contact_Us'=>'Contact Us',
+    'SiteMap'=>'SiteMap',
+    'Main_menu'=>'Main menu',
+    'Footer_Menu'=>'Footer Menu',
+    'Screen_Reader_Access'=>'Screen Reader Access',
+    'Employee_Details'=>'Employee Details',
+    'Director_Desk'=>'Director Desk',
+    'Employee_Directory'=>'Employee Directory',
+    'photo_gallery'=>'Photo Gallery',
+    'Feedback'=>'Feedback',
+    'Search_Page'=>'Search Page',
+    'RTI'=>'RTI',
+    'Career'=>'Career'
 
 ];
 
