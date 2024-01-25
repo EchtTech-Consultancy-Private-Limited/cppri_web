@@ -43,9 +43,9 @@ class CommonComposer
             $logo = DB::table('website_core_settings')->where('soft_delete', 0)->first();
             $notification= DB::table('recent_activities')->where('notification_others',1)->where('soft_delete', 0)->latest('created_at')->get();
             $press_release= DB::table('recent_activities')->where('notification_others',2)->where('soft_delete', 0)->latest('created_at')->get();
-            $tender_management = DB::table('tender_details')->where('soft_delete', 0)->take(5)->latest('created_at')->get();
+            $tender_management = DB::table('tender_management')->where('soft_delete', 0)->take(5)->latest('created_at')->get();
           
-          // dd($tender_management);
+        //   dd($tender_management);
            
             $image_management = DB::table('gallery_management')->where('type', 0)->where('soft_delete', 0)->latest('created_at')->first();
             if (isset($image_management) && isset($image_management->uid)) {
@@ -63,7 +63,8 @@ class CommonComposer
 
             $quickLink = DB::table('website_menu_management')->where('menu_place',4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
 
-            $view->with(['notification'=>$notification,'press_release'=>$press_release,'video_gallery_details' => $video_gallery_details, 'video_management' => $video_management, 'image_gallery_details' => $image_gallery_details, 'image_management' => $image_management, 'social_links' => $social_links, 'logo' => $logo, 'visitCounter' => $visitCounter, 'quickLink' => $quickLink, 'alertMessage' => $this->checkLanguage(), 'headerMenu' => $menuName, 'footerMenu' => $footerMenu, 'banner' => $banner, 'news_management' => $news_management, 'tender_management' => $tender_management]);
+            $view->with(['notification'=>$notification,'press_release'=>$press_release,'video_gallery_details' => $video_gallery_details, 'video_management' => $video_management, 'image_gallery_details' => $image_gallery_details, 'image_management' => $image_management, 'social_links' => $social_links, 'logo' => $logo, 'visitCounter' => $visitCounter, 'quickLink' => $quickLink, 'alertMessage' => $this->checkLanguage(), 'headerMenu' => $menuName, 'footerMenu' => $footerMenu, 'banner' => $banner, 'news_management' => $news_management,
+             'tender_management' => $tender_management]);
       
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());

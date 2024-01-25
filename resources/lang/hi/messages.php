@@ -23,6 +23,7 @@ return [
     'Notification'=>'अधिसूचना',
     'Press_Release'=>'प्रेस विज्ञप्ति',
     'View_all_Tenders'=>'सभी निविदाएँ देखें',
+    'View_all'=>'सभी देखें',
     'Facebook'=>'फेसबुक',
     'Twitter'=>'ट्विटर',
     'Linkedin'=>'Linkedin',
@@ -51,7 +52,5 @@ return [
     'Feedback'=>'प्रतिक्रिया',
      'Search_Page'=>'पृष्ठ खोजें',
      'RTI'=>'सूचना का अधिकार',
-     'Career'=>'आजीविका'
-
-     
+     'Career'=>'आजीविका'   
 ];
