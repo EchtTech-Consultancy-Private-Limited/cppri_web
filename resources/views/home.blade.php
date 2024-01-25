@@ -455,7 +455,7 @@
                                                         </li>
                                                         @endforeach
                                                         @else
-                                                        <span>No notifications available.</span>
+                                                        <li class="list-unstyled border-0">No notifications available.</li>
                                                         @endif
                                                         {{-- <li>
                                                             <div class="list-content">
@@ -549,7 +549,7 @@
                                                         </li>
                                                         @endforeach
                                                         @else
-                                                        <h5>No press releases available.</h5>
+                                                        <li class="border-0 list-unstyled">No press releases available.</li>
                                                         @endif
                                                         {{-- <li>
                                                             <div class="list-content">Description of Press Release 1
@@ -715,9 +715,7 @@
                                 <div class="new-txt">
                                     <h6><a href="{{url('academic-program')}}">Training Program</a></h6>
                                     <span class="duration">Duration- Depends on program stream </span>
-                                    <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi vitae laudantium
-                                        similique
-                                        molestiae, quod laborum natus molestias...
+                                    <p> Implementing a comprehensive and well-structured training program is essential for fostering optimal learning and skill development among...
                                     </p>
                                     <a class="button change-text-color" href="{{url('training-program')}}">More Details
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
@@ -944,7 +942,7 @@
                        
                     </div>
                 </div>
-            </div>
+          
          </div>
         </div>
    
