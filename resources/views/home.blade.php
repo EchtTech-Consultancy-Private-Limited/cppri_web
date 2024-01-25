@@ -148,7 +148,7 @@
                             </div>
                             <div class="min-info">
                                 <h4>Dr. A. K. Dixit</h4>
-                                <h5><a href="javascript:void(0);" title="Minister of State"><span>Scientist-F</span>
+                                <h5><a href="{{url('about-us/employee-directory')}}" title="Minister of State"><span>Scientist-F</span>
                                     </a>
                                 </h5>
                             </div>
@@ -346,7 +346,7 @@
                         <div class="banner-box banner-box-2 ">
                             <div class="banner-box-content">
                                 <!-- <h2>External Link 2</h2> -->
-                                <a href="{{ url('public-grievance-cell') }}" title="External link that opens in new tab"
+                                <a href="https://www.pgportal.gov.in/" target="_blanck" title="External link that opens in new tab"
                                     onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank">
                                     <img src="{{ asset('assets-cppri/images/public.png') }}" alt="icon"
                                         class="cell-icon-sec">

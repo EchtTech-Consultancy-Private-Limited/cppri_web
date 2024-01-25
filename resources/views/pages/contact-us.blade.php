@@ -104,7 +104,8 @@
                         <tbody>
 
                             @if (isset($employee) && count($employee) > 0)
-                                @foreach ($employee as $k => $employees)
+                                @foreach ($employee as $k => $employeesData)
+                                @foreach ($employeesData['data'] as $employees)
                                     <tr>
                                         <td>{{ $k + 1 }}</td>
                                         <td class="text-center"><img
@@ -148,6 +149,7 @@
                                         <td>{{ $email ?? '' }}</td>
 
                                     </tr>
+                                    @endforeach
                                 @endforeach
                             @endif
                         </tbody>

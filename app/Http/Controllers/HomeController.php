@@ -404,21 +404,44 @@ class HomeController extends Controller
         Session::put('contactCapcode', $CustomCaptch['answer']);
 
         try {
-            $employee = DB::table('employee_directories as emp')
-                ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
-                ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
-                ->where('emp.soft_delete', 0)
-                ->orderBy('emp.short_order', 'ASC')
-                ->orderBy('desi.short_order', 'ASC')
-                ->where('emp.publice_status', 1)
-                ->get();
-            //dd($employee);
+            $designationData = [];
 
-            return view('pages.contact-us', [
-                'title' => $titleName,
-                'employee' => $employee,
-                'CustomCaptch' => $CustomCaptch
-            ]);
+                    $department = DB::table('emp_depart_designations')
+                        ->where('soft_delete', 0)
+                        ->orderBy('short_order', 'ASC')
+                        ->whereparent_id(0)
+                        ->where('publice_status', 1)
+                        ->get();
+
+                    //dd($department);
+                    if (Count($department) > 0) {
+
+                        foreach ($department as $designation) {
+
+                            $data = DB::table('employee_directories as emp')
+                                ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
+                                ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
+                                ->where('emp.soft_delete', 0)
+                                ->where('department_id', $designation->uid)
+                                ->orderBy('emp.short_order', 'ASC')
+                                ->where('emp.publice_status', 1)
+                                ->get();
+                            //  dd( $data);
+
+                            $designationData[] = [
+                                'department' => $designation,
+                                'data' => $data,
+                            ];
+                        }
+                        //dd($designationData);
+
+                        $employee = collect($designationData)->sortBy('department.short_order')->values()->all();
+                    return view('pages.contact-us', [
+                        'title' => $titleName,
+                        'employee' => $employee,
+                        'CustomCaptch' => $CustomCaptch
+                    ]);
+                }
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -695,7 +718,7 @@ class HomeController extends Controller
     // }
     public function getContentAllPages(Request $request, $slug, $middelSlug = null, $lastSlugs = null, $finalSlug = null, $finallastSlug = null)
     {
-        //dd('hii');
+        // dd('hii');
         $slugsToCheck = [$lastSlugs, $middelSlug, $finalSlug, $finallastSlug];
 
         if (in_array("set-language", $slugsToCheck)) {
@@ -956,6 +979,7 @@ class HomeController extends Controller
                         return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
                     }
                 } elseif ($middelSlug != null && $middelSlug == 'director-desk') {
+                    
                     $designation = DB::table('emp_depart_designations')
                         ->where('name_en', 'LIKE', 'Director')
                         ->where('soft_delete', 0)
@@ -974,7 +998,6 @@ class HomeController extends Controller
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'Director' => $Director]);
                     }
                 } elseif ($middelSlug != null && $middelSlug == 'employee-directory') {
-
                     //dd('hii');
                     $designationData = [];
 
