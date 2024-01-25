@@ -194,6 +194,10 @@
 	}
 }
 @media all and (max-width: 960px) {
+	.info input, .info textarea {
+		margin: 6px 0px 5px;
+		font-size: 14px;
+	}
 	/* .flex-direction-nav .flex-next, .flex-direction-nav .flex-prev{
 		top: -94px;
 	} */
@@ -517,6 +521,18 @@
 	}
 }
 @media screen and (max-width: 768px) {
+	.cppri-contact-form .main-block {
+		padding: 15px;
+		width: 100%;
+	}
+	input#SecurityCode {
+		width: 53% !important;
+		font-size: 14px;
+		padding: 6px 0;
+	}
+	.cppri-contact-hero {
+		border-radius: 13px 13px 0px 0px;
+	}
 	.header__logo .d-flex-logo {
 		display: contents;
 		width: 100%;
