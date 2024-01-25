@@ -2181,7 +2181,8 @@ ul{
 	position: absolute;
 	right: 14px;
 	top: 0px;
-	rotate: 0deg;
+	/* rotate: 0deg; */
+	transform: rotate(0deg);
 	color: #7e7e7e;
     font-size: 12px;
 }

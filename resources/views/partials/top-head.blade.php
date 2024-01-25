@@ -34,8 +34,7 @@
         <div class="common-right clearfix">
             <ul id="header-nav">
                 <li class="ico-skip cf"><a href="#skipCont" title="Skip to main content"> <img class="top" src="{{ asset('assets-cppri/images/ico-skip.png') }}"
-                            alt="Site Search"></a></a>
-                </li>
+                            alt="Site Search"></a>                </li>
                 <li class="ico-site-search cf">
                     <a href="javascript:void(0);" id="toggleSearch" title="Site Search">
                         <img class="top" src="{{ asset('assets-cppri/images/ico-site-search.png') }}"

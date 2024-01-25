@@ -551,7 +551,8 @@ a.read-more:hover {
     transition: all 0.3s ease-in-out;
 }
 .minister .minister-sub1 .minister-image img:hover {
-    scale: 1.1;
+    transform: scale(1.1);
+    /* scale: 1.1; */
 }
 .minister .minister-sub1 .minister-image {
     width: 45%;
@@ -610,7 +611,7 @@ a.read-more:hover {
     border-right: 1px solid #3233;
 }
 .minister-sub:hover img {
-    scale: 1.1;
+    transform: scale(1.1);
 }
 .minister .min-info h4 {
     color: #000;
@@ -3246,7 +3247,7 @@ a {
 .page-tab .scroll-text,
 .page-tab .scroll-text01,
 .page-tab .scroll-test01 {
-    height: 299 px;
+    /* height: 299px; */
     padding: 0px 0px 0px 0px;
 }
 .page-tab .text-slide,
@@ -3601,7 +3602,7 @@ a.portgolio-button {
     transition: all 0.5s ease-in-out;
 }
 .gallery-holder .flexslider .slides li img:hover {
-    scale: 1.1;
+    transform: scale(1.1);
 }
 .social-box {
     border: 1px solid #ece7e7;
@@ -3727,7 +3728,7 @@ img.cell-icon-sec {
 }
 .accordian ul {
     list-style: none;
-    perspective: 900;
+    /* perspective: 900; */
     padding: 0 20px 10px;
     margin: 0;
     background-color: #fff;
@@ -3915,13 +3916,14 @@ h2 {
     display: flex;
     align-items: center;
     font-size: 14px;
-    margin: 5px 0;
+    /* margin: 5px 0; */
     background-color: var(--menu-bg-color);
     border-radius: 3px;
     border: 1px solid #ddd;
 }
 .main-sidebar ul li:last-child {
-    /* border-bottom: none; */
+    border-bottom: none !important;
+    margin-bottom: 5px;
 }
 .main-sidebar ul li:hover a {
     color: #f25920;
@@ -4166,7 +4168,7 @@ button.dt-button.buttons-print:hover span {
 .tabs ul li label {
     transition: all 0.3s ease-in-out;
     color: var(--secondary-color);
-    padding: 5px auto;
+    /* padding: 5px auto; */
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
@@ -5063,7 +5065,7 @@ table.dataTable tbody td {
     padding: 20px 15px;
 }
 .depart-info .deprt-icon-box:hover img {
-    scale: 1.1;
+    transform: scale(1.1);
     transform: rotate(360deg);
 }
 .deprt-icon-box:hover h6 a {
@@ -5204,7 +5206,7 @@ span#timeid p {
 .main-sidebar .accordion-item .nav-link.collapsed::after {
     right: 0px;
     top: 3px;
-    rotate: 0deg;
+   
     color: #7e7e7e;
     font-size: 12px;
 }
@@ -5214,7 +5216,7 @@ span#timeid p {
     position: absolute;
     right: -3px;
     top: 7px;
-    rotate: -90deg;
+    transform: rotate(-90deg);
     color: #747474;
     font-size: 13px;
 }
@@ -5480,11 +5482,11 @@ blockquote {
     padding: 8px 0 0 0;
 }
 .main-sidebar ul li {
-    padding: 7px 10px;
+    padding: 14px 10px;
     font-size: 14px;
-    margin: 12px 0;
+    /* margin: 12px 0; */
     width: 100%;
-    border: 0;
+    border: 1px solid #fff;
     border-bottom: 1px solid #ddd;
     border-radius: 0;
 }
@@ -5556,7 +5558,8 @@ td.download a {
 }
 
 .main-content.ditiector-desk {
-    background: linear-gradient(90deg, #1a4f910f, #1a4f910a);
+    /* background: linear-gradient(90deg, #1a4f910f, #1a4f910a); */
+    background: #ffff;
     border-radius: 10px;
 }
 .vision-mission .sec-title2 .title {
@@ -5596,4 +5599,18 @@ td.download a {
     top: 31%;
     color: #035ba7;
     font-size: 15px;
+}
+
+
+.main-sidebar ul li:last-child{
+    border-bottom: 0px !important;
+}
+
+.breadcam-bg ul li {
+    text-transform: capitalize;
+}
+
+
+.main-sidebar ul li:last-child:hover {
+    border-bottom: 1px solid var(--secondary-color) !important;
 }

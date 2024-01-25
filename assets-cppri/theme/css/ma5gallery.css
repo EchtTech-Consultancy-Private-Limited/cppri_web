@@ -32,7 +32,7 @@
 .ma5-control.ma5-out {-webkit-animation-name:animation-m-d; -webkit-animation-delay:0s; -webkit-animation-fill-mode:both; animation-name:animation-m-d; animation-delay:0s; animation-fill-mode:both;}
 .ma5-control .ma5-bg {display:block; position:relative; white-space:nowrap; overflow:auto; padding:0.7rem 0.8rem 0.7rem 0.8rem; background-color:rgba(0, 0, 0, 0.8);}
 .ma5-preloadbox {position:fixed; width:1px; height:1px; bottom:0; right:0; overflow:hidden;}
-.ma5-preloadbox img {width:1px !important; height:1px !important; position:absolute; top:0; left:0; image-rendering:optimizeSpeed; image-rendering:-moz-crisp-edges; image-rendering:-o-crisp-edges; -ms-interpolation-mode:nearest-neighbor;}
+.ma5-preloadbox img {width:1px !important; height:1px !important; position:absolute; top:0; left:0; image-rendering:smooth; image-rendering:-moz-crisp-edges; image-rendering:-o-crisp-edges; -ms-interpolation-mode:nearest-neighbor;}
 .ma5-prev {position:fixed; top:0; left:0; width:20%; height:100%; z-index:900;}
 .ma5-next {position:fixed; top:0; right:0; width:20%; height:100%; z-index:900;}
 .ma5-figcaption, .ma5-figcaption-old {position:fixed; width:100%; bottom:0; z-index:910; padding:1.6rem;}
