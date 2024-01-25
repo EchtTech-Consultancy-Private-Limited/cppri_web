@@ -319,7 +319,7 @@
 
                         <strong>{{ $visitCounter ?? '' }}</strong>
                     </span>
-                    </p>
+                    
                 </div>
             </div>
         </div>
