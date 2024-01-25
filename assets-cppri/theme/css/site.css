@@ -3915,13 +3915,14 @@ h2 {
     display: flex;
     align-items: center;
     font-size: 14px;
-    margin: 5px 0;
+    /* margin: 5px 0; */
     background-color: var(--menu-bg-color);
     border-radius: 3px;
     border: 1px solid #ddd;
 }
 .main-sidebar ul li:last-child {
-    /* border-bottom: none; */
+    border-bottom: none !important;
+    margin-bottom: 5px;
 }
 .main-sidebar ul li:hover a {
     color: #f25920;
@@ -4573,6 +4574,7 @@ button.dt-button.buttons-print:hover span {
     border-bottom: 1px solid #c7c7c7 !important;
     border-radius: 0 !important;
     width: 100%;
+	font-size: 14px !important;
 }
 .info textarea {
     padding-left: 14px;
@@ -5134,6 +5136,8 @@ table.dataTable tbody td {
 label.security-code {
     width: 40%;
 	color: #626262;
+	font-size: 14px;
+	cursor: auto;
 }
 span.equalto {
     width: 5% !important;
@@ -5143,6 +5147,7 @@ span.equalto {
     border: 0;
     border-bottom: 1px solid #c7c7c7;
     border-radius: 0;
+	font-size: 14px;
 }
 .main-content ul li {
     font-size: 14px;
@@ -5272,7 +5277,7 @@ span#timeid p {
     color: #fff;
 }
 .main-content ul {
-    margin-left: 15px;
+    margin-left: 0px;
 }
 .partition-bg-wrap.vision-mission ul {
     margin-left: 5px !important;
@@ -5476,11 +5481,11 @@ blockquote {
     padding: 8px 0 0 0;
 }
 .main-sidebar ul li {
-    padding: 7px 10px;
+    padding: 14px 10px;
     font-size: 14px;
-    margin: 12px 0;
+    /* margin: 12px 0; */
     width: 100%;
-    border: 0;
+    border: 1px solid #fff;
     border-bottom: 1px solid #ddd;
     border-radius: 0;
 }
@@ -5552,7 +5557,8 @@ td.download a {
 }
 
 .main-content.ditiector-desk {
-    background: linear-gradient(90deg, #1a4f910f, #1a4f910a);
+    /* background: linear-gradient(90deg, #1a4f910f, #1a4f910a); */
+    background: #ffff;
     border-radius: 10px;
 }
 .vision-mission .sec-title2 .title {
@@ -5567,7 +5573,7 @@ td.download a {
     /* background-color: #286090; */
     background-color: #286090;
     padding: 22px 0;
-    border-right-style: inset;
+    /* border-right-style: inset; */
     border-radius: 13px 0px 0px 7px;
 }
 
@@ -5591,5 +5597,19 @@ td.download a {
     position: absolute;
     top: 31%;
     color: #035ba7;
-    font-size: 17px;
+    font-size: 15px;
+}
+
+
+.main-sidebar ul li:last-child{
+    border-bottom: 0px !important;
+}
+
+.breadcam-bg ul li {
+    text-transform: capitalize;
+}
+
+
+.main-sidebar ul li:last-child:hover {
+    border-bottom: 1px solid var(--secondary-color) !important;
 }
