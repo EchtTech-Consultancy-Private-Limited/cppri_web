@@ -70,7 +70,7 @@
 
 
                                 </h3>
-                                <ul>
+                               
                                     @if (isset($footerMenu) && count($footerMenu) > 0)
                                         <ul>
                                             @foreach ($footerMenu->slice(6, 6) as $footerMenus)
@@ -105,7 +105,7 @@
                                     @else
                                         <p>No footer menu items available.</p>
                                     @endif
-                                </ul>
+                               
                             </div>
 
                             <div class="col-md-3">
