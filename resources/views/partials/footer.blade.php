@@ -70,7 +70,7 @@
 
 
                                 </h3>
-                                <ul>
+                               
                                     @if (isset($footerMenu) && count($footerMenu) > 0)
                                         <ul>
                                             @foreach ($footerMenu->slice(6, 6) as $footerMenus)
@@ -105,12 +105,12 @@
                                     @else
                                         <p>No footer menu items available.</p>
                                     @endif
-                                </ul>
+                               
                             </div>
 
                             <div class="col-md-3">
                                 <h3 class="footer-title">&nbsp;</h3>
-                                <ul>
+                              
                                     @if (isset($footerMenu) && count($footerMenu) > 0)
                                         <ul>
                                             @foreach ($footerMenu->slice(12, 6) as $footerMenus)
@@ -146,7 +146,7 @@
                                     @else
                                         <p>No footer menu items available.</p>
                                     @endif
-                                </ul>
+                            
                             </div>
 
 
@@ -319,7 +319,7 @@
 
                         <strong>{{ $visitCounter ?? '' }}</strong>
                     </span>
-                    </p>
+                    
                 </div>
             </div>
         </div>

@@ -551,7 +551,8 @@ a.read-more:hover {
     transition: all 0.3s ease-in-out;
 }
 .minister .minister-sub1 .minister-image img:hover {
-    scale: 1.1;
+    transform: scale(1.1);
+    /* scale: 1.1; */
 }
 .minister .minister-sub1 .minister-image {
     width: 45%;
@@ -610,7 +611,7 @@ a.read-more:hover {
     border-right: 1px solid #3233;
 }
 .minister-sub:hover img {
-    scale: 1.1;
+    transform: scale(1.1);
 }
 .minister .min-info h4 {
     color: #000;
@@ -3246,7 +3247,7 @@ a {
 .page-tab .scroll-text,
 .page-tab .scroll-text01,
 .page-tab .scroll-test01 {
-    height: 299 px;
+    /* height: 299px; */
     padding: 0px 0px 0px 0px;
 }
 .page-tab .text-slide,
@@ -3601,7 +3602,7 @@ a.portgolio-button {
     transition: all 0.5s ease-in-out;
 }
 .gallery-holder .flexslider .slides li img:hover {
-    scale: 1.1;
+    transform: scale(1.1);
 }
 .social-box {
     border: 1px solid #ece7e7;
@@ -3727,7 +3728,7 @@ img.cell-icon-sec {
 }
 .accordian ul {
     list-style: none;
-    perspective: 900;
+    /* perspective: 900; */
     padding: 0 20px 10px;
     margin: 0;
     background-color: #fff;
@@ -4167,7 +4168,7 @@ button.dt-button.buttons-print:hover span {
 .tabs ul li label {
     transition: all 0.3s ease-in-out;
     color: var(--secondary-color);
-    padding: 5px auto;
+    /* padding: 5px auto; */
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
@@ -5064,7 +5065,7 @@ table.dataTable tbody td {
     padding: 20px 15px;
 }
 .depart-info .deprt-icon-box:hover img {
-    scale: 1.1;
+    transform: scale(1.1);
     transform: rotate(360deg);
 }
 .deprt-icon-box:hover h6 a {
@@ -5205,7 +5206,7 @@ span#timeid p {
 .main-sidebar .accordion-item .nav-link.collapsed::after {
     right: 0px;
     top: 3px;
-    rotate: 0deg;
+   
     color: #7e7e7e;
     font-size: 12px;
 }
@@ -5215,7 +5216,7 @@ span#timeid p {
     position: absolute;
     right: -3px;
     top: 7px;
-    rotate: -90deg;
+    transform: rotate(-90deg);
     color: #747474;
     font-size: 13px;
 }
@@ -5612,4 +5613,17 @@ td.download a {
 
 .main-sidebar ul li:last-child:hover {
     border-bottom: 1px solid var(--secondary-color) !important;
+}
+
+.body-container .content-wrapper ul.list span{
+    font-size: 14px;
+    padding: 0 10px;
+}
+
+li.list-unstyled{
+    list-style-type: none !important;
+}
+li.list-unstyled::before{
+    content: ' ' !important;
+    width: 0 !important;
 }

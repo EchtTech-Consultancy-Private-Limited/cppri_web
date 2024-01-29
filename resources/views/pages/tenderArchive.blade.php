@@ -78,7 +78,7 @@
                                                             <th>Published Date</th>
                                                             <th>Submission Date</th>
                                                             <th>Opening Date</th>
-                                                            <th> View/Download</th>
+                                                            <th> Related Documents</th>
                                                             <th>Apply Here</th>
                                                         </tr>
                                                     </thead>
@@ -108,7 +108,7 @@
                                                             <td class=''>
                                                                 @foreach ($data['tender_pdfs'] as $pdf)
                                                                    <span class='multiple-pdf'> <a href="{{ asset('resources/uploads/TenderManagement/' . $pdf->public_url) }}"
-                                                                        download>View</a> <i class="fa fa-file-pdf-o text-danger"></i>
+                                                                        download>{{$pdf->pdf_title}}</a> <i class="fa fa-file-pdf-o text-danger"></i>
                                                                         ({{ $pdf->pdfimage_size ?? '' }})
                                                                     </span>
                                                                 @endforeach
