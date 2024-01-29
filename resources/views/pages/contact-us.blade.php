@@ -117,10 +117,11 @@
                     <tbody>
 
                             @if (isset($employee) && count($employee) > 0)
+                            @php $count = 1; @endphp
                                 @foreach ($employee as $k => $employeesData)
-                                @foreach ($employeesData['data'] as $employees)
+                                @foreach ($employeesData['data'] as $key => $employees)
                                     <tr>
-                                        <td>{{ $k + 1 }}</td>
+                                        <td>{{ $count++ }}</td>
                                         <td class="text-center"><img
                                                 @if ($employees->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $employees->public_url) }}"
                                                      @else src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif

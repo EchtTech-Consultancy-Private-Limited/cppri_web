@@ -11,9 +11,9 @@
                     <div class="text-banner-content">
                         <h2>
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Press_Release') }}
+                                {{ __('messages.Notification') }}
                             @else
-                                {{ __('messages.Press_Release') }}
+                                {{ __('messages.Notification') }}
                             @endif
                         </h2>
                     </div>
@@ -26,9 +26,9 @@
                     <div class="text-banner-content">
                         <h2>
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.Press_Release') }}
+                                {{ __('messages.Notification') }}
                             @else
-                                {{ __('messages.Press_Release') }}
+                                {{ __('messages.Notification') }}
                             @endif
                         </h2>
                     </div>
@@ -50,9 +50,9 @@
 
                     <li>
                         @if (Session::get('Lang') == 'hi')
-                            {{ __('messages.Press_Release') }}
+                            {{ __('messages.Notification') }}
                         @else
-                            {{ __('messages.Press_Release') }}
+                            {{ __('messages.Notification') }}
                         @endif
                     </li>
 
@@ -91,22 +91,22 @@
 
                                                     <tbody>
                                                         
-                                                        @if(isset($pressReleaseds) &&  count($pressReleaseds) > 0 )
-                                                        @foreach ($pressReleaseds as $k=> $pressReleased)
+                                                        @if(isset($notifications) &&  count($notifications) > 0 )
+                                                        @foreach ($notifications as $k=> $notifications)
                                                         <tr>
                                                             <td class="views-field views-field-counter">
                                                                 {{ $loop->iteration }} </td>                                                            
                                                             @if (Session::get('Lang') == 'hi')
-                                                                <td>{{ $pressReleased->recent_activities_hi  ?? '' }}</td>
+                                                                <td>{{ $notifications->recent_activities_hi  ?? '' }}</td>
                                                             @else
-                                                                <td>{{ $pressReleased->recent_activities_en ?? '' }}</td>
+                                                                <td>{{ $notifications->recent_activities_en ?? '' }}</td>
                                                             @endif
                                                             <td class="views-field views-field-field--date">
                                                                 <span class="date-display-single" property="dc:date" datatype="xsd:dateTime"
-                                                                    content="2020-10-29T00:00:00+05:30"> {{ date("d-m-Y",strtotime($pressReleased->start_date)) }}</span>
+                                                                    content="2020-10-29T00:00:00+05:30"> {{ date("d-m-Y",strtotime($notifications->start_date)) }}</span>
                                                             </td>                                                            
                                                             <td class="views-field views-field-field-order-contract-no-">
-                                                                <a href="{{ @$pressReleased->url_link }}">Click</a>
+                                                                <a href="{{ @$notifications->url_link }}">Click</a>
                                                                 
                                                             </td>
                                                         </tr>

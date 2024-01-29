@@ -27,197 +27,6 @@ class HomeController extends Controller
     }
 
     //career
-    // public function careerData()
-    // {
-    //     $titleName = 'Carrer';
-    //     try {
-    //         // $careerData = [];
-
-    //         // $career = DB::table('career_management')
-    //         //     ->where('soft_delete', 0)
-    //         //     ->latest('created_at')
-    //         //     ->get();
-
-    //         // $careerData = [];
-
-    //         // foreach ($career as $careerItem) {
-    //         //     $career_pdfs = DB::table('career_management_details')
-    //         //         ->where('soft_delete', 0)
-    //         //         ->where('career_management_id', $careerItem->uid)
-    //         //         ->whereDate('archivel_date', '>', now()->toDateString())
-    //         //         ->latest('created_at')
-    //         //         ->get();
-
-    //         //     $careerData[] = [
-    //         //         'career' => $careerItem,
-    //         //         'career_pdfs' => $career_pdfs
-    //         //     ];
-    //         // }
-
-    //         $career_pdfs = DB::table('career_management_details')
-    //         ->where('soft_delete', 0)
-    //         // ->where('career_management_id', $careerItem->uid)
-    //         ->whereDate('archivel_date', '>', now()->toDateString())
-    //         ->latest('created_at')
-    //         ->get();
-
-    //         $Archive_career_pdfs = DB::table('career_management_details')
-    //         ->where('soft_delete', 0)
-    //         // ->where('career_management_id', $careerItem->uid)
-    //         ->whereDate('archivel_date', '<', now()->toDateString())
-    //         ->latest('created_at')
-    //         ->get();
-
-    //         return view('pages.career', ['title' => $titleName,'Archive_career_pdfs'=>$Archive_career_pdfs, 'career_pdfs' => $career_pdfs]);
-    //     } catch (\Exception $e) {
-    //         \Log::error('An exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\PDOException $e) {
-    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\Throwable $e) {
-    //         // Catch any other types of exceptions that implement the Throwable interface.
-    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     }
-    // }
-
-    // public function careerArchive()
-    // {
-    //     $titleName = 'Career Archive';
-
-
-
-
-
-    //     try {
-    //         // $careerData = [];
-
-    //         // $career = DB::table('career_management')
-    //         //     ->where('soft_delete', 0)
-    //         //     ->latest('created_at')
-    //         //     ->get();
-
-    //         // $careerData = [];
-
-    //         // foreach ($career as $careerItem) {
-    //         //     $career_pdfs = DB::table('career_management_details')
-    //         //         ->where('soft_delete', 0)
-    //         //         ->where('career_management_id', $careerItem->uid)
-    //         //         ->whereDate('archivel_date', '<', now()->toDateString())
-    //         //         ->latest('created_at')
-    //         //         ->get();
-
-    //         //     $careerData[] = [
-    //         //         'career' => $careerItem,
-    //         //         'career_pdfs' => $career_pdfs
-    //         //     ];
-    //         // }
-
-    //         $career_pdfs = DB::table('career_management_details')
-    //         ->where('soft_delete', 0)
-    //         // ->where('career_management_id', $careerItem->uid)
-    //         ->whereDate('archivel_date', '<', now()->toDateString())
-    //         ->latest('created_at')
-    //         ->get();
-
-    //         return view('pages.careerArchive', ['title' => $titleName, 'career_pdfs' => $career_pdfs]);
-    //     } catch (\Exception $e) {
-    //         \Log::error('An exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\PDOException $e) {
-    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\Throwable $e) {
-    //         // Catch any other types of exceptions that implement the Throwable interface.
-    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     }
-    // }
-
-    // //tender
-    // public function tenderData()
-    // {
-    //     $titleName = 'Tender';
-    //     try {
-
-    //         $tender_pdfs = DB::table('tender_details')
-    //             ->where('soft_delete', 0)
-    //             ->whereDate('archivel_date', '>', now()->toDateString())
-    //             ->latest('created_at')
-    //             ->get();
-
-    //             $Archive_tender_pdfs = DB::table('tender_details')
-    //             ->where('soft_delete', 0)
-    //             ->whereDate('archivel_date', '<', now()->toDateString())
-    //             ->latest('created_at')
-    //             ->get();
-
-
-    //         return view('pages.tender', ['title' => $titleName,'Archive_tender_pdfs'=>$Archive_tender_pdfs ,'tender_pdfs' => $tender_pdfs]);
-    //     } catch (\Exception $e) {
-    //         \Log::error('An exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\PDOException $e) {
-    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\Throwable $e) {
-    //         // Catch any other types of exceptions that implement the Throwable interface.
-    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     }
-    // }
-
-    // public function tenderArchive()
-    // {
-    //     $titleName = 'Tender Archive';
-    //     try {
-    //         // $tenderData = []; // Initialize the array to store all tender data
-
-    //         // $tenders = DB::table('tender_management')
-    //         //     ->where('soft_delete', 0)
-    //         //     ->latest('created_at')
-    //         //     ->get();
-
-    //         // if (count($tenders) > 0) {
-    //         //     foreach ($tenders as $tender) {
-    //         //         $tender_pdfs = DB::table('tender_details')
-    //         //             ->where('soft_delete', 0)
-    //         //             ->where('tender_id', $tender->uid)
-    //         //             ->whereDate('archivel_date', '<', now()->toDateString())
-    //         //             ->latest('created_at')
-    //         //             ->get();
-
-    //         //         $tenderData[] = [
-    //         //             'tender' => $tender,
-    //         //             'tender_pdfs' => $tender_pdfs
-    //         //         ];
-    //         //     }
-    //         // }
-
-    //         $tender_pdfs = DB::table('tender_details')
-    //         ->where('soft_delete', 0)
-    //         ->whereDate('archivel_date', '<', now()->toDateString())
-    //         ->latest('created_at')
-    //         ->get();
-
-    //         return view('pages.tenderArchive', ['title' => $titleName, 'tender_pdfs' => $tender_pdfs]);
-    //     } catch (\Exception $e) {
-    //         \Log::error('An exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\PDOException $e) {
-    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\Throwable $e) {
-    //         // Catch any other types of exceptions that implement the Throwable interface.
-    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     }
-    // }
-
-
-
-    //career
     public function careerData()
     {
         $titleName = 'Career';
@@ -455,267 +264,6 @@ class HomeController extends Controller
         }
     }
 
-    // public function getContentAllPages(Request $request, $slug, $middelSlug = null, $lastSlugs = null, $finalSlug = null)
-    // {
-    //     //dd('hii');
-    //     $slugsToCheck = [$lastSlugs, $middelSlug, $finalSlug];
-
-    //     if (in_array("set-language", $slugsToCheck)) {
-    //         session()->put('Lang', $request->data);
-    //         App::setLocale($request->data);
-    //         return response()->json(['data' => $request->data, 'success' => true]);
-    //     } else {
-    //         // Handle the case when none of the slugs match
-    //     }
-
-    //     try {
-
-    //         if ($lastSlugs != null) {
-    //             $lastUrl = DB::table('website_menu_management')->whereurl($slug)->first();
-    //             $middelUrl = DB::table('website_menu_management')->whereurl($middelSlug)->first();
-    //             $menus = DB::table('website_menu_management')->whereurl($lastSlugs)->first();
-    //             if ($menus != '') {
-    //                 $allmenus = DB::table('website_menu_management')->orderBy('sort_order', 'ASC')->get();
-    //                 $firstParent = DB::table('website_menu_management')->where('uid', $menus->parent_id)->first();
-    //                 if (!empty($firstParent)) {
-    //                     $parentMenut = DB::table('website_menu_management')->where('uid', optional($firstParent)->parent_id)->first();
-    //                     if (!empty($parentMenut)) {
-    //                         foreach ($allmenus as $menu) {
-
-    //                             if ($parentMenut && $menu->parent_id == $parentMenut->uid) {
-    //                                 $menu->children = [];
-    //                                 foreach ($allmenus as $childMenu) {
-    //                                     if ($childMenu->parent_id == $menu->uid) {
-    //                                         $menu->children[] = $childMenu;
-    //                                     }
-    //                                 }
-    //                                 $tree[] = $menu;
-    //                             }
-    //                         }
-    //                     } else {
-    //                         $parentMenut = '';
-    //                         $tree = [];
-    //                     }
-    //                 } else {
-    //                     $parentMenut = '';
-    //                     $tree = [];
-    //                 }
-    //             }
-    //         } elseif ($middelSlug != null) {
-
-    //             $middelUrl = DB::table('website_menu_management')->whereurl($slug)->first();
-    //             $menus = DB::table('website_menu_management')->whereurl($middelSlug)->first();
-    //             if ($menus != '') {
-    //                 $allmenus = DB::table('website_menu_management')->orderBy('sort_order', 'ASC')->get();
-    //                 $parentMenut = DB::table('website_menu_management')->where('uid', $menus->parent_id)->first();
-    //                 if (!empty($parentMenut)) {
-    //                     foreach ($allmenus as $menu) {
-    //                         if ($menu->parent_id == $parentMenut->uid) {
-    //                             $menu->children = [];
-    //                             foreach ($allmenus as $childMenu) {
-    //                                 if ($childMenu->parent_id == $menu->uid) {
-    //                                     $menu->children[] = $childMenu;
-    //                                 }
-    //                             }
-    //                             $tree[] = $menu;
-    //                         }
-    //                     }
-    //                 } else {
-    //                     $parentMenut = '';
-    //                     $tree = [];
-    //                 }
-    //             }
-    //         } else {
-    //             $menus = DB::table('website_menu_management')->whereurl($slug)->first();
-    //         }
-
-    //         if ($menus != '') {
-
-    //             if ($lastSlugs != null) {
-
-    //                 if (Session::get('Lang') == 'hi') {
-    //                     $lastBred = $lastUrl->name_hi;
-    //                 } else {
-    //                     $lastBred = $lastUrl->name_en;
-    //                 }
-
-
-    //                 if (Session::get('Lang') == 'hi') {
-    //                     $middelBred = $middelUrl->name_hi;
-    //                 } else {
-    //                     $middelBred = $middelUrl->name_en;
-    //                 }
-
-    //                 if (Session::get('Lang') == 'hi') {
-    //                     $title_name = $menus->name_hi;
-    //                 } else {
-    //                     $title_name = $menus->name_en;
-    //                 }
-    //             } elseif ($middelSlug != null) {
-
-    //                 if (Session::get('Lang') == 'hi') {
-    //                     $middelBred = $middelUrl->name_hi;
-    //                 } else {
-    //                     $middelBred = $middelUrl->name_en;
-    //                     // dd($middelBred);
-    //                 }
-
-    //                 if (Session::get('Lang') == 'hi') {
-    //                     $title_name = $menus->name_hi;
-    //                 } else {
-    //                     $title_name = $menus->name_en;
-    //                 }
-    //             } else {
-
-    //                 if (Session::get('Lang') == 'hi') {
-    //                     $title_name = $menus->name_hi;
-    //                 } else {
-    //                     $title_name = $menus->name_en;
-    //                 }
-    //             }
-    //             $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
-
-
-    //             $dynamic_content_page_metatag = DB::table('dynamic_content_page_metatag')
-    //                 ->where('soft_delete', 0)
-    //                 ->where('menu_uid', $menus->uid)
-    //                 ->orderBy('sort_order', 'ASC')
-    //                 ->get();
-
-    //             if (count($dynamic_content_page_metatag) > 0) {
-
-    //                 $organizedData = [];
-
-    //                 foreach ($dynamic_content_page_metatag as $dynamic_content_page_metatags) {
-
-    //                     $dynamic_content_page_pdf = DB::table('dynamic_content_page_pdf')
-    //                         ->wheredcpm_id($dynamic_content_page_metatags->uid)
-    //                         ->where('soft_delete', 0)
-
-    //                         ->latest('start_date')
-    //                         ->get();
-
-    //                     //  dd($dynamic_content_page_pdf);
-
-    //                     $dynamic_page_banner = DB::table('dynamic_page_banner')
-    //                         ->where('soft_delete', 0)
-    //                         ->wheredcpm_id($dynamic_content_page_metatags->uid)
-    //                         ->first();
-
-    //                     $dynamic_content_page_gallery = DB::table('dynamic_content_page_gallery')
-    //                         ->wheredcpm_id($dynamic_content_page_metatags->uid)
-    //                         ->where('soft_delete', 0)
-    //                         ->get();
-
-    //                     $dynamic_page_content = DB::table('dynamic_page_content')
-    //                         ->wheredcpm_id($dynamic_content_page_metatags->uid)
-    //                         ->where('soft_delete', 0)
-    //                         ->first();
-
-    //                     $organizedData = [
-    //                         'metatag' => $dynamic_content_page_metatags,
-    //                         'content' => $dynamic_page_content,
-    //                         'pdf' => $dynamic_content_page_pdf,
-    //                         'gallery' => $dynamic_content_page_gallery,
-    //                         'banner' => $dynamic_page_banner,
-    //                     ];
-    //                 }
-
-
-    //                 if ($lastSlugs != null) {
-    //                     return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'lastBred' => $lastBred, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
-    //                 } elseif ($middelSlug != null) {
-    //                     return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
-    //                 } else {
-    //                     return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
-    //                 }
-    //             } elseif ($middelSlug != null && $middelSlug == 'director-desk') {
-    //                 $designation = DB::table('emp_depart_designations')
-    //                     ->where('name_en', 'LIKE', 'Director')
-    //                     ->where('soft_delete', 0)
-    //                     ->orderBy('short_order', 'ASC')
-    //                     ->where('publice_status', 1)
-    //                     ->first();
-
-    //                 if ($designation != '') {
-
-    //                     $Director = DB::table('employee_directories')
-    //                         ->where('designation_id', $designation->uid)
-    //                         ->where('soft_delete', 0)
-    //                         ->orderBy('short_order', 'ASC')
-    //                         ->where('publice_status', 1)
-    //                         ->first();
-    //                     return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'Director' => $Director]);
-    //                 }
-    //             } elseif ($middelSlug != null && $middelSlug == 'employee-directory') {
-
-    //                 //dd('hii');
-    //                 $designationData = [];
-
-    //                 $department = DB::table('emp_depart_designations')
-    //                     ->where('soft_delete', 0)
-    //                     ->orderBy('short_order', 'ASC')
-    //                     ->whereparent_id(0)
-    //                     ->where('publice_status', 1)
-    //                     ->get();
-
-    //                 if (Count($department) > 0) {
-
-    //                     foreach ($department as $designation) {
-
-    //                         $data = DB::table('employee_directories as emp')
-    //                             ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
-    //                             ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
-    //                             ->where('emp.soft_delete', 0)
-    //                             ->where('department_id', $designation->uid)
-    //                             ->orderBy('emp.short_order', 'ASC')
-    //                             ->where('emp.publice_status', 1)
-    //                             ->get();
-    //                         //  dd( $data);
-
-    //                         $designationData[] = [
-    //                             'department' => $designation,
-    //                             'data' => $data,
-    //                         ];
-    //                     }
-    //                     // dd($designationData);
-
-    //                     $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
-
-    //                     // return view('pages.employeeDirectory', ['sortedDesignationData' => $sortedDesignationData]);
-
-    //                     return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'sortedDesignationData' => $sortedDesignationData]);
-    //                 }
-    //             } else {
-    //                 if (Session::get('Lang') == 'hi') {
-    //                     $content = "जल्द आ रहा है";
-    //                 } else {
-    //                     $content = "Coming Soon...";
-    //                 }
-
-    //                 if ($lastSlugs != null) {
-    //                     return view('master-page', ['lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name,]);
-    //                 } elseif ($middelSlug != null) {
-    //                     return view('master-page', ['middelBred' => $middelBred, 'content' => $content, 'title_name' => $title_name,]);
-    //                 } else {
-    //                     return view('master-page', ['title_name' => $title_name, 'content' => $content,]);
-    //                 }
-    //             }
-    //         } else {
-    //             return view('pages.error');
-    //         }
-    //     } catch (\Exception $e) {
-    //         \Log::error('An exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\PDOException $e) {
-    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\Throwable $e) {
-    //         // Catch any other types of exceptions that implement the Throwable interface.
-    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     }
-    // }
     public function getContentAllPages(Request $request, $slug, $middelSlug = null, $lastSlugs = null, $finalSlug = null, $finallastSlug = null)
     {
         // dd('hii');
@@ -1176,107 +724,6 @@ class HomeController extends Controller
         return view('pages.error', ['title' => $titleName]);
     }
 
-    // public function directorDesk()
-    // {
-    //     try {
-    //         $designation = DB::table('emp_depart_designations')
-    //             ->where('name_en', 'LIKE', 'Director')
-    //             ->where('soft_delete', 0)
-    //             ->orderBy('short_order', 'ASC')
-    //             ->where('publice_status', 1)
-    //             ->first();
-
-    //         if ($designation != '') {
-
-    //             $Director = DB::table('employee_directories')
-    //                 ->where('designation_id', $designation->uid)
-    //                 ->where('soft_delete', 0)
-    //                 ->orderBy('short_order', 'ASC')
-    //                 ->where('publice_status', 1)
-    //                 ->first();
-
-    //             return view('pages.directorDesk', ['Director' => $Director]);
-    //         } else {
-
-    //             if (Session::get('Lang') == 'hi') {
-    //                 $content = "जल्द आ रहा है";
-    //             } else {
-    //                 $content = "Coming Soon...";
-    //             }
-    //             // dd($menus);
-    //             return view('pages.directorDesk', ['content' => $content]);
-    //         }
-    //     } catch (\Exception $e) {
-    //         \Log::error('An exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\PDOException $e) {
-    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\Throwable $e) {
-    //         // Catch any other types of exceptions that implement the Throwable interface.
-    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     }
-    // }
-    // public function employeeDirectory()
-    // {
-    //     try {
-    //         $designationData = [];
-
-    //         $department = DB::table('emp_depart_designations')
-    //             ->where('soft_delete', 0)
-    //             ->orderBy('short_order', 'ASC')
-    //             ->whereparent_id(0)
-    //             ->where('publice_status', 1)
-    //             ->get();
-
-    //         if (Count($department) > 0) {
-
-    //             foreach ($department as $designation) {
-
-    //                 $data = DB::table('employee_directories as emp')
-    //                     ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
-    //                     ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
-    //                     ->where('emp.soft_delete', 0)
-    //                     ->where('department_id', $designation->uid)
-    //                     ->orderBy('emp.short_order', 'ASC')
-    //                     ->where('emp.publice_status', 1)
-    //                     ->get();
-    //                 //  dd( $data);
-
-    //                 $designationData[] = [
-    //                     'department' => $designation,
-    //                     'data' => $data,
-    //                 ];
-    //             }
-    //             // dd($designationData);
-
-    //             $sortedDesignationData = collect($designationData)->sortBy('department.short_order')->values()->all();
-
-    //             return view('pages.employeeDirectory', ['sortedDesignationData' => $sortedDesignationData]);
-    //         } else {
-
-    //             if (Session::get('Lang') == 'hi') {
-    //                 $content = "जल्द आ रहा है";
-    //             } else {
-    //                 $content = "Coming Soon...";
-    //             }
-    //             // dd($menus);
-    //             return view('pages.employeeDirectory', ['content' => $content]);
-    //         }
-    //     } catch (\Exception $e) {
-    //         \Log::error('An exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\PDOException $e) {
-    //         \Log::error('A PDOException occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     } catch (\Throwable $e) {
-    //         // Catch any other types of exceptions that implement the Throwable interface.
-    //         \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-    //         return view('pages.error');
-    //     }
-    // }
-
     public function contactStroe(Request $request)
     {
         //dd($request->all());
@@ -1302,11 +749,11 @@ class HomeController extends Controller
         return response()->json(['success' => true, 'message' => 'Record Add Successfully']);
     }
 
-    public function showPressReleased()
-    {
-        $titleName = 'Show Press Releaed';
-        return view('pages.press_relesead', ['title' => $titleName]);
-    }
+    // public function showPressReleased()
+    // {
+    //     $titleName = 'Show Press Releaed';
+    //     return view('pages.press_relesead', ['title' => $titleName]);
+    // }
     public function photoGallery()
     {
         $titleName = 'Photo Gallery';
@@ -1361,15 +808,88 @@ class HomeController extends Controller
     {
         $titleName = 'Training';
         return view('pages.training_program', ['title' => $titleName]);
-    }
-    public function purchaseWorksCommittee()
+    }    
+    /**
+     * purchaseWorksCommittee
+     *
+     * @return void
+     */
+    public function purchaseWorksCommittee(Request $request)
     {
+        $workType = $request->input('work_Type');
+        $startDate = $request->input('start_date');
         $titleName = 'Purchase Works Committee';
-        return view('pages.purchase_works_committee', ['title' => $titleName]);
-    }
+        $result = DB::table('purchase_works_committees')
+                                ->join('purchase_works_committees_type', 'purchase_works_committees_type.uid', '=', 'purchase_works_committees.asset_type')
+                                ->where('purchase_works_committees.soft_delete', 0);
+        if (!empty($workType)) {
+            $result->where('purchase_works_committees.asset_type', $workType);
+        }    
+        if (!empty($startDate)) {
+            $result->whereRaw("YEAR(STR_TO_DATE(purchase_works_committees.start_date, '%Y-%m-%d')) = $startDate");
+        }
+        $purchaseWorksCommittes = $result->get();
+        $purchaseWorksCommittesTypes = DB::table('purchase_works_committees_type')
+                                        ->where('soft_delete', 0)->get();
+        return view('pages.purchase_works_committee', ['title' => $titleName,'purchaseWorksCommittes' => $purchaseWorksCommittes,'purchaseWorksCommittesTypes' => $purchaseWorksCommittesTypes,'selectedWorkType' => $workType,
+        'selectedYear' => $startDate]);
+    }    
+    /**
+     * rtiApplicationsResponse
+     *
+     * @return void
+     */
     public function rtiApplicationsResponse()
     {
         $titleName = 'Rti Applications Response';
         return view('pages.rti_applications_responses', ['title' => $titleName]);
+    }
+    
+    /**
+     * notification
+     *
+     * @return void
+     */
+    public function notification()
+    {
+        $title = 'Notification';
+        $notifications = DB::table('recent_activities')->where(['notification_others' => 1, 'soft_delete' => 0])->get();
+        return view('pages.notification', ['title' => $title,'notifications' => $notifications]);
+    }
+    
+    /**
+     *  @pressReleased
+     *
+     * @return void
+     */
+    public function pressReleased()
+    {
+        $title = 'Press Released';
+        $pressReleaseds = DB::table('recent_activities')->where(['notification_others' => 2, 'soft_delete' => 0])->get();
+        return view('pages.press_relesead', ['title' => $title,'pressReleaseds' => $pressReleaseds]);
+    }
+    
+    /**
+     * rtiDetail
+     *
+     * @return void
+     */
+    public function rtiDetail()
+    {
+        $title = 'RTI';
+        $rties = DB::table('dynamic_content_page_metatag')->where(['menu_slug' => 'rti', 'soft_delete' => 0])->get();
+        return view('pages.rti', ['title' => $title,'rties' => $rties]);
+    }
+
+    public function rtiFullDetail($uid)
+    {
+        $title = 'RTI Detail';
+        $rtiesDetails = DB::table('dynamic_page_content')->where(['dcpm_id' => $uid, 'soft_delete' => 0])->first();
+        if($rtiesDetails){
+            return view('pages.rti_detail', ['title' => $title,'rtiesDetails' => $rtiesDetails]);
+        }else{
+            return back()->with('message', 'Record Not Found');
+        }
+        
     }
 }

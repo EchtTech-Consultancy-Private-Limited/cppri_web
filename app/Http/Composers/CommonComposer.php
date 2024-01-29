@@ -38,6 +38,7 @@ class CommonComposer
             $footerMenu = DB::table('website_menu_management')->whereIn('menu_place', [1, 3])->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
             $menus = DB::table('website_menu_management')->whereIn('menu_place', [0,3,4])->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
             $menuName = $this->getMenuTree($menus, 0);
+            // dd($menuName);
             $news_management = DB::table('news_management')->where('soft_delete', 0)->latest('created_at')->take(3)->get();
             $social_links = DB::table('social_links')->where('soft_delete', 0)->first();
             $logo = DB::table('website_core_settings')->where('soft_delete', 0)->first();
@@ -83,6 +84,7 @@ class CommonComposer
     {
         $branch = array();
         foreach ($menus as $menu) {
+            // dd($menu);
             if ($menu->parent_id == $parentId) {
                 $children = $this->getMenuTree($menus, $menu->uid);
                 if ($children) {
