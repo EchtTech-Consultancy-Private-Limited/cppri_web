@@ -194,6 +194,7 @@
 	}
 }
 @media all and (max-width: 960px) {
+	
 	.info input, .info textarea {
 		margin: 6px 0px 5px;
 		font-size: 14px;
@@ -451,8 +452,8 @@
 		margin-top: 20px;
 	}
 	.latest-new-title:before {
-		border-bottom: 47px solid white;
-		border-left: 18px solid var(--pseudo-bordercolor);
+		border-bottom: 41px solid white;
+		border-left: 17px solid var(--pseudo-bordercolor);
 		width: 0;
 	}
 	.minister-box {
@@ -521,6 +522,10 @@
 	}
 }
 @media screen and (max-width: 768px) {
+	.banner-content-wrapper {
+		margin: 0 !important;
+	}
+	
 	.cppri-contact-form .main-block {
 		padding: 15px;
 		width: 100%;
@@ -619,6 +624,11 @@
 	}
 }
 @media all and (max-width: 767px) {
+
+	.banner-content-wrapper.services-heading h2 {
+		width: 322px;
+		height: 40px;
+	}
 	.imp-link ul.ul-v>li {
 		width: 50%;
 	}
@@ -815,6 +825,9 @@
 	}
 }
 @media all and (max-width: 640px) {
+	.main-content.ditiector-desk{
+		background-color: #fafafa;
+	}
 	.inner-wrapper .left-menu {
 		width: 100%;
 		float: none;
@@ -1147,8 +1160,8 @@
 		margin: 0 !important;
 	}
 	.minister-sub:not(:last-child) {
-		border-right: 0px !important;
-		border-bottom: 1px solid #3233;
+		/* border-right: 0px !important; */
+		/* border-bottom: 1px solid #3233; */
 	}
 	.digital-container .digital-content {
 		margin-top: 30px;
@@ -1650,6 +1663,12 @@
 	}
 }
 @media screen and (max-width: 1024px) {
+	.latest-new-title:before{
+		right: -3px;
+	}
+	.left-block .left-col-2{
+		height: 378px;
+	}
 	.minister-sub1 {
 		padding: 0px 0px 25px 0px;
 	}
@@ -1666,7 +1685,10 @@
 	.scroll-left,
 	.scroll-text-1,
 	.scroll-text {
-		height: 320px;
+		height: 266px;
+	}
+	.bg-white-tender {
+		height: 314px;
 	}
 	.banner-box-wrapper {
 		padding-top: 35px;
@@ -1769,6 +1791,15 @@
 		float: none;
 		padding-right: 0px;
 		margin: 29px 0 0;
+		padding-left: 0px;
+	}
+	h2{
+		font-size: 18px !important;
+	}
+
+	h2.border-bottom-color {
+		border-bottom: 2px solid var(--secondary-color);
+		padding-bottom: 6px !important;
 	}
 	.banner-content-wrapper.services-heading{
 		padding-bottom: 0 !important;
@@ -1845,8 +1876,10 @@
 }
 @media screen and (max-width: 767px) {
 	.nav-item .sub-nav .sub-nav-group .env .show-menu + .sub-nav-group.sng-env{
-		position: relative;
-		left: 0 !important;
+		position: static;
+	}
+	.nav-item .sub-nav .sub-nav-group .env .sub-menu-drop-f + .sub-nav-group.sng-env{
+		position: static;
 	}
 	.nav-item .sub-nav .sub-nav-group .env{
 		display: block !important;
@@ -1921,7 +1954,8 @@
 		margin-bottom: 15px;
 	}
 	.minister .minister-sub h4 {
-		font-size: 110%;
+		font-size: 85%;
+   	    font-weight: 600;
 	}
 	.four_content .common-left ul li,
 	li.gov-india.timer-date-c {
@@ -2194,6 +2228,12 @@
 	}
 }
 @media(min-width:1600px) {
+	.latest-new-title:before {
+		right: -3px;
+		border-bottom: 41px solid white;
+		border-left: 20px solid var(--pseudo-bordercolor);
+		width: 0;
+	}
 	.banner-wrapper .flexslider .slides>li {
 		height: 550px !important;
 	}
@@ -2287,5 +2327,43 @@
 	}
 	table td:last-child {
 	  border-bottom: 0;
+	}
+  }
+
+
+
+  @media (max-width:1024px) and (min-width:768px){
+	.banner-box {
+		width: auto !important;
+	}
+	.sub-nav.open {
+		display: block !important;
+		position: relative;
+	}
+
+	.sub-nav {
+		top: 39px;
+		display: none;
+		opacity: 1;
+		height: 100%;
+		position: absolute;
+		top: 0;
+	}
+
+	.city-news .new-txt p {
+		line-height: 15px;
+	}
+
+	.footer-top-wrapper .contact-us-footer {
+		display: block;
+	}
+
+	.sub-menu-drop-f.show-menu + .sub-nav-group.sng-env{
+		display: block;
+		position: static;
+	}
+
+	.sub-nav-group .env:has(.sub-menu-drop-f.show-menu){
+		display: block !important;
 	}
   }
