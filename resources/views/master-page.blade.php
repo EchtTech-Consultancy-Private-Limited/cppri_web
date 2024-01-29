@@ -58,11 +58,11 @@
 </div>
 <div class="wrapper" id="skipCont"></div>
 <div class="sidebar-main-nav ptb-50" id="mainsidebar">
-    <div class="container common-container pr-0">
+    <div class="container common-container  ">
         <!--/.nav-wrapper-->
-        <div class="row pr-0">
+        <div class="row pr-lg-0">
             @if (isset($parentMenut) != '')
-            <div class="col-md-3 sidebar-main-nav-colmd3 position-relative">
+            <div class="col-md-4 col-lg-3 sidebar-main-nav-colmd3 position-relative">
 
                 <div class="main-sidebar" id="main-sidebar">
                 <ul>
@@ -190,7 +190,7 @@
             @endif
 
             @if (isset($parentMenut))
-            <div class="col-md-9 m-p-0">
+            <div class="col-md-8 col-lg-9 m-p-0">
                 @else
                 <div class="col m-p-0">
                     @endif

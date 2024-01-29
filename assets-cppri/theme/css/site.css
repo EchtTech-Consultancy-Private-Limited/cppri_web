@@ -2210,6 +2210,7 @@ ul.resp-tabs-list {
     clear: left;
     background: #fff;
     margin-top: 5px;
+    border-radius: 0px 0px 8px 8px;
 }
 h2.resp-accordion {
     cursor: pointer;
@@ -4556,7 +4557,7 @@ button.dt-button.buttons-print:hover span {
     margin: 30px 0;
 }
 .cppr-delhi-map iframe {
-    border-radius: 20px;
+    border-radius: 15px;
 }
 .text-banner-content {
     text-align: center;
@@ -4817,7 +4818,7 @@ input:focus {
 }
 .contact-page-map {
     width: 100%;
-    height: 673px;
+    height: 606px;
     border: 0;
 }
 .sub-sec h2 .img-b {
@@ -4885,6 +4886,7 @@ input:focus {
     background: #fff;
     height: 357px;
     margin-top: 11px;
+    border-radius: 0px 0px 8px 8px;
 }
 h2.instagram-c {
     background: linear-gradient(
@@ -5626,4 +5628,27 @@ li.list-unstyled{
 li.list-unstyled::before{
     content: ' ' !important;
     width: 0 !important;
+}
+
+form#contact_form {
+    padding: 25px;
+}
+
+.cppri-contact-form:has(form#contact_form){
+    box-shadow: 0 0 30px #eee;
+}
+
+.main-sidebar .sl-accordion:has(.show) {
+    border: 1px solid #49aa41;
+    border-bottom: 1px solid #49aa41 !important;
+    border-radius: 4px;
+}
+
+
+div#flexSlider .flex-direction-nav {
+    display: none;
+}
+
+.nav-menu .nav-item{
+    position: relative;
 }

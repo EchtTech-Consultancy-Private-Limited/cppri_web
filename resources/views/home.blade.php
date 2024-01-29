@@ -131,7 +131,8 @@
                 </div>
                 <div
                     class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-12 col-lg-4 order-1 order-lg-2">
-                    <div class="minister-box clearfix row px-0">
+                    <div class="minister-box clearfix ">
+                        <div class="row px-0">
                         <div class="minister-sub col-md-6">
                             <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
                                     alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>
@@ -153,6 +154,8 @@
                                 </h5>
                             </div>
                         </div>
+                        </div>
+                      
                     </div>
                 </div>
             </div>
@@ -405,9 +408,11 @@
             <img src="{{ asset('assets-cppri/images/press-release.png') }}" class="h-100 w-100" alt="background image">
         </div>
         <div
-            class="container common-container four_content banner-container body-container top-body-container pe-0 z-index-2">
-            <div class="left-block row  py-md-5 py-0 px-0">
-                <div class="col-md-4 col-lg-4 mb-3 mb-md-0">
+            class="container common-container four_content banner-container body-container top-body-container pe-lg-0 z-index-2">
+            <div class="left-block   ">
+                <div class="row py-md-5 py-0 px-0">
+
+                <div class="col-md-4 col-lg-4 mb-3 mb-md-0 pe-md-0">
                     <div class="left-col-2 ">
                         <div class="page-tab clearfix">
                             <div class="page-tab-res clearfix">
@@ -495,7 +500,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-4 mb-3 mb-md-0">
+                <div class="col-md-4 col-lg-4 mb-3 mb-md-0 pe-md-0">
                     <div class="left-col-2 ">
                         <div class="page-tab clearfix">
                             <div class="page-tab-res clearfix">
@@ -590,7 +595,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-4 pe-md-0">
+                <div class="col-md-4 col-lg-4 ">
                     <div class="left-col-2">
                         <div class="box-bg-color change-color-code">
                             <div class="tender">
@@ -661,6 +666,8 @@
                         </div>
                     </div>
                 </div>
+                </div>
+              
             </div>
         </div>
     </div>
