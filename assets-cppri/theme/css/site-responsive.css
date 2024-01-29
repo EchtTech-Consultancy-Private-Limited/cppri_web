@@ -1879,7 +1879,7 @@
 		position: static;
 	}
 	.nav-item .sub-nav .sub-nav-group .env .sub-menu-drop-f + .sub-nav-group.sng-env{
-		position: static;
+		/* position: static; */
 	}
 	.nav-item .sub-nav .sub-nav-group .env{
 		display: block !important;
@@ -2332,6 +2332,11 @@
 
 
 
+  @media (max-width:1150px) and (min-width:950px){
+	.main-menu ul > li:not(:last-child) {
+		margin-right: -5px;
+	}
+  }
   @media (max-width:1024px) and (min-width:768px){
 	.banner-box {
 		width: auto !important;
