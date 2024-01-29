@@ -749,11 +749,11 @@ class HomeController extends Controller
         return response()->json(['success' => true, 'message' => 'Record Add Successfully']);
     }
 
-    public function showPressReleased()
-    {
-        $titleName = 'Show Press Releaed';
-        return view('pages.press_relesead', ['title' => $titleName]);
-    }
+    // public function showPressReleased()
+    // {
+    //     $titleName = 'Show Press Releaed';
+    //     return view('pages.press_relesead', ['title' => $titleName]);
+    // }
     public function photoGallery()
     {
         $titleName = 'Photo Gallery';
@@ -808,15 +808,88 @@ class HomeController extends Controller
     {
         $titleName = 'Training';
         return view('pages.training_program', ['title' => $titleName]);
-    }
-    public function purchaseWorksCommittee()
+    }    
+    /**
+     * purchaseWorksCommittee
+     *
+     * @return void
+     */
+    public function purchaseWorksCommittee(Request $request)
     {
+        $workType = $request->input('work_Type');
+        $startDate = $request->input('start_date');
         $titleName = 'Purchase Works Committee';
-        return view('pages.purchase_works_committee', ['title' => $titleName]);
-    }
+        $result = DB::table('purchase_works_committees')
+                                ->join('purchase_works_committees_type', 'purchase_works_committees_type.uid', '=', 'purchase_works_committees.asset_type')
+                                ->where('purchase_works_committees.soft_delete', 0);
+        if (!empty($workType)) {
+            $result->where('purchase_works_committees.asset_type', $workType);
+        }    
+        if (!empty($startDate)) {
+            $result->whereRaw("YEAR(STR_TO_DATE(purchase_works_committees.start_date, '%Y-%m-%d')) = $startDate");
+        }
+        $purchaseWorksCommittes = $result->get();
+        $purchaseWorksCommittesTypes = DB::table('purchase_works_committees_type')
+                                        ->where('soft_delete', 0)->get();
+        return view('pages.purchase_works_committee', ['title' => $titleName,'purchaseWorksCommittes' => $purchaseWorksCommittes,'purchaseWorksCommittesTypes' => $purchaseWorksCommittesTypes,'selectedWorkType' => $workType,
+        'selectedYear' => $startDate]);
+    }    
+    /**
+     * rtiApplicationsResponse
+     *
+     * @return void
+     */
     public function rtiApplicationsResponse()
     {
         $titleName = 'Rti Applications Response';
         return view('pages.rti_applications_responses', ['title' => $titleName]);
+    }
+    
+    /**
+     * notification
+     *
+     * @return void
+     */
+    public function notification()
+    {
+        $title = 'Notification';
+        $notifications = DB::table('recent_activities')->where(['notification_others' => 1, 'soft_delete' => 0])->get();
+        return view('pages.notification', ['title' => $title,'notifications' => $notifications]);
+    }
+    
+    /**
+     *  @pressReleased
+     *
+     * @return void
+     */
+    public function pressReleased()
+    {
+        $title = 'Press Released';
+        $pressReleaseds = DB::table('recent_activities')->where(['notification_others' => 2, 'soft_delete' => 0])->get();
+        return view('pages.press_relesead', ['title' => $title,'pressReleaseds' => $pressReleaseds]);
+    }
+    
+    /**
+     * rtiDetail
+     *
+     * @return void
+     */
+    public function rtiDetail()
+    {
+        $title = 'RTI';
+        $rties = DB::table('dynamic_content_page_metatag')->where(['menu_slug' => 'rti', 'soft_delete' => 0])->get();
+        return view('pages.rti', ['title' => $title,'rties' => $rties]);
+    }
+
+    public function rtiFullDetail($uid)
+    {
+        $title = 'RTI Detail';
+        $rtiesDetails = DB::table('dynamic_page_content')->where(['dcpm_id' => $uid, 'soft_delete' => 0])->first();
+        if($rtiesDetails){
+            return view('pages.rti_detail', ['title' => $title,'rtiesDetails' => $rtiesDetails]);
+        }else{
+            return back()->with('message', 'Record Not Found');
+        }
+        
     }
 }
