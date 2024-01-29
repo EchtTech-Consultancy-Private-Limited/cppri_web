@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="">
+<meta name="referrer" content="origin">
 <meta name="author" content="">
 <link rel="apple-touch-icon" href="{{ asset('assets-cppri/images/flag.jpg') }}">
 <link href="{{ asset('assets-cppri/css/base.css') }}" rel="stylesheet">
