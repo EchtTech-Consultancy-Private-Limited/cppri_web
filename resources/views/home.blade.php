@@ -483,7 +483,7 @@
                                                         </li> --}}
                                                     </ul>
                                                 </div>
-                                                <div class="view-footer"><a href="javascript:void();" title="View A ll"
+                                                <div class="view-footer"><a href="{{route('notification')}}" title="View A ll"
                                                         class="change-border-color-text"><span>
                                                             @if (Session::get('Lang') == 'hi')
                                                             {{ __('messages.View_all') }}
@@ -578,7 +578,7 @@
                                                         </li> --}}
                                                     </ul>
                                                 </div>
-                                                <div class="view-footer"><a href="{{url('press-released')}}"
+                                                <div class="view-footer"><a href="{{route('press-released')}}"
                                                         title="View All" class="change-border-color-text"><span>
                                                             @if (Session::get('Lang') == 'hi')
                                                             {{ __('messages.View_all') }}
@@ -698,7 +698,7 @@
                                         trained manpower, Forest
                                         Research University ( Deemed University)...
                                     </p>
-                                    <a class="button change-text-color" href="{{url('academic-program')}}">More Details
+                                    <a class="button change-text-color" href="{{url('academic/academic-program/m-sc-program')}}">More Details
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -724,7 +724,7 @@
                                     <span class="duration">Duration- Depends on program stream </span>
                                     <p> Implementing a comprehensive and well-structured training program is essential for fostering optimal learning and skill development among...
                                     </p>
-                                    <a class="button change-text-color" href="{{url('training-program')}}">More Details
+                                    <a class="button change-text-color" href="{{url('training-programs/training-calendar')}}">More Details
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>

@@ -37,7 +37,6 @@ require __DIR__ .'/cms_web.php';
 Route::middleware(['visitingcounter'])->group(function () {
 
 Route::get('/search', [SearchController::class, 'getSearchData'])->name('search');
-// Route::get('/rti', [HomeController::class, 'rtiData'])->name('rtiData');
 Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('set-language',[HomeController::class,'SetLang']);
 Route::get('/site-map',[HomeController::class,'siteMap']);
@@ -52,7 +51,7 @@ Route::post('/feedback', [HomeController::class, 'feedbackStore']);
 
 // Route::get('about-us/director-desk', [HomeController::class, 'directorDesk']);
 // Route::get('about-us/employee-directory', [HomeController::class, 'employeeDirectory']);
-Route::get('/press-released', [HomeController::class, 'showPressReleased']);
+// Route::get('/press-released', [HomeController::class, 'showPressReleased']);
 Route::get('/photo-gallery', [HomeController::class,'photoGallery']);
 Route::get('/academic-program', [HomeController::class,'academicProgram']);
 Route::get('/training-program', [HomeController::class,'trainingProgram']);
@@ -64,7 +63,11 @@ Route::get('/careers', [HomeController::class,'careerData'])->name('careerData')
 Route::get('career-archive', [HomeController::class,'careerArchive']);
 Route::get('rti-applications-responses', [HomeController::class,'rtiApplicationsResponse']);
 Route::get('purchase-works-committee', [HomeController::class,'purchaseWorksCommittee']);
-
+Route::get('purchase-works-committee-filter', [HomeController::class,'purchaseWorksCommittee'])->name('purchase-works-committee-filter');
+Route::get('notification', [HomeController::class,'notification'])->name('notification');
+Route::get('/press-released', [HomeController::class, 'pressReleased'])->name('press-released');
+Route::get('/rti', [HomeController::class, 'rtiDetail'])->name('rtiData');
+Route::get('/rti-detail/{uid}', [HomeController::class, 'rtiFullDetail'])->name('rti-detail');
 Route::get('/{Slug}/{middelSlug?}/{lastSlug?}/{finalSlug?}/{finallastSlug?}', [HomeController::class, 'getContentAllPages']);
 });
 
