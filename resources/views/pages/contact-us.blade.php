@@ -116,16 +116,16 @@
                     </thead>
                     <tbody>
 
-                        @if (isset($employee) && count($employee) > 0)
-                        @foreach ($employee as $k => $employees)
-                        <tr>
-                            <td>{{ $k + 1 }}</td>
-                            <td class="text-center"><img @if ($employees->public_url != '')
-                                src="{{ asset('resources/uploads/empDirectory/' . $employees->public_url) }}"
-                                @else src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif
-                                title="{{ $employees->fname_en ?? '' }} {{ $employees->mname_en ?? '' }}
-                                {{ $employees->lname_en ?? '' }}">
-                            </td>
+                            @if (isset($employee) && count($employee) > 0)
+                                @foreach ($employee as $k => $employeesData)
+                                @foreach ($employeesData['data'] as $employees)
+                                    <tr>
+                                        <td>{{ $k + 1 }}</td>
+                                        <td class="text-center"><img
+                                                @if ($employees->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $employees->public_url) }}"
+                                                     @else src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif
+                                                title="{{ $employees->fname_en ?? '' }} {{ $employees->mname_en ?? '' }} {{ $employees->lname_en ?? '' }}">
+                                        </td>
 
                             @if (Session::get('Lang') == 'hi')
                             <td>{{ $employees->fname_hi ?? '' }} {{ $employees->mname_hi ?? '' }}
@@ -161,11 +161,14 @@
 
                             <td>{{ $email ?? '' }}</td>
 
-                        </tr>
-                        @endforeach
-                        @endif
-                    </tbody>
-                </table>
+                                    </tr>
+                                    @endforeach
+                                @endforeach
+                            @endif
+                        </tbody>
+                    </table>
+
+                </div>
 
             </div>
 
