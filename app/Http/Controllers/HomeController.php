@@ -469,6 +469,7 @@ class HomeController extends Controller
                         $title_name = $menus->name_en;
                     }
                 }
+                
                 $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
 
                 $dynamic_content_page_metatag = DB::table('dynamic_content_page_metatag')
