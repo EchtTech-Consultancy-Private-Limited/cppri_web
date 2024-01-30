@@ -139,11 +139,4 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
 @endsection
-=======
-</div>
-</div>
-
-@endsection
->>>>>>> fb452547ce6ccaa01b927faef362036da95f3545
