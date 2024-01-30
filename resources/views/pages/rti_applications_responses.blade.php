@@ -114,56 +114,7 @@
                                   
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
-                                            <!-- <table>
-                                                <thead>
-
-                                                    <tr>
-                                                        <th scope="col">S. No</th>
-                                                        <th scope="col">Item</th>
-                                                        <th scope="col">Disclosure Details</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr >
-
-                                                        <td data-label="S. No" class='fw-bold'>1</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Organisation and Function</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No" class='fw-bold'>1.1</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Particulars of Organisation, Functions and Duties [Section
-                                                            4(1)(b)(i)]</td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 1.1.1</td>
-                                                        <td data-label="Item" class='fw-bold'>Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 1.1.1</td>
-                                                        <td data-label="Item" class='fw-bold'>Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table> -->
+                                           
 
                                             <table class='organization-structure'>
                                                 <thead>
@@ -680,59 +631,6 @@
                                     
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
-                                            <!-- <table>
-                                                <thead>
-
-                                                    <tr>
-                                                        <th scope="col">S. No</th>
-                                                        <th scope="col">Item</th>
-                                                        <th scope="col">Disclosure Details</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class='fw-bold'>
-
-                                                        <td data-label="S. No" class='fw-bold'>2</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Organisation and Function</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No" class='fw-bold'>2.1</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Particulars of Organisation, Functions and Duties [Section
-                                                            4(1)(b)(i)]</td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 2.2.1</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 2.2.1</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table> -->
-
-
-
                                             <table>
                                                 <thead>
 
@@ -998,56 +896,7 @@
                                     
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
-                                            <!-- <table>
-                                                <thead>
-
-                                                    <tr>
-                                                        <th scope="col">S. No</th>
-                                                        <th scope="col">Item</th>
-                                                        <th scope="col">Disclosure Details</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class='fw-bold'>
-
-                                                        <td data-label="S. No" class='fw-bold'>3</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Organisation and Function</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No" class='fw-bold'>3.1</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Particulars of Organisation, Functions and Duties [Section
-                                                            4(1)(b)(i)]</td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 3.1.1</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 3.1.2</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table> -->
+                                       
 
 
                                             <table>
@@ -1291,57 +1140,7 @@
                                     
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
-                                            <!-- <table>
-                                                <thead>
-
-                                                    <tr>
-                                                        <th scope="col">S. No</th>
-                                                        <th scope="col">Item</th>
-                                                        <th scope="col">Disclosure Details</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class='fw-bold'>
-
-                                                        <td data-label="S. No" class='fw-bold'>4</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Organisation and Function</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No" class='fw-bold'>4.1</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Particulars of Organisation, Functions and Duties [Section
-                                                            4(1)(b)(i)]</td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 4.1.1</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 4.1.2</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table> -->
-
+                                     
 
                                             <table>
                                                 <tbody>
@@ -1659,57 +1458,6 @@
                                     
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
-                                            <!-- <table>
-                                                <thead>
-
-                                                    <tr>
-                                                        <th scope="col">S. No</th>
-                                                        <th scope="col">Item</th>
-                                                        <th scope="col">Disclosure Details</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class='fw-bold'>
-
-                                                        <td data-label="S. No" class='fw-bold'>6</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Organisation and Function</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No" class='fw-bold'>6.1</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Particulars of Organisation, Functions and Duties [Section
-                                                            4(1)(b)(i)]</td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 6.1.1</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 6.1.2</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table> -->
-
 
                                             <table>
                                                 <tbody>
