@@ -88,7 +88,7 @@
                         </ul>                        
                     </div>
                     <br>
-                    <button class="btn btn-primary"><a class="text-white" href="{{ route('rti-applications-responses') }}" target="_blank">RTI Application & Responses</a></button>
+                    <button class="btn btn-primary"><a class="text-white" href="{{ route('rti-applications-responses') }}">RTI Application & Responses</a></button>
                 </div>
     
     
