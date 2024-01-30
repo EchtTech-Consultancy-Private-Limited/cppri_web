@@ -48,7 +48,7 @@
                 @endif
 
                 @if (isset($middelBred))
-                <li><a>{{ $middelBred ?? '' }}</a></li>
+                <li><a>{{ ucfirst(strtolower($middelBred)) ?? '' }}</a></li>
                 @endif
 
                 <li>{{ $title_name ?? '' }}</li>

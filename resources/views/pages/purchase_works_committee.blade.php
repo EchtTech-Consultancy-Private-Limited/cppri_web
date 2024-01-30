@@ -42,7 +42,8 @@
                     <section id="paragraph" class="wrapper paragraph-wrapper">
                         <div class=" common-container four_content my-4">
                             <h3 class="dir-dsk-title mt-3"> Purchase / Works / Committee </h3>
-                        <form action="{{route('purchase-works-committee-filter')}}" id="myform" enctype="multipart/form-data">
+                        <form action="{{route('purchase-works-committee-filter')}}" method="post" id="myform" enctype="multipart/form-data">
+                            @csrf
                             <div class="row my-3">
                                 <div class="col-md-4 ps-md-0 ps-0">
                                     <label for="exampleDataList" class="form-label">Select Type</label>

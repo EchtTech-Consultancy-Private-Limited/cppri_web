@@ -80,17 +80,26 @@
                                     </div>
                                 @endif
                                 <div class="align-lt">                                    
-                                    @if (isset($rtiesDetails) && !blank($rtiesDetails))
-                                    @if (Session::get('Lang') == 'hi')
-                                        {!! $rtiesDetails->page_content_hi !!}
-                                    @else
-                                        {!! $rtiesDetails->page_content_en ?? '' !!}
-                                    @endif
+                                        @if (isset($rties) && !blank($rties))
+                                        <ol type="I">
+                                        @foreach($rties as $rti)                                            
+                                                <li> 
+                                                    <a href="{{ route('rti-detail', $rti->uid) }}">
+                                                        @if (Session::get('Lang') == 'hi')
+                                                            {{ $rti->page_title_hi ?? '' }}
+                                                        @else
+                                                            {{ $rti->page_title_en ?? '' }}
+                                                        @endif
+                                                    </a>
+                                                </li>                                              
+                                        @endforeach
+                                    </ol>
                                     @endif
 
                                 </div>
                             </div>
                         </section>
+
                     </div>
                 </div>
             </div>
