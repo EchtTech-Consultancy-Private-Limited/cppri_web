@@ -52,7 +52,7 @@
                 @if ($item['department']->name_en == 'Director')
                     <div class="row">
                         <div class="col-md-12 display-content">
-                            <div class="employee-directry-type employee-dir-page">
+                            <div class="employee-directry-type employee-dir-page pt-4">
                                 <div data-aos-mirror="true" data-aos="fade-right" class="title-before"></div>
                                 <h3>
 

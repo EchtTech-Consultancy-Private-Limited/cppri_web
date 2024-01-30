@@ -9,7 +9,7 @@
         <div class="inner-banner-text">
             <div class="text-banner-content">
                 <h2>
-                    RTI Application & Responses
+                   {{ ucfirst(strtolower($title)) ?? '' }}
                 </h2>
             </div>
         </div>
@@ -19,488 +19,109 @@
     <div class="breadcam-bg breadcam">
         <div class="container common-container four_content ">
             <ul>
-                <li><a href="home.html">Home </a></li>
-                <li><a href="javascript:void();">About us</a></li>
-                <li><a href="javascript:void();">RTI Application & Responses</a></li>
+                <li><a href="{{ route('/') }}">
+                    @if (Session::get('Lang') == 'hi')
+                    होम पेज
+                    @else
+                    Home
+                    @endif
+                </a></li>
+                <li><a href="javascript:void();">{{ ucfirst(strtolower($title)) ?? '' }}</a></li>
 
             </ul>
         </div>
     </div>
 </div>
-<div class="sidebar-main-nav ptb-50 rti" id="mainsidebar">
-    <div class="container common-container pr-0">
-        <!--/.nav-wrapper-->
-        <div class="row pr-0">
-            <div class="col-md-3 sidebar-main-nav-colmd3 position-relative">
-
-                <div class="main-sidebar" id="main-sidebar">
-                    <ul>
-
-                        <li class=" qm-active ">
-                            <div class="list-start">
-                                <a href="#" class="nav-link" tabindex="0">
-                                    Organisation and Function
-                                </a>
-                            </div>
-                        </li>
-                        <li class="">
-                            <div class="list-start">
-                                <a href="#" class="nav-link" tabindex="0">
-                                    Budget and Programmes
-                                </a>
-                            </div>
-                        </li>
-                        <li class="">
-                            <div class="list-start">
-                                <a href="#" class="nav-link" tabindex="0">
-                                    Publicity and Public Interface
-                                </a>
-                            </div>
-                        </li>
-                        <li class="">
-                            <div class="list-start">
-                                <a href="#" class="nav-link" tabindex="0">
-                                    E-Governance
-                                </a>
-                            </div>
-                        </li>
-                        <li class="">
-                            <div class="list-start">
-                                <a href="#" class="nav-link" tabindex="0">
-                                    Information as may be Prescribed
-                                </a>
-                            </div>
-                        </li>
-                        <li class="">
-                            <div class="list-start">
-                                <a href="#" class="nav-link" tabindex="0">
-                                    Information Disclosed on Own Initiative
-                                </a>
-                            </div>
-                        </li>
-
-                    </ul>
-
-                </div>
-            </div>
-
-
-
-            <div class="col-md-9 m-p-0">
-
-
-                <div class="main-content ditiector-desk">
-                    <!--/#skipCont-->
-                    <div id="fontSize" class="wrapper body-wrapper " style="font-size: 100%;">
-
-                        <section id="paragraph" class="wrapper paragraph-wrapper">
-                            <div class="container common-container four_content pm-0">
-                                <div class="align-lt">
-                                    <!-- <h2 class="mt-0 mb-20" tabindex="0">
-                                        RTI Application & Responses
-                                    </h2> -->
-
-                                    <p tabindex="0">
-                                    </p>
-                                   
-
+<div class="container common-container">
+    <!--/.nav-wrapper-->
+    <section class="sidebar-main-nav">
+        <div class="col-md-12 p-0">
+            <div class="main-content">
+                <!--/#skipCont-->
+                <section id="fontSize" class="wrapper body-wrapper ">
+                    <section id="paragraph" class="wrapper paragraph-wrapper">
+                        <div class=" common-container four_content my-4">
+                            <h3 class="dir-dsk-title mt-3">Rti Applications Response </h3>
+                        <form action="{{route('rti-applications-responses-filter')}}" method="post" id="myform" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row my-3">
+                                <div class="col-md-4">
+                                    <label for="exampleDataList" class="form-label">Registration No.</label>
+                                    <input type="text" class="form-control" name="registration_no" id="registration_no">
                                 </div>
 
-                                <!-- Organisation and Function -->
-
-                                <div class="align-lt">
-                                    <h2 class="mt-0 mb-20" tabindex="0">
-                                        Organisation and Function
-                                    </h2>
-
-                                    <p tabindex="0">
-                                    </p>
-                                    <section id="paragraph" class="wrapper paragraph-wrapper">
-                                        <div class=" common-container four_content">
-                                            <table>
-                                                <thead>
-
-                                                    <tr>
-                                                        <th scope="col">S. No</th>
-                                                        <th scope="col">Item</th>
-                                                        <th scope="col">Disclosure Details</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr >
-
-                                                        <td data-label="S. No" class='fw-bold'>1</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Organisation and Function</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No" class='fw-bold'>1.1</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Particulars of Organisation, Functions and Duties [Section
-                                                            4(1)(b)(i)]</td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 1.1.1</td>
-                                                        <td data-label="Item" class='fw-bold'>Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 1.1.1</td>
-                                                        <td data-label="Item" class='fw-bold'>Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </section>
-
-                                </div>
-                                <!-- Budget and Programmes -->
-
-                                <div class="align-lt">
-                                    <h2 class="mt-0 mb-20" tabindex="0">
-                                        Budget and Programmes
-                                    </h2>
-
-                                    <p tabindex="0">
-                                    </p>
-                                    <section id="paragraph" class="wrapper paragraph-wrapper">
-                                        <div class=" common-container four_content">
-                                        <table>
-                                                <thead>
-
-                                                    <tr>
-                                                        <th scope="col">S. No</th>
-                                                        <th scope="col">Item</th>
-                                                        <th scope="col">Disclosure Details</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class='fw-bold'>
-
-                                                        <td data-label="S. No" class='fw-bold'>2</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Organisation and Function</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No" class='fw-bold'>2.1</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Particulars of Organisation, Functions and Duties [Section
-                                                            4(1)(b)(i)]</td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 2.2.1</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 2.2.1</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </section>
-
-                                </div>
-                                <!-- Publicity and Public Interface -->
-
-                                <div class="align-lt">
-                                    <h2 class="mt-0 mb-20" tabindex="0">
-                                        Publicity and Public Interface
-                                    </h2>
-
-                                    <p tabindex="0">
-                                    </p>
-                                    <section id="paragraph" class="wrapper paragraph-wrapper">
-                                        <div class=" common-container four_content">
-                                        <table>
-                                                <thead>
-
-                                                    <tr>
-                                                        <th scope="col">S. No</th>
-                                                        <th scope="col">Item</th>
-                                                        <th scope="col">Disclosure Details</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class='fw-bold'>
-
-                                                        <td data-label="S. No" class='fw-bold'>3</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Organisation and Function</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No" class='fw-bold'>3.1</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Particulars of Organisation, Functions and Duties [Section
-                                                            4(1)(b)(i)]</td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 3.1.1</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 3.1.2</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </section>
-
-                                </div>
-                                <!-- E-Governance -->
-                                <div class="align-lt">
-                                    <h2 class="mt-0 mb-20" tabindex="0">
-                                        E-Governance
-                                    </h2>
-
-                                    <p tabindex="0">
-                                    </p>
-                                    <section id="paragraph" class="wrapper paragraph-wrapper">
-                                        <div class=" common-container four_content">
-                                        <table>
-                                                <thead>
-
-                                                    <tr>
-                                                        <th scope="col">S. No</th>
-                                                        <th scope="col">Item</th>
-                                                        <th scope="col">Disclosure Details</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class='fw-bold'>
-
-                                                        <td data-label="S. No" class='fw-bold'>4</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Organisation and Function</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No" class='fw-bold'>4.1</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Particulars of Organisation, Functions and Duties [Section
-                                                            4(1)(b)(i)]</td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 4.1.1</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 4.1.2</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </section>
-
-                                </div>
-
-                                <!-- Information as may be Prescribed -->
-                                <div class="align-lt">
-                                    <h2 class="mt-0 mb-20" tabindex="0">
-                                        Information as may be Prescribed
-                                    </h2>
-
-                                    <p tabindex="0">
-                                    </p>
-                                    <section id="paragraph" class="wrapper paragraph-wrapper">
-                                        <div class=" common-container four_content">
-                                        <table>
-                                                <thead>
-
-                                                    <tr>
-                                                        <th scope="col">S. No</th>
-                                                        <th scope="col">Item</th>
-                                                        <th scope="col">Disclosure Details</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class='fw-bold'>
-
-                                                        <td data-label="S. No" class='fw-bold'>5</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Organisation and Function</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No" class='fw-bold'>5.1</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Particulars of Organisation, Functions and Duties [Section
-                                                            4(1)(b)(i)]</td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 5.1.1</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 5.1.2</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </section>
-
-                                </div>
-
-                                <!-- Information Disclosed on Own Initiative -->
-                                <div class="align-lt">
-                                    <h2 class="mt-0 mb-20" tabindex="0">
-                                        Information Disclosed on Own Initiative
-                                    </h2>
-
-                                    <p tabindex="0">
-                                    </p>
-                                    <section id="paragraph" class="wrapper paragraph-wrapper">
-                                        <div class=" common-container four_content">
-                                        <table>
-                                                <thead>
-
-                                                    <tr>
-                                                        <th scope="col">S. No</th>
-                                                        <th scope="col">Item</th>
-                                                        <th scope="col">Disclosure Details</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class='fw-bold'>
-
-                                                        <td data-label="S. No" class='fw-bold'>6</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Organisation and Function</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No" class='fw-bold'>6.1</td>
-                                                        <td data-label="Item" colspan="2" class='fw-bold'>
-                                                            Particulars of Organisation, Functions and Duties [Section
-                                                            4(1)(b)(i)]</td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 6.1.1</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td scope="row" data-label="S. No"> 6.1.2</td>
-                                                        <td data-label="Item">Name and Address of the Organization
-                                                        </td>
-                                                        <td data-label="Disclosure Details">
-                                                            Indian Institute of Technology Palakkad, Nila Campus,
-                                                            Pudussery PO, Kanjikode West, Palakkad, Kerala -
-                                                            678623.Indian Institute of Technology Palakkad, Ahalia
-                                                            Integrated Campus, Kozhippara PO, Palakkad, Kerala – 678557.
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </section>
-
+                                <div class="col-md-3 d-flex align-items-end py-md-0 py-3">
+                                    <button type="submit" class="btn btn-primary"> Apply</button>
                                 </div>
                             </div>
-                        </section>
-                    </div>
-                </div>
+                        </form>
+
+                            <table class="views-table" id="example">
+                                <thead>
+                                    <tr>
+                                        <th class="views-field views-field-counter" scope="col">
+                                            S.No </th>
+                                        <th class="views-field views-field-field-order-contract-no-" scope="col">
+                                            Requester Name </th>
+                                        <th class="views-field views-field-field--date" scope="col">
+                                            Registration No </th>
+                                        <th class="views-field views-field-body" scope="col">
+                                            PIO Name </th>
+                                        <th class="views-field views-field-field-quality-supplied" scope="col">
+                                            Received Date </th>
+                                        <th class="views-field views-field-field-name-of-supplier-party-" scope="col">
+                                            Request Doc </th>
+                                        <th class="views-field views-field-field-amount-rs-" scope="col">
+                                            Reply Doc </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($rtiApplications as $key => $rtiApplication)
+                                    <tr>
+                                        <td class="views-field views-field-counter">
+                                            {{ $loop->iteration }}
+                                        </td>
+                                        @if (Session::get('Lang') == 'hi')
+                                            <td>{!! $rtiApplication->request_name_hi   ?? '' !!}</td>
+                                        @else
+                                            <td>{!! $rtiApplication->request_name_en ?? '' !!}</td>
+                                        @endif
+
+                                        <td>{!! $rtiApplication->registration_number    ?? '' !!}</td>
+
+                                        @if (Session::get('Lang') == 'hi')
+                                            <td>{!! $rtiApplication->pio_name_hi    ?? '' !!}</td>
+                                        @else
+                                            <td>{!! $rtiApplication->pio_name_en   ?? '' !!}</td>
+                                        @endif
+
+                                        <td class="views-field views-field-field--date">
+                                            <span class="date-display-single" property="dc:date" datatype="xsd:dateTime"
+                                                content="2020-10-29T00:00:00+05:30"> {{ date("d-m-Y",strtotime($rtiApplication->start_date)) }}</span>
+                                        </td>
+
+                                        <td class="views-field views-field-field-amount-rs-">
+                                            <a href="{{ asset('resources/uploads/RtiApplicationResponses/' . $rtiApplication->request_document) }}" download="" tabindex="0">
+                                                {!! $rtiApplication->request_document ? 'Download <i class="fa fa-file-pdf-o text-danger"></i> ' . $rtiApplication->request_doc_pdfimage_size : 'N/A' !!}
+                                            </a>
+                                        </td>
+                                        <td class="views-field views-field-field-select-type">
+                                            <a href="{{ asset('resources/uploads/RtiApplicationResponses/' . $rtiApplication->reply_document) }}" download="" tabindex="0">
+                                                {!! $rtiApplication->reply_document ? 'Download <i class="fa fa-file-pdf-o text-danger"></i> ' . $rtiApplication->reply_doc_pdfimage_size : 'N/A' !!}
+                                            </a>
+                                            
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                </section>
             </div>
         </div>
-    </div>
+    </section>
+
 </div>
 @endsection

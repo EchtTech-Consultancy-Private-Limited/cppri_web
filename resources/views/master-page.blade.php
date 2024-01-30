@@ -48,7 +48,7 @@
                 @endif
 
                 @if (isset($middelBred))
-                <li><a>{{ $middelBred ?? '' }}</a></li>
+                <li><a>{{ ucfirst(strtolower($middelBred)) ?? '' }}</a></li>
                 @endif
 
                 <li>{{ $title_name ?? '' }}</li>
@@ -422,7 +422,7 @@
                             @if ($item['department']->name_en == 'Director')
                             <div class="row">
                                 <div class="col-md-12 display-content  ">
-                                    <div class="employee-directry-type employee-dir-page pt-3">
+                                    <div class="employee-directry-type employee-dir-page pt-4">
                                         <div data-aos-mirror="true" data-aos="fade-right" class="title-before">
                                         </div>
                                         <h3>

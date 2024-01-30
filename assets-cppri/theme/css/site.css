@@ -5553,7 +5553,7 @@ td.download a {
     padding: 0 !important;
 }
 .rti table tr td:first-child {
-    font-weight: bold !important;
+    font-weight: 600 !important;
 }
 .sticky {
     position: fixed;
@@ -5651,4 +5651,30 @@ div#flexSlider .flex-direction-nav {
 
 .nav-menu .nav-item{
     position: relative;
+}
+
+
+.img-box-overview {
+    display: inline-block;
+    float: right;
+    margin: 0 0px 15px 15px;
+    width: 309px;
+}
+.sub-heading {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.organization-structure tr td:nth-child(2){
+    font-weight: 600 !important;
+}
+
+
+.fw-bold {
+    font-weight: 600!important;
+}
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active{
+    color: #fff !important;
 }

@@ -61,13 +61,14 @@ Route::get('tender-archive', [HomeController::class,'tenderArchive']);
 //carrer
 Route::get('/careers', [HomeController::class,'careerData'])->name('careerData');
 Route::get('career-archive', [HomeController::class,'careerArchive']);
-Route::get('rti-applications-responses', [HomeController::class,'rtiApplicationsResponse']);
+Route::get('rti-applications-responses', [HomeController::class,'rtiApplicationsResponse'])->name('rti-applications-responses');
+Route::any('rti-applications-responses-filter', [HomeController::class,'rtiApplicationsResponse'])->name('rti-applications-responses-filter');
 Route::get('purchase-works-committee', [HomeController::class,'purchaseWorksCommittee']);
-Route::get('purchase-works-committee-filter', [HomeController::class,'purchaseWorksCommittee'])->name('purchase-works-committee-filter');
+Route::any('purchase-works-committee-filter', [HomeController::class,'purchaseWorksCommittee'])->name('purchase-works-committee-filter');
 Route::get('notification', [HomeController::class,'notification'])->name('notification');
 Route::get('/press-released', [HomeController::class, 'pressReleased'])->name('press-released');
-Route::get('/rti', [HomeController::class, 'rtiDetail'])->name('rtiData');
-Route::get('/rti-detail/{uid}', [HomeController::class, 'rtiFullDetail'])->name('rti-detail');
+Route::get('/rti/{slug?}', [HomeController::class, 'rtiDetail'])->name('rti-data');
+// Route::get('/rti-detail/{uid}', [HomeController::class, 'rtiFullDetail'])->name('rti-detail');
 Route::get('/{Slug}/{middelSlug?}/{lastSlug?}/{finalSlug?}/{finallastSlug?}', [HomeController::class, 'getContentAllPages']);
 });
 

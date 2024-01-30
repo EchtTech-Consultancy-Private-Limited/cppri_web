@@ -27,8 +27,14 @@
    $('#example').DataTable( {
        dom: 'Bfrtip',
        buttons: [
-           'print'
-       ]
+        {
+            extend: 'print',
+            customize: function (win) {
+              var pdfTitle = $('.dir-dsk-title').text();
+              $(win.document.body).find('h1').text(pdfTitle);
+            }
+        }
+      ]
    } );
 } );
 

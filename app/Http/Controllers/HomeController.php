@@ -266,6 +266,7 @@ class HomeController extends Controller
 
     public function getContentAllPages(Request $request, $slug, $middelSlug = null, $lastSlugs = null, $finalSlug = null, $finallastSlug = null)
     {
+        
         // dd('hii');
         $slugsToCheck = [$lastSlugs, $middelSlug, $finalSlug, $finallastSlug];
 
@@ -833,16 +834,6 @@ class HomeController extends Controller
                                         ->where('soft_delete', 0)->get();
         return view('pages.purchase_works_committee', ['title' => $titleName,'purchaseWorksCommittes' => $purchaseWorksCommittes,'purchaseWorksCommittesTypes' => $purchaseWorksCommittesTypes,'selectedWorkType' => $workType,
         'selectedYear' => $startDate]);
-    }    
-    /**
-     * rtiApplicationsResponse
-     *
-     * @return void
-     */
-    public function rtiApplicationsResponse()
-    {
-        $titleName = 'Rti Applications Response';
-        return view('pages.rti_applications_responses', ['title' => $titleName]);
     }
     
     /**
@@ -874,22 +865,35 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function rtiDetail()
+    public function rtiDetail($slug = null)
     {
         $title = 'RTI';
         $rties = DB::table('dynamic_content_page_metatag')->where(['menu_slug' => 'rti', 'soft_delete' => 0])->get();
-        return view('pages.rti', ['title' => $title,'rties' => $rties]);
+        $rtiesDetails = null;
+        if ($slug) {
+            $rtiesFirst = DB::table('dynamic_content_page_metatag')->where(['custom_slug' => $slug, 'soft_delete' => 0])->first();
+            $rtiesDetails = DB::table('dynamic_page_content')->where(['dcpm_id' => $rtiesFirst->uid, 'soft_delete' => 0])->first();
+        }else{
+            $rtiFirst = DB::table('dynamic_content_page_metatag')->where(['menu_slug' => 'rti', 'soft_delete' => 0])->first();
+            $rtiesDetails = DB::table('dynamic_page_content')->where(['dcpm_id' => $rtiFirst->uid, 'soft_delete' => 0])->first();
+        }
+        return view('pages.rti', ['title' => $title, 'rties' => $rties, 'rtiesDetails' => $rtiesDetails]);
     }
 
-    public function rtiFullDetail($uid)
+    /**
+     * rtiApplicationsResponse
+     *
+     * @return void
+     */
+    public function rtiApplicationsResponse(Request $request)
     {
-        $title = 'RTI Detail';
-        $rtiesDetails = DB::table('dynamic_page_content')->where(['dcpm_id' => $uid, 'soft_delete' => 0])->first();
-        if($rtiesDetails){
-            return view('pages.rti_detail', ['title' => $title,'rtiesDetails' => $rtiesDetails]);
-        }else{
-            return back()->with('message', 'Record Not Found');
+        $registrationNo = $request->input('registration_no');
+        $titleName = 'Rti Applications Response';
+        $result = DB::table('rti_application_responses')->where(['soft_delete' => 0]);
+        if (!empty($registrationNo)) {
+            $result->where('registration_number', 'like', '%' . $registrationNo . '%');
         }
-        
+        $rtiApplications = $result->get();
+        return view('pages.rti_applications_responses', ['title' => $titleName,'rtiApplications' => $rtiApplications]);
     }
 }

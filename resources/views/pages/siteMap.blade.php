@@ -103,6 +103,62 @@
                                                             </a>
                                                         @endif
                                                     </li>
+                                                    @if (isset($subMenus->children) && count($subMenus->children) > 0)
+                                                    <ul class="unorder-list pt-10 pl-15">
+                                                    @foreach ($subMenus->children as $ChildMenus)
+                                                    @php
+                                                        $ChildMenusurl = $ChildMenus->url ?? 'javascript:void(0)';
+                                                        $ChildMenusurlfixed = $ChildMenus->footer_url ?? 'javascript:void(0)';
+                                                    @endphp                                                
+                                                    @if (isset($ChildMenus->children) && count($ChildMenus->children) > 0)
+                                                        @if ($ChildMenus->tab_type == 1)
+                                                            <li class="env sub-menu-drop-g">
+                                                                <a href="{{ url($ChildMenusurlfixed) }}"
+                                                                    onclick="return confirm('{{ $alertMessage }}')"
+                                                                    target="_blank">
+                                                                    @if (Session::get('Lang') == 'hi')
+                                                                        {{ $ChildMenus->name_hi ?? '' }}
+                                                                    @else
+                                                                        {{ $ChildMenus->name_en ?? '' }}
+                                                                    @endif
+                                                                </a>
+                                                            @else
+                                                            <li class="env sub-menu-drop-g">
+                                                                <a href="{{ url($ChildMenusurlfixed) }}" class="sub-menu-drop-f">
+                                                                    @if (Session::get('Lang') == 'hi')
+                                                                        {{ $ChildMenus->name_hi ?? '' }}
+                                                                    @else
+                                                                        {{ $ChildMenus->name_en ?? '' }}
+                                                                    @endif
+                                                                </a>
+                                                        @endif
+                                                        </li>
+                                                    @else
+                                                        @if ($ChildMenus->tab_type == 1)
+                                                            <li class="remove-show-class">
+                                                                <a onclick="return confirm('{{ $alertMessage }}')"
+                                                                    target="_blank" href="{{ $ChildMenusurl ?? '' }}">
+                                                                    @if (Session::get('Lang') == 'hi')
+                                                                        {{ $ChildMenus->name_hi ?? '' }}
+                                                                    @else
+                                                                        {{ $ChildMenus->name_en ?? '' }}
+                                                                    @endif
+                                                                </a>
+                                                            </li>
+                                                        @else
+                                                            <li class="remove-show-class"><a
+                                                                    href="{{ url($url . '/' . $suburl . '/' . $ChildMenusurl) ?? '' }}">
+                                                                    @if (Session::get('Lang') == 'hi')
+                                                                        {{ $ChildMenus->name_hi ?? '' }}
+                                                                    @else
+                                                                        {{ $ChildMenus->name_en ?? '' }}
+                                                                    @endif
+                                                                </a></li>
+                                                        @endif
+                                                    @endif
+                                                @endforeach
+                                                            </ul>
+                                                @endif
                                                 @endforeach
                                             @else
                                                 <h5>No menu available.</h5>
