@@ -717,7 +717,7 @@ h3.sub-title.bold {
 	color: #bdb9b9;
 	margin-bottom: 7px;
 	display: flex;
-	align-items: center;
+	align-items: baseline;
 }
 
 .footer-top-wrapper ul li a {
@@ -2223,7 +2223,7 @@ ul{
 }
 
 p{
-	font-size: 90% !important;
+	font-size: 14px !important;
 }
 
 .h1, .h2, .h3, h1, h2, h3 {
@@ -2623,7 +2623,8 @@ table .multiple-pdf{
 }
 
 iframe#instagram-embed-0 {
-    min-width: 270px !important;
+	min-width: 256px !important;
+    max-width: 100% !important;
 }
 
 .env a:focus + .sng-env{

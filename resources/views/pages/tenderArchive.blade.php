@@ -105,10 +105,12 @@
                                                                 @endif
                                                             </td>
                                                             
-                                                            <td class=''>
+                                                           
+                                                            <td class='download'>
                                                                 @foreach ($data['tender_pdfs'] as $pdf)
-                                                                   <span class='multiple-pdf'> <a href="{{ asset('resources/uploads/TenderManagement/' . $pdf->public_url) }}"
+                                                                <a href="{{ asset('resources/uploads/TenderManagement/' . $pdf->public_url) }}"
                                                                         download>{{$pdf->pdf_title}}</a> <i class="fa fa-file-pdf-o text-danger"></i>
+                                                                   <span class='size'>
                                                                         ({{ $pdf->pdfimage_size ?? '' }})
                                                                     </span>
                                                                 @endforeach
@@ -147,10 +149,11 @@
                                                                     @endif
                                                                 </td>
 
-                                                                <td class=''>
-                                                                    <span class='multiple-pdf'> <a
+                                                                <td class='download'>
+                                                                <a
                                                                             download>View</a> <i
                                                                             class="fa fa-file-pdf-o text-danger"></i>
+                                                                    <span class='size'>
                                                                         ({{ $data->pdfimage_size ?? '' }})
                                                                     </span>
                                                                 </td>
