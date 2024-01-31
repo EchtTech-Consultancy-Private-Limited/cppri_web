@@ -1,3 +1,9 @@
+/* FOR SUBHEADING class is defined = .sub-heading */
+/* FOR SUB sub  HEADING class is defined = .sub-sub-heading*/
+
+
+
+
 :root {
     --pseudo-bordercolor: #1a4f91;
     --primary-color: #1a4f91;
@@ -3093,6 +3099,7 @@ a.portgolio-button:hover {
     padding: 10px 30px;
     border-radius: 50px;
     margin-top: 0;
+    font-weight: bold !important;
 }
 .text-slide,
 .text-slide01,
@@ -5286,7 +5293,7 @@ span#timeid p {
     margin-left: 0px;
 }
 .partition-bg-wrap.vision-mission ul {
-    margin-left: 5px !important;
+    margin-left: 0px !important;
 }
 .main-content ul ul {
     margin-top: 10px !important;
@@ -5539,6 +5546,9 @@ td.download span {
     font-size: 11px;
     color: #626262;
 }
+.download {
+    white-space: nowrap;
+}
 td.download i,
 td.download a {
     padding-right: 5px;
@@ -5664,8 +5674,9 @@ div#flexSlider .flex-direction-nav {
     width: 309px;
 }
 .sub-heading {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
+   
 }
 
 .organization-structure tr td:nth-child(2){
@@ -5679,5 +5690,20 @@ div#flexSlider .flex-direction-nav {
 
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active{
+    cursor: default;
     color: #fff !important;
+    border: 1px solid #425974 !important;
+    box-shadow: none;
+    background: #425974 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+    background-color: #1A4F91 !important;
+    color: #fff !important;
+}
+
+.sub-sub-heading {
+    font-size: 16px;
+    font-weight: 600;
+    color: #49aa41;
 }

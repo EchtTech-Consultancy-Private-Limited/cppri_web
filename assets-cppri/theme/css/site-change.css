@@ -573,3 +573,20 @@ td.download span {
 table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>th.sorting_asc, table.dataTable thead>tr>th.sorting_desc, table.dataTable thead>tr>th.sorting_asc_disabled, table.dataTable thead>tr>th.sorting_desc_disabled, table.dataTable thead>tr>td.sorting, table.dataTable thead>tr>td.sorting_asc, table.dataTable thead>tr>td.sorting_desc, table.dataTable thead>tr>td.sorting_asc_disabled, table.dataTable thead>tr>td.sorting_desc_disabled {
     border-bottom: 1px solid #ddd;
 }
+
+.main-sidebar .sl-accordion:has(.show){
+    border: 1px solid #fff !important;
+}
+
+.main-sidebar ul li:last-child {
+    border-bottom: 1px solid #fff !important;
+}
+
+.btn.btn-primary {
+    background: #000 !important;
+    border: 1px solid #fff !important;
+}
+
+.btn:hover{
+    color: #000;
+}

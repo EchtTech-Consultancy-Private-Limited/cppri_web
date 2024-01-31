@@ -2247,7 +2247,7 @@
 	}
 	.banner-wrapper .flexslider .slides img {
 		height: 550px !important;
-		object-fit: cover;
+		/* object-fit: cover; */
 	}
 }
 @media(min-width:1400px) and (max-width:1599px) {
@@ -2264,7 +2264,7 @@
 		height: 390px;
 	}
 	.banner-wrapper .flexslider .slides img {
-		object-fit: cover;
+		/* object-fit: cover; */
 		height: 390px;
 	}
 }

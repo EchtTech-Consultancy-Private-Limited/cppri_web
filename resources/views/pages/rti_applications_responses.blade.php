@@ -45,7 +45,7 @@
                         {{-- <form action="{{route('rti-applications-responses-filter')}}" method="post" id="myform" enctype="multipart/form-data">
                             @csrf
                             <div class="row my-3">
-                                <div class="col-md-4">
+                                <div class="col-md-4 px-0">
                                     <label for="exampleDataList" class="form-label">Registration No.</label>
                                     <input type="text" class="form-control" name="registration_no" id="registration_no">
                                 </div>

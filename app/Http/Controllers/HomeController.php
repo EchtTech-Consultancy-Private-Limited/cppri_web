@@ -866,6 +866,12 @@ class HomeController extends Controller
         return view('pages.press_relesead', ['title' => $title,'pressReleaseds' => $pressReleaseds]);
     }
     
+    public function rtiApplicationsResponseTable()
+    {
+        
+        return view('pages.rti_application_response_table', ['title' => $title,'rti-applications-responses-table' => $pressReleaseds]);
+    }
+    
     /**
      * rtiDetail
      *
