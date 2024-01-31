@@ -58,27 +58,27 @@
                                 $title_en = $news_managements->title_name_en ?? '';
                                 @endphp
                                 @if ($news_managements->tab_type == '1')
-                                @if (!empty($url))
-                                <a href="{{ url($url) ??'' }}" class="me-3" onclick="return confirm('{{ $alertMessage  ??''}}')"
-                                    target="_blank">
+                                    @if (!empty($url))
+                                    <a href="{{ url($url) ??'' }}" target="_blank" class="me-3" onclick="return confirm('{{ $alertMessage  ??''}}')"
+                                        target="_blank">
 
-                                    @if (Session::get('Lang') == 'hi')
-                                    {{ $title_hi ?? '' }}
-                                    @else
-                                    {{ $title_en ?? '' }}
+                                        @if (Session::get('Lang') == 'hi')
+                                        {{ $title_hi ?? '' }}
+                                        @else
+                                        {{ $title_en ?? '' }}
+                                        @endif
+                                    </a>
                                     @endif
-                                </a>
-                                @endif
                                 @else
-                                @if (!empty($url))
-                                <a href="{{ $url  ??'' }}" class="me-3">
-                                    @if (Session::get('Lang') == 'hi')
-                                    {{ $title_hi ?? '' }}
-                                    @else
-                                    {{ $title_en ?? '' }}
+                                    @if (!empty($url))
+                                    <a href="{{ $url  ??'' }}" target="_blank" class="me-3">
+                                        @if (Session::get('Lang') == 'hi')
+                                        {{ $title_hi ?? '' }}
+                                        @else
+                                        {{ $title_en ?? '' }}
+                                        @endif
+                                    </a>
                                     @endif
-                                </a>
-                                @endif
                                 @endif
                             </span>
                             @endforeach

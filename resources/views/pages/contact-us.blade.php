@@ -93,7 +93,7 @@
 
             <div id="datatable">
 
-                <h3 class="master-title mt-20 text-center mb-3">
+                <h3 class="dir-dsk-title master-title mt-20 text-center mb-3">
                     @if (Session::get('Lang') == 'hi')
                     {{ __('messages.Employee_Details') }}
                     @else

@@ -61,54 +61,86 @@
             </ul>
         </div>
     </div>
-</div>
-<div class="wrapper" id="skipCont"></div>
-<div class="sidebar-main-nav ptb-50">
-    <div class="container common-container pr-0">
-        <!--/.nav-wrapper-->
-        <div class="row pr-0">
-
-            <div class="main-content">
-                <!--/#skipCont-->
-                <div id="fontSize" class="wrapper body-wrapper ">
-                    <!--/#page-head-->
-                    <section id="paragraph" class="wrapper paragraph-wrapper">
-                        <div class="container common-container four_content pm-0 position-relative">
-                            <div class="d-inline float-end mb-2">
-                                <a href="#" title=" Purchase Works Committee" class="btn btn-primary" tabindex="0"> RTI
-                                    Application & Responses</a>
-                            </div>
-                            @if(session('message'))
-                            <div class="alert alert-success">
-                                {{ session('message') }}
-                            </div>
-                            @endif
-                            <div class="align-lt">
-                                @if (isset($rties) && !blank($rties))
-                                <ol type="I">
-                                    @foreach($rties as $rti)
-                                    <li>
-                                        <a href="{{ route('rti-detail', $rti->uid) }}">
-                                            @if (Session::get('Lang') == 'hi')
+    <div class="wrapper" id="skipCont"></div>
+    <div class="sidebar-main-nav ptb-50 rti" id="mainsidebar">
+        <div class="container common-container pr-0">
+            <!--/.nav-wrapper-->
+            @if (isset($rties) && !blank($rties) && isset($rtiesDetails) && !blank($rtiesDetails))
+            <div class="row pr-0">
+                <div class="col-md-3 sidebar-main-nav-colmd3 position-relative">
+    
+                    <div class="main-sidebar" id="main-sidebar">
+                        <ul>
+                            @if (isset($rties) && !blank($rties))
+                            @foreach($rties as $rti)
+                            <li class="{{ Request::fullUrl() == route('rti-data', $rti->custom_slug) ? 'qm-active' : '' }}">
+                                <div class="list-start">
+                                    <a href="{{ route('rti-data', $rti->custom_slug) }}" class="nav-link" tabindex="0">
+                                        @if (Session::get('Lang') == 'hi')
                                             {{ $rti->page_title_hi ?? '' }}
-                                            @else
+                                        @else
                                             {{ $rti->page_title_en ?? '' }}
-                                            @endif
-                                        </a>
-                                    </li>
-                                    @endforeach
-                                </ol>
-                                @endif
-
-                            </div>
+                                        @endif
+                                    </a>
+                                </div>
+                            </li>
+                            @endforeach                        
+                            @endif
+                        </ul>                        
+                    </div>
+                    <br>
+                    <button class="btn btn-primary"><a class="text-white" href="{{ route('rti-applications-responses') }}">RTI Application & Responses</a></button>
+                </div>
+    
+    
+    
+                <div class="col-md-9 m-p-0">   
+                    <div class="main-content ditiector-desk">
+                        <!--/#skipCont-->
+                        <div id="fontSize" class="wrapper body-wrapper " style="font-size: 100%;">
+    
+                            <section id="paragraph" class="wrapper paragraph-wrapper">
+                                <div class="container common-container four_content pm-0">
+                                    <div class="align-lt">
+                                        <!-- <h2 class="mt-0 mb-20" tabindex="0">
+                                            RTI Application & Responses
+                                        </h2> -->
+    
+                                        <p tabindex="0">
+                                        </p>
+                                       
+    
+                                    </div>
+    
+                                    <!-- Organisation and Function -->
+    
+                                    <div class="align-lt">
+                                        {{-- <h2 class="mt-0 mb-20" tabindex="0">
+                                            Organisation and Function
+                                        </h2> --}}
+    
+                                        {{-- <p tabindex="0"></p> --}}
+                                        <section id="paragraph" class="wrapper paragraph-wrapper">
+                                            <div class=" common-container four_content">
+                                                @if (isset($rtiesDetails) && !blank($rtiesDetails))
+                                                @if (Session::get('Lang') == 'hi')
+                                                    {!! $rtiesDetails->page_content_hi !!}
+                                                @else
+                                                    {!! $rtiesDetails->page_content_en ?? '' !!}
+                                                @endif
+                                                @endif
+                                            </div>
+                                        </section>    
+                                    </div>
+                                </div>
+                            </section>
                         </div>
-                    </section>
-
+                    </div>
                 </div>
             </div>
+            @else
+            <h1>No Record Found !</h1>
+            @endif
         </div>
     </div>
-</div>
-</div>
-
 @endsection

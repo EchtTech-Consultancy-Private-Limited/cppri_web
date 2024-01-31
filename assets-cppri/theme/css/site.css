@@ -2480,7 +2480,7 @@ h2 {
     padding-bottom: 0px !important;
     font-weight: 700 !important;
     clear: both;
-    text-transform: uppercase !important;
+    /* text-transform: uppercase !important; */
     font-size: 22px !important;
     color: #026aa1;
     font-weight: 600 !important;

@@ -2159,6 +2159,10 @@ ul{
     margin-bottom: 10px !important;
 }
 
+.pl-15{
+	padding-left: 15px !important;
+}
+
 .main-sidebar .accordion-item{
 	background-color: inherit !important;
 	width: 100%;

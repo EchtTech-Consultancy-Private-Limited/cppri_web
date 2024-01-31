@@ -87,34 +87,6 @@
                                                                 @endif
                                                             </a>
                                                     @endif
-{{-- 
-                                                    <ul class="sub-nav-group sng-env fl_sng_env">
-                                                        @foreach ($ChildMenus->children as $subChildMenus)
-                                                            @php
-                                                                $subChildurl = $subChildMenus->url ?? 'javascript:void(0)';
-                                                            @endphp
-                                                            @if ($subChildMenus->tab_type == 1)
-                                                                <li><a href="{{ $subChildurl ?? '' }}">
-                                                                        @if (Session::get('Lang') == 'hi')
-                                                                            {{ $subChildMenus->name_hi ?? '' }}
-                                                                        @else
-                                                                            {{ $subChildMenus->name_en ?? '' }}
-                                                                        @endif
-                                                                    </a>
-                                                                </li>
-                                                            @else
-                                                                <li><a
-                                                                        href="{{ url($url . '/' . $subMenusurl . '/' . $ChildMenusurl . '/' . $subChildurl) ?? '' }}">
-                                                                        @if (Session::get('Lang') == 'hi')
-                                                                            {{ $subChildMenus->name_hi ?? '' }}
-                                                                        @else
-                                                                            {{ $subChildMenus->name_en ?? '' }}
-                                                                        @endif
-                                                                    </a>
-                                                                </li>
-                                                            @endif
-                                                        @endforeach
-                                                    </ul> --}}
                                                     </li>
                                                 @else
                                                     @if ($ChildMenus->tab_type == 1)

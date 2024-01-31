@@ -21,7 +21,7 @@
         <div class="inner-banner-text">
             <div class="text-banner-content">
                 <h2>
-                    {{ ucfirst(strtolower($title_name)) ?? '' }}
+                    {{ $title_name ?? '' }}
                 </h2>
             </div>
         </div>
@@ -48,7 +48,7 @@
                 @endif
 
                 @if (isset($middelBred))
-                <li><a>{{ $middelBred ?? '' }}</a></li>
+                <li><a>{{ ucfirst(strtolower($middelBred)) ?? '' }}</a></li>
                 @endif
 
                 <li>{{ $title_name ?? '' }}</li>
