@@ -44,11 +44,11 @@ class HomeController extends Controller
             foreach ($career as $careerItem) {
                 $career_pdfs = DB::table('career_management_details')
                     ->where('soft_delete', 0)
+                    ->orderBy('created_at','asc')
                     ->where('career_management_id', $careerItem->uid)
-                    ->whereDate('archivel_date', '>', now()->toDateString())
+                    ->whereDate('archivel_date', '>=', now()->toDateString())
                     ->latest('created_at')
                     ->get();
-
 
                 if (count($career_pdfs) > 0) {
                     $careerData[] = [
@@ -57,7 +57,6 @@ class HomeController extends Controller
                     ];
                 }
             }
-            //dd($careerData);
             return view('pages.career', ['title' => $titleName, 'careerData' => $careerData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
@@ -80,14 +79,17 @@ class HomeController extends Controller
 
             $career = DB::table('career_management')
                 ->where('soft_delete', 0)
+                ->orderBy('created_at', 'asc')
                 ->latest('created_at')
                 ->get();
 
             $careerData = [];
 
+            
             foreach ($career as $careerItem) {
                 $career_pdfs = DB::table('career_management_details')
                     ->where('soft_delete', 0)
+                    ->orderBy('created_at', 'asc')
                     ->where('career_management_id', $careerItem->uid)
                     ->whereDate('archivel_date', '<', now()->toDateString())
                     ->latest('created_at')
@@ -101,7 +103,6 @@ class HomeController extends Controller
                     ];
                 }
             }
-
             return view('pages.careerArchive', ['title' => $titleName, 'careerData' => $careerData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
@@ -125,8 +126,9 @@ class HomeController extends Controller
 
             $tenders = DB::table('tender_management')
                 ->where('soft_delete', 0)
+                ->orderBy('created_at', 'asc')
                 ->latest('created_at')
-                // ->whereDate('archivel_date', '>', now()->toDateString()) 
+                // ->whereDate('archivel_date', '>=', now()->toDateString())
                 ->get();
 
             // dd($tenders);
@@ -135,8 +137,9 @@ class HomeController extends Controller
                 foreach ($tenders as $tender) {
                     $tender_pdfs = DB::table('tender_details')
                         ->where('soft_delete', 0)
+                        ->orderBy('created_at', 'asc')
                         ->where('tender_id', $tender->uid)
-                        ->whereDate('archivel_date', '>', now()->toDateString())
+                        ->whereDate('archivel_date', '>=', now()->toDateString())
                         ->latest('created_at')
                         ->get();
 
@@ -474,6 +477,7 @@ class HomeController extends Controller
                 $dynamic_content_page_metatag = DB::table('dynamic_content_page_metatag')
                     ->where('soft_delete', 0)
                     ->where('menu_uid', $menus->uid)
+                    ->orderBy('created_at', 'asc')
                     ->orderBy('sort_order', 'ASC')
                     ->get();
 
@@ -831,6 +835,7 @@ class HomeController extends Controller
         }
         $purchaseWorksCommittes = $result->get();
         $purchaseWorksCommittesTypes = DB::table('purchase_works_committees_type')
+                                        ->orderBy('created_at', 'asc')
                                         ->where('soft_delete', 0)->get();
         return view('pages.purchase_works_committee', ['title' => $titleName,'purchaseWorksCommittes' => $purchaseWorksCommittes,'purchaseWorksCommittesTypes' => $purchaseWorksCommittesTypes,'selectedWorkType' => $workType,
         'selectedYear' => $startDate]);
@@ -872,10 +877,11 @@ class HomeController extends Controller
         $rtiesDetails = null;
         if ($slug) {
             $rtiesFirst = DB::table('dynamic_content_page_metatag')->where(['custom_slug' => $slug, 'soft_delete' => 0])->first();
-            $rtiesDetails = DB::table('dynamic_page_content')->where(['dcpm_id' => $rtiesFirst->uid, 'soft_delete' => 0])->first();
         }else{
-            $rtiFirst = DB::table('dynamic_content_page_metatag')->where(['menu_slug' => 'rti', 'soft_delete' => 0])->first();
-            $rtiesDetails = DB::table('dynamic_page_content')->where(['dcpm_id' => $rtiFirst->uid, 'soft_delete' => 0])->first();
+            $rtiesFirst = DB::table('dynamic_content_page_metatag')->where(['menu_slug' => 'rti', 'soft_delete' => 0])->first();
+        }
+        if($rtiesFirst){
+            $rtiesDetails = DB::table('dynamic_page_content')->where(['dcpm_id' => $rtiesFirst->uid, 'soft_delete' => 0])->first();
         }
         return view('pages.rti', ['title' => $title, 'rties' => $rties, 'rtiesDetails' => $rtiesDetails]);
     }
@@ -889,7 +895,9 @@ class HomeController extends Controller
     {
         $registrationNo = $request->input('registration_no');
         $titleName = 'Rti Applications Response';
-        $result = DB::table('rti_application_responses')->where(['soft_delete' => 0]);
+        $result = DB::table('rti_application_responses')
+                    ->orderBy('created_at', 'asc')
+                    ->where(['soft_delete' => 0]);
         if (!empty($registrationNo)) {
             $result->where('registration_number', 'like', '%' . $registrationNo . '%');
         }

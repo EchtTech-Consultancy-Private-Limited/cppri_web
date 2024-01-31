@@ -65,6 +65,7 @@
     <div class="sidebar-main-nav ptb-50 rti" id="mainsidebar">
         <div class="container common-container pr-0">
             <!--/.nav-wrapper-->
+            @if (isset($rties) && !blank($rties) && isset($rtiesDetails) && !blank($rtiesDetails))
             <div class="row pr-0">
                 <div class="col-md-3 sidebar-main-nav-colmd3 position-relative">
     
@@ -137,6 +138,9 @@
                     </div>
                 </div>
             </div>
+            @else
+            <h1>No Record Found !</h1>
+            @endif
         </div>
     </div>
 @endsection

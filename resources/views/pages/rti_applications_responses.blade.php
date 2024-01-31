@@ -100,15 +100,15 @@
                                                 content="2020-10-29T00:00:00+05:30"> {{ date("d-m-Y",strtotime($rtiApplication->start_date)) }}</span>
                                         </td>
 
-                                        <td class="views-field views-field-field-amount-rs-">
+                                        <td class="views-field views-field-field-amount-rs- download">
                                             <a href="{{ asset('resources/uploads/RtiApplicationResponses/' . $rtiApplication->request_document) }}" download="" tabindex="0">
-                                                {!! $rtiApplication->request_document ? 'Download <i class="fa fa-file-pdf-o text-danger"></i> ' . $rtiApplication->request_doc_pdfimage_size : 'N/A' !!}
-                                            </a>
+                                                {!! $rtiApplication->request_document ? 'View' : 'N/A' !!}
+                                            </a><i class="fa fa-file-pdf-o text-danger"></i> <span class="size">({{  $rtiApplication->reply_doc_pdfimage_size }})</span>
                                         </td>
-                                        <td class="views-field views-field-field-select-type">
+                                        <td class="views-field views-field-field-select-type download">
                                             <a href="{{ asset('resources/uploads/RtiApplicationResponses/' . $rtiApplication->reply_document) }}" download="" tabindex="0">
-                                                {!! $rtiApplication->reply_document ? 'Download <i class="fa fa-file-pdf-o text-danger"></i> ' . $rtiApplication->reply_doc_pdfimage_size : 'N/A' !!}
-                                            </a>
+                                                {!! $rtiApplication->reply_document ? 'View' : 'N/A' !!}
+                                            </a><i class="fa fa-file-pdf-o text-danger"></i> <span class="size">({{  $rtiApplication->reply_doc_pdfimage_size }})</span>
                                             
                                         </td>
                                     </tr>
