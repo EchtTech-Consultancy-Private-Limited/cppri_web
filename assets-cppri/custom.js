@@ -517,7 +517,7 @@ $(document).ready(function () {
 // media query 
 $('.latest_news_marquee').marquee({
     speed: 5000,
-    gap: 50,
+    gap: 5,
     delayBeforeStart: 0,
     direction: 'left',
     duplicated: true,
