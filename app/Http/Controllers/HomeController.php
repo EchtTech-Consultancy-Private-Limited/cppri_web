@@ -895,7 +895,7 @@ class HomeController extends Controller
     public function rtiApplicationsResponse(Request $request)
     {
         $registrationNo = $request->input('registration_no');
-        $titleName = 'Rti Applications Response';
+        $titleName = 'RTI Applications Response';
         $result = DB::table('rti_application_responses')
                     ->orderBy('created_at', 'asc')
                     ->where(['soft_delete' => 0]);
