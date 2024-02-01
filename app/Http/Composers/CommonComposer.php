@@ -53,7 +53,7 @@ class CommonComposer
                                 ->latest('tender_management.created_at')
                                 ->latest('tender_details.created_at')
                                 ->select('tender_management.*')
-                                ->get();           
+                                ->get();
             $image_management = DB::table('gallery_management')->where('type', 0)->where('soft_delete', 0)->latest('created_at')->first();
             if (isset($image_management) && isset($image_management->uid)) {
                 $image_gallery_details = DB::table('gallery_details')->where('gallery_id', $image_management->uid)->where('soft_delete', 0)->get();
