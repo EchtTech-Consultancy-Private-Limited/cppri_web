@@ -9,7 +9,7 @@
         <div class="inner-banner-text">
             <div class="text-banner-content">
                 <h2>
-                   {{ ucfirst(strtolower($title)) ?? '' }}
+                   {{ $title ?? '' }}
                 </h2>
             </div>
         </div>
@@ -26,7 +26,7 @@
                     Home
                     @endif
                 </a></li>
-                <li><a href="javascript:void();">{{ ucfirst(strtolower($title)) ?? '' }}</a></li>
+                <li><a href="javascript:void();">{{ $title ?? '' }}</a></li>
 
             </ul>
         </div>
@@ -41,11 +41,11 @@
                 <section id="fontSize" class="wrapper body-wrapper ">
                     <section id="paragraph" class="wrapper paragraph-wrapper">
                         <div class=" common-container four_content my-4">
-                            <h3 class="dir-dsk-title mt-3">Rti Applications Response </h3>
-                        <form action="{{route('rti-applications-responses-filter')}}" method="post" id="myform" enctype="multipart/form-data">
+                            <h3 class="dir-dsk-title mt-3">RTI Applications Response </h3>
+                        {{-- <form action="{{route('rti-applications-responses-filter')}}" method="post" id="myform" enctype="multipart/form-data">
                             @csrf
                             <div class="row my-3">
-                                <div class="col-md-4">
+                                <div class="col-md-4 px-0">
                                     <label for="exampleDataList" class="form-label">Registration No.</label>
                                     <input type="text" class="form-control" name="registration_no" id="registration_no">
                                 </div>
@@ -54,7 +54,7 @@
                                     <button type="submit" class="btn btn-primary"> Apply</button>
                                 </div>
                             </div>
-                        </form>
+                        </form> --}}
 
                             <table class="views-table" id="example">
                                 <thead>
@@ -100,15 +100,15 @@
                                                 content="2020-10-29T00:00:00+05:30"> {{ date("d-m-Y",strtotime($rtiApplication->start_date)) }}</span>
                                         </td>
 
-                                        <td class="views-field views-field-field-amount-rs-">
+                                        <td class="views-field views-field-field-amount-rs- download">
                                             <a href="{{ asset('resources/uploads/RtiApplicationResponses/' . $rtiApplication->request_document) }}" download="" tabindex="0">
-                                                {!! $rtiApplication->request_document ? 'Download <i class="fa fa-file-pdf-o text-danger"></i> ' . $rtiApplication->request_doc_pdfimage_size : 'N/A' !!}
-                                            </a>
+                                                {!! $rtiApplication->request_document ? 'View' : 'N/A' !!}
+                                            </a><i class="fa fa-file-pdf-o text-danger"></i> <span class="size">({{  $rtiApplication->reply_doc_pdfimage_size }})</span>
                                         </td>
-                                        <td class="views-field views-field-field-select-type">
+                                        <td class="views-field views-field-field-select-type download">
                                             <a href="{{ asset('resources/uploads/RtiApplicationResponses/' . $rtiApplication->reply_document) }}" download="" tabindex="0">
-                                                {!! $rtiApplication->reply_document ? 'Download <i class="fa fa-file-pdf-o text-danger"></i> ' . $rtiApplication->reply_doc_pdfimage_size : 'N/A' !!}
-                                            </a>
+                                                {!! $rtiApplication->reply_document ? 'View' : 'N/A' !!}
+                                            </a><i class="fa fa-file-pdf-o text-danger"></i> <span class="size">({{  $rtiApplication->reply_doc_pdfimage_size }})</span>
                                             
                                         </td>
                                     </tr>

@@ -58,32 +58,32 @@
                                 $title_en = $news_managements->title_name_en ?? '';
                                 @endphp
                                 @if ($news_managements->tab_type == '1')
-                                @if (!empty($url))
-                                <a href="{{ url($url) ??'' }}" class="me-3" onclick="return confirm('{{ $alertMessage  ??''}}')"
-                                    target="_blank">
+                                    @if (!empty($url))
+                                    <a href="{{ url($url) ??'' }}" target="_blank" class="me-3" onclick="return confirm('{{ $alertMessage  ??''}}')"
+                                        target="_blank">
 
-                                    @if (Session::get('Lang') == 'hi')
-                                    {{ $title_hi ?? '' }}
-                                    @else
-                                    {{ $title_en ?? '' }}
+                                        @if (Session::get('Lang') == 'hi')
+                                        {{ $title_hi ?? '' }}
+                                        @else
+                                        {{ $title_en ?? '' }}
+                                        @endif
+                                    </a>
                                     @endif
-                                </a>
-                                @endif
                                 @else
-                                @if (!empty($url))
-                                <a href="{{ $url  ??'' }}" class="me-3">
-                                    @if (Session::get('Lang') == 'hi')
-                                    {{ $title_hi ?? '' }}
-                                    @else
-                                    {{ $title_en ?? '' }}
+                                    @if (!empty($url))
+                                    <a href="{{ $url  ??'' }}" target="_blank" class="me-3">
+                                        @if (Session::get('Lang') == 'hi')
+                                        {{ $title_hi ?? '' }}
+                                        @else
+                                        {{ $title_en ?? '' }}
+                                        @endif
+                                    </a>
                                     @endif
-                                </a>
-                                @endif
                                 @endif
                             </span>
                             @endforeach
                             @else
-                            <h5>No news available.</h5>
+                            <h5>Coming Soon...</h5>
                             @endif
                         </div>
                     </div>
@@ -408,7 +408,7 @@
             <img src="{{ asset('assets-cppri/images/press-release.png') }}" class="h-100 w-100" alt="background image">
         </div>
         <div
-            class="container common-container four_content banner-container body-container top-body-container pe-lg-0 z-index-2">
+            class="container common-container four_content banner-container body-container top-body-container  z-index-2">
             <div class="left-block   ">
                 <div class="row py-md-5 py-0 px-0">
 
@@ -418,7 +418,7 @@
                             <div class="page-tab-res clearfix">
                                 <div>
                                     <ul class="resp-tabs-list hor_1 change-color-code">
-                                        <li class="border-l change-border-color-text"><a href="javascript:viod(0)"
+                                        <li class="border-l change-border-color-text resp-tab-item hor_1 resp-tab-active"><a href="javascript:viod(0)"
                                                  class="change-text-color">
                                                 @if (Session::get('Lang') == 'hi')
                                                 {{ __('messages.Notification') }}
@@ -460,7 +460,7 @@
                                                         </li>
                                                         @endforeach
                                                         @else
-                                                        <li class="list-unstyled border-0">No notifications available.</li>
+                                                        <li class="list-unstyled border-0">Coming Soon...</li>
                                                         @endif
                                                         {{-- <li>
                                                             <div class="list-content">
@@ -554,7 +554,7 @@
                                                         </li>
                                                         @endforeach
                                                         @else
-                                                        <li class="border-0 list-unstyled">No press releases available.</li>
+                                                        <li class="border-0 list-unstyled">Coming Soon...</li>
                                                         @endif
                                                         {{-- <li>
                                                             <div class="list-content">Description of Press Release 1
@@ -599,7 +599,7 @@
                     <div class="left-col-2">
                         <div class="box-bg-color change-color-code">
                             <div class="tender">
-                                <h2 class="change-border-color-text">
+                                <h2 class="change-border-color-text fw-bold text-uppercase">
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Tender') }}
                                     @else
@@ -647,7 +647,7 @@
                                         <div class="date">
                                             <span>{{ \Carbon\Carbon::now()->format('d') }}</span><em>{{ \Carbon\Carbon::now()->format('M Y') }}</em>
                                         </div>
-                                        <div class="list-content">No Tender available
+                                        <div class="list-content">Coming Soon...
                                         </div>
                                     </li>
                                     @endif
@@ -722,7 +722,7 @@
                                 <div class="new-txt">
                                     <h6><a href="{{url('academic-program')}}">Training Program</a></h6>
                                     <span class="duration">Duration- Depends on program stream </span>
-                                    <p> Implementing a comprehensive and well-structured training program is essential for fostering optimal learning and skill development among...
+                                    <p> Implementing a comprehensive and well-structured training program is essential for fostering optimal ...
                                     </p>
                                     <a class="button change-text-color" href="{{url('training-programs/training-calendar')}}">More Details
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
@@ -989,13 +989,13 @@
                             @endforeach
                         </ul>
                         @else
-                        <p class="p-item-center">No images found in the gallery.</p>
+                        <p class="p-item-center">Coming Soon...</p>
                         @endif
                     </div>
                 </div>
             </div>
             @else
-            <p>No Image gallery management data found.</p>
+            <p>Coming Soon...</p>
             @endif
             @if (isset($video_management) && $video_management !== '' && $video_management !== null)
             <div class="gallery-right">
@@ -1020,12 +1020,12 @@
                         <span>Your browser does not support HTML5 video.</span>
                     </video>
                     @else
-                    <p class="p-item-center text-white">No Video found in the gallery.</p>
+                    <p class="p-item-center text-white">Coming Soon...</p>
                     @endif
                 </div>
             </div>
             @else
-            <p>No Video gallery management data found.</p>
+            <p>Coming Soon...</p>
             @endif
         </div>
     </div>

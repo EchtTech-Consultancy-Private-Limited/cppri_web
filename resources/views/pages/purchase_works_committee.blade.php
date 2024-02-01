@@ -76,7 +76,7 @@
                                 </div>
 
                                 <div class="col-md-3 d-flex align-items-end py-md-0 py-3">
-                                    <button type="submit" class="btn btn-primary"> Apply</button>
+                                    <button type="submit" class=" btn-primary"> Apply</button>
                                 </div>
                             </div>
                         </form>
