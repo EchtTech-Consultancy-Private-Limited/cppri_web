@@ -195,6 +195,10 @@
 	}
 }
 @media all and (max-width: 960px) {
+
+	.main-menu ul > li:last-child {
+		margin-right: 8px !important;
+	}
 	.nav-menu {
 		display: block !important;
 	}
@@ -526,6 +530,9 @@
 	}
 }
 @media screen and (max-width: 768px) {
+	.env:hover .sng-env {
+    position: static;
+}
 	.img-box-overview {
 		width: 234px;
 		margin: auto;
@@ -1560,7 +1567,7 @@
 		padding: 5px;
 	}
 	.left-block .left-col-2:nth-child(1) h2 {
-		display: none;
+		/* display: none; */
 	}
 	/* 
 	section.latest-news .col-md-2 {

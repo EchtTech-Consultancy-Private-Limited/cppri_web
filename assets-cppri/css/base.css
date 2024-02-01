@@ -1089,7 +1089,7 @@ th {
 	}
 
 	div#example_filter {
-		width: 65%;
+		/* width: 65%; */
 		/* float: left !important; */
 		text-align: right;
 	}
