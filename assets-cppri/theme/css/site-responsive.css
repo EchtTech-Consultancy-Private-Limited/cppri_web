@@ -530,6 +530,20 @@
 	}
 }
 @media screen and (max-width: 768px) {
+	.clientail .flexslider:hover .flex-direction-nav .flex-prev, .clientail .flexslider:hover .flex-direction-nav .flex-next, .carousel-wrapper.clientail #flexCarousel ul.flex-direction-nav li a:focus{
+		top: 0px !important;
+		margin: 0;
+		height: 25px;
+		
+	}
+
+	.flexslider:hover .flex-direction-nav .flex-prev {
+		left: -15px !important;
+	}
+
+	.clientail .flexslider:hover .flex-direction-nav .flex-next{
+		right: -20px !important;
+	}
 	.env:hover .sng-env {
     position: static;
 }
