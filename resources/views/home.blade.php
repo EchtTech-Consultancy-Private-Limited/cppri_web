@@ -419,7 +419,7 @@
                                 <div>
                                     <ul class="resp-tabs-list hor_1 change-color-code">
                                         <li class="border-l change-border-color-text resp-tab-item hor_1 resp-tab-active"><a href="javascript:viod(0)"
-                                                 class="change-text-color">
+                                                 class="change-text-color pe-none">
                                                 @if (Session::get('Lang') == 'hi')
                                                 {{ __('messages.Notification') }}
                                                 @else
@@ -508,7 +508,7 @@
                                     <ul class="resp-tabs-list hor_1 change-color-code">
                                         <li
                                             class="border-l resp-tab-item hor_1 resp-tab-active change-border-color-text">
-                                            <a href="javascript:viod(0)"  class="change-text-color">
+                                            <a href="javascript:viod(0)"  class="change-text-color pe-none">
                                                 @if (Session::get('Lang') == 'hi')
                                                 {{ __('messages.Press_Release') }}
                                                 @else
