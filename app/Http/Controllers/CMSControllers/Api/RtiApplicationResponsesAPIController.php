@@ -60,9 +60,9 @@ class RtiApplicationResponsesAPIController extends Controller
     {
         
         //if(config('checkduplicate.mobile') == 'ON'){
-            //$exitValue = RtiApplicationResponses::where('registration_number', $request->registration_number)->count() > 0;
+            $exitValue = RtiApplicationResponses::where('registration_number', $request->registration_number)->count() > 0;
         //}else{
-            $exitValue ='true';
+           // $exitValue ='true';
        // }
         // $max_size = $document->getMaxFileSize() / 1024 / 1024;
          if($exitValue == 'false'){
