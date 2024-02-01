@@ -79,7 +79,9 @@
                                                             <th>Submission Date</th>
                                                             <th>Opening Date</th>
                                                             <th> Related Documents</th>
-                                                            <th>Apply Here</th>
+                                                            @if(isset($applyUrl)) 
+                                                                <th>Apply Here</th>
+                                                            @endif
                                                         </tr>
                                                     </thead>
 
@@ -112,15 +114,14 @@
                                                                         download>{{$pdf->pdf_title}}</a> <i class="fa fa-file-pdf-o text-danger"></i>
                                                                    <span class='size'>
                                                                         ({{ $pdf->pdfimage_size ?? '' }})
-                                                                    </span>
+                                                                    </span><br>
                                                                 @endforeach
                                                             </td>
-                                                           
-                                                                <td>
-                                                                    @if($data['tender']->apply_url !='')
-                                                                    <a href="{{ $data['tender']->apply_url ?? '' }}"></a>
-                                                                    @endif
+                                                            @if(isset($applyUrl))
+                                                                <td>                                                       
+                                                                    <a href="{{ $data['tender']->apply_url ?? '' }}">{{ $data['tender']->apply_url ?? '' }}</a>
                                                                 </td>
+                                                            @endif
                                                            
 
                                                         </tr>

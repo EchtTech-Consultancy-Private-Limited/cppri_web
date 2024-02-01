@@ -32,31 +32,18 @@ class HomeController extends Controller
         $titleName = 'Career';
 
         try {
-            $careerData = [];
-
-            $career = DB::table('career_management')
-                ->where('soft_delete', 0)
-                ->latest('created_at')
-                ->get();
-
-            $careerData = [];
-
-            foreach ($career as $careerItem) {
-                $career_pdfs = DB::table('career_management_details')
-                    ->where('soft_delete', 0)
-                    ->orderBy('created_at','asc')
-                    ->where('career_management_id', $careerItem->uid)
-                    ->whereDate('archivel_date', '>=', now()->toDateString())
-                    ->latest('created_at')
-                    ->get();
-
-                if (count($career_pdfs) > 0) {
-                    $careerData[] = [
-                        'career' => $careerItem,
-                        'career_pdfs' => $career_pdfs
-                    ];
-                }
-            }
+            $careerData = DB::table('career_management')
+            ->select('career_management.*', 'career_management_details.*')
+            ->leftJoin('career_management_details', function ($join) {
+                $join->on('career_management.uid', '=', 'career_management_details.career_management_id')
+                    ->where('career_management_details.soft_delete', 0)
+                    ->whereDate('career_management_details.archivel_date', '>=', now()->toDateString());
+            })
+            ->where('career_management.soft_delete', 0)
+            ->whereDate('career_management_details.archivel_date', '>=', now()->toDateString()) // Apply the condition to career_management_details
+            ->orderBy('career_management.created_at', 'asc')
+            ->latest('career_management.created_at')
+            ->get();
             return view('pages.career', ['title' => $titleName, 'careerData' => $careerData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
@@ -75,34 +62,17 @@ class HomeController extends Controller
     {
         $titleName = 'Career Archive';
         try {
-            $careerData = [];
-
-            $career = DB::table('career_management')
-                ->where('soft_delete', 0)
-                ->orderBy('created_at', 'asc')
-                ->latest('created_at')
-                ->get();
-
-            $careerData = [];
-
-            
-            foreach ($career as $careerItem) {
-                $career_pdfs = DB::table('career_management_details')
-                    ->where('soft_delete', 0)
-                    ->orderBy('created_at', 'asc')
-                    ->where('career_management_id', $careerItem->uid)
-                    ->whereDate('archivel_date', '<', now()->toDateString())
-                    ->latest('created_at')
-                    ->get();
-
-
-                if (count($career_pdfs) > 0) {
-                    $careerData[] = [
-                        'career' => $careerItem,
-                        'career_pdfs' => $career_pdfs
-                    ];
-                }
-            }
+            $careerData = DB::table('career_management')
+                        ->select('career_management.*', 'career_management_details.*')
+                        ->leftJoin('career_management_details', function ($join) {
+                            $join->on('career_management.uid', '=', 'career_management_details.career_management_id')
+                                ->where('career_management_details.soft_delete', 0)
+                                ->whereDate('career_management_details.archivel_date', '<', now()->toDateString());
+                        })
+                        ->where('career_management.soft_delete', 0)
+                        ->orderBy('career_management.created_at', 'asc')
+                        ->latest('career_management.created_at')
+                        ->get();
             return view('pages.careerArchive', ['title' => $titleName, 'careerData' => $careerData]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
@@ -151,7 +121,11 @@ class HomeController extends Controller
                     }
                 }
             }
-            return view('pages.tender', ['title' => $titleName, 'tenderData' => $tenderData]);
+            $applyUrl = DB::table('tender_management')
+                        ->where('soft_delete', 0)
+                        ->where('apply_url','!=', 'NULL')
+                        ->first();
+            return view('pages.tender', ['title' => $titleName, 'tenderData' => $tenderData,'applyUrl' =>  $applyUrl]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -174,8 +148,8 @@ class HomeController extends Controller
             $tenders = DB::table('tender_management')
                 ->where('soft_delete', 0)
                 ->latest('created_at')
-                // ->whereDate('archivel_date', '<', now()->toDateString()) 
-                ->get();
+                // ->whereDate('archivel_date', '<', now()->toDateString())
+                ->get();           
 
             if (count($tenders) > 0) {
                 foreach ($tenders as $tender) {
@@ -194,8 +168,11 @@ class HomeController extends Controller
                     }
                 }
             }
-
-            return view('pages.tenderArchive', ['title' => $titleName, 'tenderData' => $tenderData]);
+            $applyUrl = DB::table('tender_management')
+                        ->where('soft_delete', 0)
+                        ->where('apply_url','!=', 'NULL')
+                        ->first();
+            return view('pages.tenderArchive', ['title' => $titleName, 'tenderData' => $tenderData, 'applyUrl' =>  $applyUrl]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -880,16 +857,20 @@ class HomeController extends Controller
     public function rtiDetail($slug = null)
     {
         $title = 'RTI';
-        $rties = DB::table('dynamic_content_page_metatag')->where(['menu_slug' => 'rti', 'soft_delete' => 0])->get();
+        $rties = DB::table('dynamic_content_page_metatag')
+                ->orderBy('created_at', 'asc')
+                ->where(['menu_slug' => 'rti', 'soft_delete' => 0])
+                ->get();
         $rtiesDetails = null;
         if ($slug) {
-            $rtiesFirst = DB::table('dynamic_content_page_metatag')->where(['custom_slug' => $slug, 'soft_delete' => 0])->first();
+            $rtiesFirst = DB::table('dynamic_content_page_metatag')->orderBy('created_at', 'asc')->where(['custom_slug' => $slug, 'soft_delete' => 0])->first();
         }else{
-            $rtiesFirst = DB::table('dynamic_content_page_metatag')->where(['menu_slug' => 'rti', 'soft_delete' => 0])->first();
+            $rtiesFirst = DB::table('dynamic_content_page_metatag')->orderBy('created_at', 'asc')->where(['menu_slug' => 'rti', 'soft_delete' => 0])->first();
         }
         if($rtiesFirst){
             $rtiesDetails = DB::table('dynamic_page_content')->where(['dcpm_id' => $rtiesFirst->uid, 'soft_delete' => 0])->first();
         }
+        // dd($rtiesFirst);
         return view('pages.rti', ['title' => $title, 'rties' => $rties, 'rtiesDetails' => $rtiesDetails]);
     }
 
