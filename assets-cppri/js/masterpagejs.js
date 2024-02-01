@@ -25,7 +25,7 @@
 
  $(document).ready(function() {
    $('#example').DataTable( {
-       dom: 'Bfrtip',
+       dom: 'lBfrtip',
        buttons: [
         {
             extend: 'print',

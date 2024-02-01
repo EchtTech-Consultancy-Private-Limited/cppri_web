@@ -94,7 +94,7 @@
                                                                 @endif
                                                             </a>
                                                         @else
-                                                            <a href="{{ url($suburl) }}">
+                                                            <a href="{{ url($url.'/'.$suburl) }}">
                                                                 @if (Session::get('Lang') == 'hi')
                                                                     {{ $subMenus->name_hi ?? '' }}
                                                                 @else

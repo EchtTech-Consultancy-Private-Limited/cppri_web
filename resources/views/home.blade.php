@@ -643,13 +643,7 @@
                                     </li>
                                     @endforeach
                                     @else
-                                    <li>
-                                        <div class="date">
-                                            <span>{{ \Carbon\Carbon::now()->format('d') }}</span><em>{{ \Carbon\Carbon::now()->format('M Y') }}</em>
-                                        </div>
-                                        <div class="list-content">Coming Soon...
-                                        </div>
-                                    </li>
+                                        <li class="list-unstyled border-0">Coming Soon...</li>
                                     @endif
                                 </ul>
                             </div>
