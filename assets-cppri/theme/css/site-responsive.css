@@ -24,7 +24,7 @@
 		position: fixed;
 		z-index: 999999;
 		width:100%;
-		top:0;
+		top: -1px;
 	}
 	img.mfp-img{
 		width: 500px !important;
