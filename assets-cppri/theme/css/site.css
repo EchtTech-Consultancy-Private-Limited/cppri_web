@@ -3110,6 +3110,7 @@ a.portgolio-button:hover {
     color: #fff;
     font-weight: 800;
     font-size: 110%;
+    cursor: pointer;
 }
 .text-slide:after,
 .text-slide01:after,
@@ -5706,4 +5707,11 @@ div#flexSlider .flex-direction-nav {
     font-size: 16px;
     font-weight: 600;
     color: #49aa41;
+}
+
+
+ .dataTables_filter label{
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
