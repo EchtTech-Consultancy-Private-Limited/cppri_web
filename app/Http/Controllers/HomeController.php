@@ -869,7 +869,7 @@ class HomeController extends Controller
     public function rtiApplicationsResponseTable()
     {
         
-        return view('pages.rti_application_response_table', ['title' => $title,'rti-applications-responses-table' => $pressReleaseds]);
+        return view('pages.rti_application_response_table');
     }
     
     /**
