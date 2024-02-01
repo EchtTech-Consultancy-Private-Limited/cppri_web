@@ -98,7 +98,9 @@
                                                     <th>Submission Date</th>
                                                     <th>Opening Date</th>
                                                     <th> View/Download</th>
-                                                    <th>Apply Here</th>
+                                                    @if(isset($applyUrl)) 
+                                                        <th>Apply Here</th>
+                                                    @endif
                                                 </tr>
                                             </thead>
 
@@ -178,12 +180,11 @@
 
                                                         @endforeach
                                                     </td>
-
-                                                    <td>
-                                                        @if($data['tender']->apply_url !='')
-                                                        <a href="{{ $data['tender']->apply_url ?? '' }}"></a>
-                                                        @endif
-                                                    </td>
+                                                    @if(isset($applyUrl))
+                                                        <td>                                                       
+                                                            <a href="{{ $data['tender']->apply_url ?? '' }}">{{ $data['tender']->apply_url ?? '' }}</a>
+                                                        </td>
+                                                    @endif
 
 
                                                 </tr>

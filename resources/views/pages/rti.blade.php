@@ -71,9 +71,9 @@
     
                     <div class="main-sidebar" id="main-sidebar">
                         <ul>
-                            @if (isset($rties) && !blank($rties))
+                            @if (isset($rties) && !blank($rties))                            
                             @foreach($rties as $rti)
-                            <li class="{{ Request::fullUrl() == route('rti-data', $rti->custom_slug) ? 'qm-active' : '' }}">
+                            <li class="{{ (Request::fullUrl() == route('rti-data', $rti->custom_slug)) ? 'qm-active' : '' }}">
                                 <div class="list-start">
                                     <a href="{{ route('rti-data', $rti->custom_slug) }}" class="nav-link" tabindex="0">
                                         @if (Session::get('Lang') == 'hi')
@@ -84,7 +84,7 @@
                                     </a>
                                 </div>
                             </li>
-                            @endforeach                        
+                            @endforeach
                             @endif
                         </ul>                        
                     </div>
