@@ -694,3 +694,19 @@ $('#feedback_button').click(function (e) {
         }
     });
 });
+
+// sticky header 
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop ;
+console.log(sticky)
+
+function myFunction() {
+    console.log(window.pageYOffset)
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}

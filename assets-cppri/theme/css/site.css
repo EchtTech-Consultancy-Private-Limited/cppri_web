@@ -1096,7 +1096,7 @@ a.read-more:hover {
     outline: none;
 }
 .sub-nav {
-    background: var(--secondary-color);
+    background: #133866;
     color: #fff !important;
 }
 #overflow_menu.main-menu ul > li {
@@ -3896,7 +3896,8 @@ h2 {
     width: 100%;
     top: 0px;
     color: #fff !important;
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
+    background-color: #133866;
     opacity: 0;
     transform-origin: top;
     -webkit-transform: rotateX(90deg);
@@ -5573,9 +5574,7 @@ td.download a {
 .rti table tr td:first-child {
     font-weight: 600 !important;
 }
-.sticky {
-    position: fixed;
-}
+
 
 .main-content.ditiector-desk {
     /* background: linear-gradient(90deg, #1a4f910f, #1a4f910a); */
@@ -5719,3 +5718,13 @@ div#flexSlider .flex-direction-nav {
     align-items: center;
     justify-content: end;
 }
+
+
+.navbar-fixed-top {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+/*     z-index: 1; */
+  background: white;
+}
+

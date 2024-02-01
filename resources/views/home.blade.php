@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="col-md-9 col-8">
-            <div class="latest_news_marquee marquee-vertical" data-speed="70">
+            <div class="latest_news_marquee marquee-vertical" data-speed="40">
                 <div class="marquee-wrapper">
                     <div class="marquee-content">
                         <div class="float-left d-inline-block ">
