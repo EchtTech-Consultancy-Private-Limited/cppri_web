@@ -9,7 +9,7 @@
         <div class="inner-banner-text">
             <div class="text-banner-content">
                 <h2>
-                   {{ ucfirst(strtolower($title)) ?? '' }}
+                   {{ $title ?? '' }}
                 </h2>
             </div>
         </div>
@@ -26,7 +26,7 @@
                     Home
                     @endif
                 </a></li>
-                <li><a href="javascript:void();">{{ ucfirst(strtolower($title)) ?? '' }}</a></li>
+                <li><a href="javascript:void();">{{ $title ?? '' }}</a></li>
 
             </ul>
         </div>
@@ -41,8 +41,8 @@
                 <section id="fontSize" class="wrapper body-wrapper ">
                     <section id="paragraph" class="wrapper paragraph-wrapper">
                         <div class=" common-container four_content my-4">
-                            <h3 class="dir-dsk-title mt-3">Rti Applications Response </h3>
-                        <form action="{{route('rti-applications-responses-filter')}}" method="post" id="myform" enctype="multipart/form-data">
+                            <h3 class="dir-dsk-title mt-3">RTI Applications Response </h3>
+                        {{-- <form action="{{route('rti-applications-responses-filter')}}" method="post" id="myform" enctype="multipart/form-data">
                             @csrf
                             <div class="row my-3">
                                 <div class="col-md-4 px-0">
@@ -54,7 +54,7 @@
                                     <button type="submit" class="btn btn-primary"> Apply</button>
                                 </div>
                             </div>
-                        </form>
+                        </form> --}}
 
                             <table class="views-table" id="example">
                                 <thead>

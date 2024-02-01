@@ -254,6 +254,9 @@ ul#nav li a i.fa-home {
     padding: 10px;
     max-width: inherit;
 }
+.dataTables_wrapper .dataTables_filter input::-webkit-search-cancel-button {
+    -webkit-appearance: button !important;
+}
 .youtube-video {
     width: 100%;
     position: relative;
