@@ -44,10 +44,16 @@ class CommonComposer
             $logo = DB::table('website_core_settings')->where('soft_delete', 0)->first();
             $notification= DB::table('recent_activities')->where('notification_others',1)->where('soft_delete', 0)->latest('created_at')->get();
             $press_release= DB::table('recent_activities')->where('notification_others',2)->where('soft_delete', 0)->latest('created_at')->get();
-            $tender_management = DB::table('tender_management')->where('soft_delete', 0)->take(5)->latest('created_at')->get();
-          
-        //   dd($tender_management);
-           
+            // $tender_management = DB::table('tender_management')->where('soft_delete', 0)->take(5)->latest('created_at')->get();
+            $tender_management = DB::table('tender_management')
+                                ->where('tender_management.soft_delete', 0)
+                                ->join('tender_details', 'tender_management.uid', '=', 'tender_details.tender_id')
+                                ->where('tender_details.soft_delete', 0)
+                                ->whereDate('tender_details.archivel_date', '>=', now()->toDateString())
+                                ->latest('tender_management.created_at')
+                                ->latest('tender_details.created_at')
+                                ->select('tender_management.*')
+                                ->get();           
             $image_management = DB::table('gallery_management')->where('type', 0)->where('soft_delete', 0)->latest('created_at')->first();
             if (isset($image_management) && isset($image_management->uid)) {
                 $image_gallery_details = DB::table('gallery_details')->where('gallery_id', $image_management->uid)->where('soft_delete', 0)->get();

@@ -91,31 +91,27 @@
                                                 <tr>
 
                                                     <td>{{ $k + 1 }}</td>
-                                                    <td>{{ $data['career']->title_name_en ?? '' }}</td>
+                                                    <td>{{ $data->title_name_en ?? '' }}</td>
                                                     <td  class="date-nowrap">
-                                                        @if ($data['career']->start_date != '')
-                                                        {{ date('d F Y', strtotime($data['career']->start_date ?? '')) }}
+                                                        @if ($data->start_date != '')
+                                                        {{ date('d F Y', strtotime($data->start_date ?? '')) }}
                                                         @endif
                                                     </td>
                                                     <td class="date-nowrap">
-                                                        @if ($data['career']->end_date != '')
-                                                        {{ date('d F Y', strtotime($data['career']->end_date ?? '')) }}
+                                                        @if ($data->end_date != '')
+                                                        {{ date('d F Y', strtotime($data->end_date ?? '')) }}
                                                         @endif
                                                     </td>
 
 
                                                     <td class='download'>
-                                                        @if(isset($data['career_pdfs']) && count($data['career_pdfs']) >
-                                                        0)
-                                                        @foreach ($data['career_pdfs'] as $pdf)
-                                                        <a href="{{ asset('resources/uploads/CareerManagement/' . $pdf->public_url) }}"
+                                                        @if(isset($data->public_url))
+                                                        <a href="{{ asset('resources/uploads/CareerManagement/' . $data->public_url) }}"
                                                             download>View</a> <i
                                                             class="fa fa-file-pdf-o text-danger"></i>
                                                         <span class="size">
-                                                            ({{ $pdf->pdfimage_size ?? '' }})
+                                                            ({{ $data->pdfimage_size ?? '' }})
                                                         </span>
-
-                                                        @endforeach
                                                         @endif
                                                     </td>
 
