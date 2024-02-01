@@ -8,7 +8,7 @@
 
                             {{-- slice(0, 6)   0= start index , 6= lenght  --}}
 
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <h3 class="footer-title">
 
 
@@ -58,7 +58,7 @@
                                 @endif
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <h3 class="footer-title">
 
 
@@ -107,8 +107,8 @@
                                     @endif
                                
                             </div>
-
-                            <div class="col-md-3">
+<!-- 
+                            <div class="col-md-4">
                                 <h3 class="footer-title">&nbsp;</h3>
                               
                                     @if (isset($footerMenu) && count($footerMenu) > 0)
@@ -147,11 +147,11 @@
                                         <p>No footer menu items available.</p>
                                     @endif
                             
-                            </div>
+                            </div> -->
 
 
                             @if (isset($quickLink) && count($quickLink) > 0)
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <h3 class="footer-title">
 
                                         @if (Session::get('Lang') == 'hi')
