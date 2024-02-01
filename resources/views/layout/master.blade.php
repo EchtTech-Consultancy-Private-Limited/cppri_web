@@ -7,6 +7,9 @@
 
 <body id="body">
     <!-- <div id="fb-root"></div> -->
+
+
+
     <header>
         <div class="region region-header-top">
             <div id="block-cmf-content-header-region-block" class="block block-cmf-content first last odd">
@@ -73,6 +76,8 @@
     <!--/.carousel-wrapper-->
     @include('partials.footer')
     @include('partials.footer-script')
+
+
 </body>
 
 </html>
