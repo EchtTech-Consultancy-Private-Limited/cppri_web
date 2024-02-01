@@ -327,8 +327,3 @@ $(document).ready(function(){
     }); 
  });
 
- $(window).load(function () {
-    // Preloader
-    $('.loader').fadeOut();
-    $('.loader-mask').delay(350).fadeOut('slow');
-});

@@ -8,14 +8,7 @@
 <body id="body">
     <!-- <div id="fb-root"></div> -->
 
-    <!-- Preloader -->
-    <div class="loader-mask">
-        <div class="loader">
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-<!-- Preloader -->
+
 
     <header>
         <div class="region region-header-top">
