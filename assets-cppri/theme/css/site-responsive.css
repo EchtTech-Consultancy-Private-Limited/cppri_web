@@ -20,7 +20,12 @@
 	}
 }
 @media (min-width:991px){
-	
+	.sticky {
+		position: fixed;
+		z-index: 999999;
+		width:100%;
+		top:0;
+	}
 	img.mfp-img{
 		width: 500px !important;
 	}
@@ -530,6 +535,9 @@
 	}
 }
 @media screen and (max-width: 768px) {
+	.main-menu ul > li {
+		margin: 0 10px;
+	}
 	.clientail .flexslider:hover .flex-direction-nav .flex-prev, .clientail .flexslider:hover .flex-direction-nav .flex-next, .carousel-wrapper.clientail #flexCarousel ul.flex-direction-nav li a:focus{
 		top: 0px !important;
 		margin: 0;
