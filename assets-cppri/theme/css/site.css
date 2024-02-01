@@ -1096,7 +1096,7 @@ a.read-more:hover {
     outline: none;
 }
 .sub-nav {
-    background: var(--secondary-color);
+    background: #133866;
     color: #fff !important;
 }
 #overflow_menu.main-menu ul > li {
@@ -3896,7 +3896,8 @@ h2 {
     width: 100%;
     top: 0px;
     color: #fff !important;
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
+    background-color: #133866;
     opacity: 0;
     transform-origin: top;
     -webkit-transform: rotateX(90deg);
