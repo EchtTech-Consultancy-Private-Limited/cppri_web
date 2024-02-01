@@ -7,7 +7,10 @@
 
 <body id="body">
     <!-- <div id="fb-root"></div> -->
-    <header>
+
+
+
+    <header class="">
         <div class="region region-header-top">
             <div id="block-cmf-content-header-region-block" class="block block-cmf-content first last odd">
                 <noscript class="no_scr">"JzavaScript is a standard programming language that is included to provide
@@ -63,7 +66,7 @@
             </div>
         </section>
         <!--/.header-wrapper-->
-        <section class="wrapper megamenu-wraper change-color-code">
+        <section class="wrapper megamenu-wraper change-color-code"  id="myHeader">
             <!-- <h3 >Megamenu</h3> -->
             @include('partials.menu-header')
         </section>
@@ -73,6 +76,8 @@
     <!--/.carousel-wrapper-->
     @include('partials.footer')
     @include('partials.footer-script')
+
+
 </body>
 
 </html>

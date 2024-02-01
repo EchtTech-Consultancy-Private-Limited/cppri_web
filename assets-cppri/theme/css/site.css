@@ -1352,6 +1352,10 @@ h2.resp-accordion:first-child {
     color: var(--primary-color);
     font-weight: bold;
 }
+.resp-tabs-list li.resp-tab-active{
+    color: var(--primary-color);
+    font-weight: bold;
+}
 .panel-feed .resp-tabs-list li a {
     font-size: 85%;
     font-weight: 600;
@@ -2050,7 +2054,7 @@ h2.resp-tab-title:last-child {
 }
 .page-tab ul.resp-tabs-list li {
     color: #fff;
-    cursor: pointer;
+    /* cursor: pointer; */
     display: inline-block;
     font-size: 100%;
     font-weight: 600;
@@ -5569,9 +5573,7 @@ td.download a {
 .rti table tr td:first-child {
     font-weight: 600 !important;
 }
-.sticky {
-    position: fixed;
-}
+
 
 .main-content.ditiector-desk {
     /* background: linear-gradient(90deg, #1a4f910f, #1a4f910a); */
@@ -5715,3 +5717,13 @@ div#flexSlider .flex-direction-nav {
     align-items: center;
     justify-content: end;
 }
+
+
+.navbar-fixed-top {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+/*     z-index: 1; */
+  background: white;
+}
+

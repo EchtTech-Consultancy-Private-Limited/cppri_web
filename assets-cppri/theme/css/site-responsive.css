@@ -20,7 +20,12 @@
 	}
 }
 @media (min-width:991px){
-	
+	.sticky {
+		position: fixed;
+		z-index: 999999;
+		width:100%;
+		top:0;
+	}
 	img.mfp-img{
 		width: 500px !important;
 	}
@@ -50,7 +55,7 @@
 }
 @media all and (max-width: 1290px) {
 	.copyright-content p, .copyright-content span, .copyright-content a, .last-updated span{
-		font-size: 12px !important;
+		font-size: 11px !important;
 	}
 }
 @media all and (max-width: 1200px) {
@@ -195,6 +200,10 @@
 	}
 }
 @media all and (max-width: 960px) {
+
+	.main-menu ul > li:last-child {
+		margin-right: 8px !important;
+	}
 	.nav-menu {
 		display: block !important;
 	}
@@ -526,6 +535,26 @@
 	}
 }
 @media screen and (max-width: 768px) {
+	.main-menu ul > li {
+		margin: 0 10px;
+	}
+	.clientail .flexslider:hover .flex-direction-nav .flex-prev, .clientail .flexslider:hover .flex-direction-nav .flex-next, .carousel-wrapper.clientail #flexCarousel ul.flex-direction-nav li a:focus{
+		top: 0px !important;
+		margin: 0;
+		height: 25px;
+		
+	}
+
+	.flexslider:hover .flex-direction-nav .flex-prev {
+		left: -15px !important;
+	}
+
+	.clientail .flexslider:hover .flex-direction-nav .flex-next{
+		right: -20px !important;
+	}
+	.env:hover .sng-env {
+    position: static;
+}
 	.img-box-overview {
 		width: 234px;
 		margin: auto;
@@ -1560,7 +1589,7 @@
 		padding: 5px;
 	}
 	.left-block .left-col-2:nth-child(1) h2 {
-		display: none;
+		/* display: none; */
 	}
 	/* 
 	section.latest-news .col-md-2 {
@@ -2250,7 +2279,7 @@
 		/* object-fit: cover; */
 	}
 }
-@media(min-width:1400px) and (max-width:1599px) {
+/* @media(min-width:1400px) and (max-width:1599px) {
 	.banner-wrapper .flexslider .slides>li {
 		height: 500px !important;
 	}
@@ -2258,7 +2287,7 @@
 		height: 500px !important;
 		object-fit: cover;
 	}
-}
+} */
 @media(min-width:1199px) {
 	.banner-wrapper .flexslider .slides>li {
 		height: 390px;
@@ -2269,13 +2298,13 @@
 	}
 }
 @media(min-width:991px) and (max-width:1300px) {
-	.banner-wrapper .flexslider .slides>li {
+	/* .banner-wrapper .flexslider .slides>li {
 		height: 400px;
 	}
 	.banner-wrapper .flexslider .slides img {
 		object-fit: cover;
 		height: 400px;
-	}
+	} */
 	.common-wrapper .container.common-container.four_content {
 		padding: 2px 27px;
 	}
