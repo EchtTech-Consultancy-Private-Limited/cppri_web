@@ -738,7 +738,7 @@ h3.sub-title.bold {
 .footer-top-wrapper ul li:before {
 	content: '\f002' !important;
 	font-family: "flexslider-icon";
-	font-size: 12px;
+	font-size: 10px;
 }
 
 .footer-top-wrapper ul li:first-child:before {
@@ -2640,4 +2640,3 @@ a:focus {
 .header__logo:focus .d-flex-logo {
     border: 1px solid #333 !important;
 }
-
