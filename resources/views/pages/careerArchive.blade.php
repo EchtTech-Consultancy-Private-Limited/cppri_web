@@ -91,15 +91,15 @@
                                                 <tr>
 
                                                     <td>{{ $k + 1 }}</td>
-                                                    <td>{{ $data->title_name_en ?? '' }}</td>
+                                                    <td>{{ $data->title_en ?? '' }}</td>
                                                     <td  class="date-nowrap">
-                                                        @if ($data->start_date != '')
-                                                        {{ date('d F Y', strtotime($data->start_date ?? '')) }}
+                                                        @if ($data->s_date != '')
+                                                        {{ date('d F Y', strtotime($data->s_date ?? '')) }}
                                                         @endif
                                                     </td>
                                                     <td class="date-nowrap">
-                                                        @if ($data->end_date != '')
-                                                        {{ date('d F Y', strtotime($data->end_date ?? '')) }}
+                                                        @if ($data->e_date != '')
+                                                        {{ date('d F Y', strtotime($data->e_date ?? '')) }}
                                                         @endif
                                                     </td>
 
