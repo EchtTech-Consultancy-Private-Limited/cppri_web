@@ -5186,10 +5186,13 @@ span.equalto {
 span#timeid p {
     font-weight: 600;
     color: #333;
+    font-size: 14px;
 }
 .timer-date-c span.li_eng.responsive_go_eng {
     color: #333;
     font-weight: 600;
+    font-size: 14px !important;
+
 }
 .copyright-content p {
     font-size: 13px !important;
@@ -5750,4 +5753,9 @@ div#flexSlider .flex-direction-nav {
     text-transform: capitalize;
     border: 1px solid #ddd;
     padding: 2px 0;
+}
+
+.main-menu .nav-menu .nav-item .sub-nav .env:last-child .sng-env {
+    bottom: -2px !important;
+    top: auto;
 }
