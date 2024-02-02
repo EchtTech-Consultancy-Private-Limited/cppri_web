@@ -42,6 +42,10 @@ a:hover img {
     border-top: 1px solid #000;
 }
 
+.footer-top-wrapper, .footer-bottom-wrapper{
+    border: 1px solid #fff ;
+}
+
 .color-blue{color:#fff}
 .gallery-area a{background:#000; border-left: 1px solid #000;}
 .main-menu > ul > li.active > a,.main-menu > ul > li > a:focus,.main-menu > ul > li:hover > a,.main-menu > ul > li > a:hover,.main-menu > ul > li > a.home,.nav-item > a.open{background:#000}
@@ -589,4 +593,15 @@ table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>th.sorting_asc, ta
 
 .btn:hover{
     color: #000;
+}
+
+.main-sidebar ul li:last-child:hover {
+    border-bottom: 1px solid var(#fff) !important;
+}
+
+.main-content.ditiector-desk {
+    /* background: linear-gradient(90deg, #1a4f910f, #1a4f910a); */
+    background: #000;
+    border-radius: 10px;
+    border: 1px solid #fff;
 }
