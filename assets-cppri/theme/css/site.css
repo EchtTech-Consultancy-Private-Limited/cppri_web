@@ -2057,7 +2057,7 @@ h2.resp-tab-title:last-child {
     color: #fff;
     /* cursor: pointer; */
     display: inline-block;
-    font-size: 100%;
+    font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
     margin: 9px 5px 0px 10px;
@@ -2489,7 +2489,7 @@ h2 {
     font-weight: 700 !important;
     clear: both;
     /* text-transform: uppercase !important; */
-    font-size: 22px !important;
+    font-size: 22px ;
     color: #026aa1;
     font-weight: 600 !important;
 }
@@ -2534,7 +2534,7 @@ h2 small {
     background: var(--primary-color);
     height: 55px;
     border-radius: 8px 8px 0px 0px;
-    padding: 8px 15px;
+    padding: 8px 11px;
 }
 .view-footer-tab a {
     padding: 10px 10px;
@@ -2744,7 +2744,7 @@ p.banner-content {
     color: #000;
     line-height: 26px;
     padding: 5px 0px 0px;
-    font-size: 110%;
+    font-size: 14px;
     text-align: justify;
     margin-bottom: 10px;
 }
@@ -3097,7 +3097,7 @@ a.portgolio-button:hover {
 .left-col-2 h2 {
     position: relative;
     left: 0;
-    font-size: 100% !important;
+    font-size: 14px;
     line-height: 37px;
     color: var(--primary-color);
     background: #fff;
@@ -4137,6 +4137,7 @@ h2 {
 .buttons-print span {
     color: #fff;
     font-weight: 700;
+    font-size: 14px;
 }
 button.dt-button.buttons-print:hover span {
     color: var(--primary-color);
@@ -5017,7 +5018,7 @@ ul.sitemap li a:hover {
     color: red !important;
 }
 table.dataTable tbody tr {
-    background-color: #d1e8f5;
+    /* background-color: #d1e8f5; */
 }
 table.dataTable tbody td {
     padding: 5px 15px;
@@ -5186,10 +5187,13 @@ span.equalto {
 span#timeid p {
     font-weight: 600;
     color: #333;
+    font-size: 14px;
 }
 .timer-date-c span.li_eng.responsive_go_eng {
     color: #333;
     font-weight: 600;
+    font-size: 14px !important;
+
 }
 .copyright-content p {
     font-size: 13px !important;
@@ -5449,6 +5453,7 @@ blockquote {
 .latest_news_marquee a {
     color: #333;
     line-height: 37px;
+    font-size: 13px;
 }
 .latest_news_marquee a::before {
     content: "\f101 ";
@@ -5718,6 +5723,7 @@ div#flexSlider .flex-direction-nav {
     display: flex;
     align-items: center;
     justify-content: end;
+    font-size: 14px;
 }
 
 
@@ -5729,3 +5735,33 @@ div#flexSlider .flex-direction-nav {
   background: white;
 }
 
+.dataTables_wrapper .dataTables_length{
+    display: flex;
+    align-items: center !important;
+}
+.dataTables_wrapper .dataTables_length label{
+    display: flex;
+    align-items: center;
+    margin: 0 20px 0 0px;
+    text-transform: capitalize;
+    background: #fff;
+    padding: 4px 11px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.dataTables_wrapper .dataTables_length select{
+    margin: 0 16px;
+    text-transform: capitalize;
+    border: 1px solid #ddd;
+    padding: 2px 0;
+}
+
+/* .main-menu .nav-menu .nav-item .sub-nav .env:last-child .sng-env {
+    bottom: -2px !important;
+    top: auto;
+} */
+
+.ico-skip.cf .top {
+    width: 27px;
+}
