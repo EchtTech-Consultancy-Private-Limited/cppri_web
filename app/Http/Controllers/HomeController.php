@@ -30,20 +30,33 @@ class HomeController extends Controller
     public function careerData()
     {
         $titleName = 'Career';
-
+        $final_data = [];
         try {
-            $careerData = DB::table('career_management as career')
-                        ->select('career.title_name_en as title_en','career.title_name_hi  as title_hi','career.start_date as s_date','career.end_date as e_date', 'career_management_details.*')
-                        ->leftJoin('career_management_details', function ($join) {
-                            $join->on('career.uid', '=', 'career_management_details.career_management_id')
-                                ->where('career_management_details.soft_delete', 0)
-                                ->whereDate('career_management_details.archivel_date', '>=', now()->toDateString());
-                        })
-                        ->where('career.soft_delete', 0)
-                        ->whereDate('career_management_details.archivel_date', '<', now()->toDateString()) // Apply the condition to career_management_details
-                        ->orderBy('career.created_at', 'asc')
-                        ->get();
-            return view('pages.career', ['title' => $titleName, 'careerData' => $careerData]);
+           $uuids= DB::table('career_management_details')
+            ->where('soft_delete', 0)
+            ->whereDate('archivel_date', '>=', now()->toDateString())
+            ->get()->pluck('career_management_id');
+
+            $career = DB::table('career_management')
+                ->where('soft_delete', 0)
+                ->whereIn('uid',$uuids)
+                ->latest('created_at')
+                ->get();
+
+                foreach($career as $c){
+                    $obj = new \stdClass;
+                    $obj->career= $c;
+                    $obj->career->career_doc =  DB::table('career_management_details')
+                    ->where('soft_delete', 0)
+                    ->where('career_management_id', $c->uid)
+                    ->whereDate('archivel_date', '>=', now()->toDateString())
+                    ->latest('created_at')
+                    ->get();
+
+                    $final_data[] = $obj;                    
+                }
+                // dd($final_data);
+            return view('pages.career', ['title' => $titleName, 'final_data' => $final_data]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
@@ -60,30 +73,38 @@ class HomeController extends Controller
     public function careerArchive()
     {
         $titleName = 'Career Archive';
-        // try {
-            $careerData = DB::table('career_management as career')
-                        ->select('career.title_name_en as title_en','career.title_name_hi  as title_hi','career.start_date as s_date','career.end_date as e_date', 'career_management_details.*')
-                        ->leftJoin('career_management_details', function ($join) {
-                            $join->on('career.uid', '=', 'career_management_details.career_management_id')
-                                ->where('career_management_details.soft_delete', 0)
-                                ->whereDate('career_management_details.archivel_date', '<', now()->toDateString());
-                        })
-                        ->where('career.soft_delete', 0)
-                        ->whereDate('career_management_details.archivel_date', '<', now()->toDateString()) // Apply the condition to career_management_details
-                        ->orderBy('career.created_at', 'asc')
-                        ->get();
-            return view('pages.careerArchive', ['title' => $titleName, 'careerData' => $careerData]);
-        // } catch (\Exception $e) {
-        //     \Log::error('An exception occurred: ' . $e->getMessage());
-        //     return view('pages.error');
-        // } catch (\PDOException $e) {
-        //     \Log::error('A PDOException occurred: ' . $e->getMessage());
-        //     return view('pages.error');
-        // } catch (\Throwable $e) {
-        //     // Catch any other types of exceptions that implement the Throwable interface.
-        //     \Log::error('An unexpected exception occurred: ' . $e->getMessage());
-        //     return view('pages.error');
-        // }
+        try {
+
+            $career = DB::table('career_management')
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->get();
+
+                foreach($career as $c){
+                    $obj = new \stdClass;
+                    $obj->career= $c;
+                    $obj->career->career_doc =  DB::table('career_management_details')
+                    ->where('soft_delete', 0)
+                    ->where('career_management_id', $c->uid)
+                    ->whereDate('archivel_date', '<', now()->toDateString())
+                    ->latest('created_at')
+                    ->get();
+
+                    $final_data[] = $obj;                    
+                }
+                // dd($final_data);
+            return view('pages.careerArchive', ['title' => $titleName, 'final_data' => $final_data]);
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        }
     }
 
     //tender
