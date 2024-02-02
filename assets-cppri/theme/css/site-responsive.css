@@ -7,6 +7,14 @@
 		margin: 0px 0px;
 	}
 }
+
+@media (min-width: 992px) and (max-width: 1550px) {
+	.main-menu .nav-menu .nav-item .sub-nav .env:nth-child(n + 6) .sng-env {
+	  /* bottom: -2px !important; */
+	  top: auto;
+	}
+  }
+  
 @media(min-width:1410px) and (max-width:2100px){
 	.main-menu ul > li:not(:last-child) {
 		/* margin-right: 31px !important; */

@@ -75,13 +75,13 @@
                             <i class="fa fa-wheelchair" aria-hidden="true"></i>
                     </a>
                     <ul class='invisible'>
-                        <li> <a onClick="set_font_size(&#39;increase&#39;)" title="Increase font size"
+                        <li> <a onClick="increaseFontSize()" title="Increase font size"
                                 href="javascript:void(0);">A<sup>+</sup>
                             </a>
                         </li>
-                        <li> <a onClick="set_font_size()" title="Reset font size"
+                        <li> <a onClick="normaltext()" title="Reset font size"
                                 href="javascript:void(0);">A<sup>&nbsp;</sup></a> </li>
-                        <li> <a onClick="set_font_size(&#39;decrease&#39;)" title="Decrease font size"
+                        <li> <a onClick="decreaseFontSize()" title="Decrease font size"
                                 href="javascript:void(0);">A<sup>-</sup></a> </li>
                         <li> <a href="javascript:void(0);" class="high-contrast dark"
                                 title="High Contrast">A</a>
