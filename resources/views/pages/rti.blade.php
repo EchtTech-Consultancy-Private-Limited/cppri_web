@@ -71,29 +71,26 @@
     
                     <div class="main-sidebar" id="main-sidebar">
                         <ul>
-                            @if (isset($rties) && !blank($rties))                            
+                            @if (isset($rties) && !blank($rties))
                             @foreach($rties as $rti)
-                            <li class="{{ (Request::fullUrl() == route('rti-data', $rti->custom_slug)) ? 'qm-active' : '' }}">
-                                <div class="list-start">
-                                    <a href="{{ route('rti-data', $rti->custom_slug) }}" class="nav-link" tabindex="0">
-                                        @if (Session::get('Lang') == 'hi')
-                                            {{ $rti->page_title_hi ?? '' }}
-                                        @else
-                                            {{ $rti->page_title_en ?? '' }}
-                                        @endif
-                                    </a>
-                                </div>
-                            </li>
+                                <li class="{{ (Request::fullUrl() == route('rti-data', $rti->custom_slug)) || (isset($rtiesFirst) && route('rti-data', $rtiesFirst->custom_slug) == route('rti-data', $rti->custom_slug)) ? 'qm-active' : '' }}">
+                                    <div class="list-start">
+                                        <a href="{{ route('rti-data', $rti->custom_slug) }}" class="nav-link" tabindex="0">
+                                            @if (Session::get('Lang') == 'hi')
+                                                {{ $rti->page_title_hi ?? '' }}
+                                            @else
+                                                {{ $rti->page_title_en ?? '' }}
+                                            @endif
+                                        </a>
+                                    </div>
+                                </li>
                             @endforeach
-                            @endif
-                        </ul>                        
+                        @endif
+                        </ul>
                     </div>
                     <br>
                     <button class="btn btn-primary"><a class="text-white" href="{{ route('rti-applications-responses') }}">RTI Application & Responses</a></button>
-                </div>
-    
-    
-    
+                </div>    
                 <div class="col-md-9 m-p-0">   
                     <div class="main-content ditiector-desk">
                         <!--/#skipCont-->
