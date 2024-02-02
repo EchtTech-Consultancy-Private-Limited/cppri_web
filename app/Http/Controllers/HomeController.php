@@ -870,7 +870,7 @@ class HomeController extends Controller
             $rtiesDetails = DB::table('dynamic_page_content')->where(['dcpm_id' => $rtiesFirst->uid, 'soft_delete' => 0])->first();
         }
         // dd($rtiesFirst);
-        return view('pages.rti', ['title' => $title, 'rties' => $rties, 'rtiesDetails' => $rtiesDetails]);
+        return view('pages.rti', ['title' => $title, 'rties' => $rties, 'rtiesDetails' => $rtiesDetails,'rtiesFirst' =>$rtiesFirst]);
     }
 
     /**
