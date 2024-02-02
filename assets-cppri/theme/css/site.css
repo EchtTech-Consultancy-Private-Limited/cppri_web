@@ -5751,3 +5751,8 @@ div#flexSlider .flex-direction-nav {
     border: 1px solid #ddd;
     padding: 2px 0;
 }
+
+.main-menu .nav-menu .nav-item .sub-nav .env:last-child .sng-env {
+    bottom: -2px !important;
+    top: auto;
+}
