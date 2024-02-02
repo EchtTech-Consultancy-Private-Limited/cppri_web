@@ -213,7 +213,7 @@
                         <ul class="clearfix sitemap">
                             @foreach ($footerMenu as $footerMenus)
                                 @php
-                                    $footerMenusurl = $footerMenus->url ?? 'javascript:void(0)';
+                                    $footerMenusurl = $footerMenus->footer_url ?? 'javascript:void(0)';
                                 @endphp
                                 @if ($footerMenus->tab_type == 1)
                                     <li class="first leaf">
