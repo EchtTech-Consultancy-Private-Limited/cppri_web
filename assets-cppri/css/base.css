@@ -2005,7 +2005,7 @@ table {
 	
   }
 
-  table tr:first-child{
+  table thead tr:first-child{
 	background-color: #1a4f91;
 	color: #ffffff !important;
   }
@@ -2361,6 +2361,7 @@ ul li ul li{
 
 table tr td:last-child {
     border-right: 1px solid #ddd !important;
+	border-bottom: 1px solid #ddd;
 }
 
 table tr td {
