@@ -2057,7 +2057,7 @@ h2.resp-tab-title:last-child {
     color: #fff;
     /* cursor: pointer; */
     display: inline-block;
-    font-size: 100%;
+    font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
     margin: 9px 5px 0px 10px;
@@ -2489,7 +2489,7 @@ h2 {
     font-weight: 700 !important;
     clear: both;
     /* text-transform: uppercase !important; */
-    font-size: 22px !important;
+    font-size: 22px ;
     color: #026aa1;
     font-weight: 600 !important;
 }
@@ -2744,7 +2744,7 @@ p.banner-content {
     color: #000;
     line-height: 26px;
     padding: 5px 0px 0px;
-    font-size: 110%;
+    font-size: 14px;
     text-align: justify;
     margin-bottom: 10px;
 }
@@ -3097,7 +3097,7 @@ a.portgolio-button:hover {
 .left-col-2 h2 {
     position: relative;
     left: 0;
-    font-size: 100% !important;
+    font-size: 14px;
     line-height: 37px;
     color: var(--primary-color);
     background: #fff;
@@ -4137,6 +4137,7 @@ h2 {
 .buttons-print span {
     color: #fff;
     font-weight: 700;
+    font-size: 14px;
 }
 button.dt-button.buttons-print:hover span {
     color: var(--primary-color);
@@ -5452,6 +5453,7 @@ blockquote {
 .latest_news_marquee a {
     color: #333;
     line-height: 37px;
+    font-size: 13px;
 }
 .latest_news_marquee a::before {
     content: "\f101 ";
@@ -5721,7 +5723,7 @@ div#flexSlider .flex-direction-nav {
     display: flex;
     align-items: center;
     justify-content: end;
-    font-size: 17px;
+    font-size: 14px;
 }
 
 
@@ -5755,7 +5757,11 @@ div#flexSlider .flex-direction-nav {
     padding: 2px 0;
 }
 
-.main-menu .nav-menu .nav-item .sub-nav .env:last-child .sng-env {
+/* .main-menu .nav-menu .nav-item .sub-nav .env:last-child .sng-env {
     bottom: -2px !important;
     top: auto;
+} */
+
+.ico-skip.cf .top {
+    width: 27px;
 }
