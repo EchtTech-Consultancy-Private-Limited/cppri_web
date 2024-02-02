@@ -599,9 +599,10 @@ table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>th.sorting_asc, ta
     border-bottom: 1px solid var(#fff) !important;
 }
 
-.main-content.ditiector-desk {
+.main-content.ditiector-desk, .dataTables_wrapper .dataTables_length label {
     /* background: linear-gradient(90deg, #1a4f910f, #1a4f910a); */
     background: #000;
     border-radius: 10px;
     border: 1px solid #fff;
 }
+

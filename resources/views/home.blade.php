@@ -92,7 +92,7 @@
         </div>
     </div>
 </section>
-<div class="wrapper" id="skipCont"></div>
+<div class="wrapper"></div>
 <!--/#skipCont-->
 <section id="fontSize" class="wrapper body-wrapper ">
     <h2 class="d-none">Body</h2>
@@ -130,7 +130,7 @@
                         <i class="fa fa-angle-right"></i></a>
                 </div>
                 <div
-                    class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-12 col-lg-4 order-1 order-lg-2">
+                    class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-12 col-lg-4 order-1 order-lg-2"  id="skipCont">
                     <div class="minister-box clearfix ">
                         <div class="row px-0">
                         <div class="minister-sub col-md-6">

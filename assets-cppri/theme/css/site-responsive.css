@@ -61,7 +61,7 @@
 		position: absolute;
 	}
 }
-@media all and (max-width: 1290px) {
+@media all and (max-width: 1400px) {
 	.copyright-content p, .copyright-content span, .copyright-content a, .last-updated span{
 		font-size: 11px !important;
 	}
@@ -543,6 +543,13 @@
 	}
 }
 @media screen and (max-width: 768px) {
+	.dataTables_wrapper .dataTables_length label{
+		margin: 0;
+	}
+	.dataTables_wrapper .dataTables_length{
+		width: 65% !important;
+		display: inline-block !important
+	}
 	.dataTables_wrapper .dataTables_paginate {
 		justify-content: end;
 	}
