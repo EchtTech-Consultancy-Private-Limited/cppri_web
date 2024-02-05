@@ -58,27 +58,27 @@
                                 $title_en = $news_managements->title_name_en ?? '';
                                 @endphp
                                 @if ($news_managements->tab_type == '1')
-                                    @if (!empty($url))
-                                    <a href="{{ url($url) ??'' }}" target="_blank" class="me-3" onclick="return confirm('{{ $alertMessage  ??''}}')"
-                                        target="_blank">
+                                @if (!empty($url))
+                                <a href="{{ url($url) ??'' }}" target="_blank" class="me-3"
+                                    onclick="return confirm('{{ $alertMessage  ??''}}')" target="_blank">
 
-                                        @if (Session::get('Lang') == 'hi')
-                                        {{ $title_hi ?? '' }}
-                                        @else
-                                        {{ $title_en ?? '' }}
-                                        @endif
-                                    </a>
+                                    @if (Session::get('Lang') == 'hi')
+                                    {{ $title_hi ?? '' }}
+                                    @else
+                                    {{ $title_en ?? '' }}
                                     @endif
+                                </a>
+                                @endif
                                 @else
-                                    @if (!empty($url))
-                                    <a href="{{ $url  ??'' }}" target="_blank" class="me-3">
-                                        @if (Session::get('Lang') == 'hi')
-                                        {{ $title_hi ?? '' }}
-                                        @else
-                                        {{ $title_en ?? '' }}
-                                        @endif
-                                    </a>
+                                @if (!empty($url))
+                                <a href="{{ $url  ??'' }}" target="_blank" class="me-3">
+                                    @if (Session::get('Lang') == 'hi')
+                                    {{ $title_hi ?? '' }}
+                                    @else
+                                    {{ $title_en ?? '' }}
                                     @endif
+                                </a>
+                                @endif
                                 @endif
                             </span>
                             @endforeach
@@ -133,29 +133,31 @@
                     class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-12 col-lg-4 order-1 order-lg-2">
                     <div class="minister-box clearfix ">
                         <div class="row px-0">
-                        <div class="minister-sub col-md-6">
-                            <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
-                                    alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>
-                            <div class="min-info">
-                                <h4>Dr. M K Gupta</h4>
-                                <h5><a href="{{url('about-us/director-desk')}}" title="Minister of Coal"><span>Director
-                                        </span></a>
-                                </h5>
+                            <div class="minister-sub col-md-6">
+                                <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
+                                        alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>
+                                <div class="min-info">
+                                    <h4>Dr. M K Gupta</h4>
+                                    <h5><a href="{{url('about-us/director-desk')}}"
+                                            title="Minister of Coal"><span>Director
+                                            </span></a>
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="minister-sub col-md-6">
+                                <div class="minister-image"><img src="{{ asset('assets-cppri/images/a_k_dixit.png') }}"
+                                        alt="minister of state coal and mines" title="Dr. A. K. Dixit Scientist-F">
+                                </div>
+                                <div class="min-info">
+                                    <h4>Dr. A. K. Dixit</h4>
+                                    <h5><a href="{{url('about-us/employee-directory')}}"
+                                            title="Minister of State"><span>Scientist-F</span>
+                                        </a>
+                                    </h5>
+                                </div>
                             </div>
                         </div>
-                        <div class="minister-sub col-md-6">
-                            <div class="minister-image"><img src="{{ asset('assets-cppri/images/a_k_dixit.png') }}"
-                                    alt="minister of state coal and mines" title="Dr. A. K. Dixit Scientist-F">
-                            </div>
-                            <div class="min-info">
-                                <h4>Dr. A. K. Dixit</h4>
-                                <h5><a href="{{url('about-us/employee-directory')}}" title="Minister of State"><span>Scientist-F</span>
-                                    </a>
-                                </h5>
-                            </div>
-                        </div>
-                        </div>
-                      
+
                     </div>
                 </div>
             </div>
@@ -333,7 +335,8 @@
                         <div class="banner-box banner-box-5 ">
                             <div class="banner-box-content">
                                 <!-- <h2>External Link 1</h2> -->
-                                <a href="https://www.pgportal.gov.in/" title="GRIEVANCE CELL" target="_blank" onclick="alert('This link will take you to an external web site.')">
+                                <a href="https://www.pgportal.gov.in/" title="GRIEVANCE CELL" target="_blank"
+                                    onclick="alert('This link will take you to an external web site.')">
                                     <img src="{{ asset('assets-cppri/images/grivence_rti.png') }}" alt="icon"
                                         class="cell-icon-sec">
                                     <p>
@@ -349,7 +352,8 @@
                         <div class="banner-box banner-box-2 ">
                             <div class="banner-box-content">
                                 <!-- <h2>External Link 2</h2> -->
-                                <a href="https://www.pgportal.gov.in/" target="_blanck" title="External link that opens in new tab"
+                                <a href="https://www.pgportal.gov.in/" target="_blanck"
+                                    title="External link that opens in new tab"
                                     onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank">
                                     <img src="{{ asset('assets-cppri/images/public.png') }}" alt="icon"
                                         class="cell-icon-sec">
@@ -401,7 +405,9 @@
             </div>
         </div>
     </section>
-<!-- Services section END--> <!-- <div class="links-wrapper change-color-code"> <div class="container common-container ptb-10"> <div class="row"> <div class="col-md-12"> <div class="banner-content-wrapper services-heading"> <h2 class="text-white mt-0"> @if (Session::get('Lang') == 'hi') {{ __('messages.Services') }} @else {{ __('messages.Services') }} @endif </h2> </div> </div> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}" alt=""> </span> <span class="icon-box-text">R &amp; D Projects</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt=""> </span> <span class="icon-box-text">Technical Services </span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt=""> </span> <span class="icon-box-text">Our Achievements</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt=""> </span> <span class="icon-box-text">Publications &amp; Reports</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt=""> </span> <span class="icon-box-text">Institute Membership</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt=""> </span> <span class="icon-box-text">Tender</span> </a> </div> </div> </div> --> <!-- <div class="wrapper home-banner"> -->
+    <!-- Services section END-->
+    <!-- <div class="links-wrapper change-color-code"> <div class="container common-container ptb-10"> <div class="row"> <div class="col-md-12"> <div class="banner-content-wrapper services-heading"> <h2 class="text-white mt-0"> @if (Session::get('Lang') == 'hi') {{ __('messages.Services') }} @else {{ __('messages.Services') }} @endif </h2> </div> </div> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}" alt=""> </span> <span class="icon-box-text">R &amp; D Projects</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt=""> </span> <span class="icon-box-text">Technical Services </span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt=""> </span> <span class="icon-box-text">Our Achievements</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt=""> </span> <span class="icon-box-text">Publications &amp; Reports</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt=""> </span> <span class="icon-box-text">Institute Membership</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt=""> </span> <span class="icon-box-text">Tender</span> </a> </div> </div> </div> -->
+    <!-- <div class="wrapper home-banner"> -->
     <div class="wrapper banner-bg-white overflow-hidden">
         <div class="press-release-overlay"></div>
         <div class="press-release-background-image position-absolute z-index-0 h-100 w-100">
@@ -412,57 +418,60 @@
             <div class="left-block   ">
                 <div class="row py-md-5 py-0 px-0">
 
-                <div class="col-md-4 col-lg-4 mb-3 mb-md-0 pe-md-0">
-                    <div class="left-col-2 ">
-                        <div class="page-tab clearfix">
-                            <div class="page-tab-res clearfix">
-                                <div>
-                                    <ul class="resp-tabs-list hor_1 change-color-code">
-                                        <li class="border-l change-border-color-text resp-tab-item hor_1 resp-tab-active"><a href="javascript:viod(0)"
-                                                 class="change-text-color pe-none">
-                                                @if (Session::get('Lang') == 'hi')
-                                                {{ __('messages.Notification') }}
-                                                @else
-                                                {{ __('messages.Notification') }}
-                                                @endif
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <div class="resp-tabs-container hor_1">
-                                        <div class="clearfix" id="hor_1_tab_item-0">
-                                            <div class="content-wrapper">
-                                                <p class="text-slide pause" onclick="changeClass()"></p>
-                                                <div class="scroll-text scroll-left p-2">
-                                                    <ul class="list">
-                                                        @if (isset($notification) && count($notification) > 0)
-                                                        @foreach ($notification as $notifications)
-                                                        <li>
-                                                            @php
-                                                            $notiUrl = $notifications->url_link ?? 'javascript:void(0)';
-                                                            @endphp
-                                                            <div class="list-content">
-                                                                @if (Session::get('Lang') == 'hi')
-                                                                {{ $notifications->recent_activities_hi ?? '' }}
-                                                                @else
-                                                                {{ $notifications->recent_activities_en ?? '' }}
-                                                                @endif
-                                                                &nbsp;
-                                                                @if ($notifications->tab_type == 1)
-                                                                <a onclick="return confirm('{{ $alertMessage ?? '' }}')"
-                                                                    target="_blank" href="{{ $notiUrl ?? '' }}"
-                                                                    class="text-danger">Click
-                                                                    here to apply</a>
-                                                                @else
-                                                                <a href="{{ $notiUrl ?? '' }}" class="text-danger">Click
-                                                                    here to apply</a>
-                                                                @endif
-                                                            </div>
-                                                        </li>
-                                                        @endforeach
-                                                        @else
-                                                        <li class="list-unstyled border-0">Coming Soon...</li>
-                                                        @endif
-                                                        {{-- <li>
+                    <div class="col-md-4 col-lg-4 mb-3 mb-md-0 pe-md-0">
+                        <div class="left-col-2 ">
+                            <div class="page-tab clearfix">
+                                <div class="page-tab-res clearfix">
+                                    <div>
+                                        <ul class="resp-tabs-list hor_1 change-color-code">
+                                            <li
+                                                class="border-l change-border-color-text resp-tab-item hor_1 resp-tab-active">
+                                                <a href="javascript:viod(0)" class="change-text-color pe-none">
+                                                    @if (Session::get('Lang') == 'hi')
+                                                    {{ __('messages.Notification') }}
+                                                    @else
+                                                    {{ __('messages.Notification') }}
+                                                    @endif
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="resp-tabs-container hor_1">
+                                            <div class="clearfix" id="hor_1_tab_item-0">
+                                                <div class="content-wrapper">
+                                                    <p class="text-slide pause" onclick="changeClass()"></p>
+                                                    <div class="scroll-text scroll-left p-2">
+                                                        <ul class="list">
+                                                            @if (isset($notification) && count($notification) > 0)
+                                                            @foreach ($notification as $notifications)
+                                                            <li>
+                                                                @php
+                                                                $notiUrl = $notifications->url_link ??
+                                                                'javascript:void(0)';
+                                                                @endphp
+                                                                <div class="list-content">
+                                                                    @if (Session::get('Lang') == 'hi')
+                                                                    {{ $notifications->recent_activities_hi ?? '' }}
+                                                                    @else
+                                                                    {{ $notifications->recent_activities_en ?? '' }}
+                                                                    @endif
+                                                                    &nbsp;
+                                                                    @if ($notifications->tab_type == 1)
+                                                                    <a onclick="return confirm('{{ $alertMessage ?? '' }}')"
+                                                                        target="_blank" href="{{ $notiUrl ?? '' }}"
+                                                                        class="text-danger">Click
+                                                                        here to apply</a>
+                                                                    @else
+                                                                    <a href="{{ $notiUrl ?? '' }}"
+                                                                        class="text-danger">Click
+                                                                        here to apply</a>
+                                                                    @endif
+                                                                </div>
+                                                            </li>
+                                                            @endforeach
+                                                            @else
+                                                            <li class="list-unstyled border-0">Coming Soon...</li>
+                                                            @endif
+                                                            {{-- <li>
                                                             <div class="list-content">
                                                                 <a href="https://centralpulppaperresearchinstitute.webex.com/centralpulppaperresearchinstitute/j.php?MTID=m639c2a7e8a854b99da321b648df0ade6"
                                                                     target="_blank">Online Public Grievance Redressal
@@ -481,17 +490,18 @@
                                                                     here to apply</a>
                                                             </div>
                                                         </li> --}}
-                                                    </ul>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="view-footer"><a href="{{route('notification')}}"
+                                                            title="View A ll" class="change-border-color-text"><span>
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                {{ __('messages.View_all') }}
+                                                                @else
+                                                                {{ __('messages.View_all') }}
+                                                                @endif
+                                                                <i class="fa fa-angle-right"></i>
+                                                            </span></a></div>
                                                 </div>
-                                                <div class="view-footer"><a href="{{route('notification')}}" title="View A ll"
-                                                        class="change-border-color-text"><span>
-                                                            @if (Session::get('Lang') == 'hi')
-                                                            {{ __('messages.View_all') }}
-                                                            @else
-                                                            {{ __('messages.View_all') }}
-                                                            @endif
-                                                            <i class="fa fa-angle-right"></i>
-                                                        </span></a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -499,64 +509,64 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-lg-4 mb-3 mb-md-0 pe-md-0">
-                    <div class="left-col-2 ">
-                        <div class="page-tab clearfix">
-                            <div class="page-tab-res clearfix">
-                                <div>
-                                    <ul class="resp-tabs-list hor_1 change-color-code">
-                                        <li
-                                            class="border-l resp-tab-item hor_1 resp-tab-active change-border-color-text">
-                                            <a href="javascript:viod(0)"  class="change-text-color pe-none">
-                                                @if (Session::get('Lang') == 'hi')
-                                                {{ __('messages.Press_Release') }}
-                                                @else
-                                                {{ __('messages.Press_Release') }}
-                                                @endif
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <div class="resp-tabs-container hor_1">
-                                        <div class="clearfix" id="hor_1_tab_item-1">
-                                            <div class="content-wrapper">
-                                                <p class="text-slide01 pause" onclick="changeClass01()"></p>
-                                                <div class="scroll-text01 scroll-left p-2">
-                                                    <ul class="list">
-                                                        @if (isset($press_release) && count($press_release) > 0)
-                                                        @foreach ($press_release as $press_releases)
-                                                        @php
-                                                        $pressUrl = $press_releases->url_link ?? 'javascript:void(0)';
-                                                        @endphp
-                                                        <li>
-                                                            @if ($press_releases->tab_type == 1)
-                                                            <a onclick="return confirm('{{ $alertMessage ?? '' }}')"
-                                                                target="_blank" href="{{ $pressUrl ?? '' }}">
-                                                                <div class="list-content">
-                                                                    @if (Session::get('Lang') == 'hi')
-                                                                    {{ $press_releases->recent_activities_hi ?? '' }}
-                                                                    @else
-                                                                    {{ $press_releases->recent_activities_en ?? '' }}
-                                                                    @endif
-                                                                </div>
-                                                            </a>
+                    <div class="col-md-4 col-lg-4 mb-3 mb-md-0 pe-md-0">
+                        <div class="left-col-2 ">
+                            <div class="page-tab clearfix">
+                                <div class="page-tab-res clearfix">
+                                    <div>
+                                        <ul class="resp-tabs-list hor_1 change-color-code">
+                                            <li
+                                                class="border-l resp-tab-item hor_1 resp-tab-active change-border-color-text">
+                                                <a href="javascript:viod(0)" class="change-text-color pe-none">
+                                                    @if (Session::get('Lang') == 'hi')
+                                                    {{ __('messages.Press_Release') }}
+                                                    @else
+                                                    {{ __('messages.Press_Release') }}
+                                                    @endif
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="resp-tabs-container hor_1">
+                                            <div class="clearfix" id="hor_1_tab_item-1">
+                                                <div class="content-wrapper">
+                                                    <p class="text-slide01 pause" onclick="changeClass01()"></p>
+                                                    <div class="scroll-text01 scroll-left p-2">
+                                                        <ul class="list">
+                                                            @if (isset($press_release) && count($press_release) > 0)
+                                                            @foreach ($press_release as $press_releases)
+                                                            @php
+                                                            $pressUrl = $press_releases->url_link ??
+                                                            'javascript:void(0)';
+                                                            @endphp
+                                                            <li>
+                                                                @if ($press_releases->tab_type == 1)
+                                                                <a onclick="return confirm('{{ $alertMessage ?? '' }}')"
+                                                                    target="_blank" href="{{ $pressUrl ?? '' }}">
+                                                                    <div class="list-content">
+                                                                        @if (Session::get('Lang') == 'hi')
+                                                                        {{ $press_releases->recent_activities_hi ?? '' }}
+                                                                        @else
+                                                                        {{ $press_releases->recent_activities_en ?? '' }}
+                                                                        @endif
+                                                                    </div>
+                                                                </a>
+                                                                @else
+                                                                <a href="{{ $pressUrl ?? '' }}">
+                                                                    <div class="list-content">
+                                                                        @if (Session::get('Lang') == 'hi')
+                                                                        {{ $press_releases->recent_activities_hi ?? '' }}
+                                                                        @else
+                                                                        {{ $press_releases->recent_activities_en ?? '' }}
+                                                                        @endif
+                                                                    </div>
+                                                                </a>
+                                                                @endif
+                                                            </li>
+                                                            @endforeach
                                                             @else
-                                                            <a href="{{ $pressUrl ?? '' }}">
-                                                                <div class="list-content">
-                                                                    @if (Session::get('Lang') == 'hi')
-                                                                    {{ $press_releases->recent_activities_hi ?? '' }}
-                                                                    @else
-                                                                    {{ $press_releases->recent_activities_en ?? '' }}
-                                                                    @endif
-                                                                </div>
-                                                            </a>
+                                                            <li class="border-0 list-unstyled">Coming Soon...</li>
                                                             @endif
-                                                        </li>
-                                                        @endforeach
-                                                        @else
-                                                        <li class="border-0 list-unstyled">Coming Soon...</li>
-                                                        @endif
-                                                        {{-- <li>
+                                                            {{-- <li>
                                                             <div class="list-content">Description of Press Release 1
                                                                 goes here
                                                                 mm-dd-yyyy - File type (size) DD-MM-YYYY. </div>
@@ -576,17 +586,18 @@
                                                                 goes here
                                                                 mm-dd-yyyy - File type (size) DD-MM-YYYY.</div>
                                                         </li> --}}
-                                                    </ul>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="view-footer"><a href="{{route('press-released')}}"
+                                                            title="View All" class="change-border-color-text"><span>
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                {{ __('messages.View_all') }}
+                                                                @else
+                                                                {{ __('messages.View_all') }}
+                                                                @endif
+                                                                <i class="fa fa-angle-right"></i>
+                                                            </span></a></div>
                                                 </div>
-                                                <div class="view-footer"><a href="{{route('press-released')}}"
-                                                        title="View All" class="change-border-color-text"><span>
-                                                            @if (Session::get('Lang') == 'hi')
-                                                            {{ __('messages.View_all') }}
-                                                            @else
-                                                            {{ __('messages.View_all') }}
-                                                            @endif
-                                                            <i class="fa fa-angle-right"></i>
-                                                        </span></a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -594,74 +605,157 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-lg-4 ">
-                    <div class="left-col-2">
-                        <div class="box-bg-color change-color-code">
-                            <div class="tender">
-                                <h2 class="change-border-color-text fw-bold text-uppercase">
-                                    @if (Session::get('Lang') == 'hi')
-                                    {{ __('messages.Tender') }}
-                                    @else
-                                    {{ __('messages.Tender') }}
-                                    @endif
-                                </h2>
-                            </div>
-                            <p class="text-slide1 pause tender-play-btn" onclick="changeClass1()"></p>
-                        </div>
-                        <div class="bg-white-tender">
-                            <div class="scroll-text-1 scroll-left">
-                                <ul class="list">
-                                    @if (isset($tender_management) && count($tender_management) > 0)
-                                    @foreach ($tender_management as $tender_managements)
-                                    <li>
-                                        <a href="{{ url('tender') }}">
-                                            <div class="date">
-                                                <span
-                                                    class="change-color-code">
-                                                    @if($tender_managements->start_date != '')
-                                                    {{ date('d', strtotime($tender_managements->start_date)) }}
-                                                    @endif
-                                                
-                                                </span>
-                                                <em>
-                                                    @if($tender_managements->start_date != '')
 
-                                                    {{ date('M Y', strtotime($tender_managements->start_date)) }}
+                    <!-- ************ -->
+                    <div class="col-md-4 col-lg-4 mb-3 mb-md-0 pe-md-0">
+                        <div class="left-col-2 ">
+                            <div class="page-tab clearfix">
+                                <div class="page-tab-res clearfix">
+                                    <div>
+                                        <ul class="resp-tabs-list hor_1 change-color-code">
+                                            <li
+                                                class="border-l resp-tab-item hor_1 resp-tab-active change-border-color-text">
+                                                <a href="javascript:viod(0)" class="change-text-color pe-none">
+                                                    @if (Session::get('Lang') == 'hi')
+                                                    {{ __('messages.Tender') }}
+                                                    @else
+                                                    {{ __('messages.Tender') }}
                                                     @endif
-                                                
-                                                </em>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="resp-tabs-container hor_1">
+                                            <div class="clearfix" id="hor_1_tab_item-1">
+                                                <div class="content-wrapper">
+                                                    <p class="text-slide01 pause" onclick="changeClass1()" id="tender_pause_button"></p>
+                                                    <div class="scroll-text01 scroll-left p-2" id = "tender_scroll">
+                                                        <ul class="list">
+                                                            @if (isset($tender_management) && count($tender_management)
+                                                            > 0)
+                                                            @foreach ($tender_management as $tender_managements)
+                                                            <li>
+                                                                <a href="{{ url('tender') }}">
+                                                                    <div class="date">
+                                                                        <span class="change-color-code">
+                                                                            @if($tender_managements->start_date != '')
+                                                                            {{ date('d', strtotime($tender_managements->start_date)) }}
+                                                                            @endif
 
-                                            </div>
-                                            <div class="list-content">
-                                                {{ $tender_managements->title_name_en ?? '' }} 
-                                                {{-- - File type
+                                                                        </span>
+                                                                        <em>
+                                                                            @if($tender_managements->start_date != '')
+
+                                                                            {{ date('M Y', strtotime($tender_managements->start_date)) }}
+                                                                            @endif
+
+                                                                        </em>
+
+                                                                    </div>
+                                                                    <div class="list-content">
+                                                                        {{ $tender_managements->title_name_en ?? '' }}
+                                                                        {{-- - File type
                                                 ({{ $tender_managements->file_extension ?? '' }} -
-                                                {{ $tender_managements->pdfimage_size ?? '' }}) --}}
+                                                                        {{ $tender_managements->pdfimage_size ?? '' }})
+                                                                        --}}
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            @endforeach
+                                                            @else
+                                                            <li class="list-unstyled border-0">Coming Soon...</li>
+                                                            @endif
+
+                                                        </ul>
+                                                    </div>
+                                                    <div class="view-footer"><a href="{{ url('tender') }}"
+                                                            title="Know More About Tenders"
+                                                            class="change-border-color-text"><span>
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                {{ __('messages.View_all') }}
+                                                                @else
+                                                                {{ __('messages.View_all') }}
+                                                                @endif
+                                                                <i class="fa fa-angle-right"></i>
+                                                            </span></a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </a>
-                                    </li>
-                                    @endforeach
-                                    @else
-                                        <li class="list-unstyled border-0">Coming Soon...</li>
-                                    @endif
-                                </ul>
-                            </div>
-                            <div class="view-footer"><a href="{{ url('tender') }}" title="Know More About Tenders"
-                                    class="change-border-color-text"><span>
-                                        @if (Session::get('Lang') == 'hi')
-                                        {{ __('messages.View_all') }}
-                                        @else
-                                        {{ __('messages.View_all') }}
-                                        @endif
-                                        <i class="fa fa-angle-right"></i>
-                                    </span></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- ************ -->
+                    <!-- <div class="col-md-4 col-lg-4 ">
+                        <div class="left-col-2 page-tab">
+                            <div class=" change-color-code">
+                                <ul class="resp-tabs-list hor_1 change-color-code">
+                                    <li class="border-l resp-tab-item hor_1 resp-tab-active change-border-color-text">
+                                        <a href="javascript:viod(0)" class="change-text-color pe-none" tabindex="0">
+                                            @if (Session::get('Lang') == 'hi')
+                                            {{ __('messages.Tender') }}
+                                            @else
+                                            {{ __('messages.Tender') }}
+                                            @endif
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <p class="text-slide1 pause tender-play-btn" onclick="changeClass1()"></p>
+                            </div>
+                            <div class="bg-white-tender">
+                                <div class="scroll-text-1 scroll-left">
+                                    <ul class="list">
+                                        @if (isset($tender_management) && count($tender_management) > 0)
+                                        @foreach ($tender_management as $tender_managements)
+                                        <li>
+                                            <a href="{{ url('tender') }}">
+                                                <div class="date">
+                                                    <span class="change-color-code">
+                                                        @if($tender_managements->start_date != '')
+                                                        {{ date('d', strtotime($tender_managements->start_date)) }}
+                                                        @endif
+
+                                                    </span>
+                                                    <em>
+                                                        @if($tender_managements->start_date != '')
+
+                                                        {{ date('M Y', strtotime($tender_managements->start_date)) }}
+                                                        @endif
+
+                                                    </em>
+
+                                                </div>
+                                                <div class="list-content">
+                                                    {{ $tender_managements->title_name_en ?? '' }}
+                                                    {{-- - File type
+                                                ({{ $tender_managements->file_extension ?? '' }} -
+                                                    {{ $tender_managements->pdfimage_size ?? '' }}) --}}
+                                                </div>
+                                            </a>
+                                        </li>
+                                        @endforeach
+                                        @else
+                                        <li class="list-unstyled border-0">Coming Soon...</li>
+                                        @endif
+                                    </ul>
+                                </div>
+                                <div class="view-footer"><a href="{{ url('tender') }}" title="Know More About Tenders"
+                                        class="change-border-color-text"><span>
+                                            @if (Session::get('Lang') == 'hi')
+                                            {{ __('messages.View_all') }}
+                                            @else
+                                            {{ __('messages.View_all') }}
+                                            @endif
+                                            <i class="fa fa-angle-right"></i>
+                                        </span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
-                </div>
-              
+
             </div>
         </div>
     </div>
@@ -692,7 +786,8 @@
                                         trained manpower, Forest
                                         Research University ( Deemed University)...
                                     </p>
-                                    <a class="button change-text-color" href="{{url('academic/academic-program/m-sc-program')}}">More Details
+                                    <a class="button change-text-color"
+                                        href="{{url('academic/academic-program/m-sc-program')}}">More Details
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -716,9 +811,11 @@
                                 <div class="new-txt">
                                     <h6><a href="{{url('academic-program')}}">Training Program</a></h6>
                                     <span class="duration">Duration- Depends on program stream </span>
-                                    <p> Implementing a comprehensive and well-structured training program is essential for fostering optimal ...
+                                    <p> Implementing a comprehensive and well-structured training program is essential
+                                        for fostering optimal ...
                                     </p>
-                                    <a class="button change-text-color" href="{{url('training-programs/training-calendar')}}">More Details
+                                    <a class="button change-text-color"
+                                        href="{{url('training-programs/training-calendar')}}">More Details
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -757,197 +854,203 @@
     </section>
     <div class="wrapper banner-bg-white ptb-30 pb-0">
         <div class="container common-container four_content banner-container body-container top-body-container p-0">
-         <div class="row">
-               <div class="col-lg-3 col-md-6">
-                <div class="social-box">
-                    <div class="sub-sec">
-                        <h2>
-                            <span class="img-b"><img src="{{ asset('assets-cppri/images/facebook.png') }}" alt="icon">
-                            </span>
-                            @if (Session::get('Lang') == 'hi')
-                            {{ __('messages.Facebook') }}
-                            @else
-                            {{ __('messages.Facebook') }}
-                            @endif
-                        </h2>
-                    </div>
-                    <div class="plug-box facebook-feed-content text-center">
-                        <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=100090718134100"
-                            data-tabs="timeline" data-width="360" data-height="295" data-small-header="true"
-                            data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
-                            <blockquote cite="https://www.facebook.com/profile.php?id=100090718134100"
-                                class="fb-xfbml-parse-ignore"><a
-                                    href="https://www.facebook.com/profile.php?id=100090718134100">Central Pulp and
-                                    Paper
-                                    Research Institute</a></blockquote>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="social-box">
+                        <div class="sub-sec">
+                            <h2>
+                                <span class="img-b"><img src="{{ asset('assets-cppri/images/facebook.png') }}"
+                                        alt="icon">
+                                </span>
+                                @if (Session::get('Lang') == 'hi')
+                                {{ __('messages.Facebook') }}
+                                @else
+                                {{ __('messages.Facebook') }}
+                                @endif
+                            </h2>
+                        </div>
+                        <div class="plug-box facebook-feed-content text-center">
+                            <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=100090718134100"
+                                data-tabs="timeline" data-width="360" data-height="295" data-small-header="true"
+                                data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
+                                <blockquote cite="https://www.facebook.com/profile.php?id=100090718134100"
+                                    class="fb-xfbml-parse-ignore"><a
+                                        href="https://www.facebook.com/profile.php?id=100090718134100">Central Pulp and
+                                        Paper
+                                        Research Institute</a></blockquote>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="social-box">
-                    <div class="sub-sec">
-                        <h2 class="twitter-c">
-                            <span class="img-b"><img src="{{ asset('assets-cppri/images/twitter.png') }}" alt="icon">
-                            </span>
-                            @if (Session::get('Lang') == 'hi')
-                            {{ __('messages.Twitter') }}
-                            @else
-                            {{ __('messages.Twitter') }}
-                            @endif
-                        </h2>
-                    </div>
-                    <div class="plug-box twitter-feed-content p-2">
-                        <blockquote class="twitter-tweet">
-                            <p lang="en" dir="ltr">On 18.10.2023, Old Newspapers, Old Magazines and Shredded
-                                Office waste
-                                was disposed of under the ongoing # Special Campaign 3.0. The total space freed after
-                                disposal of paper waste was 700 sqr. ft. <a
-                                    href="https://t.co/e8nghNwqSj">pic.twitter.com/e8nghNwqSj</a></p>&mdash; Central
-                            Pulp
-                            &amp; Paper Research Institute (@CppriSaharanpur) <a
-                                href="https://twitter.com/CppriSaharanpur/status/1714938725103464730?ref_src=twsrc%5Etfw">October
-                                19, 2023</a>
-                        </blockquote>
-                        <script async src="https://platform.twitter.com/widgets.js"></script>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="social-box">
-                    <div class="sub-sec">
-                        <h2 class="linkedin-c">
-                            <span class="img-b"><img src="{{ asset('assets-cppri/images/linkedin1.png') }}" alt="icon">
-                            </span>
-                            @if (Session::get('Lang') == 'hi')
-                            {{ __('messages.Linkedin') }}
-                            @else
-                            {{ __('messages.Linkedin') }}
-                            @endif
-                        </h2>
-                    </div>
-                    <div class="plug-box linkedinfeed">
-                        <img src="{{ asset('assets-cppri/images/linkedin_feed.PNG') }}" alt="">
+                <div class="col-lg-3 col-md-6">
+                    <div class="social-box">
+                        <div class="sub-sec">
+                            <h2 class="twitter-c">
+                                <span class="img-b"><img src="{{ asset('assets-cppri/images/twitter.png') }}"
+                                        alt="icon">
+                                </span>
+                                @if (Session::get('Lang') == 'hi')
+                                {{ __('messages.Twitter') }}
+                                @else
+                                {{ __('messages.Twitter') }}
+                                @endif
+                            </h2>
+                        </div>
+                        <div class="plug-box twitter-feed-content p-2">
+                            <blockquote class="twitter-tweet">
+                                <p lang="en" dir="ltr">On 18.10.2023, Old Newspapers, Old Magazines and Shredded
+                                    Office waste
+                                    was disposed of under the ongoing # Special Campaign 3.0. The total space freed
+                                    after
+                                    disposal of paper waste was 700 sqr. ft. <a
+                                        href="https://t.co/e8nghNwqSj">pic.twitter.com/e8nghNwqSj</a></p>&mdash; Central
+                                Pulp
+                                &amp; Paper Research Institute (@CppriSaharanpur) <a
+                                    href="https://twitter.com/CppriSaharanpur/status/1714938725103464730?ref_src=twsrc%5Etfw">October
+                                    19, 2023</a>
+                            </blockquote>
+                            <script async src="https://platform.twitter.com/widgets.js"></script>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="social-box">
-                    <div class="sub-sec">
-                        <h2 class="instagram-c">
-                            <span class="img-b"><img src="{{ asset('assets-cppri/images/instagram.png') }}" alt="icon">
-                            </span>
-                            @if (Session::get('Lang') == 'hi')
-                            {{ __('messages.Instagram') }}
-                            @else
-                            {{ __('messages.Instagram') }}
-                            @endif
-                        </h2>
+                <div class="col-lg-3 col-md-6">
+                    <div class="social-box">
+                        <div class="sub-sec">
+                            <h2 class="linkedin-c">
+                                <span class="img-b"><img src="{{ asset('assets-cppri/images/linkedin1.png') }}"
+                                        alt="icon">
+                                </span>
+                                @if (Session::get('Lang') == 'hi')
+                                {{ __('messages.Linkedin') }}
+                                @else
+                                {{ __('messages.Linkedin') }}
+                                @endif
+                            </h2>
+                        </div>
+                        <div class="plug-box linkedinfeed">
+                            <img src="{{ asset('assets-cppri/images/linkedin_feed.PNG') }}" alt="">
+                        </div>
                     </div>
-                    <div class="plug-box linkedinfeed">
-                        <!-- <img src="{{ asset('assets-cppri/images/linkedin_feed.PNG') }}" alt=""> -->
-                        <blockquote class="instagram-media"
-                            data-instgrm-permalink="https://www.instagram.com/cpprisocial/" data-instgrm-version="12"
-                            style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:288px; min-width:280px; padding:0; width:288px; width:288px;height:295px;max-height:100%; width:288px;">
-                            <div style="padding:16px;"> <a id="main_link" href="cpprisocial"
-                                    style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
-                                    target="_blank">
-                                    <div style=" display: flex; flex-direction: row; align-items: center;">
-                                        <div
-                                            style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
-                                        </div>
-                                        <div
-                                            style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="social-box">
+                        <div class="sub-sec">
+                            <h2 class="instagram-c">
+                                <span class="img-b"><img src="{{ asset('assets-cppri/images/instagram.png') }}"
+                                        alt="icon">
+                                </span>
+                                @if (Session::get('Lang') == 'hi')
+                                {{ __('messages.Instagram') }}
+                                @else
+                                {{ __('messages.Instagram') }}
+                                @endif
+                            </h2>
+                        </div>
+                        <div class="plug-box linkedinfeed">
+                            <!-- <img src="{{ asset('assets-cppri/images/linkedin_feed.PNG') }}" alt=""> -->
+                            <blockquote class="instagram-media"
+                                data-instgrm-permalink="https://www.instagram.com/cpprisocial/"
+                                data-instgrm-version="12"
+                                style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:288px; min-width:280px; padding:0; width:288px; width:288px;height:295px;max-height:100%; width:288px;">
+                                <div style="padding:16px;"> <a id="main_link" href="cpprisocial"
+                                        style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
+                                        target="_blank">
+                                        <div style=" display: flex; flex-direction: row; align-items: center;">
                                             <div
-                                                style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+                                                style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
                                             </div>
                                             <div
-                                                style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+                                                style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+                                                </div>
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div style="padding: 19% 0;"></div>
-                                    <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg
-                                            width="50px" height="50px" viewBox="0 0 60 60" version="1.1"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <g transform="translate(-511.000000, -20.000000)" fill="#000000">
-                                                    <g>
-                                                        <path
-                                                            d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631">
-                                                        </path>
+                                        <div style="padding: 19% 0;"></div>
+                                        <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg
+                                                width="50px" height="50px" viewBox="0 0 60 60" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g transform="translate(-511.000000, -20.000000)" fill="#000000">
+                                                        <g>
+                                                            <path
+                                                                d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631">
+                                                            </path>
+                                                        </g>
                                                     </g>
                                                 </g>
-                                            </g>
-                                        </svg></div>
-                                    <div style="padding-top: 8px;">
+                                            </svg></div>
+                                        <div style="padding-top: 8px;">
+                                            <div
+                                                style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+                                                View this post on Instagram</div>
+                                        </div>
+                                        <div style="padding: 12.5% 0;"></div>
                                         <div
-                                            style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
-                                            View this post on Instagram</div>
-                                    </div>
-                                    <div style="padding: 12.5% 0;"></div>
-                                    <div
-                                        style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
-                                        <div>
-                                            <div
-                                                style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+                                            style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+                                            <div>
+                                                <div
+                                                    style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+                                                </div>
+                                                <div
+                                                    style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+                                                </div>
+                                                <div
+                                                    style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+                                                </div>
                                             </div>
-                                            <div
-                                                style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+                                            <div style="margin-left: 8px;">
+                                                <div
+                                                    style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+                                                </div>
+                                                <div
+                                                    style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+                                                </div>
                                             </div>
-                                            <div
-                                                style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+                                            <div style="margin-left: auto;">
+                                                <div
+                                                    style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+                                                </div>
+                                                <div
+                                                    style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+                                                </div>
+                                                <div
+                                                    style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div style="margin-left: 8px;">
-                                            <div
-                                                style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
-                                            </div>
-                                            <div
-                                                style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
-                                            </div>
-                                        </div>
-                                        <div style="margin-left: auto;">
-                                            <div
-                                                style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
-                                            </div>
-                                            <div
-                                                style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
-                                            </div>
-                                            <div
-                                                style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
-                                        <div
-                                            style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
                                         </div>
                                         <div
-                                            style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+                                            style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+                                            <div
+                                                style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+                                            </div>
+                                            <div
+                                                style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                                <p
-                                    style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
-                                    <a href="cpprisocial"
-                                        style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
-                                        target="_blank">Shared post</a> on <span
-                                        style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;">Time</span>
-                                </p>
-                            </div>
-                        </blockquote>
-                        <script src="https://www.instagram.com/embed.js"></script>
-                       
+                                    </a>
+                                    <p
+                                        style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+                                        <a href="cpprisocial"
+                                            style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
+                                            target="_blank">Shared post</a> on <span
+                                            style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;">Time</span>
+                                    </p>
+                                </div>
+                            </blockquote>
+                            <script src="https://www.instagram.com/embed.js"></script>
+
+                        </div>
                     </div>
+
                 </div>
-          
-         </div>
+            </div>
+
         </div>
-   
-    </div>
     </div>
     {{-- video and image section start --}}
     @if (
