@@ -56,9 +56,9 @@
         </div>
     </div>
 </div>
-<div class="wrapper"></div>
+<div class="wrapper" id="skipCont"></div>
 <div class="sidebar-main-nav ptb-50" id="mainsidebar">
-    <div class="container common-container  " >
+    <div class="container common-container  ">
         <!--/.nav-wrapper-->
         <div class="row pr-lg-0">
             @if (isset($parentMenut) != '')
@@ -204,7 +204,7 @@
                             @endif
 
                             @if (isset($organizedData) && isset($organizedData['metatag']) != '')
-                            <section id="paragraph" class="wrapper paragraph-wrapper"  id="skipCont">
+                            <section id="paragraph" class="wrapper paragraph-wrapper">
                                 <div class="container common-container four_content pm-0">
                                     <div class="align-lt">
                                         <h2 class="mt-0 mb-20">
