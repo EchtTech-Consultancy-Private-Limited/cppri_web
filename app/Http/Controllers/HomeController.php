@@ -684,16 +684,16 @@ class HomeController extends Controller
 
     public function feedbackStore(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string',
+            'email' => ['required', 'string', 'email', 'max:50', 'email:rfc','regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
+            'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
+            'message' => 'required|string|regex:/^[a-zA-Z0-9\s.,!?]+$/',
+            'SecurityCode' => 'required',
+
+        ]);
         if (Session::get('feedbackCapcode') != $request->SecurityCode) {
             return response()->json(['captchaError' =>"Captcha Invalid!."]);
-        } else {
-            $request->validate([
-                'name' => 'required|string',
-                'email' => ['required', 'string', 'email', 'max:50', 'email:rfc','regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
-                'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
-                'message' => 'required|string|regex:/^[a-zA-Z0-9\s.,!?]+$/',
-
-            ]);
         }
         $data = new feedback;
         $data->name = strip_tags($request->name);
