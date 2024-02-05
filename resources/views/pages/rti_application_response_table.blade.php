@@ -100,7 +100,7 @@
                                         RTI Application & Responses
                                     </h2> -->
 
-                                
+
 
                                 </div>
 
@@ -111,10 +111,10 @@
                                         Organisation and Function
                                     </h2>
 
-                                  
+
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
-                                           
+
 
                                             <table class='organization-structure'>
                                                 <thead>
@@ -133,7 +133,8 @@
                                                     </tr>
                                                     <tr>
                                                         <td>1.1</td>
-                                                        <td colspan="2" class="fw-bold">Particulars of Organisation, Functions and
+                                                        <td colspan="2" class="fw-bold">Particulars of Organisation,
+                                                            Functions and
                                                             Duties [Section 4(1)(b)(i)]</td>
                                                     </tr>
                                                     <tr>
@@ -233,7 +234,7 @@
                                                             Work allocation
                                                         </td>
                                                         <td>
-                                                          
+
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -436,14 +437,14 @@
                                                         <td>
                                                             Composition
                                                         </td>
-                                                        
+
                                                     </tr>
                                                     <tr>
                                                         <td>1.7.3</td>
                                                         <td>
                                                             Dates from which constituted
                                                         </td>
-                                                       
+
                                                     </tr>
                                                     <!-- Continue with the remaining rows -->
 
@@ -537,7 +538,7 @@
                                                             (i) Pending for Minor penalty or major penalty proceedings
                                                         </td>
                                                         <td>
-                                                         
+
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -547,7 +548,7 @@
                                                             proceedings
                                                         </td>
                                                         <td>
-                                                           
+
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -562,7 +563,7 @@
                                                             Educational Programmes
                                                         </td>
                                                         <td>
-                                                          
+
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -628,7 +629,7 @@
                                         Budget and Programmes
                                     </h2>
 
-                                    
+
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
                                             <table>
@@ -679,7 +680,7 @@
                                                             Revised budget for each agency, if any
                                                         </td>
                                                         <td>
-                                                          
+
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -705,7 +706,7 @@
                                                             Budget
                                                         </td>
                                                         <td>
-                                                          
+
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -818,7 +819,7 @@
                                                             State Govt./ NGOs/other institutions
                                                         </td>
                                                         <td>
-                                                            
+
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -828,7 +829,7 @@
                                                             grants by public authorities
                                                         </td>
                                                         <td>
-                                                            
+
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -893,10 +894,10 @@
                                         Publicity and Public Interface
                                     </h2>
 
-                                    
+
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
-                                       
+
 
 
                                             <table>
@@ -1137,10 +1138,10 @@
                                         E-Governance
                                     </h2>
 
-                                    
+
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
-                                     
+
 
                                             <table>
                                                 <tbody>
@@ -1186,7 +1187,7 @@
                                                             Last Date of Annual updating
                                                         </td>
                                                         <td>
-                                                         
+
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -1207,7 +1208,7 @@
                                                         <td>4.3.2</td>
                                                         <td>
                                                             Name/ title of the document/record/ other
-                                                                information
+                                                            information
                                                         </td>
                                                         <td></td> <!-- Empty content for the third column -->
                                                     </tr>
@@ -1215,7 +1216,7 @@
                                                         <td>4.3.3</td>
                                                         <td>
                                                             Name/ title of the document/record/ other
-                                                                information
+                                                            information
                                                         </td>
                                                         <td></td> <!-- Empty content for the third column -->
                                                     </tr>
@@ -1237,8 +1238,8 @@
                                                         </td>
                                                         <td colspan="2" class="fw-bold">
                                                             Particulars of Facilities available to Citizens
-                                                                    for obtaining information [Section
-                                                                    4(1)(b)(xv)]
+                                                            for obtaining information [Section
+                                                            4(1)(b)(xv)]
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -1277,7 +1278,7 @@
                                                         </td>
                                                         <td>
                                                             Contact person &amp; contact details (Phone, fax email)
-                                                            
+
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -1286,7 +1287,7 @@
                                                         </td>
                                                         <td colspan="2" class="fw-bold">
                                                             Such other information as may be prescribed under
-                                                                    Section 4(i) (b)(xvii)
+                                                            Section 4(i) (b)(xvii)
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -1306,7 +1307,7 @@
                                                         </td>
                                                         <td>
                                                             Details of applications received under RTI and
-                                                                information provided
+                                                            information provided
                                                         </td>
                                                         <td>
                                                             <!-- Empty content for the third column -->
@@ -1335,7 +1336,7 @@
                                                         <td>
                                                             List of schemes/ projects/ programme underway
                                                         </td>
-                                                       
+
                                                     </tr>
                                                     <tr>
                                                         <td>
@@ -1449,13 +1450,110 @@
 
                                 </div>
 
+                                <!-- Information as may be Prescribed -->
+
+                                <div class="align-lt">
+                                    <h2 class="mt-0 mb-20" tabindex="0">
+                                        Information as may be Prescribed
+                                    </h2>
+
+
+                                    <section id="paragraph" class="wrapper paragraph-wrapper">
+                                        <div class=" common-container four_content">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            <p><strong>5</strong></p>
+                                                        </th>
+                                                        <th colspan="2">
+                                                            Information as may be Prescribed
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            5.1
+                                                        </td>
+                                                        <td colspan="2">
+                                                            Such other Information as may be Prescribed [F. No.
+                                                            1/2/2016-IR dt. 17.8.2016, F No. 1/6/2011-IR dt. 15.4.2013]
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            5.1.1
+                                                        </td>
+                                                        <td>
+                                                            Name and details of (a) Current CPIO and FAAs, (b) Earlier
+                                                            CPIO and FAAs from 1.1.2015
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            5.1.2
+                                                        </td>
+                                                        <td>
+                                                            Details of third-party audit of voluntary disclosure (a)
+                                                            Dates of audit carried out (b) Report of the audit carried
+                                                            out
+                                                        </td>
+                                                        <td> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            5.1.3
+                                                        </td>
+                                                        <td>
+                                                            Appointment of Nodal Officers not below the rank of Joint
+                                                            Secretary/ Additional HoD (a) Date of appointment, (b) Name
+                                                            and Designation of the officers
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            5.1.4
+                                                        </td>
+                                                        <td>
+                                                            Consultancy committee of key stakeholders for advice on Suo
+                                                            Moto Disclosure (a) Dates from which constituted, (b) Name
+                                                            and Designation of the officers
+                                                        </td>
+                                                        <td> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>
+                                                            5.1.5
+                                                        </td>
+                                                        <td>
+                                                            Committee of PIOs/FAAs with rich experience in RTI to
+                                                            identify frequently sought information under RTI (a) Dates
+                                                            from which constituted, (b) Name and Designation of the
+                                                            Officers
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+
+
+                                        </div>
+                                    </section>
+
+                                </div>
+
                                 <!-- Information Disclosed on Own Initiative -->
                                 <div class="align-lt">
                                     <h2 class="mt-0 mb-20" tabindex="0">
                                         Information Disclosed on Own Initiative
                                     </h2>
 
-                                    
+
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
 
