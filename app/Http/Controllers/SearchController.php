@@ -11,53 +11,45 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 use Symfony\Component\Finder\SplFileInfo;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   */
+    /**
+     * Display a listing of the resource.
+     */
 
-  public function getSearchData(Request $request)
-  {
-    //  dd($request->all());
-    $keyword = $request->search_key;
-    $Databasename = env('DB_DATABASE');
-    $table = "SHOW TABLES FROM  $Databasename";
-    $Dbtable = DB::select($table);
-    $dataarray = [];
-    foreach ($Dbtable as $t) {
-      $colums = "SHOW COLUMNS FROM $t->Tables_in_cppri_db";
-      // dd($colums);
-      $Dbcolum = DB::select($colums);
-      foreach ($Dbcolum as $c) {
-        if (DB::table($t->Tables_in_cppri_db)->where($c->Field, 'LIKE', '%' . $keyword . '%')->exists()) {
-          $data = DB::table($t->Tables_in_cppri_db)->where($c->Field, 'LIKE', '%' . $keyword . '%')->get();
-          foreach ($data as $r) {
-            if (isset($r->page_title_en)) {
-              array_push(($dataarray), $r->page_title_en);
+    public function getSearchData(Request $request)
+    {
+        //  dd($request->all());
+        $keyword = $request->search_key;
+        $databaseName = env('DB_DATABASE');
+        $tables = DB::select("SHOW TABLES FROM $databaseName");
+        $finalArray = [];
+
+        foreach ($tables as $table) {
+            $tableName = current($table);
+
+            if (Schema::hasColumns($tableName, ['title_name_en', 'title_name_hi', 'description_en', 'description_hi'])) {
+                $searchResults = DB::table($tableName)->where('title_name_en', 'like', '%' . $keyword . '%')
+                    ->orWhere('title_name_hi', 'like', '%' . $keyword . '%')
+                    ->orWhere('description_en', 'like', '%' . $keyword . '%')
+                    ->orWhere('description_hi', 'like', '%' . $keyword . '%')
+                    ->get();
+
+                foreach ($searchResults as $result) {
+                    if ($result->title_name_en) {
+                        $finalArray[] = [
+                            'table_name' => $tableName,
+                            'title' => $result->title_name_en,
+                            'description' => $result->description_en,
+                        ];
+                    }
+                }
             }
-            if (isset($r->title_name_en)) {
-              array_push($dataarray, $r->title_name_en);
-            }
-            if (isset($r->description_en)) {
-              array_push($dataarray, $r->description_en);
-            }
-            if (isset($r->page_content_en)) {
-              array_push($dataarray, $r->page_content_en);
-            }
-            if (isset($r->question_en)) {
-              array_push($dataarray, $r->question_en);
-            }
-            if (isset($r->answer_en)) {
-              array_push($dataarray, $r->answer_en);
-            }
-          }
         }
-      }
+        // dd($finalArray);
+        return view('pages.search', ['data' => $finalArray]);
     }
-    $actual = array_values(array_unique($dataarray));
-    return view('pages.search', ['data' => $actual]);
-  }
 }

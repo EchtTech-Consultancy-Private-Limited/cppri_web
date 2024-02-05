@@ -86,37 +86,36 @@
                                             <tbody>
 
 
-                                                @if (isset($careerData) && count($careerData) > 0)
-                                                @foreach ($careerData as $k => $data)
+                                                @if (isset($final_data) && count($final_data) > 0)
+                                                @foreach ($final_data as $k => $data)
                                                 <tr>
 
                                                     <td>{{ $k + 1 }}</td>
-                                                    <td>{{ $data->title_name_en ?? '' }}</td>
+                                                    <td>{{ $data->career->title_name_en ?? '' }}</td>
                                                     <td  class="date-nowrap">
-                                                        @if ($data->start_date != '')
-                                                        {{ date('d F Y', strtotime($data->start_date ?? '')) }}
+                                                        @if ($data->career->start_date != '')
+                                                        {{ date('d F Y', strtotime($data->career->start_date ?? '')) }}
                                                         @endif
                                                     </td>
                                                     <td class="date-nowrap">
-                                                        @if ($data->end_date != '')
-                                                        {{ date('d F Y', strtotime($data->end_date ?? '')) }}
+                                                        @if ($data->career->end_date != '')
+                                                        {{ date('d F Y', strtotime($data->career->end_date ?? '')) }}
                                                         @endif
                                                     </td>
 
 
                                                     <td class='download'>
-                                                        @if(isset($data->public_url))
-                                                        <a href="{{ asset('resources/uploads/CareerManagement/' . $data->public_url) }}"
+                                                        @if(isset($data->career->career_doc))
+                                                        @foreach($data->career->career_doc as $careerDoc)
+                                                        <a href="{{ asset('resources/uploads/CareerManagement/' . $careerDoc->public_url) }}"
                                                             download>View</a> <i
                                                             class="fa fa-file-pdf-o text-danger"></i>
                                                         <span class="size">
-                                                            ({{ $data->pdfimage_size ?? '' }})
-                                                        </span>
+                                                            ({{ $careerDoc->pdfimage_size ?? '' }})
+                                                        </span><br>
+                                                        @endforeach
                                                         @endif
                                                     </td>
-
-
-
                                                 </tr>
                                                 @endforeach
                                                 @endif
