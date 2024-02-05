@@ -83,7 +83,7 @@
                                 <div class="info">
                                     <div>
                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                        <input class="fname preventnumeric" type="text" name="name"   value="{{ old('name') }}" placeholder="Full name" >
+                                        <input class="fname preventnumeric" type="text" name="name" maxlength="45"  value="{{ old('name') }}" placeholder="Full name" >
                                         
                                     </div>
                                     <div>

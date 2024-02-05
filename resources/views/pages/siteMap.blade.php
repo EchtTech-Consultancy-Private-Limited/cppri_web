@@ -82,7 +82,7 @@
                                                     @php
                                                         $suburl = $subMenus->url ?? 'javascript:void(0)';
                                                     @endphp
-
+                                                    
                                                     <li>
                                                         @if ($subMenus->tab_type == 1)
                                                             <a onclick="return confirm('{{ $alertMessage }}')"

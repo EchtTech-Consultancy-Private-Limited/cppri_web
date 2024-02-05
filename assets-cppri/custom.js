@@ -661,7 +661,6 @@ $('#feedback_button').click(function (e) {
             'X-CSRF-TOKEN': csrfToken
         }
     });
-
     $.ajax({
         type: 'POST',
         url: baseurl + '/feedback',
