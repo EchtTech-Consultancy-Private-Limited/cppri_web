@@ -637,3 +637,7 @@ thead + tbody tr td{
     background: #fff;
     color: #000;
 }
+.resp-tabs-list li a{
+    color: #fff !important;
+}
+

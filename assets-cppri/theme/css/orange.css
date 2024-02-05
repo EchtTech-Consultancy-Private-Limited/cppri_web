@@ -17,6 +17,13 @@
 }
 
 
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover, .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+	background-color: var(--primary-color) !important;
+}
+a.paginate_button:hover{
+	background: var(--primary-color) !important;
+}
+
 blockquote::after, blockquote::before{
 	color: var(--primary-color);
 }

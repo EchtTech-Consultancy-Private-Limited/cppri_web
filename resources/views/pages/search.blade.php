@@ -51,19 +51,25 @@
 
     <section class="sidebar-main-nav ptb-30">
         <div class="container common-container">
-            <form name="searchForm" action="{{ url('/search') }}" method="get" class="row info1 mb-20">
-                <input type="search" name="search_key" id="search_key"
+            <form name="searchForm" action="{{ url('/search') }}" method="get" class="row info1 mb-20 p-0">
+            <div class="search-box">
+                  <input type="search" name="search_key" id="search_key"
                     value="{{ request('search_key') ?? '' }}" class="col-md-4" required placeholder="Search here...">
-                <div class="col-md-2">
+               
                     <button class="more gallery-more-btn" type="submit">Search</button>
                 </div>
             </form>
 
-            <p class="mt-4 mb-3 text-primary">
+            <div class="alt">
+                <h2>
                 @if (count($data) > 0)
-                    Search Result
+                    Search Result :
                 @else
-                @endif
+                @endif     
+               </h2>
+            </div>
+            <p class="mt-4 mb-3 text-primary">
+             
             </p>
             <div class="col-md-12 p-0 mb-20">
                 @if (count($data) > 0)
@@ -79,7 +85,7 @@
                 @endif
             </div>
             {{-- Add Pagination Links --}}
-            <div class="mt-4">
+            <div class="search-page mt-4">
                 <div class="mt-4">
                     {{ $data->withPath(url()->current())->links() }}
                 </div>

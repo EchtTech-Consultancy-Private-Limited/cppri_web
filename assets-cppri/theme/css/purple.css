@@ -10,15 +10,23 @@
 	--icon-box-read-more-color:#2a2f67;
 	--top-strip-color:#2a2f67;
 	--service-border-color:#2a2f67;
-	 --button-disable-color:#a1622e;
+	 --button-disable-color:#353a76cf;
 	--inner-page-title-color: #2a2f67;
 	--menu-bg-color:#f8f9ff;
 
 }
 
 
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover, .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+	background-color: var(--primary-color) !important;
+}
+
+
 blockquote::after, blockquote::before{
 	color: var(--primary-color);
+}
+a.paginate_button:hover{
+	background: var(--primary-color) !important;
 }
 
 h3 
