@@ -5765,3 +5765,11 @@ div#flexSlider .flex-direction-nav {
 .ico-skip.cf .top {
     width: 24px;
 }
+
+
+/* search result css  */
+
+nav[role="navigation"] svg{
+  width: 25px;
+  height: 25px;
+}
