@@ -1008,7 +1008,7 @@ h3.sub-title.bold {
 table {
 	width: 100%;
 	border-collapse: collapse;
-	margin-bottom: 22px;
+	margin-bottom: 20px;
 }
 
 
@@ -1044,7 +1044,7 @@ th {
 	overflow-x: auto;
     padding-bottom: 0px;
     margin-bottom: 10px;
-    padding: 14px 12px;
+    padding: 14px 12px 0;
     background: #f7f7f7;
     border-radius: 8px;
     display: block;
@@ -2015,7 +2015,7 @@ table {
     color: #333 !important;
 }
 
-  table tr:first-child td{
+  table thead tr:first-child td{
 	color: #fff !important;
 	font-weight: 700;
   }

@@ -2565,7 +2565,7 @@ h2 small {
 }
 .body-container ul.list li {
     background-size: 0px;
-    padding-left: 0px;
+    /* padding-left: 0px; */
     border-bottom: 1px solid #ccc;
     margin-bottom: 10px;
     padding-bottom: 10px;
@@ -3114,7 +3114,7 @@ a.portgolio-button:hover {
     border: 0px;
     color: #fff;
     font-weight: 800;
-    font-size: 110%;
+    /* font-size: 110%; */
     cursor: pointer;
 }
 .text-slide:after,
@@ -3332,7 +3332,7 @@ a {
     float: left;
     width: 100%;
     height: auto;
-    overflow: auto;
+    /* overflow: auto; */
 }
 .page-tab ul.page-list + span.content-title {
     padding-top: 10px;

@@ -257,10 +257,12 @@ function changeClass01() {
     z[0].classList.toggle("scroll-left");
 }
 function changeClass1() {
-    var x = document.getElementsByClassName("text-slide1");
-    var z = document.getElementsByClassName("scroll-text-1");
-    x[0].classList.toggle("pause");
-    z[0].classList.toggle("scroll-left");
+    var x = document.getElementById("tender_pause_button");
+    var z = document.getElementById("tender_scroll");
+    console.log(x);
+    console.log(z)
+    x.classList.toggle("pause");
+    z.classList.toggle("scroll-left");
 }
 // ===== Scroll to Top ====
 $(document).ready(function () {
