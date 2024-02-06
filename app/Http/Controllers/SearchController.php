@@ -44,33 +44,48 @@ class SearchController extends Controller
                     ->orWhere('name_hi', 'like', '%' . $keyword . '%')
                     ->get()->toArray());
             }
+            // print_r($searchResults);
             foreach ($searchResults as $item) {
                 if (isset($item->title_name_en) || isset($item->page_title_en) || isset($item->name_en)) {
+                    if(isset($item->footer_url) && $item->footer_url != 0){
+                        $finalArray->push([
+                            'link' => $item->footer_url ?? 'javascript:void(0)',
+                            'title' => $item->title_name_en ?? $item->page_title_en ?? $item->name_en,
+                            'description' => $item->description_en ?? $item->meta_tag_description ?? '',
+                        ]);
+                    }
                     if(isset($item->menu_uid)){
                         $mainMenu = DB::table('website_menu_management')->where('uid',$item->menu_uid)->first();                     
-                        if(isset($mainMenu->parent_id)){
+                        if(isset($mainMenu->parent_id) && $mainMenu->parent_id != 0){
                             $parentMenu = DB::table('website_menu_management')->where('uid',$mainMenu->parent_id)->first();                    
-                            $link = $parentMenu->url.'/'.$mainMenu->url;
+                            $link = $parentMenu->url?$parentMenu->url.'/'.$mainMenu->url: 'javascript:void(0)';
                             $finalArray->push([
-                                'link' => $link ?? '',
+                                'link' => $link ?? 'javascript:void(0)',
                                 'title' => $item->title_name_en ?? $item->page_title_en ?? $item->name_en,
                                 'description' => $item->description_en ?? $item->meta_tag_description ?? '',
                             ]);
                         }
-                    }elseif(isset($item->parent_id)){                    
+                    }elseif(isset($item->parent_id)){                        
                         $mainMenu = DB::table('website_menu_management')->where('parent_id',$item->parent_id)->first();  
-                        if(isset($mainMenu->parent_id)){                        
+                        if(isset($mainMenu->parent_id) && $mainMenu->parent_id != 0){
+                            
                             $parentMenu = DB::table('website_menu_management')->where('uid',$mainMenu->parent_id)->first();
-                            $link = $parentMenu->url ?? ''.'/'.$mainMenu->url ?? '';
+                            $link = $parentMenu->url?$parentMenu->url.'/'.$mainMenu->url: 'javascript:void(0)';
                             $finalArray->push([
-                                'link' => $link ?? '',
+                                'link' => $link ?? 'javascript:void(0)',
+                                'title' => $item->title_name_en ?? $item->page_title_en ?? $item->name_en,
+                                'description' => $item->description_en ?? $item->meta_tag_description ?? '',
+                            ]);
+                        }else{
+                            $finalArray->push([
+                                'link' => $item->url ?? 'javascript:void(0)',
                                 'title' => $item->title_name_en ?? $item->page_title_en ?? $item->name_en,
                                 'description' => $item->description_en ?? $item->meta_tag_description ?? '',
                             ]);
                         }
                     }else{
                         $finalArray->push([
-                            'link' => '' ?? '',
+                            'link' => 'javascript:void(0)',
                             'title' => $item->title_name_en ?? $item->page_title_en ?? $item->name_en,
                             'description' => $item->description_en ?? $item->meta_tag_description ?? '',
                         ]);
@@ -83,27 +98,21 @@ class SearchController extends Controller
                         'description' => $item->description_hi ?? $item->meta_tag_description ?? '',
                     ]);
                 }
-            }            
-        }
-        // dd($searchResults);
-        
+            } 
+        }               
         // Paginate the final array
-        $perPage = 10; // Change 10 to the number of items per page you want
+        $perPage = 10;
         $currentPage = \Illuminate\Pagination\Paginator::resolveCurrentPage() ?? 1;
-
-        // Use the collect function to create a collection
         $finalCollection = collect($finalArray);
-
-        $currentItems = $finalCollection->slice(($currentPage - 1) * $perPage, $perPage)->all();
-
+        $uniqueCollection = $finalCollection->unique();
+        $currentItems = $uniqueCollection->slice(($currentPage - 1) * $perPage, $perPage)->all();
         $paginatedItems = new \Illuminate\Pagination\LengthAwarePaginator(
             $currentItems,
-            $finalCollection->count(),
+            $uniqueCollection->count(),
             $perPage,
             $currentPage
         );
-        // dd($paginatedItems);
-
+        // dd($uniqueCollection);
         return view('pages.search', ['data' => $paginatedItems]);
     }
 
