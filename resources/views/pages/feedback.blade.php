@@ -24,7 +24,7 @@
     <div class="breadcam-bg breadcam">
         <div class="container common-container four_content ">
             <ul>
-                <li><a href="home.html">
+                <li><a href="{{ url('/') }}">
                         @if (Session::get('Lang') == 'hi')
                         होम पेज
                         @else

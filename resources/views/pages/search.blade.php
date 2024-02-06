@@ -75,7 +75,7 @@
                 @if (count($data) > 0)
                     @foreach ($data as $item)
                         <div>
-                            <h5><a href="{{ $item['link'] ?? '' }}">{!! isset($item['title']) ? $item['title'] : '' !!}</a></h5>
+                            <h5><span class="serch-list">{{ $loop->iteration }}. </span><a href="{{ $item['link'] ?? '' }}">{!! isset($item['title']) ? $item['title'] : '' !!}</a></h5>
                             <p>{!! implode(' ', array_slice(str_word_count(strip_tags($item['description']), 1), 0, 50)) ?? '' !!}</p>
                         </div>
                         <hr>
