@@ -2578,7 +2578,7 @@ table .multiple-pdf{
 } 
 
 .archive-btn:hover{
-	background: #fff;
+	background: #fff !important;
 	color: #F44336;
 	
 }
