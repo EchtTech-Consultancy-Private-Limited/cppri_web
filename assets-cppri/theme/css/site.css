@@ -5820,3 +5820,26 @@ visibility: hidden;
     padding: 10px 21px !important;
     font-size: 14px;
 }
+ul.overseas-client{
+    padding: 0 !important;
+}
+.overseas-client li {
+    box-shadow: 3px 1px 12px #ddd;
+    border-radius: 5px;
+    padding: 10px 10px !important;
+    list-style: none !important;
+    margin-bottom: 10px !important;
+}
+.overseas-client li a::before {
+   content:"\f101";
+   font-family: 'fontAwesome';
+   color: red;
+    margin-right: 7px;
+}
+.overseas-client li a {
+  color: var(--bs-blue) !important;
+}
+
+.main-content ol li{
+    margin-bottom: 5px;
+}

@@ -8,6 +8,11 @@
 	}
 }
 
+@media (min-width: 992px) and (max-width: 1300px) {
+	iframe#instagram-embed-0{
+		min-width: 227px;
+	}
+}
 @media (min-width: 992px) and (max-width: 1550px) {
 	.main-menu .nav-menu .nav-item .sub-nav .env:nth-child(n + 6) .sng-env {
 	  /* bottom: -2px !important; */
