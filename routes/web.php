@@ -73,8 +73,6 @@ Route::get('/rti/{slug?}', [HomeController::class, 'rtiDetail'])->name('rti-data
 Route::get('/{Slug}/{middelSlug?}/{lastSlug?}/{finalSlug?}/{finallastSlug?}', [HomeController::class, 'getContentAllPages']);
 });
 
-
-
 //default behaviour, always keep as last entry
 Route::any('{url}', function(){
     return redirect('/');

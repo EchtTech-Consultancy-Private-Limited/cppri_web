@@ -258,6 +258,9 @@ ul#nav li a i.fa-home {
 .dataTables_wrapper .dataTables_filter input::-webkit-search-cancel-button {
     -webkit-appearance: button !important;
 }
+.serch-list{
+	font-size: small;
+}
 .youtube-video {
     width: 100%;
     position: relative;
