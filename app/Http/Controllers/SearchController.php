@@ -32,7 +32,8 @@ class SearchController extends Controller
             $tableName = current($table);
 
             if (Schema::hasColumns($tableName, ['title_name_en', 'title_name_hi', 'description_en', 'description_hi'])) {
-                $searchResults = DB::table($tableName)->where('title_name_en', 'like', '%' . $keyword . '%')
+                $searchResults = DB::table($tableName)
+                    ->where('title_name_en', 'like', '%' . $keyword . '%')
                     ->orWhere('title_name_hi', 'like', '%' . $keyword . '%')
                     ->orWhere('description_en', 'like', '%' . $keyword . '%')
                     ->orWhere('description_hi', 'like', '%' . $keyword . '%')
