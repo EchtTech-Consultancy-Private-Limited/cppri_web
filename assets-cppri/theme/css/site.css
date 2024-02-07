@@ -5976,10 +5976,10 @@ ul.overseas-client{
 }   
 
 .rs-blog.main-home .blog-item .blog-content.b-t .title {
-    white-space: nowrap;
+    /* white-space: nowrap; */
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 340px;
+    width: 100%;
     font-weight: 700;
     font-size: 16px !important;
     color: #333 !important;
