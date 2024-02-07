@@ -6000,12 +6000,7 @@ ul.overseas-client{
 .container1 .mySlides img {
     height: 400px;
 }
-.container1 .column {
-    float: left;
-    width: 30.7%;
-    margin-bottom: 15px;
-    margin-right: 15px;
-}
+
 .col-box-g .column img.demo.cursor {
     height: 110px !important;
 }
@@ -6028,9 +6023,9 @@ ul.overseas-client{
 .container1 .prev, .container1 .next {
     cursor: pointer;
     position: absolute;
-    top: 45%;
+    top: 47%;
     width: auto;
-    padding: 16px;
+    padding: 6px 10px;
     margin-top: 0px;
     color: white;
     font-weight: bold;
@@ -6038,10 +6033,15 @@ ul.overseas-client{
     border-radius: 0 3px 3px 0;
     user-select: none;
     -webkit-user-select: none;
+    background: #133866;
 }
 .container1 .next {
     right: 15px;
     border-radius: 3px 0 0 3px;
+}
+
+img.demo.cursor.active {
+    opacity: 1;
 }
 /* photo gallery detail page end */
 /* photo gallery section end */
