@@ -69,10 +69,35 @@ class CommonComposer
                 $video_gallery_details = null;
             }
 
+            //photo gallery managment
+            $galleryData = []; 
+
+            $gallery = DB::table('gallery_management')
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->get();
+
+            if (count($gallery) > 0) {
+                foreach ($gallery as $images) {
+                    $gallay_images = DB::table('gallery_details')
+                        ->where('soft_delete', 0)
+                        ->where('gallery_id', $images->uid)
+                        ->latest('created_at')
+                        ->get();
+
+                    if (count($gallay_images) > 0) {
+                        $galleryData[] = [
+                            'gallery' => $images,
+                            'gallery_details' => $gallay_images
+                        ];
+                    }
+                }
+            }
+
             $quickLink = DB::table('website_menu_management')->where('menu_place',4)->where('status', 3)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
 
             $view->with(['notification'=>$notification,'press_release'=>$press_release,'video_gallery_details' => $video_gallery_details, 'video_management' => $video_management, 'image_gallery_details' => $image_gallery_details, 'image_management' => $image_management, 'social_links' => $social_links, 'logo' => $logo, 'visitCounter' => $visitCounter, 'quickLink' => $quickLink, 'alertMessage' => $this->checkLanguage(), 'headerMenu' => $menuName, 'footerMenu' => $footerMenu, 'banner' => $banner, 'news_management' => $news_management,
-             'tender_management' => $tender_management]);
+             'tender_management' => $tender_management,'galleryData'=>$galleryData,]);
       
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());

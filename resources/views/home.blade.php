@@ -1053,82 +1053,6 @@
 
         </div>
     </div>
-    {{-- video and image section start --}}
-    @if (
-    (isset($image_management) && $image_management !== '' && $image_management !== null) ||
-    (isset($video_management) && $video_management !== '' && $video_management !== null))
-    <div class="wrapper home-btm-slider">
-        <div class="container common-container four_content gallery-container">
-            @if (isset($image_management) && $image_management !== '' && $image_management !== null &&
-            isset($image_management->uid))
-            <div class="gallery-area clearfix">
-                <div class="gallery-heading">
-                    <h3 class="change-color-code">
-                        @if (Session::get('Lang') == 'hi')
-                        {{ __('messages.Photo_Gallery ') }}
-                        @else
-                        {{ __('messages.Photo_Gallery') }}
-                        @endif
-                    </h3>
-                    <a class="bttn-more bttn-view" href="{{ url('photo-gallery') }}"
-                        title="View all Photo Gallery"><span>View
-                            All</span></a>
-                </div>
-                <div class="gallery-holder">
-                    <div id="galleryCarousel" class="flexslider">
-                        @if (isset($image_gallery_details) && count($image_gallery_details) > 0)
-                        <ul class="slides">
-                            @foreach ($image_gallery_details->slice(0,3) as $image_gallerys)
-                            <li data-thumb="{{ asset('resources/uploads/GalleryManagement/' . $image_gallerys->public_url) ?? '' }}"
-                                data-thumb-alt="Slide 1">
-                                <img src="{{ asset('resources/uploads/GalleryManagement/' . $image_gallerys->public_url) ?? '' }}"
-                                    alt="{{ $image_gallerys->title ?? '' }}" title="{{ $image_gallerys->title ?? '' }}">
-                            </li>
-                            @endforeach
-                        </ul>
-                        @else
-                        <p class="p-item-center">Coming Soon...</p>
-                        @endif
-                    </div>
-                </div>
-            </div>
-            @else
-            <p>Coming Soon...</p>
-            @endif
-            @if (isset($video_management) && $video_management !== '' && $video_management !== null)
-            <div class="gallery-right">
-                <div class="video-heading">
-                    <h3 class="change-color-code">
-                        @if (Session::get('Lang') == 'hi')
-                        {{ __('messages.Video_Gallery ') }}
-                        @else
-                        {{ __('messages.Video_Gallery') }}
-                        @endif
-                    </h3>
-                    <a class="bttn-more bttn-view" href="javascript:viod(0)" title="View all Video Gallery"><span>View
-                            All</span></a>
-                </div>
-                <div class="video-wrapper">
-                    @if (isset($video_gallery_details) && $video_gallery_details !== '')
-                    @php
-                    $videourl = $video_gallery_details->public_url ?? 'javascript:void(0)';
-                    @endphp
-                    <video src="{{ url($videourl) ?? '' }}" title="{{ $video_gallery_details->title ?? '' }}" controls
-                        autoplay muted>
-                        <span>Your browser does not support HTML5 video.</span>
-                    </video>
-                    @else
-                    <p class="p-item-center text-white">Coming Soon...</p>
-                    @endif
-                </div>
-            </div>
-            @else
-            <p>Coming Soon...</p>
-            @endif
-        </div>
-    </div>
-    @endif
-    {{-- video and image section end --}}
 </section>
 
 <!-- photo gallery section start -->
@@ -1151,41 +1075,29 @@
                                 data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
                                 data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="2"
                                 data-md-device-nav="false" data-md-device-dots="false" id="banner3">
+                                @if (isset($galleryData) && !empty($galleryData))
+                                    @foreach ($galleryData as $k => $galleryDatas)
                                       <div class="team-item">
                                             <div class="gallery-box">
                                              
-                                            <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170601089225.JPG"
+                                            @if (count($galleryDatas['gallery_details']) > 0)
+                                                <img @if (isset($galleryDatas['gallery_details'][0]->public_url) && !blank($galleryDatas['gallery_details'][0]->public_url)) src="{{ asset('resources/uploads/GalleryManagement/' . $galleryDatas['gallery_details'][0]->public_url) }}" @endif
                                                     alt="" rel="noopener noreferrer">
-                                                    <div class="text-gallery">
-                                                    Regional Workshop on state Action Plan - Bengaluru
+                                                <div class="text-gallery">
+                                                    {{ $galleryDatas['gallery']->title_name_en ?? '' }}
                                                 </div>
+                                            @else
+                                                <p>No images available for this gallery.</p>
+                                            @endif
                                             </div>
                                         </div>
-                                      <div class="team-item">
-                                            <div class="gallery-box">
-                                             
-                                            <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170601089225.JPG"
-                                                    alt="" rel="noopener noreferrer">
-                                                    <div class="text-gallery">
-                                                    Regional Workshop on state Action Plan - Bengaluru
-                                                </div>
-                                            </div>
-                                        </div>
-                                      <div class="team-item">
-                                            <div class="gallery-box">
-                                             
-                                            <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170601089225.JPG"
-                                                    alt="" rel="noopener noreferrer">
-                                                    <div class="text-gallery">
-                                                    Regional Workshop on state Action Plan - Bengaluru
-                                                </div>
-                                            </div>
-                                        </div>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                         <div class="btn-view_play">
                             <div class="btn-part  text-center">
-                                <a class="readon2" href="{{ url('photo-gallery-category') }}"
+                                <a class="readon2" href="{{ route('photo-gallery') }}"
                                     rel="noopener noreferrer">View
                                     All</a>
                             </div>
@@ -1254,7 +1166,7 @@
                         </div>
                         <div class="btn-view_play">
                             <div class="btn-part  text-center">
-                                <a class="readon2" href="#" rel="noopener noreferrer">View
+                                <a class="readon2" href="{{ route('video') }}" rel="noopener noreferrer">View
                                     All</a>
                             </div>
                             <div class="btns">

@@ -64,101 +64,37 @@
                                     @endif
 
                                 </h3>
-                                <div class="col-md-4">
-                                    <div class="blog-item">
-                                        <a href="https://dev.nrcp.staggings.in/photo-gallery-images/e75fa2df-e58e-478a-8a7f-c2f6f958fd48"
-                                            title="World Rabies States" tabindex="0">
-                                            <div class="image-part">
-                                                <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909984.jpeg"
-                                                    alt="">
-                                            </div>
-                                            <div class="blog-content b-t">
-                                                <h3 class="title" tabindex="0">
+                                @if (isset($galleryData) && count($galleryData) > 0)
+                                    <div class="row">
+                                        @foreach ($galleryData as $galleryDatas)
+                                            @if (count($galleryDatas['gallery_details']) > 0)
+                                                <div class="col-md-4">
+                                                    <div class="blog-item">
+                                                        <a href="{{ url('photo-gallery-images/' . $galleryDatas['gallery']->uid) }}"
+                                                            title="{{ $galleryDatas['gallery']->title_name_en ?? '' }}">
+                                                            <div class="image-part">
+                                                                <img @if(isset($galleryDatas['gallery_details'][0]->public_url) && !blank($galleryDatas['gallery_details'][0]->public_url)) src="{{ asset('resources/uploads/GalleryManagement/' . $galleryDatas['gallery_details'][0]->public_url) }}" @endif
+                                                                    alt="">
+                                                            </div>
+                                                <div class="blog-content b-t">
+                                                    <h3 class="title">
 
-                                                    World Rabies States
-                                                </h3>
-                                                <!-- <div class="desc">
+                                                        {{ $galleryDatas['gallery']->title_name_en ?? '' }}
+                                                    </h3>
+                                                    <!-- <div class="desc">
                                              
-                                            </div> -->
-                                            </div>
-                                        </a>
+                                                        </div> -->
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="blog-item">
-                                        <a href="https://dev.nrcp.staggings.in/photo-gallery-images/e75fa2df-e58e-478a-8a7f-c2f6f958fd48"
-                                            title="World Rabies States" tabindex="0">
-                                            <div class="image-part">
-                                            <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607828662.jpg" alt="">
-                                            </div>
-                                            <div class="blog-content b-t">
-                                                <h3 class="title" tabindex="0">
-
-                                                    World Rabies States
-                                                </h3>
-                                                <!-- <div class="desc">
-                                             
-                                            </div> -->
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="blog-item">
-                                        <a href="https://dev.nrcp.staggings.in/photo-gallery-images/e75fa2df-e58e-478a-8a7f-c2f6f958fd48"
-                                            title="World Rabies States" tabindex="0">
-                                            <div class="image-part">
-                                            <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607828662.jpg" alt="">
-                                            </div>
-                                            <div class="blog-content b-t">
-                                                <h3 class="title" tabindex="0">
-
-                                                    World Rabies States
-                                                </h3>
-                                                <!-- <div class="desc">
-                                             
-                                            </div> -->
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="blog-item">
-                                        <a href="https://dev.nrcp.staggings.in/photo-gallery-images/e75fa2df-e58e-478a-8a7f-c2f6f958fd48"
-                                            title="World Rabies States" tabindex="0">
-                                            <div class="image-part">
-                                            <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607828662.jpg" alt="">
-                                            </div>
-                                            <div class="blog-content b-t">
-                                                <h3 class="title" tabindex="0">
-
-                                                    World Rabies States
-                                                </h3>
-                                                <!-- <div class="desc">
-                                             
-                                            </div> -->
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="blog-item">
-                                        <a href="https://dev.nrcp.staggings.in/photo-gallery-images/e75fa2df-e58e-478a-8a7f-c2f6f958fd48"
-                                            title="World Rabies States" tabindex="0">
-                                            <div class="image-part">
-                                            <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607828662.jpg" alt="">
-                                            </div>
-                                            <div class="blog-content b-t">
-                                                <h3 class="title" tabindex="0">
-
-                                                    World Rabies States
-                                                </h3>
-                                                <!-- <div class="desc">
-                                             
-                                            </div> -->
-                                            </div>
-                                        </a>
-                                    </div>
+                                @else
+                                    <p>NO Data Available!!</p>
+                                @endif
+                                    
                                 </div>
 
                             </div>
