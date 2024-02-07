@@ -67,39 +67,39 @@
                                                     <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909984.jpeg"
                                                         style="width:100%">
                                                 </div>
-                                                <div class="mySlides" style="display: none;">
+                                                <div class="mySlides">
                                                     <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909946.jpeg"
                                                         style="width:100%">
                                                 </div>
-                                                <div class="mySlides" style="display: none;">
+                                                <div class="mySlides">
                                                     <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909915.jpeg"
                                                         style="width:100%">
                                                 </div>
-                                                <div class="mySlides" style="display: none;">
+                                                <div class="mySlides">
                                                     <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909998.jpeg"
                                                         style="width:100%">
                                                 </div>
-                                                <div class="mySlides" style="display: none;">
+                                                <div class="mySlides">
                                                     <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909979.jpeg"
                                                         style="width:100%">
                                                 </div>
-                                                <div class="mySlides" style="display: none;">
+                                                <div class="mySlides">
                                                     <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909949.jpeg"
                                                         style="width:100%">
                                                 </div>
-                                                <div class="mySlides" style="display: none;">
+                                                <div class="mySlides">
                                                     <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909976.jpg"
                                                         style="width:100%">
                                                 </div>
-                                                <div class="mySlides" style="display: none;">
+                                                <div class="mySlides">
                                                     <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909959.jpeg"
                                                         style="width:100%">
                                                 </div>
-                                                <div class="mySlides" style="display: none;">
+                                                <div class="mySlides">
                                                     <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909948.jpeg"
                                                         style="width:100%">
                                                 </div>
-                                                <div class="mySlides" style="display: none;">
+                                                <div class="mySlides">
                                                     <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909980.jpeg"
                                                         style="width:100%">
                                                 </div>
