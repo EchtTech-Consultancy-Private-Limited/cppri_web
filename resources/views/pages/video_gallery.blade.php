@@ -76,12 +76,6 @@
                                                                 <iframe width="560" height="315" src="https://www.youtube.com/embed/bkkw7JnCQiY?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
 
                                                             </div>
-                                                            {{-- <div class="blog-content b-t">
-                                                                <h3 class="title">
-
-                                                                    {{ $galleryDatas['gallery']->title_name_en ?? '' }}
-                                                                </h3>
-                                                            </div> --}}
                                                         </a>
                                                     </div>
                                                 </div>

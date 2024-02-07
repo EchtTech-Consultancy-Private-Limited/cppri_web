@@ -748,3 +748,155 @@ function topFunction() {
   window.requestAnimationFrame(scroll);
 }
 // end scroll to top
+  /*-------------------------------------
+        OwlCarousel
+    -------------------------------------*/
+    $('.rs-carousel').each(function () {
+        var owlCarousel = $(this),
+            loop = owlCarousel.data('loop'),
+            items = owlCarousel.data('items'),
+            margin = owlCarousel.data('margin'),
+            stagePadding = owlCarousel.data('stage-padding'),
+            autoplay = owlCarousel.data('autoplay'),
+            autoplayTimeout = owlCarousel.data('autoplay-timeout'),
+            smartSpeed = owlCarousel.data('smart-speed'),
+            dots = owlCarousel.data('dots'),
+            nav = owlCarousel.data('nav'),
+            navSpeed = owlCarousel.data('nav-speed'),
+            xsDevice = owlCarousel.data('mobile-device'),
+            xsDeviceNav = owlCarousel.data('mobile-device-nav'),
+            xsDeviceDots = owlCarousel.data('mobile-device-dots'),
+            smDevice = owlCarousel.data('ipad-device'),
+            smDeviceNav = owlCarousel.data('ipad-device-nav'),
+            smDeviceDots = owlCarousel.data('ipad-device-dots'),
+            smDevice2 = owlCarousel.data('ipad-device2'),
+            smDeviceNav2 = owlCarousel.data('ipad-device-nav2'),
+            smDeviceDots2 = owlCarousel.data('ipad-device-dots2'),
+            mdDevice = owlCarousel.data('md-device'),
+            centerMode = owlCarousel.data('center-mode'),
+            HoverPause = owlCarousel.data('hoverpause'),
+            mdDeviceNav = owlCarousel.data('md-device-nav'),
+            mdDeviceDots = owlCarousel.data('md-device-dots');
+        owlCarousel.owlCarousel({
+            loop: (loop ? true : false),
+            items: (items ? items : 4),
+            lazyLoad: true,
+            center: (centerMode ? true : false),
+            autoplayHoverPause: (HoverPause ? true : false),
+            margin: (margin ? margin : 0),
+            //stagePadding: (stagePadding ? stagePadding : 0),
+            autoplay: (autoplay ? true : false),
+            autoplayTimeout: (autoplayTimeout ? autoplayTimeout : 1000),
+            smartSpeed: (smartSpeed ? smartSpeed : 250),
+            dots: (dots ? true : false),
+            nav: (nav ? true : false),
+            navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+            navSpeed: (navSpeed ? true : false),
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: (xsDevice ? xsDevice : 1),
+                    nav: (xsDeviceNav ? true : false),
+                    dots: (xsDeviceDots ? true : false),
+                    center: false,
+                },
+                576: {
+                    items: (smDevice2 ? smDevice2 : 2),
+                    nav: (smDeviceNav2 ? true : false),
+                    dots: (smDeviceDots2 ? true : false),
+                    center: false,
+                },
+                768: {
+                    items: (smDevice ? smDevice : 3),
+                    nav: (smDeviceNav ? true : false),
+                    dots: (smDeviceDots ? true : false),
+                    center: false,
+                },
+                992: {
+                    items: (mdDevice ? mdDevice : 4),
+                    nav: (mdDeviceNav ? true : false),
+                    dots: (mdDeviceDots ? true : false),
+                }
+            }
+        });
+    });
+
+
+    var owl_3 = $('#banner3');
+    $('#customNextBtn3').click(function () {
+        owl_3.trigger('next.owl.carousel', 500);
+    });
+    $('#customPreviousBtn3').click(function () {
+        owl_3.trigger('prev.owl.carousel', 500);
+    });
+    $('#customPause3').click(function () {
+        owl_3.trigger('stop.owl.autoplay', 500);
+    });
+    $('#customPlay3').click(function () {
+        owl_3.trigger('play.owl.autoplay', 500);
+    });
+    
+    
+//   third photo gallery latest news
+
+var owl_3 = $('#banner3');
+$('#customNextBtn3').click(function () {
+    owl_3.trigger('next.owl.carousel', 500);
+});
+$('#customPreviousBtn3').click(function () {
+    owl_3.trigger('prev.owl.carousel', 500);
+});
+$('#customPause3').click(function () {
+    owl_3.trigger('stop.owl.autoplay', 500);
+});
+$('#customPlay3').click(function () {
+    owl_3.trigger('play.owl.autoplay', 500);
+});
+
+
+
+var pause3 = document.querySelector("#customPause3");
+var play3 = document.querySelector("#customPlay3");
+pause3.addEventListener("click", function () {
+    play3.style.display = "block";
+    pause3.style.display = "none"
+});
+
+play3.addEventListener("click", function () {
+    play3.style.display = "none";
+    pause3.style.display = "block"
+});
+
+
+
+
+
+//   fourth video gallery latest news
+
+var owl_4 = $('#banner4');
+$('#customNextBtn4').click(function () {
+    owl_4.trigger('next.owl.carousel', 500);
+});
+$('#customPreviousBtn4').click(function () {
+    owl_4.trigger('prev.owl.carousel', 500);
+});
+$('#customPause4').click(function () {
+    owl_4.trigger('stop.owl.autoplay', 500);
+});
+$('#customPlay4').click(function () {
+    owl_4.trigger('play.owl.autoplay', 500);
+});
+
+
+
+var pause4 = document.querySelector("#customPause4");
+var play4 = document.querySelector("#customPlay4");
+pause4.addEventListener("click", function () {
+    play4.style.display = "block";
+    pause4.style.display = "none"
+});
+
+play4.addEventListener("click", function () {
+    play4.style.display = "none";
+    pause4.style.display = "block"
+});
