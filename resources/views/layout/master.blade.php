@@ -18,7 +18,8 @@
                 </noscript>
                 @include('partials.top-head')
             </div>
-            <p id="scroll" class="change-color-code "><span></span></p>
+            <p id="myBtn" onclick="topFunction()" title="Go to top" class="change-color-code"><span></span></p>
+            {{-- <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> --}}
         </div>
         <!--Top-Header Section end-->
         <section class="wrapper header-wrapper">

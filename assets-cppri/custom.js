@@ -711,3 +711,194 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
+
+// scroll to top
+
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document with smooth animation
+function topFunction() {
+  // Set the duration of the scrolling animation
+  const duration = 500; // in milliseconds
+  const start = window.pageYOffset;
+  const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+
+  function scroll() {
+    const now = 'now' in window.performance ? performance.now() : new Date().getTime();
+    const time = Math.min(1, (now - startTime) / duration);
+    const easeInOutCubic = time => time < 0.5 ? 4 * time ** 3 : 1 - Math.pow(-2 * time + 2, 3) / 2;
+    window.scrollTo(0, start + (0 - start) * easeInOutCubic(time));
+
+    if (time < 1) {
+      window.requestAnimationFrame(scroll);
+    }
+  }
+
+  window.requestAnimationFrame(scroll);
+}
+// end scroll to top
+  /*-------------------------------------
+        OwlCarousel
+    -------------------------------------*/
+    $('.rs-carousel').each(function () {
+        var owlCarousel = $(this),
+            loop = owlCarousel.data('loop'),
+            items = owlCarousel.data('items'),
+            margin = owlCarousel.data('margin'),
+            stagePadding = owlCarousel.data('stage-padding'),
+            autoplay = owlCarousel.data('autoplay'),
+            autoplayTimeout = owlCarousel.data('autoplay-timeout'),
+            smartSpeed = owlCarousel.data('smart-speed'),
+            dots = owlCarousel.data('dots'),
+            nav = owlCarousel.data('nav'),
+            navSpeed = owlCarousel.data('nav-speed'),
+            xsDevice = owlCarousel.data('mobile-device'),
+            xsDeviceNav = owlCarousel.data('mobile-device-nav'),
+            xsDeviceDots = owlCarousel.data('mobile-device-dots'),
+            smDevice = owlCarousel.data('ipad-device'),
+            smDeviceNav = owlCarousel.data('ipad-device-nav'),
+            smDeviceDots = owlCarousel.data('ipad-device-dots'),
+            smDevice2 = owlCarousel.data('ipad-device2'),
+            smDeviceNav2 = owlCarousel.data('ipad-device-nav2'),
+            smDeviceDots2 = owlCarousel.data('ipad-device-dots2'),
+            mdDevice = owlCarousel.data('md-device'),
+            centerMode = owlCarousel.data('center-mode'),
+            HoverPause = owlCarousel.data('hoverpause'),
+            mdDeviceNav = owlCarousel.data('md-device-nav'),
+            mdDeviceDots = owlCarousel.data('md-device-dots');
+        owlCarousel.owlCarousel({
+            loop: (loop ? true : false),
+            items: (items ? items : 4),
+            lazyLoad: true,
+            center: (centerMode ? true : false),
+            autoplayHoverPause: (HoverPause ? true : false),
+            margin: (margin ? margin : 0),
+            //stagePadding: (stagePadding ? stagePadding : 0),
+            autoplay: (autoplay ? true : false),
+            autoplayTimeout: (autoplayTimeout ? autoplayTimeout : 1000),
+            smartSpeed: (smartSpeed ? smartSpeed : 250),
+            dots: (dots ? true : false),
+            nav: (nav ? true : false),
+            navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+            navSpeed: (navSpeed ? true : false),
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: (xsDevice ? xsDevice : 1),
+                    nav: (xsDeviceNav ? true : false),
+                    dots: (xsDeviceDots ? true : false),
+                    center: false,
+                },
+                576: {
+                    items: (smDevice2 ? smDevice2 : 2),
+                    nav: (smDeviceNav2 ? true : false),
+                    dots: (smDeviceDots2 ? true : false),
+                    center: false,
+                },
+                768: {
+                    items: (smDevice ? smDevice : 2),
+                    nav: (smDeviceNav ? true : false),
+                    dots: (smDeviceDots ? true : false),
+                    center: false,
+                },
+                992: {
+                    items: (mdDevice ? mdDevice : 2),
+                    nav: (mdDeviceNav ? true : false),
+                    dots: (mdDeviceDots ? true : false),
+                }
+            }
+        });
+    });
+
+
+    var owl_3 = $('#banner3');
+    $('#customNextBtn3').click(function () {
+        owl_3.trigger('next.owl.carousel', 500);
+    });
+    $('#customPreviousBtn3').click(function () {
+        owl_3.trigger('prev.owl.carousel', 500);
+    });
+    $('#customPause3').click(function () {
+        owl_3.trigger('stop.owl.autoplay', 500);
+    });
+    $('#customPlay3').click(function () {
+        owl_3.trigger('play.owl.autoplay', 500);
+    });
+    
+    
+//   third photo gallery latest news
+
+var owl_3 = $('#banner3');
+$('#customNextBtn3').click(function () {
+    owl_3.trigger('next.owl.carousel', 500);
+});
+$('#customPreviousBtn3').click(function () {
+    owl_3.trigger('prev.owl.carousel', 500);
+});
+$('#customPause3').click(function () {
+    owl_3.trigger('stop.owl.autoplay', 500);
+});
+$('#customPlay3').click(function () {
+    owl_3.trigger('play.owl.autoplay', 500);
+});
+
+
+
+var pause3 = document.querySelector("#customPause3");
+var play3 = document.querySelector("#customPlay3");
+pause3.addEventListener("click", function () {
+    play3.style.display = "block";
+    pause3.style.display = "none"
+});
+
+play3.addEventListener("click", function () {
+    play3.style.display = "none";
+    pause3.style.display = "block"
+});
+
+
+
+
+
+//   fourth video gallery latest news
+
+var owl_4 = $('#banner4');
+$('#customNextBtn4').click(function () {
+    owl_4.trigger('next.owl.carousel', 500);
+});
+$('#customPreviousBtn4').click(function () {
+    owl_4.trigger('prev.owl.carousel', 500);
+});
+$('#customPause4').click(function () {
+    owl_4.trigger('stop.owl.autoplay', 500);
+});
+$('#customPlay4').click(function () {
+    owl_4.trigger('play.owl.autoplay', 500);
+});
+
+
+
+var pause4 = document.querySelector("#customPause4");
+var play4 = document.querySelector("#customPlay4");
+pause4.addEventListener("click", function () {
+    play4.style.display = "block";
+    pause4.style.display = "none"
+});
+
+play4.addEventListener("click", function () {
+    play4.style.display = "none";
+    pause4.style.display = "block"
+});
+
+// detail page gallery js

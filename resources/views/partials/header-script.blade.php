@@ -36,6 +36,7 @@
 <link href="{{ asset('assets-cppri/theme/css/site.css') }}" rel="stylesheet" media="all">
 <link href="{{ asset('assets-cppri/theme/css/site-responsive.css') }}" rel="stylesheet" media="all">
 <link href="{{ asset('assets-cppri/css/marquee-horizantal.css') }}" rel="stylesheet">
+<link href="{{ asset('assets-cppri/css/owl.carousel.css') }}" rel="stylesheet">
 <!-- Include jQuery -->
 <script src="{{ asset('assets-cppri/js/jquery-3.6.0.min.js') }}"></script>
 <link rel="stylesheet" href="{{ asset('assets-cppri/css/toastr.min.css') }}">
