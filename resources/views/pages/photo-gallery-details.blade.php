@@ -76,13 +76,15 @@
                                 <a class="next" onclick="plusSlides(1)">❯</a>
                             </div>
                             <div class="col-md-6 col-box-g">
-                                @foreach ($photogallery as $key => $datas)
-                                    <div class="column">
-                                        <img class="demo cursor"
-                                            @if (!blank($datas->public_url)) src="{{ asset('resources/uploads/GalleryManagement/' . $datas->public_url) }}" @endif
-                                            style="width:100%" onclick="currentSlide({{ $key + 1 }})" alt="">
+                                <div class="row">
+                                        @foreach ($photogallery as $key => $datas)
+                                        <div class="col-4">
+                                            <img class="demo cursor"
+                                                @if (!blank($datas->public_url)) src="{{ asset('resources/uploads/GalleryManagement/' . $datas->public_url) }}" @endif
+                                                style="width:100%" onclick="currentSlide({{ $key + 1 }})" alt="">
+                                        </div>
+                                        @endforeach
                                     </div>
-                                @endforeach
                             </div>
                         </div>
 

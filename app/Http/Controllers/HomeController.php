@@ -839,7 +839,7 @@ class HomeController extends Controller
             ->where('uid', $id)
             ->latest('created_at')
             ->first();
-        // dd($photogallery);      
+        // dd($photogallery);     
         $breadcrumbs = 'Photo Gallery Images';
     return view('pages.photo-gallery-details', ['title' => $titleName, 'gallery'=>$gallery,'photogallery' => $photogallery, 'breadcrumbs' => $breadcrumbs]);
 
@@ -849,34 +849,32 @@ class HomeController extends Controller
     {
         $titleName = 'Video Gallery';
         try {
-            $galleryData = []; 
-
-            $gallery = DB::table('gallery_management')
-                ->where('status', 3)
+            $galleryVideo = [];
+            $videoGallery = DB::table('gallery_management')
                 ->where('type', 1)
+                ->where('status', 3)
                 ->where('soft_delete', 0)
                 ->latest('created_at')
                 ->get();
 
-            if (count($gallery) > 0) {
-                foreach ($gallery as $images) {
-                    $gallay_images = DB::table('gallery_details')
-                        ->where('status', 3)
+            if (count($videoGallery) > 0) {
+                foreach ($videoGallery as $images) {
+                    $gallay_video = DB::table('gallery_details')
                         ->where('soft_delete', 0)
                         ->where('gallery_id', $images->uid)
                         ->latest('created_at')
                         ->get();
 
-                    if (count($gallay_images) > 0) {
-                        $galleryData[] = [
+                    if (count($gallay_video) > 0) {
+                        $galleryVideo[] = [
                             'gallery' => $images,
-                            'gallery_details' => $gallay_images
+                            'gallery_details' => $gallay_video
                         ];
                     }
                 }
             }
-            // dd($galleryData);
-            return view('pages.video_gallery', ['title' => $titleName, 'galleryData' => $galleryData]);
+            // dd($galleryVideo);
+            return view('pages.video_gallery', ['title' => $titleName, 'galleryVideo' => $galleryVideo]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');

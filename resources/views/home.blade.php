@@ -1128,30 +1128,20 @@
                                 data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
                                 data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="2"
                                 data-md-device-nav="false" data-md-device-dots="false" id="banner4">
-                                {{-- @if (isset($galleryVideo) && !empty($galleryVideo))
-                                    @foreach ($galleryVideo as $k => $galleryVideos) --}}
-                                    <div class="team-item">
-                                        <div class="gallery-box media-icon orange-color">
-                                           
-                                            <video controls="" muted="" class="video-g">
-                                                <source
-                                                    src="https://dev.nrcp.staggings.in/assets/Nrcp_img/video1.mp4"
-                                                    type="video/mp4">
-                                            </video>
+                                @if (isset($galleryVideo) && !empty($galleryVideo))
+                                    @foreach ($galleryVideo as $k => $galleryVideos)
+                                        <div class="team-item">
+                                            <div class="gallery-box media-icon orange-color">                                                
+                                                @if (count($galleryVideos['gallery_details']) > 0)
+                                                <iframe width="100%" height="315" src="{{ $galleryVideos['gallery_details'][0]->public_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                                                   
+                                                @else
+                                                    <p>No images available for this gallery.</p>
+                                                @endif                                                
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="team-item">
-                                        <div class="gallery-box media-icon orange-color">
-                                           
-                                            <video controls="" muted="" class="video-g">
-                                                <source
-                                                    src="https://dev.nrcp.staggings.in/assets/Nrcp_img/video1.mp4"
-                                                    type="video/mp4">
-                                            </video>
-                                        </div>
-                                    </div>
-                                    {{-- @endforeach
-                                @endif --}}                                
+                                    @endforeach
+                                @endif
+                                
                                
                             </div>
                         </div>
