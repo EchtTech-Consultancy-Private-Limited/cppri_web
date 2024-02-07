@@ -60,91 +60,45 @@
                                             <h2 class="title event-heading-color" tabindex="0">Photo Gallery Images</h2>
                                         </div>
                                     </div>
+                                    @if (isset($photogallery) && !empty($photogallery))
                                     <div class="rs-blog main-home col-md-12">
                                         <div class="container1 row">
                                             <div class="col-md-6">
-                                                <div class="mySlides" style="display: block;">
-                                                    <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909984.jpeg"
-                                                        style="width:100%">
-                                                </div>
+                                                @foreach ($photogallery as $datas)
                                                 <div class="mySlides">
-                                                    <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909946.jpeg"
+                                                    @if (!blank($datas->public_url))
+                                                    <img src="{{ asset('resources/uploads/GalleryManagement/' . $datas->public_url) }}"
                                                         style="width:100%">
+                                                    @endif
                                                 </div>
-                                                <div class="mySlides">
-                                                    <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909915.jpeg"
-                                                        style="width:100%">
-                                                </div>
-                                                <div class="mySlides">
-                                                    <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909998.jpeg"
-                                                        style="width:100%">
-                                                </div>
-                                                <div class="mySlides">
-                                                    <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909979.jpeg"
-                                                        style="width:100%">
-                                                </div>
-                                                <div class="mySlides">
-                                                    <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909949.jpeg"
-                                                        style="width:100%">
-                                                </div>
-                                                <div class="mySlides">
-                                                    <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909976.jpg"
-                                                        style="width:100%">
-                                                </div>
-                                                <div class="mySlides">
-                                                    <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909959.jpeg"
-                                                        style="width:100%">
-                                                </div>
-                                                <div class="mySlides">
-                                                    <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909948.jpeg"
-                                                        style="width:100%">
-                                                </div>
-                                                <div class="mySlides">
-                                                    <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909980.jpeg"
-                                                        style="width:100%">
-                                                </div>
-                                               
-                                                <a class="prev" onclick="plusSlides(-1)" tabindex="0">❮</a>
-                                                <a class="next" onclick="plusSlides(1)" tabindex="0">❯</a>
+                                                @endforeach
+                                                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                                                <a class="next" onclick="plusSlides(1)">❯</a>
                                             </div>
                                             <div class="col-md-6 col-box-g">
-                                               <div class="row">
-                                               <div class="col-4">
-                                                    <img class="demo cursor active"
-                                                        src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909984.jpeg"
-                                                        style="width:100%" onclick="currentSlide(1)" alt="">
+                                                <div class="row">
+                                                    @foreach ($photogallery as $key => $datas)
+                                                    <div class="col-4">
+                                                        <img class="demo cursor" @if (!blank($datas->public_url))
+                                                        src="{{ asset('resources/uploads/GalleryManagement/' . $datas->public_url) }}"
+                                                        @endif
+                                                        style="width:100%" onclick="currentSlide({{ $key + 1 }})"
+                                                        alt="">
+                                                    </div>
+                                                    @endforeach
                                                 </div>
-                                                <div class="col-4 px-1 pb-2">
-                                                    <img class="demo cursor"
-                                                        src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909946.jpeg"
-                                                        style="width:100%" onclick="currentSlide(2)" alt="">
-                                                </div>
-                                                <div class="col-4 px-1 pb-2">
-                                                    <img class="demo cursor"
-                                                        src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909915.jpeg"
-                                                        style="width:100%" onclick="currentSlide(3)" alt="">
-                                                </div>
-                                                <div class="col-4 px-1 pb-2">
-                                                    <img class="demo cursor"
-                                                        src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909998.jpeg"
-                                                        style="width:100%" onclick="currentSlide(4)" alt="">
-                                                </div>
-                                                <div class="col-4 px-1 pb-2">
-                                                    <img class="demo cursor"
-                                                        src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909979.jpeg"
-                                                        style="width:100%" onclick="currentSlide(5)" alt="">
-                                                </div>
-                                                <div class="col-4 px-1 pb-2">
-                                                    <img class="demo cursor"
-                                                        src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909949.jpeg"
-                                                        style="width:100%" onclick="currentSlide(6)" alt="">
-                                                </div>
-                                               </div>
-                                               
-                                               
-                                              
                                             </div>
                                         </div>
+
+                                    </div>
+                                    @else
+                                    {{ abort(404) }}
+                                    @endif
+
+                                    <div class="col-md-12 mt-3">
+                                        @if (!blank($gallery->title_name_en))
+                                        <h3>{{ $gallery->title_name_en ?? '' }}<h3>
+                                                @endif
 
                                     </div>
 
@@ -153,14 +107,12 @@
                             </div>
 
                         </div>
+                    </section>
 
+                </section>
             </div>
+        </div>
     </section>
-
-    </section>
-</div>
-</div>
-</section>
 
 </div>
 

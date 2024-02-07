@@ -55,7 +55,7 @@
                         <div class=" common-container four_content mb-5">
 
 
-                            @if (isset($galleryData) && count($galleryData) > 0)
+                            @if (isset($galleryVideo) && count($galleryVideo) > 0)
                             <div class="row">
                                 <h3 class="dir-dsk-title mt-3">
 
@@ -66,20 +66,17 @@
                                     @endif
 
                                 </h3>
-                                @foreach ($galleryData as $galleryDatas)
-                                @if (count($galleryDatas['gallery_details']) > 0)
-                                @foreach ($galleryDatas['gallery_details'] as $videoDetail)
+                                @foreach ($galleryVideo as $galleryVideos)
+                                @if (count($galleryVideos['gallery_details']) > 0)
+                                @foreach ($galleryVideos['gallery_details'] as $videoDetail)
                                 <div class="col-md-4 mb-2">
                                     <div class="blog-item">
-                                        <a href="{{ $videoDetail->public_url }}"
-                                            title="{{ $videoDetail->title ?? '' }}">
                                             <div class="">
                                                 <iframe width="100%" height="315"
-                                                    src="https://www.youtube.com/embed/bkkw7JnCQiY?autoplay=1&mute=1"
+                                                    src="{{ $galleryVideos['gallery_details'][0]->public_url }}"
                                                     frameborder="0" allowfullscreen></iframe>
 
                                             </div>
-                                        </a>
                                     </div>
                                 </div>
                                 @endforeach
