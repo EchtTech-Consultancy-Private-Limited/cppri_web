@@ -34,9 +34,9 @@
 
                 <li><a href="javascript:void();">
                         @if (Session::get('Lang') == 'hi')
-                        {{ __('messages.photo_gallery') }}
+                        {{ __('messages.video_gallery') }}
                         @else
-                        {{ __('messages.photo_gallery') }}
+                        {{ __('messages.video_gallery') }}
                         @endif
                     </a>
                 </li>
