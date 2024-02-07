@@ -6016,5 +6016,33 @@ ul.overseas-client{
 .container1 .cursor {
     cursor: pointer;
 }
+
+.col-box-g {
+    border: 1px solid #ddd;
+    padding: 12px;
+    padding-right: 0px;
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.container1 .prev, .container1 .next {
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    width: auto;
+    padding: 16px;
+    margin-top: 0px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.container1 .next {
+    right: 15px;
+    border-radius: 3px 0 0 3px;
+}
 /* photo gallery detail page end */
 /* photo gallery section end */
+

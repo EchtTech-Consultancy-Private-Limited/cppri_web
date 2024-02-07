@@ -807,13 +807,13 @@ function topFunction() {
                     center: false,
                 },
                 768: {
-                    items: (smDevice ? smDevice : 3),
+                    items: (smDevice ? smDevice : 2),
                     nav: (smDeviceNav ? true : false),
                     dots: (smDeviceDots ? true : false),
                     center: false,
                 },
                 992: {
-                    items: (mdDevice ? mdDevice : 4),
+                    items: (mdDevice ? mdDevice : 2),
                     nav: (mdDeviceNav ? true : false),
                     dots: (mdDeviceDots ? true : false),
                 }
@@ -855,17 +855,17 @@ $('#customPlay3').click(function () {
 
 
 
-var pause3 = document.querySelector("#customPause3");
-var play3 = document.querySelector("#customPlay3");
-pause3.addEventListener("click", function () {
-    play3.style.display = "block";
-    pause3.style.display = "none"
-});
+// var pause3 = document.querySelector("#customPause3");
+// var play3 = document.querySelector("#customPlay3");
+// pause3.addEventListener("click", function () {
+//     play3.style.display = "block";
+//     pause3.style.display = "none"
+// });
 
-play3.addEventListener("click", function () {
-    play3.style.display = "none";
-    pause3.style.display = "block"
-});
+// play3.addEventListener("click", function () {
+//     play3.style.display = "none";
+//     pause3.style.display = "block"
+// });
 
 
 
@@ -889,14 +889,47 @@ $('#customPlay4').click(function () {
 
 
 
-var pause4 = document.querySelector("#customPause4");
-var play4 = document.querySelector("#customPlay4");
-pause4.addEventListener("click", function () {
-    play4.style.display = "block";
-    pause4.style.display = "none"
-});
+// var pause4 = document.querySelector("#customPause4");
+// var play4 = document.querySelector("#customPlay4");
+// pause4.addEventListener("click", function () {
+//     play4.style.display = "block";
+//     pause4.style.display = "none"
+// });
 
-play4.addEventListener("click", function () {
-    play4.style.display = "none";
-    pause4.style.display = "block"
+// play4.addEventListener("click", function () {
+//     play4.style.display = "none";
+//     pause4.style.display = "block"
+// });
+
+// detail page gallery js
+$(document).ready(function(){
+    let slideIndex = 1;
+
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("demo");
+        let captionText = document.getElementById("caption");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
+    }
 });
