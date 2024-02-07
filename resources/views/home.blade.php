@@ -627,8 +627,9 @@
                                         <div class="resp-tabs-container hor_1">
                                             <div class="clearfix" id="hor_1_tab_item-1">
                                                 <div class="content-wrapper">
-                                                    <p class="text-slide01 pause" onclick="changeClass1()" id="tender_pause_button"></p>
-                                                    <div class="scroll-text01 scroll-left p-2" id = "tender_scroll">
+                                                    <p class="text-slide01 pause" onclick="changeClass1()"
+                                                        id="tender_pause_button"></p>
+                                                    <div class="scroll-text01 scroll-left p-2" id="tender_scroll">
                                                         <ul class="list">
                                                             @if (isset($tender_management) && count($tender_management)
                                                             > 0)
@@ -1129,6 +1130,197 @@
     @endif
     {{-- video and image section end --}}
 </section>
+
+<!-- photo gallery section start -->
+<div class="gallery-section p-32">
+        <div class="px-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="gallery-lbox new_gall_boxhead_change">
+                        <div class="content">
+                            <div class="sec-title3 text-center  ">
+                                <h2 class="title mb-10">Photo Gallery</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="rs-carousel owl-carousel nav-style2 gallery-carausel" data-loop="true"
+                                data-items="4" data-margin="10" data-autoplay="true" data-hoverpause="true"
+                                data-autoplay-timeout="5000" data-smart-speed="800" data-dots="false" data-nav="false"
+                                data-nav-speed="false" data-center-mode="false" data-mobile-device="1"
+                                data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="2"
+                                data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
+                                data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="2"
+                                data-md-device-nav="false" data-md-device-dots="false" id="banner3">
+                                      <div class="team-item">
+                                            <div class="gallery-box">
+                                             
+                                            <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170601089225.JPG"
+                                                    alt="" rel="noopener noreferrer">
+                                                    <div class="text-gallery">
+                                                    Regional Workshop on state Action Plan - Bengaluru
+                                                </div>
+                                            </div>
+                                        </div>
+                                      <div class="team-item">
+                                            <div class="gallery-box">
+                                             
+                                            <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170601089225.JPG"
+                                                    alt="" rel="noopener noreferrer">
+                                                    <div class="text-gallery">
+                                                    Regional Workshop on state Action Plan - Bengaluru
+                                                </div>
+                                            </div>
+                                        </div>
+                                      <div class="team-item">
+                                            <div class="gallery-box">
+                                             
+                                            <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170601089225.JPG"
+                                                    alt="" rel="noopener noreferrer">
+                                                    <div class="text-gallery">
+                                                    Regional Workshop on state Action Plan - Bengaluru
+                                                </div>
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                        <div class="btn-view_play">
+                            <div class="btn-part  text-center">
+                                <a class="readon2" href="{{ url('photo-gallery-category') }}"
+                                    rel="noopener noreferrer">View
+                                    All</a>
+                            </div>
+                            <div class="btns">
+                                <div id="customPreviousBtn3"><i class="fa fa-angle-left" aria-hidden="true"></i>
+                                </div>
+                                <div id="customPause3"><i class="fa fa-pause" aria-hidden="true"></i></div>
+                                <div id="customPlay3" class="customPlay2"><i class="fa fa-play" aria-hidden="true"></i>
+                                </div>
+                                <div id="customNextBtn3"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="gallery-lbox video-sec new_gall_boxhead_change">
+                        <div class="content">
+                            <div class="sec-title3 text-center ">
+                                <h2 class="title mb-10">Video Gallery</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="rs-carousel owl-carousel nav-style2 gallery-carausel" data-loop="true"
+                                data-items="4" data-margin="10" data-autoplay="true" data-hoverpause="true"
+                                data-autoplay-timeout="4500" data-smart-speed="900" data-dots="false" data-nav="false"
+                                data-nav-speed="false" data-center-mode="false" data-mobile-device="1"
+                                data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="2"
+                                data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
+                                data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="2"
+                                data-md-device-nav="false" data-md-device-dots="false" id="banner4">
+                                <div class="team-item">
+                                    <div class="gallery-box media-icon orange-color">
+                                                         
+                                        <video controls="" muted="" class="video-g">
+                                               <source src="https://dev.nrcp.staggings.in/assets/Nrcp_img/video1.mp4"  type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="team-item">
+                                    <div class="gallery-box media-icon orange-color">
+                                                         
+                                        <video controls="" muted="" class="video-g">
+                                               <source src="https://dev.nrcp.staggings.in/assets/Nrcp_img/video1.mp4"  type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="team-item">
+                                    <div class="gallery-box media-icon orange-color">
+                                                         
+                                        <video controls="" muted="" class="video-g">
+                                               <source src="https://dev.nrcp.staggings.in/assets/Nrcp_img/video1.mp4"  type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="team-item">
+                                    <div class="gallery-box media-icon orange-color">
+                                                         
+                                        <video controls="" muted="" class="video-g">
+                                               <source src="https://dev.nrcp.staggings.in/assets/Nrcp_img/video1.mp4"  type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <div class="btn-view_play">
+                            <div class="btn-part  text-center">
+                                <a class="readon2" href="#" rel="noopener noreferrer">View
+                                    All</a>
+                            </div>
+                            <div class="btns">
+                                <div id="customPreviousBtn4"><i class="fa fa-angle-left" aria-hidden="true"></i>
+                                </div>
+                                <div id="customPause4"><i class="fa fa-pause" aria-hidden="true"></i></div>
+                                <div id="customPlay4" class="customPlay2"><i class="fa fa-play" aria-hidden="true"></i>
+                                </div>
+                                <div id="customNextBtn4"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-6">
+                    <div class="gallery-lbox video-sec new_gall_boxhead_change">
+                        <div class="content">
+                            <div class="sec-title3 text-center ">
+                                <h2 class="title mb-10">Video Gallery</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="rs-carousel owl-carousel nav-style2 gallery-carausel" data-loop="true"
+                                data-items="4" data-margin="10" data-autoplay="true" data-hoverpause="true"
+                                data-autoplay-timeout="4500" data-smart-speed="900" data-dots="false" data-nav="false"
+                                data-nav-speed="false" data-center-mode="false" data-mobile-device="1"
+                                data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="2"
+                                data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
+                                data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="2"
+                                data-md-device-nav="false" data-md-device-dots="false" id="banner4">
+                                     <div class="team-item">
+                                            <div class="gallery-box media-icon orange-color">
+                                               
+                                                <video controls="" muted="" class="video-g">
+                                                    <source
+                                                        src="https://dev.nrcp.staggings.in/assets/Nrcp_img/video1.mp4"
+                                                        type="video/mp4">
+                                                </video>
+                                            </div>
+                                        </div>
+                             
+                            </div>
+                        </div>
+                        <div class="btn-view_play">
+                            <div class="btn-part  text-center">
+                                <a class="readon2 mt-0" href="#" rel="noopener noreferrer">View
+                                    All</a>
+                            </div>
+                            <div class="btns">
+                                <div id="customPreviousBtn4"><i class="fa fa-angle-left" aria-hidden="true"></i>
+                                </div>
+                                <div id="customPause4"><i class="fa fa-pause" aria-hidden="true"></i></div>
+                                <div id="customPlay4" class="customPlay2"><i class="fa fa-play" aria-hidden="true"></i>
+                                </div>
+                                <div id="customNextBtn4"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- photo gallery section end -->
 <!--/.body-wrapper-->
 <!--Client logo start-->
 <section class="wrapper carousel-wrapper clientail">
