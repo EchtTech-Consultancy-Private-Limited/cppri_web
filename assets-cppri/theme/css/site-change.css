@@ -43,7 +43,7 @@ a:hover img {
 }
 
 .footer-top-wrapper, .footer-bottom-wrapper{
-    border: 1px solid #fff ;
+    border-top: 1px solid #fff ;
 }
 
 .color-blue{color:#fff}
@@ -115,7 +115,7 @@ a:hover img {
 .otonomus-container,.minister,.ebook-container,.digital-container{background:#000;}
 .ebook-container h3{background:#000}
 .ebook-container .headdingimg,.morebtt{background:none}
-.body-container ul.list li,.otonomus-content li{background:rgba(0,0,0,0) url(../images/whitearw.png) no-repeat scroll 0 15px}
+.body-container ul.list li,.otonomus-content li{background:rgba(0,0,0,0) no-repeat scroll 0 15px}
 .white-graphics-bg {
     background: url(../images/logo-graphics.png) no-repeat -17px -155px #000;
 }
@@ -482,9 +482,12 @@ table td, table th, table tr, .main-sidebar{
     color: #fff !important;
 }
 
-.depart-info .deprt-icon-box, .left-col-2 h2, ul.resp-tabs-list, .box-bg-color, .news-box, .contact-item, .cppri-contact-form, .scroll-table1, table.dataTable tbody tr td{
+.depart-info .deprt-icon-box, .left-col-2 h2, ul.resp-tabs-list, .box-bg-color, .news-box, .contact-item, .scroll-table1, table.dataTable tbody tr td{
     background-color: #000;
     color: #fff !important;
+}
+.cppri-contact-form{
+    background-color: #fff !important;
 }
 
 button.dt-button.buttons-print, .archive-btn {
@@ -534,11 +537,11 @@ blockquote::before, blockquote::after {
 }
 
 .main-content ul {
-    margin-left: 15px !important;
+    /* margin-left: 15px !important; */
 }
 
 .emp-crddir-inf {
-    border: 3px solid #fff;
+    /* border: 3px solid #fff; */
 }
 .emp-crddir-inf h3, .emp-crddir-inf h5, .main-sidebar .list-start a::before, .timer-date-c span.li_eng.responsive_go_eng, .main-sidebar .sl-accordion:hover .list-start a::before, .main-sidebar .accordion.menu-active:hover .nav-link.collapsed, .main-sidebar .sl-accordion.menu-active:hover .list-start a::before, .main-sidebar .accordion.menu-active:hover a[aria-expanded="true"], .main-sidebar .accordion.fl-accordion:hover .nav-link.collapsed, .main-sidebar .accordion-item ul li.fl-accordion:hover a::before, .main-sidebar .accordion.sl-accordion:hover .show .fl-accordion.fl-accordion-active:hover a, .main-sidebar .accordion.fl-accordion.fl-accordion-active a, .main-sidebar .accordion.fl-accordion.fl-accordion-active .list-start:hover a::before, .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover a::before, .main-sidebar .accordion.menu-active:hover .nav-link[data-bs-toggle="collapse"]::after, .main-sidebar .accordion-item ul li.fl-accordion:hover a::after, .main-sidebar .sl-accordion:hover .fl-accordion.fl-accordion-active a::before, .main-sidebar .sl-accordion:hover .fl-accordion.fl-accordion-active a::before{
     color: #fff !important;
@@ -589,9 +592,10 @@ table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>th.sorting_asc, ta
 .btn.btn-primary {
     background: #000 !important;
     border: 1px solid #fff !important;
+    color: #fff;
 }
 
-.btn:hover{
+.btn:hover, .info div i{
     color: #000;
 }
 
@@ -602,7 +606,38 @@ table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>th.sorting_asc, ta
 .main-content.ditiector-desk, .dataTables_wrapper .dataTables_length label, .card-emp-dir {
     /* background: linear-gradient(90deg, #1a4f910f, #1a4f910a); */
     background: #000;
-    border-radius: 10px;
+   
     border: 1px solid #fff;
+}
+
+.main-content.ditiector-desk{
+    border-radius: 2px !important;
+}
+.main-sidebar ul li:last-child:hover {
+    border-bottom: 1px solid #FFF !important;
+}
+
+.main-sidebar .sl-accordion:hover .fl-accordion.menu-active{
+    background-color: #000 !important;
+}
+
+.main-sidebar .sl-accordion:hover .fl-accordion.menu-active a, .main-sidebar .sl-accordion:hover .fl-accordion.menu-active a::before, .sub-sub-heading{
+    color: #fff !important;
+}
+
+thead + tbody tr td{
+    color: #fff !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.dataTables_wrapper .dataTables_length select {
+    background: #fff;
+    color: #000;
+}
+.resp-tabs-list li a{
+    color: #fff !important;
 }
 

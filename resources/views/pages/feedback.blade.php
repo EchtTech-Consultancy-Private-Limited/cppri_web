@@ -24,7 +24,7 @@
     <div class="breadcam-bg breadcam">
         <div class="container common-container four_content ">
             <ul>
-                <li><a href="home.html">
+                <li><a href="{{url('/')}}">
                         @if (Session::get('Lang') == 'hi')
                         होम पेज
                         @else
@@ -83,7 +83,7 @@
                                 <div class="info">
                                     <div>
                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                        <input class="fname preventnumeric" type="text" name="name"   value="{{ old('name') }}" placeholder="Full name" >
+                                        <input class="fname preventnumeric" type="text" name="name" maxlength="45"  value="{{ old('name') }}" placeholder="Full name" >
                                         
                                     </div>
                                     <div>

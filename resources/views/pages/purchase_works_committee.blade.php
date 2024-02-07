@@ -131,7 +131,7 @@
                                             <td>{!! $purchaseWorksCommitte->name_of_supplier_party_en   ?? '' !!}</td>
                                         @endif
                                         <td class="views-field views-field-field-amount-rs-">
-                                            {{ $purchaseWorksCommitte->amount   ?? '' }} (Euro)</td>
+                                            {{ $purchaseWorksCommitte->amount   ?? '' }}</td>
                                         <td class="views-field views-field-field-select-type">
                                             {{ $purchaseWorksCommitte->pwc_type   ?? '' }} </td>
                                         {{-- <td class="views-field views-field-field-related-document">

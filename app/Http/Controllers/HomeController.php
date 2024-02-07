@@ -33,11 +33,13 @@ class HomeController extends Controller
         $final_data = [];
         try {
            $uuids= DB::table('career_management_details')
+            ->where('status', 3)
             ->where('soft_delete', 0)
             ->whereDate('archivel_date', '>=', now()->toDateString())
             ->get()->pluck('career_management_id');
 
             $career = DB::table('career_management')
+                ->where('status', 3)
                 ->where('soft_delete', 0)
                 ->whereIn('uid',$uuids)
                 ->latest('created_at')
@@ -47,6 +49,7 @@ class HomeController extends Controller
                     $obj = new \stdClass;
                     $obj->career= $c;
                     $obj->career->career_doc =  DB::table('career_management_details')
+                    ->where('status', 3)
                     ->where('soft_delete', 0)
                     ->where('career_management_id', $c->uid)
                     ->whereDate('archivel_date', '>=', now()->toDateString())
@@ -76,21 +79,27 @@ class HomeController extends Controller
         try {
 
             $career = DB::table('career_management')
+                ->where('status', 3)
                 ->where('soft_delete', 0)
                 ->latest('created_at')
                 ->get();
 
-                foreach($career as $c){
-                    $obj = new \stdClass;
-                    $obj->career= $c;
-                    $obj->career->career_doc =  DB::table('career_management_details')
-                    ->where('soft_delete', 0)
-                    ->where('career_management_id', $c->uid)
-                    ->whereDate('archivel_date', '<', now()->toDateString())
-                    ->latest('created_at')
-                    ->get();
+            $final_data = [];
 
-                    $final_data[] = $obj;                    
+                if($career && count($career) > 0){
+                    foreach($career as $c){
+                        $obj = new \stdClass;
+                        $obj->career= $c;
+                        $obj->career->career_doc =  DB::table('career_management_details')
+                        ->where('status', 3)
+                        ->where('soft_delete', 0)
+                        ->where('career_management_id', $c->uid)
+                        ->whereDate('archivel_date', '<', now()->toDateString())
+                        ->latest('created_at')
+                        ->get();
+
+                        $final_data[] = $obj;                    
+                    }
                 }
                 // dd($final_data);
             return view('pages.careerArchive', ['title' => $titleName, 'final_data' => $final_data]);
@@ -115,6 +124,7 @@ class HomeController extends Controller
             $tenderData = [];
 
             $tenders = DB::table('tender_management')
+                ->where('status', 3)
                 ->where('soft_delete', 0)
                 ->orderBy('created_at', 'asc')
                 ->latest('created_at')
@@ -127,6 +137,7 @@ class HomeController extends Controller
                 foreach ($tenders as $tender) {
                     $tender_pdfs = DB::table('tender_details')
                         ->where('soft_delete', 0)
+                        ->where('status', 3)
                         ->orderBy('created_at', 'asc')
                         ->where('tender_id', $tender->uid)
                         ->whereDate('archivel_date', '>=', now()->toDateString())
@@ -142,6 +153,7 @@ class HomeController extends Controller
                 }
             }
             $applyUrl = DB::table('tender_management')
+                        ->where('status', 3)
                         ->where('soft_delete', 0)
                         ->where('apply_url','!=', 'NULL')
                         ->first();
@@ -166,6 +178,7 @@ class HomeController extends Controller
             $tenderData = []; // Initialize the array to store all tender data
 
             $tenders = DB::table('tender_management')
+                ->where('status', 3)
                 ->where('soft_delete', 0)
                 ->latest('created_at')
                 // ->whereDate('archivel_date', '<', now()->toDateString())
@@ -174,6 +187,7 @@ class HomeController extends Controller
             if (count($tenders) > 0) {
                 foreach ($tenders as $tender) {
                     $tender_pdfs = DB::table('tender_details')
+                        ->where('status', 3)
                         ->where('soft_delete', 0)
                         ->where('tender_id', $tender->uid)
                         ->whereDate('archivel_date', '<', now()->toDateString())
@@ -189,6 +203,7 @@ class HomeController extends Controller
                 }
             }
             $applyUrl = DB::table('tender_management')
+                        ->where('status', 3)
                         ->where('soft_delete', 0)
                         ->where('apply_url','!=', 'NULL')
                         ->first();
@@ -216,6 +231,7 @@ class HomeController extends Controller
             $designationData = [];
 
                     $department = DB::table('emp_depart_designations')
+                        ->where('status', 3)
                         ->where('soft_delete', 0)
                         ->orderBy('short_order', 'ASC')
                         ->whereparent_id(0)
@@ -230,6 +246,7 @@ class HomeController extends Controller
                             $data = DB::table('employee_directories as emp')
                                 ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
                                 ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
+                                ->where('emp.status', 3)
                                 ->where('emp.soft_delete', 0)
                                 ->where('department_id', $designation->uid)
                                 ->orderBy('emp.short_order', 'ASC')
@@ -282,17 +299,17 @@ class HomeController extends Controller
 
             if ($finalSlug != null) {
 
-                $finalUrl = DB::table('website_menu_management')->whereurl($slug)->first();
-                $lastUrl = DB::table('website_menu_management')->whereurl($lastSlugs)->first();
-                $middelUrl = DB::table('website_menu_management')->whereurl($middelSlug)->first();
-                $menus = DB::table('website_menu_management')->whereurl($finalSlug)->first();
+                $finalUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($slug)->first();
+                $lastUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($lastSlugs)->first();
+                $middelUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($middelSlug)->first();
+                $menus = DB::table('website_menu_management')->where('status', 3)->whereurl($finalSlug)->first();
 
                 if ($menus != '') {
-                    $allmenus = DB::table('website_menu_management')->orderBy('sort_order', 'ASC')->get();
-                    $firstParent = DB::table('website_menu_management')->where('uid', $lastUrl->parent_id)->first();
+                    $allmenus = DB::table('website_menu_management')->where('status', 3)->orderBy('sort_order', 'ASC')->get();
+                    $firstParent = DB::table('website_menu_management')->where('status', 3)->where('uid', $lastUrl->parent_id)->first();
                     //dd($firstParent);
                     if (!empty($firstParent)) {
-                        $parentMenut = DB::table('website_menu_management')->where('uid', optional($firstParent)->parent_id)->first();
+                        $parentMenut = DB::table('website_menu_management')->where('status', 3)->where('uid', optional($firstParent)->parent_id)->first();
                         //dd($parentMenut);
                         if (!empty($parentMenut)) {
                             foreach ($allmenus as $menu) {
@@ -327,14 +344,14 @@ class HomeController extends Controller
                 }
                 // dd($tree);
             } else if ($lastSlugs != null) {
-                $lastUrl = DB::table('website_menu_management')->whereurl($slug)->first();
-                $middelUrl = DB::table('website_menu_management')->whereurl($middelSlug)->first();
-                $menus = DB::table('website_menu_management')->whereurl($lastSlugs)->first();
+                $lastUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($slug)->first();
+                $middelUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($middelSlug)->first();
+                $menus = DB::table('website_menu_management')->where('status', 3)->whereurl($lastSlugs)->first();
                 if ($menus != '') {
-                    $allmenus = DB::table('website_menu_management')->orderBy('sort_order', 'ASC')->get();
-                    $firstParent = DB::table('website_menu_management')->where('uid', $menus->parent_id)->first();
+                    $allmenus = DB::table('website_menu_management')->where('status', 3)->orderBy('sort_order', 'ASC')->get();
+                    $firstParent = DB::table('website_menu_management')->where('status', 3)->where('uid', $menus->parent_id)->first();
                     if (!empty($firstParent)) {
-                        $parentMenut = DB::table('website_menu_management')->where('uid', optional($firstParent)->parent_id)->first();
+                        $parentMenut = DB::table('website_menu_management')->where('status', 3)->where('uid', optional($firstParent)->parent_id)->first();
                         if (!empty($parentMenut)) {
                             foreach ($allmenus as $menu) {
 
@@ -367,11 +384,11 @@ class HomeController extends Controller
                 }
             } elseif ($middelSlug != null) {
 
-                $middelUrl = DB::table('website_menu_management')->whereurl($slug)->first();
-                $menus = DB::table('website_menu_management')->whereurl($middelSlug)->first();
+                $middelUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($slug)->first();
+                $menus = DB::table('website_menu_management')->where('status', 3)->whereurl($middelSlug)->first();
                 if ($menus != '') {
-                    $allmenus = DB::table('website_menu_management')->orderBy('sort_order', 'ASC')->get();
-                    $parentMenut = DB::table('website_menu_management')->where('uid', $menus->parent_id)->first();
+                    $allmenus = DB::table('website_menu_management')->where('status', 3)->orderBy('sort_order', 'ASC')->get();
+                    $parentMenut = DB::table('website_menu_management')->where('status', 3)->where('uid', $menus->parent_id)->first();
                     if (!empty($parentMenut)) {
                         foreach ($allmenus as $menu) {
                             if ($menu->parent_id == $parentMenut->uid) {
@@ -398,7 +415,7 @@ class HomeController extends Controller
                     }
                 }
             } else {
-                $menus = DB::table('website_menu_management')->whereurl($slug)->first();
+                $menus = DB::table('website_menu_management')->where('status', 3)->whereurl($slug)->first();
             }
 
             if ($menus != '') {
@@ -470,10 +487,11 @@ class HomeController extends Controller
                     }
                 }
                 
-                $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
+                $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('status', 3)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
 
                 $dynamic_content_page_metatag = DB::table('dynamic_content_page_metatag')
                     ->where('soft_delete', 0)
+                    ->where('status', 3)
                     ->where('menu_uid', $menus->uid)
                     ->orderBy('created_at', 'asc')
                     ->orderBy('sort_order', 'ASC')
@@ -489,25 +507,28 @@ class HomeController extends Controller
 
                         $dynamic_content_page_pdf = DB::table('dynamic_content_page_pdf')
                             ->wheredcpm_id($dynamic_content_page_metatags->uid)
+                            ->where('status', 3)
                             ->where('soft_delete', 0)
-
                             ->latest('start_date')
                             ->get();
 
                         //  dd($dynamic_content_page_pdf);
 
                         $dynamic_page_banner = DB::table('dynamic_page_banner')
+                            ->where('status', 3)
                             ->where('soft_delete', 0)
                             ->wheredcpm_id($dynamic_content_page_metatags->uid)
                             ->first();
 
                         $dynamic_content_page_gallery = DB::table('dynamic_content_page_gallery')
                             ->wheredcpm_id($dynamic_content_page_metatags->uid)
+                            ->where('status', 3)
                             ->where('soft_delete', 0)
                             ->get();
 
                         $dynamic_page_content = DB::table('dynamic_page_content')
                             ->wheredcpm_id($dynamic_content_page_metatags->uid)
+                            ->where('status', 3)
                             ->where('soft_delete', 0)
                             ->first();
 
@@ -533,6 +554,7 @@ class HomeController extends Controller
                     
                     $designation = DB::table('emp_depart_designations')
                         ->where('name_en', 'LIKE', 'Director')
+                        ->where('status', 3)
                         ->where('soft_delete', 0)
                         ->orderBy('short_order', 'ASC')
                         ->where('publice_status', 1)
@@ -542,6 +564,7 @@ class HomeController extends Controller
 
                         $Director = DB::table('employee_directories')
                             ->where('designation_id', $designation->uid)
+                            ->where('status', 3)
                             ->where('soft_delete', 0)
                             ->orderBy('short_order', 'ASC')
                             ->where('publice_status', 1)
@@ -553,6 +576,7 @@ class HomeController extends Controller
                     $designationData = [];
 
                     $department = DB::table('emp_depart_designations')
+                        ->where('status', 3)
                         ->where('soft_delete', 0)
                         ->orderBy('short_order', 'ASC')
                         ->whereparent_id(0)
@@ -567,6 +591,7 @@ class HomeController extends Controller
                             $data = DB::table('employee_directories as emp')
                                 ->select('emp.*', 'desi.name_en as desi_name_en', 'desi.name_hi as desi_name_hi')
                                 ->join('emp_depart_designations as desi', 'emp.designation_id', '=', 'desi.uid')
+                                ->where('emp.status', 3)
                                 ->where('emp.soft_delete', 0)
                                 ->where('department_id', $designation->uid)
                                 ->orderBy('emp.short_order', 'ASC')
@@ -684,16 +709,16 @@ class HomeController extends Controller
 
     public function feedbackStore(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string',
+            'email' => ['required', 'string', 'email', 'max:50', 'email:rfc','regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
+            'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
+            'message' => 'required|string|regex:/^[a-zA-Z0-9\s.,!?]+$/',
+            'SecurityCode' => 'required',
+
+        ]);
         if (Session::get('feedbackCapcode') != $request->SecurityCode) {
             return response()->json(['captchaError' =>"Captcha Invalid!."]);
-        } else {
-            $request->validate([
-                'name' => 'required|string',
-                'email' => ['required', 'string', 'email', 'max:50', 'email:rfc','regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
-                'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
-                'message' => 'required|string|regex:/^[a-zA-Z0-9\s.,!?]+$/',
-
-            ]);
         }
         $data = new feedback;
         $data->name = strip_tags($request->name);
@@ -730,18 +755,17 @@ class HomeController extends Controller
     public function contactStroe(Request $request)
     {
         //dd($request->all());
-
+        $request->validate([
+            'name' => 'required|string',
+            'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
+            'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
+            'message' => 'required|string|regex:/^[a-zA-Z0-9\s.,!?]+$/',
+            'SecurityCode' => 'required',
+        ]);
+        
         if (Session::get('contactCapcode') != $request->SecurityCode) {
             // return back()->with('captchaError', "Captcha Invalid!.");
             return response()->json(['captchaError' =>"Captcha Invalid!."]);
-        } else {
-              $request->validate([
-                'name' => 'required|string',
-                'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
-                'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
-                'message' => 'required|string|regex:/^[a-zA-Z0-9\s.,!?]+$/',
-            ]);
-
         }
         $data = new contactUs;
         $data->name = strip_tags($request->name);
@@ -763,10 +787,12 @@ class HomeController extends Controller
         try {
             $galleryManagementRecords = DB::table('gallery_management')
                 ->where('type', 0)->latest('created_at')
+                ->where('status', 3)
                 ->where('soft_delete', 0)
                 ->get();
 
             $galleryDetails = DB::table('gallery_details')
+                ->where('status', 3)
                 ->where('soft_delete', 0)->latest('created_at')
                 ->get();
 
@@ -824,6 +850,7 @@ class HomeController extends Controller
         $titleName = 'Purchase Works Committee';
         $result = DB::table('purchase_works_committees')
                                 ->join('purchase_works_committees_type', 'purchase_works_committees_type.uid', '=', 'purchase_works_committees.asset_type')
+                                ->where('purchase_works_committees.status', 3)
                                 ->where('purchase_works_committees.soft_delete', 0);
         if (!empty($workType)) {
             $result->where('purchase_works_committees.asset_type', $workType);
@@ -847,7 +874,7 @@ class HomeController extends Controller
     public function notification()
     {
         $title = 'Notification';
-        $notifications = DB::table('recent_activities')->where(['notification_others' => 1, 'soft_delete' => 0])->get();
+        $notifications = DB::table('recent_activities')->where(['notification_others' => 1, 'status' => 3, 'soft_delete' => 0])->get();
         return view('pages.notification', ['title' => $title,'notifications' => $notifications]);
     }
     
@@ -859,7 +886,7 @@ class HomeController extends Controller
     public function pressReleased()
     {
         $title = 'Press Released';
-        $pressReleaseds = DB::table('recent_activities')->where(['notification_others' => 2, 'soft_delete' => 0])->get();
+        $pressReleaseds = DB::table('recent_activities')->where(['notification_others' => 2, 'status' => 3, 'soft_delete' => 0])->get();
         return view('pages.press_relesead', ['title' => $title,'pressReleaseds' => $pressReleaseds]);
     }
     
@@ -879,16 +906,16 @@ class HomeController extends Controller
         $title = 'RTI';
         $rties = DB::table('dynamic_content_page_metatag')
                 ->orderBy('created_at', 'asc')
-                ->where(['menu_slug' => 'rti', 'soft_delete' => 0])
+                ->where(['menu_slug' => 'rti', 'status' => 3, 'soft_delete' => 0])
                 ->get();
         $rtiesDetails = null;
         if ($slug) {
-            $rtiesFirst = DB::table('dynamic_content_page_metatag')->orderBy('created_at', 'asc')->where(['custom_slug' => $slug, 'soft_delete' => 0])->first();
+            $rtiesFirst = DB::table('dynamic_content_page_metatag')->orderBy('created_at', 'asc')->where(['custom_slug' => $slug, 'status' => 3, 'soft_delete' => 0])->first();
         }else{
-            $rtiesFirst = DB::table('dynamic_content_page_metatag')->orderBy('created_at', 'asc')->where(['menu_slug' => 'rti', 'soft_delete' => 0])->first();
+            $rtiesFirst = DB::table('dynamic_content_page_metatag')->orderBy('created_at', 'asc')->where(['menu_slug' => 'rti', 'status' => 3, 'soft_delete' => 0])->first();
         }
         if($rtiesFirst){
-            $rtiesDetails = DB::table('dynamic_page_content')->where(['dcpm_id' => $rtiesFirst->uid, 'soft_delete' => 0])->first();
+            $rtiesDetails = DB::table('dynamic_page_content')->where(['dcpm_id' => $rtiesFirst->uid, 'status' => 3, 'soft_delete' => 0])->first();
         }
         // dd($rtiesFirst);
         return view('pages.rti', ['title' => $title, 'rties' => $rties, 'rtiesDetails' => $rtiesDetails,'rtiesFirst' =>$rtiesFirst]);
@@ -904,6 +931,7 @@ class HomeController extends Controller
         $registrationNo = $request->input('registration_no');
         $titleName = 'RTI Applications Response';
         $result = DB::table('rti_application_responses')
+                    ->where('status', 3)
                     ->orderBy('created_at', 'asc')
                     ->where(['soft_delete' => 0]);
         if (!empty($registrationNo)) {

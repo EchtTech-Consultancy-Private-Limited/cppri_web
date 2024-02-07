@@ -258,6 +258,9 @@ ul#nav li a i.fa-home {
 .dataTables_wrapper .dataTables_filter input::-webkit-search-cancel-button {
     -webkit-appearance: button !important;
 }
+.serch-list{
+	font-size: small;
+}
 .youtube-video {
     width: 100%;
     position: relative;
@@ -2565,7 +2568,7 @@ h2 small {
 }
 .body-container ul.list li {
     background-size: 0px;
-    padding-left: 0px;
+    /* padding-left: 0px; */
     border-bottom: 1px solid #ccc;
     margin-bottom: 10px;
     padding-bottom: 10px;
@@ -3114,7 +3117,7 @@ a.portgolio-button:hover {
     border: 0px;
     color: #fff;
     font-weight: 800;
-    font-size: 110%;
+    /* font-size: 110%; */
     cursor: pointer;
 }
 .text-slide:after,
@@ -3332,7 +3335,7 @@ a {
     float: left;
     width: 100%;
     height: auto;
-    overflow: auto;
+    /* overflow: auto; */
 }
 .page-tab ul.page-list + span.content-title {
     padding-top: 10px;
@@ -4621,7 +4624,7 @@ button.dt-button.buttons-print:hover span {
     height: 40px;
     padding-left: 14px;
     margin: 6px 0px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid #ccc;
 }
 textarea:focus,
@@ -5260,10 +5263,10 @@ span#timeid p {
     margin-top: 0px;
 }
 .main-sidebar .list-start:hover a::before {
-    color: #fff !important;
+    /* color: #fff !important; */
 }
 .main-sidebar li:hover .list-start a::before {
-    color: var(--secondary-color) !important;
+    /* color: var(--secondary-color) !important; */
 }
 .main-sidebar .sl-accordion:hover .list-start a::before {
     color: var(--secondary-color) !important;
@@ -5481,6 +5484,10 @@ blockquote {
     a,
 .main-sidebar .accordion.fl-accordion.fl-accordion-active a {
     color: #333 !important;
+}
+
+.main-sidebar .accordion.sl-accordion:hover .show .fl-accordion.fl-accordion-active:hover  .qm-active a{
+    color: #fff !important;
 }
 .main-sidebar ul li.sl-accordion:hover .fl-accordion.fl-accordion-active {
     background-color: #fff;
@@ -5764,4 +5771,78 @@ div#flexSlider .flex-direction-nav {
 
 .ico-skip.cf .top {
     width: 24px;
+}
+
+
+/* search result css  */
+
+.search-page nav[role="navigation"] svg{
+  width: 25px;
+  height: 25px;
+}
+.search-page nav[role="navigation"] div:nth-child(1){
+visibility: hidden;
+}
+.search-page nav[role="navigation"] div:nth-child(2){
+ display: flex;
+ justify-content: space-between;
+ /* margin-top: 20px; */
+}
+.search-page nav[role="navigation"] div:nth-child(2) div{
+ display: inline-block;
+ margin: 0;
+ visibility: visible;
+}
+.search-page nav[role="navigation"] div:nth-child(2) div p{
+    background: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 5px 20px;
+    margin: 0;
+}
+.search-page nav[role="navigation"] div:nth-child(2) div span[aria-current="page"] span{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 8px !important;
+    margin: 0 2px;
+    background: #1a4f91 !important;
+    color: #fff !important;
+}
+.search-page nav[role="navigation"] div:nth-child(2) div span a, .search-page nav[role="navigation"] div:nth-child(2) div span .text-sm{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 8px !important;
+    margin: 0 2px;
+}
+
+.search-box input {
+    border-radius: 5px 0px 0px 5px;
+}
+.search-box button {
+    border-radius: 0px 5px 5px 0px;
+    padding: 10px 21px !important;
+    font-size: 14px;
+}
+ul.overseas-client{
+    padding: 0 !important;
+}
+.overseas-client li {
+    box-shadow: 3px 1px 12px #ddd;
+    border-radius: 5px;
+    padding: 10px 10px !important;
+    list-style: none !important;
+    margin-bottom: 10px !important;
+}
+.overseas-client li a::before {
+   content:"\f101";
+   font-family: 'fontAwesome';
+   color: red;
+    margin-right: 7px;
+}
+.overseas-client li a {
+  color: var(--bs-blue) !important;
+}
+
+.main-content ol li{
+    margin-bottom: 5px;
 }
