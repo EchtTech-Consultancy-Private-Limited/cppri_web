@@ -839,8 +839,7 @@ class HomeController extends Controller
             ->where('uid', $id)
             ->latest('created_at')
             ->first();
-            
-      
+        // dd($photogallery);      
         $breadcrumbs = 'Photo Gallery Images';
     return view('pages.photo-gallery-details', ['title' => $titleName, 'gallery'=>$gallery,'photogallery' => $photogallery, 'breadcrumbs' => $breadcrumbs]);
 

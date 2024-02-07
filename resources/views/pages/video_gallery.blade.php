@@ -63,31 +63,10 @@
 
                                 </h3>
 
-                                @if (isset($galleryData) && count($galleryData) > 0)
-                                    <div class="row">
-                                        @foreach ($galleryData as $galleryDatas)                                       
-                                            @if (count($galleryDatas['gallery_details']) > 0)
-                                            @foreach ($galleryDatas['gallery_details'] as $videoDetail)
-                                                <div class="col-md-4">
-                                                    <div class="blog-item">
-                                                        <a href="{{ $videoDetail->public_url }}"
-                                                            title="{{ $videoDetail->title ?? '' }}">
-                                                            <div class="col-md-4 mb-4">
-                                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/bkkw7JnCQiY?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
-
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                            @endif
-                                        @endforeach
-                                    </div>
-                                @else
+                                
                                         <p>No images found in the gallery.</p>
 
                                     </div>
-                                @endif
 
                             </div>
                         </section>

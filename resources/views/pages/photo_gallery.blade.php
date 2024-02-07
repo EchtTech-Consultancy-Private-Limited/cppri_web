@@ -80,11 +80,7 @@
                                                     <h3 class="title">
 
                                                         {{ $galleryDatas['gallery']->title_name_en ?? '' }}
-                                                    </h3>
-                                                    <!-- <div class="desc">
-                                             
-                                                        </div> -->
-                                                            </div>
+                                                    </h3>                                                            </div>
                                                         </a>
                                                     </div>
                                                 </div>

@@ -1076,16 +1076,15 @@
                                 data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="2"
                                 data-md-device-nav="false" data-md-device-dots="false" id="banner3">
                                 @if (isset($galleryData) && !empty($galleryData))
-                                    @foreach ($galleryData as $k => $galleryDatas)
+                                    @foreach ($galleryData as $k => $galleryDatas)                                    
                                       <div class="team-item">
-                                            <div class="gallery-box">
-                                             
-                                            @if (count($galleryDatas['gallery_details']) > 0)
-                                                <img @if (isset($galleryDatas['gallery_details'][0]->public_url) && !blank($galleryDatas['gallery_details'][0]->public_url)) src="{{ asset('resources/uploads/GalleryManagement/' . $galleryDatas['gallery_details'][0]->public_url) }}" @endif
-                                                    alt="" rel="noopener noreferrer">
-                                                <div class="text-gallery">
-                                                    {{ $galleryDatas['gallery']->title_name_en ?? '' }}
-                                                </div>
+                                            <div class="gallery-box">                                             
+                                            @if (count($galleryDatas['gallery_details']) > 0)                                                
+                                                    <img @if (isset($galleryDatas['gallery_details'][0]->public_url) && !blank($galleryDatas['gallery_details'][0]->public_url)) src="{{ asset('resources/uploads/GalleryManagement/' . $galleryDatas['gallery_details'][0]->public_url) }}" @endif
+                                                        alt="" rel="noopener noreferrer">
+                                                    <div class="text-gallery">
+                                                        {{ $galleryDatas['gallery']->title_name_en ?? '' }}
+                                                    </div>
                                             @else
                                                 <p>No images available for this gallery.</p>
                                             @endif
@@ -1129,38 +1128,30 @@
                                 data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
                                 data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="2"
                                 data-md-device-nav="false" data-md-device-dots="false" id="banner4">
-                                <div class="team-item">
-                                    <div class="gallery-box media-icon orange-color">
-                                                         
-                                        <video controls="" muted="" class="video-g">
-                                               <source src="https://dev.nrcp.staggings.in/assets/Nrcp_img/video1.mp4"  type="video/mp4">
-                                        </video>
+                                {{-- @if (isset($galleryVideo) && !empty($galleryVideo))
+                                    @foreach ($galleryVideo as $k => $galleryVideos) --}}
+                                    <div class="team-item">
+                                        <div class="gallery-box media-icon orange-color">
+                                           
+                                            <video controls="" muted="" class="video-g">
+                                                <source
+                                                    src="https://dev.nrcp.staggings.in/assets/Nrcp_img/video1.mp4"
+                                                    type="video/mp4">
+                                            </video>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="team-item">
-                                    <div class="gallery-box media-icon orange-color">
-                                                         
-                                        <video controls="" muted="" class="video-g">
-                                               <source src="https://dev.nrcp.staggings.in/assets/Nrcp_img/video1.mp4"  type="video/mp4">
-                                        </video>
+                                    <div class="team-item">
+                                        <div class="gallery-box media-icon orange-color">
+                                           
+                                            <video controls="" muted="" class="video-g">
+                                                <source
+                                                    src="https://dev.nrcp.staggings.in/assets/Nrcp_img/video1.mp4"
+                                                    type="video/mp4">
+                                            </video>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="team-item">
-                                    <div class="gallery-box media-icon orange-color">
-                                                         
-                                        <video controls="" muted="" class="video-g">
-                                               <source src="https://dev.nrcp.staggings.in/assets/Nrcp_img/video1.mp4"  type="video/mp4">
-                                        </video>
-                                    </div>
-                                </div>
-                                <div class="team-item">
-                                    <div class="gallery-box media-icon orange-color">
-                                                         
-                                        <video controls="" muted="" class="video-g">
-                                               <source src="https://dev.nrcp.staggings.in/assets/Nrcp_img/video1.mp4"  type="video/mp4">
-                                        </video>
-                                    </div>
-                                </div>
+                                    {{-- @endforeach
+                                @endif --}}                                
                                
                             </div>
                         </div>
@@ -1181,51 +1172,7 @@
                     </div>
                 </div>
 
-                <!-- <div class="col-md-6">
-                    <div class="gallery-lbox video-sec new_gall_boxhead_change">
-                        <div class="content">
-                            <div class="sec-title3 text-center ">
-                                <h2 class="title mb-10">Video Gallery</h2>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="rs-carousel owl-carousel nav-style2 gallery-carausel" data-loop="true"
-                                data-items="4" data-margin="10" data-autoplay="true" data-hoverpause="true"
-                                data-autoplay-timeout="4500" data-smart-speed="900" data-dots="false" data-nav="false"
-                                data-nav-speed="false" data-center-mode="false" data-mobile-device="1"
-                                data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="2"
-                                data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
-                                data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="2"
-                                data-md-device-nav="false" data-md-device-dots="false" id="banner4">
-                                     <div class="team-item">
-                                            <div class="gallery-box media-icon orange-color">
-                                               
-                                                <video controls="" muted="" class="video-g">
-                                                    <source
-                                                        src="https://dev.nrcp.staggings.in/assets/Nrcp_img/video1.mp4"
-                                                        type="video/mp4">
-                                                </video>
-                                            </div>
-                                        </div>
-                             
-                            </div>
-                        </div>
-                        <div class="btn-view_play">
-                            <div class="btn-part  text-center">
-                                <a class="readon2 mt-0" href="#" rel="noopener noreferrer">View
-                                    All</a>
-                            </div>
-                            <div class="btns">
-                                <div id="customPreviousBtn4"><i class="fa fa-angle-left" aria-hidden="true"></i>
-                                </div>
-                                <div id="customPause4"><i class="fa fa-pause" aria-hidden="true"></i></div>
-                                <div id="customPlay4" class="customPlay2"><i class="fa fa-play" aria-hidden="true"></i>
-                                </div>
-                                <div id="customNextBtn4"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+                
             </div>
         </div>
     </div>
