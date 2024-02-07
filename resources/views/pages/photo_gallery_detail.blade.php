@@ -93,21 +93,23 @@
                                                 <a class="next" onclick="plusSlides(1)">❯</a>
                                             </div>
                                             <div class="col-md-6 col-box-g">
-                                                <div class="column">
+                                              <div class="row">
+                                              <div class="col-4">
                                                     <img class="demo cursor"
                                                         src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909984.jpeg"
                                                         style="width:100%" onclick="currentSlide(1)" alt="">
                                                 </div>
-                                                <div class="column">
+                                                <div class="col-4">
                                                     <img class="demo cursor"
                                                         src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909946.jpeg"
                                                         style="width:100%" onclick="currentSlide(2)" alt="">
                                                 </div>
-                                                <div class="column">
+                                                <div class="col-4">
                                                     <img class="demo cursor"
                                                         src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909915.jpeg"
                                                         style="width:100%" onclick="currentSlide(3)" alt="">
                                                 </div>
+                                              </div>
                                                
                                             </div>
 
