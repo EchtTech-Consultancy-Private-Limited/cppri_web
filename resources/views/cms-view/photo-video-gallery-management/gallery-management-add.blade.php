@@ -212,16 +212,16 @@
                            <div id="kt_video_add_multiple_options">
                               <!--begin::Form group-->
                               <div class="form-group">
-                                 <label class="required form-label mw-100 w-200px">Video Title</label>
-                                 <label class="required form-label mw-100 w-200px" style="margin-left: 12px;">Start Date</label>
-                                 <label class="required form-label mw-100 w-200px" style="margin-left: 12px;">End Date</label>
-                                 <label class="required form-label mw-100 w-200px" style="margin-left: 12px;">Video Link</label>
                                  <div data-repeater-list="kt_video_add_multiple_options" class="d-flex flex-column gap-3">
                                     <div data-repeater-item class="form-group d-flex flex-wrap align-items-center gap-5">
                                        <!--begin::Input-->
+                                       <label class="required form-label">Video Title</label>
                                        <input type="text" class="form-control mw-100 w-200px" name="videotitle" placeholder="video title Name" />
+                                       <label class="required form-label">Start Date</label>
                                        <input type="date" class="form-control mw-100 w-200px" name="startdate" placeholder="" />
+                                       <label class="required form-label">End Date</label>
                                        <input type="date" class="form-control mw-100 w-200px" name="enddate" placeholder="" />
+                                       <label class="required form-label">Video Link</label>
                                        <input type="input" id="Video" class="form-control mw-100 w-200px" name="Video"  placeholder="video Link Name"  />
                                        <!--end::Input-->
                                        <button type="button" data-repeater-delete class="btn btn-sm btn-icon btn-light-danger">
