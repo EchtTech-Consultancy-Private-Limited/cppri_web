@@ -162,12 +162,12 @@ class GalleryManagementAPIController extends Controller
                         if(!empty($request->kt_video_add_multiple_options)){
                             foreach($request->kt_video_add_multiple_options as $key=>$value)
                             {
-                                if(!empty($value['image'])){
-                                    $size = $this->getFileSize($value['Video']->getSize());
-                                    $extension = $value['Video']->getClientOriginalExtension();
-                                    $name = time().rand(10,99).'.'.$value['Video']->getClientOriginalExtension();
-                                    $value['Video']->move(resource_path().'/uploads/GalleryManagement', $name);
-                                    $imgData[] = $name;
+                                // if(!empty($value['Video'])){
+                                //     $size = $this->getFileSize($value['Video']->getSize());
+                                //     $extension = $value['Video']->getClientOriginalExtension();
+                                //     $name = time().rand(10,99).'.'.$value['Video']->getClientOriginalExtension();
+                                //     $value['Video']->move(resource_path().'/uploads/GalleryManagement', $name);
+                                //     $imgData[] = $name;
                                 
                                 $result= DB::table('gallery_details')->insert([
                                     'uid' => Uuid::uuid4(),
@@ -175,13 +175,13 @@ class GalleryManagementAPIController extends Controller
                                     'title' => $value['videotitle'],
                                     'start_date'=> $value['startdate']??'',
                                     'end_date' => $value['enddate']??'',
-                                    'pdfimage_size' => $size??'',
-                                    'file_extension' => $extension??'',
-                                    'public_url' => $name,
-                                    'private_url' => $name,
+                                    'pdfimage_size' => '',
+                                    'file_extension' => '',
+                                    'public_url' => $value['Video'],
+                                    'private_url' => $value['Video'],
                                     'archivel_date' => Carbon::createFromFormat('Y-m-d',$value['enddate'])->addDays(env('TENDER_ARCHIVEL')),
                                 ]);
-                            }
+                           // }
                         }
                     }
                     if($result == true)
