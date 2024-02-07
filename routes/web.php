@@ -53,6 +53,8 @@ Route::post('/feedback', [HomeController::class, 'feedbackStore']);
 // Route::get('about-us/employee-directory', [HomeController::class, 'employeeDirectory']);
 // Route::get('/press-released', [HomeController::class, 'showPressReleased']);
 Route::get('/photo-gallery', [HomeController::class,'photoGallery']);
+Route::get('/photo-gallery-images/{id}',[HomeController::class,'photoGalleryDetails'])->name('photo-gallery');
+Route::get('/video',[HomeController::class,'videoDetail'])->name('video');
 Route::get('/academic-program', [HomeController::class,'academicProgram']);
 Route::get('/training-program', [HomeController::class,'trainingProgram']);
 //tender
