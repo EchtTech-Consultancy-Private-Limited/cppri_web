@@ -41,7 +41,7 @@
                 <section id="fontSize" class="wrapper body-wrapper ">
                     <section id="paragraph" class="wrapper paragraph-wrapper">
                         <div class=" common-container four_content my-4">
-                            <h3 class="dir-dsk-title mt-3">RTI Applications & Response </h3>
+                            <h3 class="dir-dsk-title mt-3">RTI Applications & Responses </h3>
                         {{-- <form action="{{route('rti-applications-responses-filter')}}" method="post" id="myform" enctype="multipart/form-data">
                             @csrf
                             <div class="row my-3">
