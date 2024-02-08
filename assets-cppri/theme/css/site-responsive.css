@@ -564,6 +564,25 @@
 	}
 }
 @media screen and (max-width: 768px) {
+	.container1 .mySlides img {
+		height: auto;
+	}
+	.rs-blog.main-home .mySlides {
+		width: 100%;
+		height: auto;
+		margin-bottom: 10px;
+	}
+	.gallery-section .btns div {
+		padding: 3px 7px 14px;
+		font-size: 20px;
+		font-weight: 900;
+	}
+	.owl-carousel.owl-loaded {
+		overflow: hidden;
+	}
+	.owl-carousel .owl-stage-outer {
+		overflow: visible;
+	}
 	.direct-centre.emp-card-det .img-circle-prof {
 		top: -60px;
 		left: 31% !important;
@@ -2464,11 +2483,9 @@
 		display: block !important;
 	}
   }
-
-  @media only screen and (max-width: 480px)
-{
-
+  @media only screen and (max-width: 768px)
+  {
 	.gallery-lbox {
 		margin-top: 20px;
 	}
-}
+  }

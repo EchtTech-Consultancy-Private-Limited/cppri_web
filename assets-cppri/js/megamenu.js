@@ -192,10 +192,14 @@ $(document).ready(function(e) {
 // 	$('a.sub-menu-drop-f.show-menu').removeClass('show-menu');		
 // })
 
-$('.env a.sub-menu-drop-f').focus(function(){
-	$('a.sub-menu-drop-f.show-menu').removeClass('show-menu');		 	
-	$(this).addClass('show-menu');
-})
+$('.env a.sub-menu-drop-f').click(function(){
+    // Toggle the class show-menu
+    $(this).toggleClass('show-menu');
+
+    // Remove the show-menu class from other elements
+    $('.env a.sub-menu-drop-f').not(this).removeClass('show-menu');
+});
+
 
 
 // Tabindex js
