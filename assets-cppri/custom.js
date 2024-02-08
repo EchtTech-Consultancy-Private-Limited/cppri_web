@@ -165,24 +165,24 @@ $(document).ready(function () {
         event.preventDefault();
     })
 });
-var a = 0;
-$(window).scroll(function () {
-    var oTop = $('#counter').offset().top - window.innerHeight;
-    if (a == 0 && $(window).scrollTop() > oTop) {
-        $('.count').each(function () {
-            $(this).prop('Counter', 0).animate({
-                Counter: $(this).text()
-            }, {
-                duration: 4000,
-                easing: 'swing',
-                step: function (now) {
-                    $(this).text(Math.ceil(now));
-                }
-            });
-        });
-        a = 1;
-    }
-});
+// var a = 0;
+// $(window).scroll(function () {
+//     var oTop = $('#counter').offset().top - window.innerHeight;
+//     if (a == 0 && $(window).scrollTop() > oTop) {
+//         $('.count').each(function () {
+//             $(this).prop('Counter', 0).animate({
+//                 Counter: $(this).text()
+//             }, {
+//                 duration: 4000,
+//                 easing: 'swing',
+//                 step: function (now) {
+//                     $(this).text(Math.ceil(now));
+//                 }
+//             });
+//         });
+//         a = 1;
+//     }
+// });
 $(document).ready(function () {
     $('figure img').ma5gallery({
         preload: true
@@ -696,21 +696,6 @@ $('#feedback_button').click(function (e) {
     });
 });
 
-// sticky header 
-window.onscroll = function() {myFunction()};
-
-var header = document.getElementById("myHeader");
-var sticky = header.offsetTop ;
-console.log(sticky)
-
-function myFunction() {
-    console.log(window.pageYOffset)
-  if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
 
 // scroll to top
 
