@@ -46,8 +46,8 @@ Route::get('/error',[HomeController::class,'error']);
 Route::get('/contact-us',[HomeController::class,'contactUs']);
 Route::post('/contact-us',[HomeController::class,'contactStroe']);
 // Route::get('about-us/overview', [HomeController::class, 'overviewPage']);
-Route::get(' /feedback', [HomeController::class, 'Feedback']);
-Route::post('/feedback', [HomeController::class, 'feedbackStore']);
+Route::get(' /feedback', [HomeController::class, 'Feedback'])->name('feedback');
+Route::post('/feedbackStore', [HomeController::class, 'feedbackStore'])->name('feedbackStore');
 
 // Route::get('about-us/director-desk', [HomeController::class, 'directorDesk']);
 // Route::get('about-us/employee-directory', [HomeController::class, 'employeeDirectory']);
