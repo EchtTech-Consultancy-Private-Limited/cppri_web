@@ -2493,7 +2493,7 @@ h2 {
     clear: both;
     /* text-transform: uppercase !important; */
     font-size: 22px ;
-    color: #026aa1;
+    color: var(--primary-color);
     font-weight: 600 !important;
 }
 h2 small {
@@ -4860,7 +4860,7 @@ input:focus {
 .clientail .flexslider:hover .flex-direction-nav .flex-prev,
 .clientail .flexslider:hover .flex-direction-nav .flex-next,
 .carousel-wrapper.clientail #flexCarousel ul.flex-direction-nav li a:focus {
-    top: -127px !important;
+    top: -115px !important;
     margin: 0;
     height: 48px;
 }
@@ -5717,7 +5717,7 @@ div#flexSlider .flex-direction-nav {
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
-    background-color: #1A4F91 !important;
+    background-color: var(--primary-color) !important;
     color: #fff !important;
 }
 
@@ -5882,11 +5882,12 @@ ul.overseas-client{
 .text-gallery {
     position: absolute;
     bottom: 0;
-    font: normal normal normal 12px/22px Poppins;
+    font-size: 13px;
     color: #fff;
     padding: 30px 10px 10px;
     background: transparent linear-gradient(180deg, #00000000 0%, #000000 60%) 0% 0% no-repeat padding-box;
     width: 100%;
+    text-transform: capitalize;
 }
 .gallery-carausel .owl-nav.disabled {
     display: none;
@@ -5910,7 +5911,7 @@ ul.overseas-client{
 }
 .btn-view_play .btns {
     position: absolute;
-    bottom: -5%;
+    bottom:-3.8%;
     right: 1%;
 }
 .gallery-section .btns {
