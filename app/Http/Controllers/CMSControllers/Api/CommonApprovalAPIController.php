@@ -29,6 +29,7 @@ use App\Models\CMSModels\EmployeeDirectory;
 use App\Models\CMSModels\EmpDepartDesignation;
 use App\Models\CMSModels\DynamicContentPageManagament;
 use App\Models\CMSModels\CareerManagement;
+use App\Models\CMSModels\ManualFileUpload;
 use Ramsey\Uuid\Uuid;
 use Validator;
 use DB;
@@ -513,6 +514,54 @@ class CommonApprovalAPIController extends Controller
             ],200);
         }else if($data ==2){
             UserManagement::where('uid',$id)->update(['status'=>'3']);
+            return response()->json([
+                'status'=>200,
+                'message'=>'Approve successfully.'
+            ],200);
+        }
+        else{
+            return response()->json([
+                'status'=>201,
+                'message'=>'some error accoured.'
+            ],201);
+        }
+    }
+    public function formBuildingApprovePublish($id)
+    {
+        $data=DB::table('form_designs_management')->where('uid',$id)->first()->status;
+        if($data ==0 || $data ==1)
+        {
+            DB::table('form_designs_management')->where('uid',$id)->update(['status'=>'2']);
+            return response()->json([
+                'status'=>200,
+                'message'=>'Approve successfully.'
+            ],200);
+        }else if($data ==2){
+            DB::table('form_designs_management')->where('uid',$id)->update(['status'=>'3']);
+            return response()->json([
+                'status'=>200,
+                'message'=>'Approve successfully.'
+            ],200);
+        }
+        else{
+            return response()->json([
+                'status'=>201,
+                'message'=>'some error accoured.'
+            ],201);
+        }
+    }
+    public function manualFileUploadApprovePublish($id)
+    {
+        $data=ManualFileUpload::where('uid',$id)->first()->status;
+        if($data ==0 || $data ==1)
+        {
+            ManualFileUpload::where('uid',$id)->update(['status'=>'2']);
+            return response()->json([
+                'status'=>200,
+                'message'=>'Approve successfully.'
+            ],200);
+        }else if($data ==2){
+            ManualFileUpload::where('uid',$id)->update(['status'=>'3']);
             return response()->json([
                 'status'=>200,
                 'message'=>'Approve successfully.'
