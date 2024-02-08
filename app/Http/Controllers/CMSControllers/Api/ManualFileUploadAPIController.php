@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 
 
-use App\Models\ManualFileUpload;
+use App\Models\CMSModels\ManualFileUpload;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
 use App\Http\Traits\PdfImageSizeTrait;
