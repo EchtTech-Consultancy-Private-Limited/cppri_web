@@ -103,7 +103,7 @@
                                         <td class="views-field views-field-field-amount-rs- download">
                                             <a href="{{ asset('resources/uploads/RtiApplicationResponses/' . $rtiApplication->request_document) }}" download="" tabindex="0">
                                                 {!! $rtiApplication->request_document ? 'View' : 'N/A' !!}
-                                            </a><i class="fa fa-file-pdf-o text-danger"></i> <span class="size">({{  $rtiApplication->reply_doc_pdfimage_size }})</span>
+                                            </a><i class="fa fa-file-pdf-o text-danger"></i> <span class="size">({{  $rtiApplication->request_doc_pdfimage_size }})</span>
                                         </td>
                                         <td class="views-field views-field-field-select-type download">
                                             <a href="{{ asset('resources/uploads/RtiApplicationResponses/' . $rtiApplication->reply_document) }}" download="" tabindex="0">

@@ -69,13 +69,13 @@
                                 @endphp
                                 @if (isset($headerMenus->children) && count($headerMenus->children) > 0)
                                     <li class="menu-item-has-children pb-0">
-                                        <a href="javascript:void(0)">
+                                        <b>
                                             @if (Session::get('Lang') == 'hi')
                                                 {{ $headerMenus->name_hi ?? '' }}
                                             @else
                                                 {{ $headerMenus->name_en ?? '' }}
                                             @endif
-                                        </a>
+                                        </b>
                                         <ul class="unorder-list pt-10">
                                             @if (isset($headerMenus->children) && count($headerMenus->children) > 0)
                                                 @foreach ($headerMenus->children as $subMenus)
@@ -93,6 +93,14 @@
                                                                     {{ $subMenus->name_en ?? '' }}
                                                                 @endif
                                                             </a>
+                                                        @elseif(isset($subMenus->children) && count($subMenus->children) > 0)
+                                                            <b>
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                    {{ $subMenus->name_hi ?? '' }}
+                                                                @else
+                                                                    {{ $subMenus->name_en ?? '' }}
+                                                                @endif
+                                                            </b>
                                                         @else
                                                             <a href="{{ url($url.'/'.$suburl) }}">
                                                                 @if (Session::get('Lang') == 'hi')
