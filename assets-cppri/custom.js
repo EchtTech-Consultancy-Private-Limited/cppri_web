@@ -602,6 +602,10 @@ $(document).ready(function () {
 
 $('#submitForm').click(function (e) {
     // Prevent the default form submission
+    $('#contact_form input, #contact_form textarea').focus(function() {
+        var fieldId = $(this).attr('name');
+        $('#' + fieldId + '-error').html('');
+    });
     e.preventDefault();
     var formData = $('#contact_form').serialize();
 
@@ -615,28 +619,25 @@ $('#submitForm').click(function (e) {
 
     $.ajax({
         type: 'POST',
-        url: baseurl + '/contact-us',
+        url: baseUrl1 + '/contact-us',
         data: formData,
         success: function (response) {
+            console.log(response)          
             if (response.success) {
-               
                 $('#contact_form')[0].reset();
-                toastr.success('Record Add Successfully');
-            } else if (response.captchaError)
-                toastr.error(response.captchaError)
-            else {
+                $('#contact-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Record Add Successfully</div></div></div>');
+            } else if (response.captchaError){
+                $('#contact-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-error" aria-live="assertive" style="display: block;"><div class="toast-message">Captcha Invalid .</div></div></div>');
+            } else {
                 toastr.error('Oops something went wrong')
             }
         },
         error: function (error) {
-            console.log(error.responseJSON.errors);
             if (error.responseJSON && error.responseJSON.errors) {
                 var errors = error.responseJSON.errors;
                 for (var field in errors) {
                     if (errors.hasOwnProperty(field)) {
-                        errors[field].forEach(function (errorMessage) {
-                            toastr.error(errorMessage);
-                        });
+                        $('#' + field + '-error').html(errors[field][0]);
                     }
                 }
             } else {
@@ -651,6 +652,10 @@ $('#submitForm').click(function (e) {
 
 $('#feedback_button').click(function (e) {
     // Prevent the default form submission
+    $('#feedback_form input, #feedback_form textarea').focus(function() {
+        var fieldId = $(this).attr('name');
+        $('#' + fieldId + '-error').html('');
+    });
     e.preventDefault();
     var formData = $('#feedback_form').serialize();
 
@@ -663,29 +668,24 @@ $('#feedback_button').click(function (e) {
     });
     $.ajax({
         type: 'POST',
-        url: baseurl + '/feedback',
+        url: baseUrl1 + '/feedbackStore',
         data: formData,
-        success: function (response) {
-
+        success: function (response) {            
             if (response.success) {
                 $('#feedback_form')[0].reset();
-                toastr.success('Record Add Successfully');
-            } else if (response.captchaError)
-                toastr.error(response.captchaError)
-            else {
+                $('#response-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Record Add Successfully</div></div></div>');                
+            } else if (response.captchaError){
+                $('#response-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-error" aria-live="assertive" style="display: block;"><div class="toast-message">Captcha Invalid.</div></div></div>');              
+            } else {
                 toastr.error('Oops something went wrong')
             }
         },
         error: function (error) {
-            console.log(error.responseJSON.errors);
             if (error.responseJSON && error.responseJSON.errors) {
                 var errors = error.responseJSON.errors;
-
                 for (var field in errors) {
                     if (errors.hasOwnProperty(field)) {
-                        errors[field].forEach(function (errorMessage) {
-                            toastr.error(errorMessage);
-                        });
+                        $('#' + field + '-error').html(errors[field][0]);
                     }
                 }
             } else {

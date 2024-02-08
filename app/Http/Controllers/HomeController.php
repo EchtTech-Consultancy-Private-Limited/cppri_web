@@ -718,7 +718,7 @@ class HomeController extends Controller
 
         ]);
         if (Session::get('feedbackCapcode') != $request->SecurityCode) {
-            return response()->json(['captchaError' =>"Captcha Invalid!."]);
+            return response()->json(['captchaError' => 'Captcha Invalid!']);
         }
         $data = new feedback;
         $data->name = strip_tags($request->name);
@@ -726,7 +726,7 @@ class HomeController extends Controller
         $data->phone = $request->phone;
         $data->message = $request->message;
         $data->save();
-        return response()->json(['success' => true, 'message' => 'Record Add Successfully']);
+        return response()->json(['success' => 'Record Add Successfully']);
     }
 
     public function siteMap()
@@ -773,7 +773,7 @@ class HomeController extends Controller
         $data->phone = $request->phone;
         $data->message = $request->message;
         $data->save();
-        return response()->json(['success' => true, 'message' => 'Record Add Successfully']);
+        return response()->json(['success' => 'Record Add Successfully']);
     }
 
     // public function showPressReleased()

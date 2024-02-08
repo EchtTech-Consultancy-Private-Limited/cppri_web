@@ -41,7 +41,7 @@
                 <section id="fontSize" class="wrapper body-wrapper ">
                     <section id="paragraph" class="wrapper paragraph-wrapper">
                         <div class=" common-container four_content my-4">
-                            <h3 class="dir-dsk-title mt-3">RTI Applications & Response </h3>
+                            <h3 class="dir-dsk-title mt-3">RTI Applications & Responses </h3>
                         {{-- <form action="{{route('rti-applications-responses-filter')}}" method="post" id="myform" enctype="multipart/form-data">
                             @csrf
                             <div class="row my-3">
@@ -103,7 +103,7 @@
                                         <td class="views-field views-field-field-amount-rs- download">
                                             <a href="{{ asset('resources/uploads/RtiApplicationResponses/' . $rtiApplication->request_document) }}" download="" tabindex="0">
                                                 {!! $rtiApplication->request_document ? 'View' : 'N/A' !!}
-                                            </a><i class="fa fa-file-pdf-o text-danger"></i> <span class="size">({{  $rtiApplication->reply_doc_pdfimage_size }})</span>
+                                            </a><i class="fa fa-file-pdf-o text-danger"></i> <span class="size">({{  $rtiApplication->request_doc_pdfimage_size }})</span>
                                         </td>
                                         <td class="views-field views-field-field-select-type download">
                                             <a href="{{ asset('resources/uploads/RtiApplicationResponses/' . $rtiApplication->reply_document) }}" download="" tabindex="0">
