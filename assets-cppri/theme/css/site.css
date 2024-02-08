@@ -6048,3 +6048,7 @@ img.demo.cursor.active {
 /* photo gallery detail page end */
 /* photo gallery section end */
 
+ul#header-nav li a img {
+    width: 25px;
+    height: 25px;
+}

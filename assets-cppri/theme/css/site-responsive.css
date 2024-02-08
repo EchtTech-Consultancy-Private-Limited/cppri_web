@@ -16,6 +16,7 @@
 @media (min-width: 992px) and (max-width: 1550px) {
 	.main-menu .nav-menu .nav-item .sub-nav .env:nth-child(n + 6) .sng-env {
 	  /* bottom: -2px !important; */
+	  bottom: 0;
 	  top: auto;
 	}
 	.main-menu .nav-menu .nav-item .sub-nav .env:last-child .sng-env {
@@ -2095,6 +2096,9 @@
 		padding: 0px;
 		padding-left: 10px;
 		font-size: 13px;
+	}
+	.footer-top-wrapper ul.contact-us-footer li{
+		font-size: 13PX;
 	}
 	.home-btm-slider {
 		background: #fff;
