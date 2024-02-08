@@ -802,7 +802,7 @@ table th, button.dt-button.buttons-print{
 	color: #fff !important;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
-	background-color:linear-gradient(to bottom, #2b2b2b 0%, var(--primary-color) 100%)!important;
+	background-color:var(--primary-color) !important;
 }
 
 .scroller-tbl .dataTables_wrapper .dataTables_paginate .paginate_button:active {
@@ -852,4 +852,13 @@ section#paragraph blockquote::before, section#paragraph blockquote::after, .main
 }
 .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover, .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover {
     border: 1px solid var(--primary-color);
+}
+
+
+.new_gall_boxhead_change .content{
+	background-color: var(--primary-color);
+}
+
+.readon2{
+	background-color: var(--primary-color);
 }

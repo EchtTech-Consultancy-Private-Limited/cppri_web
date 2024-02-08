@@ -61,22 +61,7 @@
                     </div>
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="main-block">
-                            @if (Session::has('success'))
-                            <script>
-                            toastr.success('{{ Session::get('
-                                success ') }}')
-                            </script>
-                            @endif
-
-                            @if (Session::has('captchaError'))
-                            <script>
-                            toastr.error('{{ Session::get('
-                                captchaError ') }}')
-                            </script>
-                            @endif
-
-
-                          
+                            <p id="response-error"></p>                         
                             <form action="{{ url('feedback') }}" method="post" id="feedback_form">
                                 @csrf
                                 <h3>Send your feedback</h3>
@@ -84,19 +69,20 @@
                                     <div>
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                         <input class="fname preventnumeric" type="text" name="name" maxlength="45"  value="{{ old('name') }}" placeholder="Full name" >
-                                        
                                     </div>
+                                    <small id="name-error" class="text-danger"></small>
                                     <div>
                                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                         <input type="email" name="email" placeholder="Email"  value="{{ old('email') }}" >
 
                                     </div>
-
+                                    <small id="email-error" class="text-danger"></small>
                                     <div>
                                         <i class="fa fa-mobile" aria-hidden="true"></i>
                                         <input type="text" id="mobile_no" name="phone" minlength="10" value="{{ old('phone') }}" maxlength="10" placeholder="Phone number" >
 
                                     </div>
+                                    <small id="phone-error" class="text-danger"></small>
 
                                 </div>
                                 <!-- <p>Message</p> -->
@@ -105,12 +91,8 @@
                                         <i class="fa fa-comments" aria-hidden="true"></i>
                                         <textarea rows="1" name="message"  placeholder="Message here..." >{{ old('message') }}</textarea>
                                     </div>
+                                    <small id="message-error" class="text-danger"></small>
                                 </div>
-
-<!-- ***************** -->
-
-<!-- ***************** -->
-                               
                             <div class="form-group mt-md-3 mb-md-3 mt-2">
                                 <div class="captcha-box d-flex align-item-center">
                                     <label for="captcha" class="security-code">Security Code : <span class="text-danger"><?php echo $CustomCaptch['expression']; ?></span> </label>
@@ -118,6 +100,7 @@
                                     <input id="SecurityCode" type="text" class="form-control SecurityCode w-auto"
                                         placeholder="Enter Security Code" name="SecurityCode" required>
                                 </div>
+                                <small id="SecurityCode-error" class="text-danger"></small>
                             </div>
                             <div class="mt-4 mb-4">
                                 @if ($errors->has('g-recaptcha-response'))

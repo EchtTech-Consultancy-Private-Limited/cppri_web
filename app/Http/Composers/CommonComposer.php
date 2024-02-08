@@ -55,24 +55,63 @@ class CommonComposer
                                 ->latest('tender_details.created_at')
                                 ->select('tender_management.*')
                                 ->get();
-            $image_management = DB::table('gallery_management')->where('type', 0)->where('status', 3)->where('soft_delete', 0)->latest('created_at')->first();
-            if (isset($image_management) && isset($image_management->uid)) {
-                $image_gallery_details = DB::table('gallery_details')->where('gallery_id', $image_management->uid)->where('soft_delete', 0)->get();
-            } else {
-                $image_gallery_details = null;
+            // gallery photo
+            $galleryData = [];
+            $gallery = DB::table('gallery_management')
+                ->where('type', 0)
+                ->where('status', 3)
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->get();
+
+            if (count($gallery) > 0) {
+                foreach ($gallery as $images) {
+                    $gallay_images = DB::table('gallery_details')
+                        ->where('soft_delete', 0)
+                        ->where('gallery_id', $images->uid)
+                        ->latest('created_at')
+                        ->get();
+
+                    if (count($gallay_images) > 0) {
+                        $galleryData[] = [
+                            'gallery' => $images,
+                            'gallery_details' => $gallay_images
+                        ];
+                    }
+                }
+            }
+            // gallery video
+            $galleryVideo = [];
+            $videoGallery = DB::table('gallery_management')
+                ->where('type', 1)
+                ->where('status', 3)
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->get();
+
+            if (count($videoGallery) > 0) {
+                foreach ($videoGallery as $images) {
+                    $gallay_video = DB::table('gallery_details')
+                        ->where('soft_delete', 0)
+                        ->where('gallery_id', $images->uid)
+                        ->latest('created_at')
+                        ->get();
+
+                    if (count($gallay_video) > 0) {
+                        $galleryVideo[] = [
+                            'gallery' => $images,
+                            'gallery_details' => $gallay_video
+                        ];
+                    }
+                }
             }
 
-            $video_management = DB::table('gallery_management')->where('type', 1)->where('status', 3)->where('soft_delete', 0)->latest('created_at')->first();
-            if (isset($video_management) && isset($video_management->uid)) {
-                $video_gallery_details = DB::table('gallery_details')->where('gallery_id', $video_management->uid)->where('soft_delete', 0)->latest('created_at')->first();
-            } else {
-                $video_gallery_details = null;
-            }
+            // dd($galleryVideo);
 
             $quickLink = DB::table('website_menu_management')->where('menu_place',4)->where('status', 3)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
 
-            $view->with(['notification'=>$notification,'press_release'=>$press_release,'video_gallery_details' => $video_gallery_details, 'video_management' => $video_management, 'image_gallery_details' => $image_gallery_details, 'image_management' => $image_management, 'social_links' => $social_links, 'logo' => $logo, 'visitCounter' => $visitCounter, 'quickLink' => $quickLink, 'alertMessage' => $this->checkLanguage(), 'headerMenu' => $menuName, 'footerMenu' => $footerMenu, 'banner' => $banner, 'news_management' => $news_management,
-             'tender_management' => $tender_management]);
+            $view->with(['notification'=>$notification,'press_release'=>$press_release,'social_links' => $social_links, 'logo' => $logo, 'visitCounter' => $visitCounter, 'quickLink' => $quickLink, 'alertMessage' => $this->checkLanguage(), 'headerMenu' => $menuName, 'footerMenu' => $footerMenu, 'banner' => $banner, 'news_management' => $news_management,
+             'tender_management' => $tender_management,'galleryData'=>$galleryData,'galleryVideo' => $galleryVideo]);
       
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());

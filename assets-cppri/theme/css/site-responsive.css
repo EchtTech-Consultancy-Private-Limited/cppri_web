@@ -16,6 +16,7 @@
 @media (min-width: 992px) and (max-width: 1550px) {
 	.main-menu .nav-menu .nav-item .sub-nav .env:nth-child(n + 6) .sng-env {
 	  /* bottom: -2px !important; */
+	  bottom: 0;
 	  top: auto;
 	}
 	.main-menu .nav-menu .nav-item .sub-nav .env:last-child .sng-env {
@@ -551,7 +552,42 @@
 		font-size: 96%;
 	}
 }
+@media screen and (min-width:440px) and (max-width: 768px) {
+	.img-circle-prof {
+		top: -60px;
+		left: 31%;
+	}
+}
+@media screen and (max-width: 440px) {
+	.img-circle-prof {
+		
+		left: 34% !important;
+	}
+}
 @media screen and (max-width: 768px) {
+	.container1 .mySlides img {
+		height: auto;
+	}
+	.rs-blog.main-home .mySlides {
+		width: 100%;
+		height: auto;
+		margin-bottom: 10px;
+	}
+	.gallery-section .btns div {
+		padding: 3px 7px 14px;
+		font-size: 20px;
+		font-weight: 900;
+	}
+	.owl-carousel.owl-loaded {
+		overflow: hidden;
+	}
+	.owl-carousel .owl-stage-outer {
+		overflow: visible;
+	}
+	.direct-centre.emp-card-det .img-circle-prof {
+		top: -60px;
+		left: 31% !important;
+	}
 	.dataTables_wrapper .dataTables_length label{
 		margin: 0;
 	}
@@ -1701,6 +1737,7 @@
 	.direct-centre .card-emp-dir {
 		width: 100% !important;
 		margin-bottom: 10px;
+		margin-top: 45px;
 	}
 	.align-lt h2 {
 		font-size: 18px !important;
@@ -1949,10 +1986,12 @@
 }
 @media screen and (max-width: 767px) {
 	.nav-item .sub-nav .sub-nav-group .env .show-menu + .sub-nav-group.sng-env{
-		position: static;
+		position: static !important;
+    display: block !important;
 	}
 	.nav-item .sub-nav .sub-nav-group .env .sub-menu-drop-f + .sub-nav-group.sng-env{
-		/* position: static; */
+		position: absolute;
+        display: none;
 	}
 	.nav-item .sub-nav .sub-nav-group .env{
 		display: block !important;
@@ -2057,6 +2096,9 @@
 		padding: 0px;
 		padding-left: 10px;
 		font-size: 13px;
+	}
+	.footer-top-wrapper ul.contact-us-footer li{
+		font-size: 13PX;
 	}
 	.home-btm-slider {
 		background: #fff;
@@ -2443,5 +2485,11 @@
 
 	.sub-nav-group .env:has(.sub-menu-drop-f.show-menu){
 		display: block !important;
+	}
+  }
+  @media only screen and (max-width: 768px)
+  {
+	.gallery-lbox {
+		margin-top: 20px;
 	}
   }

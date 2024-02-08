@@ -64,7 +64,6 @@
                                         <option value="">Select Year</option>
                                         @php
                                             $currentYear = now()->year;
-                                            $selectedYear = old('start_date');
                                         @endphp
                                 
                                         @for ($year = 1998; $year <= $currentYear; $year++)

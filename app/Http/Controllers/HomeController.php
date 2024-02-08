@@ -718,7 +718,7 @@ class HomeController extends Controller
 
         ]);
         if (Session::get('feedbackCapcode') != $request->SecurityCode) {
-            return response()->json(['captchaError' =>"Captcha Invalid!."]);
+            return response()->json(['captchaError' => 'Captcha Invalid!']);
         }
         $data = new feedback;
         $data->name = strip_tags($request->name);
@@ -726,7 +726,7 @@ class HomeController extends Controller
         $data->phone = $request->phone;
         $data->message = $request->message;
         $data->save();
-        return response()->json(['success' => true, 'message' => 'Record Add Successfully']);
+        return response()->json(['success' => 'Record Add Successfully']);
     }
 
     public function siteMap()
@@ -773,7 +773,7 @@ class HomeController extends Controller
         $data->phone = $request->phone;
         $data->message = $request->message;
         $data->save();
-        return response()->json(['success' => true, 'message' => 'Record Add Successfully']);
+        return response()->json(['success' => 'Record Add Successfully']);
     }
 
     // public function showPressReleased()
@@ -785,35 +785,96 @@ class HomeController extends Controller
     {
         $titleName = 'Photo Gallery';
         try {
-            $galleryManagementRecords = DB::table('gallery_management')
-                ->where('type', 0)->latest('created_at')
+            $galleryData = []; 
+
+            $gallery = DB::table('gallery_management')
+                ->where('status', 3)
+                ->where('type', 0)
+                ->where('soft_delete', 0)
+                ->latest('created_at')
+                ->get();
+
+            if (count($gallery) > 0) {
+                foreach ($gallery as $images) {
+                    $gallay_images = DB::table('gallery_details')
+                        ->where('status', 3)
+                        ->where('soft_delete', 0)
+                        ->where('gallery_id', $images->uid)
+                        ->latest('created_at')
+                        ->get();
+
+                    if (count($gallay_images) > 0) {
+                        $galleryData[] = [
+                            'gallery' => $images,
+                            'gallery_details' => $gallay_images
+                        ];
+                    }
+                }
+            }
+            return view('pages.photo_gallery', ['title' => $titleName, 'galleryData' => $galleryData]);
+        } catch (\Exception $e) {
+            \Log::error('An exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\PDOException $e) {
+            \Log::error('A PDOException occurred: ' . $e->getMessage());
+            return view('pages.error');
+        } catch (\Throwable $e) {
+            // Catch any other types of exceptions that implement the Throwable interface.
+            \Log::error('An unexpected exception occurred: ' . $e->getMessage());
+            return view('pages.error');
+        }
+    }
+
+    public function photoGalleryDetails($id)
+    {
+        $titleName = 'Photo Gallery Images';
+        $photogallery = DB::table('gallery_details')
+            ->where('soft_delete', 0)
+            ->where('gallery_id', $id)
+            ->latest('created_at')
+            ->get();
+
+            $gallery = DB::table('gallery_management')
+            ->where('soft_delete', 0)
+            ->where('uid', $id)
+            ->latest('created_at')
+            ->first();
+        // dd($photogallery);     
+        $breadcrumbs = 'Photo Gallery Images';
+    return view('pages.photo-gallery-details', ['title' => $titleName, 'gallery'=>$gallery,'photogallery' => $photogallery, 'breadcrumbs' => $breadcrumbs]);
+
+    }
+
+    public function videoDetail()
+    {
+        $titleName = 'Video Gallery';
+        try {
+            $galleryVideo = [];
+            $videoGallery = DB::table('gallery_management')
+                ->where('type', 1)
                 ->where('status', 3)
                 ->where('soft_delete', 0)
+                ->latest('created_at')
                 ->get();
 
-            $galleryDetails = DB::table('gallery_details')
-                ->where('status', 3)
-                ->where('soft_delete', 0)->latest('created_at')
-                ->get();
+            if (count($videoGallery) > 0) {
+                foreach ($videoGallery as $images) {
+                    $gallay_video = DB::table('gallery_details')
+                        ->where('soft_delete', 0)
+                        ->where('gallery_id', $images->uid)
+                        ->latest('created_at')
+                        ->get();
 
-            if (!empty($galleryManagementRecords) && !empty($galleryDetails)) {
-                $tree = [];
-
-                foreach ($galleryManagementRecords as $menu) {
-                    $menu->children = [];
-
-                    foreach ($galleryDetails as $detail) {
-                        if ($menu->uid == $detail->gallery_id) {
-                            $menu->children[] = $detail;
-                        }
+                    if (count($gallay_video) > 0) {
+                        $galleryVideo[] = [
+                            'gallery' => $images,
+                            'gallery_details' => $gallay_video
+                        ];
                     }
-                    $tree[] = $menu;
                 }
-            } else {
-                $tree = [];
             }
-
-            return view('pages.photo_gallery', ['title' => $titleName, 'tree' => $tree]);
+            // dd($galleryVideo);
+            return view('pages.video_gallery', ['title' => $titleName, 'galleryVideo' => $galleryVideo]);
         } catch (\Exception $e) {
             \Log::error('An exception occurred: ' . $e->getMessage());
             return view('pages.error');
