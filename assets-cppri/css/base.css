@@ -2160,6 +2160,10 @@ ul{
     margin-bottom: 10px !important;
 }
 
+ul.slides {
+    margin-bottom: 0px !important;
+}
+
 .pl-15{
 	padding-left: 15px !important;
 }
