@@ -1057,7 +1057,7 @@
 
 <!-- photo gallery section start -->
 <div class="gallery-section p-32">
-        <div class="px-3">
+        <div class="px-0 px-lg-0">
             <div class="row">
                 <div class="col-md-6">
                     <div class="gallery-lbox new_gall_boxhead_change">

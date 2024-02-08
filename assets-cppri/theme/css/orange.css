@@ -846,3 +846,10 @@ section#paragraph blockquote::before, section#paragraph blockquote::after, .main
 .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover, .main-sidebar .accordion.fl-accordion.fl-accordion-active:hover {
     border: 1px solid var(--primary-color);
 }
+.new_gall_boxhead_change .content{
+	background-color: var(--primary-color);
+}
+
+.readon2{
+	background-color: var(--primary-color);
+}
