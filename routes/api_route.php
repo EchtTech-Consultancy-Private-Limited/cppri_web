@@ -26,6 +26,8 @@ use App\Http\Controllers\CMSControllers\Api\RtiAssetsAPIController;
 use App\Http\Controllers\CMSControllers\Api\PurchaseWorksCommitteeAPIController;
 use App\Http\Controllers\CMSControllers\Api\RtiApplicationResponsesAPIController;
 use App\Http\Controllers\CMSControllers\Api\CommonApprovalAPIController;
+use App\Http\Controllers\CMSControllers\Api\FormBuilderAPIController;
+use App\Http\Controllers\CMSControllers\Api\ManualFileUploadAPIController;
 
 
 /***************************** API URL Use For Data Migrate With DB*************************************** */
@@ -143,9 +145,10 @@ use App\Http\Controllers\CMSControllers\Api\CommonApprovalAPIController;
             Route::post('/create-pgl',[GalleryManagementAPIController::class,'storePhoto'])->name('photo-save')->middleware('throttle:custom_Limit');
             Route::post('/create-vgl',[GalleryManagementAPIController::class,'storeVideo'])->name('video-save')->middleware('throttle:custom_Limit');
             Route::get('/list-gl',[GalleryManagementAPIController::class,'index'])->name('photovideo-list');
-            Route::get('/edit-gl/{id}',[GalleryManagementAPIController::class,'edit']);
-            Route::post('/update-gl/{id}',[GalleryManagementAPIController::class,'update']);
-            Route::delete('/delete-gl/{id}',[GalleryManagementAPIController::class,'destroy']);
+            Route::get('/edit-gl/{id}',[GalleryManagementAPIController::class,'edit'])->name('photo-edit');
+            // Route::get('/edit-gl-video/{id}',[GalleryManagementAPIController::class,'editVideo'])->name('video-save');
+            Route::post('/update-gl',[GalleryManagementAPIController::class,'update'])->name('photo-update');
+            Route::delete('/delete-gl/{id}',[GalleryManagementAPIController::class,'destroy'])->name('photovideo-delete');
     
             /****** Banner Setting bn:Banner*/
             Route::post('/create-bn',[HomePageBannerAPIController::class,'store'])->name('banner-save')->middleware('throttle:custom_Limit');
@@ -232,6 +235,24 @@ use App\Http\Controllers\CMSControllers\Api\CommonApprovalAPIController;
             Route::post('/update-purchaseworkscommittee',[PurchaseWorksCommitteeAPIController::class,'update'])->name('purchaseworkscommittee-update');
             Route::delete('/delete-purchaseworkscommittee/{id}',[PurchaseWorksCommitteeAPIController::class,'destroy'])->name('purchaseworkscommittee-delete');
     
+            /****** Mannual File Upload mfu:File */
+            Route::post('/create-mfu',[ManualFileUploadAPIController::class,'store'])->name('mfu-save')->middleware('throttle:custom_Limit');
+            Route::get('/list-mfu',[ManualFileUploadAPIController::class,'index'])->name('mfu-list');
+            Route::get('/edit-mfu/{id}',[ManualFileUploadAPIController::class,'edit'])->name('mfu-edit');
+            Route::post('/update-mfu',[ManualFileUploadAPIController::class,'update'])->name('mfu-update');
+            Route::delete('/delete-mfu/{id}',[ManualFileUploadAPIController::class,'destroy'])->name('mfu-delete');
+            Route::post('/delete-pdf-mfu',[ManualFileUploadAPIController::class,'deletePDFIMG'])->name('mfu-pdf-delete');
+
+            /****** Form Building fbd:formbuilding*/
+            Route::post('/create-fbd',[FormBuilderAPIController::class,'store'])->name('formbuilder-save')->middleware('throttle:custom_Limit');
+            Route::get('/list-fbd',[FormBuilderAPIController::class,'index'])->name('formbuilder-list');
+            Route::get('/edit-fbd/{id}',[FormBuilderAPIController::class,'edit'])->name('formbuilder-edit');
+            Route::post('/update-fbd',[FormBuilderAPIController::class,'update'])->name('formbuilder-update');
+            Route::delete('/delete-fbd/{id}',[FormBuilderAPIController::class,'destroy'])->name('formbuilder-delete');
+            Route::get('/form-show',[FormBuilderAPIController::class,'show'])->name('formbuilder-show');
+            Route::get('/form-edit',[FormBuilderAPIController::class,'showEdit'])->name('formbuilder-edit');
+            // Route::post('/formdata-save',[FormBuilderAPIController::class,'saveFormData'])->name('formbuilder-saveformData');
+
             
             /****** Asset Approver Route*/
             /****** Recent Activity rc:Recent Activity*/
@@ -258,6 +279,8 @@ use App\Http\Controllers\CMSControllers\Api\CommonApprovalAPIController;
             Route::post('/approve-footercontent/{id}',[CommonApprovalAPIController::class,'websiteCoreSettingsFooterContentApprovePublish'])->name('footercontent-approve');
             Route::post('/approve-cws/{id}',[CommonApprovalAPIController::class,'websiteCoreSettingsLogoApprovePublish'])->name('cws-approve');
             Route::post('/approve-menu/{id}',[CommonApprovalAPIController::class,'websiteMenuApprovePublish'])->name('menu-approve');
+            Route::post('/approve-formbuilding/{id}',[CommonApprovalAPIController::class,'formBuildingApprovePublish'])->name('formbuilder-approve');
+            Route::post('/approve-mfu/{id}',[CommonApprovalAPIController::class,'manualFileUploadApprovePublish'])->name('mfu-approve');
     
         });
     });
