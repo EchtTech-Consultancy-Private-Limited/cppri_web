@@ -4,7 +4,7 @@ namespace App\Http\Controllers\CMSControllers;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\ManualFileUpload;
+use App\Models\CMSModels\ManualFileUpload;
 use Illuminate\Http\Request;
 use App\Http\Traits\AccessModelTrait;
 use DB;
