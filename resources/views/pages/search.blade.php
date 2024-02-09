@@ -73,9 +73,13 @@
             </p>
             <div class="col-md-12 p-0 mb-20">
                 @if (count($data) > 0)
+                    @php
+                        $count = $data->firstItem() - 1;
+                    @endphp
+            
                     @foreach ($data as $item)
                         <div>
-                            <h5><span class="serch-list">{{ $loop->iteration }}. </span><a href="{{ $item['link'] ?? '' }}">{!! isset($item['title']) ? $item['title'] : '' !!}</a></h5>
+                            <h5><span class="serch-list">{{ $count += 1 }}. </span><a href="{{ $item['link'] ?? '' }}">{!! isset($item['title']) ? $item['title'] : '' !!}</a></h5>
                             <p>{!! implode(' ', array_slice(str_word_count(strip_tags($item['description']), 1), 0, 50)) ?? '' !!}</p>
                         </div>
                         <hr>
@@ -84,11 +88,13 @@
                     <h4 class="text-danger">No data found ....</h4>
                 @endif
             </div>
+            
             {{-- Add Pagination Links --}}
             <div class="search-page mt-4">
                 <div class="mt-4">
-                    {{ $data->withPath(url()->current())->links() }}
-                </div>                
+                    {{-- {{ $data->links() }} --}}
+                    {{ $data->withPath(url()->current())->appends(['search_key' => request('search_key')])->links() }}
+                </div>
             </div>
         </div>
     </section>

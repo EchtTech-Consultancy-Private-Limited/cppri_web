@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class SearchController extends Controller
 {
@@ -19,7 +20,6 @@ class SearchController extends Controller
         $databaseName = env('DB_DATABASE');
         $tables = DB::select("SHOW TABLES FROM $databaseName");
         $finalArray = collect();
-
         foreach ($tables as $table) {
             $tableName = current($table);
             $searchResults = [];
@@ -106,13 +106,13 @@ class SearchController extends Controller
         $finalCollection = collect($finalArray);
         $uniqueCollection = $finalCollection->unique();
         $currentItems = $uniqueCollection->slice(($currentPage - 1) * $perPage, $perPage)->all();
-        $paginatedItems = new \Illuminate\Pagination\LengthAwarePaginator(
+        $paginatedItems = new LengthAwarePaginator(
             $currentItems,
             $uniqueCollection->count(),
             $perPage,
             $currentPage
         );
-        // dd($uniqueCollection);
+        // dd($paginatedItems);
         return view('pages.search', ['data' => $paginatedItems]);
     }
 
