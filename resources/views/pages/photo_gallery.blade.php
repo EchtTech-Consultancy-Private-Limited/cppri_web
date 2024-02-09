@@ -52,10 +52,10 @@
                 <!--/#skipCont-->
                 <section id="fontSize" class="wrapper body-wrapper rs-blog main-home">
                     <section id="paragraph" class="wrapper paragraph-wrapper">
-                        <div class=" common-container four_content mb-5">
+                        <div class=" common-container four_content mb-4 mt-3">
 
                             <div class="row mt-2">
-                                <h3 class="dir-dsk-title mt-3">
+                                <h3 class="dir-dsk-title mb-2">
 
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.photo_gallery') }}

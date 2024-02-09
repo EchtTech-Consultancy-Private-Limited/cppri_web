@@ -11,9 +11,9 @@
             <div class="text-banner-content">
                 <h2>
                     @if (Session::get('Lang') == 'hi')
-                    {{ __('messages.photo_gallery') }}
+                    {{ __('messages.photo_gallery_image') }}
                     @else
-                    {{ __('messages.photo_gallery') }}
+                    {{ __('messages.photo_gallery_image') }}
                     @endif
                 </h2>
             </div>
@@ -57,7 +57,9 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="heading-title mt-3 pb-1 px-lg-3">
-                                            <h2 class="title event-heading-color" tabindex="0">Photo Gallery Images</h2>
+                                            @if (!blank($gallery->title_name_en))
+                                            <h2 class="title event-heading-color" tabindex="0">{{ $gallery->title_name_en ?? '' }}<h2>
+                                            @endif
                                         </div>
                                     </div>
                                     @if (isset($photogallery) && !empty($photogallery))
@@ -75,10 +77,11 @@
                                                 <a class="prev" onclick="plusSlides(-1)">❮</a>
                                                 <a class="next" onclick="plusSlides(1)">❯</a>
                                             </div>
-                                            <div class="col-md-6 col-box-g">
-                                                <div class="row">
+                                            <div class="col-md-6">
+                                              <div class="col-box-g">
+                                              <div class="row ps-0">
                                                     @foreach ($photogallery as $key => $datas)
-                                                    <div class="col-4">
+                                                    <div class="col-4 mb-2">
                                                         <img class="demo cursor" @if (!blank($datas->public_url))
                                                         src="{{ asset('resources/uploads/GalleryManagement/' . $datas->public_url) }}"
                                                         @endif
@@ -87,6 +90,7 @@
                                                     </div>
                                                     @endforeach
                                                 </div>
+                                              </div>
                                             </div>
                                         </div>
 
@@ -94,13 +98,6 @@
                                     @else
                                     {{ abort(404) }}
                                     @endif
-
-                                    <div class="col-md-12 mt-3">
-                                        @if (!blank($gallery->title_name_en))
-                                        <h3>{{ $gallery->title_name_en ?? '' }}<h3>
-                                                @endif
-
-                                    </div>
 
                                 </div>
 

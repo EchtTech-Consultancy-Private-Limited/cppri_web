@@ -532,6 +532,7 @@ ul.font-controll li:first-child {
 .high-contrast.light {
 	background: #fff;
 	color: #363636;
+	display: none;
 }
 
 .lan {
@@ -1044,7 +1045,7 @@ th {
 	overflow-x: auto;
     padding-bottom: 0px;
     margin-bottom: 10px;
-    padding: 14px 12px 0;
+    padding: 14px 12px 14px;
     background: #f7f7f7;
     border-radius: 8px;
     display: block;
@@ -2583,7 +2584,7 @@ table .multiple-pdf{
 
 .archive-btn:hover{
 	background: #fff !important;
-	color: #F44336;
+	color: #F44336 !important;
 	
 }
 

@@ -370,7 +370,8 @@
                         <div class="banner-box banner-box-3 ">
                             <div class="banner-box-content">
                                 <!-- <h2>External Link 3</h2> -->
-                                <a href="{{ url('rules-and-regulation') }}" title="External link that opens in new tab">
+                                <a href="{{ url('quick-links/rules-and-regulation') }}"
+                                    title="External link that opens in new tab">
                                     <img src="{{ asset('assets-cppri/images/regulation.png') }}" alt="icon"
                                         class="cell-icon-sec">
                                     <p>
@@ -588,7 +589,7 @@
                                                         </li> --}}
                                                         </ul>
                                                     </div>
-                                                    <div class="view-footer"><a href="{{route('press-released')}}"
+                                                    <div class="view-footer"><a href="{{route('press-release')}}"
                                                             title="View All" class="change-border-color-text"><span>
                                                                 @if (Session::get('Lang') == 'hi')
                                                                 {{ __('messages.View_all') }}
@@ -816,7 +817,7 @@
                                         for fostering optimal ...
                                     </p>
                                     <a class="button change-text-color"
-                                        href="{{url('training-programs/training-calendar')}}">More Details
+                                        href="{{url('academic/training-program')}}">More Details
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -1057,8 +1058,9 @@
 
 <!-- photo gallery section start -->
 <div class="gallery-section p-32">
-        <div class="px-0 px-lg-0">
-            <div class="row">
+    <div class="">
+        <div class="container">
+            <div class="row px-0">
                 <div class="col-md-6">
                     <div class="gallery-lbox new_gall_boxhead_change">
                         <div class="content">
@@ -1076,28 +1078,30 @@
                                 data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="2"
                                 data-md-device-nav="false" data-md-device-dots="false" id="banner3">
                                 @if (isset($galleryData) && !empty($galleryData))
-                                    @foreach ($galleryData as $k => $galleryDatas)                                    
-                                      <div class="team-item">
-                                            <div class="gallery-box">                                             
-                                            @if (count($galleryDatas['gallery_details']) > 0)                                                
-                                                    <img @if (isset($galleryDatas['gallery_details'][0]->public_url) && !blank($galleryDatas['gallery_details'][0]->public_url)) src="{{ asset('resources/uploads/GalleryManagement/' . $galleryDatas['gallery_details'][0]->public_url) }}" @endif
-                                                        alt="" rel="noopener noreferrer">
-                                                    <div class="text-gallery">
-                                                        {{ $galleryDatas['gallery']->title_name_en ?? '' }}
-                                                    </div>
-                                            @else
-                                                <p>No images available for this gallery.</p>
-                                            @endif
-                                            </div>
+                                @foreach ($galleryData as $k => $galleryDatas)
+                                <div class="team-item">
+                                    <div class="gallery-box">
+                                        @if (count($galleryDatas['gallery_details']) > 0)
+                                        <img @if (isset($galleryDatas['gallery_details'][0]->public_url) &&
+                                        !blank($galleryDatas['gallery_details'][0]->public_url))
+                                        src="{{ asset('resources/uploads/GalleryManagement/' . $galleryDatas['gallery_details'][0]->public_url) }}"
+                                        @endif
+                                        alt="" rel="noopener noreferrer">
+                                        <div class="text-gallery">
+                                            {{ $galleryDatas['gallery']->title_name_en ?? '' }}
                                         </div>
-                                    @endforeach
+                                        @else
+                                        <p>No images available for this gallery.</p>
+                                        @endif
+                                    </div>
+                                </div>
+                                @endforeach
                                 @endif
                             </div>
                         </div>
                         <div class="btn-view_play">
                             <div class="btn-part  text-center">
-                                <a class="readon2" href="{{ route('photo-gallery') }}"
-                                    rel="noopener noreferrer">View
+                                <a class="readon2" href="{{ route('photo-gallery') }}" rel="noopener noreferrer">View
                                     All</a>
                             </div>
                             <div class="btns">
@@ -1128,44 +1132,35 @@
                                 data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
                                 data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="2"
                                 data-md-device-nav="false" data-md-device-dots="false" id="banner4">
-                                <!-- @if (isset($galleryVideo) && !empty($galleryVideo))
-                                    @foreach ($galleryVideo as $k => $galleryVideos)
-                                        <div class="team-item">
-                                            <div class="gallery-box media-icon orange-color">                                                
-                                                @if (count($galleryVideos['gallery_details']) > 0)
-                                                
-                                                <iframe width="100%" height="280" src="{{ $galleryVideos['gallery_details'][0]->public_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                                                   
-                                                @else
-                                                    <p>No images available for this gallery.</p>
-                                                @endif                                                
-                                            </div>
-                                        </div>
-                                    @endforeach
+                                @if (isset($galleryVideo) && !empty($galleryVideo))
+                                @foreach ($galleryVideo as $k => $galleryVideos)
+                                <div class="team-item">
+                                    <div class="gallery-box media-icon orange-color">
+                                        @if (count($galleryVideos['gallery_details']) > 0)
+
+                                        <iframe width="100%" height="280"
+                                            src="{{ $galleryVideos['gallery_details'][0]->public_url }}"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowfullscreen></iframe>
+                                        @else
+                                        <p>No images available for this gallery.</p>
+                                        @endif
+                                    </div>
+                                </div>
+                                @endforeach
                                 @endif
-                                 -->
 
 
-                                 <div class="team-item">
-                                            <div class="gallery-box media-icon orange-color">     
-                                                     <video controls="" muted="" class="video-g">
-                                                         <source src="  {{ asset('assets-cppri/images/video-gallery1.mp4') }}" type="video/mp4">
-                                                      </video>
-                                            </div>
-                                        </div>
 
-                                        <div class="team-item">
-                                            <div class="gallery-box media-icon orange-color">     
-                                                     <video controls="" muted="" class="video-g">
-                                                         <source src="  {{ asset('assets-cppri/images/video-gallery2.mp4') }}" type="video/mp4">
-                                                      </video>
-                                            </div>
-                                        </div>
-                               
                             </div>
+
                         </div>
+                      
                         <div class="btn-view_play">
                             <div class="btn-part  text-center">
-                                <a class="readon2 mt-2" href="{{ route('video') }}" rel="noopener noreferrer">View
+                                <a class="readon2 mt-2" href="{{ route('video-gallery') }}"
+                                    rel="noopener noreferrer" tabindex="0">View
                                     All</a>
                             </div>
                             <div class="btns">
@@ -1177,13 +1172,26 @@
                                 <div id="customNextBtn4"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
                             </div>
                         </div>
+                        <!-- <div class="btn-view_play">
+                            <div class="btn-part  text-center">
+                                <a class="readon2 mt-2" href="{{ route('video-gallery') }}"
+                                    rel="noopener noreferrer">View
+                                    All</a>
+                            </div>
+                            <div id="customPause4"><i class="fa fa-pause" aria-hidden="true"></i></div>
+                            <div id="customPlay4" class="customPlay2"><i class="fa fa-play" aria-hidden="true"></i>
+                            </div>
+                            <div id="customNextBtn4"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+                        </div> -->
                     </div>
                 </div>
-
-                
             </div>
+
+
         </div>
     </div>
+</div>
+</div>
 
 
 

@@ -83,7 +83,7 @@ $(window).load(function(){
     });   
 // Carousel		
 let device_width = window.innerWidth;
-console.log(device_width)		
+		
 if(device_width<991){
     $('#flexCarousel').flexslider({
         animation: "slide",
@@ -380,3 +380,47 @@ function decreaseFontSize() {
         }
     });
 }
+
+
+
+console.log("sticky header ")
+// sticky header 
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop ;
+// console.log("this is sticky header", sticky);
+
+function myFunction() {
+    // console.log(window.pageYOffset)
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+
+
+// When the user clicks on the button, scroll to the top of the document with smooth animation
+console.log("1")
+function topFunction() {
+    // Set the duration of the scrolling animation
+    const duration = 500; // in milliseconds
+    const start = window.pageYOffset;
+    const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+  
+    function scroll() {
+      const now = 'now' in window.performance ? performance.now() : new Date().getTime();
+      const time = Math.min(1, (now - startTime) / duration);
+      const easeInOutCubic = time => time < 0.5 ? 4 * time ** 3 : 1 - Math.pow(-2 * time + 2, 3) / 2;
+      window.scrollTo(0, start + (0 - start) * easeInOutCubic(time));
+  
+      if (time < 1) {
+        window.requestAnimationFrame(scroll);
+      }
+    }
+  alert("running")
+    window.requestAnimationFrame(scroll);
+  }
+  // end scroll to top
+console.log("2")

@@ -80,8 +80,8 @@ class HomeController extends Controller
 
             $career = DB::table('career_management')
                 ->where('status', 3)
+                ->orderBy('start_date', 'desc')
                 ->where('soft_delete', 0)
-                ->latest('created_at')
                 ->get();
 
             $final_data = [];
@@ -92,10 +92,10 @@ class HomeController extends Controller
                         $obj->career= $c;
                         $obj->career->career_doc =  DB::table('career_management_details')
                         ->where('status', 3)
+                        ->orderBy('start_date', 'desc')
                         ->where('soft_delete', 0)
                         ->where('career_management_id', $c->uid)
                         ->whereDate('archivel_date', '<', now()->toDateString())
-                        ->latest('created_at')
                         ->get();
 
                         $final_data[] = $obj;                    
@@ -298,12 +298,11 @@ class HomeController extends Controller
         try {
 
             if ($finalSlug != null) {
-
                 $finalUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($slug)->first();
                 $lastUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($lastSlugs)->first();
                 $middelUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($middelSlug)->first();
                 $menus = DB::table('website_menu_management')->where('status', 3)->whereurl($finalSlug)->first();
-
+                
                 if ($menus != '') {
                     $allmenus = DB::table('website_menu_management')->where('status', 3)->orderBy('sort_order', 'ASC')->get();
                     $firstParent = DB::table('website_menu_management')->where('status', 3)->where('uid', $lastUrl->parent_id)->first();
@@ -383,7 +382,6 @@ class HomeController extends Controller
                     }
                 }
             } elseif ($middelSlug != null) {
-
                 $middelUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($slug)->first();
                 $menus = DB::table('website_menu_management')->where('status', 3)->whereurl($middelSlug)->first();
                 if ($menus != '') {
@@ -417,7 +415,6 @@ class HomeController extends Controller
             } else {
                 $menus = DB::table('website_menu_management')->where('status', 3)->whereurl($slug)->first();
             }
-
             if ($menus != '') {
 
                 if ($finalSlug != null) {
@@ -486,7 +483,6 @@ class HomeController extends Controller
                         $title_name = $menus->name_en;
                     }
                 }
-                
                 $quickLink = DB::table('website_menu_management')->where('menu_place', 4)->where('status', 3)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
 
                 $dynamic_content_page_metatag = DB::table('dynamic_content_page_metatag')
@@ -497,10 +493,8 @@ class HomeController extends Controller
                     ->orderBy('sort_order', 'ASC')
                     ->get();
 
-                // dd($dynamic_content_page_metatag);
-
-                if (count($dynamic_content_page_metatag) > 0) {
-
+                // dd($dynamic_content_page_metatag); 
+                if (count($dynamic_content_page_metatag) > 0) {                   
                     $organizedData = [];
 
                     foreach ($dynamic_content_page_metatag as $dynamic_content_page_metatags) {
@@ -528,7 +522,6 @@ class HomeController extends Controller
 
                         $dynamic_page_content = DB::table('dynamic_page_content')
                             ->wheredcpm_id($dynamic_content_page_metatags->uid)
-                            ->where('status', 3)
                             ->where('soft_delete', 0)
                             ->first();
 
@@ -539,8 +532,7 @@ class HomeController extends Controller
                             'gallery' => $dynamic_content_page_gallery,
                             'banner' => $dynamic_page_banner,
                         ];
-                    }
-
+                    }                    
                     if ($finalSlug != null) {
                         return view('master-page', ['finalBred' => $finalBred, 'parentMenut' => $parentMenut, 'tree' => $tree, 'lastBred' => $lastBred, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData,]);
                     } else if ($lastSlugs != null) {
@@ -621,14 +613,14 @@ class HomeController extends Controller
 
                     if ($finalSlug != null) {
 
-                        return view('master-page', ['finalBred' => $finalBred, 'lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name,]);
+                        return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink,'finalBred' => $finalBred, 'lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name,]);
                     } else if ($lastSlugs != null) {
 
-                        return view('master-page', ['lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name,]);
+                        return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink,'lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name,]);
                     } elseif ($middelSlug != null) {
-                        return view('master-page', ['middelBred' => $middelBred, 'content' => $content, 'title_name' => $title_name,]);
+                        return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink,'middelBred' => $middelBred, 'content' => $content, 'title_name' => $title_name,]);
                     } else {
-                        return view('master-page', ['title_name' => $title_name, 'content' => $content,]);
+                        return view('master-page', ['quickLink' => $quickLink,'title_name' => $title_name, 'content' => $content,]);
                     }
                 }
             } else {
@@ -712,7 +704,7 @@ class HomeController extends Controller
         $request->validate([
             'name' => 'required|string',
             'email' => ['required', 'string', 'email', 'max:50', 'email:rfc','regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
-            'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
+            'phone' => ['required', 'digits:10', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
             'message' => 'required|string|regex:/^[a-zA-Z0-9\s.,!?]+$/',
             'SecurityCode' => 'required',
 
@@ -758,7 +750,7 @@ class HomeController extends Controller
         $request->validate([
             'name' => 'required|string',
             'email' => ['required', 'string', 'email', 'max:50', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
-            'phone' => ['required', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
+            'phone' => ['required', 'digits:10', 'regex:/^(\+\d{1,2}\s?)?(\(\d{1,4}\)|\d{1,4})[-.\s]?\d{1,10}$/'],
             'message' => 'required|string|regex:/^[a-zA-Z0-9\s.,!?]+$/',
             'SecurityCode' => 'required',
         ]);
@@ -976,7 +968,7 @@ class HomeController extends Controller
             $rtiesFirst = DB::table('dynamic_content_page_metatag')->orderBy('created_at', 'asc')->where(['menu_slug' => 'rti', 'status' => 3, 'soft_delete' => 0])->first();
         }
         if($rtiesFirst){
-            $rtiesDetails = DB::table('dynamic_page_content')->where(['dcpm_id' => $rtiesFirst->uid, 'status' => 3, 'soft_delete' => 0])->first();
+            $rtiesDetails = DB::table('dynamic_page_content')->where(['dcpm_id' => $rtiesFirst->uid, 'soft_delete' => 0])->first();
         }
         // dd($rtiesFirst);
         return view('pages.rti', ['title' => $title, 'rties' => $rties, 'rtiesDetails' => $rtiesDetails,'rtiesFirst' =>$rtiesFirst]);
@@ -990,7 +982,7 @@ class HomeController extends Controller
     public function rtiApplicationsResponse(Request $request)
     {
         $registrationNo = $request->input('registration_no');
-        $titleName = 'RTI Applications Response';
+        $titleName = 'RTI Applications & Responses';
         $result = DB::table('rti_application_responses')
                     ->where('status', 3)
                     ->orderBy('created_at', 'asc')

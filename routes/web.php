@@ -54,7 +54,7 @@ Route::post('/feedbackStore', [HomeController::class, 'feedbackStore'])->name('f
 // Route::get('/press-released', [HomeController::class, 'showPressReleased']);
 Route::get('/photo-gallery', [HomeController::class,'photoGallery'])->name('photo-gallery');
 Route::get('/photo-gallery-images/{id}',[HomeController::class,'photoGalleryDetails'])->name('photo-gallery-images');
-Route::get('/video',[HomeController::class,'videoDetail'])->name('video');
+Route::get('/video-gallery',[HomeController::class,'videoDetail'])->name('video-gallery');
 Route::get('/academic-program', [HomeController::class,'academicProgram']);
 Route::get('/training-program', [HomeController::class,'trainingProgram']);
 //tender
@@ -63,13 +63,13 @@ Route::get('tender-archive', [HomeController::class,'tenderArchive']);
 //carrer
 Route::get('/careers', [HomeController::class,'careerData'])->name('careerData');
 Route::get('career-archive', [HomeController::class,'careerArchive']);
-Route::get('rti/rti-applications-responses', [HomeController::class,'rtiApplicationsResponse'])->name('rti-applications-responses');
-Route::get('rti-applications-responses-table', [HomeController::class,'rtiApplicationsResponseTable'])->name('rti-applications-responses-table');
-Route::any('rti-applications-responses-filter', [HomeController::class,'rtiApplicationsResponse'])->name('rti-applications-responses-filter');
+Route::get('rti/rti-applications-&-responses', [HomeController::class,'rtiApplicationsResponse'])->name('rti-applications-&-responses');
+Route::get('rti-applications-&-responses-table', [HomeController::class,'rtiApplicationsResponseTable'])->name('rti-applications-&-responses-table');
+Route::any('rti-applications-&-responses-filter', [HomeController::class,'rtiApplicationsResponse'])->name('rti-applications-&-responses-filter');
 Route::get('purchase-works-committee', [HomeController::class,'purchaseWorksCommittee']);
 Route::any('purchase-works-committee-filter', [HomeController::class,'purchaseWorksCommittee'])->name('purchase-works-committee-filter');
 Route::get('notification', [HomeController::class,'notification'])->name('notification');
-Route::get('/press-released', [HomeController::class, 'pressReleased'])->name('press-released');
+Route::get('/press-release', [HomeController::class, 'pressReleased'])->name('press-release');
 Route::get('/rti/{slug?}', [HomeController::class, 'rtiDetail'])->name('rti-data');
 // Route::get('/rti-detail/{uid}', [HomeController::class, 'rtiFullDetail'])->name('rti-detail');
 Route::get('/{Slug}/{middelSlug?}/{lastSlug?}/{finalSlug?}/{finallastSlug?}', [HomeController::class, 'getContentAllPages']);

@@ -1,3 +1,15 @@
+
+// toster error message contact  page
+let contact_submit = $('.message');
+contact_submit.on('click', () => {
+    function toster() {
+        let toaster = document.getElementById('toast-container');
+        toaster.style.display = "none";
+    }
+    setTimeout(toster, 3000);
+});
+
+ // Adjusted to 3000 milliseconds (3 seconds)
 var baseurl = window.location.origin;
 //alert(baseurl + "/set-language");
 function setlang(value) {
@@ -625,7 +637,7 @@ $('#submitForm').click(function (e) {
             console.log(response)          
             if (response.success) {
                 $('#contact_form')[0].reset();
-                $('#contact-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Record Add Successfully</div></div></div>');
+                $('#contact-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Your information successfully done.</div></div></div>');
             } else if (response.captchaError){
                 $('#contact-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-error" aria-live="assertive" style="display: block;"><div class="toast-message">Captcha Invalid .</div></div></div>');
             } else {
@@ -673,7 +685,7 @@ $('#feedback_button').click(function (e) {
         success: function (response) {            
             if (response.success) {
                 $('#feedback_form')[0].reset();
-                $('#response-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Record Add Successfully</div></div></div>');                
+                $('#response-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Your information successfully done.</div></div></div>');                
             } else if (response.captchaError){
                 $('#response-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-error" aria-live="assertive" style="display: block;"><div class="toast-message">Captcha Invalid.</div></div></div>');              
             } else {
@@ -712,27 +724,7 @@ function scrollFunction() {
   }
 }
 
-// When the user clicks on the button, scroll to the top of the document with smooth animation
-function topFunction() {
-  // Set the duration of the scrolling animation
-  const duration = 500; // in milliseconds
-  const start = window.pageYOffset;
-  const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
 
-  function scroll() {
-    const now = 'now' in window.performance ? performance.now() : new Date().getTime();
-    const time = Math.min(1, (now - startTime) / duration);
-    const easeInOutCubic = time => time < 0.5 ? 4 * time ** 3 : 1 - Math.pow(-2 * time + 2, 3) / 2;
-    window.scrollTo(0, start + (0 - start) * easeInOutCubic(time));
-
-    if (time < 1) {
-      window.requestAnimationFrame(scroll);
-    }
-  }
-
-  window.requestAnimationFrame(scroll);
-}
-// end scroll to top
   /*-------------------------------------
         OwlCarousel
     -------------------------------------*/
@@ -887,3 +879,6 @@ play4.addEventListener("click", function () {
 });
 
 // detail page gallery js
+
+
+// toster error message contact  page

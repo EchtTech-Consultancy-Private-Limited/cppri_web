@@ -491,7 +491,9 @@ table td, table th, table tr, .main-sidebar{
 }
 
 button.dt-button.buttons-print, .archive-btn {
-    background: #000;color: #fff !important; border: 1px solid #fff;
+    background: #000 !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
 }
 
 button.dt-button.buttons-print:hover, .archive-btn:hover {
@@ -595,7 +597,7 @@ table.dataTable thead>tr>th.sorting, table.dataTable thead>tr>th.sorting_asc, ta
     color: #fff;
 }
 
-.btn:hover, .info div i{
+ .info div i{
     color: #000;
 }
 
@@ -641,3 +643,6 @@ thead + tbody tr td{
     color: #fff !important;
 }
 
+label.security-code span.text-danger{
+    color: #000 !important;
+}
