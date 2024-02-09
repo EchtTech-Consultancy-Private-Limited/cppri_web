@@ -52,12 +52,12 @@
                 <!--/#skipCont-->
                 <section id="fontSize" class="wrapper body-wrapper ">
                     <section id="paragraph" class="wrapper paragraph-wrapper">
-                        <div class=" common-container four_content mb-5">
+                        <div class=" common-container four_content mt-3 mb-3">
 
 
                             @if (isset($galleryVideo) && count($galleryVideo) > 0)
                             <div class="row">
-                                <h3 class="dir-dsk-title mt-3">
+                                <h3 class="dir-dsk-title mb-3">
 
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.video_gallery') }}
