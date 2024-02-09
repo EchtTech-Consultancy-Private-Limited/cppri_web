@@ -111,7 +111,7 @@
                                         <section id="paragraph" class="wrapper paragraph-wrapper">
                                             
                                             <div class=" common-container four_content">
-                                            <button class="btn btn-primary float-end mb-2 rounded-2"><a class="text-white" href="{{ route('rti-applications-responses') }}">RTI Application & Responses</a></button>
+                                            <button class="btn btn-primary float-end mb-2 rounded-2"><a class="text-white" href="{{ route('rti-applications-&-responses') }}">RTI Application & Responses</a></button>
                                                 @if (isset($rtiesDetails) && !blank($rtiesDetails))
                                                 @if (Session::get('Lang') == 'hi')
                                                     {!! $rtiesDetails->page_content_hi !!}
