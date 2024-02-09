@@ -491,7 +491,9 @@ table td, table th, table tr, .main-sidebar{
 }
 
 button.dt-button.buttons-print, .archive-btn {
-    background: #000;color: #fff !important; border: 1px solid #fff;
+    background: #000 !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
 }
 
 button.dt-button.buttons-print:hover, .archive-btn:hover {
