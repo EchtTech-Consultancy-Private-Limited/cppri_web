@@ -77,10 +77,11 @@
                                                 <a class="prev" onclick="plusSlides(-1)">❮</a>
                                                 <a class="next" onclick="plusSlides(1)">❯</a>
                                             </div>
-                                            <div class="col-md-6 col-box-g">
-                                                <div class="row">
+                                            <div class="col-md-6">
+                                              <div class="col-box-g">
+                                              <div class="row ps-0">
                                                     @foreach ($photogallery as $key => $datas)
-                                                    <div class="col-4">
+                                                    <div class="col-4 mb-2">
                                                         <img class="demo cursor" @if (!blank($datas->public_url))
                                                         src="{{ asset('resources/uploads/GalleryManagement/' . $datas->public_url) }}"
                                                         @endif
@@ -89,6 +90,7 @@
                                                     </div>
                                                     @endforeach
                                                 </div>
+                                              </div>
                                             </div>
                                         </div>
 

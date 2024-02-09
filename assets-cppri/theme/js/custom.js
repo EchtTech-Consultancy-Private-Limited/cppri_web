@@ -83,7 +83,7 @@ $(window).load(function(){
     });   
 // Carousel		
 let device_width = window.innerWidth;
-console.log(device_width)		
+		
 if(device_width<991){
     $('#flexCarousel').flexslider({
         animation: "slide",
@@ -379,4 +379,23 @@ function decreaseFontSize() {
             element.style.fontSize = currentFontSize + 'px';
         }
     });
+}
+
+
+
+console.log("sticky header ")
+// sticky header 
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop ;
+// console.log("this is sticky header", sticky);
+
+function myFunction() {
+    // console.log(window.pageYOffset)
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
 }

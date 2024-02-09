@@ -4857,17 +4857,22 @@ input:focus {
 .clientail ul.flex-direction-nav {
     display: block !important;
 }
-.clientail .flexslider:hover .flex-direction-nav .flex-prev,
-.clientail .flexslider:hover .flex-direction-nav .flex-next,
+
 .carousel-wrapper.clientail #flexCarousel ul.flex-direction-nav li a:focus {
     top: -115px !important;
     margin: 0;
     height: 48px;
 }
-.flexslider:hover .flex-direction-nav .flex-prev {
+.clientail:hover .flexslider .flex-direction-nav .flex-prev,
+.clientail:hover .flexslider .flex-direction-nav .flex-next {
+    top: -115px !important;
+    margin: 0;
+    height: 48px;
+}
+.clientail:hover .flexslider .flex-direction-nav .flex-prev {
     left: -30px !important;
 }
-.clientail .flexslider:hover .flex-direction-nav .flex-next {
+.clientail:hover .flexslider .flex-direction-nav .flex-next {
     right: -35px !important;
 }
 .twitter-tweet.twitter-tweet-rendered {
@@ -5508,7 +5513,7 @@ blockquote {
 }
 .dir-dsk-title {
     font-size: 22px !important;
-    margin: 10px 0px !important;
+    margin: 10px 0px ;
 }
 .profile-img h4 {
     font-size: 16px !important;
@@ -5757,6 +5762,7 @@ div#flexSlider .flex-direction-nav {
     padding: 4px 11px;
     border-radius: 4px;
     font-size: 14px;
+    border: 1px solid #ddd;
 }
 
 .dataTables_wrapper .dataTables_length select{
@@ -6020,6 +6026,7 @@ ul.overseas-client{
     padding-right: 0px;
     height: 400px;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .container1 .prev, .container1 .next {
@@ -6060,3 +6067,37 @@ ul.overseas-client li .size{
     font-size: 11px;
     color: #333;
 }
+
+/* scrollar style */
+
+.col-box-g {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ddd ; /* violet pour le thumb, gris pour la track */
+  }
+  
+  .col-box-g::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 10px !important;
+  }
+  
+  .col-box-g::-webkit-scrollbar-thumb {
+    background-color: #ddd; /* violet pour le thumb */
+    border-radius: 10px !important;
+  }
+  
+  .col-box-g::-webkit-scrollbar-thumb:hover {
+    background-color: #333; /* violet lÃ©gÃ¨rement plus foncÃ© au survol */
+  }
+  
+  .col-box-g::-webkit-scrollbar-track {
+    background-color: #fff; /* gris pour la track */
+    border-radius: 10px !important;
+  }
+  .form-section .login-wrapper .logo img{
+    height: 160px;
+    width: auto;
+  }
+  
+  
+  
