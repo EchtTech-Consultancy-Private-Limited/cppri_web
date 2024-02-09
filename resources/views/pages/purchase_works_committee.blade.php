@@ -46,8 +46,8 @@
                             @csrf
                             <div class="row my-3">
                                 <div class="col-md-4 ps-md-0 ps-0">
-                                    <label for="exampleDataList" class="form-label">Select Type</label>
-                                    <select class="form-select" name="work_Type" aria-label="Default select example">
+                                    <label for="select_type" class="form-label">Select Type</label>
+                                    <select class="form-select" name="work_Type" aria-label="Default select example" id="select_type">
                                         <option value="">Select Type</option>
                                         @foreach($purchaseWorksCommittesTypes as $purchaseWorksCommittesType)
                                             <option value="{{ $purchaseWorksCommittesType->uid }}" {{ $purchaseWorksCommittesType->uid == $selectedWorkType ? 'selected' : '' }}>
@@ -59,8 +59,8 @@
 
 
                                 <div class="col-md-4">
-                                    <label for="exampleDataList" class="form-label">Year</label>
-                                    <select class="form-select" name="start_date" aria-label="Default select example">
+                                    <label for="year" class="form-label">Year</label>
+                                    <select class="form-select" name="start_date" aria-label="Default select example" id="year">
                                         <option value="">Select Year</option>
                                         @php
                                             $currentYear = now()->year;

@@ -6100,4 +6100,6 @@ ul.overseas-client li .size{
   }
   
   
-  
+  span.date-display-single {
+    white-space: nowrap;
+}

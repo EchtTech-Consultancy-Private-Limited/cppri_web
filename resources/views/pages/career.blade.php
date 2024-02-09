@@ -10,7 +10,7 @@
                 <div class="inner-banner-text">
                     <div class="text-banner-content">
                         <h2>
-                            Career
+                            Careers
                         </h2>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                 <div class="inner-banner-text">
                     <div class="text-banner-content">
                         <h2>
-                            Career
+                            Careers
                         </h2>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                         </a></li>
 
                     <li>
-                        Career
+                        Careers
                     </li>
 
                 </ul>
