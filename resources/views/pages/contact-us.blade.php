@@ -74,7 +74,7 @@
                             </div>
                             <div class="text-center">
 
-                                <button class="g-recaptcha btn btn-primary" type="button" id="submitForm">Submit</button>
+                                <button class="g-recaptcha btn btn-primary message" type="button" id="submitForm">Submit</button>
                             </div>
                         </form>
                     </div>
