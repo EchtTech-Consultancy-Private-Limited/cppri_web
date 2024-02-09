@@ -6045,7 +6045,7 @@ ul.overseas-client{
     background: #133866;
 }
 .container1 .next {
-    right: 15px;
+    right: 12px;
     border-radius: 3px 0 0 3px;
 }
 
@@ -6102,4 +6102,13 @@ ul.overseas-client li .size{
   
   span.date-display-single {
     white-space: nowrap;
+}
+
+label{
+    cursor: auto;
+}
+
+table.dataTable tbody td p{
+    text-align: left;
+    margin: 0;
 }
