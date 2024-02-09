@@ -5508,7 +5508,7 @@ blockquote {
 }
 .dir-dsk-title {
     font-size: 22px !important;
-    margin: 10px 0px !important;
+    margin: 10px 0px ;
 }
 .profile-img h4 {
     font-size: 16px !important;
