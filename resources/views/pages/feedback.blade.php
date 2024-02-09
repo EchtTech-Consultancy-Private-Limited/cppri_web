@@ -79,7 +79,7 @@
                                     <small id="email-error" class="text-danger"></small>
                                     <div>
                                         <i class="fa fa-mobile" aria-hidden="true"></i>
-                                        <input type="text" id="mobile_no" name="phone" minlength="10" value="{{ old('phone') }}" maxlength="10" placeholder="Phone number" >
+                                        <input type="text" id="mobile_no" name="phone" minlength="10" value="{{ old('phone') }}" minlength="10" maxlength="10" placeholder="Phone number" >
 
                                     </div>
                                     <small id="phone-error" class="text-danger"></small>
@@ -108,7 +108,7 @@
                                 @endif
                             </div>
                             <div class="text-center">
-                                <button class="g-recaptcha btn btn-primary" id="feedback_button" type="submit">Submit</button>
+                                <button class="g-recaptcha btn btn-primary message" id="feedback_button" type="submit">Submit</button>
 
                             </div>
                             </form>

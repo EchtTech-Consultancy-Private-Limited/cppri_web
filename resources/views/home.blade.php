@@ -370,7 +370,7 @@
                         <div class="banner-box banner-box-3 ">
                             <div class="banner-box-content">
                                 <!-- <h2>External Link 3</h2> -->
-                                <a href="{{ url('rules-and-regulation') }}" title="External link that opens in new tab">
+                                <a href="{{ url('quick-links/rules-and-regulation') }}" title="External link that opens in new tab">
                                     <img src="{{ asset('assets-cppri/images/regulation.png') }}" alt="icon"
                                         class="cell-icon-sec">
                                     <p>
@@ -588,7 +588,7 @@
                                                         </li> --}}
                                                         </ul>
                                                     </div>
-                                                    <div class="view-footer"><a href="{{route('press-released')}}"
+                                                    <div class="view-footer"><a href="{{route('press-release')}}"
                                                             title="View All" class="change-border-color-text"><span>
                                                                 @if (Session::get('Lang') == 'hi')
                                                                 {{ __('messages.View_all') }}
@@ -816,7 +816,7 @@
                                         for fostering optimal ...
                                     </p>
                                     <a class="button change-text-color"
-                                        href="{{url('training-programs/training-calendar')}}">More Details
+                                        href="{{url('academic/training-calendar')}}">More Details
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -1121,17 +1121,16 @@
                         <div class="sec-title3 text-center ">
                             <h2 class="title mb-10">Video Gallery</h2>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="rs-carousel owl-carousel nav-style2 gallery-carausel" data-loop="true"
-                            data-items="4" data-margin="10" data-autoplay="true" data-hoverpause="true"
-                            data-autoplay-timeout="4500" data-smart-speed="900" data-dots="false" data-nav="false"
-                            data-nav-speed="false" data-center-mode="false" data-mobile-device="1"
-                            data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="2"
-                            data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
-                            data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="2"
-                            data-md-device-nav="false" data-md-device-dots="false" id="banner4">
-                            <!-- @if (isset($galleryVideo) && !empty($galleryVideo))
+                        <div class="col-md-12">
+                            <div class="rs-carousel owl-carousel nav-style2 gallery-carausel" data-loop="true"
+                                data-items="4" data-margin="10" data-autoplay="true" data-hoverpause="true"
+                                data-autoplay-timeout="4500" data-smart-speed="900" data-dots="false" data-nav="false"
+                                data-nav-speed="false" data-center-mode="false" data-mobile-device="1"
+                                data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="2"
+                                data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
+                                data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="2"
+                                data-md-device-nav="false" data-md-device-dots="false" id="banner4">
+                                 @if (isset($galleryVideo) && !empty($galleryVideo))
                                     @foreach ($galleryVideo as $k => $galleryVideos)
                                         <div class="team-item">
                                             <div class="gallery-box media-icon orange-color">                                                
@@ -1145,36 +1144,16 @@
                                         </div>
                                     @endforeach
                                 @endif
-                                 -->
-
-
-                            <div class="team-item">
-                                <div class="gallery-box media-icon orange-color">
-                                    <video controls="" muted="" class="video-g">
-                                        <source src="  {{ asset('assets-cppri/images/video-gallery1.mp4') }}"
-                                            type="video/mp4">
-                                    </video>
-                                </div>
-                            </div>
-
-                            <div class="team-item">
-                                <div class="gallery-box media-icon orange-color">
-                                    <video controls="" muted="" class="video-g">
-                                        <source src="  {{ asset('assets-cppri/images/video-gallery2.mp4') }}"
-                                            type="video/mp4">
-                                    </video>
-                                </div>
+                                 
+                                        
+                               
                             </div>
 
                         </div>
-                    </div>
-                    <div class="btn-view_play">
-                        <div class="btn-part  text-center">
-                            <a class="readon2 mt-2" href="{{ route('video') }}" rel="noopener noreferrer">View
-                                All</a>
-                        </div>
-                        <div class="btns">
-                            <div id="customPreviousBtn4"><i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <div class="btn-view_play">
+                            <div class="btn-part  text-center">
+                                <a class="readon2 mt-2" href="{{ route('video-gallery') }}" rel="noopener noreferrer">View
+                                    All</a>
                             </div>
                             <div id="customPause4"><i class="fa fa-pause" aria-hidden="true"></i></div>
                             <div id="customPlay4" class="customPlay2"><i class="fa fa-play" aria-hidden="true"></i>
