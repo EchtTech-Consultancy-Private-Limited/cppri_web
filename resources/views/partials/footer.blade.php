@@ -179,13 +179,15 @@
                                                         @endif
                                                     </a></li>
                                             @else
-                                                <li><a href="{{ url($footerurl) ?? '' }}">
+                                                <li>
+                                                    <a href="{{ url($footerurl) ?? '' }}">
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $quickLinks->name_hi ?? '' }}
                                                         @else
                                                             {{ $quickLinks->name_en ?? '' }}
                                                         @endif
-                                                    </a></li>
+                                                    </a>
+                                                </li>
                                             @endif
                                         @endforeach
                                     </ul>

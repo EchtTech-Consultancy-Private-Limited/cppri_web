@@ -3,8 +3,6 @@
     <nav class="main-menu clearfix " id="main_menu">
         <ul class="nav-menu">
             <li class="nav-item"> <a href="{{ url('/') }}" class="home"><i class="fa fa-home"></i></a> </li>
-
-
             @if (isset($headerMenu) && count($headerMenu) > 0)
                 @foreach ($headerMenu as $headerMenus)
                     @php
@@ -48,7 +46,7 @@
                                                         {{ $subMenus->name_en ?? '' }}
                                                     @endif
                                                 </a>
-                                            @else
+                                        @else
                                             <li class="env">
                                                 <a href="javascript:void();" class="sub-menu-drop-f">
                                                     @if (Session::get('Lang') == 'hi')
@@ -101,8 +99,8 @@
                                                             </a>
                                                         </li>
                                                     @else
-                                                        <li class="remove-show-class"><a
-                                                                href="{{ url($url . '/' . $subMenusurl . '/' . $ChildMenusurl) ?? '' }}">
+                                                        <li class="remove-show-class">
+                                                            <a href="{{ url($url . '/' . $subMenusurl . '/' . $ChildMenusurl) ?? '' }}">
                                                                 @if (Session::get('Lang') == 'hi')
                                                                     {{ $ChildMenus->name_hi ?? '' }}
                                                                 @else

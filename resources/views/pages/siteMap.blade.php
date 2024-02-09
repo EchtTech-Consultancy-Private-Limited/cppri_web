@@ -82,7 +82,7 @@
                                                     @php
                                                         $suburl = $subMenus->url ?? 'javascript:void(0)';
                                                     @endphp
-                                                    
+                                                    @if($suburl != 'feedback' && $suburl != 'website-information-manage' && $suburl != 'vigilance-cell' )
                                                     <li>
                                                         @if ($subMenus->tab_type == 1)
                                                             <a onclick="return confirm('{{ $alertMessage }}')"
@@ -101,16 +101,17 @@
                                                                     {{ $subMenus->name_en ?? '' }}
                                                                 @endif
                                                             </b>
-                                                        @else
-                                                            <a href="{{ url($url.'/'.$suburl) }}">
-                                                                @if (Session::get('Lang') == 'hi')
-                                                                    {{ $subMenus->name_hi ?? '' }}
-                                                                @else
-                                                                    {{ $subMenus->name_en ?? '' }}
-                                                                @endif
-                                                            </a>
+                                                        @else                                                            
+                                                                <a href="{{ url($url.'/'.$suburl) }}">
+                                                                    @if (Session::get('Lang') == 'hi')
+                                                                        {{ $subMenus->name_hi ?? '' }}
+                                                                    @else
+                                                                        {{ $subMenus->name_en ?? '' }}
+                                                                    @endif
+                                                                </a>                                                            
                                                         @endif
                                                     </li>
+                                                    @endif
                                                     @if (isset($subMenus->children) && count($subMenus->children) > 0)
                                                     <ul class="unorder-list pt-10 pl-15">
                                                     @foreach ($subMenus->children as $ChildMenus)
