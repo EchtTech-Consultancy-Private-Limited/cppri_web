@@ -853,3 +853,6 @@ section#paragraph blockquote::before, section#paragraph blockquote::after, .main
 .readon2{
 	background-color: var(--primary-color);
 }
+.info div i{
+	color: var(--primary-color);
+}
