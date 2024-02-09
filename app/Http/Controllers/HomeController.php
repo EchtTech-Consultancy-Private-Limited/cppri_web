@@ -493,8 +493,7 @@ class HomeController extends Controller
                     ->orderBy('sort_order', 'ASC')
                     ->get();
 
-                // dd($dynamic_content_page_metatag);              
-               
+                // dd($dynamic_content_page_metatag); 
                 if (count($dynamic_content_page_metatag) > 0) {                   
                     $organizedData = [];
 
@@ -621,7 +620,7 @@ class HomeController extends Controller
                     } elseif ($middelSlug != null) {
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink,'middelBred' => $middelBred, 'content' => $content, 'title_name' => $title_name,]);
                     } else {
-                        return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink,'title_name' => $title_name, 'content' => $content,]);
+                        return view('master-page', ['quickLink' => $quickLink,'title_name' => $title_name, 'content' => $content,]);
                     }
                 }
             } else {
@@ -983,7 +982,7 @@ class HomeController extends Controller
     public function rtiApplicationsResponse(Request $request)
     {
         $registrationNo = $request->input('registration_no');
-        $titleName = 'RTI Applications Response';
+        $titleName = 'RTI Applications & Responses';
         $result = DB::table('rti_application_responses')
                     ->where('status', 3)
                     ->orderBy('created_at', 'asc')

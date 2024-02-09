@@ -79,8 +79,12 @@
             
                     @foreach ($data as $item)
                         <div>
-                            <h5><span class="serch-list">{{ $count += 1 }}. </span><a href="{{ $item['link'] ?? '' }}">{!! isset($item['title']) ? $item['title'] : '' !!}</a></h5>
-                            <p>{!! implode(' ', array_slice(str_word_count(strip_tags($item['description']), 1), 0, 50)) ?? '' !!}</p>
+                            @if($item['link'] != '')
+                                <h5><span class="serch-list">{{ $count += 1 }}. </span><a href="{{ $item['link'] ?? '' }}">{!! isset($item['title']) ? $item['title'] : '' !!}</a></h5>
+                            @else
+                            <p><span class="serch-list">{{ $count += 1 }}. </span>{!! isset($item['title']) ? $item['title'] : '' !!}</p>
+                            @endif
+                                <p>{!! implode(' ', array_slice(str_word_count(strip_tags($item['description']), 1), 0, 100)) ?? '' !!}</p>
                         </div>
                         <hr>
                     @endforeach

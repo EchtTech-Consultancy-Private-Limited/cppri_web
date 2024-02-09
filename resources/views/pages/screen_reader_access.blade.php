@@ -71,7 +71,7 @@
                 <thead>
 
                     <tr>
-                        <!-- <th>Sr. No.</th> -->
+                        <th>Sr.No.</th>
                         <th>Screen Reader</th>
                         <th>Website</th>
                         <th>Free / Commercial
@@ -83,7 +83,7 @@
                 <tbody>
 
                     <tr>
-                        <!-- <td>5</td> -->
+                        <td>1</td> 
                         <td class="sorting_1">Non Visual Desktop Access (NVDA)</td>
                         <td><a class="ext" href="http://www.nvda-project.org/" target="_BLANK"
                                 title="External site that opens in a new window"
@@ -92,7 +92,7 @@
                         <td>Free</td>
                     </tr>
                     <tr>
-                        <!-- <td>3</td> -->
+                        <td>2</td>
                         <td>System Access To Go</td>
                         <td>
                             <a class="ext" href="http://www.satogo.com/" target="_BLANK"
@@ -102,7 +102,7 @@
                         <td>Free</td>
                     </tr>
                     <tr>
-                        <!-- <td>2</td> -->
+                        <td>3</td>
                         <td>Web Anywhere</td>
                         <td>
                             <a class="ext" href="http://webanywhere.cs.washington.edu/wa.php" target="_BLANK"
@@ -113,7 +113,7 @@
                         <td>Free</td>
                     </tr>
                     <tr>
-                        <!-- <td>1</td> -->
+                        <td>4</td>
                         <td>Hal</td>
                         <td>
                             <a class="ext" href="http://www.yourdolphin.co.uk/productdetail.asp?id=5" target="_BLANK"

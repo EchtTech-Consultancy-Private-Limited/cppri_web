@@ -31,6 +31,11 @@ class SearchController extends Controller
                     ->orWhere('description_hi', 'like', '%' . $keyword . '%')
                     ->get()->toArray());
             }
+            if (Schema::hasColumns($tableName, ['title_name_en', 'title_name_hi'])) {
+                $searchResults = array_merge($searchResults, DB::table($tableName)->where('title_name_en', 'like', '%' . $keyword . '%')
+                    ->orWhere('title_name_hi', 'like', '%' . $keyword . '%')
+                    ->get()->toArray());
+            }
 
             if (Schema::hasColumns('dynamic_content_page_metatag', ['page_title_en', 'page_title_hi', 'meta_tag_description'])) {
                 $searchResults = array_merge($searchResults, DB::table('dynamic_content_page_metatag')->where('page_title_en', 'like', '%' . $keyword . '%')
@@ -44,12 +49,11 @@ class SearchController extends Controller
                     ->orWhere('name_hi', 'like', '%' . $keyword . '%')
                     ->get()->toArray());
             }
-            // print_r($searchResults);
-            foreach ($searchResults as $item) {
+            foreach ($searchResults as $item) {               
                 if (isset($item->title_name_en) || isset($item->page_title_en) || isset($item->name_en)) {
                     if(isset($item->footer_url) && $item->footer_url != 0){
                         $finalArray->push([
-                            'link' => $item->footer_url ?? 'javascript:void(0)',
+                            'link' => $item->footer_url ?? '',
                             'title' => $item->title_name_en ?? $item->page_title_en ?? $item->name_en,
                             'description' => $item->description_en ?? $item->meta_tag_description ?? '',
                         ]);
@@ -58,34 +62,51 @@ class SearchController extends Controller
                         $mainMenu = DB::table('website_menu_management')->where('uid',$item->menu_uid)->first();                     
                         if(isset($mainMenu->parent_id) && $mainMenu->parent_id != 0){
                             $parentMenu = DB::table('website_menu_management')->where('uid',$mainMenu->parent_id)->first();                    
-                            $link = $parentMenu->url?$parentMenu->url.'/'.$mainMenu->url: 'javascript:void(0)';
+                            $link = $parentMenu->url?$parentMenu->url.'/'.$mainMenu->url: '';
                             $finalArray->push([
-                                'link' => $link ?? 'javascript:void(0)',
+                                'link' => $link ?? '',
                                 'title' => $item->title_name_en ?? $item->page_title_en ?? $item->name_en,
                                 'description' => $item->description_en ?? $item->meta_tag_description ?? '',
                             ]);
                         }
-                    }elseif(isset($item->parent_id)){                        
+                    }elseif(isset($item->parent_id)){                      
                         $mainMenu = DB::table('website_menu_management')->where('parent_id',$item->parent_id)->first();  
                         if(isset($mainMenu->parent_id) && $mainMenu->parent_id != 0){
                             
                             $parentMenu = DB::table('website_menu_management')->where('uid',$mainMenu->parent_id)->first();
-                            $link = $parentMenu->url?$parentMenu->url.'/'.$mainMenu->url: 'javascript:void(0)';
+                            $link = $parentMenu->url?$parentMenu->url.'/'.$mainMenu->url: '';
                             $finalArray->push([
-                                'link' => $link ?? 'javascript:void(0)',
+                                'link' => $link ?? '',
                                 'title' => $item->title_name_en ?? $item->page_title_en ?? $item->name_en,
                                 'description' => $item->description_en ?? $item->meta_tag_description ?? '',
                             ]);
                         }else{
                             $finalArray->push([
-                                'link' => $item->url ?? 'javascript:void(0)',
+                                'link' => $item->url ?? '',
                                 'title' => $item->title_name_en ?? $item->page_title_en ?? $item->name_en,
                                 'description' => $item->description_en ?? $item->meta_tag_description ?? '',
                             ]);
                         }
                     }else{
+                        // echo $tableName;
+                        // die;
+                        if($tableName == 'purchase_works_committees'){
+                            $link = 'purchase-works-committee';
+                        }
+                        if($tableName == 'tender_management'){
+                            $link = 'tender';
+                        }
+                        if($tableName == 'career_management'){
+                            $link = 'careers';
+                        }
+                        if($tableName == 'rti_assets'){
+                            $link = 'rti';
+                        }
+                        if($tableName == 'gallery_management'){
+                            $link = 'photo-gallery';
+                        }
                         $finalArray->push([
-                            'link' => 'javascript:void(0)',
+                            'link' => $link ?? '',
                             'title' => $item->title_name_en ?? $item->page_title_en ?? $item->name_en,
                             'description' => $item->description_en ?? $item->meta_tag_description ?? '',
                         ]);

@@ -204,7 +204,7 @@
                 @endif
                 {{-- <div class="col-md-9 m-p-0"> --}}
                 <div class="main-content ditiector-desk">
-                    <!--/#skipCont-->
+                    <!--/#skipCont-->                    
                     <div id="fontSize" class="wrapper body-wrapper ">
                         @if (isset($content))
                             <h1>{{ $content }}</h1>
@@ -307,7 +307,6 @@
                                 </div>
                             </section>
                         @endif
-
                         @if (isset($Director) && $Director != '')
                             <section id="paragraph" class="wrapper paragraph-wrapper director-desk-container">
                                 <div class="common-container four_content">
@@ -320,7 +319,7 @@
                                                 {{ __('messages.Director_Desk') }}
                                             @endif
                                         </h2>
-                                        @if ($Director->public_url != '')
+                                        {{-- @if ($Director->public_url != '')
                                             <img src="{{ asset('resources/uploads/empDirectory/' . $Director->public_url) }}"
                                             alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
                                             title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
@@ -344,7 +343,7 @@
                                                 {{ $Director->mname_en ?? '' }}
                                                 {{ $Director->lname_en ?? '' }}
                                             @endif
-                                        </h4>
+                                        </h4> --}}
                                     </div>
                                 </div>
                                         <div class="col-md-12 col-lg-12">
@@ -361,10 +360,7 @@
                                                             title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
                                                             loading="lazy">
                                                     @endif
-
-
                                                     <h4 class="pb-10" tabindex="0">
-
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $Director->fname_hi ?? '' }}
                                                             {{ $Director->mname_hi ?? '' }}
