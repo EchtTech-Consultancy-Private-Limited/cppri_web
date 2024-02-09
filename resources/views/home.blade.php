@@ -817,7 +817,7 @@
                                         for fostering optimal ...
                                     </p>
                                     <a class="button change-text-color"
-                                        href="{{url('academic/training-calendar')}}">More Details
+                                        href="{{url('academic/training-program')}}">More Details
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
