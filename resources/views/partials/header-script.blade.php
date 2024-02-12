@@ -11,6 +11,7 @@
 <meta name="description" content="">
 <meta name="referrer" content="origin">
 <meta name="author" content="">
+<link rel="shortcut icon" href="{{ asset('assets-cms/favicon.ico') }}"/>
 <link rel="apple-touch-icon" href="{{ asset('assets-cppri/images/flag.jpg') }}">
 <link href="{{ asset('assets-cppri/css/base.css') }}" rel="stylesheet">
 <link href="{{ asset('assets-cppri/css/base-responsive.css') }}" rel="stylesheet">
