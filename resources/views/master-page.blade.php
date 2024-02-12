@@ -306,7 +306,7 @@
                                     </div>
                                 </div>
                             </section>
-                        @endif
+                        @endif                        
                         @if (isset($Director) && $Director != '')
                             <section id="paragraph" class="wrapper paragraph-wrapper director-desk-container">
                                 <div class="common-container four_content">
