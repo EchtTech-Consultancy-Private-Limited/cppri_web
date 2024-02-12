@@ -65,7 +65,9 @@ p.email-text-styl {
     height: 96px;
     width: 100px !important;
 }
-.img-circle-prof{width: auto !important;}
+.img-circle-prof{
+    /* width: auto !important; */
+}
 .emp-crddir-inf p
 {
     text-align: center;
