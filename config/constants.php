@@ -6,7 +6,7 @@ return [
     [
         'logo_image' => "assets-cms/logo-light.png",
         'logo_image_trans' => "assets-cms/trans-logo.png",
-        'favicon' => "assets-cms/media/logos/favicon.ico"
+        'favicon' => "assets-cms/favicon.ico"
     ],
     'error' =>
     [
