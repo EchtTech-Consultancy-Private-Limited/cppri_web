@@ -553,6 +553,10 @@
 	}
 }
 @media screen and (min-width:440px) and (max-width: 768px) {
+	p.banner-content {
+		text-align: left !important;
+		margin-bottom: 10px;
+	}
 	.img-circle-prof {
 		top: -60px;
 		left: 31%;
