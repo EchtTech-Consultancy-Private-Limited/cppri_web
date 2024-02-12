@@ -336,7 +336,7 @@
                             <div class="banner-box-content">
                                 <!-- <h2>External Link 1</h2> -->
                                 <a href="https://www.pgportal.gov.in/" title="GRIEVANCE CELL" target="_blank"
-                                    onclick="alert('This link will take you to an external web site.')">
+                                    onclick="return confirm('{{ $alertMessage ?? '' }}')">
                                     <img src="{{ asset('assets-cppri/images/grivence_rti.png') }}" alt="icon"
                                         class="cell-icon-sec">
                                     <p>
