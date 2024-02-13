@@ -20,7 +20,8 @@
                                     @endif
                                 </a>
                             @else
-                            <li class="nav-item"><a href="javascript:void(0)">
+                            <li class="nav-item {{ (Request::fullUrl() == route('rti-data', $rti->custom_slug)) ? 'menuactive' : '' }}">
+                                <a href="javascript:void(0)">
                                     @if (Session::get('Lang') == 'hi')
                                         {{ $headerMenus->name_hi ?? '' }}
                                     @else
