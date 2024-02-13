@@ -4,7 +4,7 @@
         <ul class="nav-menu">
             <li class="nav-item"> <a href="{{ url('/') }}" class="home"><i class="fa fa-home"></i></a> </li>
             @if (isset($headerMenu) && count($headerMenu) > 0)
-                @foreach ($headerMenu as $headerMenus)
+                @foreach ($headerMenu as $headerMenus)                
                     @php
                         $url = $headerMenus->url ?? 'javascript:void(0)';
                     @endphp
@@ -20,7 +20,8 @@
                                     @endif
                                 </a>
                             @else
-                            <li class="nav-item {{ (Request::fullUrl() == route('rti-data', $rti->custom_slug)) ? 'menuactive' : '' }}">
+                            {{-- @php print_r(Request::segment(1)); @endphp --}}
+                            <li class="nav-item {{ (Request::segment(1) == $headerMenus->url ? 'activemenu' : '') }}">
                                 <a href="javascript:void(0)">
                                     @if (Session::get('Lang') == 'hi')
                                         {{ $headerMenus->name_hi ?? '' }}
@@ -160,13 +161,15 @@
                                 </a>
                             </li>
                         @else
-                            <li class="nav-item"><a href="{{ url($url) ?? '' }} ">
+                            <li class="nav-item {{ (Request::segment(1) == $headerMenus->url ? 'activemenu' : '') }}">
+                                <a href="{{ url($url) ?? '' }} ">
                                     @if (Session::get('Lang') == 'hi')
                                         {{ $headerMenus->name_hi ?? '' }}
                                     @else
                                         {{ $headerMenus->name_en ?? '' }}
                                     @endif
-                                </a></li>
+                                </a>
+                            </li>
                         @endif
                     @endif
                 @endforeach
