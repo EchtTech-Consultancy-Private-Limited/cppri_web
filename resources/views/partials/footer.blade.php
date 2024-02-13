@@ -1,4 +1,4 @@
-<footer class="wrapper footer-wrapper">
+<footer class="wrapper footer-wrapper" >
     <div class="footer-top-wrapper change-color-code">
         <div class="back-drop">
             <div class="container common-container four_content footer-top-container">

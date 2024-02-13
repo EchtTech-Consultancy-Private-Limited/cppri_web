@@ -805,7 +805,7 @@
 	}
 
 	.flexslider .slides img {
-		height: 128px !important;
+		/* height: 128px !important; */
 	}
 
 	.mob-lst-nes {
