@@ -10,7 +10,7 @@
 
 
 
-    <header class="">
+    <header class="" role="header">
         <div class="region region-header-top">
             <div id="block-cmf-content-header-region-block" class="block block-cmf-content first last odd">
                 <noscript class="no_scr">"JzavaScript is a standard programming language that is included to provide
@@ -22,8 +22,8 @@
             {{-- <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> --}}
         </div>
         <!--Top-Header Section end-->
-        <section class="wrapper header-wrapper">
-            <h3   class="d-none">Top-Header Section end</h3>
+        <section class="wrapper header-wrapper" role="logo-header">
+            <!-- <h3   class="d-none">Top-Header Section end</h3> -->
             <div class="container common-container four_content  header-container">
                 <div class="logo">
                     <a href="{{ url('/') }}" title="Home" rel="home" class="header__logo" id="logo">
@@ -67,7 +67,7 @@
             </div>
         </section>
         <!--/.header-wrapper-->
-        <section class="wrapper megamenu-wraper change-color-code"  id="myHeader">
+        <section class="wrapper megamenu-wraper change-color-code"  id="myHeader" role="menu-bar">
             <!-- <h3 >Megamenu</h3> -->
             @include('partials.menu-header')
         </section>
