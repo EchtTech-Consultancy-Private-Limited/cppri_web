@@ -30,7 +30,7 @@
         </ul>
     </div>
 </section>
-<section class="latest-news" role="latest-news">
+<section class="latest-news" >
     <h3 class="d-none">Latest News</h3>
     <div class="row px-0">
         <div class="col-md-3 col-4">
@@ -96,7 +96,7 @@
 <!--/#skipCont-->
 <section id="fontSize" class="wrapper body-wrapper ">
 
-    <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott" role="main-content">
+    <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott" >
         <div class="container common-container four_content body-container top-body-container padding-top-bott2">
             <div class="row">
                 <div
@@ -164,7 +164,7 @@
         </div>
     </div>
     <!-- Services section Start-->
-    <section class="wf100 p75-50  depart-info" role="important-links">
+    <section class="wf100 p75-50  depart-info" >
         <div class="container common-container">
             <div class="row">
                 <div class="col-md-12">
@@ -409,7 +409,7 @@
     <!-- Services section END-->
     <!-- <div class="links-wrapper change-color-code"> <div class="container common-container ptb-10"> <div class="row"> <div class="col-md-12"> <div class="banner-content-wrapper services-heading"> <h2 class="text-white mt-0"> @if (Session::get('Lang') == 'hi') {{ __('messages.Services') }} @else {{ __('messages.Services') }} @endif </h2> </div> </div> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}" alt=""> </span> <span class="icon-box-text">R &amp; D Projects</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt=""> </span> <span class="icon-box-text">Technical Services </span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt=""> </span> <span class="icon-box-text">Our Achievements</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt=""> </span> <span class="icon-box-text">Publications &amp; Reports</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt=""> </span> <span class="icon-box-text">Institute Membership</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt=""> </span> <span class="icon-box-text">Tender</span> </a> </div> </div> </div> -->
     <!-- <div class="wrapper home-banner"> -->
-    <div class="wrapper banner-bg-white overflow-hidden" role="notification">
+    <div class="wrapper banner-bg-white overflow-hidden" role="main">
         <div class="press-release-overlay"></div>
         <div class="press-release-background-image position-absolute z-index-0 h-100 w-100">
             <img src="{{ asset('assets-cppri/images/press-release.png') }}" class="h-100 w-100" alt="background image">
@@ -626,7 +626,7 @@
                                             </li>
                                         </ul>
                                         <div class="resp-tabs-container hor_1">
-                                            <div class="clearfix" id="hor_1_tab_item-1">
+                                            <div class="clearfix" >
                                                 <div class="content-wrapper">
                                                     <p class="text-slide01 pause" onclick="changeClass1()"
                                                         id="tender_pause_button"></p>
@@ -761,7 +761,7 @@
             </div>
         </div>
     </div>
-    <section class="wf100 city-news p75 bg-white" role = "Our-program">
+    <section class="wf100 city-news p75 bg-white" >
         <div class="container common-container four_content banner-container">
             <div class="title-style-3">
                 <!-- <h3 class="h11">Our Programs</h3> -->
@@ -854,7 +854,7 @@
             </div>
         </div>
     </section>
-    <div class="wrapper banner-bg-white ptb-30 pb-0" role = "sociol-media">
+    <div class="wrapper banner-bg-white ptb-30 pb-0" role = "feed">
         <div class="container common-container four_content banner-container body-container top-body-container p-0">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -1057,7 +1057,7 @@
 </section>
 
 <!-- photo gallery section start -->
-<div class="gallery-section p-32" role="Our-Gallery">
+<div class="gallery-section p-32" >
     <div class="">
         <div class="container">
             <div class="row px-0">
@@ -1198,7 +1198,7 @@
 <!-- photo gallery section end -->
 <!--/.body-wrapper-->
 <!--Client logo start-->
-<section class="wrapper carousel-wrapper clientail" role="our-services">
+<section class="wrapper carousel-wrapper clientail" >
     <h2 class="d-none">Carousel</h2>
     <div class="container common-container four_content carousel-container">
         <div id="flexCarousel" class="flexslider carousel">
