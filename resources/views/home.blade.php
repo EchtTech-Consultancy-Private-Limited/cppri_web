@@ -336,7 +336,7 @@
                             <div class="banner-box-content">
                                 <!-- <h2>External Link 1</h2> -->
                                 <a href="https://www.pgportal.gov.in/" title="GRIEVANCE CELL" target="_blank"
-                                    onclick="return confirm('{{ $alertMessage ?? '' }}')">
+                                    onclick="alert('This link will take you to an external web site.')">
                                     <img src="{{ asset('assets-cppri/images/grivence_rti.png') }}" alt="icon"
                                         class="cell-icon-sec">
                                     <p>
@@ -1133,21 +1133,19 @@
                                 data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="2"
                                 data-md-device-nav="false" data-md-device-dots="false" id="banner4">
                                 @if (isset($galleryVideo) && !empty($galleryVideo))
-                                @foreach ($galleryVideo as $k => $galleryVideos)
-                                <div class="team-item">
-                                    <div class="gallery-box media-icon orange-color">
-                                        @if (count($galleryVideos['gallery_details']) > 0)
-
-                                        <iframe width="100%" height="280"
-                                            src="{{ $galleryVideos['gallery_details'][0]->public_url }}"
-                                            title="YouTube video player" frameborder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                            allowfullscreen></iframe>
-                                        @else
-                                        <p>No images available for this gallery.</p>
-                                        @endif
+                                @foreach($galleryVideo as $videos)
+                                    @foreach($videos['gallery_details'] as $videoId)
+                                    {{-- @dd($videoId->public_url);                                         --}}
+                                    <div class="team-item">
+                                        <div class="gallery-box media-icon orange-color">
+                                            @if($videoId->public_url)
+                                            {!! '<div class="youtube-player" data-video-id="' . $videoId->public_url . '"></div>'!!}
+                                            @else
+                                            <p>No images available for this gallery.</p>
+                                            @endif
+                                        </div>
                                     </div>
-                                </div>
+                                    @endforeach
                                 @endforeach
                                 @endif
 

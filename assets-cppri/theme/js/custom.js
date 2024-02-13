@@ -423,4 +423,3 @@ function topFunction() {
     window.requestAnimationFrame(scroll);
   }
   // end scroll to top
-console.log("2")

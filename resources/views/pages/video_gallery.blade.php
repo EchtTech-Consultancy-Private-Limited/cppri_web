@@ -66,17 +66,16 @@
                                     @endif
 
                                 </h3>
-                                @foreach ($galleryVideo as $galleryVideos)
-                                @if (count($galleryVideos['gallery_details']) > 0)
-                                @foreach ($galleryVideos['gallery_details'] as $videoDetail)
+                                @foreach($galleryVideo as $videos)
+                                @if (count($videos['gallery_details']) > 0)
+                                @foreach($videos['gallery_details'] as $videoId)
                                 <div class="col-md-4 mb-2">
                                     <div class="blog-item">
-                                            <div class="">
-                                                <iframe width="100%" height="315"
-                                                    src="{{ $galleryVideos['gallery_details'][0]->public_url }}"
-                                                    frameborder="0" allowfullscreen></iframe>
-
-                                            </div>
+                                            @if($videoId->public_url)
+                                            {!! '<div class="youtube-player" data-video-id="' . $videoId->public_url . '"></div>'!!}
+                                            @else
+                                            <p>No images available for this gallery.</p>
+                                            @endif
                                     </div>
                                 </div>
                                 @endforeach

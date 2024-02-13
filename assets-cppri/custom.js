@@ -1,4 +1,33 @@
+//   youtube player bu videoId
+var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+    var players = document.querySelectorAll('.youtube-player');
+    var currentVideoIndex = 0;
+
+    function onYouTubeIframeAPIReady() {
+        players.forEach(function(player, index) {
+            new YT.Player(player, {
+                height: '280',
+                width: '100%',
+                videoId: player.getAttribute('data-video-id'),
+                events: {
+                    'onReady': function(event) {
+                        event.target.playVideo();
+                    },
+                    'onStateChange': function(event) {
+                        if (event.data === YT.PlayerState.ENDED) {
+                            // Move to the next video when the current one ends
+                            currentVideoIndex = (currentVideoIndex + 1) % players.length;
+                            players[currentVideoIndex].loadVideoById(players[currentVideoIndex].getAttribute('data-video-id'));
+                        }
+                    },
+                },
+            });
+        });
+    }
 // toster error message contact  page
 let contact_submit = $('.message');
 contact_submit.on('click', () => {
@@ -637,7 +666,7 @@ $('#submitForm').click(function (e) {
             console.log(response)          
             if (response.success) {
                 $('#contact_form')[0].reset();
-                $('#contact-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Your information successfully done.</div></div></div>');
+                $('#contact-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Your### information successfully done.</div></div></div>');
             } else if (response.captchaError){
                 $('#contact-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-error" aria-live="assertive" style="display: block;"><div class="toast-message">Captcha Invalid .</div></div></div>');
             } else {
@@ -685,7 +714,7 @@ $('#feedback_button').click(function (e) {
         success: function (response) {            
             if (response.success) {
                 $('#feedback_form')[0].reset();
-                $('#response-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Your information successfully done.</div></div></div>');                
+                $('#response-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Your### information successfully done.</div></div></div>');                
             } else if (response.captchaError){
                 $('#response-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-error" aria-live="assertive" style="display: block;"><div class="toast-message">Captcha Invalid.</div></div></div>');              
             } else {
@@ -879,6 +908,3 @@ play4.addEventListener("click", function () {
 });
 
 // detail page gallery js
-
-
-// toster error message contact  page
