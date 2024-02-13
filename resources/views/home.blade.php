@@ -387,7 +387,7 @@
                         <div class="banner-box banner-box-4 ">
                             <div class="banner-box-content">
                                 <!-- <h2>External Link 3</h2> -->
-                                <a href="{{ url('webmail') }}" title="External link that opens in new tab"
+                                <a href="https://mail.gov.in/iwc_static/c11n/allDomain/layout/login_gov2.jsp?lang=en&3.0.1.2.0_15121607&svcs=abs,mail,smime,calendar,c11n" title="External link that opens in new tab"
                                     onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank">
                                     <img src="{{ asset('assets-cppri/images/mail.png') }}" alt="icon"
                                         class="cell-icon-sec">
