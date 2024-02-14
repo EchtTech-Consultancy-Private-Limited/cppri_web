@@ -6122,3 +6122,7 @@ table.dataTable tbody td p{
 li.nav-item.activemenu {
     background: var(--secondary-color);
 }
+
+.gallery-lbox iframe{
+    height: 280px;
+}
