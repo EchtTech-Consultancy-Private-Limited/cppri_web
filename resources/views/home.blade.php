@@ -1139,7 +1139,7 @@
                                     <div class="team-item">
                                         <div class="gallery-box media-icon orange-color">
                                             @if($videoId->public_url)
-                                            {!! '<div class="youtube-player youtube-iframe" data-video-id="' . $videoId->public_url . '"></div>'!!}
+                                            {!! '<div class="youtube-player" data-video-id="' . $videoId->public_url . '"></div>'!!}
                                             @else
                                             <p>No images available for this gallery.</p>
                                             @endif
