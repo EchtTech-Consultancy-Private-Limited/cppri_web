@@ -908,3 +908,23 @@ play4.addEventListener("click", function () {
 });
 
 // detail page gallery js
+
+
+// scroll animation  
+$(document).ready(function() {
+    var scrollElements = $('.scroll-animation');
+    
+    scrollElements.each(function() {
+        var elementHeight = $(this).height();
+        if (elementHeight > 200) {
+            $(this).css({
+            height: "-webkit-fill-available",  
+            "-moz-animation": "scroll-left 18s linear infinite",
+            "-webkit-animation": "scroll-left 18s linear infinite",
+            animation: "scroll-left 18s linear infinite"
+        });
+        }
+    });
+});
+
+// alert(scrollAnimation);

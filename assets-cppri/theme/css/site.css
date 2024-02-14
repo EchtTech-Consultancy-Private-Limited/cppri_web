@@ -3048,18 +3048,15 @@ a.portgolio-button:hover {
 .scroll-left ul:hover {
     animation-play-state: paused;
 }
-.scroll-left ul {
+.scroll-left .scroll-animation {
     position: absolute;
     width: 100%;
-    height: -webkit-fill-available;
     /* Starting position */
     -moz-transform: translateY(100%);
     -webkit-transform: translateY(100%);
     transform: translateY(100%);
     /* Apply animation to this element */
-    -moz-animation: scroll-left 18s linear infinite;
-    -webkit-animation: scroll-left 18s linear infinite;
-    animation: scroll-left 18s linear infinite;
+  
 }
 /* Move it (define the animation) */
 @-moz-keyframes scroll-left {
@@ -5713,7 +5710,7 @@ div#flexSlider .flex-direction-nav {
 }
 
 .organization-structure tr td:nth-child(2){
-    font-weight: 600 !important;
+    /* font-weight: 600 !important; */
 }
 
 
@@ -5738,7 +5735,7 @@ div#flexSlider .flex-direction-nav {
 .sub-sub-heading {
     font-size: 16px;
     font-weight: 600;
-    color: var(--secondary-color);
+    /* color: var(--secondary-color); */
 }
 
 
@@ -6123,5 +6120,5 @@ table.dataTable tbody td p{
 }
 
 li.nav-item.activemenu {
-    background: #133866    ;
+    background: var(--secondary-color);
 }
