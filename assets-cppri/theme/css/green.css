@@ -49,15 +49,6 @@ a.paginate_button:hover{
 
 
 
-.breadcam li:last-child a {
-	background: none;
-	margin-left: 8px;
-    color: var(--inner-page-title-color);
-}
-
-.breadcam li:last-child {
-    color: var(--inner-page-title-color);
-}
 
 .breadcam li.current {
 	color: #666666
@@ -206,13 +197,6 @@ ul.resp-tabs-list {
 	color: var(--inner-page-title-color);
 	
 }
-
-
-.align-lt h2 
-{
-	color: var(--inner-page-title-color);
-}
-
 
 h2.border-bottom-color {
     border-bottom: 5px solid var(--secondary-color);
