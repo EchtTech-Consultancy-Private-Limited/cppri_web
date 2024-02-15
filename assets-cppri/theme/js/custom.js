@@ -381,8 +381,23 @@ function decreaseFontSize() {
     });
 }
 
+$(document).ready(function() {
+    // Show loader when the website starts loading
+    $('.loader, .loader-bg').css('display', 'block');
+
+    // Hide loader when the website finishes loading
+    $(window).on('load', function() {
+        $('.loader, .loader-bg').css('display', 'none');
+    });
+});
 
 
+
+window.onload(function(){
+    alert("main header")
+    $('.loader').css('display', 'block')
+    $('.loader-bg').css('display', 'block');
+})
 console.log("sticky header ")
 // sticky header 
 window.onscroll = function() {myFunction()};
@@ -419,7 +434,7 @@ function topFunction() {
         window.requestAnimationFrame(scroll);
       }
     }
-  alert("running")
+//   alert("running")
     window.requestAnimationFrame(scroll);
   }
   // end scroll to top
