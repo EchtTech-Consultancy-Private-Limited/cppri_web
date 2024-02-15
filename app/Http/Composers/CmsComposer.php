@@ -32,7 +32,6 @@ class CmsComposer
      */
     public function compose(View $view)
     {
-       
         $menuData = array('Home', 'Contact US');
         $userLogin = Auth()->user();
         //dd($userLogin->role_id);

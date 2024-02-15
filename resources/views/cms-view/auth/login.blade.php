@@ -13,7 +13,7 @@
       <meta property="og:url" content=""/>
       <meta property="og:site_name" content="CMS | Login" />
       <link rel="canonical" href=""/>
-      <link rel="shortcut icon" href="{{ asset('assets-cms/favicon.ico') }}"/>
+      <link rel="shortcut icon" href="{{ asset('assets-cms/media/logos/favicon.ico') }}"/>
       <link href="{{ asset('assets-cms/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css"/>
       <link href="{{ asset('assets-cms/cms_css/style.bundle.css') }}" rel="stylesheet" type="text/css"/>
       <link href="{{ asset('assets-cms/cms_css/clock_md5.css') }}" rel="stylesheet" type="text/css"/>
