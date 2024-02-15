@@ -108,9 +108,16 @@ h3
 
 .banner-wrapper .flex-control-nav {
 	width: auto;
-	background: var(--primary-color);
+    padding: 0.52em;
+    line-height: 0;
+    right: 0px;
+    padding-right: 33px;
+	background: url(../../images/dot-nav1-orange.png);
+    padding-left: 24px;
+    background-repeat: no-repeat;
+    height: 41px;
+    background-position-x: -48px;
 }
-
 .banner-wrapper .flex-control-nav:before {
     border-bottom: 42px solid var(--pseudo-bordercolor);
 }
@@ -118,7 +125,7 @@ h3
 
 
 .banner-wrapper .flex-pauseplay {
-	background: var(--primary-color);
+	background: url(../../images/play-bg-orange.png);
 }
 
 
@@ -756,7 +763,6 @@ table th, button.dt-button.buttons-print{
 }
 
 .img-circle-prof {
-    width: 90px;
     border: 2px solid var(--secondary-color);
 }
 
