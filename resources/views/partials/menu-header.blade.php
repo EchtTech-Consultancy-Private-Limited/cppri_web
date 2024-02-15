@@ -2,7 +2,7 @@
 <p class="showhide" tabindex="0"><em></em><em></em><em></em></p>
     <nav class="main-menu clearfix " id="main_menu">
         <ul class="nav-menu">
-            <li class="nav-item"> <a href="{{ url('/') }}" class="home"><i class="fa fa-home"></i></a> </li>
+            <li class="nav-item {{ (Request::fullUrl() == url('/') ? 'activemenu' : '') }}"> <a href="{{ url('/') }}" class="home"><i class="fa fa-home"></i></a> </li>
             @if (isset($headerMenu) && count($headerMenu) > 0)
                 @foreach ($headerMenu as $headerMenus)                
                     @php

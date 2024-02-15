@@ -960,6 +960,6 @@ footer.wrapper.footer-wrapper .row {
 }
 
 .clientail.flexslider:hover .flex-direction-nav .flex-prev {
-    left: -20px !important;
+    /* left: -20px !important; */
 }
-.clientail .flexslider:hover .flex-direction-nav .flex-next{right: -20px !important;}
+/* .clientail .flexslider:hover .flex-direction-nav .flex-next{right: -20px !important;} */

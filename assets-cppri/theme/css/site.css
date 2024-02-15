@@ -2339,6 +2339,7 @@ h2.resp-accordion {
 .main-menu > ul > li:nth-child(1) a.home {
     padding: 8px 12px 7px;
     /* border-bottom: 2px solid #ec4933; */
+    background: unset;
 }
 a.home span {
     display: none;
@@ -3296,6 +3297,8 @@ a {
     width: 100%;
     left: 0px;
     padding: 0px 15px;
+    top: -31px;
+
 }
 .page-tab .list-content {
     width: 95%;
@@ -3839,10 +3842,13 @@ ul li .arrow:after {
     transition: all 0.25s ease-in-out;
 }
 .flipIn,
-h1,
-.clientail ul li {
+h1 {
     animation: flipdown 0.5s ease both;
 }
+
+/* .clientail ul li {
+    animation: flipdown 0.5s ease both;
+} */
 .no-select,
 h2 {
     -webkit-tap-highlight-color: transparent;
@@ -4143,7 +4149,7 @@ h2 {
     padding: 20px;
 }
 .text-banner-content {
-    width: 32%;
+    width: 100%;
 }
 .buttons-print span {
     color: #fff;
@@ -4865,20 +4871,26 @@ input:focus {
 }
 
 .carousel-wrapper.clientail #flexCarousel ul.flex-direction-nav li a:focus {
-    top: -115px !important;
+    /* top: -115px !important; */
     margin: 0;
     height: 48px;
 }
 .clientail:hover .flexslider .flex-direction-nav .flex-prev,
 .clientail:hover .flexslider .flex-direction-nav .flex-next {
-    top: -115px !important;
-    margin: 0;
+    /* top: -115px !important; */
+    /* margin: 0; */
     height: 48px;
 }
-.clientail:hover .flexslider .flex-direction-nav .flex-prev {
+/* .clientail:hover .flexslider .flex-direction-nav .flex-prev {
+    left: -30px !important;
+} */
+.clientail .flexslider .flex-direction-nav .flex-prev {
     left: -30px !important;
 }
-.clientail:hover .flexslider .flex-direction-nav .flex-next {
+/* .clientail:hover .flexslider .flex-direction-nav .flex-next {
+    right: -35px !important;
+} */
+.clientail .flexslider .flex-direction-nav .flex-next {
     right: -35px !important;
 }
 .twitter-tweet.twitter-tweet-rendered {
@@ -5989,7 +6001,7 @@ ul.overseas-client{
 }   
 
 .rs-blog.main-home .blog-item .blog-content.b-t .title {
-    /* white-space: nowrap; */
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;

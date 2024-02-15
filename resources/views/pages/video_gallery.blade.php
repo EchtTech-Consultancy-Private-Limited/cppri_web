@@ -11,9 +11,9 @@
                 <div class="text-banner-content">
                     <h2>
                         @if (Session::get('Lang') == 'hi')
-                            {{ __('messages.photo_gallery_image') }}
+                            {{ __('messages.video_gallery') }}
                         @else
-                            {{ __('messages.photo_gallery_image') }}
+                            {{ __('messages.video_gallery') }}
                         @endif
                     </h2>
                 </div>
@@ -34,9 +34,9 @@
 
                     <li><a href="javascript:void();">
                             @if (Session::get('Lang') == 'hi')
-                                {{ __('messages.photo_gallery_image') }}
+                                {{ __('messages.video_gallery') }}
                             @else
-                                {{ __('messages.photo_gallery_image') }}
+                                {{ __('messages.video_gallery') }}
                             @endif
                         </a>
                     </li>

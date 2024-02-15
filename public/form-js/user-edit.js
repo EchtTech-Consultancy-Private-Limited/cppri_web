@@ -80,18 +80,22 @@ var KTAppUserEdit = function () {
                          if (history.scrollRestoration) {
                             history.scrollRestoration = 'manual';
                          }
-                         //location.href = 'user-list'; // reload page
+                         location.href = 'user-list'; // reload page
                       }, 1500);
                       
                    } else {
                       toastr.error(
-                         response.data.email, 
+                         response.data.email,
+                        $('#loading').removeClass('loading'),
+                        $('#loading-content').removeClass('loading-content'), 
                          "Something went wrong!", 
                          {timeOut: 0, extendedTimeOut: 0, closeButton: true, closeDuration: 0}
                       );
                       }
                    })
                    .catch(function (error) {
+                        $('#loading').removeClass('loading'),
+                        $('#loading-content').removeClass('loading-content'),
                          toastr.error(
                             "Sorry, looks like there are some errors detected, please try again B.", 
                             "Something went wrong!", 
@@ -104,6 +108,8 @@ var KTAppUserEdit = function () {
                             submitButton.disabled = false;
                       });
                    } else {
+                        $('#loading').removeClass('loading'),
+                        $('#loading-content').removeClass('loading-content'),
                          toastr.error(
                                "Sorry, looks like there are some errors detected, please try again K.", 
                                "Something went wrong!", 
