@@ -100,7 +100,7 @@
         <div class="container common-container four_content body-container top-body-container padding-top-bott2">
             <div class="row">
                 <div
-                    class="banner-content-wrapper animate__animated animate__backInLeft animate__delay-3s col-md-12 col-lg-8 order-2 order-lg-1 pe-md-5 ">
+                    class="banner-content-wrapper animate__animated animate__backInLeft animate__delay-3s col-md-8 col-lg-10 order-2 order-lg-1 pe-md-5 ">
                     <h2 class="border-bottom-color">
                         @if (Session::get('Lang') == 'hi')
                         {{ __('messages.Welcome_to') }}
@@ -130,10 +130,10 @@
                         <i class="fa fa-angle-right"></i></a>
                 </div>
                 <div
-                    class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-12 col-lg-4 order-1 order-lg-2">
-                    <div class="minister-box clearfix ">
-                        <div class="row px-0">
-                            <div class="minister-sub col-md-6">
+                    class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-4 col-lg-2 order-1 order-lg-2">
+                    <div class=" clearfix ">
+                        <div class="row px-0 d-flex justify-content-end">
+                            <div class="minister-sub col-md-12 minister-box">
                                 <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
                                         alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>
                                 <div class="min-info">
@@ -144,7 +144,7 @@
                                     </h5>
                                 </div>
                             </div>
-                            <div class="minister-sub col-md-6">
+                            <!-- <div class="minister-sub col-md-6">
                                 <div class="minister-image"><img src="{{ asset('assets-cppri/images/a_k_dixit.png') }}"
                                         alt="minister of state coal and mines" title="Dr. A. K. Dixit Scientist-F">
                                 </div>
@@ -155,7 +155,7 @@
                                         </a>
                                     </h5>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                     </div>

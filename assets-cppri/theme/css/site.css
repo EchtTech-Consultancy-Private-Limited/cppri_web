@@ -521,7 +521,7 @@ a.read-more:hover {
 .minister {
     background: #fff none repeat scroll 0 0;
     float: right;
-    width: 34%;
+    /* width: 34%; */
     /*border:1px solid #e1dddd*/
 }
 .bttn {
@@ -612,7 +612,7 @@ a.read-more:hover {
     position: relative;
 }
 .minister-sub {
-    width: 50%;
+    /* width: 50%; */
     float: left;
     text-align: center;
     height: auto;
@@ -2721,8 +2721,8 @@ h2 small {
     background-attachment: fixed;
 }
 .banner-content-wrapper {
-    width: 66%;
-    float: left;
+    /* width: 66%;
+    float: left; */
     padding-right: 3%;
 }
 h2.border-bottom-color {
