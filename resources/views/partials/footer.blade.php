@@ -372,7 +372,7 @@
 <div class="loader">
 
     <div class="loading-dots" id="cppri_loader">
-        <img src="{{ asset('assets-cppri/images/cppri_logo.png') }}" alt="">
+        <img src="{{ asset('assets-cppri/images/logo.png') }}" alt="">
         <div>
             <div class="loading-dots--dot"></div>
             <div class="loading-dots--dot"></div>
