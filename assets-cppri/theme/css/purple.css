@@ -53,15 +53,7 @@ h3
 
 
 
-.breadcam li:last-child a {
-	background: none;
-	margin-left: 8px;
-    color: var(--inner-page-title-color);
-}
 
-.breadcam li:last-child {
-    color: var(--inner-page-title-color);
-}
 
 .breadcam li.current {
 	color: #666666
@@ -116,10 +108,17 @@ h3
 	text-align: center
 }
 
-
 .banner-wrapper .flex-control-nav {
 	width: auto;
-	background: var(--primary-color);
+    padding: 0.52em;
+    line-height: 0;
+    right: 0px;
+    padding-right: 33px;
+	background: url(../../images/dot-nav1-purple.png);
+    padding-left: 24px;
+    background-repeat: no-repeat;
+    height: 41px;
+    background-position-x: -48px;
 }
 
 .banner-wrapper .flex-control-nav:before {
@@ -129,7 +128,7 @@ h3
 
 
 .banner-wrapper .flex-pauseplay {
-	background: var(--primary-color);
+	background: url(../../images/play-bg-purple.png);
 }
 
 
@@ -211,11 +210,6 @@ ul.resp-tabs-list {
 	
 }
 
-
-.align-lt h2 
-{
-	color: var(--inner-page-title-color);
-}
 
 
 h2.border-bottom-color {
@@ -769,7 +763,6 @@ table th, button.dt-button.buttons-print{
 }
 
 .img-circle-prof {
-    width: 90px;
     border: 2px solid var(--secondary-color);
 }
 

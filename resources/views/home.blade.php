@@ -424,7 +424,7 @@
                             <div class="page-tab clearfix">
                                 <div class="page-tab-res clearfix">
                                     <div>
-                                        <ul class="resp-tabs-list hor_1 change-color-code">
+                                        <ul class="resp-tabs-list hor_1 change-color-code ">
                                             <li
                                                 class="border-l change-border-color-text resp-tab-item hor_1 resp-tab-active">
                                                 <a href="javascript:viod(0)" class="change-text-color pe-none">
@@ -441,7 +441,7 @@
                                                 <div class="content-wrapper">
                                                     <p class="text-slide pause" onclick="changeClass()"></p>
                                                     <div class="scroll-text scroll-left p-2">
-                                                        <ul class="list">
+                                                        <ul class="list scroll-animation">
                                                             @if (isset($notification) && count($notification) > 0)
                                                             @foreach ($notification as $notifications)
                                                             <li>
@@ -515,7 +515,7 @@
                             <div class="page-tab clearfix">
                                 <div class="page-tab-res clearfix">
                                     <div>
-                                        <ul class="resp-tabs-list hor_1 change-color-code">
+                                        <ul class="resp-tabs-list hor_1 change-color-code ">
                                             <li
                                                 class="border-l resp-tab-item hor_1 resp-tab-active change-border-color-text">
                                                 <a href="javascript:viod(0)" class="change-text-color pe-none">
@@ -532,7 +532,7 @@
                                                 <div class="content-wrapper">
                                                     <p class="text-slide01 pause" onclick="changeClass01()"></p>
                                                     <div class="scroll-text01 scroll-left p-2">
-                                                        <ul class="list">
+                                                        <ul class="list scroll-animation">
                                                             @if (isset($press_release) && count($press_release) > 0)
                                                             @foreach ($press_release as $press_releases)
                                                             @php
@@ -631,7 +631,7 @@
                                                     <p class="text-slide01 pause" onclick="changeClass1()"
                                                         id="tender_pause_button"></p>
                                                     <div class="scroll-text01 scroll-left p-2" id="tender_scroll">
-                                                        <ul class="list">
+                                                        <ul class="list scroll-animation">
                                                             @if (isset($tender_management) && count($tender_management)
                                                             > 0)
                                                             @foreach ($tender_management as $tender_managements)
@@ -1237,3 +1237,8 @@
 </section>
 <!--Client logo end-->
 @endsection
+
+
+
+
+

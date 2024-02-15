@@ -49,15 +49,6 @@ a.paginate_button:hover{
 
 
 
-.breadcam li:last-child a {
-	background: none;
-	margin-left: 8px;
-    color: var(--inner-page-title-color);
-}
-
-.breadcam li:last-child {
-    color: var(--inner-page-title-color);
-}
 
 .breadcam li.current {
 	color: #666666
@@ -115,7 +106,17 @@ a.paginate_button:hover{
 
 .banner-wrapper .flex-control-nav {
 	width: auto;
-	background: var(--primary-color);
+    padding: 0.52em;
+    line-height: 0;
+    right: 0px;
+    padding-right: 33px;
+	background: url(../../images/dot-nav1-green.png);
+    padding-left: 24px;
+    background-repeat: no-repeat;
+
+
+    height: 41px;
+    background-position-x: -48px;
 }
 
 .banner-wrapper .flex-control-nav:before {
@@ -125,7 +126,7 @@ a.paginate_button:hover{
 
 
 .banner-wrapper .flex-pauseplay {
-	background: var(--primary-color);
+	background: url(../../images/play-bg-green.png);
 }
 
 
@@ -206,13 +207,6 @@ ul.resp-tabs-list {
 	color: var(--inner-page-title-color);
 	
 }
-
-
-.align-lt h2 
-{
-	color: var(--inner-page-title-color);
-}
-
 
 h2.border-bottom-color {
     border-bottom: 5px solid var(--secondary-color);
@@ -767,7 +761,6 @@ table th, button.dt-button.buttons-print{
 }
 
 .img-circle-prof {
-    width: 90px;
     border: 2px solid var(--secondary-color);
 }
 

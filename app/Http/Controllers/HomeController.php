@@ -298,17 +298,17 @@ class HomeController extends Controller
         try {
 
             if ($finalSlug != null) {
-                $finalUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($slug)->first();
-                $lastUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($lastSlugs)->first();
-                $middelUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($middelSlug)->first();
-                $menus = DB::table('website_menu_management')->where('status', 3)->whereurl($finalSlug)->first();
+                $finalUrl = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->whereurl($slug)->first();
+                $lastUrl = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->whereurl($lastSlugs)->first();
+                $middelUrl = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->whereurl($middelSlug)->first();
+                $menus = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->whereurl($finalSlug)->first();
                 
                 if ($menus != '') {
-                    $allmenus = DB::table('website_menu_management')->where('status', 3)->orderBy('sort_order', 'ASC')->get();
-                    $firstParent = DB::table('website_menu_management')->where('status', 3)->where('uid', $lastUrl->parent_id)->first();
+                    $allmenus = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->orderBy('sort_order', 'ASC')->get();
+                    $firstParent = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->where('uid', $lastUrl->parent_id)->first();
                     //dd($firstParent);
                     if (!empty($firstParent)) {
-                        $parentMenut = DB::table('website_menu_management')->where('status', 3)->where('uid', optional($firstParent)->parent_id)->first();
+                        $parentMenut = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->where('uid', optional($firstParent)->parent_id)->first();
                         //dd($parentMenut);
                         if (!empty($parentMenut)) {
                             foreach ($allmenus as $menu) {
@@ -343,14 +343,14 @@ class HomeController extends Controller
                 }
                 // dd($tree);
             } else if ($lastSlugs != null) {
-                $lastUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($slug)->first();
-                $middelUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($middelSlug)->first();
-                $menus = DB::table('website_menu_management')->where('status', 3)->whereurl($lastSlugs)->first();
+                $lastUrl = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->whereurl($slug)->first();
+                $middelUrl = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->whereurl($middelSlug)->first();
+                $menus = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->whereurl($lastSlugs)->first();
                 if ($menus != '') {
-                    $allmenus = DB::table('website_menu_management')->where('status', 3)->orderBy('sort_order', 'ASC')->get();
-                    $firstParent = DB::table('website_menu_management')->where('status', 3)->where('uid', $menus->parent_id)->first();
+                    $allmenus = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->orderBy('sort_order', 'ASC')->get();
+                    $firstParent = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->where('uid', $menus->parent_id)->first();
                     if (!empty($firstParent)) {
-                        $parentMenut = DB::table('website_menu_management')->where('status', 3)->where('uid', optional($firstParent)->parent_id)->first();
+                        $parentMenut = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->where('uid', optional($firstParent)->parent_id)->first();
                         if (!empty($parentMenut)) {
                             foreach ($allmenus as $menu) {
 
@@ -382,11 +382,11 @@ class HomeController extends Controller
                     }
                 }
             } elseif ($middelSlug != null) {
-                $middelUrl = DB::table('website_menu_management')->where('status', 3)->whereurl($slug)->first();
-                $menus = DB::table('website_menu_management')->where('status', 3)->whereurl($middelSlug)->first();
+                $middelUrl = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->whereurl($slug)->first();
+                $menus = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->whereurl($middelSlug)->first();
                 if ($menus != '') {
-                    $allmenus = DB::table('website_menu_management')->where('status', 3)->orderBy('sort_order', 'ASC')->get();
-                    $parentMenut = DB::table('website_menu_management')->where('status', 3)->where('uid', $menus->parent_id)->first();
+                    $allmenus = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->orderBy('sort_order', 'ASC')->get();
+                    $parentMenut = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->where('uid', $menus->parent_id)->first();
                     if (!empty($parentMenut)) {
                         foreach ($allmenus as $menu) {
                             if ($menu->parent_id == $parentMenut->uid) {
@@ -413,7 +413,7 @@ class HomeController extends Controller
                     }
                 }
             } else {
-                $menus = DB::table('website_menu_management')->where('status', 3)->whereurl($slug)->first();
+                $menus = DB::table('website_menu_management')->where('soft_delete', 0)->where('status', 3)->whereurl($slug)->first();
             }
             if ($menus != '') {
 

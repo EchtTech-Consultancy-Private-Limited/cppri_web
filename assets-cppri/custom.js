@@ -1,5 +1,5 @@
 //   youtube player bu videoId
-var tag = document.createElement('script');
+    var tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
@@ -10,13 +10,13 @@ var tag = document.createElement('script');
     function onYouTubeIframeAPIReady() {
         players.forEach(function(player, index) {
             new YT.Player(player, {
-                height: '280',
+                height: '400',
                 width: '100%',
                 videoId: player.getAttribute('data-video-id'),
                 events: {
-                    'onReady': function(event) {
-                        event.target.playVideo();
-                    },
+                    // 'onReady': function(event) {
+                    //     event.target.playVideo();
+                    // },
                     'onStateChange': function(event) {
                         if (event.data === YT.PlayerState.ENDED) {
                             // Move to the next video when the current one ends
@@ -28,6 +28,14 @@ var tag = document.createElement('script');
             });
         });
     }
+    jQuery(".fancybox-close").click(function() {
+        // changes the iframe src to prevent playback or stop the video playback in our case
+        $('.youtube-iframe').each(function(index) {
+          var originalSrc = $(this).attr('src');
+          // Appending '?autoplay=0' to the URL stops the video
+          $(this).attr('src', originalSrc + '?autoplay=0');
+        });
+      });
 // toster error message contact  page
 let contact_submit = $('.message');
 contact_submit.on('click', () => {
@@ -908,3 +916,23 @@ play4.addEventListener("click", function () {
 });
 
 // detail page gallery js
+
+
+// scroll animation  
+$(document).ready(function() {
+    var scrollElements = $('.scroll-animation');
+    
+    scrollElements.each(function() {
+        var elementHeight = $(this).height();
+        if (elementHeight > 200) {
+            $(this).css({
+            height: "-webkit-fill-available",  
+            "-moz-animation": "scroll-left 18s linear infinite",
+            "-webkit-animation": "scroll-left 18s linear infinite",
+            animation: "scroll-left 18s linear infinite"
+        });
+        }
+    });
+});
+
+// alert(scrollAnimation);

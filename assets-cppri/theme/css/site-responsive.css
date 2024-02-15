@@ -1940,9 +1940,15 @@
 	.wrapper.home-banner {
 		padding: 40px 0px;
 	}
+
 	p.banner-content {
 		padding: 20px 0px 20px;
 		line-height: 25px;
+		text-align: left !important;
+	}
+
+	p{
+		text-align: left !important;
 	}
 	.scroll-left,
 	.scroll-text-1,
@@ -2498,3 +2504,10 @@
 		margin-top: 20px;
 	}
   }
+
+  @media(max-height:280px){
+	.scroll-left ul{
+		height: auto;
+	}
+  }
+
