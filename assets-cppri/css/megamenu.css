@@ -196,7 +196,7 @@
 }
 /* sub-navigation panel open state */
         .sub-nav.open {
-	/* display: block; */
+	display: block;
 	opacity: 1;
     -webkit-transform: rotateX(0deg);
     transition: all 500ms ease-in-out;
@@ -441,6 +441,9 @@ padding-left:18px;
 }
 .main-menu .sub-nav ul li {
 	border-bottom:1px solid rgba(0, 0, 0, .1) !important;
+}
+.main-menu .sub-nav ul li.env ul.sub-nav-group.sng-env li a{
+	
 }
 .main-menu a.btn-more, .main-menu a.btn-more:hover,  .main-menu a.btn-more:focus {
 	background:#461f1e !important;

@@ -132,7 +132,7 @@
                 <div
                     class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-4 col-lg-2 order-1 order-lg-2">
                     <div class=" clearfix ">
-                        <div class="row px-0 d-flex justify-content-end">
+                        <div class="row px-lg-0 d-flex justify-content-end">
                             <div class="minister-sub col-md-12 minister-box">
                                 <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
                                         alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>

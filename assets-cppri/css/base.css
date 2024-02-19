@@ -1015,8 +1015,8 @@ table {
 
 /* Zebra striping */
 
-tr:nth-of-type(odd) {
-	background: #f8f8f8;
+tbody tr:nth-of-type(odd) {
+	background: #f8f8f8 !important;
 }
 
 th {
@@ -1785,7 +1785,7 @@ a {
 
 @media all and (max-width: 767px) {
 	.banner-wrapper .flex-pauseplay {
-		width: 45px !important;
+		width: 29px !important;
 	}
 
 	.PL-LG-0, .PR-LG-0 {
@@ -1810,8 +1810,8 @@ a {
 	}
 
 	.minister img {
-		height: 130px !important;
-		width: 130px !important;
+		height: 80px !important;
+		width: 80px !important;
 	}
 
 	p.banner-content {
@@ -1996,7 +1996,7 @@ table {
 	padding: 10px 15px;
 	border: 1px solid #ddd;
 	/* text-align: center; */
-	font-size: 15px;
+	font-size: 14px;
 	color: #333;
   }
 
