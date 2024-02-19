@@ -13,8 +13,7 @@
                 height: '400',
                 width: '100%',
                 videoId: player.getAttribute('data-video-id'),
-                events: {
-                    
+                events: {                    
                     'onStateChange': function(event) {
                         if (event.data === YT.PlayerState.ENDED) {
                             // Move to the next video when the current one ends

@@ -824,33 +824,6 @@
                         </div>
                     </div>
                 </div>
-                <!--News Box End-->
-                <!--News Box Start-->
-                <!-- <div class="col-md-3  col-sm-6">
-                                                                                                                               <div class="news-box">
-                                                                                                                                 <div class="new-thumb"> <span class="cat c3">Policies</span> <img src="images/cppri/modi.jpg" alt="">
-                                                                                                                                 </div>
-                                                                                                                                 <div class="new-txt">
-                                                                                                                                   <h6><a href="javascript:void(0);">Our Policies Programs</a></h6>
-                                                                                                                                   <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="javascript:void(0);" title="">...read more</a>
-                                                                                                                                   </p>
-                                                                                                                                 </div>
-                                                                                                                               </div>
-                                                                                                                             </div> -->
-                <!--News Box End-->
-                <!--News Box Start-->
-                <!-- <div class="col-md-3  col-sm-6">
-                                                                                                                               <div class="news-box">
-                                                                                                                                 <div class="new-thumb"> <span class="cat c4">Education</span> <img src="images/h3citynews-4.jpg" alt="">
-                                                                                                                                 </div>
-                                                                                                                                 <div class="new-txt">
-                                                                                                                                   <h6><a href="javascript:void(0);">Our Education Programs</a></h6>
-                                                                                                                                   <p> How all this mistaken idea of denounce pleasure and praising pain was born I will give you an. <a href="javascript:void(0);" title="">...read more</a>
-                                                                                                                                   </p>
-                                                                                                                                 </div>
-                                                                                                                               </div>
-                                                                                                                             </div> -->
-                <!--News Box End-->
             </div>
         </div>
     </section>
@@ -1170,17 +1143,6 @@
                                 <div id="customNextBtn4"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
                             </div>
                         </div>
-                        <!-- <div class="btn-view_play">
-                            <div class="btn-part  text-center">
-                                <a class="readon2 mt-2" href="{{ route('video-gallery') }}"
-                                    rel="noopener noreferrer">View
-                                    All</a>
-                            </div>
-                            <div id="customPause4"><i class="fa fa-pause" aria-hidden="true"></i></div>
-                            <div id="customPlay4" class="customPlay2"><i class="fa fa-play" aria-hidden="true"></i>
-                            </div>
-                            <div id="customNextBtn4"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -1189,10 +1151,6 @@
         </div>
     </div>
 </div>
-
-
-
-
 <!-- photo gallery section end -->
 <!--/.body-wrapper-->
 <!--Client logo start-->
