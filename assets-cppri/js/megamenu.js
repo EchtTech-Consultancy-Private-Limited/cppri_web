@@ -211,5 +211,13 @@ $(document).ready(function () {
 
 });
 
-
+let submenu = $('.main-menu .sub-nav ul li.env ul.sub-nav-group.sng-env li a');
+submenu.each(function(){
+	$(this).on('focus', ()=>{
+		$('.env').removeClass('focused');
+		$('.main-menu .nav-menu .nav-item .sub-nav').add('open')
+		$(this).closest('.env').toggleClass('focused');
+		// alert('open')
+	})
+})
 
