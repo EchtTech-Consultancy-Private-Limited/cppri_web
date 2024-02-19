@@ -1497,8 +1497,7 @@ ul.ul-v > li a {
 .imp-img-cir ul.ul-v > li {
     color: #fff;
 }
-.footer-top-wrapper ul li a,
-.copyright-content span {
+.footer-top-wrapper ul li a{
     color: #fff;
     font-size: 14px;
     font-weight: 400;
@@ -5244,7 +5243,7 @@ span#timeid p {
     color: initial !important;
 }
 .main-sidebar li a {
-    font-size: 15px;
+    font-size: 16px;
     align-items: center;
     font-weight: 500;
 }
