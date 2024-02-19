@@ -80,9 +80,6 @@
                                                     alt=""
                                                     tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }} {{ $profile->lname_en ?? '' }}">
                                             </div>
-                                        
-
-
                                                 @if (Session::get('Lang') == 'hi')
                                                 <h3> {{ $profile->fname_hi ?? '' }}
                                                     {{ $profile->mname_hi ?? '' }} {{ $profile->lname_hi ?? '' }}</h3>
