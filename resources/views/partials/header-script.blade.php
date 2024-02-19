@@ -11,6 +11,7 @@
 <meta name="description" content="">
 <meta name="referrer" content="origin">
 <meta name="author" content="">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="shortcut icon" href="{{ asset('assets-cms/favicon.ico') }}"/>
 <link rel="apple-touch-icon" href="{{ asset('assets-cppri/images/flag.jpg') }}">
 <link href="{{ asset('assets-cppri/css/base.css') }}" rel="stylesheet">
@@ -44,7 +45,4 @@
 <script src="{{ asset('assets-cppri/js/toastr.min.js')}}"></script>
 <script src="{{ asset('assets-cppri/js/jquery.marquee.js')}}"></script>
 <!-- <script src="{{ asset('assets-cppri/js/jquery.marquee.min.js')}}"></script> -->
-<meta name="csrf-token" content="{{ csrf_token() }}">
-<script>
-    var baseUrl1 = {!! json_encode(url('/')) !!}
-</script>
+<script>var baseUrl1 = {!! json_encode(url('/')) !!}</script>
