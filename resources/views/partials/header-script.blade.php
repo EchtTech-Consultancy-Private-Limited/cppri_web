@@ -45,12 +45,4 @@
 <script src="{{ asset('assets-cppri/js/toastr.min.js')}}"></script>
 <script src="{{ asset('assets-cppri/js/jquery.marquee.js')}}"></script>
 <!-- <script src="{{ asset('assets-cppri/js/jquery.marquee.min.js')}}"></script> -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SJ6KQSQQCM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SJ6KQSQQCM');
-</script> 
 <script>var baseUrl1 = {!! json_encode(url('/')) !!}</script>
