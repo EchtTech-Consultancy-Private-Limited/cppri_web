@@ -54,8 +54,11 @@ return [
     'Feedback'=>'Feedback',
     'Search_Page'=>'Search Page',
     'RTI'=>'RTI',
-    'Career'=>'Career'
-
+    'Career'=>'Career',
+    'comming_soon' => "Coming Soon",
+    "academic_program" => "Academic Program",
+    "more_details" => "More Details",
+    "training_program" => "Training Program",
 ];
 
 
