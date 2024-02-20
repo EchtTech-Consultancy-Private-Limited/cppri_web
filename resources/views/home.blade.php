@@ -83,7 +83,11 @@
                             </span>
                             @endforeach
                             @else
-                            <h5>Coming Soon...</h5>
+                                @if (Session::get('Lang') == 'hi')
+                                    <h5>{{ __('messages.comming_soon') }}</h5>
+                                @else
+                                    <h5>{{ __('messages.comming_soon') }}</h5>
+                                @endif
                             @endif
                         </div>
                     </div>
@@ -125,8 +129,12 @@
                         @endif
                     </p>
                     <a href="{{url('about-us/overview')}}" title="Click here to know more"
-                        class="change-border-color-text">Read
-                        more
+                        class="change-border-color-text">
+                        @if (Session::get('Lang') == 'hi')
+                        {{ __('messages.Read_More') }}
+                        @else
+                        {{ __('messages.Read_More') }}
+                        @endif
                         <i class="fa fa-angle-right"></i></a>
                 </div>
                 <div
@@ -137,11 +145,20 @@
                                 <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
                                         alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>
                                 <div class="min-info">
-                                    <h4>Dr. M K Gupta</h4>
+                                    @if (Session::get('Lang') == 'hi')
+                                    <h4>डॉ. एम. के. गुप्ता</h4>
+                                    <h5><a href="{{url('about-us/director-desk')}}"
+                                            title="कोयला मंत्री"><span>निदेशक
+                                            </span></a>
+                                    </h5>
+                                    @else
+                                    <h4>Dr. M. K. Gupta</h4>
                                     <h5><a href="{{url('about-us/director-desk')}}"
                                             title="Minister of Coal"><span>Director
                                             </span></a>
                                     </h5>
+                                    @endif
+                                  
                                 </div>
                             </div>
                             <!-- <div class="minister-sub col-md-6">
@@ -470,7 +487,11 @@
                                                             </li>
                                                             @endforeach
                                                             @else
-                                                            <li class="list-unstyled border-0">Coming Soon...</li>
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                    <li class="list-unstyled border-0">{{ __('messages.comming_soon') }}</li>
+                                                                @else
+                                                                    <li class="list-unstyled border-0">{{ __('messages.comming_soon') }}</li>
+                                                                @endif
                                                             @endif
                                                             {{-- <li>
                                                             <div class="list-content">
@@ -565,7 +586,11 @@
                                                             </li>
                                                             @endforeach
                                                             @else
-                                                            <li class="border-0 list-unstyled">Coming Soon...</li>
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                    <li class="list-unstyled border-0">{{ __('messages.comming_soon') }}</li>
+                                                                @else
+                                                                    <li class="list-unstyled border-0">{{ __('messages.comming_soon') }}</li>
+                                                                @endif
                                                             @endif
                                                             {{-- <li>
                                                             <div class="list-content">Description of Press Release 1
@@ -664,7 +689,11 @@
                                                             </li>
                                                             @endforeach
                                                             @else
-                                                            <li class="list-unstyled border-0">Coming Soon...</li>
+                                                                @if (Session::get('Lang') == 'hi')
+                                                                    <li class="list-unstyled border-0">{{ __('messages.comming_soon') }}</li>
+                                                                @else
+                                                                    <li class="list-unstyled border-0">{{ __('messages.comming_soon') }}</li>
+                                                                @endif
                                                             @endif
 
                                                         </ul>
@@ -775,21 +804,47 @@
                             <div class="col-md-4 p-0">
                                 <div class="new-thumb">
                                     <div>
-                                        <span class="cat c1 change-color-code">Academic Program</span> <img
-                                            src="{{ asset('assets-cppri/images/msc.jpg') }}" alt="Academic Program">
+                                        <span class="cat c1 change-color-code">
+                                            @if (Session::get('Lang') == 'hi')
+                                                {{ __('messages.academic_program') }}
+                                            @else
+                                                {{ __('messages.academic_program') }}
+                                            @endif
+                                        </span> 
+                                        <img src="{{ asset('assets-cppri/images/msc.jpg') }}" alt="Academic Program">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-8 p-0">
                                 <div class="new-txt">
-                                    <h6><a href="{{url('academic-program')}}">Academic Program</a></h6>
-                                    <span class="duration">Duration- Two year (4 semesters) </span>
-                                    <p> To meet the Indian Pulp &amp; Paper Industry’s requirement of technically
-                                        trained manpower, Forest
-                                        Research University ( Deemed University)...
-                                    </p>
+                                    <h6><a href="{{url('academic-program')}}">
+                                        @if (Session::get('Lang') == 'hi')
+                                            {{ __('messages.academic_program') }}
+                                        @else
+                                            {{ __('messages.academic_program') }}
+                                        @endif
+                                    </a></h6>
+                                    <span class="duration">
+                                        @if (Session::get('Lang') == 'hi')
+                                            अवधि - दो वर्ष (4 सेमेस्टर) </span>
+                                            <p> भारतीय पल्प से मिलने के लिए &amp; कागज उद्योग की तकनीकी आवश्यकता
+                                                प्रशिक्षित जनशक्ति, वन
+                                                रिसर्च यूनिवर्सिटी (डीम्ड यूनिवर्सिटी)...
+                                            </p>
+                                        @else
+                                            Duration- Two year (4 semesters) </span>
+                                            <p> To meet the Indian Pulp &amp; Paper Industry’s requirement of technically
+                                                trained manpower, Forest
+                                                Research University ( Deemed University)...
+                                            </p>
+                                        @endif                                        
                                     <a class="button change-text-color"
-                                        href="{{url('academic/academic-program/m-sc-program')}}">More Details
+                                        href="{{url('academic/academic-program/m-sc-program')}}">
+                                        @if (Session::get('Lang') == 'hi')
+                                            {{ __('messages.more_details') }}
+                                        @else
+                                            {{ __('messages.more_details') }}
+                                        @endif
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -804,20 +859,46 @@
                             <div class="col-md-4 p-0">
                                 <div class="new-thumb">
                                     <div>
-                                        <span class="cat c1 change-color-code">Training Program</span> <img
+                                        <span class="cat c1 change-color-code">
+                                            @if (Session::get('Lang') == 'hi')
+                                                {{ __('messages.training_program') }}
+                                            @else
+                                                {{ __('messages.training_program') }}
+                                            @endif    
+                                        </span> <img
                                             src="{{ asset('assets-cppri/images/phd.jpg') }}" alt="">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-8 p-0">
                                 <div class="new-txt">
-                                    <h6><a href="{{url('academic-program')}}">Training Program</a></h6>
-                                    <span class="duration">Duration- Depends on program stream </span>
-                                    <p> Implementing a comprehensive and well-structured training program is essential
-                                        for fostering optimal ...
-                                    </p>
+                                    <h6><a href="{{url('academic-program')}}">
+                                        @if (Session::get('Lang') == 'hi')
+                                            {{ __('messages.training_program') }}
+                                        @else
+                                            {{ __('messages.training_program') }}
+                                        @endif
+                                    </a></h6>
+                                    <span class="duration">
+                                        @if (Session::get('Lang') == 'hi')
+                                            अवधि- प्रोग्राम स्ट्रीम पर निर्भर करता है
+                                            <p> एक व्यापक और अच्छी तरह से संरचित प्रशिक्षण कार्यक्रम लागू करना आवश्यक है
+                                                इष्टतम को बढ़ावा देने के लिए...
+                                            </p>
+                                        @else
+                                            Duration- Depends on program stream </span>
+                                            <p> Implementing a comprehensive and well-structured training program is essential
+                                                for fostering optimal ...
+                                            </p>
+                                        @endif
+                                        
                                     <a class="button change-text-color"
-                                        href="{{url('academic/training-program')}}">More Details
+                                        href="{{url('academic/training-program')}}">  
+                                            @if (Session::get('Lang') == 'hi')
+                                                {{ __('messages.more_details') }}
+                                            @else
+                                                {{ __('messages.more_details') }}
+                                            @endif
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -1038,7 +1119,13 @@
                     <div class="gallery-lbox new_gall_boxhead_change">
                         <div class="content">
                             <div class="sec-title3 text-center  ">
-                                <h2 class="title mb-10">Photo Gallery</h2>
+                                <h2 class="title mb-10"> 
+                                    @if (Session::get('Lang') == 'hi')
+                                        {{ __('messages.Photo_Gallery') }}
+                                    @else
+                                        {{ __('messages.Photo_Gallery') }}
+                                    @endif
+                                </h2>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -1074,8 +1161,13 @@
                         </div>
                         <div class="btn-view_play">
                             <div class="btn-part  text-center">
-                                <a class="readon2" href="{{ route('photo-gallery') }}" rel="noopener noreferrer">View
-                                    All</a>
+                                <a class="readon2" href="{{ route('photo-gallery') }}" rel="noopener noreferrer"> 
+                                    @if (Session::get('Lang') == 'hi')
+                                        {{ __('messages.View_all') }}
+                                    @else
+                                        {{ __('messages.View_all') }}
+                                    @endif
+                                </a>
                             </div>
                             <div class="btns">
                                 <div id="customPreviousBtn3"><i class="fa fa-angle-left" aria-hidden="true"></i>
@@ -1093,7 +1185,13 @@
                     <div class="gallery-lbox video-sec new_gall_boxhead_change">
                         <div class="content">
                             <div class="sec-title3 text-center ">
-                                <h2 class="title mb-10">Video Gallery</h2>
+                                <h2 class="title mb-10"> 
+                                    @if (Session::get('Lang') == 'hi')
+                                        {{ __('messages.video_gallery') }}
+                                    @else
+                                        {{ __('messages.video_gallery') }}
+                                    @endif
+                                </h2>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -1131,8 +1229,13 @@
                         <div class="btn-view_play">
                             <div class="btn-part  text-center">
                                 <a class="readon2 mt-2" href="{{ route('video-gallery') }}"
-                                    rel="noopener noreferrer" tabindex="0">View
-                                    All</a>
+                                    rel="noopener noreferrer" tabindex="0">
+                                    @if (Session::get('Lang') == 'hi')
+                                        {{ __('messages.View_all') }}
+                                    @else
+                                        {{ __('messages.View_all') }}
+                                    @endif
+                                </a>
                             </div>
                             <div class="btns">
                                 <div id="customPreviousBtn4"><i class="fa fa-angle-left" aria-hidden="true"></i>
