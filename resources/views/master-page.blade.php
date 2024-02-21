@@ -204,12 +204,12 @@
                 @endif
                 {{-- <div class="col-md-9 m-p-0"> --}}
                 <div class="main-content ditiector-desk">
-                    <!--/#skipCont-->                    
+                    <!--/#skipCont-->
                     <div id="fontSize" class="wrapper body-wrapper ">
                         @if (isset($content))
                             <h1>{{ $content }}</h1>
                         @endif
-                        @if (isset($organizedData) && isset($organizedData['metatag']) != '')                                           
+                        @if (isset($organizedData) && isset($organizedData['metatag']) != '')
                             <section id="paragraph" class="wrapper paragraph-wrapper">
                                 <div class="container common-container four_content pm-0">
                                     <div class="align-lt">
@@ -306,7 +306,7 @@
                                     </div>
                                 </div>
                             </section>
-                        @endif                        
+                        @endif
                         @if (isset($Director) && $Director != '')
                             <section id="paragraph" class="wrapper paragraph-wrapper director-desk-container">
                                 <div class="common-container four_content">
@@ -319,262 +319,234 @@
                                                 {{ __('messages.Director_Desk') }}
                                             @endif
                                         </h2>
-                                        {{-- @if ($Director->public_url != '')
-                                            <img src="{{ asset('resources/uploads/empDirectory/' . $Director->public_url) }}"
-                                            alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
-                                            title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
-                                            loading="lazy">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="addevent-box text-center">
+                                        <div class="profile-img">
+                                            @if ($Director->public_url != '')
+                                                <img src="{{ asset('resources/uploads/empDirectory/' . $Director->public_url) }}"
+                                                    alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                    title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                    loading="lazy">
+                                            @else
+                                                <img src="{{ asset('assets-cppri/images/profile--.jpg') }}"
+                                                    alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                    title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
+                                                    loading="lazy">
+                                            @endif
+                                            <h4 class="pb-10" tabindex="0">
+                                                @if (Session::get('Lang') == 'hi')
+                                                    {{ $Director->fname_hi ?? '' }}
+                                                    {{ $Director->mname_hi ?? '' }}
+                                                    {{ $Director->lname_hi ?? '' }}
+                                                @else
+                                                    {{ $Director->fname_en ?? '' }}
+                                                    {{ $Director->mname_en ?? '' }}
+                                                    {{ $Director->lname_en ?? '' }}
+                                                @endif
+
+
+
+                                            </h4>
+                                        </div>
+
+
+
+                                    </div>
+                                    <p>
+
+
+                                        @if (Session::get('Lang') == 'hi')
+                                            {!! $Director->description_hi !!}
                                         @else
-                                            <img src="{{ asset('assets-cppri/images/profile--.jpg') }}"
-                                            alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
-                                            title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
-                                            loading="lazy">
+                                            {!! $Director->description_en !!}
                                         @endif
 
+                                    </p>
 
-                                        <h4 class="pb-10" tabindex="0">
+                                </div>
+                    </div>
+
+
+                </div>
+                </section>
+                @endif
+                @if (isset($sortedDesignationData) && count($sortedDesignationData) > 0)
+                    @foreach ($sortedDesignationData as $item)
+                        @if ($item['department']->name_en == 'Director')
+                            <div class="row">
+                                <div class="col-md-12 display-content  ">
+                                    <div class="employee-directry-type employee-dir-page pt-4">
+                                        <div data-aos-mirror="true" data-aos="fade-right" class="title-before">
+                                        </div>
+                                        <h3>
 
                                             @if (Session::get('Lang') == 'hi')
-                                                {{ $Director->fname_hi ?? '' }}
-                                                {{ $Director->mname_hi ?? '' }}
-                                                {{ $Director->lname_hi ?? '' }}
+                                                <h2>{{ $item['department']->name_hi ?? '' }}</h2>
                                             @else
-                                                {{ $Director->fname_en ?? '' }}
-                                                {{ $Director->mname_en ?? '' }}
-                                                {{ $Director->lname_en ?? '' }}
+                                                <h2>{{ $item['department']->name_en ?? '' }}</h2>
                                             @endif
-                                        </h4> --}}
-                                    </div>
-                                </div>
-                                        <div class="col-md-12 col-lg-12">
-                                            <div class="addevent-box text-center">
-                                                <div class="profile-img">
-                                                    @if ($Director->public_url != '')
-                                                        <img src="{{ asset('resources/uploads/empDirectory/' . $Director->public_url) }}"
-                                                            alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
-                                                            title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
-                                                            loading="lazy">
-                                                    @else
-                                                        <img src="{{ asset('assets-cppri/images/profile--.jpg') }}"
-                                                            alt="{{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
-                                                            title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
-                                                            loading="lazy">
-                                                    @endif
-                                                    <h4 class="pb-10" tabindex="0">
-                                                        @if (Session::get('Lang') == 'hi')
-                                                            {{ $Director->fname_hi ?? '' }}
-                                                            {{ $Director->mname_hi ?? '' }}
-                                                            {{ $Director->lname_hi ?? '' }}
-                                                        @else
-                                                            {{ $Director->fname_en ?? '' }}
-                                                            {{ $Director->mname_en ?? '' }}
-                                                            {{ $Director->lname_en ?? '' }}
-                                                        @endif
 
 
-
-                                                    </h4>
-                                                </div>
-
-
-
-                                            </div>
-                                            <p>
-
-
-                                                @if (Session::get('Lang') == 'hi')
-                                                    {!! $Director->description_hi !!}
-                                                @else
-                                                    {!! $Director->description_en !!}
-                                                @endif
-
-                                            </p>
-
+                                        </h3>
+                                        <div data-aos-mirror="true" data-aos="fade-left" class="title-after">
                                         </div>
                                     </div>
-
-
                                 </div>
-                            </section>                   
-                        
-                        @endif
-                        @if (isset($sortedDesignationData) && count($sortedDesignationData) > 0)
-                            @foreach ($sortedDesignationData as $item)
-                                @if ($item['department']->name_en == 'Director')
-                                    <div class="row">
-                                        <div class="col-md-12 display-content  ">
-                                            <div class="employee-directry-type employee-dir-page pt-4">
-                                                <div data-aos-mirror="true" data-aos="fade-right" class="title-before">
-                                                </div>
-                                                <h3>
+                                @if (isset($item['data']) && count($item['data']) > 0)
+                                    @foreach ($item['data'] as $profile)
+                                        <div class="direct-centre emp-card-det">
+                                            <div class="card-emp-dir">
+
+                                                <div class="emp-crddir-inf">
+                                                    <div class="img-circle-prof">
+                                                        <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
+                                                @else
+                                                src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif
+                                                            alt=""
+                                                            tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }}
+                                                {{ $profile->lname_en ?? '' }}">
+                                                    </div>
+
+
 
                                                     @if (Session::get('Lang') == 'hi')
-                                                        <h2>{{ $item['department']->name_hi ?? '' }}</h2>
+                                                        <h3> {{ $profile->fname_hi ?? '' }}
+                                                            {{ $profile->mname_hi ?? '' }}
+                                                            {{ $profile->lname_hi ?? '' }}</h3>
                                                     @else
-                                                        <h2>{{ $item['department']->name_en ?? '' }}</h2>
+                                                        <h3> {{ $profile->fname_en ?? '' }}
+                                                            {{ $profile->mname_en ?? '' }}
+                                                            {{ $profile->lname_en ?? '' }}</h3>
                                                     @endif
 
 
-                                                </h3>
-                                                <div data-aos-mirror="true" data-aos="fade-left" class="title-after">
+
+                                                    @if (Session::get('Lang') == 'hi')
+                                                        <h5>({{ $profile->desi_name_hi ?? '' }})</h5>
+                                                    @else
+                                                        <h5>({{ $profile->desi_name_en ?? '' }})</h5>
+                                                    @endif
+
+                                                    @if ($profile->landline_number != '' && $profile->landline_number != null)
+                                                        <p><strong><i class="fa fa-phone"></i> :</strong>
+                                                            {{ $profile->landline_number ?? '' }} </p>
+                                                    @else
+                                                        <p><strong><i class="fa fa-phone"></i> :</strong>
+                                                            {{ $profile->mobile }}
+                                                        </p>
+                                                    @endif
+
+                                                    <p>{{ $profile->extention_number ?? '' }}</p>
+
+
+                                                    <?php
+                                                    $email_address = $profile->email;
+                                                    $str = $email_address;
+                                                    $var = str_replace('@', '[at]', $str);
+                                                    $email = str_replace('.', '[dot]', $var);
+                                                    ?>
+
+                                                    <p><strong><i class="fa fa-envelope-o mr-2" aria-hidden="true"></i>
+                                                            :</strong>
+                                                        <span>{{ $email ?? '' }}</span>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
-                                        @if (isset($item['data']) && count($item['data']) > 0)
-                                            @foreach ($item['data'] as $profile)
-                                                <div class="direct-centre emp-card-det">
-                                                    <div class="card-emp-dir">
-
-                                                        <div class="emp-crddir-inf">
-                                                            <div class="img-circle-prof">
-                                                                <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
-                                                @else
-                                                src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif
-                                                                    alt=""
-                                                                    tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }}
-                                                {{ $profile->lname_en ?? '' }}">
-                                                            </div>
-
-
-
-                                                            @if (Session::get('Lang') == 'hi')
-                                                                <h3> {{ $profile->fname_hi ?? '' }}
-                                                                    {{ $profile->mname_hi ?? '' }}
-                                                                    {{ $profile->lname_hi ?? '' }}</h3>
-                                                            @else
-                                                                <h3> {{ $profile->fname_en ?? '' }}
-                                                                    {{ $profile->mname_en ?? '' }}
-                                                                    {{ $profile->lname_en ?? '' }}</h3>
-                                                            @endif
-
-
-
-                                                            @if (Session::get('Lang') == 'hi')
-                                                                <h5>({{ $profile->desi_name_hi ?? '' }})</h5>
-                                                            @else
-                                                                <h5>({{ $profile->desi_name_en ?? '' }})</h5>
-                                                            @endif
-
-                                                            @if ($profile->landline_number != '' && $profile->landline_number != null)
-                                                                <p><strong><i class="fa fa-phone"></i> :</strong>
-                                                                    {{ $profile->landline_number ?? '' }} </p>
-                                                            @else
-                                                                <p><strong><i class="fa fa-phone"></i> :</strong>
-                                                                    {{ $profile->mobile }}
-                                                                </p>
-                                                            @endif
-
-                                                            <p>{{ $profile->extention_number ?? '' }}</p>
-
-
-                                                            <?php
-                                                            $email_address = $profile->email;
-                                                            $str = $email_address;
-                                                            $var = str_replace('@', '[at]', $str);
-                                                            $email = str_replace('.', '[dot]', $var);
-                                                            ?>
-
-                                                            <p><strong><i class="fa fa-envelope-o mr-2"
-                                                                        aria-hidden="true"></i>
-                                                                    :</strong>
-                                                                <span>{{ $email ?? '' }}</span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        @endif
-
-                                    </div>
-                                @else
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="employee-directry-type employee-dir-page">
-                                                <div data-aos-mirror="true" data-aos="fade-right" class="title-before">
-                                                </div>
-
-                                                @if (Session::get('Lang') == 'hi')
-                                                    <h2>{{ $item['department']->name_hi ?? '' }}</h2>
-                                                @else
-                                                    <h2>{{ $item['department']->name_en ?? '' }}</h2>
-                                                @endif
-
-                                                <div data-aos-mirror="true" data-aos="fade-left" class="title-after">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @if (isset($item['data']) && count($item['data']) > 0)
-                                            @foreach ($item['data'] as $profile)
-                                                <div class="col-md-6 col-lg-4 emp-card-det">
-                                                    <div class="card-emp-dir emp-dir-main">
-
-                                                        <div class="emp-crddir-inf">
-                                                            <div class="img-circle-prof">
-                                                                <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
-                                                @else
-                                                src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif
-                                                                    alt=""
-                                                                    tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }}
-                                                {{ $profile->lname_en ?? '' }}">
-                                                            </div>
-
-                                                            @if (Session::get('Lang') == 'hi')
-                                                                <h3> {{ $profile->fname_hi ?? '' }}
-                                                                    {{ $profile->mname_hi ?? '' }}
-                                                                    {{ $profile->lname_hi ?? '' }}</h3>
-                                                            @else
-                                                                <h3> {{ $profile->fname_en ?? '' }}
-                                                                    {{ $profile->mname_en ?? '' }}
-                                                                    {{ $profile->lname_en ?? '' }}</h3>
-                                                            @endif
-
-                                                            @if (Session::get('Lang') == 'hi')
-                                                                <h5>({{ $profile->desi_name_hi ?? '' }})</h5>
-                                                            @else
-                                                                <h5>({{ $profile->desi_name_en ?? '' }})</h5>
-                                                            @endif
-
-
-                                                            @if ($profile->landline_number != '' && $profile->landline_number != null)
-                                                                <p><strong><i class="fa fa-phone"></i> :</strong>
-                                                                    {{ $profile->landline_number ?? '' }} </p>
-                                                            @else
-                                                                <p><strong><i class="fa fa-phone"></i> :</strong>
-                                                                    {{ $profile->mobile }}
-                                                                </p>
-                                                            @endif
-
-
-                                                            <p> {{ $profile->extention_number ?? '' }}</p>
-
-                                                            <?php
-                                                            $email_address = $profile->email;
-                                                            $str = $email_address;
-                                                            $var = str_replace('@', '[at]', $str);
-                                                            $email = str_replace('.', '[dot]', $var);
-                                                            ?>
-
-                                                            <p class="email-text-styl"><i
-                                                                    class="fa fa-envelope-o mr-2 w-10"
-                                                                    aria-hidden="true"></i>
-                                                                {{ $email }}
-                                                            </p>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        @endif
-                                    </div>
+                                    @endforeach
                                 @endif
-                            @endforeach
+
+                            </div>
+                        @else
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="employee-directry-type employee-dir-page">
+                                        <div data-aos-mirror="true" data-aos="fade-right" class="title-before">
+                                        </div>
+
+                                        @if (Session::get('Lang') == 'hi')
+                                            <h2>{{ $item['department']->name_hi ?? '' }}</h2>
+                                        @else
+                                            <h2>{{ $item['department']->name_en ?? '' }}</h2>
+                                        @endif
+
+                                        <div data-aos-mirror="true" data-aos="fade-left" class="title-after">
+                                        </div>
+                                    </div>
+                                </div>
+                                @if (isset($item['data']) && count($item['data']) > 0)
+                                    @foreach ($item['data'] as $profile)
+                                        <div class="col-md-6 col-lg-4 emp-card-det">
+                                            <div class="card-emp-dir emp-dir-main">
+
+                                                <div class="emp-crddir-inf">
+                                                    <div class="img-circle-prof">
+                                                        <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
+                                                @else
+                                                src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif
+                                                            alt=""
+                                                            tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }}
+                                                {{ $profile->lname_en ?? '' }}">
+                                                    </div>
+
+                                                    @if (Session::get('Lang') == 'hi')
+                                                        <h3> {{ $profile->fname_hi ?? '' }}
+                                                            {{ $profile->mname_hi ?? '' }}
+                                                            {{ $profile->lname_hi ?? '' }}</h3>
+                                                    @else
+                                                        <h3> {{ $profile->fname_en ?? '' }}
+                                                            {{ $profile->mname_en ?? '' }}
+                                                            {{ $profile->lname_en ?? '' }}</h3>
+                                                    @endif
+
+                                                    @if (Session::get('Lang') == 'hi')
+                                                        <h5>({{ $profile->desi_name_hi ?? '' }})</h5>
+                                                    @else
+                                                        <h5>({{ $profile->desi_name_en ?? '' }})</h5>
+                                                    @endif
+
+
+                                                    @if ($profile->landline_number != '' && $profile->landline_number != null)
+                                                        <p><strong><i class="fa fa-phone"></i> :</strong>
+                                                            {{ $profile->landline_number ?? '' }} </p>
+                                                    @else
+                                                        <p><strong><i class="fa fa-phone"></i> :</strong>
+                                                            {{ $profile->mobile }}
+                                                        </p>
+                                                    @endif
+
+
+                                                    <p> {{ $profile->extention_number ?? '' }}</p>
+
+                                                    <?php
+                                                    $email_address = $profile->email;
+                                                    $str = $email_address;
+                                                    $var = str_replace('@', '[at]', $str);
+                                                    $email = str_replace('.', '[dot]', $var);
+                                                    ?>
+
+                                                    <p class="email-text-styl"><i class="fa fa-envelope-o mr-2 w-10"
+                                                            aria-hidden="true"></i>
+                                                        {{ $email }}
+                                                    </p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
                         @endif
+                    @endforeach
+                @endif
 
 
-                    </div>
-                </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
     </div>
 

@@ -32,12 +32,12 @@ class HomeController extends Controller
         $titleName = 'Career';
         $final_data = [];
         try {
-           $uuids= DB::table('career_management_details')
-            ->where('status', 3)
+            $uuids = DB::table('career_management_details')
+            // ->where('status', 3)
             ->where('soft_delete', 0)
-            ->whereDate('archivel_date', '>=', now()->toDateString())
-            ->get()->pluck('career_management_id');
-
+            ->where('archivel_date', '>=', now()->toDateString()) // Fix the variable name here
+            ->get()
+            ->pluck('career_management_id');
             $career = DB::table('career_management')
                 ->where('status', 3)
                 ->where('soft_delete', 0)
@@ -49,7 +49,7 @@ class HomeController extends Controller
                     $obj = new \stdClass;
                     $obj->career= $c;
                     $obj->career->career_doc =  DB::table('career_management_details')
-                    ->where('status', 3)
+                    // ->where('status', 3)
                     ->where('soft_delete', 0)
                     ->where('career_management_id', $c->uid)
                     ->whereDate('archivel_date', '>=', now()->toDateString())
@@ -78,28 +78,31 @@ class HomeController extends Controller
         $titleName = 'Career Archive';
         try {
 
+            $uuids = DB::table('career_management_details')
+            // ->where('status', 3)
+            ->where('soft_delete', 0)
+            ->where('archivel_date', '<', now()->toDateString()) // Fix the variable name here
+            ->get()
+            ->pluck('career_management_id');
             $career = DB::table('career_management')
                 ->where('status', 3)
-                ->orderBy('start_date', 'desc')
                 ->where('soft_delete', 0)
+                ->whereIn('uid',$uuids)
+                ->latest('created_at')
                 ->get();
 
-            $final_data = [];
+                foreach($career as $c){
+                    $obj = new \stdClass;
+                    $obj->career= $c;
+                    $obj->career->career_doc =  DB::table('career_management_details')
+                    // ->where('status', 3)
+                    ->where('soft_delete', 0)
+                    ->where('career_management_id', $c->uid)
+                    ->whereDate('archivel_date', '<', now()->toDateString())
+                    ->latest('created_at')
+                    ->get();
 
-                if($career && count($career) > 0){
-                    foreach($career as $c){
-                        $obj = new \stdClass;
-                        $obj->career= $c;
-                        $obj->career->career_doc =  DB::table('career_management_details')
-                        ->where('status', 3)
-                        ->orderBy('start_date', 'desc')
-                        ->where('soft_delete', 0)
-                        ->where('career_management_id', $c->uid)
-                        ->whereDate('archivel_date', '<', now()->toDateString())
-                        ->get();
-
-                        $final_data[] = $obj;                    
-                    }
+                    $final_data[] = $obj;                    
                 }
                 // dd($final_data);
             return view('pages.careerArchive', ['title' => $titleName, 'final_data' => $final_data]);
@@ -768,11 +771,6 @@ class HomeController extends Controller
         return response()->json(['success' => 'Record Add Successfully']);
     }
 
-    // public function showPressReleased()
-    // {
-    //     $titleName = 'Show Press Releaed';
-    //     return view('pages.press_relesead', ['title' => $titleName]);
-    // }
     public function photoGallery()
     {
         $titleName = 'Photo Gallery';
