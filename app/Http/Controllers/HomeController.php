@@ -140,7 +140,6 @@ class HomeController extends Controller
                 foreach ($tenders as $tender) {
                     $tender_pdfs = DB::table('tender_details')
                         ->where('soft_delete', 0)
-                        ->where('status', 3)
                         ->orderBy('created_at', 'asc')
                         ->where('tender_id', $tender->uid)
                         ->whereDate('archivel_date', '>=', now()->toDateString())
@@ -190,7 +189,6 @@ class HomeController extends Controller
             if (count($tenders) > 0) {
                 foreach ($tenders as $tender) {
                     $tender_pdfs = DB::table('tender_details')
-                        ->where('status', 3)
                         ->where('soft_delete', 0)
                         ->where('tender_id', $tender->uid)
                         ->whereDate('archivel_date', '<', now()->toDateString())

@@ -671,7 +671,7 @@ $('#submitForm').click(function (e) {
             console.log(response)          
             if (response.success) {
                 $('#contact_form')[0].reset();
-                $('#contact-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Your### information successfully done.</div></div></div>');
+                $('#contact-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Your information successfully done.</div></div></div>');
             } else if (response.captchaError){
                 $('#contact-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-error" aria-live="assertive" style="display: block;"><div class="toast-message">Captcha Invalid .</div></div></div>');
             } else {
@@ -719,7 +719,7 @@ $('#feedback_button').click(function (e) {
         success: function (response) {            
             if (response.success) {
                 $('#feedback_form')[0].reset();
-                $('#response-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Your### information successfully done.</div></div></div>');                
+                $('#response-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Your information successfully done.</div></div></div>');                
             } else if (response.captchaError){
                 $('#response-error').html('<div id="toast-container" class="toast-top-right"><div class="toast toast-error" aria-live="assertive" style="display: block;"><div class="toast-message">Captcha Invalid.</div></div></div>');              
             } else {
