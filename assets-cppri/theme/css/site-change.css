@@ -174,3 +174,11 @@ label.security-code span.text-danger{color:#000!important}
 .bg-white{background-color:#000!important}
 .info1 .more{background-color:#000!important}
 .search-page nav[role=navigation] div:nth-child(2) div span[aria-current=page] span{background-color:#fff!important;color:#000!important}
+
+.cppri-contact-form .text-danger{
+  color: red !important;
+}
+
+li.nav-item.activemenu {
+    background: #222222 !important;
+}

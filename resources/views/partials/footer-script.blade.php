@@ -5,8 +5,8 @@
 <script src="{{ asset('assets-cppri/js/owl.carousel.min.js') }}"></script>
 
 <script src="{{ asset('assets-cppri/js/jquery.marquee.js')}}"></script>
-<script src="{{ asset('assets-cppri/js/jquery.marquee.min.js')}}"></script>
-<script src="{{ asset('assets-cppri/js/jquery.marquee-horizantal.js')}}"></script>
+<!-- <script src="{{ asset('assets-cppri/js/jquery.marquee.min.js')}}"></script> -->
+<!-- <script src="{{ asset('assets-cppri/js/jquery.marquee-horizantal.js')}}"></script> -->
 <!-- <script src="{{ asset('assets-cppri/js/jquery.marqueedirection.js')}}"></script> -->
 
 <!-- Modal popup End -->
