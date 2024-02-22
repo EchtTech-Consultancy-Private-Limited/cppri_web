@@ -450,7 +450,19 @@ a.home span{display:none}
 .main-menu{margin-bottom:0}
 .news-section{width:100%;border-top:1px solid #eae9e7;border-bottom:1px solid #eae9e7;margin:auto;min-height:44px;margin-top:4px;padding-top:4px}
 .news-section-inner{max-width:1020px;margin:auto;padding:0 0}
-.notification{color:red;font-size:120%;font-weight:600;text-transform:uppercase;position:absolute;left:0}
+
+.notification .page-tab .list-content, .press_released .page-tab .list-content{
+           width: 95% !important;
+ }
+ .notification .resp-tabs-container ul.list li:before, .press_released .resp-tabs-container ul.list li:before {
+    display: inline-block;
+    content: "\f101";
+    font-family: 'fontAwesome';
+    margin-right: 0.5rem;
+    margin-top: 6px;
+    font-size: 17px;
+    color: #a80000;
+}
 .news-section ul li span{float:left;background-size:4px;background:url(../images/footer-bottom-bg.png) no-repeat 0 8px;padding-left:10px}
 .news-section ul li strong{background-color:#fff101;padding:2px;color:red;float:left;margin-right:15px;text-transform:uppercase}
 .news-section-inner ul li{display:inline-block;width:32%;float:left}
@@ -558,11 +570,18 @@ a.portgolio-button:hover{color:var(--primary-color);border:1px solid var(--secon
 .minister .minister-sub h4{font-weight:700;font-size:92%;text-transform:uppercase;padding:0 5px}
 .minister .min-info h5.prime{margin-bottom:14px}
 .minister-sub1:after{content:" ";position:absolute;left:43%;bottom:-2px;border:2px solid #ec4933;width:50px;display:none}
-.scroll-left,.scroll-text,.scroll-text-1{overflow:hidden;position:relative;height:308px;padding:10px 15px;border-bottom:1px solid #ddd}
+.scroll-left{overflow:hidden;position:relative;height:308px;padding:10px 15px;border-bottom:1px solid #ddd}
 .scroll-left ul:hover{animation-play-state:paused}
  .scroll-animation{position:absolute;width:100%;}
+
+ .scroll-left:has(.list.scroll-animation.stop){
+    overflow-y: auto;
+    scrollbar-width: thin;
+ }
  .scroll-left ul.list.scroll-animation.stop{
     animation-play-state: paused !important;
+    position: static;
+    transform: translateY(0) !important;
  }
 @-moz-keyframes scroll-left{
 0%{-moz-transform:translateY(100%)}
@@ -948,7 +967,7 @@ table.dataTable.display>tbody>tr.odd>*,table.dataTable.stripe>tbody>tr.odd>*{box
 ul.sitemap li a{color:var(--primary-color)!important;font-weight:600!important;line-height:28px!important}
 ul.sitemap li a:hover{color:red!important}
 table.dataTable tbody td{padding:5px 15px;color:#000;font-size:14px}
-.page-tab .scroll-test01,.page-tab .scroll-text01{height:310px;padding:12px 5px}
+/* .page-tab .scroll-test01,.page-tab .scroll-text01{height:310px;padding:12px 5px} */
 .depart-info{background-color:#e4f0ff;padding:60px 0 35px;background-image:url(../images/about-banner.png)!important;background-position:bottom;background-size:cover;background-attachment:fixed}
 .depart-info .deprt-icon-box{background:#fff;border-radius:10px;text-align:center;height:191px;margin:0 0 28px;box-shadow:0 5px 15px 0 rgba(0,0,0,.07);padding:30px 15px;position:relative;transition:all ease-in-out .3s;-webkit-transition:all ease-in-out .3s}
 .depart-info .deprt-icon-box img{margin:0 0 20px;width:75px;height:75px;transition:all ease-in-out .3s;-webkit-transition:all ease-in-out .3s}

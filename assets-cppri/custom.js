@@ -50,12 +50,12 @@ function setlang(e) {
 function changeClass() {
     var e = document.getElementsByClassName("text-slide"),
         t = document.getElementsByClassName("scroll-text");
-    e[0].classList.toggle("pause"), t[0].classList.toggle("scroll-left");
+    e[0].classList.toggle("pause"), t[0].classList.toggle("stop");
 }
 function changeClass01() {
     var e = document.getElementsByClassName("text-slide01"),
         t = document.getElementsByClassName("scroll-text01");
-    e[0].classList.toggle("pause"), t[0].classList.toggle("scroll-left");
+    e[0].classList.toggle("pause"), t[0].classList.toggle("stop");
 }
 function changeClass1() {
     var e = document.getElementById("tender_pause_button");
@@ -606,10 +606,9 @@ pause4.addEventListener("click", function () {
         $(".scroll-animation").each(function () {
             $(this).height() > 200 &&
                 $(this).css({
-                    height: "-webkit-fill-available",
-                    "-moz-animation": "scroll-left 18s linear infinite",
-                    "-webkit-animation": "scroll-left 18s linear infinite",
-                    animation: "scroll-left 18s linear infinite",
+                    // height: "-webkit-fill-available",
+                    "-webkit-animation": "scroll-left 30s linear infinite",
+                    animation: "scroll-left 30s linear infinite",
                     "-webkit-transform" : "translateY(100%)",
                     transform: "translateY(100%)"
                 });

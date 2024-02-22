@@ -437,7 +437,7 @@
                 <div class="row py-md-5 py-0 px-0">
 
                     <div class="col-md-4 col-lg-4 mb-3 mb-md-0 pe-md-0">
-                        <div class="left-col-2 ">
+                        <div class="left-col-2 notification">
                             <div class="page-tab clearfix">
                                 <div class="page-tab-res clearfix">
                                     <div>
@@ -453,12 +453,12 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                        <div class="resp-tabs-container hor_1">
+                                        <div class="resp-tabs-container hor_1 ">
                                             <div class="clearfix">
                                                 <div class="content-wrapper">
                                                     <p class="text-slide pause" onclick="changeClass()"></p>
-                                                    <div class="scroll-text scroll-left p-2">
-                                                        <ul class="list scroll-animation">
+                                                    <div class="scroll-left p-2">
+                                                        <ul class=" scroll-text  list scroll-animation">
                                                             @if (isset($notification) && count($notification) > 0)
                                                             @foreach ($notification as $notifications)
                                                             <li>
@@ -495,7 +495,8 @@
                                                                 {{ __('messages.comming_soon') }}</li>
                                                             @endif
                                                             @endif
-                                                            {{-- <li>
+                                                        {{--
+                                                            <li>
                                                             <div class="list-content">
                                                                 <a href="https://centralpulppaperresearchinstitute.webex.com/centralpulppaperresearchinstitute/j.php?MTID=m639c2a7e8a854b99da321b648df0ade6"
                                                                     target="_blank">Online Public Grievance Redressal
@@ -513,7 +514,25 @@
                                                                     class="text-danger">Click
                                                                     here to apply</a>
                                                             </div>
-                                                        </li> --}}
+                                                        </li> 
+
+                                                        <li>
+                                                                <div class="date">
+                                                                    <span class="change-color-code">
+                                                                        2
+                                                                    </span>
+                                                                    <em>
+                                                                        JAN 2024
+                                                                    </em>
+                                                                </div>
+                                                                <div class="list-content">
+                                                                    <a href="http://localhost/cppri-website/cppri-website/tender" tabindex="0">
+                                                                        Lorem ipsum dolor sit amet consectetur
+                                                                        adipisicing elit.
+                                                                    </a>
+                                                                </div>
+                                                            </li>
+                                                            --}}
                                                         </ul>
                                                     </div>
                                                     <div class="view-footer"><a href="{{route('notification')}}"
@@ -534,7 +553,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4 mb-3 mb-md-0 pe-md-0">
-                        <div class="left-col-2 ">
+                        <div class="left-col-2 press_released">
                             <div class="page-tab clearfix">
                                 <div class="page-tab-res clearfix">
                                     <div>
@@ -550,12 +569,12 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                        <div class="resp-tabs-container hor_1">
+                                        <div class="resp-tabs-container hor_1" >
                                             <div class="clearfix" id="hor_1_tab_item-1">
                                                 <div class="content-wrapper">
                                                     <p class="text-slide01 pause" onclick="changeClass01()"></p>
-                                                    <div class="scroll-text01 scroll-left p-2">
-                                                        <ul class="list scroll-animation">
+                                                    <div class="scroll-left p-2">
+                                                        <ul class="scroll-text01 list scroll-animation">
                                                             @if (isset($press_release) && count($press_release) > 0)
                                                             @foreach ($press_release as $press_releases)
                                                             @php
@@ -596,7 +615,8 @@
                                                                 {{ __('messages.comming_soon') }}</li>
                                                             @endif
                                                             @endif
-                                                            {{-- <li>
+                                                         {{--
+                                                            <li>
                                                             <div class="list-content">Description of Press Release 1
                                                                 goes here
                                                                 mm-dd-yyyy - File type (size) DD-MM-YYYY. </div>
@@ -615,7 +635,8 @@
                                                             <div class="list-content">Description of Press Release 4
                                                                 goes here
                                                                 mm-dd-yyyy - File type (size) DD-MM-YYYY.</div>
-                                                        </li> --}}
+                                                        </li> 
+                                                            --}}
                                                         </ul>
                                                     </div>
                                                     <div class="view-footer"><a href="{{route('press-release')}}"
@@ -659,7 +680,7 @@
                                                 <div class="content-wrapper">
                                                     <p class="text-slide01 pause" onclick="changeClass1()"
                                                         id="tender_pause_button"></p>
-                                                    <div class="scroll-text01 scroll-left p-2" >
+                                                    <div class=" scroll-left p-2" >
                                                         <ul class="list scroll-animation" id="tender_scroll">
                                                             @if (isset($tender_management) && count($tender_management)
                                                             > 0)
@@ -706,22 +727,7 @@
                                                             @endif
                                                             @endif
 
-                                                            <!-- <li>
-                                                                <div class="date">
-                                                                    <span class="change-color-code">
-                                                                        2
-                                                                    </span>
-                                                                    <em>
-                                                                        JAN 2024
-                                                                    </em>
-                                                                </div>
-                                                                <div class="list-content">
-                                                                    <a href="{{ url('tender') }}">
-                                                                        Lorem ipsum dolor sit amet consectetur
-                                                                        adipisicing elit.
-                                                                    </a>
-                                                                </div>
-                                                            </li>
+                                                           {{-- 
                                                             <li>
                                                                 <div class="date">
                                                                     <span class="change-color-code">
@@ -738,86 +744,8 @@
                                                                     </a>
                                                                 </div>
                                                             </li>
-                                                            <li>
-                                                                <div class="date">
-                                                                    <span class="change-color-code">
-                                                                        2
-                                                                    </span>
-                                                                    <em>
-                                                                        JAN 2024
-                                                                    </em>
-                                                                </div>
-                                                                <div class="list-content">
-                                                                    <a href="{{ url('tender') }}">
-                                                                        Lorem ipsum dolor sit amet consectetur
-                                                                        adipisicing elit.
-                                                                    </a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="date">
-                                                                    <span class="change-color-code">
-                                                                        2
-                                                                    </span>
-                                                                    <em>
-                                                                        JAN 2024
-                                                                    </em>
-                                                                </div>
-                                                                <div class="list-content">
-                                                                    <a href="{{ url('tender') }}">
-                                                                        Lorem ipsum dolor sit amet consectetur
-                                                                        adipisicing elit.
-                                                                    </a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="date">
-                                                                    <span class="change-color-code">
-                                                                        2
-                                                                    </span>
-                                                                    <em>
-                                                                        JAN 2024
-                                                                    </em>
-                                                                </div>
-                                                                <div class="list-content">
-                                                                    <a href="{{ url('tender') }}">
-                                                                        Lorem ipsum dolor sit amet consectetur
-                                                                        adipisicing elit.
-                                                                    </a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="date">
-                                                                    <span class="change-color-code">
-                                                                        2
-                                                                    </span>
-                                                                    <em>
-                                                                        JAN 2024
-                                                                    </em>
-                                                                </div>
-                                                                <div class="list-content">
-                                                                    <a href="{{ url('tender') }}">
-                                                                        Lorem ipsum dolor sit amet consectetur
-                                                                        adipisicing elit.
-                                                                    </a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="date">
-                                                                    <span class="change-color-code">
-                                                                        2
-                                                                    </span>
-                                                                    <em>
-                                                                        JAN 2024
-                                                                    </em>
-                                                                </div>
-                                                                <div class="list-content">
-                                                                    <a href="{{ url('tender') }}">
-                                                                        Lorem ipsum dolor sit amet consectetur
-                                                                        adipisicing elit.
-                                                                    </a>
-                                                                </div>
-                                                            </li> -->
+                                                            --}}
+                                                          
 
                                                         </ul>
                                                     </div>
