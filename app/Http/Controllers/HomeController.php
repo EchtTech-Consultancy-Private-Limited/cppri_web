@@ -33,7 +33,6 @@ class HomeController extends Controller
         $final_data = [];
         try {
             $uuids = DB::table('career_management_details')
-                // ->where('status', 3)
                 ->where('soft_delete', 0)
                 ->where('archivel_date', '>=', now()->toDateString()) // Fix the variable name here
                 ->get()
@@ -42,7 +41,7 @@ class HomeController extends Controller
                 ->where('status', 3)
                 ->where('soft_delete', 0)
                 ->whereIn('uid', $uuids)
-                ->latest('created_at')
+                ->orderByRaw("CAST(start_date AS DATE) DESC")
                 ->get();
 
             foreach ($career as $c) {
@@ -53,7 +52,6 @@ class HomeController extends Controller
                     ->where('soft_delete', 0)
                     ->where('career_management_id', $c->uid)
                     ->whereDate('archivel_date', '>=', now()->toDateString())
-                    ->latest('created_at')
                     ->get();
 
                 $final_data[] = $obj;
@@ -88,7 +86,7 @@ class HomeController extends Controller
                 ->where('status', 3)
                 ->where('soft_delete', 0)
                 ->whereIn('uid', $uuids)
-                ->latest('created_at')
+                ->orderByRaw("CAST(start_date AS DATE) DESC")
                 ->get();
 
             foreach ($career as $c) {
@@ -99,7 +97,6 @@ class HomeController extends Controller
                     ->where('soft_delete', 0)
                     ->where('career_management_id', $c->uid)
                     ->whereDate('archivel_date', '<', now()->toDateString())
-                    ->latest('created_at')
                     ->get();
 
                 $final_data[] = $obj;
@@ -129,9 +126,7 @@ class HomeController extends Controller
             $tenders = DB::table('tender_management')
                 ->where('status', 3)
                 ->where('soft_delete', 0)
-                ->orderBy('created_at', 'asc')
-                ->latest('created_at')
-                // ->whereDate('archivel_date', '>=', now()->toDateString())
+                ->orderByRaw("CAST(start_date AS DATE) DESC")
                 ->get();
 
             // dd($tenders);
@@ -182,7 +177,7 @@ class HomeController extends Controller
             $tenders = DB::table('tender_management')
                 ->where('status', 3)
                 ->where('soft_delete', 0)
-                ->orderBy('created_at', 'asc')
+                ->orderByRaw("CAST(start_date AS DATE) DESC")
                 ->get();
 
             if (count($tenders) > 0) {
@@ -555,7 +550,7 @@ class HomeController extends Controller
                     } elseif ($middelSlug != null) {
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData, 'metaDetails' => $metaDetails]);
                     } else {
-                        return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData, 'metaDetails' => $metaDetails]);
+                        return view('master-page', ['quickLink' => $quickLink, 'title_name' => $title_name, 'organizedData' => $organizedData]);
                     }
                 } elseif ($middelSlug != null && $middelSlug == 'director-desk') {
 
@@ -949,7 +944,7 @@ class HomeController extends Controller
     public function pressReleased()
     {
         $title = 'Press Released';
-        $pressReleaseds = DB::table('recent_activities')->where(['notification_others' => 2, 'status' => 3, 'soft_delete' => 0])->get();
+        $pressReleaseds = DB::table('recent_activities')->where(['notification_others' => 2, 'status' => 3, 'soft_delete' => 0])->orderByRaw("CAST(start_date AS DATE) DESC")->get();
         return view('pages.press_relesead', ['title' => $title, 'pressReleaseds' => $pressReleaseds]);
     }
 
@@ -995,7 +990,7 @@ class HomeController extends Controller
         $titleName = 'RTI Applications & Responses';
         $result = DB::table('rti_application_responses')
             ->where('status', 3)
-            ->orderBy('created_at', 'asc')
+            ->orderByRaw("CAST(start_date AS DATE) DESC")
             ->where(['soft_delete' => 0]);
         if (!empty($registrationNo)) {
             $result->where('registration_number', 'like', '%' . $registrationNo . '%');
