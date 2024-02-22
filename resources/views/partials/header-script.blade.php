@@ -7,8 +7,10 @@
 <!-- Custom styles for this template -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="{{ $metaDetails->meta_tag_description ?? 'NRCP' }}">
+<meta name="keywords" content="{{ $metaDetails->meta_keywords ?? 'NRCP' }}">
+<meta name="tag" content="{{ $metaDetails->meta_tag ?? 'NRCP' }}">
 <meta name="format-detection" content="telephone=no">
-<meta name="description" content="">
 <meta name="referrer" content="origin">
 <meta name="author" content="">
 <meta name="csrf-token" content="{{ csrf_token() }}">
