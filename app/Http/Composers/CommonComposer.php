@@ -42,8 +42,8 @@ class CommonComposer
             $news_management = DB::table('news_management')->where('soft_delete', 0)->where('status', 3)->latest('created_at')->take(3)->get();
             $social_links = DB::table('social_links')->where('status', 3)->where('soft_delete', 0)->first();
             $logo = DB::table('website_core_settings')->where('status', 3)->where('soft_delete', 0)->first();
-            $notification= DB::table('recent_activities')->where('notification_others',1)->where('status', 3)->where('soft_delete', 0)->latest('created_at')->get();
-            $press_release= DB::table('recent_activities')->where('notification_others',2)->where('status', 3)->where('soft_delete', 0)->latest('created_at')->get();
+            $notification= DB::table('recent_activities')->where('end_date', '>=', now()->toDateString())->where('notification_others',1)->where('status', 3)->where('soft_delete', 0)->latest('created_at')->get();
+            $press_release= DB::table('recent_activities')->where('end_date', '>=', now()->toDateString())->where('notification_others',2)->where('status', 3)->where('soft_delete', 0)->latest('created_at')->get();
             // $tender_management = DB::table('tender_management')->where('soft_delete', 0)->take(5)->latest('created_at')->get();
             $tender_management = DB::table('tender_management')
                                 ->where('tender_management.soft_delete', 0)

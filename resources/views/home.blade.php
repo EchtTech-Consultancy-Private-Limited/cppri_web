@@ -160,18 +160,6 @@
 
                                 </div>
                             </div>
-                            <!-- <div class="minister-sub col-md-6">
-                                <div class="minister-image"><img src="{{ asset('assets-cppri/images/a_k_dixit.png') }}"
-                                        alt="minister of state coal and mines" title="Dr. A. K. Dixit Scientist-F">
-                                </div>
-                                <div class="min-info">
-                                    <h4>Dr. A. K. Dixit</h4>
-                                    <h5><a href="{{url('about-us/employee-directory')}}"
-                                            title="Minister of State"><span>Scientist-F</span>
-                                        </a>
-                                    </h5>
-                                </div>
-                            </div> -->
                         </div>
 
                     </div>
@@ -495,25 +483,6 @@
                                                                 {{ __('messages.comming_soon') }}</li>
                                                             @endif
                                                             @endif
-                                                            {{-- <li>
-                                                            <div class="list-content">
-                                                                <a href="https://centralpulppaperresearchinstitute.webex.com/centralpulppaperresearchinstitute/j.php?MTID=m639c2a7e8a854b99da321b648df0ade6"
-                                                                    target="_blank">Online Public Grievance Redressal
-                                                                    through VC Hosted
-                                                                    by CPPRI (4PM to 5PM) at
-                                                                    https://centralpulppaperresearchinstitute.webex.com/centralpulppaperresearchinstitute/j.php?MTID=m639c2a7e8a854b99da321b648df0ade6</a>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="list-content">
-                                                                ADVERTISEMENT No. 03/2023 Recruitment to the post of Sr.
-                                                                Scientific
-                                                                Assistants, Technicians Gr.III(i) and Technicians Gr. II
-                                                                &nbsp; <a href="https://cppri.in" target="_blank"
-                                                                    class="text-danger">Click
-                                                                    here to apply</a>
-                                                            </div>
-                                                        </li> --}}
                                                         </ul>
                                                     </div>
                                                     <div class="view-footer"><a href="{{route('notification')}}"
@@ -596,26 +565,6 @@
                                                                 {{ __('messages.comming_soon') }}</li>
                                                             @endif
                                                             @endif
-                                                            {{-- <li>
-                                                            <div class="list-content">Description of Press Release 1
-                                                                goes here
-                                                                mm-dd-yyyy - File type (size) DD-MM-YYYY. </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="list-content">Description of Press Release 2
-                                                                goes here
-                                                                mm-dd-yyyy - File type (size) DD-MM-YYYY.</div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="list-content">Description of Press Release 3
-                                                                goes here
-                                                                mm-dd-yyyy - File type (size) DD-MM-YYYY.</div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="list-content">Description of Press Release 4
-                                                                goes here
-                                                                mm-dd-yyyy - File type (size) DD-MM-YYYY.</div>
-                                                        </li> --}}
                                                         </ul>
                                                     </div>
                                                     <div class="view-footer"><a href="{{route('press-release')}}"
@@ -684,10 +633,7 @@
                                                                     </div>
                                                                     <div class="list-content">
                                                                         {{ $tender_managements->title_name_en ?? '' }}
-                                                                        {{-- - File type
-                                                ({{ $tender_managements->file_extension ?? '' }} -
-                                                                        {{ $tender_managements->pdfimage_size ?? '' }})
-                                                                        --}}
+                                                                       
                                                                     </div>
                                                                 </a>
                                                             </li>
@@ -705,120 +651,6 @@
                                                                 {{ __('messages.comming_soon') }}</li>
                                                             @endif
                                                             @endif
-
-                                                            <!-- <li>
-                                                                <div class="date">
-                                                                    <span class="change-color-code">
-                                                                        2
-                                                                    </span>
-                                                                    <em>
-                                                                        JAN 2024
-                                                                    </em>
-                                                                </div>
-                                                                <div class="list-content">
-                                                                    <a href="{{ url('tender') }}">
-                                                                        Lorem ipsum dolor sit amet consectetur
-                                                                        adipisicing elit.
-                                                                    </a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="date">
-                                                                    <span class="change-color-code">
-                                                                        2
-                                                                    </span>
-                                                                    <em>
-                                                                        JAN 2024
-                                                                    </em>
-                                                                </div>
-                                                                <div class="list-content">
-                                                                    <a href="{{ url('tender') }}">
-                                                                        Lorem ipsum dolor sit amet consectetur
-                                                                        adipisicing elit.
-                                                                    </a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="date">
-                                                                    <span class="change-color-code">
-                                                                        2
-                                                                    </span>
-                                                                    <em>
-                                                                        JAN 2024
-                                                                    </em>
-                                                                </div>
-                                                                <div class="list-content">
-                                                                    <a href="{{ url('tender') }}">
-                                                                        Lorem ipsum dolor sit amet consectetur
-                                                                        adipisicing elit.
-                                                                    </a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="date">
-                                                                    <span class="change-color-code">
-                                                                        2
-                                                                    </span>
-                                                                    <em>
-                                                                        JAN 2024
-                                                                    </em>
-                                                                </div>
-                                                                <div class="list-content">
-                                                                    <a href="{{ url('tender') }}">
-                                                                        Lorem ipsum dolor sit amet consectetur
-                                                                        adipisicing elit.
-                                                                    </a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="date">
-                                                                    <span class="change-color-code">
-                                                                        2
-                                                                    </span>
-                                                                    <em>
-                                                                        JAN 2024
-                                                                    </em>
-                                                                </div>
-                                                                <div class="list-content">
-                                                                    <a href="{{ url('tender') }}">
-                                                                        Lorem ipsum dolor sit amet consectetur
-                                                                        adipisicing elit.
-                                                                    </a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="date">
-                                                                    <span class="change-color-code">
-                                                                        2
-                                                                    </span>
-                                                                    <em>
-                                                                        JAN 2024
-                                                                    </em>
-                                                                </div>
-                                                                <div class="list-content">
-                                                                    <a href="{{ url('tender') }}">
-                                                                        Lorem ipsum dolor sit amet consectetur
-                                                                        adipisicing elit.
-                                                                    </a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="date">
-                                                                    <span class="change-color-code">
-                                                                        2
-                                                                    </span>
-                                                                    <em>
-                                                                        JAN 2024
-                                                                    </em>
-                                                                </div>
-                                                                <div class="list-content">
-                                                                    <a href="{{ url('tender') }}">
-                                                                        Lorem ipsum dolor sit amet consectetur
-                                                                        adipisicing elit.
-                                                                    </a>
-                                                                </div>
-                                                            </li> -->
-
                                                         </ul>
                                                     </div>
                                                     <div class="view-footer"><a href="{{ url('tender') }}"
