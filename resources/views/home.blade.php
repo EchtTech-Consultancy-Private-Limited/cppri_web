@@ -160,18 +160,6 @@
 
                                 </div>
                             </div>
-                            <!-- <div class="minister-sub col-md-6">
-                                <div class="minister-image"><img src="{{ asset('assets-cppri/images/a_k_dixit.png') }}"
-                                        alt="minister of state coal and mines" title="Dr. A. K. Dixit Scientist-F">
-                                </div>
-                                <div class="min-info">
-                                    <h4>Dr. A. K. Dixit</h4>
-                                    <h5><a href="{{url('about-us/employee-directory')}}"
-                                            title="Minister of State"><span>Scientist-F</span>
-                                        </a>
-                                    </h5>
-                                </div>
-                            </div> -->
                         </div>
 
                     </div>
@@ -705,10 +693,7 @@
                                                                     </div>
                                                                     <div class="list-content">
                                                                         {{ $tender_managements->title_name_en ?? '' }}
-                                                                        {{-- - File type
-                                                ({{ $tender_managements->file_extension ?? '' }} -
-                                                                        {{ $tender_managements->pdfimage_size ?? '' }})
-                                                                        --}}
+                                                                       
                                                                     </div>
                                                                 </a>
                                                             </li>

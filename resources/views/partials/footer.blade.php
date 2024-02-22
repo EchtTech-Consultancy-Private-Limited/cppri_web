@@ -328,34 +328,6 @@
     </div>
 
 </footer>
-<!--/.footer-wrapper-->
-<!-- Modal Popup -->
-{{-- <div id="costumModal8" class="modal" data-easein="shrinkIn" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    ×
-                </button>
-                <img src="{{ asset('assets-cppri/images/CoronaAppeal.gif') }}" alt="" class="md-img">
-</div>
-</div>
-</div>
-</div> --}}
-<!-- <div id="costumModal8" class="modal" data-easein="shrinkIn" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    ×
-                </button>
-                <img src="{{ asset('assets-cppri/images/CoronaAppeal.gif') }}" data-id="show" alt=""
-                    class="md-img show-model">
-            </div>
-        </div>
-    </div>
-</div> -->
-
 
 <div id="costumModal8" class="modal fade" data-bs-easein="shrinkIn" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
