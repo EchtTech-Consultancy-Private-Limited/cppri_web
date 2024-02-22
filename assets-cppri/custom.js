@@ -469,7 +469,7 @@ fl_accordion.click(function () {
                     e.success
                         ? ($("#feedback_form")[0].reset(),
                           $("#response-error").html(
-                              '<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Your### information successfully done.</div></div></div>'
+                              '<div id="toast-container" class="toast-top-right"><div class="toast toast-success" aria-live="polite" style="display: block;"><div class="toast-message">Your information successfully done.</div></div></div>'
                           ))
                         : e.captchaError
                         ? $("#response-error").html(
