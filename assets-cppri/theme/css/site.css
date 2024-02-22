@@ -51,10 +51,13 @@ ul#nav li a i.fa-home{font-size:150%}
 .left-menu{width:25%;float:left}
 .right-content{float:right}
 .breadcam{display:block;border-bottom:1px solid #efefef}
-.breadcam li{list-style-type:none;display:inline-block;font-size:100%;color:#666;font-size:14px}
-.breadcam li a{display:block;background:url(../images/breadcam-arrow.png) no-repeat right center;padding-right:13px;color:#000}
+.breadcam li{list-style-type:none;display:inline;font-size:100%;color:#666;font-size:14px}
+.breadcam li:not(:first-child){
+        padding: 5px;
+}
+.breadcam li a{display:inline;background:url(../images/breadcam-arrow.png) no-repeat right center;padding-right:13px;color:#000; font-size: 12px;}
 .breadcam li:last-child a{background:0 0;margin-left:8px;color:#026aa1}
-.breadcam li:last-child{color:#026aa1}
+.breadcam li:last-child{color:#026aa1; font-size: 12px;}
 .breadcam li.current{color:#666}
 .inner-wrapper .body-container{padding-top:0}
 .inner-wrapper .left-menu{width:25%;float:left}
@@ -557,7 +560,10 @@ a.portgolio-button:hover{color:var(--primary-color);border:1px solid var(--secon
 .minister-sub1:after{content:" ";position:absolute;left:43%;bottom:-2px;border:2px solid #ec4933;width:50px;display:none}
 .scroll-left,.scroll-text,.scroll-text-1{overflow:hidden;position:relative;height:308px;padding:10px 15px;border-bottom:1px solid #ddd}
 .scroll-left ul:hover{animation-play-state:paused}
-.scroll-left .scroll-animation{position:absolute;width:100%;-moz-transform:translateY(100%);-webkit-transform:translateY(100%);transform:translateY(100%)}
+ .scroll-animation{position:absolute;width:100%;}
+ .scroll-left ul.list.scroll-animation.stop{
+    animation-play-state: paused !important;
+ }
 @-moz-keyframes scroll-left{
 0%{-moz-transform:translateY(100%)}
 100%{-moz-transform:translateY(-100%)}
@@ -601,9 +607,10 @@ a{text-decoration:none!important}
 .page-tab .scroll-left,.page-tab .scroll-test01,.page-tab .scroll-text,.page-tab .scroll-text-1,.page-tab .scroll-text01{padding:0}
 .page-tab .text-slide,.page-tab .text-slide01{position:absolute;right:15px;top:-46px;color:#fff}
 .page-tab .view-footer a{margin-right:9px;margin-bottom:6px;border-radius:var(--button-radius);margin-top:10px!important}
-.body-container .content-wrapper ul.list{margin:0;width:100%;left:0;padding:0 15px;top:-31px}
-.page-tab .list-content{width:95%;float:right;display:inline}
-.resp-tabs-container ul.list li:before{display:inline-block;content:"";-webkit-border-radius:.375rem;border-radius:.375rem;height:.75rem;width:.75rem;margin-right:.5rem;margin-top:6px;background-color:#ec4933}
+.body-container .content-wrapper ul.list{margin:0;width:100%;left:0;padding:0 15px;}
+.page-tab .list-content a{color: #000;}
+.page-tab .list-content{width:75%;float:right;display:inline}
+/* .resp-tabs-container ul.list li:before{display:inline-block;content:"";-webkit-border-radius:.375rem;border-radius:.375rem;height:.75rem;width:.75rem;margin-right:.5rem;margin-top:6px;background-color:#ec4933} */
 .sw-logo.g20-logo img{width:116px}
 .sw-logo.swachhbharat img{width:165px}
 .box-model .model-heading{display:block;font-size:108%;font-weight:700}
@@ -1130,7 +1137,7 @@ ul.overseas-client{padding:0!important}
 .container1 .next{right:12px;border-radius:3px 0 0 3px}
 img.demo.cursor.active{opacity:1}
 ul#header-nav li a img{width:25px;height:25px}
-ul.overseas-client li a{display:inline-block;padding-right:10px}
+ul.overseas-client li a{display:inline;padding-right:10px}
 ul.overseas-client li .size{font-size:11px;color:#333}
 .col-box-g{overflow-y:auto;scrollbar-width:thin;scrollbar-color:#ddd}
 .col-box-g::-webkit-scrollbar{width:7px;border-radius:10px!important}
@@ -1180,7 +1187,7 @@ p.email-text-styl{font-size:13px;word-wrap:break-word}
 .display-content{display:contents}
 /* employee card directory */
 
-.left-text{
+.text-left{
     text-align: left !important;
 }
 

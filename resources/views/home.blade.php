@@ -30,7 +30,7 @@
         </ul>
     </div>
 </section>
-<section class="latest-news" >
+<section class="latest-news">
     <h3 class="d-none">Latest News</h3>
     <div class="row px-0">
         <div class="col-md-3 col-4">
@@ -60,7 +60,7 @@
                                 @if ($news_managements->tab_type == '1')
                                 @if (!empty($url))
                                 <a href="{{ url($url) ??'' }}" target="_blank" class="me-3"
-                                    onclick="return confirm('{{ $alertMessage  ??''}}')" >
+                                    onclick="return confirm('{{ $alertMessage  ??''}}')">
 
                                     @if (Session::get('Lang') == 'hi')
                                     {{ $title_hi ?? '' }}
@@ -83,11 +83,11 @@
                             </span>
                             @endforeach
                             @else
-                                @if (Session::get('Lang') == 'hi')
-                                    <h5>{{ __('messages.comming_soon') }}</h5>
-                                @else
-                                    <h5>{{ __('messages.comming_soon') }}</h5>
-                                @endif
+                            @if (Session::get('Lang') == 'hi')
+                            <h5>{{ __('messages.comming_soon') }}</h5>
+                            @else
+                            <h5>{{ __('messages.comming_soon') }}</h5>
+                            @endif
                             @endif
                         </div>
                     </div>
@@ -100,7 +100,7 @@
 <!--/#skipCont-->
 <section id="fontSize" class="wrapper body-wrapper ">
 
-    <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott" >
+    <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott">
         <div class="container common-container four_content body-container top-body-container padding-top-bott2">
             <div class="row">
                 <div
@@ -147,8 +147,7 @@
                                 <div class="min-info">
                                     @if (Session::get('Lang') == 'hi')
                                     <h4>डॉ. एम. के. गुप्ता</h4>
-                                    <h5><a href="{{url('about-us/director-desk')}}"
-                                            title="कोयला मंत्री"><span>निदेशक
+                                    <h5><a href="{{url('about-us/director-desk')}}" title="कोयला मंत्री"><span>निदेशक
                                             </span></a>
                                     </h5>
                                     @else
@@ -158,7 +157,7 @@
                                             </span></a>
                                     </h5>
                                     @endif
-                                  
+
                                 </div>
                             </div>
                             <!-- <div class="minister-sub col-md-6">
@@ -181,7 +180,7 @@
         </div>
     </div>
     <!-- Services section Start-->
-    <section class="wf100 p75-50  depart-info" >
+    <section class="wf100 p75-50  depart-info">
         <div class="container common-container">
             <div class="row">
                 <div class="col-md-12">
@@ -353,7 +352,7 @@
                             <div class="banner-box-content">
                                 <!-- <h2>External Link 1</h2> -->
                                 <a href="https://www.pgportal.gov.in/" title="GRIEVANCE CELL" target="_blank"
-                                    onclick="alert('This link will take you to an external web site.')">
+                                    onclick="return confirm('This link will take you to an external web site.')">
                                     <img src="{{ asset('assets-cppri/images/grivence_rti.png') }}" alt="icon"
                                         class="cell-icon-sec">
                                     <p>
@@ -371,7 +370,7 @@
                                 <!-- <h2>External Link 2</h2> -->
                                 <a href="https://www.pgportal.gov.in/" target="_blank"
                                     title="External link that opens in new tab"
-                                    onclick="return confirm('{{ $alertMessage ?? '' }}')" >
+                                    onclick="return confirm('{{ $alertMessage ?? '' }}')">
                                     <img src="{{ asset('assets-cppri/images/public.png') }}" alt="icon"
                                         class="cell-icon-sec">
                                     <p>
@@ -404,7 +403,8 @@
                         <div class="banner-box banner-box-4 ">
                             <div class="banner-box-content">
                                 <!-- <h2>External Link 3</h2> -->
-                                <a href="https://mail.gov.in/iwc_static/c11n/allDomain/layout/login_gov2.jsp?lang=en&3.0.1.2.0_15121607&svcs=abs,mail,smime,calendar,c11n" title="External link that opens in new tab"
+                                <a href="https://mail.gov.in/iwc_static/c11n/allDomain/layout/login_gov2.jsp?lang=en&3.0.1.2.0_15121607&svcs=abs,mail,smime,calendar,c11n"
+                                    title="External link that opens in new tab"
                                     onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank">
                                     <img src="{{ asset('assets-cppri/images/mail.png') }}" alt="icon"
                                         class="cell-icon-sec">
@@ -454,7 +454,7 @@
                                             </li>
                                         </ul>
                                         <div class="resp-tabs-container hor_1">
-                                            <div class="clearfix" >
+                                            <div class="clearfix">
                                                 <div class="content-wrapper">
                                                     <p class="text-slide pause" onclick="changeClass()"></p>
                                                     <div class="scroll-text scroll-left p-2">
@@ -487,11 +487,13 @@
                                                             </li>
                                                             @endforeach
                                                             @else
-                                                                @if (Session::get('Lang') == 'hi')
-                                                                    <li class="list-unstyled border-0">{{ __('messages.comming_soon') }}</li>
-                                                                @else
-                                                                    <li class="list-unstyled border-0">{{ __('messages.comming_soon') }}</li>
-                                                                @endif
+                                                            @if (Session::get('Lang') == 'hi')
+                                                            <li class="list-unstyled border-0">
+                                                                {{ __('messages.comming_soon') }}</li>
+                                                            @else
+                                                            <li class="list-unstyled border-0">
+                                                                {{ __('messages.comming_soon') }}</li>
+                                                            @endif
                                                             @endif
                                                             {{-- <li>
                                                             <div class="list-content">
@@ -586,11 +588,13 @@
                                                             </li>
                                                             @endforeach
                                                             @else
-                                                                @if (Session::get('Lang') == 'hi')
-                                                                    <li class="list-unstyled border-0">{{ __('messages.comming_soon') }}</li>
-                                                                @else
-                                                                    <li class="list-unstyled border-0">{{ __('messages.comming_soon') }}</li>
-                                                                @endif
+                                                            @if (Session::get('Lang') == 'hi')
+                                                            <li class="list-unstyled border-0">
+                                                                {{ __('messages.comming_soon') }}</li>
+                                                            @else
+                                                            <li class="list-unstyled border-0">
+                                                                {{ __('messages.comming_soon') }}</li>
+                                                            @endif
                                                             @endif
                                                             {{-- <li>
                                                             <div class="list-content">Description of Press Release 1
@@ -651,12 +655,12 @@
                                             </li>
                                         </ul>
                                         <div class="resp-tabs-container hor_1">
-                                            <div class="clearfix" >
+                                            <div class="clearfix">
                                                 <div class="content-wrapper">
                                                     <p class="text-slide01 pause" onclick="changeClass1()"
                                                         id="tender_pause_button"></p>
-                                                    <div class="scroll-text01 scroll-left p-2" id="tender_scroll">
-                                                        <ul class="list scroll-animation">
+                                                    <div class="scroll-text01 scroll-left p-2" >
+                                                        <ul class="list scroll-animation" id="tender_scroll">
                                                             @if (isset($tender_management) && count($tender_management)
                                                             > 0)
                                                             @foreach ($tender_management as $tender_managements)
@@ -687,14 +691,133 @@
                                                                     </div>
                                                                 </a>
                                                             </li>
+
+                                                            <!-- ********************* -->
+
+                                                            <!-- ********************* -->
                                                             @endforeach
                                                             @else
-                                                                @if (Session::get('Lang') == 'hi')
-                                                                    <li class="list-unstyled border-0">{{ __('messages.comming_soon') }}</li>
-                                                                @else
-                                                                    <li class="list-unstyled border-0">{{ __('messages.comming_soon') }}</li>
-                                                                @endif
+                                                            @if (Session::get('Lang') == 'hi')
+                                                            <li class="list-unstyled border-0">
+                                                                {{ __('messages.comming_soon') }}</li>
+                                                            @else
+                                                            <li class="list-unstyled border-0">
+                                                                {{ __('messages.comming_soon') }}</li>
                                                             @endif
+                                                            @endif
+
+                                                            <!-- <li>
+                                                                <div class="date">
+                                                                    <span class="change-color-code">
+                                                                        2
+                                                                    </span>
+                                                                    <em>
+                                                                        JAN 2024
+                                                                    </em>
+                                                                </div>
+                                                                <div class="list-content">
+                                                                    <a href="{{ url('tender') }}">
+                                                                        Lorem ipsum dolor sit amet consectetur
+                                                                        adipisicing elit.
+                                                                    </a>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="date">
+                                                                    <span class="change-color-code">
+                                                                        2
+                                                                    </span>
+                                                                    <em>
+                                                                        JAN 2024
+                                                                    </em>
+                                                                </div>
+                                                                <div class="list-content">
+                                                                    <a href="{{ url('tender') }}">
+                                                                        Lorem ipsum dolor sit amet consectetur
+                                                                        adipisicing elit.
+                                                                    </a>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="date">
+                                                                    <span class="change-color-code">
+                                                                        2
+                                                                    </span>
+                                                                    <em>
+                                                                        JAN 2024
+                                                                    </em>
+                                                                </div>
+                                                                <div class="list-content">
+                                                                    <a href="{{ url('tender') }}">
+                                                                        Lorem ipsum dolor sit amet consectetur
+                                                                        adipisicing elit.
+                                                                    </a>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="date">
+                                                                    <span class="change-color-code">
+                                                                        2
+                                                                    </span>
+                                                                    <em>
+                                                                        JAN 2024
+                                                                    </em>
+                                                                </div>
+                                                                <div class="list-content">
+                                                                    <a href="{{ url('tender') }}">
+                                                                        Lorem ipsum dolor sit amet consectetur
+                                                                        adipisicing elit.
+                                                                    </a>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="date">
+                                                                    <span class="change-color-code">
+                                                                        2
+                                                                    </span>
+                                                                    <em>
+                                                                        JAN 2024
+                                                                    </em>
+                                                                </div>
+                                                                <div class="list-content">
+                                                                    <a href="{{ url('tender') }}">
+                                                                        Lorem ipsum dolor sit amet consectetur
+                                                                        adipisicing elit.
+                                                                    </a>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="date">
+                                                                    <span class="change-color-code">
+                                                                        2
+                                                                    </span>
+                                                                    <em>
+                                                                        JAN 2024
+                                                                    </em>
+                                                                </div>
+                                                                <div class="list-content">
+                                                                    <a href="{{ url('tender') }}">
+                                                                        Lorem ipsum dolor sit amet consectetur
+                                                                        adipisicing elit.
+                                                                    </a>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="date">
+                                                                    <span class="change-color-code">
+                                                                        2
+                                                                    </span>
+                                                                    <em>
+                                                                        JAN 2024
+                                                                    </em>
+                                                                </div>
+                                                                <div class="list-content">
+                                                                    <a href="{{ url('tender') }}">
+                                                                        Lorem ipsum dolor sit amet consectetur
+                                                                        adipisicing elit.
+                                                                    </a>
+                                                                </div>
+                                                            </li> -->
 
                                                         </ul>
                                                     </div>
@@ -790,7 +913,7 @@
             </div>
         </div>
     </div>
-    <section class="wf100 city-news p75 bg-white" >
+    <section class="wf100 city-news p75 bg-white">
         <div class="container common-container four_content banner-container">
             <div class="title-style-3">
                 <!-- <h3 class="h11">Our Programs</h3> -->
@@ -806,11 +929,11 @@
                                     <div>
                                         <span class="cat c1 change-color-code">
                                             @if (Session::get('Lang') == 'hi')
-                                                {{ __('messages.academic_program') }}
+                                            {{ __('messages.academic_program') }}
                                             @else
-                                                {{ __('messages.academic_program') }}
+                                            {{ __('messages.academic_program') }}
                                             @endif
-                                        </span> 
+                                        </span>
                                         <img src="{{ asset('assets-cppri/images/msc.jpg') }}" alt="Academic Program">
                                     </div>
                                 </div>
@@ -818,32 +941,32 @@
                             <div class="col-md-8 p-0">
                                 <div class="new-txt">
                                     <h6><a href="{{url('academic-program')}}">
-                                        @if (Session::get('Lang') == 'hi')
+                                            @if (Session::get('Lang') == 'hi')
                                             {{ __('messages.academic_program') }}
-                                        @else
+                                            @else
                                             {{ __('messages.academic_program') }}
-                                        @endif
-                                    </a></h6>
+                                            @endif
+                                        </a></h6>
                                     <span class="duration">
                                         @if (Session::get('Lang') == 'hi')
-                                            अवधि - दो वर्ष (4 सेमेस्टर) </span>
-                                            <p> भारतीय पल्प से मिलने के लिए &amp; कागज उद्योग की तकनीकी आवश्यकता
-                                                प्रशिक्षित जनशक्ति, वन
-                                                रिसर्च यूनिवर्सिटी (डीम्ड यूनिवर्सिटी)...
-                                            </p>
-                                        @else
-                                            Duration- Two year (4 semesters) </span>
-                                            <p> To meet the Indian Pulp &amp; Paper Industry’s requirement of technically
-                                                trained manpower, Forest
-                                                Research University ( Deemed University)...
-                                            </p>
-                                        @endif                                        
+                                        अवधि - दो वर्ष (4 सेमेस्टर) </span>
+                                    <p> भारतीय पल्प से मिलने के लिए &amp; कागज उद्योग की तकनीकी आवश्यकता
+                                        प्रशिक्षित जनशक्ति, वन
+                                        रिसर्च यूनिवर्सिटी (डीम्ड यूनिवर्सिटी)...
+                                    </p>
+                                    @else
+                                    Duration- Two year (4 semesters) </span>
+                                    <p> To meet the Indian Pulp &amp; Paper Industry’s requirement of technically
+                                        trained manpower, Forest
+                                        Research University ( Deemed University)...
+                                    </p>
+                                    @endif
                                     <a class="button change-text-color"
                                         href="{{url('academic/academic-program/m-sc-program')}}">
                                         @if (Session::get('Lang') == 'hi')
-                                            {{ __('messages.more_details') }}
+                                        {{ __('messages.more_details') }}
                                         @else
-                                            {{ __('messages.more_details') }}
+                                        {{ __('messages.more_details') }}
                                         @endif
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                 </div>
@@ -861,44 +984,43 @@
                                     <div>
                                         <span class="cat c1 change-color-code">
                                             @if (Session::get('Lang') == 'hi')
-                                                {{ __('messages.training_program') }}
+                                            {{ __('messages.training_program') }}
                                             @else
-                                                {{ __('messages.training_program') }}
-                                            @endif    
-                                        </span> <img
-                                            src="{{ asset('assets-cppri/images/phd.jpg') }}" alt="">
+                                            {{ __('messages.training_program') }}
+                                            @endif
+                                        </span> <img src="{{ asset('assets-cppri/images/phd.jpg') }}" alt="">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-8 p-0">
                                 <div class="new-txt">
                                     <h6><a href="{{url('academic-program')}}">
-                                        @if (Session::get('Lang') == 'hi')
+                                            @if (Session::get('Lang') == 'hi')
                                             {{ __('messages.training_program') }}
-                                        @else
+                                            @else
                                             {{ __('messages.training_program') }}
-                                        @endif
-                                    </a></h6>
+                                            @endif
+                                        </a></h6>
                                     <span class="duration">
                                         @if (Session::get('Lang') == 'hi')
-                                            अवधि- प्रोग्राम स्ट्रीम पर निर्भर करता है
-                                            <p> एक व्यापक और अच्छी तरह से संरचित प्रशिक्षण कार्यक्रम लागू करना आवश्यक है
-                                                इष्टतम को बढ़ावा देने के लिए...
-                                            </p>
+                                        अवधि- प्रोग्राम स्ट्रीम पर निर्भर करता है
+                                        <p> एक व्यापक और अच्छी तरह से संरचित प्रशिक्षण कार्यक्रम लागू करना आवश्यक है
+                                            इष्टतम को बढ़ावा देने के लिए...
+                                        </p>
                                         @else
-                                            Duration- Depends on program stream </span>
-                                            <p> Implementing a comprehensive and well-structured training program is essential
-                                                for fostering optimal ...
-                                            </p>
+                                        Duration- Depends on program stream
+                                    </span>
+                                    <p> Implementing a comprehensive and well-structured training program is essential
+                                        for fostering optimal ...
+                                    </p>
+                                    @endif
+
+                                    <a class="button change-text-color" href="{{url('academic/training-program')}}">
+                                        @if (Session::get('Lang') == 'hi')
+                                        {{ __('messages.more_details') }}
+                                        @else
+                                        {{ __('messages.more_details') }}
                                         @endif
-                                        
-                                    <a class="button change-text-color"
-                                        href="{{url('academic/training-program')}}">  
-                                            @if (Session::get('Lang') == 'hi')
-                                                {{ __('messages.more_details') }}
-                                            @else
-                                                {{ __('messages.more_details') }}
-                                            @endif
                                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -908,7 +1030,7 @@
             </div>
         </div>
     </section>
-    <div class="wrapper banner-bg-white ptb-30 pb-0" role = "feed">
+    <div class="wrapper banner-bg-white ptb-30 pb-0" role="feed">
         <div class="container common-container four_content banner-container body-container top-body-container p-0">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -1111,7 +1233,7 @@
 </section>
 
 <!-- photo gallery section start -->
-<div class="gallery-section p-32" >
+<div class="gallery-section p-32">
     <div class="">
         <div class="container">
             <div class="row px-0">
@@ -1119,11 +1241,11 @@
                     <div class="gallery-lbox new_gall_boxhead_change">
                         <div class="content">
                             <div class="sec-title3 text-center  ">
-                                <h2 class="title mb-10"> 
+                                <h2 class="title mb-10">
                                     @if (Session::get('Lang') == 'hi')
-                                        {{ __('messages.Photo_Gallery') }}
+                                    {{ __('messages.Photo_Gallery') }}
                                     @else
-                                        {{ __('messages.Photo_Gallery') }}
+                                    {{ __('messages.Photo_Gallery') }}
                                     @endif
                                 </h2>
                             </div>
@@ -1161,11 +1283,11 @@
                         </div>
                         <div class="btn-view_play">
                             <div class="btn-part  text-center">
-                                <a class="readon2" href="{{ route('photo-gallery') }}" rel="noopener noreferrer"> 
+                                <a class="readon2" href="{{ route('photo-gallery') }}" rel="noopener noreferrer">
                                     @if (Session::get('Lang') == 'hi')
-                                        {{ __('messages.View_all') }}
+                                    {{ __('messages.View_all') }}
                                     @else
-                                        {{ __('messages.View_all') }}
+                                    {{ __('messages.View_all') }}
                                     @endif
                                 </a>
                             </div>
@@ -1185,11 +1307,11 @@
                     <div class="gallery-lbox video-sec new_gall_boxhead_change">
                         <div class="content">
                             <div class="sec-title3 text-center ">
-                                <h2 class="title mb-10"> 
+                                <h2 class="title mb-10">
                                     @if (Session::get('Lang') == 'hi')
-                                        {{ __('messages.video_gallery') }}
+                                    {{ __('messages.video_gallery') }}
                                     @else
-                                        {{ __('messages.video_gallery') }}
+                                    {{ __('messages.video_gallery') }}
                                     @endif
                                 </h2>
                             </div>
@@ -1205,18 +1327,19 @@
                                 data-md-device-nav="false" data-md-device-dots="false" id="banner4">
                                 @if (isset($galleryVideo) && !empty($galleryVideo))
                                 @foreach($galleryVideo as $videos)
-                                    @foreach($videos['gallery_details'] as $videoId)
-                                    {{-- @dd($videoId->public_url);                                         --}}
-                                    <div class="team-item">
-                                        <div class="gallery-box media-icon orange-color">
-                                            @if($videoId->public_url)
-                                            {!! '<div class="youtube-player" data-video-id="' . $videoId->public_url . '"></div>'!!}
-                                            @else
-                                            <p>No images available for this gallery.</p>
-                                            @endif
-                                        </div>
+                                @foreach($videos['gallery_details'] as $videoId)
+                                {{-- @dd($videoId->public_url);                                         --}}
+                                <div class="team-item">
+                                    <div class="gallery-box media-icon orange-color">
+                                        @if($videoId->public_url)
+                                        {!! '<div class="youtube-player" data-video-id="' . $videoId->public_url . '">
+                                        </div>'!!}
+                                        @else
+                                        <p>No images available for this gallery.</p>
+                                        @endif
                                     </div>
-                                    @endforeach
+                                </div>
+                                @endforeach
                                 @endforeach
                                 @endif
 
@@ -1225,15 +1348,15 @@
                             </div>
 
                         </div>
-                      
+
                         <div class="btn-view_play">
                             <div class="btn-part  text-center">
-                                <a class="readon2 mt-2" href="{{ route('video-gallery') }}"
-                                    rel="noopener noreferrer" tabindex="0">
+                                <a class="readon2 mt-2" href="{{ route('video-gallery') }}" rel="noopener noreferrer"
+                                    tabindex="0">
                                     @if (Session::get('Lang') == 'hi')
-                                        {{ __('messages.View_all') }}
+                                    {{ __('messages.View_all') }}
                                     @else
-                                        {{ __('messages.View_all') }}
+                                    {{ __('messages.View_all') }}
                                     @endif
                                 </a>
                             </div>
@@ -1257,7 +1380,7 @@
 <!-- photo gallery section end -->
 <!--/.body-wrapper-->
 <!--Client logo start-->
-<section class="wrapper carousel-wrapper clientail" >
+<section class="wrapper carousel-wrapper clientail">
     <h2 class="d-none">Carousel</h2>
     <div class="container common-container four_content carousel-container">
         <div id="flexCarousel" class="flexslider carousel">
@@ -1298,8 +1421,3 @@
 </section>
 <!--Client logo end-->
 @endsection
-
-
-
-
-
