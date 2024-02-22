@@ -126,49 +126,7 @@
 
                                                         </tr>
                                                           @endforeach
-                                                          @endif
-                                                        {{-- @if (isset($tender_pdfs) && count($tender_pdfs) > 0)
-                                                        @foreach ($tender_pdfs as $k=>$data)
-                                                            <tr>
-                                                                <td>{{ $k+1 ?? '' }}</td> 
-                                                                <td>{{ $data->pdf_title ?? '' }}</td>
-                                                                <td class="date-nowrap">
-                                                                    @if($data->start_date !='')
-                                                                    {{ date('d F Y', strtotime($data->start_date ?? '')) }}
-                                                                    @endif
-                                                                </td>
-
-                                                                <td class="date-nowrap">
-                                                                    @if($data->end_date !='')
-                                                                    {{ date('d F Y', strtotime($data->end_date ?? '')) }}
-                                                                    @endif
-                                                                </td>
-                                                                
-                                                                <td class="date-nowrap">
-                                                                    @if($data->opening_date !='')
-                                                                    {{ date('d F Y', strtotime($data->opening_date ?? '')) }}
-                                                                    @endif
-                                                                </td>
-
-                                                                <td class='download'>
-                                                                <a
-                                                                            download>View</a> <i
-                                                                            class="fa fa-file-pdf-o text-danger"></i>
-                                                                    <span class='size'>
-                                                                        ({{ $data->pdfimage_size ?? '' }})
-                                                                    </span>
-                                                                </td>
-                                                                
-                                                                <td>
-                                                                    @if($data->apply_url !='')
-                                                                    <a href="{{ $data->apply_url ?? '' }}"></a>
-                                                                    @endif
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
-                                                                    href="{{ asset('resources/uploads/TenderManagement/' . $data->public_url) }}"
-                                                               
-                                                        @endif --}}
+                                                          @endif                                                        
                                                     </tbody>
                                                 </table>
                                            
