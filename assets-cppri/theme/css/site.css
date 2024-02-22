@@ -453,6 +453,8 @@ a.home span{display:none}
 
 .notification .page-tab .list-content, .press_released .page-tab .list-content{
            width: 95% !important;
+           word-wrap: break-word;
+    padding-right: 10px;
  }
  .notification .resp-tabs-container ul.list li:before, .press_released .resp-tabs-container ul.list li:before {
     display: inline-block;
@@ -1087,7 +1089,7 @@ td.download a,td.download i{padding-right:5px}
 .main-sidebar ul li:last-child{border-bottom:0!important}
 .breadcam-bg ul li{text-transform:capitalize}
 .main-sidebar ul li:last-child:hover{border-bottom:1px solid var(--secondary-color)!important}
-.body-container .content-wrapper ul.list span{font-size:14px;padding:0 10px}
+.body-container .content-wrapper ul.list span{font-size:14px;padding:5px 10px}
 li.list-unstyled{list-style-type:none!important}
 li.list-unstyled::before{content:' '!important;width:0!important}
 form#contact_form{padding:25px}
