@@ -170,16 +170,16 @@ $(window).load(function () {
             });
     });
 var a = 0;
-function changeClass() {
-    var e = document.getElementsByClassName("text-slide"),
-        t = document.getElementsByClassName("scroll-text");
-    e[0].classList.toggle("pause"), t[0].classList.toggle("scroll-left");
-}
-function changeClass01() {
-    var e = document.getElementsByClassName("text-slide01"),
-        t = document.getElementsByClassName("scroll-text01");
-    e[0].classList.toggle("pause"), t[0].classList.toggle("scroll-left");
-}
+// function changeClass() {
+//     var e = document.getElementsByClassName("text-slide"),
+//         t = document.getElementsByClassName("scroll-text");
+//     e[0].classList.toggle("pause"), t[0].classList.toggle("scroll-left");
+// }
+// function changeClass01() {
+//     var e = document.getElementsByClassName("text-slide01"),
+//         t = document.getElementsByClassName("scroll-text01");
+//     e[0].classList.toggle("pause"), t[0].classList.toggle("scroll-left");
+// }
 // function changeClass1() {
 //     var e = document.getElementsByClassName("text-slide1"),
 //         t = document.getElementsByClassName("scroll-text-1");

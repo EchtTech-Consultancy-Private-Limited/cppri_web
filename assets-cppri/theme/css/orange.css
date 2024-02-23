@@ -153,3 +153,7 @@ section#paragraph blockquote{border-left:8px solid var(--primary-color)!importan
 .new_gall_boxhead_change .content{background-color:var(--primary-color)}
 .readon2{background-color:var(--primary-color)}
 .info div i{color:var(--primary-color)}
+
+.notification .resp-tabs-container ul.list li:before, .press_released .resp-tabs-container ul.list li:before{
+    color: var(--primary-color);
+}
