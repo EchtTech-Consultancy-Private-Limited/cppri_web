@@ -9,7 +9,6 @@
         <div class="inner-banner-text">
             <div class="text-banner-content">
                 <h2>
-
                     @if (Session::get('Lang') == 'hi')
                     {{ __('messages.Feedback') }}
                     @else
@@ -32,26 +31,21 @@
                         @endif
                     </a></li>
                 <li><a href="javascript:void();">
-
                         @if (Session::get('Lang') == 'hi')
                         {{ __('messages.Feedback') }}
                         @else
                         {{ __('messages.Feedback') }}
                         @endif
-
                     </a></li>
-
             </ul>
         </div>
     </div>
 </div>
-
 <div class="wrapper" id="skipCont"></div>
 <div class="container common-container py-md-5">
     <div class="row p-0">
         <div class="col-lg-1"></div>
         <div class="col-md-12 col-lg-9">
-
             <div class="cppri-contact-form ">
                 <div class="row px-0">
                     <div class="col-md-6 ">
@@ -74,16 +68,13 @@
                                     <div>
                                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                         <input type="email" name="email" placeholder="Email"  value="{{ old('email') }}" >
-
                                     </div>
                                     <small id="email-error" class="text-danger"></small>
                                     <div>
                                         <i class="fa fa-mobile" aria-hidden="true"></i>
                                         <input type="text" id="mobile_no" name="phone" minlength="10" value="{{ old('phone') }}" minlength="10" maxlength="10" placeholder="Phone number" >
-
                                     </div>
                                     <small id="phone-error" class="text-danger"></small>
-
                                 </div>
                                 <!-- <p>Message</p> -->
                                 <div class="info">
@@ -109,19 +100,15 @@
                             </div>
                             <div class="text-center">
                                 <button class="g-recaptcha btn btn-primary message" id="feedback_button" type="submit">Submit</button>
-
                             </div>
                             </form>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 </div>
-
 {{-- <script>
         function onSubmit(token) {
             document.getElementById("feedback_form").submit();

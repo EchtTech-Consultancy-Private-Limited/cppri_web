@@ -16,19 +16,6 @@
                         <span id=timeid> </span>
                     </span>
                 </li>
-                <!-- <li class="ministry">
-                    <span class="responsive_go_hindi" lang="hi">
-                        <a target="_blank" href="https://india.gov.in/hi"
-                            title="भारत सरकार ( बाहरी वेबसाइट जो एक नई विंडो में खुलती है)">भारत
-                            सरकार</a>
-                    </span>
-                </li>
-                <li class="ministry">
-                    <span class="li_eng responsive_go_eng"><a target="_blank"
-                            href="https://india.gov.in/"
-                            title="Government of india,External Link that opens in a new window">Government of india</a>
-                    </span>
-                </li> -->
             </ul>
         </div>
         <div class="common-right clearfix">
@@ -41,13 +28,11 @@
                             alt="Site Search"></a>
                     <div class="search-drop both-search">
                         <div class="google-find">
-                            
                             {{-- <form action="{{ url('search') }}" method="get" > --}}
                                 <label for="search_key_g" class="notdisplay">Search</label>
                                 <input type="text" name="query"  id="search_key_g">
                                 <input type="submit" value="Search" class="submit">
                             {{-- </form> --}}
-                            
                         </div>
                         <div class="find">
                             <form name="searchForm" action="{{ url('search') }}" method="get" >
@@ -62,16 +47,10 @@
                         </div>
                     </div>
                 </li>
-
                 <li class="ico-sitemap screen-reader cf"><a href="{{url('/screen-reader-access')}}" title="Screen Reader Access"><i class="fa fa-volume-up"></i></a> </li>
-
-                
                 <li class="ico-accessibility cf screen-reader cf">
                     <a href="javascript:void(0);" id="toggleAccessibility"
-                        title="Accessibility Dropdown">
-                        <!-- <img class="top"
-                            src="{{ asset('assets-cppri/images/ico-accessibility.png') }}"
-                            alt="Accessibility Dropdown"> -->
+                        title="Accessibility Dropdown">                        
                             <i class="fa fa-wheelchair" aria-hidden="true"></i>
                     </a>
                     <ul class='invisible'>
@@ -95,14 +74,12 @@
                         <img class="top" src="{{ asset('assets-cppri/images/ico-social.png') }}"
                             alt="Social Medias"></a>
                     @if (isset($social_links) && $social_links != '')   
-                    
                      @php
                        $facebookUrl = $social_links->facebook ?? 'javascript:void(0)';
                        $twitterUrl = $social_links->twitter ?? 'javascript:void(0)';
                        $instagramUrl = $social_links->instagram ?? 'javascript:void(0)';
                        $linkedinUrl = $social_links->linkedin ?? 'javascript:void(0)';
                      @endphp
-                         
                     <ul>
                         @if ($social_links->facebook != '' && $social_links->facebook != 0)
                         <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank" title="Facebook"
@@ -113,12 +90,7 @@
                         <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank" title="Twitter"
                             href="{{ url($twitterUrl) ?? '' }}"><img alt="Twitter Page"
                                     src="{{ asset('assets-cppri/images/ico-twitter.png') }}"></a></li>
-                        @endif   
-                       
-                        {{-- <li><a target="_blank" title="Youtube"
-                                href="http://www.youtube.com/"><img alt="youtube Page"
-                                    src="{{ asset('assets-cppri/images/ico-youtube.png') }}"></a></li> --}}
-
+                        @endif
                         @if ($social_links->instagram != '' && $social_links->instagram != 0)            
                         <li><a onclick="return confirm('{{ $alertMessage }}')" target="_blank" title="Instagram"
                             href="{{ url($instagramUrl) ?? '' }}"><img alt="Instagram Page"
@@ -132,12 +104,10 @@
                     </ul>
                     @endif
                 </li>
-
                 <li class="ico-sitemap cf"><a href="{{ url('/site-map') }}" title="Sitemap">
                         <img class="top" src="{{ asset('assets-cppri/images/ico-sitemap.png') }}"
                             alt="Sitemap"></a>
                 </li>
-               
                 <li class="hindi cmf_lan d-hide">
                     <label class="de-lag">
                         <span class="d-none">Language</span>

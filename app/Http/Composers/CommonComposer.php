@@ -106,8 +106,6 @@ class CommonComposer
                 }
             }
 
-            // dd($menuName);
-
             $quickLink = DB::table('website_menu_management')->where('menu_place',4)->where('status', 3)->where('soft_delete', 0)->orderBy('sort_order', 'ASC')->get();
 
             $view->with(['notification'=>$notification,'press_release'=>$press_release,'social_links' => $social_links, 'logo' => $logo, 'visitCounter' => $visitCounter, 'quickLink' => $quickLink, 'alertMessage' => $this->checkLanguage(), 'headerMenu' => $menuName, 'footerMenu' => $footerMenu, 'banner' => $banner, 'news_management' => $news_management,
@@ -130,7 +128,6 @@ class CommonComposer
     {
         $branch = array();
         foreach ($menus as $menu) {
-            // dd($menu);
             if ($menu->parent_id == $parentId) {
                 $children = $this->getMenuTree($menus, $menu->uid);
                 if ($children) {

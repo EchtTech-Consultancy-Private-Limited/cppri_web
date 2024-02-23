@@ -25,13 +25,11 @@
                 <div class="inner-banner-text">
                     <div class="text-banner-content">
                         <h2>
-
                             @if (Session::get('Lang') == 'hi')
                                 {{ __('messages.RTI') }}
                             @else
                                 {{ __('messages.RTI') }}
                             @endif
-
                         </h2>
                     </div>
                 </div>
@@ -49,7 +47,6 @@
                                 Home
                             @endif
                         </a></li>
-
                     <li>
                         @if (Session::get('Lang') == 'hi')
                             {{ __('messages.RTI') }}
@@ -57,7 +54,6 @@
                             {{ __('messages.RTI') }}
                         @endif
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -67,7 +63,6 @@
         <div class="container common-container pr-0">
             <!--/.nav-wrapper-->
             <div class="row pr-0">
-
                 <div class="main-content">
                     <!--/#skipCont-->
                     <div id="fontSize" class="wrapper body-wrapper ">
@@ -95,16 +90,13 @@
                                         @endforeach
                                     </ol>
                                     @endif
-
                                 </div>
                             </div>
                         </section>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
-
 @endsection

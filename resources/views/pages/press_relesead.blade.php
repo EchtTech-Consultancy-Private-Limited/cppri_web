@@ -47,7 +47,6 @@
                                 Home
                             @endif
                         </a></li>
-
                     <li>
                         @if (Session::get('Lang') == 'hi')
                             {{ __('messages.Press_Release') }}
@@ -55,7 +54,6 @@
                             {{ __('messages.Press_Release') }}
                         @endif
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -65,7 +63,6 @@
         <div class="container common-container pr-0">
             <!--/.nav-wrapper-->
             <div class="row pr-0">
-               
                 <div class="main-content">
                     <!--/#skipCont-->
                     <div id="fontSize" class="wrapper body-wrapper ">
@@ -79,7 +76,6 @@
                                     <div class="col-md-12">
                                         <div class="scroller-tbl">                                           
                                                 <table id="example" class="display">
-
                                                     <thead>
                                                         <tr>
                                                             <th>Sr. No.</th>
@@ -88,9 +84,7 @@
                                                             <th>Apply Here</th>
                                                         </tr>
                                                     </thead>
-
                                                     <tbody>
-                                                        
                                                         @if(isset($pressReleaseds) &&  count($pressReleaseds) > 0 )
                                                         @foreach ($pressReleaseds as $k=> $pressReleased)
                                                         <tr>
@@ -107,25 +101,20 @@
                                                             </td>                                                            
                                                             <td class="views-field views-field-field-order-contract-no-">
                                                                 <a href="{{ @$pressReleased->url_link }}">Click</a>
-                                                                
                                                             </td>
                                                         </tr>
                                                           @endforeach
                                                           @endif
-                                                       
                                                     </tbody>
                                                 </table>
-                                           
                                         </div>
                                     </div>
                                 </div>
                         </section>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
-
 @endsection

@@ -61,7 +61,6 @@
                                 @if (!empty($url))
                                 <a href="{{ url($url) ??'' }}" target="_blank" class="me-3"
                                     onclick="return confirm('{{ $alertMessage  ??''}}')">
-
                                     @if (Session::get('Lang') == 'hi')
                                     {{ $title_hi ?? '' }}
                                     @else
@@ -99,7 +98,6 @@
 <div class="wrapper" id="skipCont"></div>
 <!--/#skipCont-->
 <section id="fontSize" class="wrapper body-wrapper ">
-
     <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott">
         <div class="container common-container four_content body-container top-body-container padding-top-bott2">
             <div class="row">
@@ -157,11 +155,9 @@
                                             </span></a>
                                     </h5>
                                     @endif
-
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -412,8 +408,6 @@
         </div>
     </section>
     <!-- Services section END-->
-    <!-- <div class="links-wrapper change-color-code"> <div class="container common-container ptb-10"> <div class="row"> <div class="col-md-12"> <div class="banner-content-wrapper services-heading"> <h2 class="text-white mt-0"> @if (Session::get('Lang') == 'hi') {{ __('messages.Services') }} @else {{ __('messages.Services') }} @endif </h2> </div> </div> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/publication.png') }}" alt=""> </span> <span class="icon-box-text">R &amp; D Projects</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/achive.png') }}" alt=""> </span> <span class="icon-box-text">Technical Services </span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/research.png') }}" alt=""> </span> <span class="icon-box-text">Our Achievements</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/member-card.png') }}" alt=""> </span> <span class="icon-box-text">Publications &amp; Reports</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/technical-support.png') }}" alt=""> </span> <span class="icon-box-text">Institute Membership</span> </a> </div> <div class="icon-box"> <a href="javascript:void();"> <span class="icon-box-ico"> <img src="{{ asset('assets-cppri/theme/images/icons/tender.png') }}" alt=""> </span> <span class="icon-box-text">Tender</span> </a> </div> </div> </div> -->
-    <!-- <div class="wrapper home-banner"> -->
     <div class="wrapper banner-bg-white overflow-hidden" role="main">
         <div class="press-release-overlay"></div>
         <div class="press-release-background-image position-absolute z-index-0 h-100 w-100">
@@ -423,7 +417,6 @@
             class="container common-container four_content banner-container body-container top-body-container  z-index-2">
             <div class="left-block   ">
                 <div class="row py-md-5 py-0 px-0">
-
                     <div class="col-md-4 col-lg-4 mb-3 mb-md-0 pe-md-0">
                         <div class="left-col-2 ">
                             <div class="page-tab clearfix">
@@ -584,7 +577,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- ************ -->
                     <div class="col-md-4 col-lg-4 mb-3 mb-md-0 pe-md-0">
                         <div class="left-col-2 ">
@@ -620,26 +612,19 @@
                                                                             @if($tender_managements->start_date != '')
                                                                             {{ date('d', strtotime($tender_managements->start_date)) }}
                                                                             @endif
-
                                                                         </span>
                                                                         <em>
                                                                             @if($tender_managements->start_date != '')
-
                                                                             {{ date('M Y', strtotime($tender_managements->start_date)) }}
                                                                             @endif
-
                                                                         </em>
-
                                                                     </div>
                                                                     <div class="list-content">
                                                                         {{ $tender_managements->title_name_en ?? '' }}
-                                                                       
                                                                     </div>
                                                                 </a>
                                                             </li>
-
                                                             <!-- ********************* -->
-
                                                             <!-- ********************* -->
                                                             @endforeach
                                                             @else
@@ -673,83 +658,13 @@
                         </div>
                     </div>
                     <!-- ************ -->
-                    <!-- <div class="col-md-4 col-lg-4 ">
-                        <div class="left-col-2 page-tab">
-                            <div class=" change-color-code">
-                                <ul class="resp-tabs-list hor_1 change-color-code">
-                                    <li class="border-l resp-tab-item hor_1 resp-tab-active change-border-color-text">
-                                        <a href="javascript:viod(0)" class="change-text-color pe-none" tabindex="0">
-                                            @if (Session::get('Lang') == 'hi')
-                                            {{ __('messages.Tender') }}
-                                            @else
-                                            {{ __('messages.Tender') }}
-                                            @endif
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <p class="text-slide1 pause tender-play-btn" onclick="changeClass1()"></p>
-                            </div>
-                            <div class="bg-white-tender">
-                                <div class="scroll-text-1 scroll-left">
-                                    <ul class="list">
-                                        @if (isset($tender_management) && count($tender_management) > 0)
-                                        @foreach ($tender_management as $tender_managements)
-                                        <li>
-                                            <a href="{{ url('tender') }}">
-                                                <div class="date">
-                                                    <span class="change-color-code">
-                                                        @if($tender_managements->start_date != '')
-                                                        {{ date('d', strtotime($tender_managements->start_date)) }}
-                                                        @endif
-
-                                                    </span>
-                                                    <em>
-                                                        @if($tender_managements->start_date != '')
-
-                                                        {{ date('M Y', strtotime($tender_managements->start_date)) }}
-                                                        @endif
-
-                                                    </em>
-
-                                                </div>
-                                                <div class="list-content">
-                                                    {{ $tender_managements->title_name_en ?? '' }}
-                                                    {{-- - File type
-                                                ({{ $tender_managements->file_extension ?? '' }} -
-                                                    {{ $tender_managements->pdfimage_size ?? '' }}) --}}
-                                                </div>
-                                            </a>
-                                        </li>
-                                        @endforeach
-                                        @else
-                                        <li class="list-unstyled border-0">Coming Soon...</li>
-                                        @endif
-                                    </ul>
-                                </div>
-                                <div class="view-footer"><a href="{{ url('tender') }}" title="Know More About Tenders"
-                                        class="change-border-color-text"><span>
-                                            @if (Session::get('Lang') == 'hi')
-                                            {{ __('messages.View_all') }}
-                                            @else
-                                            {{ __('messages.View_all') }}
-                                            @endif
-                                            <i class="fa fa-angle-right"></i>
-                                        </span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
-
             </div>
         </div>
     </div>
     <section class="wf100 city-news p75 bg-white">
         <div class="container common-container four_content banner-container">
             <div class="title-style-3">
-                <!-- <h3 class="h11">Our Programs</h3> -->
-                <!-- <p>Read the News Updates and Articles about Government </p> -->
             </div>
             <div class="row">
                 <!--News Box Start-->
@@ -846,7 +761,6 @@
                                         for fostering optimal ...
                                     </p>
                                     @endif
-
                                     <a class="button change-text-color" href="{{url('academic/training-program')}}">
                                         @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.more_details') }}
@@ -1053,17 +967,13 @@
                                 </div>
                             </blockquote>
                             <script src="https://www.instagram.com/embed.js"></script>
-
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </div>
 </section>
-
 <!-- photo gallery section start -->
 <div class="gallery-section p-32">
     <div class="">
@@ -1134,7 +1044,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6">
                     <div class="gallery-lbox video-sec new_gall_boxhead_change">
                         <div class="content">
@@ -1159,8 +1068,7 @@
                                 data-md-device-nav="false" data-md-device-dots="false" id="banner4">
                                 @if (isset($galleryVideo) && !empty($galleryVideo))
                                 @foreach($galleryVideo as $videos)
-                                @foreach($videos['gallery_details'] as $videoId)
-                                {{-- @dd($videoId->public_url);                                         --}}
+                                @foreach($videos['gallery_details'] as $videoId)                                
                                 <div class="team-item">
                                     <div class="gallery-box media-icon orange-color">
                                         @if($videoId->public_url)
@@ -1174,13 +1082,8 @@
                                 @endforeach
                                 @endforeach
                                 @endif
-
-
-
                             </div>
-
                         </div>
-
                         <div class="btn-view_play">
                             <div class="btn-part  text-center">
                                 <a class="readon2 mt-2" href="{{ route('video-gallery') }}" rel="noopener noreferrer"
@@ -1204,8 +1107,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>

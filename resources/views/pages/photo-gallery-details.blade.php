@@ -2,7 +2,6 @@
 @section('title')
 {{ __('CPPRI |'.' '.$title) }}
 @endsection
-
 @section('content')
 <section class="wrapper banner-wrapper">
     <div id="flexSlider" class="flexslider "
@@ -31,7 +30,6 @@
                         Home
                         @endif
                     </a></li>
-
                 <li><a href="javascript:void();">
                         @if (Session::get('Lang') == 'hi')
                         {{ __('messages.photo_gallery_image') }}
@@ -93,25 +91,17 @@
                                               </div>
                                             </div>
                                         </div>
-
                                     </div>
                                     @else
                                     {{ abort(404) }}
                                     @endif
-
                                 </div>
-
                             </div>
-
                         </div>
                     </section>
-
                 </section>
             </div>
         </div>
     </section>
-
 </div>
-
-
 @endsection
