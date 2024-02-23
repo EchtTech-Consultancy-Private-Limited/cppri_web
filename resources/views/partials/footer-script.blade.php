@@ -1,9 +1,6 @@
 <script src="{{ asset('assets-cppri/js/jquery.min.js') }}"></script>
-<script>
-</script>
 <script src="{{ asset('assets-cppri/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets-cppri/js/jquery.marquee.js')}}"></script>
-<!-- Modal popup End -->
 <script src="{{ asset('assets-cppri/js/jquery-migrate-3.4.0.min.js') }}"></script>
 <script src="{{ asset('assets-cppri/js/jquery-accessibleMegaMenu.js') }}"></script>
 <script src="{{ asset('assets-cppri/js/framework.js') }}"></script>
