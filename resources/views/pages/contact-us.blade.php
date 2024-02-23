@@ -6,14 +6,12 @@
     <div class="container common-container mb-20">
         <div class="row p-0">
             <div class="col-md-6 col-lg-6">
-
                 <div class="contact-item">
                     <div class="contact-icon">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                     </div>
                     <div class="contact-info">
                         <h3>Saharanpur</h3>
-
                         <ul>
                             <li>Post Box 174, Paper Mill Road, Himmat Nagar,</li>
                             <li>Saharanpur - 247001, India</li>
@@ -21,10 +19,8 @@
                             <li> <strong>Fax:</strong> 0132-2714052</li>
                             <li> <strong>Email:</strong> director[dot]cppri[at]gmail[dot]com</li>
                         </ul>
-
                     </div>
                 </div>
-
                 <div class="cppri-contact-form">
                     <div class="main-block">
                         <p id="contact-error"></p>
@@ -39,7 +35,6 @@
                                 </div>
                                 <small id="name-error" class="text-danger"></small>
                                 <div>
-
                                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                     <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
                                 </div>
@@ -50,8 +45,6 @@
                                         value="{{ old('phone') }}" minlength="10" maxlength="10">
                                 </div>
                                 <small id="phone-error" class="text-danger"></small>
-
-
                             </div>
                             <!-- <p>Message</p> -->
                             <div class="info">
@@ -61,7 +54,6 @@
                                 </div>
                                 <small id="message-error" class="text-danger"></small>
                             </div>
-
                             <div class="form-group mt-4 mb-4">
                                 <div class="captcha-box d-flex align-item-center">
                                     <label for="captcha" class="security-code">Security Code :
@@ -73,7 +65,6 @@
                                 <small id="SecurityCode-error" class="text-danger"></small>
                             </div>
                             <div class="text-center">
-
                                 <button class="g-recaptcha btn btn-primary message" type="button" id="submitForm">Submit</button>
                             </div>
                         </form>
@@ -87,20 +78,14 @@
                         allowfullscreen=""></iframe>
                 </div>
             </div>
-
             <div class="col-md-12 mb-4 mt-3 scroller-tbl">
-
                 <div id="datatable">
-
                     <h3 class="dir-dsk-title master-title mt-20 text-center mb-3">
                         @if (Session::get('Lang') == 'hi')
                             {{ __('messages.Employee_Details') }}
                         @else
                             {{ __('messages.Employee_Details') }}
                         @endif
-
-
-
                     </h3>
                     <table id="example" class="display w-100">
                         <thead>
@@ -114,7 +99,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             @if (isset($employee) && count($employee) > 0)
                                 @php $count = 1; @endphp
                                 @foreach ($employee as $k => $employeesData)
@@ -126,7 +110,6 @@
                                                      @else src="{{ asset('assets-cppri/images/profile--.jpg') }}" @endif
                                                     title="{{ $employees->fname_en ?? '' }} {{ $employees->mname_en ?? '' }} {{ $employees->lname_en ?? '' }}">
                                             </td>
-
                                             @if (Session::get('Lang') == 'hi')
                                                 <td>{{ $employees->fname_hi ?? '' }} {{ $employees->mname_hi ?? '' }}
                                                     {{ $employees->lname_hi ?? '' }}</td>
@@ -134,46 +117,33 @@
                                                 <td>{{ $employees->fname_en ?? '' }} {{ $employees->mname_en ?? '' }}
                                                     {{ $employees->lname_en ?? '' }}</td>
                                             @endif
-
                                             @if (Session::get('Lang') == 'hi')
                                                 <td>{{ $employees->desi_name_hi ?? '' }}</td>
                                             @else
                                                 <td>{{ $employees->desi_name_en ?? '' }}</td>
                                             @endif
-
-
                                             @if ($employees->landline_number != '' && $employees->landline_number != null)
                                                 <td> {{ $employees->landline_number ?? '' }} </td>
                                             @else
                                                 <td> {{ $employees->mobile }} </td>
                                             @endif
-
-
-
                                             {{-- <td>{{ $employees->landline_number ?? '' }}</td> --}}
-
                                             <?php
                                             $email_address = $employees->email;
                                             $str = $email_address;
                                             $var = str_replace('@', '[at]', $str);
                                             $email = str_replace('.', '[dot]', $var);
                                             ?>
-
                                             <td>{{ $email ?? '' }}</td>
-
                                         </tr>
                                     @endforeach
                                 @endforeach
                             @endif
                         </tbody>
                     </table>
-
                 </div>
-
             </div>
-
         </div>
     </div>
     </div>
-
 @endsection

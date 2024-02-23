@@ -36,7 +36,6 @@
                                     @php
                                         $subMenusurl = $subMenus->url ?? 'javascript:void(0)';
                                     @endphp
-
                                     @if (isset($subMenus->children) && count($subMenus->children) > 0)
                                         @if ($subMenus->tab_type == 1)
                                             <li class="env">
@@ -64,7 +63,6 @@
                                                     $ChildMenusurl = $ChildMenus->url ?? 'javascript:void(0)';
                                                     $ChildMenusurlfixed = $ChildMenus->footer_url ?? 'javascript:void(0)';
                                                 @endphp
-
                                                 @if (isset($ChildMenus->children) && count($ChildMenus->children) > 0)
                                                     @if ($ChildMenus->tab_type == 1)
                                                         <li class="env sub-menu-drop-g">
@@ -115,7 +113,6 @@
                                         </ul>
                                         </li>
                                     @else
-                                    
                                         @if ($subMenus->tab_type == 1)
                                             @if($subMenusurl != 'feedback' && $subMenusurl != 'website-information-manage' && $subMenusurl != 'vigilance-cell' )
                                             <li class="remove-show-class">
@@ -143,10 +140,8 @@
                                         @endif
                                     @endif
                                 @endforeach
-                                
                             </ul>
                         </div>
-
                         </li>
                     @else
                         @if ($headerMenus->tab_type == 1)
@@ -177,10 +172,5 @@
                 <li>No menu items available.</li>
             @endif
 </ul>
-
     </nav>
-    <!-- <nav class="main-menu clearfix" id="overflow_menu">
-        <ul class="nav-menu clearfix">
-        </ul>
-    </nav> -->
 </div>

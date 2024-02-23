@@ -22,7 +22,6 @@
                     <li><a href="home.html">Home </a></li>
                     <li><a href="javascript:void();">About us</a></li>
                     <li><a href="javascript:void();">Academic Programme</a></li>
-
                 </ul>
             </div>
         </div>
@@ -38,8 +37,6 @@
                             <div class=" common-container four_content">
                                 <h3 class="dir-dsk-title my-3 ">Academic Programme </h3>
                                 <div class="row p-0 mb-20">
-
-                                
                                 <div class="col-md-4 mt-20 mb-20">
                                         <div class="img-box-overview">
                                             <img src="{{ asset('assets-cppri/images/academic-programme.webp') }}" alt="Academic Program" title="academic programme">
@@ -56,18 +53,12 @@
                                         Quaerat non rem, a possimus quae ipsam veritatis unde. Exercitationem enim in repellendus. Aut, iusto dolor repudiandae eligendi praesentium 
                                        </p>
                                     </div>
-
-
-                                   
-
                                 </div>
                             </div>
                         </section>
-                      
                     </section>
                 </div>
             </div>    
         </section>
-
     </div>
 @endsection

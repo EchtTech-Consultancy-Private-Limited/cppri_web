@@ -2,7 +2,6 @@
 @section('title')
     {{ __('CPPRI |'.' '.$title) }}
 @endsection
-
 @section('content')
     <section class="wrapper banner-wrapper">
         <div id="flexSlider" class="flexslider "
@@ -31,7 +30,6 @@
                                 Home
                             @endif
                         </a></li>
-
                     <li><a href="javascript:void();">
                             @if (Session::get('Lang') == 'hi')
                                 {{ __('messages.photo_gallery') }}
@@ -54,15 +52,12 @@
                         <section id="paragraph" class="wrapper paragraph-wrapper">
                             <div class=" common-container four_content mb-5">
                                 <h3 class="dir-dsk-title mt-3">
-
                                     @if (Session::get('Lang') == 'hi')
                                         {{ __('messages.photo_gallery') }}
                                     @else
                                         {{ __('messages.photo_gallery') }}
                                     @endif
-
                                 </h3>
-
                                 @if (isset($tree) && count($tree) > 0)
                                     <div class="row p-0  mt-4    photo-gallery">
                                         @foreach ($tree as $k => $trees)
@@ -82,7 +77,6 @@
                                                                 @endif
                                                             </p>
                                                         </a>
-
                                                         @empty($trees->children)
                                                             {{-- Handle the case when $trees->children is empty --}}
                                                         @else
@@ -99,19 +93,13 @@
                                         @endforeach
                                     @else
                                         <p>No images found in the gallery.</p>
-
                                     </div>
                                 @endif
-
                             </div>
                         </section>
-
                     </section>
                 </div>
             </div>
         </section>
-
     </div>
-
-
 @endsection

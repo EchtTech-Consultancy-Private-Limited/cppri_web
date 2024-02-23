@@ -27,7 +27,6 @@
                     @endif
                 </a></li>
                 <li><a href="javascript:void();">{{ ucfirst(strtolower($title)) ?? '' }}</a></li>
-
             </ul>
         </div>
     </div>
@@ -56,8 +55,6 @@
                                         @endforeach
                                     </select>
                                 </div>
-
-
                                 <div class="col-md-4">
                                     <label for="year" class="form-label">Year</label>
                                     <select class="form-select" name="start_date" aria-label="Default select example" id="year">
@@ -65,7 +62,6 @@
                                         @php
                                             $currentYear = now()->year;
                                         @endphp
-                                
                                         @for ($year = 1998; $year <= $currentYear; $year++)
                                         <option value="{{ $year }}" {{ $year == $selectedYear ? 'selected' : '' }}>
                                             {{ $year }}
@@ -73,13 +69,11 @@
                                     @endfor
                                     </select>
                                 </div>
-
                                 <div class="col-md-3 d-flex align-items-end py-md-0 py-3">
                                     <button type="submit" class=" btn-primary"> Apply</button>
                                 </div>
                             </div>
                         </form>
-
                             <table class="views-table" id="example">
                                 <thead>
                                     <tr>
@@ -142,11 +136,9 @@
                             </table>
                         </div>
                     </section>
-
                 </section>
             </div>
         </div>
     </section>
-
 </div>
 @endsection

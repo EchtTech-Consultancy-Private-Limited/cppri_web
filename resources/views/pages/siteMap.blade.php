@@ -3,7 +3,6 @@
     {{ __('CPPRI |'.' '.$title) }}
 @endsection
 @section('content')
-
     <section class="wrapper banner-wrapper">
         <div id="flexSlider" class="flexslider "
             style="background-image: url('{{ asset('assets-cppri/images/agnipath-banner-1200-185.png') }}');">
@@ -25,29 +24,23 @@
             <div class="container common-container four_content ">
                 <ul>
                     <li><a href="{{ url('/') }}">
-
                             @if (Session::get('Lang') == 'hi')
                                 होम पेज
                             @else
                                 Home
                             @endif
-
                         </a></li>
                     <li><a href="javascript:void();">
-                        
                         @if (Session::get('Lang') == 'hi')
                         {{ __('messages.SiteMap') }}
                     @else
                         {{ __('messages.SiteMap') }}
                     @endif
-                    
                     </a></li>
                 </ul>
             </div>
         </div>
     </div>
-
-
     <section id="list" class="wrapper list-wrapper ptb-30">
         <div class="container">
             <div class="master">
@@ -59,7 +52,6 @@
                         @else
                         {{ __('messages.Main_menu') }}
                         @endif
-
                     </h2>
                     <ul class="clearfix sitemap">
                         @if (isset($headerMenu) && count($headerMenu) > 0)
@@ -202,22 +194,14 @@
                         @endif
                     </ul>
                 </div>
-
-
                 <h2>
-
-
                     @if (Session::get('Lang') == 'hi')
                     {{ __('messages.Footer_Menu') }}
                     @else
                     {{ __('messages.Footer_Menu') }}
                     @endif
-
-
                 </h2>
-
                 <div class="list list-circle">
-
                     @if (isset($footerMenu) && count($footerMenu) > 0)
                         <ul class="clearfix sitemap">
                             @foreach ($footerMenu as $footerMenus)
@@ -254,8 +238,4 @@
             </div>
         </div>
     </section>
-
-
-
-
 @endsection

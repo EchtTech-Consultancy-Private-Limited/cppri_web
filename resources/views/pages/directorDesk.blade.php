@@ -54,13 +54,11 @@
                             <section id="paragraph" class="wrapper paragraph-wrapper">
                                 <div class=" common-container four_content">
                                     <h3 class="dir-dsk-title mt-3 mb-3">
-
                                      @if (Session::get('Lang') == 'hi')
                                          {{ __('messages.Director_Desk') }}
                                      @else
                                         {{ __('messages.Director_Desk') }}
                                      @endif
-
                                     </h3>
                                     <div class="row p-0">
                                         <div class="col-md-3">
@@ -77,10 +75,7 @@
                                                             title=" {{ $Director->fname_en ?? '' }} {{ $Director->mname_en ?? '' }} {{ $Director->lname_en ?? '' }}"
                                                             loading="lazy">
                                                     @endif
-
-
                                                     <h4 class="pb-10" tabindex="0">
-
                                                         @if (Session::get('Lang') == 'hi')
                                                             {{ $Director->fname_hi ?? '' }}
                                                             {{ $Director->mname_hi ?? '' }}
@@ -90,42 +85,28 @@
                                                             {{ $Director->mname_en ?? '' }}
                                                             {{ $Director->lname_en ?? '' }}
                                                         @endif
-
-
-
                                                     </h4>
                                                 </div>
-
-
-
                                             </div>
                                         </div>
                                         <div class="col-md-9">
                                             <p>
-
-
                                                 @if (Session::get('Lang') == 'hi')
                                                     {!! $Director->description_hi !!}
                                                 @else
                                                     {!! $Director->description_en !!}
                                                 @endif
-
                                             </p>
-
                                         </div>
                                     </div>
                                 </div>
                             </section>
                         @endif
-
                         @if (isset($content))
                             <h1> {{ $content ?? '' }} </h1>
                         @endif
-
-
                 </div>
             </div>
         </section>
-
     </div>
 @endsection

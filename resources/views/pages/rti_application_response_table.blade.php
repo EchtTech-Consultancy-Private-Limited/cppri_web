@@ -22,7 +22,6 @@
                 <li><a href="home.html">Home </a></li>
                 <li><a href="javascript:void();">About us</a></li>
                 <li><a href="javascript:void();">RTI Application & Responses</a></li>
-
             </ul>
         </div>
     </div>
@@ -32,10 +31,8 @@
         <!--/.nav-wrapper-->
         <div class="row pr-0">
             <div class="col-md-3 sidebar-main-nav-colmd3 position-relative">
-
                 <div class="main-sidebar" id="main-sidebar">
                     <ul>
-
                         <li class=" qm-active ">
                             <div class="list-start">
                                 <a href="#" class="nav-link" tabindex="0">
@@ -78,44 +75,27 @@
                                 </a>
                             </div>
                         </li>
-
                     </ul>
-
                 </div>
             </div>
-
-
-
             <div class="col-md-9 m-p-0">
-
-
                 <div class="main-content ditiector-desk">
                     <!--/#skipCont-->
                     <div id="fontSize" class="wrapper body-wrapper " style="font-size: 100%;">
-
                         <section id="paragraph" class="wrapper paragraph-wrapper">
                             <div class="container common-container four_content pm-0">
                                 <div class="align-lt">
                                     <!-- <h2 class="mt-0 mb-20" tabindex="0">
                                         RTI Application & Responses
                                     </h2> -->
-
-
-
                                 </div>
-
                                 <!-- Organisation and Function -->
-
                                 <div class="align-lt">
                                     <h2 class="mt-0 mb-20" tabindex="0">
                                         Organisation and Function
                                     </h2>
-
-
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
-
-
                                             <table class='organization-structure'>
                                                 <thead>
                                                     <tr>
@@ -125,8 +105,6 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
-
                                                     <tr>
                                                         <td>1</td>
                                                         <td colspan="2" class="fw-bold">Organisation and Function</td>
@@ -169,12 +147,9 @@
                                                         <td>1.1.5</td>
                                                         <td>Organization Chart</td>
                                                         <td>
-
                                                         </td>
                                                     </tr>
-
                                                     <!-- ************************************ -->
-
                                                     <tr>
                                                         <td>1.1.6</td>
                                                         <td>
@@ -234,7 +209,6 @@
                                                             Work allocation
                                                         </td>
                                                         <td>
-
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -272,10 +246,6 @@
                                                             <!-- Content removed -->
                                                         </td>
                                                     </tr>
-
-
-
-
                                                     <!-- ****************************** -->
                                                     <tr>
                                                         <td>1.3.4</td>
@@ -372,7 +342,6 @@
                                                             <!-- Content removed -->
                                                         </td>
                                                     </tr>
-
                                                     <tr>
                                                         <td>1.5.3</td>
                                                         <td>
@@ -437,19 +406,15 @@
                                                         <td>
                                                             Composition
                                                         </td>
-
                                                     </tr>
                                                     <tr>
                                                         <td>1.7.3</td>
                                                         <td>
                                                             Dates from which constituted
                                                         </td>
-
                                                     </tr>
                                                     <!-- Continue with the remaining rows -->
-
                                                     <!-- ... (previous code) ... -->
-
                                                     <tr>
                                                         <td>1.8</td>
                                                         <td colspan="2" class="fw-bold">
@@ -538,7 +503,6 @@
                                                             (i) Pending for Minor penalty or major penalty proceedings
                                                         </td>
                                                         <td>
-
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -548,7 +512,6 @@
                                                             proceedings
                                                         </td>
                                                         <td>
-
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -563,7 +526,6 @@
                                                             Educational Programmes
                                                         </td>
                                                         <td>
-
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -613,28 +575,20 @@
                                                         </td>
                                                     </tr>
                                                     <!-- Continue with the remaining rows -->
-
                                                 </tbody>
                                             </table>
                                         </div>
                                     </section>
-
-
-
                                 </div>
                                 <!-- Budget and Programmes -->
-
                                 <div class="align-lt">
                                     <h2 class="mt-0 mb-20" tabindex="0">
                                         Budget and Programmes
                                     </h2>
-
-
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
                                             <table>
                                                 <thead>
-
                                                     <tr>
                                                         <th>2</th>
                                                         <th colspan="2" class="fw-bold">
@@ -644,7 +598,6 @@
                                                 </thead>
                                                 <tbody>
                                                     <!-- ... (previous code) ... -->
-
                                                     <tr>
                                                         <td>2.1</td>
                                                         <td colspan="2" class="fw-bold">
@@ -680,7 +633,6 @@
                                                             Revised budget for each agency, if any
                                                         </td>
                                                         <td>
-
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -706,7 +658,6 @@
                                                             Budget
                                                         </td>
                                                         <td>
-
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -723,9 +674,7 @@
                                                         </td>
                                                     </tr>
                                                     <!-- Continue with the remaining rows -->
-
                                                     <!-- ... (previous code) ... -->
-
                                                     <tr>
                                                         <td>2.2.3</td>
                                                         <td>
@@ -807,11 +756,8 @@
                                                             1/6/2011-IR dt. 15.04.2013]
                                                         </td>
                                                     </tr>
-
                                                     <!-- Continue with the remaining rows -->
-
                                                     <!-- ... (previous code) ... -->
-
                                                     <tr>
                                                         <td>2.4.1</td>
                                                         <td>
@@ -819,7 +765,6 @@
                                                             State Govt./ NGOs/other institutions
                                                         </td>
                                                         <td>
-
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -829,7 +774,6 @@
                                                             grants by public authorities
                                                         </td>
                                                         <td>
-
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -878,31 +822,21 @@
                                                             <!-- Content removed -->
                                                         </td>
                                                     </tr>
-
                                                     <!-- Continue with the remaining rows -->
-
                                                 </tbody>
                                             </table>
                                         </div>
                                     </section>
-
                                 </div>
                                 <!-- Publicity and Public Interface -->
-
                                 <div class="align-lt">
                                     <h2 class="mt-0 mb-20" tabindex="0">
                                         Publicity and Public Interface
                                     </h2>
-
-
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
-
-
-
                                             <table>
                                                 <thead>
-
                                                     <tr>
                                                         <th>3</th>
                                                         <th colspan="2" class="fw-bold">
@@ -912,7 +846,6 @@
                                                 </thead>
                                                 <tbody>
                                                     <!-- ... (previous code) ... -->
-
                                                     <tr>
                                                         <td>3.1</td>
                                                         <td colspan="2" class="fw-bold">
@@ -984,11 +917,8 @@
                                                         </td>
                                                         <td></td> <!-- Empty content for the third column -->
                                                     </tr>
-
                                                     <!-- Continue with the remaining rows -->
-
                                                     <!-- ... (previous code) ... -->
-
                                                     <tr>
                                                         <td>3.1.8</td>
                                                         <td>
@@ -1082,11 +1012,8 @@
                                                             [Section 4(1)(b)]
                                                         </td>
                                                     </tr>
-
                                                     <!-- Continue with the remaining rows -->
-
                                                     <!-- ... (previous code) ... -->
-
                                                     <tr>
                                                         <td>3.4.1</td>
                                                         <td>
@@ -1123,30 +1050,22 @@
                                                         </td>
                                                         <td></td> <!-- Empty content for the third column -->
                                                     </tr>
-
                                                     <!-- Continue with the remaining rows -->
-
                                                 </tbody>
                                             </table>
                                         </div>
                                     </section>
-
                                 </div>
                                 <!-- E-Governance -->
                                 <div class="align-lt">
                                     <h2 class="mt-0 mb-20" tabindex="0">
                                         E-Governance
                                     </h2>
-
-
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
-
-
                                             <table>
                                                 <tbody>
                                                     <!-- ... (previous code) ... -->
-
                                                     <tr>
                                                         <td>4</td>
                                                         <td colspan="2" class="fw-bold">
@@ -1187,7 +1106,6 @@
                                                             Last Date of Annual updating
                                                         </td>
                                                         <td>
-
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -1227,11 +1145,8 @@
                                                         </td>
                                                         <td></td> <!-- Empty content for the third column -->
                                                     </tr>
-
                                                     <!-- Continue with the remaining rows -->
-
                                                     <!-- ... (previous code) ... -->
-
                                                     <tr>
                                                         <td>
                                                             4.4
@@ -1278,7 +1193,6 @@
                                                         </td>
                                                         <td>
                                                             Contact person &amp; contact details (Phone, fax email)
-
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -1324,11 +1238,8 @@
                                                             <!-- Empty content for the third column -->
                                                         </td>
                                                     </tr>
-
                                                     <!-- Continue with the remaining rows -->
-
                                                     <!-- ... (previous code) ... -->
-
                                                     <tr>
                                                         <td>
                                                             4.5.4
@@ -1336,7 +1247,6 @@
                                                         <td>
                                                             List of schemes/ projects/ programme underway
                                                         </td>
-
                                                     </tr>
                                                     <tr>
                                                         <td>
@@ -1438,26 +1348,17 @@
                                                             <!-- Empty content for the third column -->
                                                         </td>
                                                     </tr>
-
                                                     <!-- Continue with the remaining rows -->
-
-
-
                                                 </tbody>
                                             </table>
                                         </div>
                                     </section>
-
                                 </div>
-
                                 <!-- Information as may be Prescribed -->
-
                                 <div class="align-lt">
                                     <h2 class="mt-0 mb-20" tabindex="0">
                                         Information as may be Prescribed
                                     </h2>
-
-
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
                                             <table>
@@ -1524,7 +1425,6 @@
                                                         </td>
                                                         <td> </td>
                                                     </tr>
-
                                                     <tr>
                                                         <td>
                                                             5.1.5
@@ -1537,30 +1437,21 @@
                                                         </td>
                                                         <td></td>
                                                     </tr>
-
                                                 </tbody>
                                             </table>
-
-
                                         </div>
                                     </section>
-
                                 </div>
-
                                 <!-- Information Disclosed on Own Initiative -->
                                 <div class="align-lt">
                                     <h2 class="mt-0 mb-20" tabindex="0">
                                         Information Disclosed on Own Initiative
                                     </h2>
-
-
                                     <section id="paragraph" class="wrapper paragraph-wrapper">
                                         <div class=" common-container four_content">
-
                                             <table>
                                                 <tbody>
                                                     <!-- ... (previous code) ... -->
-
                                                     <tr>
                                                         <td>
                                                             6
@@ -1618,15 +1509,11 @@
                                                         </td>
                                                         <td></td>
                                                     </tr>
-
                                                     <!-- Continue with the remaining rows -->
-
-
                                                 </tbody>
                                             </table>
                                         </div>
                                     </section>
-
                                 </div>
                             </div>
                         </section>

@@ -42,8 +42,7 @@ if (! function_exists('generateRandomAdditionExpression')) {
 
 if (! function_exists('getFileImage')) {
     function getFileImage($foldername,$filename) {
-        $base = base64_encode(asset(env('IMAGE_FILE_FOLDER')."/{$foldername}/{$filename}"));    
-        //$fullpath=asset(env('IMAGE_FILE_FOLDER')."/{$foldername}/{$filename}");
+        $base = base64_encode(asset(env('IMAGE_FILE_FOLDER')."/{$foldername}/{$filename}"));
         return $base;
     }
 }
