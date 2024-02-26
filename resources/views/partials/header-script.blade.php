@@ -1,11 +1,7 @@
 <meta charset="utf-8">
-<title>
-    @section('title')
-        {{ config('app.name') }}
-    @show
-</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>{{ $metaDetails->meta_title ?? 'CPPRI' }}</title>
 <meta name="description" content="{{ $metaDetails->meta_tag_description ?? 'CPPRI' }}">
 <meta name="keywords" content="{{ $metaDetails->meta_keywords ?? 'CPPRI' }}">
 <meta name="tag" content="{{ $metaDetails->meta_tag ?? 'CPPRI' }}">
