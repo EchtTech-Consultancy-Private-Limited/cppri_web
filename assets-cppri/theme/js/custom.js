@@ -302,7 +302,6 @@ $(window).scroll(function () {
             });
     }),
     window.onload(function () {
-        alert("main header"),
             $(".loader").css("display", "block"),
             $(".loader-bg").css("display", "block");
     }),
