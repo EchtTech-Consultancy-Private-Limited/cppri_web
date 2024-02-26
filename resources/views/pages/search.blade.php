@@ -1,9 +1,7 @@
 @extends('layout.master')
-
 @section('title')
     {{ __('CPPRI') }}
 @endsection
-
 @section('content')
     <section class="wrapper banner-wrapper">
         <div id="flexSlider" class="flexslider"
@@ -21,7 +19,6 @@
             </div>
         </div>
     </section>
-
     <div class="bg-wrapper inner-wrapper">
         <div class="breadcam-bg breadcam">
             <div class="container common-container four_content">
@@ -48,18 +45,15 @@
             </div>
         </div>
     </div>
-
     <section class="sidebar-main-nav ptb-30">
         <div class="container common-container">
             <form name="searchForm" action="{{ url('/search') }}" method="get" class="row info1 mb-20 p-0">
             <div class="search-box">
                   <input type="search" name="search_key" id="search_key"
                     value="{{ request('search_key') ?? '' }}" class="col-md-4" required placeholder="Search here...">
-               
                     <button class="more gallery-more-btn" type="submit">Search</button>
                 </div>
             </form>
-
             <div class="alt">
                 <h2>
                 @if (count($data) > 0)
@@ -69,14 +63,12 @@
                </h2>
             </div>
             <p class="mt-4 mb-3 text-primary">
-             
             </p>
             <div class="col-md-12 p-0 mb-20">
                 @if (count($data) > 0)
                     @php
                         $count = $data->firstItem() - 1;
                     @endphp
-            
                     @foreach ($data as $item)
                         <div>
                             @if($item['link'] != '')
@@ -92,7 +84,6 @@
                     <h4 class="text-danger">No data found ....</h4>
                 @endif
             </div>
-            
             {{-- Add Pagination Links --}}
             <div class="search-page mt-4">
                 <div class="mt-4">

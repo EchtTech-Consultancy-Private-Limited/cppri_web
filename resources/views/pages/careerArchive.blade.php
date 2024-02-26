@@ -39,11 +39,9 @@
                         Home
                         @endif
                     </a></li>
-
                 <li>
                     Career Archive
                 </li>
-
             </ul>
         </div>
     </div>
@@ -68,9 +66,7 @@
                                     {{-- <a href="{{ url('career-archive') }}" title="Click here to Archive"
                                     class="archive-btn">Archive</a> --}}
                                     <div class="scroller-tbl">
-
                                         <table id="example" class="display">
-
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
@@ -78,18 +74,12 @@
                                                     <th>Published Date</th>
                                                     <th>Submission Date</th>
                                                     <th>View/Download</th>
-
                                                 </tr>
                                             </thead>
-
-
                                             <tbody>
-
-
                                                 @if (isset($final_data) && count($final_data) > 0)
                                                 @foreach ($final_data as $k => $data)
                                                 <tr>
-
                                                     <td>{{ $k + 1 }}</td>
                                                     <td>{{ $data->career->title_name_en ?? '' }}</td>
                                                     <td  class="date-nowrap">
@@ -102,8 +92,6 @@
                                                         {{ date('d F Y', strtotime($data->career->end_date ?? '')) }}
                                                         @endif
                                                     </td>
-
-
                                                     <td class='download'>
                                                         @if(isset($data->career->career_doc))
                                                         @foreach($data->career->career_doc as $careerDoc)
@@ -119,21 +107,16 @@
                                                 </tr>
                                                 @endforeach
                                                 @endif
-
                                             </tbody>
-
                                         </table>
-
                                     </div>
                                 </div>
                             </div>
                     </section>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
 </div>
-
 @endsection

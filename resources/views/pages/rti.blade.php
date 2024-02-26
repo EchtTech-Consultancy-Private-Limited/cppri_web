@@ -25,13 +25,11 @@
         <div class="inner-banner-text">
             <div class="text-banner-content">
                 <h2>
-
                     @if (Session::get('Lang') == 'hi')
                     {{ __('messages.RTI') }}
                     @else
                     {{ __('messages.RTI') }}
                     @endif
-
                 </h2>
             </div>
         </div>
@@ -49,7 +47,6 @@
                         Home
                         @endif
                     </a></li>
-
                 <li>
                     @if (Session::get('Lang') == 'hi')
                     {{ __('messages.RTI') }}
@@ -57,7 +54,6 @@
                     {{ __('messages.RTI') }}
                     @endif
                 </li>
-
             </ul>
         </div>
     </div>
@@ -68,7 +64,6 @@
             @if (isset($rties) && !blank($rties) && isset($rtiesDetails) && !blank($rtiesDetails))
             <div class="row pr-0">
                 <div class="col-md-3 sidebar-main-nav-colmd3 position-relative">
-    
                     <div class="main-sidebar" id="main-sidebar">
                         <ul>
                             @if (isset($rties) && !blank($rties))
@@ -89,27 +84,20 @@
                         </ul>
                     </div>
                     <br>
-                   
                 </div>    
                 <div class="col-md-9 m-p-0">   
                     <div class="main-content ditiector-desk">
                         <!--/#skipCont-->
                         <div id="fontSize" class="wrapper body-wrapper " style="font-size: 100%;">
-    
                             <section id="paragraph" class="wrapper paragraph-wrapper">
                                 <div class="container common-container four_content pm-0">
-                                   
-    
                                     <!-- Organisation and Function -->
-    
                                     <div class="align-lt">
                                         {{-- <h2 class="mt-0 mb-20" tabindex="0">
                                             Organisation and Function
                                         </h2> --}}
-    
                                         {{-- <p tabindex="0"></p> --}}
                                         <section id="paragraph" class="wrapper paragraph-wrapper">
-                                            
                                             <div class=" common-container four_content">
                                             <button class="btn btn-primary float-end mb-2 rounded-2"><a class="text-white" href="{{ route('rti-applications-&-responses') }}">RTI Application & Responses</a></button>
                                                 @if (isset($rtiesDetails) && !blank($rtiesDetails))

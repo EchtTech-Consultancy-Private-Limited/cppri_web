@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     @include('partials.header-script')
 </head>
-
 <body id="body">
-    <!-- <div id="fb-root"></div> -->
-
-
-
     <header class="">
         <div class="region region-header-top">
             <div id="block-cmf-content-header-region-block" class="block block-cmf-content first last odd">
@@ -19,11 +13,9 @@
                 @include('partials.top-head')
             </div>
             <p id="myBtn" onclick="topFunction()" title="Go to top" class="change-color-code"><span></span></p>
-            {{-- <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> --}}
         </div>
         <!--Top-Header Section end-->
         <section class="wrapper header-wrapper" >
-            <!-- <h3   class="d-none">Top-Header Section end</h3> -->
             <div class="container common-container four_content  header-container">
                 <div class="logo">
                     <a href="{{ url('/') }}" title="Home" rel="home" class="header__logo" id="logo">

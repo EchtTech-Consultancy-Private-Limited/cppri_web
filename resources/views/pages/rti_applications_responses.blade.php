@@ -27,7 +27,6 @@
                     @endif
                 </a></li>
                 <li><a href="javascript:void();">{{ $title ?? '' }}</a></li>
-
             </ul>
         </div>
     </div>
@@ -49,13 +48,11 @@
                                     <label for="exampleDataList" class="form-label">Registration No.</label>
                                     <input type="text" class="form-control" name="registration_no" id="registration_no">
                                 </div>
-
                                 <div class="col-md-3 d-flex align-items-end py-md-0 py-3">
                                     <button type="submit" class="btn btn-primary"> Apply</button>
                                 </div>
                             </div>
                         </form> --}}
-
                             <table class="views-table" id="example">
                                 <thead>
                                     <tr>
@@ -86,20 +83,16 @@
                                         @else
                                             <td>{!! $rtiApplication->request_name_en ?? '' !!}</td>
                                         @endif
-
                                         <td>{!! $rtiApplication->registration_number    ?? '' !!}</td>
-
                                         @if (Session::get('Lang') == 'hi')
                                             <td>{!! $rtiApplication->pio_name_hi    ?? '' !!}</td>
                                         @else
                                             <td>{!! $rtiApplication->pio_name_en   ?? '' !!}</td>
                                         @endif
-
                                         <td class="views-field views-field-field--date">
                                             <span class="date-display-single" property="dc:date" datatype="xsd:dateTime"
                                                 content="2020-10-29T00:00:00+05:30"> {{ date("d-m-Y",strtotime($rtiApplication->start_date)) }}</span>
                                         </td>
-
                                         <td class="views-field views-field-field-amount-rs- download">
                                             <a href="{{ asset('resources/uploads/RtiApplicationResponses/' . $rtiApplication->request_document) }}" download="" tabindex="0">
                                                 {!! $rtiApplication->request_document ? 'View' : 'N/A' !!}
@@ -109,7 +102,6 @@
                                             <a href="{{ asset('resources/uploads/RtiApplicationResponses/' . $rtiApplication->reply_document) }}" download="" tabindex="0">
                                                 {!! $rtiApplication->reply_document ? 'View' : 'N/A' !!}
                                             </a><i class="fa fa-file-pdf-o text-danger"></i> <span class="size">({{  $rtiApplication->reply_doc_pdfimage_size }})</span>
-                                            
                                         </td>
                                     </tr>
                                     @endforeach
@@ -117,11 +109,9 @@
                             </table>
                         </div>
                     </section>
-
                 </section>
             </div>
         </div>
     </section>
-
 </div>
 @endsection

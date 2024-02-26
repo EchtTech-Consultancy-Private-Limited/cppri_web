@@ -3,7 +3,6 @@
 {{ __('CPPRI |'.' '.$title) }}
 @endsection
 @section('content')
-
 <section class="wrapper banner-wrapper">
     <div id="flexSlider" class="flexslider "
         style="background-image: url('{{ asset('assets-cppri/images/agnipath-banner-1200-185.png') }}');">
@@ -22,12 +21,10 @@
             <ul>
                 <li><a href="home.html">Home </a></li>
                 <li><a href="javascript:void();">Comming Soon</a></li>
-
             </ul>
         </div>
     </div>
 </div>
-
 <section class="wrapper paragraph-wrapper ptb-30">
     <div class="container common-container four_content">
         <div class="align-lt">
@@ -38,5 +35,4 @@
         </div>
     </div>
 </section>
-
 @endsection

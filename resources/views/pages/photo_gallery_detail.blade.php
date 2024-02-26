@@ -2,7 +2,6 @@
 @section('title')
 {{ __('CPPRI |'.' '.$title) }}
 @endsection
-
 @section('content')
 <section class="wrapper banner-wrapper">
     <div id="flexSlider" class="flexslider "
@@ -31,7 +30,6 @@
                         Home
                         @endif
                     </a></li>
-
                 <li><a href="javascript:void();">
                         @if (Session::get('Lang') == 'hi')
                         {{ __('messages.photo_gallery') }}
@@ -53,17 +51,14 @@
                 <section id="fontSize" class="wrapper body-wrapper rs-blog main-home">
                     <section id="paragraph" class="wrapper paragraph-wrapper">
                         <div class=" common-container four_content mb-5">
-
                             <div class="container">
                                 <div class="row">
                                     <div class="heading-title">
                                         <h2 class="title event-heading-color">Photo Gallery Images</h2>
                                     </div>
-
                                     <div class="rs-blog main-home">
                                         <div class="container1 row">
                                             <div class="col-md-6">
-
                                                 <div class="mySlides" style="display: none;">
                                                     <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909984.jpeg"
                                                         style="width:100%">
@@ -88,7 +83,6 @@
                                                     <img src="https://dev.nrcp.staggings.in/resources/uploads/GalleryManagement/170607909984.jpeg"
                                                         style="width:100%">
                                                 </div>
-
                                                 <a class="prev" onclick="plusSlides(-1)">❮</a>
                                                 <a class="next" onclick="plusSlides(1)">❯</a>
                                             </div>
@@ -110,27 +104,17 @@
                                                         style="width:100%" onclick="currentSlide(3)" alt="">
                                                 </div>
                                               </div>
-                                               
                                             </div>
-
                                         </div>
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
             </div>
     </section>
-
     </section>
 </div>
 </div>
 </section>
-
 </div>
-
-
 @endsection

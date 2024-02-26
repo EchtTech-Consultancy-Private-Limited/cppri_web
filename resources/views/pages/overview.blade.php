@@ -22,7 +22,6 @@
                     <li><a href="home.html">Home </a></li>
                     <li><a href="javascript:void();">About us</a></li>
                     <li><a href="javascript:void();">Overview</a></li>
-
                 </ul>
             </div>
         </div>
@@ -38,7 +37,6 @@
                             <div class=" common-container four_content">
                                 <h3 class="dir-dsk-title mt-3">Overview </h3>
                                 <div class="row p-0 mb-20">
-
                                     <div class="col-md-8">
                                         <p>
                                             Central Pulp & Paper Research Institute, a National level Institute was
@@ -67,13 +65,11 @@
                                             Pulp & Paper Industry, Associations, Research Organizations and Ministry of
                                             Commerce and Industry.</p>
                                     </div>
-
                                     <div class="col-md-4 mt-20 mb-20">
                                         <div class="img-box-overview">
                                             <img src="{{ asset('assets-cppri/images/about-overview.png') }}" alt="">
                                         </div>
                                     </div>
-
                                     <div class="col-md-12 mt-4">
                                     <h3 class="dir-dsk-title mt-3">Quality Policy</h3>
                                         <blockquote>
@@ -86,7 +82,6 @@
                                             System.
                                         </blockquote>
                                     </div>
-
                                 </div>
                             </div>
                         </section>
@@ -104,7 +99,6 @@
                                                     </li>
                                                 </ul>
                                             </div>
-
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="sec-title2 mb-40">
@@ -114,7 +108,6 @@
                                                         Excellence in Pulp & Paper Industry</li>
                                                 </ul>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -124,6 +117,5 @@
                 </div>
             </div>    
         </section>
-
     </div>
 @endsection

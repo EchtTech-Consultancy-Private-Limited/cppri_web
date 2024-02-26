@@ -9,7 +9,6 @@
         <div class="inner-banner-text">
             <div class="text-banner-content">
                 <h2>
-
                     @if (Session::get('Lang') == 'hi')
                     {{ __('messages.Screen_Reader_Access') }}
                     @else
@@ -42,7 +41,6 @@
         </div>
     </div>
 </div>
-
 <section class="wrapper paragraph-wrapper ptb-30">
     <div class="container common-container four_content">
         <div class="align-lt scroller-tbl">
@@ -54,7 +52,6 @@
                 @endif
             </h2>
             <!-- <h3>Headline goes here...</h3> -->
-
             <p tabindex="0">
                 The Ministry of Central Pulp and Paper Research Institute website complies with Guidelines for Indian
                 Government Websites and World Wide Web Consortium (W3C) Web Content Accessibility Guidelines (WCAG) 2.0
@@ -65,11 +62,8 @@
             <p tabindex="0" class="mb-20"> Following table lists the information about different screen readers:
                 <b>Information related to the various screen readers</b>
             </p>
-
             <table id="example" class="display" style="width:100%">
-
                 <thead>
-
                     <tr>
                         <th>Sr.No.</th>
                         <th>Screen Reader</th>
@@ -77,11 +71,8 @@
                         <th>Free / Commercial
                         </th>
                     </tr>
-
                 </thead>
-
                 <tbody>
-
                     <tr>
                         <td>1</td> 
                         <td class="sorting_1">Non Visual Desktop Access (NVDA)</td>
@@ -124,9 +115,7 @@
                         <td>Commercial</td>
                     </tr>
                 </tbody>
-
             </table>
-
         </div>
     </div>
 </section>
