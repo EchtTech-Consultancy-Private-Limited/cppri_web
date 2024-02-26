@@ -1333,4 +1333,18 @@
     </div>
 </section>
 <!--Client logo end-->
+
+<div class="loader-bg"></div>
+<div class="loader">
+
+    <div class="loading-dots" id="cppri_loader">
+        <img src="{{ asset('assets-cppri/images/logo.png') }}" alt="">
+        <div>
+            <div class="loading-dots--dot"></div>
+            <div class="loading-dots--dot"></div>
+            <div class="loading-dots--dot"></div>
+        </div>
+
+    </div>
+</div>
 @endsection
