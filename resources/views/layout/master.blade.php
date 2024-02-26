@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     @include('partials.header-script')
 </head>
-
 <body id="body">
     <header class="">
         <div class="region region-header-top">
