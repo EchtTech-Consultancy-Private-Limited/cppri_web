@@ -471,7 +471,8 @@ class HomeController extends Controller
                     ->where('menu_uid', $menus->uid)
                     ->orderBy('created_at', 'asc')
                     ->orderBy('sort_order', 'ASC')
-                    ->get();
+                    ->get();               
+
                 if (count($dynamic_content_page_metatag) > 0) {
                     $organizedData = [];
                     foreach ($dynamic_content_page_metatag as $dynamic_content_page_metatags) {
@@ -559,6 +560,9 @@ class HomeController extends Controller
                         // return view('pages.employeeDirectory', ['sortedDesignationData' => $sortedDesignationData]);
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'sortedDesignationData' => $sortedDesignationData]);
                     }
+                } elseif ($lastSlugs != null && $lastSlugs == 'faq') {
+                    $faqs = DB::table('faq')->where('status', 3)->where('soft_delete', 0)->orderBy('created_at', 'asc')->get();
+                    return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'faqs' => $faqs]);
                 } else {
                     if (Session::get('Lang') == 'hi') {
                         $content = "जल्द आ रहा है";
@@ -567,7 +571,7 @@ class HomeController extends Controller
                     }
                     if ($finalSlug != null) {
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'finalBred' => $finalBred, 'lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name]);
-                    } else if ($lastSlugs != null) {
+                    } else if ($lastSlugs != null) {                    
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name]);
                     } elseif ($middelSlug != null) {
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'middelBred' => $middelBred, 'content' => $content, 'title_name' => $title_name]);

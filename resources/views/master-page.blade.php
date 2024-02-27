@@ -476,6 +476,24 @@
                         @endif
                     @endforeach
                 @endif
+                @if (isset($faqs) && $faqs != '')
+                    @foreach($faqs as $faq)
+                        <button class="contentAccordion">
+                            @if (Session::get('Lang') == 'hi')
+                                {{ $faq->question_hi }}
+                            @else
+                                {{ $faq->question_en }}
+                            @endif                            
+                        </button>
+                        <div class="panel">
+                            @if (Session::get('Lang') == 'hi')
+                                {!! $faq->answer_hi !!}
+                            @else
+                                {!! $faq->answer_en !!}
+                            @endif
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
