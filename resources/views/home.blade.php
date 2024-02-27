@@ -496,7 +496,6 @@
                                                                     here to apply</a>
                                                             </div>
                                                         </li> 
-
                                                         <li>
                                                                 <div class="date">
                                                                     <span class="change-color-code">
@@ -696,7 +695,6 @@
                                                                 {{ __('messages.comming_soon') }}</li>
                                                             @endif
                                                             @endif
-
                                                            {{-- 
                                                             <li>
                                                                 <div class="date">
@@ -715,8 +713,6 @@
                                                                 </div>
                                                             </li>
                                                             --}}
-                                                          
-
                                                         </ul>
                                                     </div>
                                                     <div class="view-footer"><a href="{{ url('tender') }}"
@@ -1234,10 +1230,8 @@
     </div>
 </section>
 <!--Client logo end-->
-
 <div class="loader-bg"></div>
 <div class="loader">
-
     <div class="loading-dots" id="cppri_loader">
         <img src="{{ asset('assets-cppri/images/logo.png') }}" alt="">
         <div>
@@ -1245,7 +1239,6 @@
             <div class="loading-dots--dot"></div>
             <div class="loading-dots--dot"></div>
         </div>
-
     </div>
 </div>
 @endsection
