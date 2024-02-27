@@ -190,7 +190,7 @@
                         <div class="col m-p-0">
                 @endif
                 {{-- <div class="col-md-9 m-p-0"> --}}
-                <div class="main-content ditiector-desk">
+                <div class="main-content ditiector-desk container common-container four_content pm-0">
                     <!--/#skipCont-->
                     <div id="fontSize" class="wrapper body-wrapper ">
                         @if (isset($content))
@@ -477,7 +477,10 @@
                     @endforeach
                 @endif
                 @if (isset($faqs) && $faqs != '')
-                <h2 class="mt-0 mb-20" tabindex="0">FAQ</h2>
+                <div class="align-lt faq">
+
+                    <h2 class="mt-3 mb-4" tabindex="0">FAQ</h2>
+                
                     @foreach($faqs as $key => $faq)                       
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item">
@@ -497,12 +500,13 @@
                                     @else
                                         {!! $faq->answer_en !!}
                                     @endif
+                                   
                                 </div>
                               </div>
                             </div>
                         </div>
                     @endforeach                    
-                    
+                    </div>
                 @endif
             </div>
         </div>
