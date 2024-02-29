@@ -39,11 +39,9 @@
                                 Home
                             @endif
                         </a></li>
-
                     <li>
                         Tender Archive
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -68,9 +66,7 @@
                                         {{-- <a href="javascript:void(0);" title="Click here to Archive"
                                             class="archive-btn">Archive</a> --}}
                                         <div class="scroller-tbl">
-                                          
                                                 <table id="example" class="display">
-
                                                     <thead>
                                                         <tr>
                                                             <th>Sr. No.</th>
@@ -84,7 +80,6 @@
                                                             @endif
                                                         </tr>
                                                     </thead>
-
                                                     <tbody>
                                                         @if(isset($tenderData) &&  count($tenderData) > 0 )
                                                         @foreach ($tenderData as $k=> $data)
@@ -106,8 +101,6 @@
                                                                 {{ date('d F Y', strtotime($data['tender']->opening_date ?? '')) }}
                                                                 @endif
                                                             </td>
-                                                            
-                                                           
                                                             <td class='download'>
                                                                 @foreach ($data['tender_pdfs'] as $pdf)
                                                                 <a href="{{ asset('resources/uploads/TenderManagement/' . $pdf->public_url) }}"
@@ -122,56 +115,11 @@
                                                                     <a href="{{ $data['tender']->apply_url ?? '' }}">{{ $data['tender']->apply_url ?? '' }}</a>
                                                                 </td>
                                                             @endif
-                                                           
-
                                                         </tr>
                                                           @endforeach
-                                                          @endif
-                                                        {{-- @if (isset($tender_pdfs) && count($tender_pdfs) > 0)
-                                                        @foreach ($tender_pdfs as $k=>$data)
-                                                            <tr>
-                                                                <td>{{ $k+1 ?? '' }}</td> 
-                                                                <td>{{ $data->pdf_title ?? '' }}</td>
-                                                                <td class="date-nowrap">
-                                                                    @if($data->start_date !='')
-                                                                    {{ date('d F Y', strtotime($data->start_date ?? '')) }}
-                                                                    @endif
-                                                                </td>
-
-                                                                <td class="date-nowrap">
-                                                                    @if($data->end_date !='')
-                                                                    {{ date('d F Y', strtotime($data->end_date ?? '')) }}
-                                                                    @endif
-                                                                </td>
-                                                                
-                                                                <td class="date-nowrap">
-                                                                    @if($data->opening_date !='')
-                                                                    {{ date('d F Y', strtotime($data->opening_date ?? '')) }}
-                                                                    @endif
-                                                                </td>
-
-                                                                <td class='download'>
-                                                                <a
-                                                                            download>View</a> <i
-                                                                            class="fa fa-file-pdf-o text-danger"></i>
-                                                                    <span class='size'>
-                                                                        ({{ $data->pdfimage_size ?? '' }})
-                                                                    </span>
-                                                                </td>
-                                                                
-                                                                <td>
-                                                                    @if($data->apply_url !='')
-                                                                    <a href="{{ $data->apply_url ?? '' }}"></a>
-                                                                    @endif
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
-                                                                    href="{{ asset('resources/uploads/TenderManagement/' . $data->public_url) }}"
-                                                               
-                                                        @endif --}}
+                                                          @endif                                                        
                                                     </tbody>
                                                 </table>
-                                           
                                         </div>
                                     </div>
                                 </div>
@@ -182,5 +130,4 @@
         </div>
     </div>
     </div>
-
 @endsection

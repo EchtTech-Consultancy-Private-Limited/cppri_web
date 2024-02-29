@@ -42,15 +42,12 @@
                     @if (isset($finalBred))
                         <li><a>{{ ucfirst(strtolower($finalBred)) ?? '' }}</a></li>
                     @endif
-
                     @if (isset($lastBred))
                         <li><a>{{ ucfirst(strtolower($lastBred)) ?? '' }}</a></li>
                     @endif
-
                     @if (isset($middelBred))
                         <li><a>{{ ucfirst(strtolower($middelBred)) ?? '' }}</a></li>
                     @endif
-
                     <li>{{ $title_name ?? '' }}</li>
                 </ul>
             </div>
@@ -63,7 +60,6 @@
             <div class="row pr-lg-0">
                 @if (isset($parentMenut) != '')
                     <div class="col-md-4 col-lg-3 sidebar-main-nav-colmd3 position-relative">
-
                         <div class="main-sidebar" id="main-sidebar">
                             <ul>
                                 @if (isset($tree) && count($tree) > 0)
@@ -89,7 +85,6 @@
                                                             @endif
                                                         </a>
                                                     </div>
-
                                                     <div id="flush-collapseOne_{{ $index }}"
                                                         class="accordion-collapse collapse"
                                                         aria-labelledby="flush-headingOne_{{ $index }}"
@@ -120,7 +115,6 @@
                                                                                         @endif
                                                                                     </a>
                                                                                 </div>
-
                                                                                 <div id="fl_flush_collapseOne_{{ $k }}"
                                                                                     class="accordion-collapse collapse"
                                                                                     aria-labelledby="fl_flush_headingOne_{{ $k }}"
@@ -131,10 +125,8 @@
                                                                                                 @php
                                                                                                     $finalChildUrl = $finalChild->url ?? '';
                                                                                                 @endphp
-
                                                                                                 <li
                                                                                                     class="@if (request()->is($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl . '/' . $finalChildUrl)) qm-active @endif">
-
                                                                                                     <a
                                                                                                         href="{{ url($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl . '/' . $finalChildUrl) }}">
                                                                                                         @if (Session::get('Lang') == 'hi')
@@ -145,7 +137,6 @@
                                                                                                     </a>
                                                                                                 </li>
                                                                                             @endforeach
-
                                                                                             <!-- nested layer -->
                                                                                         </ul>
                                                                                     </div>
@@ -157,7 +148,6 @@
                                                                             class="@if (request()->is($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl)) qm-active @endif">
                                                                             <a href="{{ url($parentMenuUrl . '/' . $treesUrl . '/' . $chiltreeUrl) }}"
                                                                                 class="">
-
                                                                                 @if (Session::get('Lang') == 'hi')
                                                                                     {{ $childTree->name_hi ?? '' }}
                                                                                 @else
@@ -191,11 +181,8 @@
                                     @endforeach
                                 @endif
                             </ul>
-
                         </div>
                     </div>
-
-
                 @endif
                 @if (isset($parentMenut))
                     <div class="col-md-8 col-lg-9 m-p-0">
@@ -203,7 +190,7 @@
                         <div class="col m-p-0">
                 @endif
                 {{-- <div class="col-md-9 m-p-0"> --}}
-                <div class="main-content ditiector-desk">
+                <div class="main-content ditiector-desk container common-container four_content pm-0">
                     <!--/#skipCont-->
                     <div id="fontSize" class="wrapper body-wrapper ">
                         @if (isset($content))
@@ -222,7 +209,6 @@
                                                 @endif
                                             @endif
                                         </h2>
-
                                         @if (isset($organizedData['content']->page_content_en) && !blank($organizedData['content']->page_content_en))
                                             <p>
                                                 @if (Session::get('Lang') == 'hi')
@@ -232,7 +218,6 @@
                                                 @endif
                                             </p>
                                         @endif
-
                                     </div>
                                 </div>
                             </section>
@@ -242,12 +227,8 @@
                                 <div class="container common-container">
                                     <div class="row p-0 ">
                                         <div class="col-md-12">
-                                            {{-- <a href="javascript:void(0);" title="Click here to Archive" class="archive-btn">Archive</a> --}}
-
                                             <div class="scroller-tbl">
-
                                                 <table id="example" class="display w-100">
-
                                                     <thead>
                                                         <tr>
                                                             <th>Sr. No.</th>
@@ -256,8 +237,6 @@
                                                             <th> View/Download</th>
                                                         </tr>
                                                     </thead>
-
-
                                                     <tbody>
                                                         @foreach ($organizedData['pdf'] as $k => $data)
                                                             <tr>
@@ -270,8 +249,6 @@
                                                                     <a href="{{ asset('resources/uploads/PageContentPdf/' . $data->public_url) }}"
                                                                         download>View</a> <i
                                                                         class="fa fa-file-pdf-o text-danger"></i>
-
-
                                                                     <span class="size">
                                                                         ({{ $data->pdfimage_size ?? '' }})
                                                                     </span>
@@ -280,7 +257,6 @@
                                                         @endforeach
                                                     </tbody>
                                                 </table>
-
                                             </div>
                                         </div>
                                     </div>
@@ -310,7 +286,6 @@
                         @if (isset($Director) && $Director != '')
                             <section id="paragraph" class="wrapper paragraph-wrapper director-desk-container">
                                 <div class="common-container four_content">
-
                                     <div class="row">
                                         <h2 class="dir-dsk-title mt-0 mb-3">
                                             @if (Session::get('Lang') == 'hi')
@@ -345,30 +320,18 @@
                                                     {{ $Director->mname_en ?? '' }}
                                                     {{ $Director->lname_en ?? '' }}
                                                 @endif
-
-
-
                                             </h4>
                                         </div>
-
-
-
                                     </div>
                                     <p>
-
-
                                         @if (Session::get('Lang') == 'hi')
                                             {!! $Director->description_hi !!}
                                         @else
                                             {!! $Director->description_en !!}
                                         @endif
-
                                     </p>
-
                                 </div>
                     </div>
-
-
                 </div>
                 </section>
                 @endif
@@ -381,14 +344,11 @@
                                         <div data-aos-mirror="true" data-aos="fade-right" class="title-before">
                                         </div>
                                         <h3>
-
                                             @if (Session::get('Lang') == 'hi')
                                                 <h2>{{ $item['department']->name_hi ?? '' }}</h2>
                                             @else
                                                 <h2>{{ $item['department']->name_en ?? '' }}</h2>
                                             @endif
-
-
                                         </h3>
                                         <div data-aos-mirror="true" data-aos="fade-left" class="title-after">
                                         </div>
@@ -398,7 +358,6 @@
                                     @foreach ($item['data'] as $profile)
                                         <div class="direct-centre emp-card-det">
                                             <div class="card-emp-dir">
-
                                                 <div class="emp-crddir-inf">
                                                     <div class="img-circle-prof">
                                                         <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
@@ -408,9 +367,6 @@
                                                             tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }}
                                                 {{ $profile->lname_en ?? '' }}">
                                                     </div>
-
-
-
                                                     @if (Session::get('Lang') == 'hi')
                                                         <h3> {{ $profile->fname_hi ?? '' }}
                                                             {{ $profile->mname_hi ?? '' }}
@@ -420,15 +376,11 @@
                                                             {{ $profile->mname_en ?? '' }}
                                                             {{ $profile->lname_en ?? '' }}</h3>
                                                     @endif
-
-
-
                                                     @if (Session::get('Lang') == 'hi')
                                                         <h5>({{ $profile->desi_name_hi ?? '' }})</h5>
                                                     @else
                                                         <h5>({{ $profile->desi_name_en ?? '' }})</h5>
                                                     @endif
-
                                                     @if ($profile->landline_number != '' && $profile->landline_number != null)
                                                         <p><strong><i class="fa fa-phone"></i> :</strong>
                                                             {{ $profile->landline_number ?? '' }} </p>
@@ -437,17 +389,13 @@
                                                             {{ $profile->mobile }}
                                                         </p>
                                                     @endif
-
                                                     <p>{{ $profile->extention_number ?? '' }}</p>
-
-
                                                     <?php
                                                     $email_address = $profile->email;
                                                     $str = $email_address;
                                                     $var = str_replace('@', '[at]', $str);
                                                     $email = str_replace('.', '[dot]', $var);
                                                     ?>
-
                                                     <p><strong><i class="fa fa-envelope-o mr-2" aria-hidden="true"></i>
                                                             :</strong>
                                                         <span>{{ $email ?? '' }}</span>
@@ -457,7 +405,6 @@
                                         </div>
                                     @endforeach
                                 @endif
-
                             </div>
                         @else
                             <div class="row">
@@ -465,13 +412,11 @@
                                     <div class="employee-directry-type employee-dir-page">
                                         <div data-aos-mirror="true" data-aos="fade-right" class="title-before">
                                         </div>
-
                                         @if (Session::get('Lang') == 'hi')
                                             <h2>{{ $item['department']->name_hi ?? '' }}</h2>
                                         @else
                                             <h2>{{ $item['department']->name_en ?? '' }}</h2>
                                         @endif
-
                                         <div data-aos-mirror="true" data-aos="fade-left" class="title-after">
                                         </div>
                                     </div>
@@ -480,7 +425,6 @@
                                     @foreach ($item['data'] as $profile)
                                         <div class="col-md-6 col-lg-4 emp-card-det">
                                             <div class="card-emp-dir emp-dir-main">
-
                                                 <div class="emp-crddir-inf">
                                                     <div class="img-circle-prof">
                                                         <img @if ($profile->public_url != '') src="{{ asset('resources/uploads/empDirectory/' . $profile->public_url) }}"
@@ -490,7 +434,6 @@
                                                             tittle= "{{ $profile->fname_en ?? '' }} {{ $profile->mname_en ?? '' }}
                                                 {{ $profile->lname_en ?? '' }}">
                                                     </div>
-
                                                     @if (Session::get('Lang') == 'hi')
                                                         <h3> {{ $profile->fname_hi ?? '' }}
                                                             {{ $profile->mname_hi ?? '' }}
@@ -500,14 +443,11 @@
                                                             {{ $profile->mname_en ?? '' }}
                                                             {{ $profile->lname_en ?? '' }}</h3>
                                                     @endif
-
                                                     @if (Session::get('Lang') == 'hi')
                                                         <h5>({{ $profile->desi_name_hi ?? '' }})</h5>
                                                     @else
                                                         <h5>({{ $profile->desi_name_en ?? '' }})</h5>
                                                     @endif
-
-
                                                     @if ($profile->landline_number != '' && $profile->landline_number != null)
                                                         <p><strong><i class="fa fa-phone"></i> :</strong>
                                                             {{ $profile->landline_number ?? '' }} </p>
@@ -516,22 +456,17 @@
                                                             {{ $profile->mobile }}
                                                         </p>
                                                     @endif
-
-
                                                     <p> {{ $profile->extention_number ?? '' }}</p>
-
                                                     <?php
                                                     $email_address = $profile->email;
                                                     $str = $email_address;
                                                     $var = str_replace('@', '[at]', $str);
                                                     $email = str_replace('.', '[dot]', $var);
                                                     ?>
-
                                                     <p class="email-text-styl"><i class="fa fa-envelope-o mr-2 w-10"
                                                             aria-hidden="true"></i>
                                                         {{ $email }}
                                                     </p>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -541,13 +476,42 @@
                         @endif
                     @endforeach
                 @endif
+                @if (isset($faqs) && $faqs != '')
+                <div class="align-lt faq">
 
-
+                    <h2 class="mt-3 mb-4" tabindex="0">FAQ</h2>
+                
+                    @foreach($faqs as $key => $faq)                       
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-heading_{{ $key }}" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    @if (Session::get('Lang') == 'hi')
+                                        {{ $faq->question_hi }}
+                                    @else
+                                        {{ $faq->question_en }}
+                                    @endif
+                                </button>
+                              </h2>
+                              <div id="flush-heading_{{ $key }}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    @if (Session::get('Lang') == 'hi')
+                                        {!! $faq->answer_hi !!}
+                                    @else
+                                        {!! $faq->answer_en !!}
+                                    @endif
+                                   
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    @endforeach                    
+                    </div>
+                @endif
             </div>
         </div>
     </div>
     </div>
     </div>
     </div>
-
 @endsection

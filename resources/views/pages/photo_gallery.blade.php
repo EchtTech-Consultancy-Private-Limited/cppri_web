@@ -2,7 +2,6 @@
 @section('title')
 {{ __('CPPRI |'.' '.$title) }}
 @endsection
-
 @section('content')
 <section class="wrapper banner-wrapper">
     <div id="flexSlider" class="flexslider "
@@ -31,7 +30,6 @@
                         Home
                         @endif
                     </a></li>
-
                 <li><a href="javascript:void();">
                         @if (Session::get('Lang') == 'hi')
                         {{ __('messages.photo_gallery') }}
@@ -53,16 +51,13 @@
                 <section id="fontSize" class="wrapper body-wrapper rs-blog main-home">
                     <section id="paragraph" class="wrapper paragraph-wrapper">
                         <div class=" common-container four_content mb-4 mt-3">
-
                             <div class="row mt-2">
                                 <h3 class="dir-dsk-title mb-2">
-
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.photo_gallery') }}
                                     @else
                                     {{ __('messages.photo_gallery') }}
                                     @endif
-
                                 </h3>
                                 @if (isset($galleryData) && count($galleryData) > 0)
                                     <div class="row">
@@ -78,7 +73,6 @@
                                                             </div>
                                                 <div class="blog-content b-t">
                                                     <h3 class="title">
-
                                                         {{ $galleryDatas['gallery']->title_name_en ?? '' }}
                                                     </h3>                                                            </div>
                                                         </a>
@@ -90,20 +84,13 @@
                                 @else
                                     <p>NO Data Available!!</p>
                                 @endif
-                                    
                                 </div>
-
                             </div>
-
                         </div>
                     </section>
-
                 </section>
             </div>
         </div>
     </section>
-
 </div>
-
-
 @endsection

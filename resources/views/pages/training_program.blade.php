@@ -22,7 +22,6 @@
                     <li><a href="home.html">Home </a></li>
                     <li><a href="javascript:void();">About us</a></li>
                     <li><a href="javascript:void();">Training Programme</a></li>
-
                 </ul>
             </div>
         </div>
@@ -59,19 +58,12 @@
                                         Nostrum, expedita et. Cupiditate, voluptatem nihil vel vitae ipsam esse veritatis saepe ducimus accusamus atque minus nobis dolores. Totam unde cumque quas molestiae maiores distinctio quis autem iure atque vel.
                                        </p>
                                     </div>
-
-                                  
-
-                                    
-
                                 </div>
                             </div>
                         </section>
-                       
                     </section>
                 </div>
             </div>    
         </section>
-
     </div>
 @endsection

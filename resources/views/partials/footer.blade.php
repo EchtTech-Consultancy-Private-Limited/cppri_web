@@ -5,20 +5,14 @@
                 <div class="row">
                     <div class="col-md-9">
                         <div class="row p-0">
-
                             {{-- slice(0, 6)   0= start index , 6= lenght  --}}
-
                             <div class="col-md-4">
                                 <h3 class="footer-title">
-
-
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.About_Us') }}
                                     @else
                                     {{ __('messages.About_Us') }}
                                     @endif
-
-
                                 </h3>
                                 @if (isset($footerMenu) && count($footerMenu) > 0)
                                 <ul>
@@ -26,8 +20,6 @@
                                     @php
                                     $footerurl = $footerMenus->footer_url ?? 'javascript:void(0)';
                                     @endphp
-
-
                                     @if ($footerMenus->tab_type == 1)
                                     <li>
                                         <a onclick="return confirm('{{ $alertMessage }}')" target="_blank"
@@ -39,10 +31,8 @@
                                             @endif
                                         </a>
                                     </li>
-
                                     @else
                                     <li><a href="{{ url($footerurl) ?? '' }}">
-
                                             @if (Session::get('Lang') == 'hi')
                                             {{ $footerMenus->name_hi ?? '' }}
                                             @else
@@ -57,20 +47,14 @@
                                 <p>No footer menu items available.</p>
                                 @endif
                             </div>
-
                             <div class="col-md-4">
                                 <h3 class="footer-title">
-
-
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Divisions/Cells') }}
                                     @else
                                     {{ __('messages.Divisions/Cells') }}
                                     @endif
-
-
                                 </h3>
-
                                 @if (isset($footerMenu) && count($footerMenu) > 0)
                                 <ul>
                                     @foreach ($footerMenu->slice(6, 6) as $footerMenus)
@@ -88,7 +72,6 @@
                                             @endif
                                         </a>
                                     </li>
-
                                     @else
                                     <li>
                                         <a href="{{ url($footerurl) ?? '' }}">
@@ -105,12 +88,10 @@
                                 @else
                                 <p>No footer menu items available.</p>
                                 @endif
-
                             </div>
                             <!-- 
                             <div class="col-md-4">
                                 <h3 class="footer-title">&nbsp;</h3>
-                              
                                     @if (isset($footerMenu) && count($footerMenu) > 0)
                                         <ul>
                                             @foreach ($footerMenu->slice(12, 6) as $footerMenus)
@@ -128,11 +109,9 @@
                                                             @endif
                                                         </a>
                                                     </li>
-                                               
                                                 @else
                                                     <li>
                                                         <a href="{{ url($footerurl) ?? '' }}">
-
                                                             @if (Session::get('Lang') == 'hi')
                                                                 {{ $footerMenus->name_hi ?? '' }}
                                                             @else
@@ -146,20 +125,15 @@
                                     @else
                                         <p>No footer menu items available.</p>
                                     @endif
-                            
                             </div> -->
-
-
                             @if (isset($quickLink) && count($quickLink) > 0)
                             <div class="col-md-4">
                                 <h3 class="footer-title">
-
                                     @if (Session::get('Lang') == 'hi')
                                     {{ __('messages.Quick_Links') }}
                                     @else
                                     {{ __('messages.Quick_Links') }}
                                     @endif
-
                                 </h3>
                                 <ul>
                                     @foreach ($quickLink as $quickLinks)
@@ -167,7 +141,6 @@
                                     $quickLinkurl = $quickLinks->url ?? 'javascript:void(0)';
                                     $footerurl = $quickLinks->footer_url ?? 'javascript:void(0)';
                                     @endphp
-
                                     @if ($quickLinks->tab_type == 1)
                                     <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank"
                                             href="{{ $footerurl ?? '' }}">
@@ -196,13 +169,11 @@
                     </div>
                     <div class="col-md-3">
                         <h3 class="footer-title">
-
                             @if (Session::get('Lang') == 'hi')
                             {{ __('messages.Contact_Us') }}
                             @else
                             {{ __('messages.Contact_Us') }}
                             @endif
-
                         </h3>
                         <ul class="contact-us-footer">
                             <li><i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -225,13 +196,11 @@
                                 </div>
                             </li>
                         </ul>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="footer-bottom-wrapper">
         <div class="container common-container four_content footer-bottom-container">
             <div class="footer-content align-items-center">
@@ -240,41 +209,32 @@
                         © Copyright {{ now()->year }} <strong>CPPRI Sahranpur.</strong><span> All Rights
                             Reserved. </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="f-link-t">
                             <a href="{{ url('linking-policy') }}">
-
                                 @if (Session::get('Lang') == 'hi')
                                 {{ __('messages.Linking_Policy') }}
                                 @else
                                 {{ __('messages.Linking_Policy') }}
                                 @endif
-
                             </a> |
                             <a href="{{ url('privacy-policy') }}">
-
                                 @if (Session::get('Lang') == 'hi')
                                 {{ __('messages.Privacy_Policy') }}
                                 @else
                                 {{ __('messages.Privacy_Policy') }}
                                 @endif
-
                             </a> |
                             <a href="{{ url('disclaimer') }}">
-
                                 @if (Session::get('Lang') == 'hi')
                                 {{ __('messages.Disclaimer') }}
                                 @else
                                 {{ __('messages.Disclaimer') }}
                                 @endif
-
                             </a> |
                             <a href="{{ url('help') }}">
-
-
                                 @if (Session::get('Lang') == 'hi')
                                 {{ __('messages.Help') }}
                                 @else
                                 {{ __('messages.Help') }}
                                 @endif
-
                             </a> |
                             <a href="{{ url('cookies-policy') }}">
                                 @if (Session::get('Lang') == 'hi')
@@ -284,8 +244,6 @@
                                 @endif
                             </a> |
                             <a href="{{ url('terms-&-conditions') }}">
-
-
                                 @if (Session::get('Lang') == 'hi')
                                 {{ __('messages.Terms_&_Conditions') }}
                                 @else
@@ -293,69 +251,31 @@
                                 @endif
                             </a>
                         </span>
-
                 </div>
                 <div class="last-updated d-flex align-items-center">
                     <span>
-
                         @if (Session::get('Lang') == 'hi')
                         {{ __('messages.Last_Updated') }} :
                         @else
                         {{ __('messages.Last_Updated') }} :
                         @endif
-
                         <strong>
-
                             <?php echo date('d-m-Y ', strtotime(date('y-m-d'))); ?>
-
                         </strong>
                     </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <span>
-
                         @if (Session::get('Lang') == 'hi')
                         {{ __('messages.Total_Visitors') }}:
                         @else
                         {{ __('messages.Total_Visitors') }}:
                         @endif
-
                         <strong>{{ $visitCounter ?? '' }}</strong>
                     </span>
-
                 </div>
             </div>
         </div>
     </div>
-
 </footer>
-<!--/.footer-wrapper-->
-<!-- Modal Popup -->
-{{-- <div id="costumModal8" class="modal" data-easein="shrinkIn" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    ×
-                </button>
-                <img src="{{ asset('assets-cppri/images/CoronaAppeal.gif') }}" alt="" class="md-img">
-</div>
-</div>
-</div>
-</div> --}}
-<!-- <div id="costumModal8" class="modal" data-easein="shrinkIn" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    ×
-                </button>
-                <img src="{{ asset('assets-cppri/images/CoronaAppeal.gif') }}" data-id="show" alt=""
-                    class="md-img show-model">
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
 <div id="costumModal8" class="modal fade" data-bs-easein="shrinkIn" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -366,18 +286,5 @@
                     class="md-img show-model">
             </div>
         </div>
-    </div>
-</div>
-<div class="loader-bg"></div>
-<div class="loader">
-
-    <div class="loading-dots" id="cppri_loader">
-        <img src="{{ asset('assets-cppri/images/logo.png') }}" alt="">
-        <div>
-            <div class="loading-dots--dot"></div>
-            <div class="loading-dots--dot"></div>
-            <div class="loading-dots--dot"></div>
-        </div>
-
     </div>
 </div>

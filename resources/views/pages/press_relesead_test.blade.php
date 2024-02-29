@@ -21,8 +21,6 @@
             <ul>
                 <li><a href="home.html">Home </a></li>
                 <li><a href="javascript:void();">Press Released</a></li>
-
-
             </ul>
         </div>
     </div>
@@ -38,98 +36,17 @@
                         <div class=" common-container four_content">
                             <h3 class="dir-dsk-title mt-3">Press Released </h3>
                             <div class="row p-0 mb-20">
-
                                 <div class="col-md-3">
                                     <div class="card pr-card mt-3" >
                                         <span class="pr-type"> India News</span>
                                     <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}" alt="Press Released">
                                         <div class="card-body">
                                             <div class="d-flex justify-content-between">
-
                                                 <span class="press_date"> 05 Jan, 2024 </span>
                                                 <span class='prn-type'>National News</span>
                                             </div>
                                             <h5 class="card-title">Press Release Title</h5>
                                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, non.</p>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-3">
-                                    <div class="card pr-card mt-3" >
-                                        <span class="pr-type"> India News</span>
-                                    <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}" alt="Press Released">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between">
-
-                                                <span class="press_date"> 05 Jan, 2024 </span>
-                                                <span class='prn-type'>National News</span>
-                                            </div>
-                                            <h5 class="card-title">Press Release Title</h5>
-                                           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, non.</p>
-                                            
-                                        </div>
-                                    </div>
-                                </div> <div class="col-md-3">
-                                    <div class="card pr-card mt-3" >
-                                        <span class="pr-type"> India News</span>
-                                    <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}" alt="Press Released">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between">
-
-                                                <span class="press_date"> 05 Jan, 2024 </span>
-                                                <span class='prn-type'>National News</span>
-                                            </div>
-                                            <h5 class="card-title">Press Release Title</h5>
-                                           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, non.</p>
-                                            
-                                        </div>
-                                    </div>
-                                </div> <div class="col-md-3">
-                                    <div class="card pr-card mt-3" >
-                                        <span class="pr-type"> India News</span>
-                                    <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}" alt="Press Released">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between">
-
-                                                <span class="press_date"> 05 Jan, 2024 </span>
-                                                <span class='prn-type'>National News</span>
-                                            </div>
-                                            <h5 class="card-title">Press Release Title</h5>
-                                           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, non.</p>
-                                            
-                                        </div>
-                                    </div>
-                                </div> <div class="col-md-3">
-                                    <div class="card pr-card mt-3" >
-                                        <span class="pr-type"> India News</span>
-                                    <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}" alt="Press Released">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between">
-
-                                                <span class="press_date"> 05 Jan, 2024 </span>
-                                                <span class='prn-type'>National News</span>
-                                            </div>
-                                            <h5 class="card-title">Press Release Title</h5>
-                                           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, non.</p>
-                                            
-                                        </div>
-                                    </div>
-                                </div> <div class="col-md-3">
-                                    <div class="card pr-card mt-3" >
-                                        <span class="pr-type"> India News</span>
-                                    <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}" alt="Press Released">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between">
-
-                                                <span class="press_date"> 05 Jan, 2024 </span>
-                                                <span class='prn-type'>National News</span>
-                                            </div>
-                                            <h5 class="card-title">Press Release Title</h5>
-                                           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, non.</p>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -139,25 +56,86 @@
                                     <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}" alt="Press Released">
                                         <div class="card-body">
                                             <div class="d-flex justify-content-between">
-
                                                 <span class="press_date"> 05 Jan, 2024 </span>
                                                 <span class='prn-type'>National News</span>
                                             </div>
                                             <h5 class="card-title">Press Release Title</h5>
                                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, non.</p>
-                                            
+                                        </div>
+                                    </div>
+                                </div> <div class="col-md-3">
+                                    <div class="card pr-card mt-3" >
+                                        <span class="pr-type"> India News</span>
+                                    <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}" alt="Press Released">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <span class="press_date"> 05 Jan, 2024 </span>
+                                                <span class='prn-type'>National News</span>
+                                            </div>
+                                            <h5 class="card-title">Press Release Title</h5>
+                                           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, non.</p>
+                                        </div>
+                                    </div>
+                                </div> <div class="col-md-3">
+                                    <div class="card pr-card mt-3" >
+                                        <span class="pr-type"> India News</span>
+                                    <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}" alt="Press Released">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <span class="press_date"> 05 Jan, 2024 </span>
+                                                <span class='prn-type'>National News</span>
+                                            </div>
+                                            <h5 class="card-title">Press Release Title</h5>
+                                           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, non.</p>
+                                        </div>
+                                    </div>
+                                </div> <div class="col-md-3">
+                                    <div class="card pr-card mt-3" >
+                                        <span class="pr-type"> India News</span>
+                                    <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}" alt="Press Released">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <span class="press_date"> 05 Jan, 2024 </span>
+                                                <span class='prn-type'>National News</span>
+                                            </div>
+                                            <h5 class="card-title">Press Release Title</h5>
+                                           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, non.</p>
+                                        </div>
+                                    </div>
+                                </div> <div class="col-md-3">
+                                    <div class="card pr-card mt-3" >
+                                        <span class="pr-type"> India News</span>
+                                    <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}" alt="Press Released">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <span class="press_date"> 05 Jan, 2024 </span>
+                                                <span class='prn-type'>National News</span>
+                                            </div>
+                                            <h5 class="card-title">Press Release Title</h5>
+                                           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, non.</p>
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="col-md-3">
+                                    <div class="card pr-card mt-3" >
+                                        <span class="pr-type"> India News</span>
+                                    <img src="{{ asset('assets-cppri/images/paragraph-img/cppri-admin-block.jpg') }}" alt="Press Released">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <span class="press_date"> 05 Jan, 2024 </span>
+                                                <span class='prn-type'>National News</span>
+                                            </div>
+                                            <h5 class="card-title">Press Release Title</h5>
+                                           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis, non.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
-
                 </section>
             </div>
         </div>
      </section>
-
 </div>
 @endsection
