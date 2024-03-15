@@ -27,9 +27,9 @@ class TenderManagementController extends Controller
         if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
             $crudUrlTemplate['list'] = route('tender-list');
         }
-        if(isset($this->abortIfAccessNotAllowed()['view']) && $this->abortIfAccessNotAllowed()['view'] !=''){
-            $crudUrlTemplate['view'] = route('tender-show', ['id' => 'xxxx']);
-        }
+        // if(isset($this->abortIfAccessNotAllowed()['view']) && $this->abortIfAccessNotAllowed()['view'] !=''){
+        //     $crudUrlTemplate['view'] = route('tender-show', ['id' => 'xxxx']);
+        // }
         if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
             $crudUrlTemplate['edit'] = route('tender.edit', ['id' => 'xxxx']);
         }
