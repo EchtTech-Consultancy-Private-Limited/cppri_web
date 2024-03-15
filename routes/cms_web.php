@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CMSControllers\API\CommonAPIController;
+use App\Http\Controllers\CMSControllers\Api\CommonAPIController;
 use App\Http\Controllers\CMSControllers\ImageController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
@@ -123,6 +123,7 @@ Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(f
         Route::get('/logo-list', [WebSiteCoreSettingsController::class, 'indexLogo'])->name('logo.list');
         Route::get('/footercontent-list', [WebSiteCoreSettingsController::class, 'indexFooterContent'])->name('footercontent.list');
         Route::get('/sociallink-list', [WebSiteCoreSettingsController::class, 'indexSocialLink'])->name('sociallink.list');
+        Route::get('/advertisingpopup-list', [WebSiteCoreSettingsController::class, 'indexAdvertisingPopup'])->name('advertisingpopup.list');
     });
     
     Route::prefix('gallerymanagement')->group(function(){
@@ -224,6 +225,7 @@ Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(f
         Route::get('/formbuilder-list', [FormBuilderController::class, 'index'])->name('formbuilder.list');
         Route::get('/formbuilder-edit', [FormBuilderController::class, 'edit'])->name('formbuilder.edit');
         Route::get('/formbuilder-show', [FormBuilderController::class, 'show'])->name('formbuilder.show');
+        Route::get('/formbuilder-mapping', [FormBuilderController::class, 'mappingForm'])->name('formbuilder.mapping');
         Route::post('/formdata-save',[FormBuilderController::class,'saveFormData'])->name('formbuilder-saveformData');
     });
 

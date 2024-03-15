@@ -55,7 +55,7 @@ class RecentActivityAPIController extends Controller
      */
     public function store(Request $request)
     {
-        $exitValue = RecentActivity::where('recent_activities_en', $request->title_name_en)->count() > 0;
+        $exitValue = RecentActivity::where([['recent_activities_en', $request->title_name_en],['soft_delete',0]])->count() > 0;
         if($exitValue == 'false'){
             $notification =[
                 'status'=>201,
@@ -178,6 +178,7 @@ class RecentActivityAPIController extends Controller
                     'notification_others' => $request->notification_others,
                     'start_date'=> $request->startdate,
                     'end_date' => $request->enddate,
+                    'status' => 1,
                     'archivel_date' => Carbon::createFromFormat('Y-m-d',$request->enddate)->addDays(env('RECENT_ACTIVITY_ARCHIVEL')),
                 ]);
                 

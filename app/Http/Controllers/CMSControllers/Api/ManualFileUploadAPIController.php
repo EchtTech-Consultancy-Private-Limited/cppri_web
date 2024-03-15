@@ -59,7 +59,7 @@ class ManualFileUploadAPIController extends Controller
      */
     public function store(Request $request)
     {
-        $exitValue = ManualFileUpload::where('title_name', $request->title_name)->count() > 0;
+        $exitValue = ManualFileUpload::where([['title_name', $request->title_name],['soft_delete',0]])->count() > 0;
         if($exitValue == 'false'){
             $notification =[
                 'status'=>201,
@@ -178,6 +178,7 @@ class ManualFileUploadAPIController extends Controller
                 $result= ManualFileUpload::where('uid',$request->id)->update([
                         'title_name' => $request->title_name,
                         'file_path' => $newname,
+                        'status' => 1,
                     // 'archivel_date' => Carbon::createFromFormat('Y-m-d',$request->enddate)->addDays(env('TENDER_ARCHIVEL')),
                     ]);
                 

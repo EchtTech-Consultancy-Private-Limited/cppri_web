@@ -519,7 +519,7 @@ h2 small{display:block;line-height:275%;font-size:50%}
 .align-ct{padding-top:30px}
 .align-ct img{display:block;margin:0 auto;width:100%;border-radius:10px}
 .align-ct h3{text-align:left;margin:10px;color:#026aa1}
-.align-lt h2{color:#026aa1;margin:10px 0!important}
+.align-lt h2{color:#026aa1;margin:10px 0}
 .align-rt img{float:right}
 .wrapper.home-banner{background-repeat:no-repeat;padding:20px 0;background-image:url(../images/about-banner.png)!important;background-position:bottom;background-size:cover;background-attachment:fixed}
 .banner-content-wrapper{padding-right:3%}
@@ -1272,3 +1272,42 @@ p.email-text-styl{font-size:13px;word-wrap:break-word}
   }
 
   /* End accordion css  */
+
+  .align-lt.faq .accordion {
+    /* border: 1px solid #ddd; */
+    margin-bottom: 15px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 14px #ddd;
+}
+.align-lt.faq h1{
+  color: #026aa1;
+  margin: 15px 0;
+}
+.align-lt.faq .accordion .accordion-item ul{
+  float: none;
+}
+.align-lt.faq .accordion .accordion-item ul li{
+  float: none;
+}
+.align-lt.faq .accordion .accordion-item {
+  border-radius: 20px !important;
+}
+.align-lt.faq .accordion .accordion-button{
+  border-radius: 20px;
+    padding: 17px 17px;
+}
+
+/* .align-lt.faq .accordion .accordion-item:has(.show) {
+  border-radius: 25px !important;
+} */
+.align-lt.faq .accordion .accordion-button:focus{
+  border: none !important;
+    outline: none;
+    box-shadow: none;
+}
+
+.align-lt.faq .accordion .accordion-button::after{
+  background-image: none;
+  content: "\f107";
+  font-family: 'fontAwesome';
+}

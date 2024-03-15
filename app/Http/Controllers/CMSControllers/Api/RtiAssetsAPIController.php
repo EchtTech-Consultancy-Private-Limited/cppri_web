@@ -57,7 +57,7 @@ class RtiAssetsAPIController extends Controller
      */
     public function store(Request $request)
     {
-        $exitValue = RtiAssets::where('title_name_en', $request->title_name_en)->count() > 0;
+        $exitValue = RtiAssets::where([['title_name_en', $request->title_name_en],['soft_delete',0]])->count() > 0;
         if($exitValue == 'false'){
             $notification =[
                 'status'=>201,
@@ -186,6 +186,7 @@ class RtiAssetsAPIController extends Controller
                         'title_name_hi' => $request->title_name_hi,
                         'description_en' => $request->kt_description_en,
                         'description_hi' => $request->kt_description_hi,
+                        'status' => 1,
                     ]);
 
                 if(!empty($request->kt_tender_add_multiple_options)){

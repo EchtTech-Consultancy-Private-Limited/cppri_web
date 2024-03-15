@@ -48,7 +48,7 @@ class WebsiteMenuManagementAPIController extends Controller
      */
     public function store(Request $request)
     {
-        $exitValue = WebsiteMenuManagement::where('name_en', $request->name_en)->count() > 0;
+        $exitValue = WebsiteMenuManagement::where([['name_en', $request->name_en],['soft_delete',0]])->count() > 0;
        // $max_size = $document->getMaxFileSize() / 1024 / 1024;
         if($exitValue == 'false'){
             //DB::rollback();
@@ -166,6 +166,7 @@ class WebsiteMenuManagementAPIController extends Controller
                         'footer_url' => preg_replace('/\s+/', '-', isset($request->footer_url)?strtolower($request->footer_url):'0'),
                         //'is_parent' => isset($request->is_parent)?$request->is_parent:'0',
                         //'parent_id' => isset($request->parent_id)?$request->parent_id:'0',
+                        'status' => 1,
                     ]);
                 
             if($result == true)

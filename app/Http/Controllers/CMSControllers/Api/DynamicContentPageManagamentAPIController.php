@@ -66,13 +66,13 @@ class DynamicContentPageManagamentAPIController extends Controller
      */
     public function basicInformation(Request $request)
     {
-        //$exitValue = DB::table('dynamic_content_page_metatag')->where('page_title_en', $request->page_title_en)->count() > 0;
-        // if($exitValue == 'false'){
-        //     $notification =[
-        //         'status'=>201,
-        //         'message'=>'This is duplicate value.'
-        //     ];
-        // }else{
+        $exitValue = DB::table('dynamic_content_page_metatag')->where([['page_title_en', $request->page_title_en],['soft_delete',0]])->count() > 0;
+        if($exitValue == 'false'){
+            $notification =[
+                'status'=>201,
+                'message'=>'This is duplicate value.'
+            ];
+        }else{
         try{
             $validator=Validator::make($request->all(),
                 [
@@ -122,7 +122,7 @@ class DynamicContentPageManagamentAPIController extends Controller
             report($e);
             return false;
            }
-        //}
+        }
             return response()->json($notification);
     }
     public function pageContent(Request $request)
@@ -377,6 +377,7 @@ class DynamicContentPageManagamentAPIController extends Controller
                         'meta_keywords' => $request->meta_keywords,
                         'sort_order' => $request->sort_order??'0',
                         'custom_slug' => $request->custom_url??'NULL',
+                        'status' => 1,
                     ]);
                 
             if($result == true)

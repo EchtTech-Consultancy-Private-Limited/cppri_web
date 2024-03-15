@@ -1,8 +1,8 @@
 "use strict";
 var KTDatatablesBasicPaginations = function() {
 	var initTable1 = function() {
-		var table = $('#kt_datatable_recentActivity');
-		var $i=1;
+		var table = $('#kt_datatable_advertisingpopup');
+        var $i=1;
 		// var columnList = JSON.parse(table.data('columnListData'));
 		var jsonURL = $('#urlListData').attr('data-info');
 		var crudUrlTemplate = JSON.parse(jsonURL);
@@ -24,7 +24,8 @@ var KTDatatablesBasicPaginations = function() {
 			},
 			columns: [
 				{ "data": "uid" },
-				{ "data": "recent_activities_en" },
+				{ "data": "title_name_en" },
+				{ "data": "images" },
 				{ "data": "status" },
 				{ "data": "action" }
 			],
@@ -89,10 +90,10 @@ var KTDatatablesBasicPaginations = function() {
 						return dropdownHtml;
 					},
 				},
-				{
+                {
 					targets: 0,
 					title: 'ID',
-					orderable: true,
+					orderable: false,
 					visible: true,
 					responsivePriority: -2,
 					render: function (data, type, full, meta) {
@@ -100,6 +101,37 @@ var KTDatatablesBasicPaginations = function() {
 					},
 				},
 				{
+					targets: -3,
+					orderable: true,
+					render: function (data, type, full, meta) {
+						if(full.images != '')
+						{    
+							return '<span style="width: 250px;">\
+								<div class="d-flex align-items-center">\
+									<div class="symbol symbol-40 symbol-sm flex-shrink-0">\
+										<img class="" src="'+'../resources/uploads/popupadvertising/'+full.images+'" alt="photo"></img>\
+									</div>\
+								</div>\
+							</span>';
+						}
+						else
+						{
+							return '<span style="width: 250px;">\
+								<div class="d-flex align-items-center">\
+									<div class="symbol symbol-40 symbol-sm flex-shrink-0">\
+										<div class="symbol symbol-light-success mr-3">\
+											<span class="symbol-label font-size-h5">'+ full.no_photo +'</span>\
+										</div>\
+									</div>\
+									<div class="ml-4">\
+										<div class="text-dark-75 font-weight-bolder font-size-lg mb-0">'+data+'</div>\
+									</div>\
+								</div>\
+							</span>';
+						}
+					}
+				},
+                {
 					targets: -2,
 					orderable: true,
 					responsivePriority: -2,
@@ -148,6 +180,55 @@ var KTDatatablesBasicPaginations = function() {
 			],
 
 			"drawCallback": function (settings) {
+				// bind Approve link to click event
+				$(".approve-single-record").click(function (event) {
+					event.preventDefault();
+					var approveUrl = $(this).attr('href');
+					var rowId = $(this).data('rowid');
+					var textset = $(this).attr('data-attr');
+					swal.fire({
+						title: 'Are you sure?',
+						text: "You won't be able to revert this!",
+						type: 'success',
+						showCancelButton: true,
+						confirmButtonText: 'Yes, '+textset+' it!'
+					}).then(function (result) {
+						if (result.value) {
+							axios.post(approveUrl)
+							.then(function (response) {
+								// remove record row from DOM
+								tableObject
+									.row(rowId)
+									.remove()
+									.draw();
+								toastr.success(
+									"Record has been "+textset+"!", 
+									textset+"!", 
+									{timeOut: 0,showProgressbar: true, extendedTimeOut: 0,allow_dismiss: false, closeButton: true, closeDuration: 0}
+								);
+								setTimeout(function() {
+									if (history.scrollRestoration) {
+									history.scrollRestoration = 'manual';
+									}
+									location.href = 'advertisingpopup-list'; // reload page
+								}, 1500);
+
+							})
+							.catch(function (error) {
+								var errorMsg = 'Could not '+textset+' record. Try later.';
+								
+								if (error.response.status >= 400 && error.response.status <= 499)
+									errorMsg = error.response.data.message;
+
+								swal.fire(
+									'Error!',
+									errorMsg,
+									'error'
+								)
+							});     
+						}
+					});
+				});
 
 				// bind delete link to click event
 				$(".delete-single-record").click(function (event) {
@@ -179,62 +260,12 @@ var KTDatatablesBasicPaginations = function() {
 									if (history.scrollRestoration) {
 									   history.scrollRestoration = 'manual';
 									}
-									location.href = 'recentactivity-list'; // reload page
+									location.href = 'advertisingpopup-list'; // reload page
 								 }, 1500);
 
 							})
 							.catch(function (error) {
 								var errorMsg = 'Could not delete record. Try later.';
-								
-								if (error.response.status >= 400 && error.response.status <= 499)
-									errorMsg = error.response.data.message;
-
-								swal.fire(
-									'Error!',
-									errorMsg,
-									'error'
-								)
-							});     
-						}
-					});
-				});
-
-				// bind Approve link to click event
-				$(".approve-single-record").click(function (event) {
-					event.preventDefault();
-					var approveUrl = $(this).attr('href');
-					var rowId = $(this).data('rowid');
-					var textset = $(this).attr('data-attr');
-					swal.fire({
-						title: 'Are you sure?',
-						text: "You won't be able to revert this!",
-						type: 'success',
-						showCancelButton: true,
-						confirmButtonText: 'Yes, '+textset+' it!'
-					}).then(function (result) {
-						if (result.value) {
-							axios.post(approveUrl)
-							.then(function (response) {
-								// remove record row from DOM
-								tableObject
-									.row(rowId)
-									.remove()
-									.draw();
-								toastr.success(
-									"Record has been "+textset+"!", 
-									textset+"!", 
-									{timeOut: 0,showProgressbar: true, extendedTimeOut: 0,allow_dismiss: false, closeButton: true, closeDuration: 0}
-								 );
-								 setTimeout(function() {
-									if (history.scrollRestoration) {
-									   history.scrollRestoration = 'manual';
-									}
-									location.href = 'recentactivity-list'; // reload page
-								 }, 1500);
-
-							})
-							.catch(function (error) {
-								var errorMsg = 'Could not '+textset+' record. Try later.';
 								
 								if (error.response.status >= 400 && error.response.status <= 499)
 									errorMsg = error.response.data.message;

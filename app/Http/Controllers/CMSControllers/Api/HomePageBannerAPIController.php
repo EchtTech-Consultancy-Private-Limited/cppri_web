@@ -50,7 +50,7 @@ class HomePageBannerAPIController extends Controller
      */
     public function store(Request $request)
     {
-        $exitValue = HomePageBannerManagement::where('title_name_en', $request->title_name_en)->count() > 0;
+        $exitValue = HomePageBannerManagement::where([['title_name_en', $request->title_name_en],['soft_delete',0]])->count() > 0;
         if($exitValue == 'false'){
             $notification =[
                 'status'=>201,
@@ -194,6 +194,7 @@ class HomePageBannerAPIController extends Controller
                         'end_date' => $request->enddate,
                         'public_url' => $newname,
                         'private_url' => $newname,
+                        'status' => 1,
                     // 'archivel_date' => Carbon::createFromFormat('Y-m-d',$request->enddate)->addDays(env('TENDER_ARCHIVEL')),
                     ]);
                 

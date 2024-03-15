@@ -59,11 +59,7 @@ class PurchaseWorksCommitteeAPIController extends Controller
     public function store(Request $request)
     {
         
-        //if(config('checkduplicate.mobile') == 'ON'){
-            $exitValue = PurchaseWorksCommittee::where('order_contract_no', $request->order_contract_no)->count() > 0;
-       // }else{
-         //   $exitValue ='true';
-        //}
+        $exitValue = PurchaseWorksCommittee::where([['order_contract_no', $request->order_contract_no],['soft_delete',0]])->count() > 0;
         // $max_size = $document->getMaxFileSize() / 1024 / 1024;
          if($exitValue == 'false'){
              DB::rollback();
@@ -224,7 +220,8 @@ class PurchaseWorksCommitteeAPIController extends Controller
                         'start_date' => $request->startdate,
                         'pdfimage_size' => $request->size,
                         'file_extension' => $request->extension,
-                        'asset_type' => $request->type_id
+                        'asset_type' => $request->type_id,
+                        'status' => 1,
                     ]);
             
         if($result == true)
