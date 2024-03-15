@@ -478,9 +478,8 @@ class HomeController extends Controller
                     foreach ($dynamic_content_page_metatag as $dynamic_content_page_metatags) {
                         $dynamic_content_page_pdf = DB::table('dynamic_content_page_pdf')
                             ->wheredcpm_id($dynamic_content_page_metatags->uid)
-                            ->where('status', 3)
-                            ->orderBy('created_at', 'asc')
                             ->where('soft_delete', 0)
+                            ->orderByRaw("CAST(start_date AS DATE) DESC")
                             ->get();
                         $dynamic_page_banner = DB::table('dynamic_page_banner')
                             ->where('status', 3)
