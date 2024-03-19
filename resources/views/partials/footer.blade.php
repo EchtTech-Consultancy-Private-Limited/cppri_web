@@ -276,7 +276,7 @@
         </div>
     </div>
 </footer>
-<div id="costumModal8" class="modal fade" data-bs-easein="shrinkIn" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- <div id="costumModal8" class="modal fade" data-bs-easein="shrinkIn" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
@@ -287,4 +287,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
