@@ -36,15 +36,10 @@ class HomeController extends Controller
         $titleName = 'Career';
         $final_data = [];
         try {
-            $uuids = DB::table('career_management_details')
-                ->where('soft_delete', 0)
-                ->where('archivel_date', '>=', now()->toDateString()) // Fix the variable name here
-                ->get()
-                ->pluck('career_management_id');
             $career = DB::table('career_management')
                 ->where('status', 3)
                 ->where('soft_delete', 0)
-                ->whereIn('uid', $uuids)
+                ->whereDate('end_date', '>=', now()->toDateString())
                 ->orderByRaw("CAST(start_date AS DATE) DESC")
                 ->get();
             foreach ($career as $c) {
@@ -53,7 +48,6 @@ class HomeController extends Controller
                 $obj->career->career_doc =  DB::table('career_management_details')
                     ->where('soft_delete', 0)
                     ->where('career_management_id', $c->uid)
-                    ->whereDate('archivel_date', '>=', now()->toDateString())
                     ->get();
                 $final_data[] = $obj;
             }
@@ -79,15 +73,10 @@ class HomeController extends Controller
     {
         $titleName = 'Career Archive';
         try {
-            $uuids = DB::table('career_management_details')
-                ->where('soft_delete', 0)
-                ->where('archivel_date', '<', now()->toDateString()) // Fix the variable name here
-                ->get()
-                ->pluck('career_management_id');
             $career = DB::table('career_management')
                 ->where('status', 3)
                 ->where('soft_delete', 0)
-                ->whereIn('uid', $uuids)
+                ->whereDate('end_date', '<', now()->toDateString())
                 ->orderByRaw("CAST(start_date AS DATE) DESC")
                 ->get();
             foreach ($career as $c) {
@@ -96,7 +85,6 @@ class HomeController extends Controller
                 $obj->career->career_doc =  DB::table('career_management_details')
                     ->where('soft_delete', 0)
                     ->where('career_management_id', $c->uid)
-                    ->whereDate('archivel_date', '<', now()->toDateString())
                     ->get();
                 $final_data[] = $obj;
             }
@@ -126,6 +114,7 @@ class HomeController extends Controller
             $tenders = DB::table('tender_management')
                 ->where('status', 3)
                 ->where('soft_delete', 0)
+                ->whereDate('end_date', '>=', now()->toDateString())
                 ->orderByRaw("CAST(start_date AS DATE) DESC")
                 ->get();
             if (count($tenders) > 0) {
@@ -133,8 +122,7 @@ class HomeController extends Controller
                     $tender_pdfs = DB::table('tender_details')
                         ->where('soft_delete', 0)
                         ->orderBy('created_at', 'asc')
-                        ->where('tender_id', $tender->uid)
-                        ->whereDate('archivel_date', '>=', now()->toDateString())
+                        ->where('tender_id', $tender->uid)                        
                         ->latest('created_at')
                         ->get();
                     if (count($tender_pdfs) > 0) {
@@ -176,6 +164,7 @@ class HomeController extends Controller
             $tenders = DB::table('tender_management')
                 ->where('status', 3)
                 ->where('soft_delete', 0)
+                ->whereDate('end_date', '<', now()->toDateString())
                 ->orderByRaw("CAST(start_date AS DATE) DESC")
                 ->get();
             if (count($tenders) > 0) {
@@ -183,7 +172,6 @@ class HomeController extends Controller
                     $tender_pdfs = DB::table('tender_details')
                         ->where('soft_delete', 0)
                         ->where('tender_id', $tender->uid)
-                        ->whereDate('archivel_date', '<', now()->toDateString())
                         ->get();
                     if (count($tender_pdfs) > 0) {
                         $tenderData[] = [
