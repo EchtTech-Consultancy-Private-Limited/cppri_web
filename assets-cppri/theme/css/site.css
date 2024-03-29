@@ -461,7 +461,7 @@ a.home span{display:none}
     content: "\f101";
     font-family: 'fontAwesome';
     margin-right: 0.5rem;
-    /* margin-top: 6px; */
+    margin-top: 0px;
     font-size: 17px;
     color: #a80000;
 }
