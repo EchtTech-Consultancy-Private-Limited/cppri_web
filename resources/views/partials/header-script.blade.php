@@ -1,10 +1,10 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>{{ $metaDetails->meta_title ?? 'CPPRI' }}</title>
-<meta name="description" content="{{ $metaDetails->meta_tag_description ?? 'CPPRI' }}">
-<meta name="keywords" content="{{ $metaDetails->meta_keywords ?? 'CPPRI' }}">
-<meta name="tag" content="{{ $metaDetails->meta_tag ?? 'CPPRI' }}">
+<title>{{ $metaDetails->meta_title ?? 'Central Pulp & Paper Research Institute' }}</title>
+<meta name="description" content="{{ $metaDetails->meta_tag_description ?? 'Central Pulp & Paper Research Institute' }}">
+<meta name="keywords" content="{{ $metaDetails->meta_keywords ?? 'Central Pulp & Paper Research Institute' }}">
+<meta name="tag" content="{{ $metaDetails->meta_tag ?? 'Central Pulp & Paper Research Institute' }}">
 <meta name="format-detection" content="telephone=no">
 <meta name="referrer" content="origin">
 <meta name="author" content="">
