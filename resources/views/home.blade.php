@@ -449,21 +449,23 @@
                                                                 @endphp
                                                                 <div class="list-content">
                                                                     @if (Session::get('Lang') == 'hi')
-                                                                    {{ $notifications->recent_activities_hi ?? '' }}
+                                                                    <a href="{{ $notiUrl ?? '' }}" @if($notifications->tab_type == 1) target="_blank" @endif>
+                                                                        {{ $notifications->recent_activities_hi ?? '' }}
+                                                                    </a>
                                                                     @else
+                                                                    <a href="{{ $notiUrl ?? '' }}" @if($notifications->tab_type == 1) target="_blank" @endif>
                                                                     {{ $notifications->recent_activities_en ?? '' }}
+                                                                    </a>
                                                                     @endif
-                                                                    &nbsp;
+                                                                    <!-- &nbsp;
                                                                     @if ($notifications->tab_type == 1)
                                                                     <a onclick="return confirm('{{ $alertMessage ?? '' }}')"
                                                                         target="_blank" href="{{ $notiUrl ?? '' }}"
-                                                                        class="text-danger">Click
-                                                                        here to apply</a>
+                                                                        class="text-danger">Click here</a>
                                                                     @else
                                                                     <a href="{{ $notiUrl ?? '' }}"
-                                                                        class="text-danger">Click
-                                                                        here to apply</a>
-                                                                    @endif
+                                                                        class="text-danger">Click here</a>
+                                                                    @endif -->
                                                                 </div>
                                                             </li>
                                                             @endforeach
