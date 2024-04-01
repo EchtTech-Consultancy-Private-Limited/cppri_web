@@ -47,7 +47,6 @@ class EmpDepartDesignationAPIController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
