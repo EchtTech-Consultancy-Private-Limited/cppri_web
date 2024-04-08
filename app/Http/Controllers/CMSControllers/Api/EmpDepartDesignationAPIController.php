@@ -47,6 +47,7 @@ class EmpDepartDesignationAPIController extends Controller
     {
         //
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -68,6 +69,7 @@ class EmpDepartDesignationAPIController extends Controller
                 $result= EmpDepartDesignation::insert([
                         'uid' => Uuid::uuid4(),
                         'name_en' => $request->name_en,
+                        'name_hi' => $request->name_hi,
                         'parent_id' => isset($request->parent_id)?$request->parent_id:'0',
                     ]);
                 
@@ -150,8 +152,13 @@ class EmpDepartDesignationAPIController extends Controller
                 ];
             }
             else{
+                if($request->parent_id){
+                    $parentId = $request->parent_id;
+                }
                 $result= EmpDepartDesignation::where('uid',$request->id)->update([
                     'name_en' => $request->name_en,
+                    'name_hi' => $request->name_hi,
+                    'parent_id' => $parentId??'0',
                     'status' => 1,
                 ]);
                 

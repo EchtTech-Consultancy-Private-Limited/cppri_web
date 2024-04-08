@@ -13,7 +13,7 @@
                     <div class="contact-info">
                         <h3>Saharanpur</h3>
                         <ul>
-                            <li>Post Box 174, Paper Mill Road, Himmat Nagar,</li>
+                            <li>Paper Mill Road, Himmat Nagar,</li>
                             <li>Saharanpur - 247001, India</li>
                             <li> <strong>Phone:</strong> 0132 - 2714050, 2714059, 2714061, 2714062</li>
                             <li> <strong>Fax:</strong> 0132-2714052</li>
