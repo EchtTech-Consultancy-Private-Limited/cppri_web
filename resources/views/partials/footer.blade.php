@@ -89,7 +89,7 @@
                                 <p>No footer menu items available.</p>
                                 @endif
                             </div>
-                            <!-- 
+                            <!--
                             <div class="col-md-4">
                                 <h3 class="footer-title">&nbsp;</h3>
                                     @if (isset($footerMenu) && count($footerMenu) > 0)
@@ -276,6 +276,7 @@
         </div>
     </div>
 </footer>
+
 <!-- <div id="costumModal8" class="modal fade" data-bs-easein="shrinkIn" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -288,3 +289,4 @@
         </div>
     </div>
 </div> -->
+

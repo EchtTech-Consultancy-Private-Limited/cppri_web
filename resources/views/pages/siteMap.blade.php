@@ -93,14 +93,14 @@
                                                                     {{ $subMenus->name_en ?? '' }}
                                                                 @endif
                                                             </b>
-                                                        @else                                                            
+                                                        @else
                                                                 <a href="{{ url($url.'/'.$suburl) }}">
                                                                     @if (Session::get('Lang') == 'hi')
                                                                         {{ $subMenus->name_hi ?? '' }}
                                                                     @else
                                                                         {{ $subMenus->name_en ?? '' }}
                                                                     @endif
-                                                                </a>                                                            
+                                                                </a>
                                                         @endif
                                                     </li>
                                                     @endif
@@ -110,7 +110,7 @@
                                                     @php
                                                         $ChildMenusurl = $ChildMenus->url ?? 'javascript:void(0)';
                                                         $ChildMenusurlfixed = $ChildMenus->footer_url ?? 'javascript:void(0)';
-                                                    @endphp                                                
+                                                    @endphp
                                                     @if (isset($ChildMenus->children) && count($ChildMenus->children) > 0)
                                                         @if ($ChildMenus->tab_type == 1)
                                                             <li class="env sub-menu-drop-g">
