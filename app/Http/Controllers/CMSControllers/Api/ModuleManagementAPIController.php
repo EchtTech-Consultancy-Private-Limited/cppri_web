@@ -48,7 +48,7 @@ class ModuleManagementAPIController extends Controller
      */
     public function store(Request $request)
     {
-        $exitValue = ModuleManagement::where('name_en', $request->name_en)->count() > 0;
+        $exitValue = ModuleManagement::where([['name_en', $request->name_en],['soft_delete',0]])->count() > 0;
        // $max_size = $document->getMaxFileSize() / 1024 / 1024;
         if($exitValue == 'false'){
             $notification =[
@@ -161,6 +161,7 @@ class ModuleManagementAPIController extends Controller
                     'url' => preg_replace('/\s+/', '-', isset($request->url)?$request->url:'#'),
                     'is_parent' => isset($request->is_parent)?$request->is_parent:'0',
                     'parent_id' => isset($request->parent_id)?$request->parent_id:'0',
+                    'status' => 1,
                 ]);
             
         if($result == true)

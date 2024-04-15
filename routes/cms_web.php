@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CMSControllers\API\CommonAPIController;
+use App\Http\Controllers\CMSControllers\Api\CommonAPIController;
 use App\Http\Controllers\CMSControllers\ImageController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
@@ -33,6 +33,8 @@ use App\Http\Controllers\CMSControllers\RtiApplicationResponsesController;
 use App\Http\Controllers\CMSControllers\PurchaseWorksCommitteeController;
 use App\Http\Controllers\CMSControllers\FormBuilderController;
 use App\Http\Controllers\CMSControllers\ManualFileUploadController;
+use App\Http\Controllers\CMSControllers\PrivateGovernmentClientsController;
+use App\Http\Controllers\CMSControllers\HomePageSectionsDesignController;
 
 
 /*
@@ -79,9 +81,11 @@ Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(f
     Route::prefix('user')->group(function(){
         Route::get('/user-create', [UserManagementController::class, 'create'])->name('user.create');
         Route::get('/user-list', [UserManagementController::class, 'index'])->name('user.list');
+        Route::get('/user-show', [UserManagementController::class, 'show'])->name('user.show');
         Route::get('/user-edit', [UserManagementController::class, 'edit'])->name('user.edit');
+        Route::get('/account-view', [UserManagementController::class, 'accountSettingsEdit'])->name('accountsettings.edit');
     });
-    
+
     Route::prefix('role')->group(function(){
         Route::get('/role-create', [RolesAndPermissionController::class, 'createRoles'])->name('role.create');
         Route::get('/role-edit', [RolesAndPermissionController::class, 'edit'])->name('role.edit');
@@ -102,7 +106,9 @@ Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(f
     Route::prefix('menu')->group(function(){
         Route::get('/menu-create', [WebsiteMenuManagementController::class, 'create'])->name('menu.create');
         Route::get('/menu-edit', [WebsiteMenuManagementController::class, 'edit'])->name('menu.edit');
+        Route::get('/menu-show', [WebsiteMenuManagementController::class, 'showMenu'])->name('menu.show');
         Route::get('/menu-list', [WebsiteMenuManagementController::class, 'index'])->name('menu.list');
+        Route::get('/menu-tree', [WebsiteMenuManagementController::class, 'showMenuInTree'])->name('menu.tree');
     });
     
     Route::prefix('homebanner')->group(function(){
@@ -114,6 +120,7 @@ Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(f
     Route::prefix('contentpage')->group(function(){
         Route::get('/contentpage-create', [DynamicContentPageManagamentController::class, 'create'])->name('contentpage.create');
         Route::get('/contentpage-edit', [DynamicContentPageManagamentController::class, 'edit'])->name('contentpage.edit');
+        Route::get('/contentpage-show', [DynamicContentPageManagamentController::class, 'show'])->name('contentpage.show');
         Route::get('/contentpage-list', [DynamicContentPageManagamentController::class, 'index'])->name('contentpage.list');
     });
     
@@ -123,6 +130,7 @@ Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(f
         Route::get('/logo-list', [WebSiteCoreSettingsController::class, 'indexLogo'])->name('logo.list');
         Route::get('/footercontent-list', [WebSiteCoreSettingsController::class, 'indexFooterContent'])->name('footercontent.list');
         Route::get('/sociallink-list', [WebSiteCoreSettingsController::class, 'indexSocialLink'])->name('sociallink.list');
+        Route::get('/advertisingpopup-list', [WebSiteCoreSettingsController::class, 'indexAdvertisingPopup'])->name('advertisingpopup.list');
     });
     
     Route::prefix('gallerymanagement')->group(function(){
@@ -134,18 +142,21 @@ Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(f
     Route::prefix('news')->group(function(){
         Route::get('/news-create', [NewsManagementController::class, 'create'])->name('news.create');
         Route::get('/news-edit', [NewsManagementController::class, 'edit'])->name('news.edit');
+        Route::get('/news-show', [NewsManagementController::class, 'show'])->name('news.show');
         Route::get('/news-list', [NewsManagementController::class, 'index'])->name('news.list');
     });
     
     Route::prefix('tender')->group(function(){
         Route::get('/tender-create', [TenderManagementController::class, 'create'])->name('tender.create');
         Route::get('/tender-edit', [TenderManagementController::class, 'edit'])->name('tender.edit');
+        Route::get('/tender-show', [TenderManagementController::class, 'show'])->name('tender.show');
         Route::get('/tender-list', [TenderManagementController::class, 'index'])->name('tender.list');
     });
     
     Route::prefix('event')->group(function(){
         Route::get('/event-create', [EventsManagementController::class, 'create'])->name('event.create');
         Route::get('/event-edit', [EventsManagementController::class, 'edit'])->name('event.edit');
+        Route::get('/event-show', [EventsManagementController::class, 'show'])->name('event.show');
         Route::get('/event-list', [EventsManagementController::class, 'index'])->name('event.list');
     });
     
@@ -188,6 +199,7 @@ Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(f
     Route::prefix('employeedirectory')->group(function(){
         Route::get('/employeedirectory-create', [EmployeeDirectoryController::class, 'create'])->name('employeedirectory.create');
         Route::get('/employeedirectory-list', [EmployeeDirectoryController::class, 'index'])->name('employeedirectory.list');
+        Route::get('/employeedirectory-show', [EmployeeDirectoryController::class, 'show'])->name('employeedirectory.show');
         Route::get('/employeedirectory-edit', [EmployeeDirectoryController::class, 'edit'])->name('employeedirectory.edit');
     });
     
@@ -224,13 +236,9 @@ Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(f
         Route::get('/formbuilder-list', [FormBuilderController::class, 'index'])->name('formbuilder.list');
         Route::get('/formbuilder-edit', [FormBuilderController::class, 'edit'])->name('formbuilder.edit');
         Route::get('/formbuilder-show', [FormBuilderController::class, 'show'])->name('formbuilder.show');
+        Route::get('/form-data-list', [FormBuilderController::class, 'formDataIndex'])->name('formbuilder.formdatalist');
+        //Route::get('/formbuilder-mapping', [FormBuilderController::class, 'formMappingIndex'])->name('formbuilder.mapping');
         Route::post('/formdata-save',[FormBuilderController::class,'saveFormData'])->name('formbuilder-saveformData');
-    });
-
-    Route::prefix('maunalfileupload')->group(function(){
-        Route::get('/maunalfileupload-create', [ManualFileUploadController::class, 'create'])->name('mfu.create');
-        Route::get('/maunalfileupload-edit', [ManualFileUploadController::class, 'edit'])->name('mfu.edit');
-        Route::get('/maunalfileupload-list', [ManualFileUploadController::class, 'index'])->name('mfu.list');
     });
 
     Route::prefix('formmappingmenu')->group(function(){
@@ -239,8 +247,25 @@ Route::middleware(['auth','prevent-back-history','EnsureTokenIsValid'])->group(f
         Route::get('/formmappingmenu-list', [FormBuilderController::class, 'formMappingIndex'])->name('formmappingmenu.list');
     });
 
+    Route::prefix('maunalfileupload')->group(function(){
+        Route::get('/maunalfileupload-create', [ManualFileUploadController::class, 'create'])->name('mfu.create');
+        Route::get('/maunalfileupload-edit', [ManualFileUploadController::class, 'edit'])->name('mfu.edit');
+        Route::get('/maunalfileupload-list', [ManualFileUploadController::class, 'index'])->name('mfu.list');
+    });
 
-
+    Route::prefix('pgcs')->group(function(){
+        Route::get('/pgcs-create', [PrivateGovernmentClientsController::class, 'create'])->name('pgcs.create');
+        Route::get('/pgcs-edit', [PrivateGovernmentClientsController::class, 'edit'])->name('pgcs.edit');
+        Route::get('/pgcs-list', [PrivateGovernmentClientsController::class, 'index'])->name('pgcs.list');
+    });
+    Route::prefix('homepagesection')->group(function(){
+        Route::get('/homepagesection-create', [HomePageSectionsDesignController::class, 'create'])->name('homepagesection.create');
+        Route::get('/homepagesection-edit', [HomePageSectionsDesignController::class, 'edit'])->name('homepagesection.edit');
+        Route::get('/homepagesection-list', [HomePageSectionsDesignController::class, 'index'])->name('homepagesection.list');
+        Route::get('/newsection-create', [HomePageSectionsDesignController::class, 'createSection'])->name('newsection.create');
+        Route::get('/newsection-edit', [HomePageSectionsDesignController::class, 'editNewSections'])->name('newsection.edit');
+        Route::get('/newsection-list', [HomePageSectionsDesignController::class, 'indexNewSections'])->name('newsection.list');
+    });
 });
 
 require __DIR__ .'/api_route.php';

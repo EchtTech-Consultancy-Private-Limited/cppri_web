@@ -56,7 +56,7 @@ class EmpDepartDesignationAPIController extends Controller
      */
     public function store(AddDepartmentValidation $request)
     {
-        $exitValue = EmpDepartDesignation::where('name_en', $request->name_en)->count() > 0;
+        $exitValue = EmpDepartDesignation::where([['name_en', $request->name_en],['soft_delete',0]])->count() > 0;
        // $max_size = $document->getMaxFileSize() / 1024 / 1024;
         if($exitValue == 'false'){
             //DB::rollback();
@@ -69,6 +69,7 @@ class EmpDepartDesignationAPIController extends Controller
                 $result= EmpDepartDesignation::insert([
                         'uid' => Uuid::uuid4(),
                         'name_en' => $request->name_en,
+                        'name_hi' => $request->name_hi,
                         'parent_id' => isset($request->parent_id)?$request->parent_id:'0',
                     ]);
                 
@@ -151,8 +152,14 @@ class EmpDepartDesignationAPIController extends Controller
                 ];
             }
             else{
+                if($request->parent_id){
+                    $parentId = $request->parent_id;
+                }
                 $result= EmpDepartDesignation::where('uid',$request->id)->update([
                     'name_en' => $request->name_en,
+                    'name_hi' => $request->name_hi,
+                    'parent_id' => $parentId??'0',
+                    'status' => 1,
                 ]);
                 
             if($result == true)

@@ -40,13 +40,6 @@
             <!--begin::Form-->
             <form class="forms-sample row col-md-12" id="kt_core_website_settings_form" enctype="multipart/form-data">
                @csrf
-               <!--begin::Heading-->
-               <div class="row mb-7">
-                  <div class="col-md-9 offset-md-3">
-                     <h2>Logo Settings</h2>
-                  </div>
-               </div>
-               <div id="co"></div>
                <!--end::Heading-->
                <!--begin::Input group-->
                <div class="row fv-row mb-7">
@@ -59,7 +52,7 @@
                      </label>
                      <!--end::Label-->
                   </div>
-                  <div class="col-md-9">
+                  <div class="col-md-7">
                      <!--begin::Input-->
                      <input type="text" class="form-control form-control-solid logo_title" name="logo_title" id="logo_title_error" value="{{ $data->logo_title ?? ''}}" accept="image/*" />
                      <!--end::Input-->
@@ -77,10 +70,52 @@
                       </label>
                      <!--end::Label-->
                   </div>
-                  <div class="col-md-9">
+                  <div class="col-md-7">
                      <!--begin::Input-->
                      <input type="file" class="form-control form-control-solid header_logo" name="header_logo" id="header_logo_error" accept=".png, .jpg, .jpeg" />
                      <!--end::Input-->
+                  </div>
+               </div>
+               <div class="row fv-row mb-7">
+                  <div class="col-md-3 text-md-end">
+                     <!--begin::Label-->
+                     <label class="fs-6 fw-semibold form-label mt-3">
+                        <span>Old Logo</span>
+                        <span class="ms-1"  data-bs-toggle="tooltip" title="Set keywords for the store separated by a comma." >
+                        <i class="ki-outline ki-information-5 text-gray-500 fs-6"></i></span>           
+                      </label>
+                     <!--end::Label-->
+                  </div>
+                  <div class="col-md-7">
+                     <div class="image-input image-input-outline image-input-placeholder" data-kt-image-input="true">
+                              <!--begin::Preview existing avatar-->
+                              <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{ asset('resources/uploads/WebsiteCoreSettings/') }}/<?php echo $data->header_logo ?>);"></div>
+                              <!--end::Preview existing avatar-->
+                              <!--begin::Label-->
+                              <!-- <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar"> -->
+                              <!-- <i class="ki-outline ki-pencil fs-7"></i> -->
+                              <!--begin::Inputs-->
+                              <!-- <input type="file" name="avatar" accept=".png, .jpg, .jpeg" /> -->
+                              <input type="hidden" name="avatar_remove" />
+                              <!--end::Inputs-->
+                              </label>
+                              <!--end::Label-->
+                              <!--begin::Cancel-->
+                              <!-- <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar"> -->
+                              <!-- <i class="ki-outline ki-cross fs-2"></i>  -->
+                              </span>
+                              <!--end::Cancel-->
+                              <!--begin::Remove-->
+                              <!-- <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar"> -->
+                              <!-- <i class="ki-outline ki-cross fs-2"></i>                                 -->
+                              </span>
+                              <!--end::Remove-->
+                           </div>
+                           <!--end::Image input-->
+                           <!--begin::Hint-->
+                           <!-- <div class="form-text">Allowed file types: png, jpg, jpeg.</div> -->
+                           <!--end::Hint-->
+                     </div>
                   </div>
                </div>
                <!--end::Input group-->
@@ -107,6 +142,5 @@
       </div>
       <!--end:::Tab content-->
    </div>
-   <!--end::Card body-->
-</div>
+   
 @endsection

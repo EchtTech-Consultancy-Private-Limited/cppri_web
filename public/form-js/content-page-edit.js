@@ -63,6 +63,8 @@ var KTAppBasicInformationSave = function () {
                       }, 1500);
                       
                    } else {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                       toastr.error(
                          "Sorry, the information is incorrect, please try again.", 
                          "Something went wrong!", 
@@ -71,6 +73,8 @@ var KTAppBasicInformationSave = function () {
                       }
                    })
                    .catch(function (error) {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                          toastr.error(
                             "Sorry, looks like there are some errors detected, please try again B.", 
                             "Something went wrong!", 
@@ -83,6 +87,8 @@ var KTAppBasicInformationSave = function () {
                             submitButton.disabled = false;
                       });
                    } else {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                          toastr.error(
                                "Sorry, looks like there are some errors detected, please try again K.", 
                                "Something went wrong!", 
@@ -165,6 +171,8 @@ var KTAppBasicInformationSave = function () {
                       }, 1500);
                       
                    } else {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                       toastr.error(
                          "Sorry, the information is incorrect, please try again.", 
                          "Something went wrong!", 
@@ -173,6 +181,8 @@ var KTAppBasicInformationSave = function () {
                       }
                    })
                    .catch(function (error) {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                          toastr.error(
                             "Sorry, looks like there are some errors detected, please try again B.", 
                             "Something went wrong!", 
@@ -185,6 +195,8 @@ var KTAppBasicInformationSave = function () {
                             submitButton.disabled = false;
                       });
                    } else {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                          toastr.error(
                                "Sorry, looks like there are some errors detected, please try again K.", 
                                "Something went wrong!", 
@@ -266,6 +278,8 @@ var KTAppBasicInformationSave = function () {
                       }, 1500);
                       
                    } else {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                       toastr.error(
                          "Sorry, the information is incorrect, please try again.", 
                          "Something went wrong!", 
@@ -274,6 +288,8 @@ var KTAppBasicInformationSave = function () {
                       }
                    })
                    .catch(function (error) {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                          toastr.error(
                             "Sorry, looks like there are some errors detected, please try again B.", 
                             "Something went wrong!", 
@@ -286,6 +302,8 @@ var KTAppBasicInformationSave = function () {
                             submitButton.disabled = false;
                       });
                    } else {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                          toastr.error(
                                "Sorry, looks like there are some errors detected, please try again K.", 
                                "Something went wrong!", 
@@ -375,6 +393,8 @@ var KTAppBasicInformationSave = function () {
                       }, 1500);
                       
                    } else {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                       toastr.error(
                          "Sorry, the information is incorrect, please try again.", 
                          "Something went wrong!", 
@@ -383,6 +403,8 @@ var KTAppBasicInformationSave = function () {
                       }
                    })
                    .catch(function (error) {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                          toastr.error(
                             "Sorry, looks like there are some errors detected, please try again B.", 
                             "Something went wrong!", 
@@ -395,6 +417,8 @@ var KTAppBasicInformationSave = function () {
                             submitButton.disabled = false;
                       });
                    } else {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                          toastr.error(
                                "Sorry, looks like there are some errors detected, please try again K.", 
                                "Something went wrong!", 
@@ -420,9 +444,26 @@ var KTAppBasicInformationSave = function () {
        }
     });
  }
+ const initFormRepeater2 = () => {
+   $('#kt_tablehead_add_multiple_options').repeater({
+      initEmpty: false,
+      // defaultValues: {
+      //     'text-input': 'foo'
+      // },
+      show: function () {
+            $(this).slideDown();
+            // Init select2 on new repeated items
+            initConditionsSelect2();
+      },
+      hide: function (deleteElement) {
+            $(this).slideUp(deleteElement);
+      }
+   });
+}
  return {
          init: function () {
              initFormRepeater1();
+             initFormRepeater2();
              _officeAdd3 = $('#kt_page_pdf_form');
              _handleOfficeAddForm3();
              submitButton = document.querySelector('#kt_add_pagepdf_submit');
@@ -484,6 +525,8 @@ var KTAppBasicInformationSave = function () {
                       }, 1500);
                       
                    } else {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                       toastr.error(
                          "Sorry, the information is incorrect, please try again.", 
                          "Something went wrong!", 
@@ -492,6 +535,8 @@ var KTAppBasicInformationSave = function () {
                       }
                    })
                    .catch(function (error) {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                          toastr.error(
                             "Sorry, looks like there are some errors detected, please try again B.", 
                             "Something went wrong!", 
@@ -504,6 +549,8 @@ var KTAppBasicInformationSave = function () {
                             submitButton.disabled = false;
                       });
                    } else {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                          toastr.error(
                                "Sorry, looks like there are some errors detected, please try again K.", 
                                "Something went wrong!", 

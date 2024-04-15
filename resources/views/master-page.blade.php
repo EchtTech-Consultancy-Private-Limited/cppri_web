@@ -190,7 +190,7 @@
                         <div class="col m-p-0">
                 @endif
                 {{-- <div class="col-md-9 m-p-0"> --}}
-                <div class="main-content ditiector-desk">
+                <div class="main-content ditiector-desk container common-container four_content pm-0">
                     <!--/#skipCont-->
                     <div id="fontSize" class="wrapper body-wrapper ">
                         @if (isset($content))
@@ -475,6 +475,38 @@
                             </div>
                         @endif
                     @endforeach
+                @endif
+                @if (isset($faqs) && $faqs != '')
+                <div class="align-lt faq">
+
+                    <h2 class="mt-3 mb-4" tabindex="0">FAQ</h2>
+                
+                    @foreach($faqs as $key => $faq)                       
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-heading_{{ $key }}" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    @if (Session::get('Lang') == 'hi')
+                                        {{ $faq->question_hi }}
+                                    @else
+                                        {{ $faq->question_en }}
+                                    @endif
+                                </button>
+                              </h2>
+                              <div id="flush-heading_{{ $key }}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    @if (Session::get('Lang') == 'hi')
+                                        {!! $faq->answer_hi !!}
+                                    @else
+                                        {!! $faq->answer_en !!}
+                                    @endif
+                                   
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    @endforeach                    
+                    </div>
                 @endif
             </div>
         </div>

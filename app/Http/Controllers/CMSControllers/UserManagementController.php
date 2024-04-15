@@ -21,6 +21,8 @@ class UserManagementController extends Controller
     protected $create = 'user-management.user-add';
     protected $edit = 'user-management.user-edit';
     protected $list = 'user-management.user-list';
+    protected $view = 'user-management.user-view';
+    protected $accountSetting = 'account-setting.account-update';
 
     public function __construct()
     {
@@ -38,6 +40,9 @@ class UserManagementController extends Controller
         }
         if(isset($this->abortIfAccessNotAllowed()['read']) && $this->abortIfAccessNotAllowed()['read'] !=''){
             $crudUrlTemplate['list'] = route('user-list');
+        }
+        if(isset($this->abortIfAccessNotAllowed()['view']) && $this->abortIfAccessNotAllowed()['view'] !=''){
+            $crudUrlTemplate['view'] = route('user.show', ['id' => 'xxxx']);
         }
         if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
             $crudUrlTemplate['edit'] = route('user.edit', ['id' => 'xxxx']);
@@ -93,9 +98,16 @@ class UserManagementController extends Controller
      * @param  \App\Models\UserManagement  $userManagement
      * @return \Illuminate\Http\Response
      */
-    public function show(UserManagement $userManagement)
+    public function show(Request $request, UserManagement $userManagement)
     {
-        //
+        $dataVal=DB::table('users')->where('id',$request->id)->where('soft_delete','0')->first();
+        if($dataVal !=null){
+            $dataV =$dataVal;
+        }else{
+            return view('cms-view.errors.500');
+        }
+
+        return view('cms-view.'.$this->view,['data'=>$dataV??'']);
     }
 
     /**
@@ -106,25 +118,43 @@ class UserManagementController extends Controller
      */
     public function edit(Request $request)
     {
-        $crudUrlTemplate = array();
-        if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
-            $crudUrlTemplate['update'] = route('user-update');
-        }
+            $crudUrlTemplate = array();
+            if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+                $crudUrlTemplate['update'] = route('user-update');
+            }
 
-        $results = DB::table('users')->where('id', $request->id)->first();
-        $roleType=DB::table('role_type_users')->select('role_type','uid')->where([['soft_delete','=','0']])->orderby('sort_order','asc')->get();
-        if($results){
-            $result = $results;
-        }else{
-            abort(404);
-        }
-        return view('cms-view.'.$this->edit,
-        ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),
-        'data'=> $result,
-        'roleType' =>$roleType
-    ]);
+            $results = DB::table('users')->where('id', $request->id)->first();
+            $roleType=DB::table('role_type_users')->select('role_type','uid')->where([['soft_delete','=','0']])->orderby('sort_order','asc')->get();
+            if($results){
+                $result = $results;
+            }else{
+                return view('cms-view.errors.500');
+            }
+            return view('cms-view.'.$this->edit,
+            ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),
+            'data'=> $result,
+            'roleType' =>$roleType
+        ]);
     }
-
+    
+    public function accountSettingsEdit(Request $request){
+            $crudUrlTemplate = array();
+            // if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
+            //     $crudUrlTemplate['update'] = route('user-update');
+            // }
+            $crudUrlTemplate['update_account'] = route('account-update');
+            $crudUrlTemplate['password_change'] = route('password-update');
+            $results = DB::table('users')->where('id', $request->id)->first();
+            $Visitors = DB::table('visiting_counters')->count();
+            $roleType=DB::table('role_type_users')->select('role_type','uid')->where([['soft_delete','=','0']])->orderby('sort_order','asc')->get();
+            
+            return view('cms-view.'.$this->accountSetting,
+            ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),
+                'data'=> $results,
+                'roleType' =>$roleType,
+                'Visitors' =>$Visitors??'00'
+        ]);
+    }
     /**
      * Update the specified resource in storage.
      *

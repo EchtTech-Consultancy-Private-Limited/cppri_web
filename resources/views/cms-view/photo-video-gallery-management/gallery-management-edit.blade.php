@@ -118,7 +118,7 @@
                                           <a href="{{ asset('resources/uploads/GalleryManagement/'.$pdfDatas->public_url) }}" target="_blank" download>
                                              <i class="ki-outline ki-file fs-1"></i>
                                           </a>
-                                        <button type="button" data-id="{{ $pdfDatas->uid }}" class="btn btn-sm btn-icon btn-light-danger delete-single-record" title="Data Delete">
+                                        <button type="button" data-id="{{ $pdfDatas->uid }}" class="btn btn-sm btn-icon btn-light-danger delete-galleryImg-record" title="Data Delete">
                                           <i class="ki-outline ki-trash fs-1"></i>
                                         </button>
                                     </div>
@@ -162,9 +162,9 @@
                <!--begin::Action buttons-->
                <div class="d-flex justify-content-end">
                     <!--begin::Button-->
-                    <a id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">
-                    {{config('FormField.cancel_button')}}
-                    </a>
+                     <button type="reset" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">
+                        {{config('FormField.cancel_button')}}
+                     </button>
                     <!--end::Button-->
                     <!--begin::Button-->
                     <button type="submit" id="kt_edit_photo_submit" class="btn btn-primary submit-photo-btn">

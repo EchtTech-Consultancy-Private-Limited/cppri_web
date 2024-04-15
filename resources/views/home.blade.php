@@ -449,21 +449,23 @@
                                                                 @endphp
                                                                 <div class="list-content">
                                                                     @if (Session::get('Lang') == 'hi')
-                                                                    {{ $notifications->recent_activities_hi ?? '' }}
+                                                                    <a href="{{ $notiUrl ?? '' }}" @if($notifications->tab_type == 1) target="_blank" @endif>
+                                                                        {{ $notifications->recent_activities_hi ?? '' }}
+                                                                    </a>
                                                                     @else
+                                                                    <a href="{{ $notiUrl ?? '' }}" @if($notifications->tab_type == 1) target="_blank" @endif>
                                                                     {{ $notifications->recent_activities_en ?? '' }}
+                                                                    </a>
                                                                     @endif
-                                                                    &nbsp;
+                                                                    <!-- &nbsp;
                                                                     @if ($notifications->tab_type == 1)
                                                                     <a onclick="return confirm('{{ $alertMessage ?? '' }}')"
                                                                         target="_blank" href="{{ $notiUrl ?? '' }}"
-                                                                        class="text-danger">Click
-                                                                        here to apply</a>
+                                                                        class="text-danger">Click here</a>
                                                                     @else
                                                                     <a href="{{ $notiUrl ?? '' }}"
-                                                                        class="text-danger">Click
-                                                                        here to apply</a>
-                                                                    @endif
+                                                                        class="text-danger">Click here</a>
+                                                                    @endif -->
                                                                 </div>
                                                             </li>
                                                             @endforeach
@@ -495,7 +497,9 @@
                                                                     class="text-danger">Click
                                                                     here to apply</a>
                                                             </div>
-                                                        </li>
+
+                                                        </li> 
+
 
                                                         <li>
                                                                 <div class="date">
@@ -697,7 +701,6 @@
                                                             @endif
                                                             @endif
 
-                                                           {{--
                                                             <li>
                                                                 <div class="date">
                                                                     <span class="change-color-code">
@@ -715,7 +718,6 @@
                                                                 </div>
                                                             </li>
                                                             --}}
-
 
                                                         </ul>
                                                     </div>
@@ -1234,10 +1236,8 @@
     </div>
 </section>
 <!--Client logo end-->
-
 <div class="loader-bg"></div>
 <div class="loader">
-
     <div class="loading-dots" id="cppri_loader">
         <img src="{{ asset('assets-cppri/images/logo.png') }}" alt="">
         <div>
@@ -1245,7 +1245,6 @@
             <div class="loading-dots--dot"></div>
             <div class="loading-dots--dot"></div>
         </div>
-
     </div>
 </div>
 <div id="costumModal8" class="modal fade" data-bs-easein="shrinkIn" tabindex="-1" role="dialog" aria-hidden="true">

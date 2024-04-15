@@ -28,6 +28,8 @@ use App\Http\Controllers\CMSControllers\Api\RtiApplicationResponsesAPIController
 use App\Http\Controllers\CMSControllers\Api\CommonApprovalAPIController;
 use App\Http\Controllers\CMSControllers\Api\FormBuilderAPIController;
 use App\Http\Controllers\CMSControllers\Api\ManualFileUploadAPIController;
+use App\Http\Controllers\CMSControllers\Api\PrivateGovernmentClientsAPIController;
+use App\Http\Controllers\CMSControllers\Api\HomePageSectionsDesignAPIController;
 
 
 /***************************** API URL Use For Data Migrate With DB*************************************** */
@@ -47,6 +49,8 @@ use App\Http\Controllers\CMSControllers\Api\ManualFileUploadAPIController;
             Route::get('/list-ues',[UserManagementAPIController::class,'index'])->name('user-list');
             Route::get('/edit-ues/{id}',[UserManagementAPIController::class,'edit'])->name('user-edit');
             Route::post('/update-ues',[UserManagementAPIController::class,'update'])->name('user-update');
+            Route::post('/update-account',[UserManagementAPIController::class,'updateAccount'])->name('account-update');
+            Route::post('/update-password',[UserManagementAPIController::class,'updatePassword'])->name('password-update');
             Route::delete('/delete-ues/{id}',[UserManagementAPIController::class,'destroy'])->name('user-delete');
     
             /****** Roles Permission Setting role:Role */
@@ -111,9 +115,10 @@ use App\Http\Controllers\CMSControllers\Api\ManualFileUploadAPIController;
             Route::post('/create-ten',[TenderManagementAPIController::class,'store'])->name('tender-save')->middleware('throttle:custom_Limit');
             Route::get('/list-ten',[TenderManagementAPIController::class,'index'])->name('tender-list');
             Route::get('/edit-ten/{id}',[TenderManagementAPIController::class,'edit'])->name('tender-edit');
+            Route::get('/show/{id}',[TenderManagementAPIController::class,'show'])->name('tender-show');
             Route::post('/update-ten',[TenderManagementAPIController::class,'update'])->name('tender-update');
             Route::delete('/delete-ten/{id}',[TenderManagementAPIController::class,'destroy'])->name('tender-delete');
-            Route::post('/delete-pdf',[TenderManagementAPIController::class,'deletePDFIMG'])->name('pdf-delete');
+            Route::post('/delete-pdf-tender',[TenderManagementAPIController::class,'deletePDFIMG'])->name('pdf-delete-tender');
     
     
             /****** Content Page Setting cpi: content page information */
@@ -138,7 +143,7 @@ use App\Http\Controllers\CMSControllers\Api\ManualFileUploadAPIController;
             Route::get('/edit-eve/{id}',[EventsManagementAPIController::class,'edit'])->name('event-edit');
             Route::post('/update-eve',[EventsManagementAPIController::class,'update'])->name('event-update');
             Route::delete('/delete-eve/{id}',[EventsManagementAPIController::class,'destroy'])->name('event-delete');
-            Route::post('/delete-pdf',[EventsManagementAPIController::class,'deletePDFIMG'])->name('pdf-delete');
+            Route::post('/delete-pdf-event',[EventsManagementAPIController::class,'deletePDFIMG'])->name('pdf-delete-event');
     
             /****** News Setting nw:News */
             Route::post('/create-nw',[NewsManagementAPIController::class,'store'])->name('news-save')->middleware('throttle:custom_Limit');
@@ -146,7 +151,7 @@ use App\Http\Controllers\CMSControllers\Api\ManualFileUploadAPIController;
             Route::get('/edit-nw/{id}',[NewsManagementAPIController::class,'edit'])->name('news-edit');
             Route::post('/update-nw',[NewsManagementAPIController::class,'update'])->name('news-update');
             Route::delete('/delete-nw/{id}',[NewsManagementAPIController::class,'destroy'])->name('news-delete');
-            Route::post('/delete-pdf',[NewsManagementAPIController::class,'deletePDFIMG'])->name('pdf-delete');
+            Route::post('/delete-pdf-news',[NewsManagementAPIController::class,'deletePDFIMG'])->name('pdf-delete-news');
     
             /****** Gallery Setting pgl:photo Gallery vgl:video gallery*/
             Route::post('/create-pgl',[GalleryManagementAPIController::class,'storePhoto'])->name('photo-save')->middleware('throttle:custom_Limit');
@@ -156,7 +161,9 @@ use App\Http\Controllers\CMSControllers\Api\ManualFileUploadAPIController;
             // Route::get('/edit-gl-video/{id}',[GalleryManagementAPIController::class,'editVideo'])->name('video-save');
             Route::post('/update-gl',[GalleryManagementAPIController::class,'update'])->name('photo-update');
             Route::delete('/delete-gl/{id}',[GalleryManagementAPIController::class,'destroy'])->name('photovideo-delete');
-    
+            /* multiple row delete!!!*/
+            Route::post('/gallery-multiple',[GalleryManagementAPIController::class,'deleteMutiData'])->name('gallery-multiple');
+           
             /****** Banner Setting bn:Banner*/
             Route::post('/create-bn',[HomePageBannerAPIController::class,'store'])->name('banner-save')->middleware('throttle:custom_Limit');
             Route::get('/list-bn',[HomePageBannerAPIController::class,'index'])->name('banner-list');
@@ -220,6 +227,7 @@ use App\Http\Controllers\CMSControllers\Api\ManualFileUploadAPIController;
             Route::get('/edit-career/{id}',[CareerManagementAPIController::class,'edit'])->name('career-edit');
             Route::post('/update-career',[CareerManagementAPIController::class,'update'])->name('career-update');
             Route::delete('/delete-career/{id}',[CareerManagementAPIController::class,'destroy'])->name('career-delete');
+            Route::post('/delete-pdf-career',[CareerManagementAPIController::class,'deletePDFIMG'])->name('pdf-delete-career');
     
             /****** RTI Assets Setting rtia:RTI Assets*/
             Route::post('/create-rtia',[RtiAssetsAPIController::class,'store'])->name('rtiassets-save')->middleware('throttle:custom_Limit');
@@ -251,8 +259,12 @@ use App\Http\Controllers\CMSControllers\Api\ManualFileUploadAPIController;
             Route::post('/delete-pdf-mfu',[ManualFileUploadAPIController::class,'deletePDFIMG'])->name('mfu-pdf-delete');
 
             /****** Form Building fbd:formbuilding*/
+            Route::post('/create-map',[FormBuilderAPIController::class,'storeMapping'])->name('formMap-save')->middleware('throttle:custom_Limit');
             Route::post('/create-fbd',[FormBuilderAPIController::class,'store'])->name('formbuilder-save')->middleware('throttle:custom_Limit');
             Route::get('/list-fbd',[FormBuilderAPIController::class,'index'])->name('formbuilder-list');
+            Route::get('/list-formData',[FormBuilderAPIController::class,'formDataIndexs'])->name('formData-list');
+            Route::delete('/delete-formdata/{id}',[FormBuilderAPIController::class,'formDataDestroy'])->name('formdata-delete');
+            Route::get('/list-fmap',[FormBuilderAPIController::class,'formMappingIndex'])->name('formmap-list');
             Route::get('/edit-fbd/{id}',[FormBuilderAPIController::class,'edit'])->name('formbuilder-edit');
             Route::post('/update-fbd',[FormBuilderAPIController::class,'update'])->name('formbuilder-update');
             Route::delete('/delete-fbd/{id}',[FormBuilderAPIController::class,'destroy'])->name('formbuilder-delete');
@@ -260,7 +272,28 @@ use App\Http\Controllers\CMSControllers\Api\ManualFileUploadAPIController;
             Route::get('/form-edit',[FormBuilderAPIController::class,'showEdit'])->name('formbuilder-edit');
             // Route::post('/formdata-save',[FormBuilderAPIController::class,'saveFormData'])->name('formbuilder-saveformData');
 
+            /****** Private Govt. Client Setting pgcs:Private Govt. Client Setting*/
+            Route::post('/create-pgcs',[PrivateGovernmentClientsAPIController::class,'store'])->name('pgcs-save')->middleware('throttle:custom_Limit');
+            Route::get('/list-pgcs',[PrivateGovernmentClientsAPIController::class,'index'])->name('pgcs-list');
+            Route::get('/edit-pgcs/{id}',[PrivateGovernmentClientsAPIController::class,'edit'])->name('pgcs-edit');
+            Route::post('/update-pgcs',[PrivateGovernmentClientsAPIController::class,'update'])->name('pgcs-update');
+            Route::delete('/delete-pgcs/{id}',[PrivateGovernmentClientsAPIController::class,'destroy'])->name('pgcs-delete');
             
+            /****** Home Page Section hps:Home Page Section*/
+            Route::post('/create-homepagesection',[HomePageSectionsDesignAPIController::class,'store'])->name('homepagesection-save')->middleware('throttle:custom_Limit');
+            Route::get('/list-homepagesection',[HomePageSectionsDesignAPIController::class,'index'])->name('homepagesection-list');
+            Route::get('/edit-homepagesection/{id}',[HomePageSectionsDesignAPIController::class,'edit'])->name('homepagesection-edit');
+            Route::post('/update-homepagesection',[HomePageSectionsDesignAPIController::class,'update'])->name('homepagesection-update');
+            Route::delete('/delete-homepagesection/{id}',[HomePageSectionsDesignAPIController::class,'destroy'])->name('homepagesection-delete');
+            
+            /****** New Section ns:New Section*/
+            Route::post('/create-newsection',[HomePageSectionsDesignAPIController::class,'storeNewSections'])->name('newsection-save')->middleware('throttle:custom_Limit');
+            Route::get('/list-newsectionlist',[HomePageSectionsDesignAPIController::class,'indexNewSections'])->name('newsections-list');
+            Route::get('/edit-newsection/{id}',[HomePageSectionsDesignAPIController::class,'edit'])->name('newsection-edit');
+            Route::post('/update-newsection',[HomePageSectionsDesignAPIController::class,'updateNewSection'])->name('newsection-update');
+            Route::delete('/delete-newsection/{id}',[HomePageSectionsDesignAPIController::class,'destroyNewSection'])->name('newsection-delete');
+
+
             /****** Asset Approver Route*/
             /****** Recent Activity rc:Recent Activity*/
             Route::post('/approve-rcta/{id}',[CommonApprovalAPIController::class,'recentActivityApprovePublish'])->name('recentactivity-approve');
@@ -288,8 +321,13 @@ use App\Http\Controllers\CMSControllers\Api\ManualFileUploadAPIController;
             Route::post('/approve-cws/{id}',[CommonApprovalAPIController::class,'websiteCoreSettingsLogoApprovePublish'])->name('cws-approve');
             Route::post('/approve-menu/{id}',[CommonApprovalAPIController::class,'websiteMenuApprovePublish'])->name('menu-approve');
             Route::post('/approve-formbuilding/{id}',[CommonApprovalAPIController::class,'formBuildingApprovePublish'])->name('formbuilder-approve');
+            Route::post('/approve-formdata/{id}',[CommonApprovalAPIController::class,'formDataApprovePublish'])->name('formdata-approve');
             Route::post('/approve-mfu/{id}',[CommonApprovalAPIController::class,'manualFileUploadApprovePublish'])->name('mfu-approve');
             Route::post('/approve-newrole/{id}',[CommonApprovalAPIController::class,'newRoleApprovePublish'])->name('newrole-approve');
+            Route::post('/approve-popupadvertising/{id}',[CommonApprovalAPIController::class,'popupAdvertisingApprovePublish'])->name('popupadvertising-approve');
+            Route::post('/approve-pgcs/{id}',[CommonApprovalAPIController::class,'privateGovernmentClientsApprovePublish'])->name('pgcs-approve');
+            Route::post('/approve-homepagesection/{id}',[CommonApprovalAPIController::class,'homePageSectionDesignApprovePublish'])->name('homepagesection-approve');
+            Route::post('/approve-newsection/{id}',[CommonApprovalAPIController::class,'newSectionsApprovePublish'])->name('newsection-approve');
     
         });
     });

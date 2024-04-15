@@ -32,7 +32,7 @@
                      </div>
                   </div>
                </div>
-               @if(isset(Auth::user()->role_id) == '1' && Auth::user()->role_id == '1')
+               @if(isset(Auth::user()->role_id) == '1' && Auth::user()->role_id == '1' || isset(Auth::user()->role_id) == '2' && Auth::user()->role_id == '2')
                <div data-kt-menu-trigger="click"  class="menu-item menu-accordion {{ set_active(['role/role-create','role/role-list','newrole/new-role-list']) }} {{ (request()->is('role/role-create/*')) ? 'hover show' : '' }}{{ (request()->is('role/role-list/*')) ? 'hover show' : '' }}{{ (request()->is('newrole/new-role-list/*')) ? 'hover show' : '' }}" >
                   <span class="menu-link" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span>
                   <span  class="menu-title" >Roles & Permissions</span><span  class="menu-arrow" ></span></span><!--end:Menu link--><!--begin:Menu sub-->
@@ -73,25 +73,52 @@
          <div  class="menu-item pt-5" >
             <div  class="menu-content" ><span class="menu-heading fw-bold text-uppercase fs-7">{{ config('menu.pagemanagement') }}</span></div>
          </div>
-         <div  data-kt-menu-trigger="click" class="menu-item menu-accordion {{ set_active(['menu/menu-create','menu/menu-list']) }} {{ (request()->is('menu/menu-create/*')) ? 'hover show' : '' }}{{ (request()->is('menu/menu-list/*')) ? 'hover show' : '' }}">
+         <div  data-kt-menu-trigger="click" class="menu-item menu-accordion 
+            {{ set_active(['menu/menu-create','menu/menu-list','menu/menu-tree']) }} 
+            {{ (request()->is('menu/menu-create/*')) ? 'hover show' : '' }}
+            {{ (request()->is('menu/menu-list/*')) ? 'hover show' : '' }}
+            {{ (request()->is('menu/menu-tree/*')) ? 'hover show' : '' }}
+            ">
             <span class="menu-link" ><span class="menu-icon" ><i class="ki-outline ki-menu fs-2"></i></span>
             <span  class="menu-title" >{{ config('menu.websitemenu') }} </span><span  class="menu-arrow" ></span></span>
-            <div  class="menu-sub menu-sub-accordion menu-active-bg {{ set_active(['menu/menu-create','menu/menu-list']) }} {{ (request()->is('menu/menu-create/*')) ? 'show' : '' }}{{ (request()->is('menu/menu-list/*')) ? 'show' : '' }}" >
+            <div  class="menu-sub menu-sub-accordion menu-active-bg 
+            {{ set_active(['menu/menu-create','menu/menu-list']) }} 
+            {{ (request()->is('menu/menu-create/*')) ? 'show' : '' }}
+            {{ (request()->is('menu/menu-list/*')) ? 'show' : '' }}
+            {{ (request()->is('menu/menu-tree/*')) ? 'show' : '' }}
+            ">
                <div  class="menu-item" >
                   <a class="menu-link {{ set_active1(['menu/menu-create']) }} {{ (request()->is('menu/menu-create/*')) ? 'active' : '' }}"  href="{{ route('menu.create') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Create </span></a><!--end:Menu link-->
                </div>
                <div  class="menu-item" >
                   <a class="menu-link {{ set_active1(['menu/menu-list']) }} {{ (request()->is('menu/menu-list/*')) ? 'active' : '' }}"  href="{{ route('menu.list') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >List</span></a><!--end:Menu link-->
                </div>
+               <div  class="menu-item" >
+                  <a class="menu-link {{ set_active1(['menu/menu-tree']) }} {{ (request()->is('menu/menu-tree/*')) ? 'active' : '' }}"  href="{{ route('menu.tree') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Menu Tree</span></a><!--end:Menu link-->
+               </div>
             </div>
          </div>
-         <div  data-kt-menu-trigger="click" class="menu-item menu-accordion {{ set_active(['websitecoresetting/websitecoresetting-create','websitecoresetting/logo-list','websitecoresetting/footercontent-list','websitecoresetting/sociallink-list']) }} {{ (request()->is('websitecoresetting/websitecoresetting-create/*')) ? 'hover show' : '' }}{{ (request()->is('websitecoresetting/logo-list/*')) ? 'hover show' : '' }}
-         {{ (request()->is('websitecoresetting/footercontent-list/*')) ? 'hover show' : '' }}{{ (request()->is('websitecoresetting/sociallink-list/*')) ? 'hover show' : '' }}" >
+         <div  data-kt-menu-trigger="click" class="menu-item menu-accordion {{ set_active(['websitecoresetting/websitecoresetting-create','websitecoresetting/logo-list','websitecoresetting/footercontent-list'
+            ,'websitecoresetting/sociallink-list','websitecoresetting/advertisingpopup-list']) }} 
+         {{ (request()->is('websitecoresetting/websitecoresetting-create/*')) ? 'hover show' : '' }}{{ (request()->is('websitecoresetting/logo-list/*')) ? 'hover show' : '' }}
+         {{ (request()->is('websitecoresetting/footercontent-list/*')) ? 'hover show' : '' }}
+         {{ (request()->is('websitecoresetting/sociallink-list/*')) ? 'hover show' : '' }}
+         {{ (request()->is('websitecoresetting/advertisingpopup-list/*')) ? 'hover show' : '' }}
+         " >
             <span class="menu-link" ><span  class="menu-icon" ><i class="ki-outline ki-setting-2 fs-2"></i></span><span  class="menu-title" >{{ config('menu.websitecoresettings') }}</span><span  class="menu-arrow" ></span></span><!--end:Menu link--><!--begin:Menu sub-->
-            <div  class="menu-sub menu-sub-accordion menu-active-bg {{ set_active(['websitecoresetting/websitecoresetting-create','websitecoresetting/logo-list','websitecoresetting/footercontent-list','websitecoresetting/sociallink-list']) }} {{ (request()->is('websitecoresetting/websitecoresetting-create/*')) ? 'show' : '' }}{{ (request()->is('websitecoresetting/logo-list/*')) ? 'show' : '' }}
-            {{ (request()->is('websitecoresetting/footercontent-list/*')) ? 'show' : '' }}{{ (request()->is('websitecoresetting/sociallink-list/*')) ? 'show' : '' }}" >
+            <div  class="menu-sub menu-sub-accordion menu-active-bg 
+            {{ set_active(['websitecoresetting/websitecoresetting-create','websitecoresetting/logo-list',
+               'websitecoresetting/footercontent-list','websitecoresetting/sociallink-list','websitecoresetting/advertisingpopup-list']) }}
+             {{ (request()->is('websitecoresetting/websitecoresetting-create/*')) ? 'show' : '' }}{{ (request()->is('websitecoresetting/logo-list/*')) ? 'show' : '' }}
+            {{ (request()->is('websitecoresetting/footercontent-list/*')) ? 'show' : '' }}
+            {{ (request()->is('websitecoresetting/sociallink-list/*')) ? 'show' : '' }}
+            {{ (request()->is('websitecoresetting/advertisingpopup-list/*')) ? 'show' : '' }}
+            " >
                <div  class="menu-item" >
-                  <a class="menu-link {{ set_active1(['websitecoresetting/websitecoresetting-create']) }} {{ (request()->is('websitecoresetting/websitecoresetting-create/*')) ? 'active' : '' }}"  href="{{ route('websitecoresetting.create') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Setting</span></a><!--end:Menu link-->
+                  <a class="menu-link {{ set_active1(['websitecoresetting/websitecoresetting-create']) }} {{ (request()->is('websitecoresetting/websitecoresetting-create/*')) ? 'active' : '' }}"  href="{{ route('websitecoresetting.create') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Core Setting</span></a><!--end:Menu link-->
+               </div>
+               <div  class="menu-item" >
+                  <a class="menu-link {{ set_active1(['websitecoresetting/advertisingpopup-list']) }} {{ (request()->is('websitecoresetting/advertisingpopup-list/*')) ? 'active' : '' }}"  href="{{ route('advertisingpopup.list') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Advertising Popup Listing</span></a><!--end:Menu link-->
                </div>
                <div  class="menu-item" >
                   <a class="menu-link {{ set_active1(['websitecoresetting/logo-list']) }} {{ (request()->is('websitecoresetting/logo-list/*')) ? 'active' : '' }}"  href="{{ route('logo.list') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Logo Listing</span></a><!--end:Menu link-->
@@ -115,6 +142,7 @@
                </div>
             </div>
          </div>
+         
          <div  data-kt-menu-trigger="click"  class="menu-item menu-accordion {{ set_active(['contentpage/contentpage-create','contentpage/contentpage-list']) }} {{ (request()->is('contentpage/contentpage-create/*')) ? 'hover show' : '' }}{{ (request()->is('contentpage/contentpage-list/*')) ? 'hover show' : '' }}" >
             <span class="menu-link" ><span  class="menu-icon" ><i class="ki-outline ki-document fs-2"></i></span><span  class="menu-title" >{{ config('menu.dynamiccontentpage') }}</span><span  class="menu-arrow" ></span></span><!--end:Menu link--><!--begin:Menu sub-->
             <div  class="menu-sub menu-sub-accordion {{ set_active(['contentpage/contentpage-create','contentpage/contentpage-list']) }} {{ (request()->is('contentpage/contentpage-create/*')) ? 'show' : '' }}{{ (request()->is('contentpage/contentpage-list/*')) ? 'show' : '' }}" >
@@ -123,6 +151,31 @@
                </div>
                <div  class="menu-item" >
                   <a class="menu-link {{ set_active1(['contentpage/contentpage-list']) }} {{ (request()->is('contentpage/contentpage-list/*')) ? 'active' : '' }}"  href="{{ route('contentpage.list') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Listing</span></a><!--end:Menu link-->
+               </div>
+            </div>
+         </div>
+         <div  data-kt-menu-trigger="click"  class="menu-item menu-accordion 
+               {{ set_active(['homepagesection/homepagesection-create','homepagesection/homepagesection-list',
+                  'homepagesection/newsection-list']) }} 
+               {{ (request()->is('homepagesection/homepagesection-create/*')) ? 'hover show' : '' }}
+               {{ (request()->is('homepagesection/homepagesection-list/*')) ? 'hover show' : '' }}
+               {{ (request()->is('homepagesection/newsection-list/*')) ? 'hover show' : '' }}
+               " >
+            <span class="menu-link" ><span  class="menu-icon" ><i class="ki-outline ki-design fs-2"></i></span><span  class="menu-title" >{{ config('menu.homepagesection') }}</span><span  class="menu-arrow" ></span></span><!--end:Menu link--><!--begin:Menu sub-->
+            <div  class="menu-sub menu-sub-accordion menu-active-bg 
+               {{ set_active(['homepagesection/homepagesection-create','homepagesection/homepagesection-list']) }} 
+               {{ (request()->is('homepagesection/homepagesection-create/*')) ? 'show' : '' }}
+               {{ (request()->is('homepagesection/homepagesection-list/*')) ? 'show' : '' }}
+               {{ (request()->is('homepagesection/newsection-list/*')) ? 'show' : '' }}
+               " >
+               <div  class="menu-item" >
+                  <a class="menu-link {{ set_active1(['homepagesection/homepagesection-create']) }} {{ (request()->is('homepagesection/homepagesection-create/*')) ? 'active' : '' }}"  href="{{ route('homepagesection.create') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Create</span></a><!--end:Menu link-->
+               </div>
+               <div  class="menu-item" >
+                  <a class="menu-link {{ set_active1(['homepagesection/homepagesection-list']) }} {{ (request()->is('homepagesection/homepagesection-list/*')) ? 'active' : '' }}"  href="{{ route('homepagesection.list') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >List</span></a><!--end:Menu link-->
+               </div>
+               <div  class="menu-item" >
+                  <a class="menu-link {{ set_active1(['homepagesection/newsection-list']) }} {{ (request()->is('homepagesection/newsection-list/*')) ? 'active' : '' }}"  href="{{ route('newsection.list') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Section List</span></a><!--end:Menu link-->
                </div>
             </div>
          </div>
@@ -160,6 +213,17 @@
             <div  class="menu-sub menu-sub-accordion {{ set_active(['maunalfileupload/maunalfileupload-list']) }} {{ (request()->is('maunalfileupload/maunalfileupload-list/*')) ? 'show' : '' }}" >
                <div  class="menu-item" >
                   <a class="menu-link {{ set_active1(['maunalfileupload/maunalfileupload-list']) }} {{ (request()->is('maunalfileupload/maunalfileupload-list/*')) ? 'active' : '' }}"  href="{{ route('mfu.list') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Create File Path</span></a><!--end:Menu link-->
+               </div>
+            </div>
+         </div>
+         <div  data-kt-menu-trigger="click"  class="menu-item menu-accordion {{ set_active(['pgcs/pgcs-create','pgcs/pgcs-list']) }} {{ (request()->is('pgcs/pgcs-create/*')) ? 'hover show' : '' }}{{ (request()->is('pgcs/pgcs-list/*')) ? 'hover show' : '' }}" >
+            <span class="menu-link" ><span  class="menu-icon" ><i class="ki-outline ki-abstract-38 fs-2"></i></span><span  class="menu-title" >{{ config('menu.privategovClient') }}</span><span  class="menu-arrow" ></span></span><!--end:Menu link--><!--begin:Menu sub-->
+            <div  class="menu-sub menu-sub-accordion menu-active-bg {{ set_active(['pgcs/pgcs-create','pgcs/pgcs-list']) }} {{ (request()->is('pgcs/pgcs-create/*')) ? 'show' : '' }}{{ (request()->is('pgcs/pgcs-list/*')) ? 'show' : '' }}" >
+               <div  class="menu-item" >
+                  <a class="menu-link {{ set_active1(['pgcs/pgcs-create']) }} {{ (request()->is('pgcs/pgcs-create/*')) ? 'active' : '' }}"  href="{{ route('pgcs.create') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Create</span></a><!--end:Menu link-->
+               </div>
+               <div  class="menu-item" >
+                  <a class="menu-link {{ set_active1(['pgcs/pgcs-list']) }} {{ (request()->is('pgcs/pgcs-list/*')) ? 'active' : '' }}"  href="{{ route('pgcs.list') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >List</span></a><!--end:Menu link-->
                </div>
             </div>
          </div>
@@ -223,21 +287,42 @@
                </div>
             </div>
          </div>
-
+         @if(isset(Auth::user()->role_id) == '1' && Auth::user()->role_id == '1' || isset(Auth::user()->role_id) == '2' && Auth::user()->role_id == '2')
          <div  class="menu-item pt-5" >
             <div  class="menu-content"><span class="menu-heading fw-bold text-uppercase fs-7">{{ config('menu.FB_title') }}</span></div>
          </div>
-         <div  data-kt-menu-trigger="click" class="menu-item menu-accordion {{ set_active(['formbuilder/formbuilder-create','formbuilder/formbuilder-list']) }} {{ (request()->is('formbuilder/formbuilder-create/*')) ? 'hover show' : '' }}{{ (request()->is('formbuilder/formbuilder-list/*')) ? 'hover show' : '' }}" >
+         <div  data-kt-menu-trigger="click" class="menu-item menu-accordion 
+            {{ set_active(['formbuilder/formbuilder-create','formbuilder/formbuilder-list',
+               'formbuilder/form-data-list','formmappingmenu/formmappingmenu-list']) }} 
+            {{ (request()->is('formbuilder/formbuilder-create/*')) ? 'hover show' : '' }}
+            {{ (request()->is('formbuilder/formbuilder-list/*')) ? 'hover show' : '' }}
+            {{ (request()->is('formbuilder/form-data-list/*')) ? 'hover show' : '' }}
+            {{ (request()->is('formmappingmenu/formmappingmenu-list/*')) ? 'hover show' : '' }}
+            ">
             <span class="menu-link" ><span  class="menu-icon" ><i class="ki-outline ki-abstract-9 fs-2"></i></span><span  class="menu-title" >{{ config('menu.FB_title') }}</span><span  class="menu-arrow" ></span></span><!--end:Menu link--><!--begin:Menu sub-->
-            <div  class="menu-sub menu-sub-accordion {{ set_active(['formbuilder/formbuilder-create','formbuilder/formbuilder-list']) }} {{ (request()->is('formbuilder/formbuilder-create/*')) ? 'show' : '' }}{{ (request()->is('formbuilder/formbuilder-list/*')) ? 'show' : '' }}" >
+            <div  class="menu-sub menu-sub-accordion 
+            {{ set_active(['formbuilder/formbuilder-create','formbuilder/formbuilder-list',
+               'formbuilder/form-data-list','formmappingmenu/formmappingmenu-list']) }} 
+            {{ (request()->is('formbuilder/formbuilder-create/*')) ? 'show' : '' }}
+            {{ (request()->is('formbuilder/formbuilder-list/*')) ? 'show' : '' }}
+            {{ (request()->is('formbuilder/form-data-list/*')) ? 'show' : '' }}
+            {{ (request()->is('formmappingmenu/formmappingmenu-list/*')) ? 'show' : '' }}
+            ">
                <div  class="menu-item" >
                   <a class="menu-link {{ set_active1(['formbuilder/formbuilder-create']) }} {{ (request()->is('formbuilder/formbuilder-create/*')) ? 'active' : '' }}"  href="{{ route('formbuilder.create') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Create</span></a><!--end:Menu link-->
                </div>
                <div  class="menu-item" >
                   <a class="menu-link {{ set_active1(['formbuilder/formbuilder-list']) }} {{ (request()->is('formbuilder/formbuilder-list/*')) ? 'active' : '' }}"  href="{{ route('formbuilder.list') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >List</span></a><!--end:Menu link-->
                </div>
+               <div  class="menu-item" >
+                  <a class="menu-link {{ set_active1(['formmappingmenu/formmappingmenu-list']) }} {{ (request()->is('formmappingmenu/formmappingmenu-list/*')) ? 'active' : '' }}"  href="{{ route('formmappingmenu.list') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Menu Mapping</span></a><!--end:Menu link-->
+               </div>
+               <div  class="menu-item" >
+                  <a class="menu-link {{ set_active1(['formbuilder/form-data-list']) }} {{ (request()->is('formbuilder/form-data-list/*')) ? 'active' : '' }}"  href="{{ route('formbuilder.formdatalist') }}" ><span  class="menu-bullet" ><span class="bullet bullet-dot"></span></span><span  class="menu-title" >Form Data List</span></a><!--end:Menu link-->
+               </div>
             </div>
          </div>
+         @endif
          <div  class="menu-item pt-5" >
             <div  class="menu-content"><span class="menu-heading fw-bold text-uppercase fs-7">Apps</span></div>
          </div>

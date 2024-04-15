@@ -112,6 +112,9 @@ class EmployeeDirectoryAPIController extends Controller
                              'department_id' =>$request->deprt_id??'',
                              'designation_id' => $request->designation_id??'',
                              'public_url' => $newname,
+                             'address' => $request->address??'',
+                             'date_of_birth' => $request->dob??'',
+                             'date_of_death' => $request->dod??'',
                              'short_order' => $request->short_order,
                              //Social Link
                              //'google_link' => $request->linkedin,
@@ -222,6 +225,9 @@ class EmployeeDirectoryAPIController extends Controller
                             'department_id' =>$request->deprt_id??'',
                             'designation_id' => $request->designation_id??'',
                             'public_url' => $newname,
+                            'address' => $request->address??'',
+                            'date_of_birth' => $request->dob??'',
+                            'date_of_death' => $request->dod??'',
                             'short_order' => $request->short_order,
                             //Social Link
                             //'google_link' => $request->linkedin,
@@ -229,6 +235,7 @@ class EmployeeDirectoryAPIController extends Controller
                             'facebook' => $request->facebook,
                             'twitter' => $request->twitter,
                             'instagram' => $request->instagram,
+                            'status' => 1,
                     ]);
             
         if($result == true)

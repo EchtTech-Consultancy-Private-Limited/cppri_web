@@ -25,7 +25,7 @@
          @if(isset($footerdata) && $footerdata !='')
          <li class="nav-item">
             <a class="nav-link text-active-primary d-flex align-items-center pb-5 active" data-bs-toggle="tab" href="#kt_header_settings_general" id="edit">
-            <i class="ki-outline ki-home fs-2 me-2"></i> Header Footer Logo
+            <i class="ki-outline ki-home fs-2 me-2"></i> Footer Content
             </a>
          </li>
          @endif
@@ -43,7 +43,6 @@
                <!--begin::Heading-->
                <div class="row mb-7">
                   <div class="d-flex flex-column gap-7 gap-lg-8">
-                     <h2>Footer Content</h2>
                            <div>
                               <!--begin::Label-->
                               <label class="form-label required">Description (English)</label>
@@ -109,6 +108,4 @@
       </div>
       <!--end:::Tab content-->
    </div>
-   <!--end::Card body-->
-</div>
 @endsection

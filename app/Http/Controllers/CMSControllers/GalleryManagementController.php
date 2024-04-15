@@ -167,6 +167,7 @@ class GalleryManagementController extends Controller
         if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
             $crudUrlTemplate['update_photo'] = route('photo-update');
             $crudUrlTemplate['update_video'] = route('photo-update');
+            $crudUrlTemplate['remove_multiple'] = route('gallery-multiple');
         }else{
             $accessPermission = $this->checkAccessMessage();
         }
@@ -176,7 +177,7 @@ class GalleryManagementController extends Controller
         if($results){
             $result = $results;
         }else{
-            abort(404);
+            return view('cms-view.errors.500');
         }
         if($results->type == 1){
             $fileName = $this->editVideo;

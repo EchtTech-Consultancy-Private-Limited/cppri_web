@@ -7,9 +7,9 @@ return[
         'permissions' => 'Permissions',
         'employeedirectory' => 'Employee Directory',
         'departmentdesignation' => 'Department & Designation',
-        'recentactivity' => 'Recent Activity',
+        'recentactivity' => 'Notification Management',
         'RTIassets' => 'RTI Assets',
-        'dynamicformpages' => 'Dynamic Assets',
+        'dynamicformpages' => 'FAQ & File Management',
         'websitemenu' => 'Website Menu',
         'websitecoresettings' => 'Website Core Setting',
         'homepagebanner' => 'Home Page Banner',
@@ -29,5 +29,7 @@ return[
         'documentation' => 'Documentation',
         'purchasewWorkscommittee' => 'Purchase/Works/Committee',
         'rtiapplicationresponses ' => 'RTI Application & Responses',
-        'formbuilder ' => 'Form Builder'
+        'formbuilder ' => 'Form Builder',
+        'privategovClient'=> 'Private & Govt Clients',
+        'homepagesection' =>'Home Page Section'
 ];

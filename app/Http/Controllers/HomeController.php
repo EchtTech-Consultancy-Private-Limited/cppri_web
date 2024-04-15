@@ -36,15 +36,10 @@ class HomeController extends Controller
         $titleName = 'Career';
         $final_data = [];
         try {
-            $uuids = DB::table('career_management_details')
-                ->where('soft_delete', 0)
-                ->where('archivel_date', '>=', now()->toDateString()) // Fix the variable name here
-                ->get()
-                ->pluck('career_management_id');
             $career = DB::table('career_management')
                 ->where('status', 3)
                 ->where('soft_delete', 0)
-                ->whereIn('uid', $uuids)
+                ->whereDate('end_date', '>=', now()->toDateString())
                 ->orderByRaw("CAST(start_date AS DATE) DESC")
                 ->get();
             foreach ($career as $c) {
@@ -53,7 +48,6 @@ class HomeController extends Controller
                 $obj->career->career_doc =  DB::table('career_management_details')
                     ->where('soft_delete', 0)
                     ->where('career_management_id', $c->uid)
-                    ->whereDate('archivel_date', '>=', now()->toDateString())
                     ->get();
                 $final_data[] = $obj;
             }
@@ -79,15 +73,10 @@ class HomeController extends Controller
     {
         $titleName = 'Career Archive';
         try {
-            $uuids = DB::table('career_management_details')
-                ->where('soft_delete', 0)
-                ->where('archivel_date', '<', now()->toDateString()) // Fix the variable name here
-                ->get()
-                ->pluck('career_management_id');
             $career = DB::table('career_management')
                 ->where('status', 3)
                 ->where('soft_delete', 0)
-                ->whereIn('uid', $uuids)
+                ->whereDate('end_date', '<', now()->toDateString())
                 ->orderByRaw("CAST(start_date AS DATE) DESC")
                 ->get();
             foreach ($career as $c) {
@@ -96,7 +85,6 @@ class HomeController extends Controller
                 $obj->career->career_doc =  DB::table('career_management_details')
                     ->where('soft_delete', 0)
                     ->where('career_management_id', $c->uid)
-                    ->whereDate('archivel_date', '<', now()->toDateString())
                     ->get();
                 $final_data[] = $obj;
             }
@@ -126,6 +114,7 @@ class HomeController extends Controller
             $tenders = DB::table('tender_management')
                 ->where('status', 3)
                 ->where('soft_delete', 0)
+                ->whereDate('end_date', '>=', now()->toDateString())
                 ->orderByRaw("CAST(start_date AS DATE) DESC")
                 ->get();
             if (count($tenders) > 0) {
@@ -133,8 +122,7 @@ class HomeController extends Controller
                     $tender_pdfs = DB::table('tender_details')
                         ->where('soft_delete', 0)
                         ->orderBy('created_at', 'asc')
-                        ->where('tender_id', $tender->uid)
-                        ->whereDate('archivel_date', '>=', now()->toDateString())
+                        ->where('tender_id', $tender->uid)                        
                         ->latest('created_at')
                         ->get();
                     if (count($tender_pdfs) > 0) {
@@ -176,6 +164,7 @@ class HomeController extends Controller
             $tenders = DB::table('tender_management')
                 ->where('status', 3)
                 ->where('soft_delete', 0)
+                ->whereDate('end_date', '<', now()->toDateString())
                 ->orderByRaw("CAST(start_date AS DATE) DESC")
                 ->get();
             if (count($tenders) > 0) {
@@ -183,7 +172,6 @@ class HomeController extends Controller
                     $tender_pdfs = DB::table('tender_details')
                         ->where('soft_delete', 0)
                         ->where('tender_id', $tender->uid)
-                        ->whereDate('archivel_date', '<', now()->toDateString())
                         ->get();
                     if (count($tender_pdfs) > 0) {
                         $tenderData[] = [
@@ -471,15 +459,15 @@ class HomeController extends Controller
                     ->where('menu_uid', $menus->uid)
                     ->orderBy('created_at', 'asc')
                     ->orderBy('sort_order', 'ASC')
-                    ->get();
+                    ->get();               
+
                 if (count($dynamic_content_page_metatag) > 0) {
                     $organizedData = [];
                     foreach ($dynamic_content_page_metatag as $dynamic_content_page_metatags) {
                         $dynamic_content_page_pdf = DB::table('dynamic_content_page_pdf')
                             ->wheredcpm_id($dynamic_content_page_metatags->uid)
-                            ->where('status', 3)
-                            ->orderBy('created_at', 'asc')
                             ->where('soft_delete', 0)
+                            ->orderByRaw("CAST(start_date AS DATE) DESC")
                             ->get();
                         $dynamic_page_banner = DB::table('dynamic_page_banner')
                             ->where('status', 3)
@@ -559,6 +547,9 @@ class HomeController extends Controller
                         // return view('pages.employeeDirectory', ['sortedDesignationData' => $sortedDesignationData]);
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'sortedDesignationData' => $sortedDesignationData]);
                     }
+                } elseif ($lastSlugs != null && $lastSlugs == 'faq') {
+                    $faqs = DB::table('faq')->where('status', 3)->where('soft_delete', 0)->orderBy('created_at', 'asc')->get();
+                    return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'title_name' => $title_name, 'faqs' => $faqs]);
                 } else {
                     if (Session::get('Lang') == 'hi') {
                         $content = "जल्द आ रहा है";
@@ -567,7 +558,7 @@ class HomeController extends Controller
                     }
                     if ($finalSlug != null) {
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'finalBred' => $finalBred, 'lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name]);
-                    } else if ($lastSlugs != null) {
+                    } else if ($lastSlugs != null) {                    
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'lastBred' => $lastBred, 'content' => $content, 'middelBred' => $middelBred, 'title_name' => $title_name]);
                     } elseif ($middelSlug != null) {
                         return view('master-page', ['parentMenut' => $parentMenut, 'tree' => $tree, 'middelBred' => $middelBred, 'quickLink' => $quickLink, 'middelBred' => $middelBred, 'content' => $content, 'title_name' => $title_name]);

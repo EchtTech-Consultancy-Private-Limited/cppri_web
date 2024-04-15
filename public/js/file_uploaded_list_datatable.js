@@ -5,10 +5,11 @@ var KTDatatablesBasicPaginations = function() {
 		var $i=1;
 		var jsonURL = $('#urlListData').attr('data-info');
 		var crudUrlTemplate = JSON.parse(jsonURL);
+		var baseURL = new URLSearchParams(window.location);
         var csrfToken = $('meta[name="csrf-token"]').attr('content');
 		// begin first table
 		var tableObject = table.DataTable({
-			order: [[1, 'asc']],
+			//order: [[1, 'asc']],
 			responsive: true,
 			pagingType: 'full_numbers',
 			searchDelay: 500,
@@ -46,13 +47,7 @@ var KTDatatablesBasicPaginations = function() {
 							viewLinkHtml = '<a href="' + crudUrlTemplate.view.replace("xxxx", full.uid) + 
 							'" class="btn btn-sm btn-clean btn-icon mr-2 track-click" data-track-name="datatable-js-employee-view-btn" title="View">\
 							<span class="svg-icon svg-icon-md">\
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">\
-									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\
-										<rect x="0" y="0" width="24" height="24"/>\
-										<path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero"\ transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "/>\
-										<rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"/>\
-									</g>\
-								</svg>\
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-.449s-4.252 8.449-11.985 8.449c-7.18 0-12.015-8.449-12.015-8.449s4.446-7.551 12.015-7.551c7.694 0 11.985 7.551 11.985 7.551zm-7 .449c0-2.757-2.243-5-5-5s-5 2.243-5 5 2.243 5 5 5 5-2.243 5-5z"/></svg>\
 							</span>\
 							</a>';
 						}
@@ -156,25 +151,13 @@ var KTDatatablesBasicPaginations = function() {
 					orderable: true,
 					responsivePriority: -3,
 					render: function (data, type, full, meta) {
-						var file_path = {
-							"0": { 'title': 'Active/Approve', 'class': 'badge badge-light-danger fw-bold px-3 py-2 btn btn-danger border-radius-10',
-												},
-						};
+						console.log(data);
 						if (typeof file_path[data] === 'undefined') {
 							return '<div class="ms-2" data-kt-filemanger-table="copy_link">\
-							<button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">\
+							<button type="button" data-attr="'+window.location.origin+'/resources/uploads/uploadManualfile/'+data+'" class="btn btn-sm btn-icon btn-light btn-active-light-primary copyButton" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">\
 							<i class="ki-outline ki-fasten fs-5 m-0"></i>\
 							</button></div>';
 						}
-						return '<a href="'+ file_path[data].url +'" class="' + file_path[data].classApprove + '" data-attr="' + file_path[data].btncustomtext + '"><span style="width: 250px;">\
-									<div class="d-flex align-items-center">\
-										<div class="symbol symbol-40 symbol-sm flex-shrink-0">\
-											<div class="symbol symbol-light-success mr-3">\
-												<span class="' + file_path[data].class + '">' + file_path[data].title +'   '+'<i class="ki-outline fs-0.5 '+' '+ file_path[data].icontext + '"></i></span>\
-											</div>\
-										</div>\
-									</div>\
-								</span></a>';
 					}
 				},
 			],
@@ -280,53 +263,30 @@ var KTDatatablesBasicPaginations = function() {
 					});
 				});
 
-				$(".file-path-copy").click(function (event) {
-					event.preventDefault();
-					var deleteUrl = $(this).attr('href');
-					var rowId = $(this).data('rowid');
-					
-					swal.fire({
-						title: 'Are you sure?',
-						text: "You won't be able to revert this!",
-						type: 'success',
-						showCancelButton: true,
-						confirmButtonText: 'Yes, delete it!'
-					}).then(function (result) {
-						if (result.value) {
-							axios.delete(deleteUrl)
-							.then(function (response) {
-								// remove record row from DOM
-								tableObject
-									.row(rowId)
-									.remove()
-									.draw();
-								toastr.success(
-									"Record has been deleted!", 
-									"deleted!", 
-									{timeOut: 0,showProgressbar: true, extendedTimeOut: 0,allow_dismiss: false, closeButton: true, closeDuration: 0}
-								 );
-								 setTimeout(function() {
-									if (history.scrollRestoration) {
-									   history.scrollRestoration = 'manual';
-									}
-									location.href = 'maunalfileupload-list'; // reload page
-								 }, 1500);
-
-							})
-							.catch(function (error) {
-								var errorMsg = 'Could not delete record. Try later.';
-								
-								if (error.response.status >= 400 && error.response.status <= 499)
-									errorMsg = error.response.data.message;
-
-								swal.fire(
-									'Error!',
-									errorMsg,
-									'error'
-								)
-							});     
-						}
-					});
+				//document.getElementById('copyButton').addEventListener('click', function() {
+					$(".copyButton").click(function (event) {
+					// Get the image path
+					var imagePath = $(this).attr('data-attr');
+					// Create a temporary input element
+					var inputElement = document.createElement('input');
+					inputElement.setAttribute('value', imagePath);
+					// Append the input element to the document
+					document.body.appendChild(inputElement);
+					// Select the input element's content
+					inputElement.select();
+					// Copy the selected content to the clipboard
+					document.execCommand('copy');
+					// Remove the temporary input element
+					document.body.removeChild(inputElement);
+					if(imagePath){
+						toastr.success(
+							"Path copied to clipboard!", 
+							"Path copied!", 
+							{timeOut: 0, extendedTimeOut: 0, closeButton: true, closeDuration: 0}
+						 );
+					}
+					// Display a message (optional)
+					//alert('Image path copied to clipboard: ' + imagePath);
 				});
             }
 		});
@@ -342,27 +302,4 @@ jQuery(document).ready(function() {
 	KTDatatablesBasicPaginations.init();
 	// errors in table will be logged in console
 	$.fn.dataTable.ext.errMode = 'throw'; 
-});
-document.getElementById('copyButton').addEventListener('click', function() {
-    // Get the image path
-    var imagePath = '/path/to/your/image.jpg';
-
-    // Create a temporary input element
-    var inputElement = document.createElement('input');
-    inputElement.setAttribute('value', imagePath);
-
-    // Append the input element to the document
-    document.body.appendChild(inputElement);
-
-    // Select the input element's content
-    inputElement.select();
-
-    // Copy the selected content to the clipboard
-    document.execCommand('copy');
-
-    // Remove the temporary input element
-    document.body.removeChild(inputElement);
-
-    // Display a message (optional)
-    alert('Image path copied to clipboard: ' + imagePath);
 });

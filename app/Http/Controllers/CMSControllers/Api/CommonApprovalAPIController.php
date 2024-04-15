@@ -31,6 +31,9 @@ use App\Models\CMSModels\EmpDepartDesignation;
 use App\Models\CMSModels\DynamicContentPageManagament;
 use App\Models\CMSModels\CareerManagement;
 use App\Models\CMSModels\ManualFileUpload;
+use App\Models\CMSModels\PrivateGovernmentClients;
+use App\Models\CMSModels\HomePageSectionsDesign;
+
 use Ramsey\Uuid\Uuid;
 use Validator;
 use DB;
@@ -575,6 +578,30 @@ class CommonApprovalAPIController extends Controller
             ],201);
         }
     }
+    public function formDataApprovePublish($id)
+    {
+        $data=DB::table('form_data_management')->where('uid',$id)->first()->status;
+        if($data ==0 || $data ==1)
+        {
+            DB::table('form_data_management')->where('uid',$id)->update(['status'=>'2']);
+            return response()->json([
+                'status'=>200,
+                'message'=>'Approve successfully.'
+            ],200);
+        }else if($data ==2){
+            DB::table('form_data_management')->where('uid',$id)->update(['status'=>'3']);
+            return response()->json([
+                'status'=>200,
+                'message'=>'Approve successfully.'
+            ],200);
+        }
+        else{
+            return response()->json([
+                'status'=>201,
+                'message'=>'some error accoured.'
+            ],201);
+        }
+    }
     public function manualFileUploadApprovePublish($id)
     {
         $data=ManualFileUpload::where('uid',$id)->first()->status;
@@ -683,6 +710,102 @@ class CommonApprovalAPIController extends Controller
             ],200);
         }else if($data ==2){
             DB::table('role_type_users')->where('uid',$id)->update(['status'=>'3']);
+            return response()->json([
+                'status'=>200,
+                'message'=>'Approve successfully.'
+            ],200);
+        }
+        else{
+            return response()->json([
+                'status'=>201,
+                'message'=>'some error accoured.'
+            ],201);
+        }
+    }
+    public function popupAdvertisingApprovePublish($id)
+    {
+        $data=PopupAdvertising::where('uid',$id)->first()->status;
+        if($data ==0 || $data ==1)
+        {
+            PopupAdvertising::where('uid',$id)->update(['status'=>'2']);
+            return response()->json([
+                'status'=>200,
+                'message'=>'Approve successfully.'
+            ],200);
+        }else if($data ==2){
+            PopupAdvertising::where('uid',$id)->update(['status'=>'3']);
+            return response()->json([
+                'status'=>200,
+                'message'=>'Approve successfully.'
+            ],200);
+        }
+        else{
+            return response()->json([
+                'status'=>201,
+                'message'=>'some error accoured.'
+            ],201);
+        }
+    }
+    public function privateGovernmentClientsApprovePublish($id)
+    {
+        $data=PrivateGovernmentClients::where('uid',$id)->first()->status;
+        if($data ==0 || $data ==1)
+        {
+            PrivateGovernmentClients::where('uid',$id)->update(['status'=>'2']);
+            return response()->json([
+                'status'=>200,
+                'message'=>'Approve successfully.'
+            ],200);
+        }else if($data ==2){
+            PrivateGovernmentClients::where('uid',$id)->update(['status'=>'3']);
+            return response()->json([
+                'status'=>200,
+                'message'=>'Approve successfully.'
+            ],200);
+        }
+        else{
+            return response()->json([
+                'status'=>201,
+                'message'=>'some error accoured.'
+            ],201);
+        }
+    }
+    public function homePageSectionDesignApprovePublish($id)
+    {
+        $data=DB::table('home_page_sections_designs_details')->where('uid',$id)->first()->status;
+        if($data ==0 || $data ==1)
+        {
+            DB::table('home_page_sections_designs_details')->where('uid',$id)->update(['status'=>'2']);
+            return response()->json([
+                'status'=>200,
+                'message'=>'Approve successfully.'
+            ],200);
+        }else if($data ==2){
+            DB::table('home_page_sections_designs_details')->where('uid',$id)->update(['status'=>'3']);
+            return response()->json([
+                'status'=>200,
+                'message'=>'Approve successfully.'
+            ],200);
+        }
+        else{
+            return response()->json([
+                'status'=>201,
+                'message'=>'some error accoured.'
+            ],201);
+        }
+    }
+    public function newSectionsApprovePublish($id)
+    {
+        $data= DB::table('home_page_sections_list')->where('uid',$id)->first()->status;
+        if($data ==0 || $data ==1)
+        {
+            DB::table('home_page_sections_list')->where('uid',$id)->update(['status'=>'2']);
+            return response()->json([
+                'status'=>200,
+                'message'=>'Approve successfully.'
+            ],200);
+        }else if($data ==2){
+            DB::table('home_page_sections_list')->where('uid',$id)->update(['status'=>'3']);
             return response()->json([
                 'status'=>200,
                 'message'=>'Approve successfully.'

@@ -50,7 +50,7 @@ class EventsManagementAPIController extends Controller
      */
     public function store(Request $request)
     {
-        $exitValue = EventsManagement::where('title_name_en', $request->title_name_en)->count() > 0;
+        $exitValue = EventsManagement::where([['title_name_en', $request->title_name_en],['soft_delete',0]])->count() > 0;
         if($exitValue == 'false'){
             $notification =[
                 'status'=>201,
@@ -188,9 +188,10 @@ class EventsManagementAPIController extends Controller
                 'end_date' => $request->enddate,
                 'archivel_date' => Carbon::createFromFormat('Y-m-d',$request->enddate)->addDays(env('TENDER_ARCHIVEL')),
                 'event_type' => $request->eventtype,
+                'status' => 1,
             ]);
-            if(!empty($request->kt_event_add_multiple_options)){
-            foreach($request->kt_event_add_multiple_options as $key=>$value)
+            if(!empty($request->kt_event_edit_multiple_options)){
+            foreach($request->kt_event_edit_multiple_options as $key=>$value)
             {
                 if(!empty($value['uid'])){
                     $uid=DB::table('events_details')->where('uid',$value['uid'])->first();
@@ -213,12 +214,12 @@ class EventsManagementAPIController extends Controller
                 }
                 $result= DB::table('events_details')->where('uid',$value['uid'])->update([
                         'title' => $value['imagetitle'],
-                        'start_date'=> $value['startdate']??'',
-                        'end_date' => $value['enddate']??'',
-                        // 'public_url' => isset($name)?$name:$uid->public_url,
-                        // 'private_url' => isset($name)?$name:$uid->public_url,
-                        // 'pdfimage_size' => isset($size)?$size:$uid->pdfimage_size,
-                        // 'file_extension' => isset($extension)?$extension:$uid->file_extension,
+                        // 'start_date'=> $value['startdate']??'',
+                        // 'end_date' => $value['enddate']??'',
+                        'public_url' => isset($name)?$name:$uid->public_url,
+                        'private_url' => isset($name)?$name:$uid->public_url,
+                        'pdfimage_size' => isset($size)?$size:$uid->pdfimage_size,
+                        'file_extension' => isset($extension)?$extension:$uid->file_extension,
                        // 'archivel_date' => Carbon::createFromFormat('Y-m-d',$value['enddate'])->addDays(env('TENDER_ARCHIVEL')),
                     ]);
                 }else{
@@ -244,8 +245,8 @@ class EventsManagementAPIController extends Controller
                     }
                 }
             }
-            }
-            
+        }
+        //dd($result);
         if($result == true)
         {
             $notification =[

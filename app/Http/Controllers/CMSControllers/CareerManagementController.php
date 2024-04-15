@@ -106,7 +106,7 @@ class CareerManagementController extends Controller
         $crudUrlTemplate = array();
         if(isset($this->abortIfAccessNotAllowed()['update']) && $this->abortIfAccessNotAllowed()['update'] !=''){
             $crudUrlTemplate['update_career'] = route('career-update');
-            $crudUrlTemplate['deletepdfimg'] = route('pdf-delete');
+            $crudUrlTemplate['deletepdfimg'] = route('pdf-delete-career');
         }
 
         $results=DB::table('career_management')->where('uid',$request->id)->where([['soft_delete','=','0']])->first();
@@ -114,7 +114,7 @@ class CareerManagementController extends Controller
         if($results){
             $result = $results;
         }else{
-            abort(404);
+            return view('cms-view.errors.500');
         }
         return view('cms-view.'.$this->edit,
         ['crudUrlTemplate' =>  json_encode($crudUrlTemplate),

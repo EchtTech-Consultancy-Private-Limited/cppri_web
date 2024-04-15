@@ -69,6 +69,8 @@ var KTAppEventSave = function () {
                       }, 1500);
                       
                    } else {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                       toastr.error(
                          "Sorry, the information is incorrect, please try again.", 
                          "Something went wrong!", 
@@ -77,6 +79,8 @@ var KTAppEventSave = function () {
                       }
                    })
                    .catch(function (error) {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                          toastr.error(
                             "Sorry, looks like there are some errors detected, please try again B.", 
                             "Something went wrong!", 
@@ -89,6 +93,8 @@ var KTAppEventSave = function () {
                             submitButton.disabled = false;
                       });
                    } else {
+                     $('#loading').removeClass('loading');
+                     $('#loading-content').removeClass('loading-content');
                          toastr.error(
                                "Sorry, looks like there are some errors detected, please try again K.", 
                                "Something went wrong!", 
@@ -111,7 +117,7 @@ var KTAppEventSave = function () {
      }
    
  const initFormRepeater = () => {
-         $('#kt_event_add_multiple_options').repeater({
+         $('#kt_event_edit_multiple_options').repeater({
              initEmpty: false,
              // defaultValues: {
              //     'text-input': 'foo'
@@ -119,7 +125,7 @@ var KTAppEventSave = function () {
              show: function () {
                  $(this).slideDown();
                  // Init select2 on new repeated items
-                 initConditionsSelect2();
+                 //initConditionsSelect2();
              },
              hide: function (deleteElement) {
                  $(this).slideUp(deleteElement);

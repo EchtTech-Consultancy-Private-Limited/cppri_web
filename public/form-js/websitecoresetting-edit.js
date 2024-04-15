@@ -22,17 +22,17 @@ var KTvalidationCoreWebsiteSetting1= function() {
                             },
                         },
                     },
-                    header_logo: {
-                        validators: {
-                            notEmpty: {
-                                message: 'This field is required'
-                            },
-                            regexp: {
-                                regexp: /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i,
-                                message: 'This field can consist of png, jpeg, jpg, image only'
-                            },
-                        },
-                    },
+                    // header_logo: {
+                    //     validators: {
+                    //         notEmpty: {
+                    //             message: 'This field is required'
+                    //         },
+                    //         regexp: {
+                    //             regexp: /\.(gif|jpe?g|tiff?|png|webp|bmp)$/i,
+                    //             message: 'This field can consist of png, jpeg, jpg, image only'
+                    //         },
+                    //     },
+                    // },
                 },
                 plugins: {
                     trigger: new FormValidation.plugins.Trigger(),
@@ -51,7 +51,6 @@ var KTvalidationCoreWebsiteSetting1= function() {
                     $('#loading-content').addClass('loading-content');
                  axios.post(crudUrlTemplate.update_headerlogo+'?id='+id,new FormData(form), {
                     }).then(function (response) {
-                       console.log(response.data.message);
                     if (response.data.status ==200) {
                         $('#loading').removeClass('loading');
                         $('#loading-content').removeClass('loading-content');
@@ -68,6 +67,8 @@ var KTvalidationCoreWebsiteSetting1= function() {
                        }, 1500);
                       
                     } else {
+                        $('#loading').removeClass('loading');
+                        $('#loading-content').removeClass('loading-content');
                        toastr.error(
                           response.data.message.header_logo,
                           "Something went wrong!", 
@@ -76,6 +77,8 @@ var KTvalidationCoreWebsiteSetting1= function() {
                        }
                     })
                     .catch(function (error) {
+                        $('#loading').removeClass('loading');
+                        $('#loading-content').removeClass('loading-content');
                           toastr.error(
                              "Sorry, looks like there are some errors detected, please try again B.", 
                              "Something went wrong!", 
@@ -88,6 +91,8 @@ var KTvalidationCoreWebsiteSetting1= function() {
                              submitButton.disabled = false;
                        });
                     } else {
+                        $('#loading').removeClass('loading');
+                        $('#loading-content').removeClass('loading-content');
                           toastr.error(
                                 "Sorry, looks like there are some errors detected, please try again K.", 
                                 "Something went wrong!", 

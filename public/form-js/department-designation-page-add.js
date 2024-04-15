@@ -21,6 +21,17 @@ var KTvalidationDepartment= function() {
                             },
                         },
                     },
+                    departmentName_hi: {
+                        validators: {
+                            notEmpty: {
+                                message: 'This field is required'
+                            },
+                            // regexp: {
+                            //     regexp: /^[-+.,)@:\/&?''=""( A-Za-z0-9]*$/,
+                            //     message: 'This field can consist of alphabetical characters, spaces, digits only'
+                            // },
+                        },
+                    },
                 },
                 plugins: {
                     trigger: new FormValidation.plugins.Trigger(),
@@ -39,6 +50,7 @@ var KTvalidationDepartment= function() {
                    $('#loading-content').addClass('loading-content');
                  axios.post(crudUrlTemplate.create_deptDesig, {
                        name_en: $('.departmentName').val(),
+                       name_hi: $('.departmentName_hi').val(),
                     })
                     .then(function (response) {
                     if (response.data.status ==200) {
@@ -59,7 +71,7 @@ var KTvalidationDepartment= function() {
                     } else {
                         $('#loading').removeClass('loading');
                         $('#loading-content').removeClass('loading-content');
-                        console.log('Brijesh '+response.data.errors)
+                        console.log('Brijesh '+message)
                         for (var field in errors) {
                             if (errors.hasOwnProperty(field)) {
                                 errors[field].forEach(function (errorMessage) {
@@ -73,18 +85,28 @@ var KTvalidationDepartment= function() {
                         }
                        }
                     })
-                    .catch(function (errors) {
+                    .catch(function (error) {
                         $('#loading').removeClass('loading');
                         $('#loading-content').removeClass('loading-content');
-                       
-                        
-                       }).then(() => {
-                             // Hide loading indication
-                             submitButton.removeAttribute('data-kt-indicator');
-                             // Enable button
-                             submitButton.disabled = false;
-                       });
+                        for (var field in error.response.data.errors) {
+                            if (error.response.data.errors.hasOwnProperty(field)) {
+                                error.response.data.errors[field].forEach(function (errorMessage) {
+                                    toastr.error(
+                                        errorMessage,
+                                        {timeOut: 2, extendedTimeOut: 0, closeButton: true, closeDuration: 0}
+                                     );
+                                });
+                            }
+                        }
+                         }).then(() => {
+                               // Hide loading indication
+                               submitButton.removeAttribute('data-kt-indicator');
+                               // Enable button
+                               submitButton.disabled = false;
+                         });
                     } else {
+                        $('#loading').removeClass('loading');
+                        $('#loading-content').removeClass('loading-content');
                           toastr.error(
                                 "Sorry, looks like there are some errors detected, please try again K.", 
                                 "Something went wrong!", 
@@ -126,6 +148,17 @@ var KTvalidationDesignation= function() {
                             },
                         },
                     },
+                    designationName_hi: {
+                        validators: {
+                            notEmpty: {
+                                message: 'This field is required'
+                            },
+                            // regexp: {
+                            //     regexp: /^[-+.,)@:\/&?''=""( A-Za-z0-9]*$/,
+                            //     message: 'This field can consist of alphabetical characters, spaces, digits only'
+                            // },
+                        },
+                    },
                     'deprt_id': {
                           validators: {
                              notEmpty: {
@@ -152,6 +185,7 @@ var KTvalidationDesignation= function() {
                     //$('#examAddModal').modal('hide');
                  axios.post(crudUrlTemplate.create_deptDesig, {
                        name_en: $('.designationName').val(),
+                       name_hi: $('.designationName_hi').val(),
                        parent_id: $('.deprt_id').val(),
                     })
                     .then(function (response) {
@@ -172,6 +206,8 @@ var KTvalidationDesignation= function() {
                        }, 1500);
                       
                     } else {
+                        $('#loading').removeClass('loading');
+                        $('#loading-content').removeClass('loading-content');
                        toastr.error(
                           response.data.message,
                           "Something went wrong!", 
@@ -180,6 +216,8 @@ var KTvalidationDesignation= function() {
                        }
                     })
                     .catch(function (error) {
+                        $('#loading').removeClass('loading');
+                        $('#loading-content').removeClass('loading-content');
                           toastr.error(
                              "Sorry, looks like there are some errors detected, please try again B.", 
                              "Something went wrong!", 
@@ -192,6 +230,8 @@ var KTvalidationDesignation= function() {
                              submitButton.disabled = false;
                        });
                     } else {
+                        $('#loading').removeClass('loading');
+                        $('#loading-content').removeClass('loading-content');
                           toastr.error(
                                 "Sorry, looks like there are some errors detected, please try again K.", 
                                 "Something went wrong!", 

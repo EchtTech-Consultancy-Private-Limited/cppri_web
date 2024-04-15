@@ -59,7 +59,7 @@ class ManualFileUploadAPIController extends Controller
      */
     public function store(Request $request)
     {
-        $exitValue = ManualFileUpload::where('title_name', $request->title_name)->count() > 0;
+        $exitValue = ManualFileUpload::where([['title_name', $request->title_name],['soft_delete',0]])->count() > 0;
         if($exitValue == 'false'){
             $notification =[
                 'status'=>201,
@@ -71,7 +71,7 @@ class ManualFileUploadAPIController extends Controller
             $validator=Validator::make($request->all(),
                 [
                 'title_name'=>'required',
-                'file_path' => "required|mimes:jpeg,bmp,png,gif,svg,pdf,doc,csv,xlsx,xls,docx,ppt,odt,ods,odp|max:2048"
+                'file_path' => "required|mimes:jpeg,bmp,png,gif,svg,pdf,doc,csv,xlsx,xls,docx,ppt,odt,ods,odp|max:10240"
             ]);
             if($validator->fails())
             {
@@ -178,6 +178,7 @@ class ManualFileUploadAPIController extends Controller
                 $result= ManualFileUpload::where('uid',$request->id)->update([
                         'title_name' => $request->title_name,
                         'file_path' => $newname,
+                        'status' => 1,
                     // 'archivel_date' => Carbon::createFromFormat('Y-m-d',$request->enddate)->addDays(env('TENDER_ARCHIVEL')),
                     ]);
                 
