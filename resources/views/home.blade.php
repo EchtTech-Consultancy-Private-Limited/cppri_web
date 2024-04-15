@@ -498,7 +498,7 @@
                                                                     here to apply</a>
                                                             </div>
 
-                                                        </li> 
+                                                        </li>
 
 
                                                         <li>
@@ -1201,7 +1201,32 @@
     <div class="container common-container four_content carousel-container">
         <div id="flexCarousel" class="flexslider carousel">
             <ul class="slides">
-                <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank"
+                @if (isset($digitalLogo) && count($digitalLogo) > 0)
+                    @foreach ($digitalLogo as $Logo)
+                        @if ($Logo->tab_type == 1)
+                            @if (Session::get('Lang') == 'hi')
+                                <li><a onclick="return confirm('यह लिंक आपको एक बाहरी वेब साइट पर ले जाएगा।')" target="_blank" href="{{$Logo->url}}" title="{{$Logo->title_hi}}"><img src="{{ asset('resources/uploads/clientlogo/'.$Logo->public_url) }}" alt="{{$Logo->title_alt}}"></a>
+                                </li>
+                            @else
+                                <li><a href="{{$Logo->url}}" onclick="return confirm('This link will take you to an external web site.')" target="_blank" title="{{$Logo->title_hi}}"><img src="{{ asset('resources/uploads/clientlogo/'.$Logo->public_url) }}" alt="{{$Logo->title_alt}}"></a>
+                                </li>
+                            @endif
+                        @else
+                            @if (Session::get('Lang') == 'hi')
+                                <li><a href="{{$Logo->url}}" title="{{$Logo->title_hi}}"><img src="{{ asset('resources/uploads/clientlogo/'.$Logo->public_url) }}" alt="{{$Logo->title_alt}}"></a>
+                                </li>
+                            @else
+                                <li><a href="{{$Logo->url}}" title="{{$Logo->title_en}}"><img src="{{ asset('resources/uploads/clientlogo/'.$Logo->public_url) }}" alt="{{$Logo->title_alt}}"></a>
+                                </li>
+                            @endif
+                        @endif
+                    @endforeach
+                @else
+                  <h5 class="text-center pt-5 pb-5 mt-2">No Government/Private Client Available </h5>
+                @endif
+
+
+                {{-- <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank"
                         href="http://digitalindia.gov.in/" title="Digital India"><img
                             src="{{ asset('assets-cppri/images/carousel/digital-india.png') }}" alt="Digital India"></a>
                 </li>
@@ -1213,10 +1238,12 @@
                         title="National Portal of India"><img
                             src="{{ asset('assets-cppri/images/carousel/india-gov.png') }}"
                             alt="National Portal of India"></a></li>
+
                 <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank"
                         href="http://goidirectory.nic.in/" title="GOI Web Directory"><img
                             src="{{ asset('assets-cppri/images/carousel/goidirectory.png') }}"
                             alt="GOI Web Directory"></a></li>
+
                 <li><a onclick="return confirm('{{ $alertMessage ?? '' }}')" target="_blank" href="https://data.gov.in/"
                         title="Data portal"><img src="{{ asset('assets-cppri/images/carousel/data-gov.png') }}"
                             alt="Data portal"></a>
@@ -1230,9 +1257,11 @@
                         title="Development Council for Pulp Paper & Allied Industries"><img
                             src="{{ asset('assets-cppri/images/carousel/Development-logo.png') }}"
                             alt="MyGov Portal"></a>
-                </li>
+                </li> --}}
             </ul>
         </div>
+
+
     </div>
 </section>
 <!--Client logo end-->
