@@ -11,12 +11,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $digitalLogos = DB::table('private_government_clients')->orderBy('sort_order','asc')->get();
+        $digitalLogos = DB::table('private_government_clients')->orderBy('sort_order','asc')->where('soft_delete',0)->get();
         $titleName = 'Home';
         return view('home', ['title' => $titleName, 'digitalLogo' => $digitalLogos]);
     }
     /**
-     * SetLang
+     * SetLangp
      *
      * @param  mixed $request
      * @return void
