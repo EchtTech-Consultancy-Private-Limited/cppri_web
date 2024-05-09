@@ -497,7 +497,10 @@
                                                                     class="text-danger">Click
                                                                     here to apply</a>
                                                             </div>
+
                                                         </li> 
+
+
                                                         <li>
                                                                 <div class="date">
                                                                     <span class="change-color-code">
@@ -617,7 +620,7 @@
                                                             <div class="list-content">Description of Press Release 4
                                                                 goes here
                                                                 mm-dd-yyyy - File type (size) DD-MM-YYYY.</div>
-                                                        </li> 
+                                                        </li>
                                                             --}}
                                                         </ul>
                                                     </div>
@@ -697,7 +700,7 @@
                                                                 {{ __('messages.comming_soon') }}</li>
                                                             @endif
                                                             @endif
-                                                           {{-- 
+
                                                             <li>
                                                                 <div class="date">
                                                                     <span class="change-color-code">
@@ -715,6 +718,7 @@
                                                                 </div>
                                                             </li>
                                                             --}}
+
                                                         </ul>
                                                     </div>
                                                     <div class="view-footer"><a href="{{ url('tender') }}"
@@ -1147,7 +1151,7 @@
                                 data-md-device-nav="false" data-md-device-dots="false" id="banner4">
                                 @if (isset($galleryVideo) && !empty($galleryVideo))
                                 @foreach($galleryVideo as $videos)
-                                @foreach($videos['gallery_details'] as $videoId)                                
+                                @foreach($videos['gallery_details'] as $videoId)
                                 <div class="team-item">
                                     <div class="gallery-box media-icon orange-color">
                                         @if($videoId->public_url)
@@ -1240,6 +1244,18 @@
             <div class="loading-dots--dot"></div>
             <div class="loading-dots--dot"></div>
             <div class="loading-dots--dot"></div>
+        </div>
+    </div>
+</div>
+<div id="costumModal8" class="modal fade" data-bs-easein="shrinkIn" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"> <i
+                        class="fa fa-times" aria-hidden="true"></i> </button>
+                <img src="{{ asset('assets-cppri/images/CoronaAppeal.gif') }}" data-id="show" alt=""
+                    class="md-img show-model">
+            </div>
         </div>
     </div>
 </div>
