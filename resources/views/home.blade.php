@@ -135,27 +135,15 @@
                         @endif
                         <i class="fa fa-angle-right"></i></a>
                 </div>
-                <div
-                    class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-4 col-lg-2 order-1 order-lg-2">
+                <div class="minister clearfix animate__animated animate__backInRight animate__delay-3s col-md-4 col-lg-2 order-1 order-lg-2">
                     <div class=" clearfix ">
                         <div class="row px-lg-0 d-flex justify-content-end">
                             <div class="minister-sub col-md-12 minister-box">
-                                <div class="minister-image"><img src="{{ asset('assets-cppri/images/director.jpg') }}"
-                                        alt="Hon’ble Minister" title="Dr. M K Gupta Director"></div>
-                                <div class="min-info">
-                                    @if (Session::get('Lang') == 'hi')
-                                    <h4>डॉ. एम. के. गुप्ता</h4>
-                                    <h5><a href="{{url('about-us/director-desk')}}" title="कोयला मंत्री"><span>निदेशक
-                                            </span></a>
-                                    </h5>
-                                    @else
-                                    <h4>Dr. M. K. Gupta</h4>
-                                    <h5><a href="{{url('about-us/director-desk')}}"
-                                            title="Minister of Coal"><span>Director
-                                            </span></a>
-                                    </h5>
-                                    @endif
-                                </div>
+                            @if(isset($sectionZero) && count($sectionZero)>0)
+                                @foreach($sectionZero as $sectionZeros)
+                                    @if(Session::get('locale') == 'hi') {!! $sectionZeros->content_hi !!} @else {!! $sectionZeros->content_en !!} @endif
+                                @endforeach
+                            @endif
                             </div>
                         </div>
                     </div>
