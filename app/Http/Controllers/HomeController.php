@@ -11,8 +11,19 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $sectionZero = DB::table('home_page_sections_list as sl')
+                        ->select('sd.*')
+                        ->join('home_page_sections_designs_details as sd','sd.hpsi_id','=','sl.uid')
+                        ->where('sl.sort_order',0)
+                        ->where('sl.soft_delete', 0)
+                        ->where('sl.status', 3)
+                        ->orderBy('sd.sort_order', 'ASC')
+                        ->get();
         $titleName = 'Home';
-        return view('home', ['title' => $titleName]);
+        
+        return view('home', ['title' => $titleName,
+                'sectionZero' =>$sectionZero??[]
+            ]);
     }    
     /**
      * SetLang
