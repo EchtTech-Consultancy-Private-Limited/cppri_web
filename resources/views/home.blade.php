@@ -505,6 +505,7 @@
                                                                     </a>
                                                                 </div>
                                                             </li>
+
                                                             --}}
                                                         </ul>
                                                     </div>
@@ -689,7 +690,7 @@
                                                             @endif
                                                             @endif
 
-                                                            <li>
+                                                            <!-- <li>
                                                                 <div class="date">
                                                                     <span class="change-color-code">
                                                                         2
@@ -704,8 +705,8 @@
                                                                         adipisicing elit.
                                                                     </a>
                                                                 </div>
-                                                            </li>
-                                                            --}}
+                                                            </li> -->
+                                                           
 
                                                         </ul>
                                                     </div>
