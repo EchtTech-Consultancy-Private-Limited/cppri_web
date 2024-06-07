@@ -901,7 +901,7 @@ input:focus,textarea:focus{outline:0}
 .hier-visibl-hidden{visibility:hidden}
 .head-text{width:100%;background-image:linear-gradient(to bottom,#fff,var(--primary-color));height:16px}
 .head-text-green{width:100%;background-image:linear-gradient(to bottom,#fff,var(--secondary-color))!important;height:16px}
-.head-text-pink{width:100%;background-image:linear-gradient(to bottom,#fff,#a8548f)!important;height:16px;border-radius:10px 10px 0 0}
+.head-text-pink{width:100%;background-image:linear-gradient(to bottom, #c1419b61, #c1419b) !important}
 .txt-node .dept-info span{font-size:10px;font-weight:600}
 .ul-hierarch-column{display:flex;flex-direction:column;list-style-type:none}
 .head-org-struct{margin:30px 0 0 0}
