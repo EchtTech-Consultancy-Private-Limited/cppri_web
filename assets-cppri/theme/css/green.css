@@ -162,5 +162,10 @@ section#paragraph blockquote{border-left:8px solid var(--primary-color)!importan
 }
 
 .head-text-green{
-    background-image: none !important;
+    /* background-image: none !important; */
+}
+
+
+.head-text-pink {
+    background-image: linear-gradient(to bottom, #fff, var(--secondary-color)) !important;
 }
