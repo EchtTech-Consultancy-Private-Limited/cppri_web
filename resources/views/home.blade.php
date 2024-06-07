@@ -141,7 +141,7 @@
                             <div class="minister-sub col-md-12 minister-box">
                             @if(isset($sectionZero) && count($sectionZero)>0)
                                 @foreach($sectionZero as $sectionZeros)
-                                    @if(Session::get('locale') == 'hi') {!! $sectionZeros->content_hi !!} @else {!! $sectionZeros->content_en !!} @endif
+                                    @if(Session::get('Lang') == 'hi') {!! $sectionZeros->content_hi !!} @else {!! $sectionZeros->content_en !!} @endif
                                 @endforeach
                             @endif
                             </div>
